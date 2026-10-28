@@ -13,8 +13,8 @@
     ".": "./src/index.ts"
   },
   "dependencies": {
+    "@jitl/quickjs-wasmfile-release-sync": "0.32.0",
     "@open3dj/schemas": "0.0.0",
-    "quickjs-emscripten-core": "0.32.0",
-    "@jitl/quickjs-wasmfile-release-sync": "0.32.0"
+    "quickjs-emscripten-core": "0.32.0"
   }
 }

@@ -13,9 +13,9 @@
     ".": "./src/index.ts"
   },
   "dependencies": {
-    "@open3dj/schemas": "0.0.0",
-    "@open3dj/compute": "0.0.0",
     "@modelcontextprotocol/server": "2.4.0",
+    "@open3dj/compute": "0.0.0",
+    "@open3dj/schemas": "0.0.0",
     "zod": "4.6.7"
   }
 }

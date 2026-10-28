@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { readdirSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { join } from "node:path";
-import { SCHEMA_IDS, SchemaRegistry, assertValid, getSchema, registry, validate } from "./index.ts";
+import { SCHEMA_IDS, SchemaRegistry, assertValid, dereferencedSchema, getSchema, registry, validate } from "./index.ts";
 import { INVALID, VALID } from "./fixtures.ts";
 
 const JSON_DIR = fileURLToPath(new URL("../json/", import.meta.url));
@@ -75,4 +75,16 @@ test("oneOf, anyOf, const and integer behave per draft 2020-12", () => {
   assert.equal(r.validate("urn:t:k", { o: 1 }).valid, false, "1 matches both oneOf branches");
   assert.equal(r.validate("urn:t:k", { a: null }).valid, true);
   assert.equal(r.validate("urn:t:k", { a: 3 }).valid, false);
+});
+
+test("dereferenced schemas are self-contained and judge fixtures the same way", () => {
+  for (const name of Object.keys(SCHEMA_IDS)) {
+    const d = dereferencedSchema(name);
+    assert.ok(!JSON.stringify(d).includes("$ref"), `${name} still has a $ref`);
+    const solo = new SchemaRegistry();
+    solo.add(d);
+    solo.checkRefs();
+    for (const [n, value] of VALID.filter(([n]) => n === name)) assert.ok(solo.validate(d.$id as string, value).valid, `${n} valid fixture`);
+    for (const [n, value, , why] of INVALID.filter(([n]) => n === name)) assert.equal(solo.validate(d.$id as string, value).valid, false, `${n}: ${why}`);
+  }
 });

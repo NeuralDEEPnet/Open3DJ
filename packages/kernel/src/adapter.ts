@@ -12,10 +12,13 @@
 //   result and throws KernelError("INVALID_RESULT") with the faulty faces when it fails.
 // - Nothing the kernel prints reaches process.stdout (see init.ts).
 import type { BBox, Transform, Vec3 } from "@open3dj/schemas";
+import type { ShapeHandle as OcctShapeHandle } from "occt-wasm";
 
-declare const ShapeHandleBrand: unique symbol;
-/** Opaque handle to a kernel shape. Only valid in the kernel instance that made it. */
-export type ShapeHandle = number & { readonly [ShapeHandleBrand]: never };
+/**
+ * Opaque handle to a kernel shape. Only valid in the kernel instance that made it. Today it
+ * is the occt-wasm arena id (a branded u32); a future kernel keeps the same opaque contract.
+ */
+export type ShapeHandle = OcctShapeHandle;
 
 export type SubShapeKind = "vertex" | "edge" | "wire" | "face" | "shell" | "solid";
 export type ShapeKind = "compound" | "compsolid" | "solid" | "shell" | "face" | "wire" | "edge" | "vertex" | "shape";
@@ -195,6 +198,8 @@ export interface KernelAdapter {
   /** Rigid placement by translation plus quaternion. Shares topology (O(1)). */
   place(shape: ShapeHandle, transform: Transform): ShapeHandle;
   copy(shape: ShapeHandle): ShapeHandle;
+  /** Group shapes without merging them, for example placed occurrences for a render or an XCAF root. */
+  compound(shapes: ShapeHandle[]): ShapeHandle;
 
   // ---- booleans (checked, single solids unwrapped) ---------------------------------------
   fuse(a: ShapeHandle, b: ShapeHandle): ShapeHandle;
@@ -208,7 +213,10 @@ export interface KernelAdapter {
   // ---- features (checked; the input is unwrapped to a solid first) ----------------------
   fillet(solid: ShapeHandle, edges: ShapeHandle[], radius: number): ShapeHandle;
   chamfer(solid: ShapeHandle, edges: ShapeHandle[], distance: number): ShapeHandle;
-  /** Hollow a solid, removing the given faces. Negative thickness grows inward. */
+  /**
+   * Hollow a solid, removing the given faces. Positive thickness keeps the outer skin and
+   * puts the wall inside it; negative thickness grows the wall outward (measured).
+   */
   shell(solid: ShapeHandle, facesToRemove: ShapeHandle[], thickness: number, tolerance?: number): ShapeHandle;
 
   // ---- topology and queries --------------------------------------------------------------

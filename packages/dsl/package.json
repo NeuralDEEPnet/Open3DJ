@@ -13,8 +13,9 @@
     ".": "./src/index.ts"
   },
   "dependencies": {
-    "@open3dj/schemas": "0.0.0",
     "@open3dj/kernel": "0.0.0",
+    "@open3dj/sandbox": "0.0.0",
+    "@open3dj/schemas": "0.0.0",
     "brepjs": "20.11.1"
   }
 }

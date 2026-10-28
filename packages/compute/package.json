@@ -13,11 +13,11 @@
     ".": "./src/index.ts"
   },
   "dependencies": {
-    "@open3dj/schemas": "0.0.0",
-    "@open3dj/kernel": "0.0.0",
-    "@open3dj/sandbox": "0.0.0",
-    "@open3dj/dsl": "0.0.0",
     "@open3dj/assembly": "0.0.0",
-    "@open3dj/render": "0.0.0"
+    "@open3dj/dsl": "0.0.0",
+    "@open3dj/kernel": "0.0.0",
+    "@open3dj/render": "0.0.0",
+    "@open3dj/sandbox": "0.0.0",
+    "@open3dj/schemas": "0.0.0"
   }
 }

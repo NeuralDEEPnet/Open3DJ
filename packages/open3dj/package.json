@@ -16,8 +16,8 @@
     "open3dj": "./src/cli.ts"
   },
   "dependencies": {
-    "@open3dj/schemas": "0.0.0",
     "@open3dj/compute": "0.0.0",
-    "@open3dj/mcp": "0.0.0"
+    "@open3dj/mcp": "0.0.0",
+    "@open3dj/schemas": "0.0.0"
   }
 }

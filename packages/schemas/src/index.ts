@@ -2,6 +2,7 @@
 // C5 compute) and their TypeScript types, plus validate(schemaId, value).
 import { SchemaRegistry } from "./validator.ts";
 import type { SchemaObject, ValidationResult } from "./validator.ts";
+import type { PackageStatus } from "./errors.ts";
 import common from "../json/common.schema.json" with { type: "json" };
 import compute from "../json/compute.schema.json" with { type: "json" };
 import deviceInventory from "../json/device-inventory.schema.json" with { type: "json" };
@@ -24,6 +25,10 @@ import docsOut from "../json/tool-docs-output.schema.json" with { type: "json" }
 export type * from "./types.ts";
 export type { ValidationIssue, ValidationResult, JsonSchema, SchemaObject } from "./validator.ts";
 export { SchemaRegistry } from "./validator.ts";
+export { NotImplementedError } from "./errors.ts";
+export type { PackageStatus } from "./errors.ts";
+
+export const PACKAGE_STATUS: PackageStatus = "ready";
 
 /** Major version of every schema in this package. */
 export const SCHEMA_VERSION = "v0";
@@ -71,6 +76,14 @@ export function getSchema(schemaId: SchemaName | string): SchemaObject {
   const s = registry.get(id);
   if (!s) throw new Error(`unknown schema ${schemaId}`);
   return s;
+}
+
+/**
+ * A self-contained copy of a schema (every $ref inlined, no $defs). Use it wherever a schema
+ * leaves this package, for example as an MCP tool's inputSchema or outputSchema.
+ */
+export function dereferencedSchema(schemaId: SchemaName | string): SchemaObject {
+  return registry.dereference(resolveId(schemaId));
 }
 
 /** Validate a value against a schema given by short name (geometry-report) or $id. */

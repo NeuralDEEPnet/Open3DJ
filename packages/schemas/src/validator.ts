@@ -62,6 +62,35 @@ export class SchemaRegistry {
     for (const [id, schema] of this.#byId) this.#walkRefs(schema, id);
   }
 
+  /**
+   * A self-contained copy of a schema with every $ref inlined and no $defs, for consumers
+   * that cannot resolve references across documents (MCP tools/list, some clients).
+   * The schemas have no recursive references; a cycle throws.
+   */
+  dereference(id: string): SchemaObject {
+    const root = this.#byId.get(id);
+    if (!root) throw new Error(`unknown schema ${id}`);
+    const inline = (node: unknown, base: string, trail: string[]): unknown => {
+      if (Array.isArray(node)) return node.map((n) => inline(n, base, trail));
+      if (!node || typeof node !== "object") return node;
+      const o = node as SchemaObject;
+      const out: SchemaObject = {};
+      if (typeof o.$ref === "string") {
+        const key = o.$ref.startsWith("#") ? base + o.$ref : o.$ref;
+        if (trail.includes(key)) throw new Error(`recursive $ref ${key} cannot be inlined`);
+        const r = this.#resolve(o.$ref, base);
+        Object.assign(out, inline(r.schema, r.base, [...trail, key]) as SchemaObject);
+      }
+      for (const [k, v] of Object.entries(o)) {
+        if (k === "$ref" || k === "$defs" || k === "$id" || k === "$schema") continue;
+        out[k] = k === "enum" || k === "const" || k === "default" || k === "examples" ? v : inline(v, base, trail);
+      }
+      return out;
+    };
+    const body = inline(root, id, [id]) as SchemaObject;
+    return { $schema: DRAFT, $id: id, ...body };
+  }
+
   validate(id: string, value: unknown): ValidationResult {
     const root = this.#byId.get(id);
     if (!root) throw new Error(`unknown schema ${id}`);
