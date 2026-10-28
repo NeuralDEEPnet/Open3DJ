@@ -360,7 +360,7 @@ return roundedRect(40, 20, 4).offset(2).extrude(3);
 sketch.filletCorners(r)
 ```
 
-Round every corner of the profile.
+Round every corner of the profile: drawn profiles, and kernel profiles after offset or a sketch boolean (there, a corner is where the outline turns; smooth joins stay as they are).
 
 Example:
 
@@ -374,7 +374,7 @@ return rect(40, 20).filletCorners(5).extrude(3);
 sketch.chamferCorners(s)
 ```
 
-Chamfer every corner of the profile.
+Chamfer every corner of the profile, drawn or after offset or a sketch boolean.
 
 Example:
 
@@ -402,7 +402,7 @@ return rect(10, 4).translate(10, 0).rotate(45).extrude(2);
 sketch.add/.subtract/.intersect(...), union2d/difference2d/intersection2d
 ```
 
-2D booleans, computed by the kernel, so curved outlines and holes are exact. The result is a kernel profile: transform, offset, extrude and revolve it as usual, but apply filletCorners and chamferCorners before the boolean.
+2D booleans, computed by the kernel, so curved outlines and holes are exact. The result is a kernel profile: transform, offset, filletCorners, chamferCorners, extrude and revolve it as usual.
 
 Example:
 
@@ -732,17 +732,19 @@ return box(20, 20, 5).name("Base plate");
 ### withReferences
 
 ```js
-.withReferences({ name: [x, y, z] }) .referenceNames() .referencePoint(name) .placeReference(name, [x, y, z])
+.withReferences({ name: [x, y, z] | { face: query } | { edge: query } }) .referenceNames() .referencePoint(name) .placeReference(name, [x, y, z])
 ```
 
-Named points that follow the shape through transforms.
+Named points that follow the shape through transforms, and named faces and edges. A face query takes normal, surface, atX, atY, atZ, minArea, maxArea and near; an edge query takes the edge query fields plus curve and near. near keeps the matches closest to the point, measured from the point to the face or edge itself (not to its centroid, which lies on the axis of a cylinder, cone or torus face). Each named face or edge gets a geometric fingerprint, and the report's refs say after every run whether the name is exact, ambiguous (with candidates, never auto-picked) or broken (with a reason). Name faces before moving or turning the whole part: the next run compares fingerprints in the frame the name was given in, so a new placement keeps names exact. A named element with an identical twin (one hole of a symmetric pair) stays exact only at its position or on its plane or axis; when the twins move with a parameter it is ambiguous, with the query's pick as candidates[0].
 
 Example:
 
 ```js
 const plate = box(40, 20, 5).withReferences({ hole: [10, 0, 5] }).translate(0, 0, 10);
 const [x, y, z] = plate.referencePoint("hole");
-return plate.subtract(cylinder(10, 2).translate(x, y, z - 7));
+const drilled = plate.subtract(cylinder(10, 2).translate(x, y, z - 7));
+// Name a face and an edge on the final shape: refs[] in the report says whether later runs still find them.
+return drilled.withReferences({ top: { face: { normal: [0, 0, 1], atZ: 15 } }, bore: { face: { surface: "cylinder" } }, front_top: { edge: { parallel: [1, 0, 0], atY: -10, atZ: 15 } } });
 ```
 
 ### attachTo
@@ -1070,7 +1072,7 @@ Fix: Return solids. Render the parts before the last operation to see what it di
 
 ### DSL_UNSUPPORTED
 
-The combination of options is not supported, for example offset on a profile with holes, or a 2D boolean whose result fails its area check.
+The combination of options is not supported, for example offset on a profile with holes, or a 2D boolean or corner fillet whose result fails its area check.
 
 Fix: Follow the hint; usually build the profile in two steps, or extrude the profiles and combine the solids.
 
@@ -1290,11 +1292,17 @@ Another process (a second daemon or the CLI) held the project's lock file for mo
 
 Fix: Run again. If no other open3dj process runs, delete the project's .o3j-lock file.
 
+### STEP_HEADER
+
+The STEP writer produced a file without the HEADER section or FILE_SCHEMA that Open3DJ rewrites with the file name, author and version.
+
+Fix: Report it with the script: the kernel's STEP writer changed. STL, glTF and 3MF still work.
+
 ### STEP_ROUNDTRIP_FAILED
 
 The STEP file did not re-import as the same solids (count, validity or volume), so other CAD tools would open a broken part. The message names the occurrence and faces.
 
-Fix: Usually a revolved profile whose end meets the axis at an angle: end it square to the axis (an arc centred on the axis, or a short flat). STL, glTF and 3MF still work.
+Fix: Usually a revolved profile whose end meets the axis at an angle: end it square to the axis (an arc centred on the axis, or a short flat). A curve the STEP writer cannot express (an offset of a spline) is the other known cause: simplify that profile. STL, glTF and 3MF still work.
 
 ### BAD_INPUT
 

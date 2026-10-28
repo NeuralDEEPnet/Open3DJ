@@ -36,6 +36,7 @@ warning: mass_g assumes 1.24 g/cm3 (PLA).
 next: render view=multiview
 next: export format=step
 compute: cpu.wasm on cpu x1 (...)
+saved params: Width=40, Leg=35, Thickness=4, Screw="M4" in examples/bracket/bracket.o3j/params.o3j.json
 ```
 
 This is the GeometryReport. Read it from the top:
@@ -44,8 +45,9 @@ This is the GeometryReport. Read it from the top:
 - `r_0001` is the revision. Every successful run that changes the script or its parameters makes a new one.
 - Every design is an assembly. A single part is an assembly with one occurrence of one definition.
 - Each part line gives validity, volume, size and solid count. Check these numbers against what you meant to build. Add `--detailed` for area, centre of mass and face and edge counts.
-- `fits` (on assemblies) lists clashes, contacts and clearances between parts. Identical fits share one line, for example `contact  lid / screw#1..4  0 mm (measured) x4`.
+- `fits` (on assemblies) lists clashes, contacts and clearances between parts. Identical fits share one line, for example `contact  lid / screw#1..4  0 mm (measured) x4`. The closest relation comes first (clash, then contact, then clearance), and a pair's further gaps come last. The terminal lists every fit line; the MCP report to an agent keeps to its token budget and says how many it left out.
 - `next` suggests the next command.
+- `saved params` shows the parameter values the run saved as the project's working copy. A first run saves the script's defaults; later it appears only when a run changes a value.
 
 The run created a project folder next to the script, `examples/bracket/bracket.o3j/`. It holds the script, the parameter values, every revision and the outputs.
 
@@ -58,6 +60,29 @@ npx open3dj export examples/bracket/bracket.o3j --format step
 
 `render` draws four views (front, top, right and isometric) with hidden lines dashed. Add `--format svg` for a vector drawing, or `--targets lid,screw#2` to draw only some parts. `export` writes `bracket.step` and `bracket.evidence.json` (hashes and measures) under `examples/bracket/bracket.o3j/out/r_0001/`. The formats are `step`, `stl`, `glb` and `3mf`. Add `--out folder` to copy the files somewhere else.
 
+### Watch it in the viewer
+
+```sh
+npx open3dj view examples/enclosure/enclosure.o3j.js
+```
+
+```text
+open3dj view: http://127.0.0.1:52817/Xq3...nonce.../
+watching examples/enclosure/enclosure.o3j.js; save it to update the view. Press Ctrl+C to stop.
+[10:42:07] r_0001 ok: 3 of 3 definitions valid, 16 fit lines
+```
+
+![The viewer with the enclosure example: the assembly tree, the parts in 3D with fit markers, and the selected screw's measures and fits.](images/viewer-enclosure.png)
+
+`view` runs the script, opens the printed URL in your browser and shows the assembly in 3D. Open the script in your editor: every save runs it again, and the page updates to the new revision. If the save has an error, the page keeps the last good revision and shows the error and its line. Revisions that an agent makes in the same project through `open3dj mcp` show up too. A save that changes the script drops the parameter values an agent stored (a change to `//` comments or blank lines only keeps them); the status bar then says `warning`, the Warnings panel names the values, and the terminal prints the same line.
+
+- **Tree.** The left panel lists every occurrence with its definition and validity. Click a row or a part to select it; `Ctrl`+click adds to the selection. The right panel shows the selected part's numbers from the report (volume, area, mass, size, bounding box).
+- **Fits.** Clashes, contacts and clearances from the report are listed on the right and marked in the scene. Click one to select both parts and frame them. The header counts each pair once; a further gap of a pair that is already listed (for example a screw shank's clearance in a lid it touches) says "further gap". A mated pair's contact is not listed, so its gap (a lid's lip clearing the wall) is the pair's only line: it counts as a clearance and says "beside a mated seat". The CLI uses the same words.
+- **Navigation.** Left drag orbits, right drag pans and the wheel zooms at the cursor. The Mouse menu switches to SolidWorks-style or Onshape-style buttons. `F` fits all, `1` to `4` give the front, top, right and iso views, `H` hides, `I` isolates. Press `?` for every shortcut.
+- **No GPU.** The page uses WebGPU when the browser has it and WebGL2 otherwise. Without either, it shows the hidden-line drawing of the same revision instead. `D` shows that drawing at any time.
+
+The server listens on 127.0.0.1 only, and the URL carries a random key for this session. Other pages and other machines cannot read it. The page is read-only. Add `--port 8123` to choose the port and `--no-open` to skip opening the browser.
+
 ### Change a parameter
 
 Scripts declare parameters with `Param.number`, `Param.choice` and friends. Override them from the command line:
@@ -66,7 +91,7 @@ Scripts declare parameters with `Param.number`, `Param.choice` and friends. Over
 npx open3dj run examples/flange/flange.o3j.js --param "Bolt holes=8"
 ```
 
-The value is saved in the project's `params.o3j.json`, so later runs of the same script keep using it. Pass the parameter again, or edit or delete that file, to change it back. When you change the script itself, the run starts from the new script's defaults (plus any `--param` you pass), so old values never carry over to a different design.
+The value is saved in the project's `params.o3j.json`, so later runs of the same script keep using it, and the CLI prints `saved params: Bolt holes=8 (was 6) in .../params.o3j.json` whenever a run changes that file. Pass the parameter again, or edit or delete that file, to change it back. To try a value without saving it, add `--no-save-params` (the CLI then says which values the file keeps). When you change the script itself, the run starts from the new script's defaults (plus any `--param` you pass), so old values never carry over to a different design. The report then says which stored values it did not use, and `open3dj view` shows that warning too. A change to `//` comments or blank lines only keeps the stored values.
 
 ### Make your own part
 
@@ -121,18 +146,28 @@ Open3DJ is an MCP server over stdio. It offers five tools:
 | `docs` | Searches the DSL reference, the error playbook and examples. |
 | `run` | Runs a script in a project and returns the GeometryReport and a new `rev`. |
 | `render` | Returns the four-view drawing as a PNG image, or SVG. |
-| `export` | Writes STEP, STL, glTF (.glb) or 3MF plus an evidence sidecar into the project. |
+| `export` | Writes STEP, STL, glTF (.glb) or 3MF into the project, plus one evidence sidecar (`<name>.evidence.json`) per revision and folder that lists every file exported there with its sha256. STEP headers name the file, Open3DJ and its version, and the `author` and `organization` set in `project.o3j.json` (empty when unset). |
 | `inspect` | Reads the tree, references, fits, measures of chosen targets, job status or the device inventory. |
 
 ### Connect a client
 
 The server command is `node /path/to/Open3DJ/packages/open3dj/src/cli.ts mcp`. Projects must be inside the server's root folder. The root is the folder the client starts the server in, or the folder you pass with `--root`. If the `node` on your PATH is older than 24, put the full path to a Node 24 binary in `command`. `--workers n` caps the worker pool.
 
-Claude Code, from the folder where your designs should live:
+Give the agent the skill too: [skills/open3dj/SKILL.md](../skills/open3dj/SKILL.md) holds the DSL essentials, the error-fix loop and the assembly rules in under 5k tokens. The server alone gives the tools, not that know-how.
+
+Claude Code, from the folder where your designs should live, loads the server and the skill together with the plugin in this checkout (run `npm ci` first):
+
+```sh
+claude --plugin-dir /path/to/Open3DJ/skills/claude-code-plugin
+```
+
+Or add the server alone:
 
 ```sh
 claude mcp add open3dj -- node /path/to/Open3DJ/packages/open3dj/src/cli.ts mcp
 ```
+
+For every other client, add the server as below and give the agent `skills/open3dj/SKILL.md` as instructions (a system prompt, rules file or project instructions). [skills/README.md](../skills/README.md) has the details.
 
 Codex (`~/.codex/config.toml`):
 
@@ -185,7 +220,9 @@ Rules that save time:
 - Report status `warning` with a clash means two parts overlap. The `next` hints name the parts to render.
 - Measures are in mm and mm3. Mass assumes PLA at 1.24 g/cm3 until materials arrive.
 - A run longer than 20 s returns `status: "queued"` with a `job_id`. Poll it with `inspect {fields: ["job"], job_id}`. When the job's `state` is `done` or `failed`, `job.result` holds exactly what `run` would have returned: the `rev`, `status` and concise report with its warnings, or the `error` with its line, column and hint. Jobs live in the server's memory, so a restarted server forgets them.
-- `params` are saved as the project's working values. Later runs of the same script keep them until you change them; a different script starts from its own defaults plus the params you pass.
+- `params` are saved to the project's working copy (`params.o3j.json`). Later runs of the same script keep them until you change them; a different script starts from its own defaults plus the params you pass. Pass `save_params: false` to try values without saving them.
+- Name faces and edges with `withReferences({ top: { face: { normal: [0, 0, 1], atZ: 5 } } })`. The report's `refs` say after each run whether every name is `exact`, `ambiguous` (with `candidates`, never picked for you) or `broken` (with a `reason`); `inspect {fields: ["refs"]}` adds element addresses and fingerprints.
+- Fits list every distinct gap of a pair: a lid seated on a rim by a mate (contact, not listed) whose lip clears the wall by 0.25 mm shows a 0.25 mm clearance.
 - Scripts run in a QuickJS sandbox with limits. Never put secrets or file paths in a script.
 
 The same loop works from the command line: every CLI command calls the same handlers, and `--json` prints the exact tool result.
@@ -196,9 +233,21 @@ Read [AGENTS.md](../AGENTS.md) (agents) or [CONTRIBUTING.md](../CONTRIBUTING.md)
 
 ```sh
 npm ci
-npm run check        # typecheck, every test, the stdout-leak gate and the licence gate
-npm test -- dsl      # only the tests whose path contains "dsl"
-npm run examples     # run every example through the CLI and print timings
+npm run check             # typecheck, every test, the bench regression split, the stdout-leak gate and the licence gate
+npm test -- dsl           # only the tests whose path contains "dsl"
+npm run examples          # run every example through the CLI and print timings
+npm run bench:lint        # task-lint every bench task: schema, reference passes, mutant fails
+npm run bench:regression  # the bench regression split; add -- --repeat 3 to replay it
+npm run hdet              # determinism: 20 fresh and 20 warm runs per corpus case (about 4 minutes)
+npm run corpus            # time the 145 and 1,025 occurrence reference assemblies
 ```
 
-`npm run check` must pass before a pull request. It includes the examples regression test, so a change that moves a measured volume fails until you explain it and regenerate the expected files with `node scripts/examples.ts --write`. The package map and the data flow are in [packages/README.md](../packages/README.md).
+`npm run check` must pass before a pull request. It takes about 2 minutes on a 4-core Linux machine, within its 10 minute budget. It includes the examples regression test, so a change that moves a measured volume fails until you explain it and regenerate the expected files with `node scripts/examples.ts --write`. It also runs task-lint on all 22 bench tasks (inside `npm test`) and the 12-task regression split three times, which must give identical numbers. The package map and the data flow are in [packages/README.md](../packages/README.md).
+
+Other places to know:
+
+- [bench/README.md](../bench/README.md): o3dj-bench, its task format and how capability runs are graded.
+- [corpora/](../corpora/): the reference assemblies and the determinism corpus.
+- [ops/](../ops/): the scorecard and A3 templates, the value-stream log and the build log.
+- [AI_POLICY.md](../AI_POLICY.md): the rules for AI-assisted contributions. Claude Code users also get the project hooks in `.claude/settings.json` (see [AGENTS.md](../AGENTS.md#claude-code-hooks)).
+- [skills/](../skills/README.md): the Open3DJ skill and Claude Code plugin for agents.

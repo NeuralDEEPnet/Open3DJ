@@ -10,7 +10,7 @@ Open3DJ was created by Neural Deep Network LTD (https://www.neuraldeep.net).
 
 ## Current phase
 
-**Step 1, first vertical slice working.** The stack is decided: TypeScript run directly by Node 24 (type stripping, erasable syntax only), npm workspaces under `packages/`, and `node:test`. A DSL script goes in, and a checked assembly, a GeometryReport, a four-view drawing and STEP, STL, glTF and 3MF files come out, through the CLI and the MCP server. See [docs/GETTING-STARTED.md](docs/GETTING-STARTED.md) and [examples/](examples/README.md).
+**Step 1, first vertical slice working.** The stack is decided: TypeScript run directly by Node 24 (type stripping, erasable syntax only), npm workspaces under `packages/`, and `node:test`. A DSL script goes in, and a checked assembly, a GeometryReport, a four-view drawing and STEP, STL, glTF and 3MF files come out, through the CLI and the MCP server. `open3dj view` adds the first S2 piece, a local browser viewer. See [docs/GETTING-STARTED.md](docs/GETTING-STARTED.md) and [examples/](examples/README.md).
 
 Do not add a language, framework, build tool or runtime dependency without an accepted issue or RFC. Dependencies are pinned to exact versions and must pass the licence gate.
 
@@ -21,6 +21,7 @@ Do not add a language, framework, build tool or runtime dependency without an ac
 | `README.md` | Project overview |
 | `LICENSE` | MIT license text |
 | `CONTRIBUTING.md` | How to contribute; the rules for people, agents and organizations |
+| `AI_POLICY.md` | The AI policy: disclosure, human-only DCO sign-off, no agent action on GitHub without a human click |
 | `AGENTS.md` | This file |
 | `CLAUDE.md` | Claude Code entry point; imports this file |
 | `CONTRIBUTORS.md` | Credits |
@@ -33,10 +34,16 @@ Do not add a language, framework, build tool or runtime dependency without an ac
 | `docs/research/proposals/` | The three architecture proposals the plan was built from |
 | `docs/GETTING-STARTED.md` | First steps for people and agents: the CLI, connecting MCP clients, the tool loop |
 | `docs/DSL.md` | The DSL reference the `docs` tool searches. Generated: never edit it by hand |
+| `docs/images/` | Screenshots used by the README and the guides, each under 200 KB |
 | `examples/` | Ten small parts and assemblies, each with `expected.json` and `drawing.png`; `scripts/examples.test.ts` runs them all |
-| `packages/` | The code: `schemas`, `kernel`, `sandbox`, `dsl`, `assembly`, `render`, `compute`, `mcp` and `open3dj` (the CLI). Each exports `src/index.ts`; tests sit next to sources as `*.test.ts` |
-| `scripts/` | `check`, the test runner, the stdout-leak gate, the licence gate and the examples runner |
-| `.github/workflows/ci.yml` | CI: `npm run check` on Linux x64 and arm64, macOS, Windows x64 and arm64 |
+| `packages/` | The code: `schemas`, `kernel`, `sandbox`, `dsl`, `assembly`, `render`, `compute`, `mcp`, `viewer` and `open3dj` (the CLI). Each exports `src/index.ts`; tests sit next to sources as `*.test.ts` |
+| `scripts/` | `check`, the test runner, the stdout-leak gate, the licence gate, the examples runner, `hdet.ts` (determinism) and `hooks/` (the Claude Code hooks) |
+| `bench/` | o3dj-bench: `tasks/` (12 regression and 10 capability tasks), task-lint, the regression runner and the grader. Read `bench/README.md` |
+| `corpora/` | Seeded and timing corpora: `reference-assemblies/` (145 and 1,025 occurrences) and `hdet/` |
+| `ops/` | Scorecard and A3 templates, the value-stream template and the build log |
+| `skills/` | `open3dj/SKILL.md` (how agents use Open3DJ) and `claude-code-plugin/` (the same skill plus the MCP server as a Claude Code plugin). Read `skills/README.md` |
+| `.claude/settings.json` | Claude Code hooks for contributors (see [Claude Code hooks](#claude-code-hooks)) |
+| `.github/workflows/ci.yml` | CI: `npm run check` (bench regression split included) on Linux x64 and arm64, macOS, Windows x64 and arm64 |
 
 Code follows the layout in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). Do not create new top-level directories that the architecture does not define without an issue.
 
@@ -47,16 +54,22 @@ Use Node 24 (`.nvmrc`). From the repository root:
 | Command | What it does |
 |---|---|
 | `npm ci` | Install the pinned dependencies |
-| `npm run check` | Everything below; must pass before a pull request (budget: 10 minutes) |
+| `npm run check` | Typecheck, every test (task-lint of all bench tasks included), the bench regression split with 3 replays, the leak gate and the licence gate; must pass before a pull request (budget: 10 minutes) |
 | `npm run typecheck` | `tsc` with no emit |
 | `npm test` | Every `*.test.ts` with `node:test`; `npm test -- kernel` runs only matching paths |
 | `npm run leak` | Starts the MCP server and fails if any stdout line is not JSON-RPC |
 | `npm run licenses` | Fails on a dependency licence outside the allowlist or an unpinned version |
 | `npm run examples` | Runs every example through the CLI in fresh processes, compares with `expected.json` and prints timings |
 | `node scripts/examples.ts --write` | Rewrites `examples/*/expected.json` and `drawing.png`. Only when a change moves the numbers on purpose; explain why in the pull request |
+| `npm run bench:lint [-- id]` | task-lint (`bench/lint.ts`): every bench task's schema, its reference passes, its mutant fails |
+| `npm run bench:regression [-- --repeat 3]` | The bench regression split (`bench/run-regression.ts`), deterministic, no LLM; must stay at 100% |
+| `npm run bench:grade -- --runs <dir>` | Grades capability runs and computes pass^3 (`bench/grade.ts`, see `bench/run-capability.md`) |
+| `npm run hdet` | H-det (`scripts/hdet.ts`): 20 fresh processes and 20 warm reuses per corpus case; compares measure bits and STEP (about 4 minutes) |
+| `npm run corpus` | Times the reference assemblies in `corpora/reference-assemblies/` (`scripts/reference-assemblies.ts`) |
 | `node packages/mcp/src/dsl-docs.ts --check` | Fails if `docs/DSL.md` is stale; `--write` regenerates it from `DSL_ENTRIES` |
 | `npx open3dj help` | The CLI (runs `packages/open3dj/src/cli.ts`). Try `npx open3dj run examples/bracket/bracket.o3j.js` |
 | `npx open3dj mcp --root <dir>` | The MCP server over stdio, as agents start it |
+| `npx open3dj view <script>` | The browser viewer on 127.0.0.1; reruns the script on every save. `--no-open` skips the browser |
 
 Code rules: erasable TypeScript only (no enums, namespaces, parameter properties or decorators), explicit `.ts` import extensions, and `import type` for types. A package that is declared but not built exports `PACKAGE_STATUS = "stub"`; its behaviour tests skip until it is `"ready"`. Never load the kernel in the MCP or daemon process: it prints to stdout.
 
@@ -101,6 +114,7 @@ Code rules: erasable TypeScript only (no enums, namespaces, parameter properties
 
 ## Git and pull requests
 
+- **Follow [AI_POLICY.md](AI_POLICY.md).** It is the short policy behind the rules below.
 - **Sign-off belongs to the human operator.** Do not pass `-s` and never write a `Signed-off-by` line. Commit only when your operator asks. Your operator reviews the full diff and adds their own sign-off before pushing (`git commit --amend -s --no-edit` for one commit, `git rebase --signoff <base>` for several). The sign-off certifies the [Developer Certificate of Origin](https://developercertificate.org/), and only a person can do that. Never change the git identity.
 - **Disclose.** Add a trailer to every commit you helped with, `Assisted-by: <agent or tool name>`. A `Co-Authored-By:` trailer that your tool adds automatically also counts. Fill in the AI assistance section of the pull request template.
 - **Neural Deep Network agents use one attribution.** If Neural Deep Network LTD operates you, or you post on its behalf, attribute your work to **neuraldeep.net design agents** everywhere: the commit trailer is `Assisted-by: neuraldeep.net design agents`, and pull request descriptions and GitHub comments end with `Generated by [neuraldeep.net design agents](https://www.neuraldeep.net)`. Do not put model names or model identifiers in commits, pull requests or files. See [Attribution for Neural Deep Network agents](CONTRIBUTING.md#attribution-for-neural-deep-network-agents).
@@ -111,6 +125,15 @@ Code rules: erasable TypeScript only (no enums, namespaces, parameter properties
 - **Pull request contents:** link the issue (`Closes #<number>`), describe the change, paste the commands you ran and their results, attach evidence for geometry changes, and note anything you did not do or could not verify.
 - **Limits:** at most 2 open pull requests per contributor at a time, unless a maintainer raises the limit for a regular contributor. No mass-generated or speculative pull requests.
 - **Triage help:** you may help triage issues or write reproductions when a maintainer asks or the issue invites it. Post under the operator's account with a disclosure. Do not change labels or close issues unless you have triage rights and were asked to.
+
+## Claude Code hooks
+
+`.claude/settings.json` runs two Node scripts from `scripts/hooks/` (rules and tests in `scripts/hooks/lib.ts` and `hooks.test.ts`):
+
+- **Stop:** before you stop, `npm run check` runs if source files changed (tracked files that differ from HEAD, plus new files under `packages/`, `scripts/`, `bench/`, `corpora/` and `examples/`). Docs-only changes skip it. A failure keeps you working. Each state is checked once and remembered in `.git/open3dj-check-stamp.json`.
+- **PreToolUse:** blocks edits to `examples/*/expected.json`, any change to a `tol` in `bench/tasks/*/task.json`, changes to the licence allowlist in `scripts/license-gate.ts`, `.env` files, and text that looks like a credential. Bash writes to those files are caught on a best-effort basis.
+
+If a block is wrong for your change, stop and tell your operator why. Only the operator can allow it, by starting Claude Code with `OPEN3DJ_ALLOW_PROTECTED=goldens`, `tolerances`, `licences` or `secrets` (comma-separated, or `all`); explain the change in the pull request. Never try to get around a hook.
 
 ## The Kaizen rule: test first when something breaks
 
@@ -139,6 +162,6 @@ This is blameless. The goal is a system where the same mistake cannot happen twi
 - [ ] Evidence attached for geometry changes; sources cited for research
 - [ ] Docs updated in the same pull request
 - [ ] Licenses of anything new checked and stated
-- [ ] No secrets, generated binaries or model weights (one exception: the gallery drawings `examples/*/drawing.png`, regenerated with `npm run examples` and kept small)
+- [ ] No secrets, generated binaries or model weights (exceptions: the gallery drawings `examples/*/drawing.png`, regenerated with `npm run examples` and kept small, and the screenshots in `docs/images/`, under 200 KB each)
 - [ ] Commits signed off by the human operator after review, with a disclosure trailer
 - [ ] Commands and results pasted into the pull request

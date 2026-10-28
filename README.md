@@ -17,7 +17,7 @@ Open3DJ is created by **Neural Deep Network LTD** ([neuraldeep.net](https://www.
 
 ## Status: first vertical slice
 
-Open3DJ is early. The first slice works end to end on the command line and over MCP: a script in the Open3DJ DSL goes in, and a checked assembly, a short GeometryReport, a four-view drawing (PNG and SVG) and STEP, STL, glTF and 3MF files come out. There is no desktop app yet, and many DSL entries are still to come (see [docs/DSL.md](docs/DSL.md)). This is the best time to shape it.
+Open3DJ is early. The first slice works end to end on the command line and over MCP: a script in the Open3DJ DSL goes in, and a checked assembly, a short GeometryReport, a four-view drawing (PNG and SVG) and STEP, STL, glTF and 3MF files come out. A local browser viewer shows the result in 3D and follows every save. There is no desktop app yet, and many DSL entries are still to come (see [docs/DSL.md](docs/DSL.md)). This is the best time to shape it.
 
 - [docs/GETTING-STARTED.md](docs/GETTING-STARTED.md): your first part, for people and for agents.
 - [examples/](examples/README.md): ten small parts and assemblies with their measured results and drawings.
@@ -43,13 +43,17 @@ npx open3dj export examples/bracket/bracket.o3j --format step
 
 `run` prints the report: validity, volume, bounding box and counts for every part, and clashes, contacts and clearances between parts. `render` writes a four-view drawing, and `export` writes the STEP file and an evidence sidecar under `examples/bracket/bracket.o3j/out/r_0001/`. Start your own design with `npx open3dj new mypart` (or `--template assembly`).
 
+**See it in 3D.** `npx open3dj view examples/enclosure/enclosure.o3j.js` opens a local browser viewer with the assembly tree, the measures of the selected part and the fit markers, and it updates every time you save the script.
+
+![The Open3DJ viewer showing the enclosure example: the assembly tree on the left, the lid and base in 3D with fit markers at the four screws, and the selected screw's measures and the fit list on the right.](docs/images/viewer-enclosure.png)
+
 **Connect an AI agent.** Open3DJ is an MCP server with five tools: `run`, `inspect`, `render`, `export` and `docs`. For Claude Code, run this in the folder where your designs should live:
 
 ```sh
 claude mcp add open3dj -- node /path/to/Open3DJ/packages/open3dj/src/cli.ts mcp
 ```
 
-Then ask, for example, "make a 60 mm wall bracket with two M4 holes, check it and export STEP". Other clients (Codex, Gemini CLI, Cursor, VS Code, Claude Desktop) take the same command, `node /path/to/Open3DJ/packages/open3dj/src/cli.ts mcp`, in their MCP settings; [docs/GETTING-STARTED.md](docs/GETTING-STARTED.md) shows each one. Everything runs on your computer.
+Then ask, for example, "make a 60 mm wall bracket with two M4 holes, check it and export STEP". To load the server and the agent skill together, start Claude Code with the plugin in this checkout instead: `claude --plugin-dir /path/to/Open3DJ/skills/claude-code-plugin`. Other clients (Codex, Gemini CLI, Cursor, VS Code, Claude Desktop) take the same command, `node /path/to/Open3DJ/packages/open3dj/src/cli.ts mcp`, in their MCP settings, and should get [skills/open3dj/SKILL.md](skills/open3dj/SKILL.md) as instructions (the DSL essentials, the error-fix loop and the assembly rules); [docs/GETTING-STARTED.md](docs/GETTING-STARTED.md) shows each one. Everything runs on your computer.
 
 ## Get involved in one minute
 
@@ -87,6 +91,7 @@ We work in a lean, Kaizen style: small usable releases, a weekly plan-do-check-a
 |---|---|
 | [CONTRIBUTING.md](CONTRIBUTING.md) | How to contribute, for people, agents and organizations |
 | [AGENTS.md](AGENTS.md) | Rules and standard work for AI coding agents |
+| [AI_POLICY.md](AI_POLICY.md) | The AI policy: disclosure, human-only sign-off, and the checks an agent's change must pass |
 | [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) | Contributor Covenant 2.1, with a section on AI agents |
 | [SECURITY.md](SECURITY.md) | How to report a vulnerability privately |
 | [GOVERNANCE.md](GOVERNANCE.md) | How decisions are made, the open-core charter and the path to a neutral foundation |

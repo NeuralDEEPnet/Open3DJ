@@ -54,13 +54,13 @@ A phone stand: a side profile drawn with `polygon()` and extruded to 70 mm, with
 
 ### box-with-lid
 
-A two-part box. The base is shelled with 2 mm walls. The lid is a 3 mm plate with a locating lip below it: a ring 1.6 mm wide and 4 mm deep, made with a 2D `subtract`, that clears the inner wall by 0.25 mm. Connectors and `matchTo` seat the lid on the rim and record a fastened mate. Two occurrences of two definitions, 70 x 50 x 33 mm, 31504.8 mm3 (base 19676.1, lid 11828.7, the lid checked by hand in the regression test), status ok. The fit check reports no fits here: it keeps one result per pair, at the smallest distance, and the lid resting on the rim is a contact that the mate exempts.
+A two-part box. The base is shelled with 2 mm walls. The lid is a 3 mm plate with a locating lip below it: a ring 1.6 mm wide and 4 mm deep, made with a 2D `subtract`, that clears the inner wall by 0.25 mm. Connectors and `matchTo` seat the lid on the rim and record a fastened mate. Two occurrences of two definitions, 70 x 50 x 33 mm, 31504.8 mm3 (base 19676.1, lid 11828.7, the lid checked by hand in the regression test), status ok. The lid resting on the rim is a contact that the mate exempts, so it is not listed; the fit check lists the lip's 0.25 mm gap to the inner wall as a clearance marked `extra` (each distinct gap of a pair is its own line).
 
 ![box-with-lid drawing](box-with-lid/drawing.png)
 
 ### enclosure
 
-An electronics enclosure with a base, a lid and four M3 x 6 socket head screws from `lib.bolt`. The base has corner bosses with M3 heat-set pockets (`lib.heatSetPocket`) and a cable hole. The lid has counterbored holes (`lib.screwCutter`) and is seated on the rim by connectors. The screws are clones of one screw, so the assembly has 6 occurrences of 3 definitions. 100 x 70 x 36 mm, 74550.7 mm3, status ok. The fits are clean: 4 contacts (screw heads on the counterbore floors) and 4 clearances of 0.5 mm (screw tips inside the pockets), and no clash.
+An electronics enclosure with a base, a lid and four M3 x 6 socket head screws from `lib.bolt`. The base has corner bosses with M3 heat-set pockets (`lib.heatSetPocket`) and a cable hole. The lid has counterbored holes (`lib.screwCutter`) and is seated on the rim by connectors. The screws are clones of one screw, so the assembly has 6 occurrences of 3 definitions. 100 x 70 x 36 mm, 74550.7 mm3, status ok. The fits are clean: 4 contacts (screw heads on the counterbore floors), 4 clearances of 0.5 mm (each screw's shank to the wall of its heat-set pocket), and for each screw in the lid two further gaps marked `extra`: 0.2 mm around the shank and 0.5 mm around the head. No clash. The screw tips sit 0.7 mm above the pocket bottoms (pocket bottom at z = 26.3, tip at z = 27). That is outside the 0.5 mm watch distance, so it is not reported.
 
 ![enclosure drawing](enclosure/drawing.png)
 
