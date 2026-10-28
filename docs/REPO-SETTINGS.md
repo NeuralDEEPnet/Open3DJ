@@ -8,13 +8,13 @@ Each section gives the web steps and, where possible, an equivalent [GitHub CLI]
 
 Open the repository page and click the gear icon next to **About**.
 
-**Description** (336 of 350 characters):
+**Description** (335 of 350 characters):
 
 ```text
-Open-source, agent-first CAD by Neural Deep Network LTD. Precise parametric modelling that AI agents drive over MCP and CLI, a professional desktop UI, local-first on Windows, macOS and Linux, pluggable cloud GPUs, and an industrial design pipeline from concept to manufacture. People, AI agents and organisations welcome to contribute.
+Open-source, agent-first CAD by Neural Deep Network LTD. Precise parametric modeling that AI agents drive over MCP and CLI, a professional desktop UI, local-first on Windows, macOS and Linux, pluggable cloud GPUs, and an industrial design pipeline from concept to manufacture. People, AI agents and organizations welcome to contribute.
 ```
 
-This is the text exactly as specified. It uses British spelling ("modelling", "organisations"). The rest of the GitHub-facing files use American spelling. If you prefer them to match, change those two words to "modeling" and "organizations". The text then has 335 characters, still under the limit.
+This uses American spelling to match the other GitHub-facing files. If you prefer your original British wording, use "modelling" and "organisations" instead (336 characters).
 
 **Website:** `https://www.neuraldeep.net` for now. Switch it to the documentation site when one exists.
 
@@ -28,7 +28,7 @@ cad agentic-ai ai-agents mcp model-context-protocol parametric-cad brep opencasc
 
 ```sh
 gh repo edit NeuralDEEPnet/Open3DJ \
-  --description "Open-source, agent-first CAD by Neural Deep Network LTD. Precise parametric modelling that AI agents drive over MCP and CLI, a professional desktop UI, local-first on Windows, macOS and Linux, pluggable cloud GPUs, and an industrial design pipeline from concept to manufacture. People, AI agents and organisations welcome to contribute." \
+  --description "Open-source, agent-first CAD by Neural Deep Network LTD. Precise parametric modeling that AI agents drive over MCP and CLI, a professional desktop UI, local-first on Windows, macOS and Linux, pluggable cloud GPUs, and an industrial design pipeline from concept to manufacture. People, AI agents and organizations welcome to contribute." \
   --homepage "https://www.neuraldeep.net" \
   --add-topic cad,agentic-ai,ai-agents,mcp,model-context-protocol,parametric-cad,brep,opencascade,3d-modeling,industrial-design \
   --add-topic product-design,design-for-manufacturing,3d-printing,text-to-cad,generative-design,local-first,open-source,step,claude-code,kaizen
@@ -46,7 +46,7 @@ In **Settings > General > Features**:
 
 In **Settings > General > Commits**:
 
-- **Require contributors to sign off on web-based commits:** on (Settings > General). The browser editor then adds the Signed-off-by line for contributors who never touch git, so their pull requests pass the required DCO check ([GitHub docs](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository)). [CONTRIBUTING.md](../CONTRIBUTING.md#editing-in-the-browser) tells newcomers to rely on this.
+- **Require contributors to sign off on web-based commits:** on. The browser editor then adds the Signed-off-by line for contributors who never touch git, so their pull requests pass the required DCO check ([GitHub docs](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository)). [CONTRIBUTING.md](../CONTRIBUTING.md#editing-in-the-browser) tells newcomers to rely on this.
 
 In **Settings > General > Pull Requests**:
 
@@ -109,7 +109,10 @@ gh api -X PUT repos/NeuralDEEPnet/Open3DJ/automated-security-fixes
 gh repo edit NeuralDEEPnet/Open3DJ --enable-secret-scanning --enable-secret-scanning-push-protection
 ```
 
-After enabling private reporting, remove the "Note for the founder" block from `SECURITY.md`.
+After enabling private reporting:
+
+- Remove the `TODO(founder)` comment about private reporting from `SECURITY.md`.
+- In `.github/ISSUE_TEMPLATE/config.yml`, point the security contact link straight at the private form, as its `TODO(founder)` comment describes: set `url` to `https://github.com/NeuralDEEPnet/Open3DJ/security/advisories/new` and `about` to "Report privately through GitHub. See SECURITY.md for what to include." Until reporting is on, that page does not work for reporters, so the link points to `SECURITY.md`, which has a fallback.
 
 **Two-factor authentication:** enable it on every account with write access to the repository.
 
@@ -229,7 +232,7 @@ Then, to welcome the first contributors:
 - [ ] Sign-off required on web-based commits
 - [ ] Open pull request limit of 2 for users without write access, with a bypass list
 - [ ] Discussions categories and a pinned welcome post
-- [ ] Private vulnerability reporting enabled, and the note in `SECURITY.md` removed
+- [ ] Private vulnerability reporting enabled, the TODO comment in `SECURITY.md` removed, and the security link in `config.yml` pointed at the private form
 - [ ] Dependabot alerts and security updates, secret scanning and push protection
 - [ ] Two-factor authentication for everyone with write access
 - [ ] Labels created

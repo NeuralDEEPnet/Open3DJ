@@ -155,7 +155,7 @@ You do not need to wait for a labeled issue. These starter tasks are allowed wit
    Read CONTRIBUTING.md and docs/research/README.md. Draft an Idea, feedback or Kaizen suggestion issue (.github/ISSUE_TEMPLATE/feedback.yml) that proposes three glossary entries (B-rep, STEP, MCP), each in two plain sentences for a reader who has never used CAD or AI agents, with one primary source link each. Show me the draft and do not file anything yourself.
    ```
 
-When you file the result, choose "an AI agent drafted or filed it for me, and I checked it" in the form. Once maintainers have labeled issues, the [open `agent-ready` issues](https://github.com/NeuralDEEPnet/Open3DJ/issues?q=is%3Aopen+label%3Aagent-ready) are the next step.
+When you file the result, choose the option that starts "Yes, an AI agent drafted or filed it for me" in the form. It confirms that you checked the draft yourself, so make sure its promise (every source, every dimension or the whole draft checked) is true. Once maintainers have labeled issues, the [open `agent-ready` issues](https://github.com/NeuralDEEPnet/Open3DJ/issues?q=is%3Aopen+label%3Aagent-ready) are the next step.
 
 ### For organizations
 
@@ -229,7 +229,7 @@ Some changes deserve a written proposal before code: new dependencies with notab
 
 1. Open an issue labeled `rfc` describing the problem, the proposal, the alternatives you considered, the risks, and how we will know it worked.
 2. Discuss it in the open. Anyone can comment, including organizations and agent operators.
-3. A final comment period gives everyone a last chance to raise concerns before a decision. The plan proposes 10 days.
+3. A final comment period of 10 calendar days, including at least 5 business days, gives everyone a last chance to raise concerns before a decision (see [GOVERNANCE.md](GOVERNANCE.md#big-changes-rfcs)).
 4. The decision and the reasons are recorded in the issue. Once the `rfcs/` directory exists, accepted RFCs live there as Markdown files.
 
 Bold ideas are welcome. If you want to explore something off the main path, propose it as an experiment (the `experiment` label). Write-ups of experiments will live in `rfcs/experiments/`. A clearly written-up experiment that did not work is still a useful contribution.
@@ -266,7 +266,7 @@ Is this your first pull request ever? Say so in the description. We will walk yo
 
 ### Editing in the browser
 
-You do not need git for small changes to text. Open any file on GitHub, click the pencil icon and make your edit. Then click the green button to commit or propose your changes, choose to start a pull request, and follow the steps. GitHub makes a copy of the repository (a fork) for you if you need one, and adds your sign-off automatically, so the DCO check passes. This works well for documentation fixes, glossary entries and adding yourself to [CONTRIBUTORS.md](CONTRIBUTORS.md).
+You do not need git for small changes to text. Open any file on GitHub, click the pencil icon and make your edit. Then click the green button to commit or propose your changes, choose to start a pull request, and follow the steps. GitHub makes a copy of the repository (a fork) for you if you need one, and adds your sign-off automatically, so the DCO check passes. This works well for documentation fixes, glossary entries and adding yourself to [CONTRIBUTORS.md](CONTRIBUTORS.md). If a DCO check ever fails on your pull request, do not worry: comment and a maintainer will help you fix it.
 
 <!-- TODO(founder): the automatic sign-off needs "Require contributors to sign off on web-based commits" turned on (docs/REPO-SETTINGS.md, section 2). -->
 
@@ -305,7 +305,7 @@ Signed-off-by: Ada Lovelace <ada@example.com>
 
 **Name and privacy.** Use your real name or the name you are publicly known by. Anonymous sign-offs cannot be accepted. To keep your personal email private, use your GitHub noreply address (it looks like `ID+username@users.noreply.github.com`), which you can find in your GitHub email settings.
 
-**Agents never sign off for themselves.** The `Signed-off-by` line always names the accountable human operator.
+**Agents never sign off.** An agent commits without `-s`. You review the full diff, then add your own sign-off with `git commit --amend -s --no-edit` (one commit) or `git rebase --signoff main` (several). The `Signed-off-by` line always names the accountable human operator.
 
 ## Disclosing AI assistance
 

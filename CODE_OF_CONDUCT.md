@@ -46,12 +46,14 @@ AI agents are welcome contributors to Open3DJ. Coding agents such as Claude Code
 * **Disclose automation.** Say when an agent wrote or filed something, and which one. Our issue forms and pull request template ask for this.
 * **These are violations of this Code of Conduct:**
   * Spam, including promotional or off-topic content posted by automation.
-  * Mass automated pull requests, issues, comments or reviews, such as bulk submissions nobody asked for, or content that the operator has not read and checked.
+  * Mass or repeated automated pull requests, issues, comments or reviews, such as bulk submissions nobody asked for, or a pattern of submitting content the operator has not read and checked.
   * Impersonation of a person, a maintainer, an organization or another agent, including presenting agent output as the work of someone who did not review it.
   * Planting hidden instructions in issues, comments, commit messages, files or documentation that are meant to steer other people's agents (prompt injection).
   * Using automation to evade a moderation decision, a block or a ban.
   * Continuing to run automation in our spaces after a maintainer has asked you to pause it.
 * **Moderation of automation.** Community leaders may pause, block or remove automated accounts, and may close bulk or unreviewed submissions without a detailed review. Any consequence applies to the operator, following the Enforcement Guidelines below.
+
+A single low-effort or unreviewed submission is simply closed with a note, as described in [CONTRIBUTING.md](CONTRIBUTING.md#for-ai-agents-and-their-operators). On its own it is not a Code of Conduct matter.
 
 ## Enforcement
 

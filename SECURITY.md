@@ -26,9 +26,7 @@ Report privately through GitHub private vulnerability reporting:
 2. Click **Report a vulnerability**, or open https://github.com/NeuralDEEPnet/Open3DJ/security/advisories/new directly.
 3. Fill in the form. Only you and the maintainers can see the report.
 
-> **Note for the founder:** private vulnerability reporting must be switched on before the button appears. In the repository go to **Settings**, then the **Security and quality** section (older interfaces call it **Code security**), then **Advanced Security**, and click **Enable** next to **Private vulnerability reporting**. The steps are also in [docs/REPO-SETTINGS.md](docs/REPO-SETTINGS.md).
-
-<!-- TODO(founder): remove the note above once private vulnerability reporting is enabled. -->
+<!-- TODO(founder): private vulnerability reporting must be switched on before the "Report a vulnerability" button appears. It was still off on 2026-10-28. Steps: Settings > Security and quality (older interfaces: Code security) > Advanced Security > Enable next to "Private vulnerability reporting". See docs/REPO-SETTINGS.md, section 4. Remove this comment once it is on. -->
 
 If the **Report a vulnerability** button is not visible yet, message a maintainer privately via the contact page at https://www.neuraldeep.net. Ask for a private channel and do not include vulnerability details in that first message.
 

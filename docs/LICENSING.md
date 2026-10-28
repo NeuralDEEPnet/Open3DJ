@@ -74,7 +74,7 @@ Forgot to sign off? Run `git commit --amend -s --no-edit` for the last commit, o
 
 ### Rules for AI agents
 
-- **AI agents must never add a `Signed-off-by` line on their own behalf.** Only a person can certify the DCO. The human operator who reviewed the work signs off and takes responsibility for it. This follows the Linux kernel's rule for AI coding assistants ([kernel.org: AI Coding Assistants](https://docs.kernel.org/process/coding-assistants.html)).
+- **AI agents must never add a `Signed-off-by` line.** Only a person can certify the DCO. Agents commit without `-s`. The human operator reviews the full diff, then adds their own sign-off (`git commit --amend -s --no-edit` for one commit, `git rebase --signoff <base>` for several) and takes responsibility for the work. This follows the Linux kernel's rule for AI coding assistants ([kernel.org: AI Coding Assistants](https://docs.kernel.org/process/coding-assistants.html)).
 - Add a trailer such as `Assisted-by: <agent> (<model>)` to each commit an agent helped with (a `Co-Authored-By:` trailer your tool adds also counts), and disclose it in the pull request template.
 - Agents must not copy code from incompatible sources (see [section 5](#5-the-gpl-and-agpl-rule-for-the-core)). [AGENTS.md](../AGENTS.md) carries the detailed rules.
 
@@ -84,7 +84,7 @@ If you contribute on behalf of your employer or another organization, make sure 
 
 ### Why a DCO and not a CLA
 
-- **A CLA is mainly needed to relicense or dual-license code commercially.** Open3DJ does not plan to do that, so a CLA would add friction without a purpose ([research/community-licensing-business.md](research/community-licensing-business.md), section 4).
+- **A CLA is mainly needed to relicense or dual-license code commercially.** Open3DJ has no current plan to do that, so a CLA would add friction without a purpose ([research/community-licensing-business.md](research/community-licensing-business.md), section 4). Whether to commit to this permanently is a pending founder decision (see below).
 - **The DCO is lighter.** It is one line per commit, with no paperwork and no signup. Penpot uses this model (DCO sign-off, no CLA), while n8n and Blender use CLAs for their different licensing setups (same source).
 - **Inbound = outbound.** Your contribution is licensed to everyone under the same open-source license as the rest of the project. Nobody, including Neural Deep Network LTD, receives special rights over your contribution beyond what that license gives everyone.
 - **Code signing.** The free SignPath Foundation code-signing program requires an OSI-approved license "without commercial dual-licensing" ([research/gap-9.md](research/gap-9.md), section 1). Whether the company commits to that permanently is a **pending founder decision**.

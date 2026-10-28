@@ -3,6 +3,9 @@ contact_links:
   - name: Questions, ideas and show and tell
     url: https://github.com/NeuralDEEPnet/Open3DJ/discussions
     about: Ask questions, share ideas, show what you made, and talk about agents, MCP and industrial design in GitHub Discussions.
+  # TODO(founder): once private vulnerability reporting is enabled (docs/REPO-SETTINGS.md, section 4), change
+  # url to https://github.com/NeuralDEEPnet/Open3DJ/security/advisories/new and about to
+  # "Report privately through GitHub. See SECURITY.md for what to include."
   - name: Report a security vulnerability
     url: https://github.com/NeuralDEEPnet/Open3DJ/blob/main/SECURITY.md
     about: Please do not open a public issue for security problems. Follow SECURITY.md to report privately.

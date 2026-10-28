@@ -66,7 +66,8 @@ Write "No geometry change" if this does not apply.
 
 <!--
 AI help is welcome here. Disclosure helps reviewers and gives credit where it is due.
-The human operator is responsible for every line, and signs off the commits. Agents must never add a Signed-off-by line themselves.
+The human operator is responsible for every line. Agents commit without a Signed-off-by line and never write one.
+The operator reviews the full diff, then adds their own sign-off: git commit --amend -s --no-edit for one commit, or git rebase --signoff <base> for several.
 -->
 
 - [ ] No AI tools were used for this pull request.

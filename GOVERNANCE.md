@@ -45,7 +45,7 @@ Anyone who contributes anything: code, documentation, parts for the standard lib
 A person or organization who runs an AI agent (such as Claude Code, Codex, Cursor or a custom MCP agent) that contributes to Open3DJ.
 
 - The operator is responsible for everything the agent submits, as if they had written it themselves.
-- The operator reviews the agent's work before it is submitted, discloses that an agent helped, and adds the human Developer Certificate of Origin sign-off. Agents must never sign off on their own behalf.
+- The operator reviews the agent's work before it is submitted, discloses that an agent helped, and adds the human Developer Certificate of Origin sign-off. Agents never add a `Signed-off-by` line; the operator adds their own after reviewing the full diff.
 - AI agents are tools, not members. An agent cannot hold a role, approve a pull request, vote, or count toward consensus. Maintainers may run project bots with narrowly scoped permissions, and those bots are the responsibility of the maintainer who runs them.
 
 ### Maintainers
