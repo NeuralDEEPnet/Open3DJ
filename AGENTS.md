@@ -40,7 +40,7 @@ Until then: check that Markdown links resolve, and preview any Markdown you chan
 
 ## How to work
 
-1. **Start from an issue.** Work only on an issue a maintainer has acknowledged or labeled `agent-friendly` or `help-wanted`, or on a task your operator gave you that links to one. Read the whole issue thread first.
+1. **Start from an issue.** Work only on an issue a maintainer has acknowledged or labeled `agent-ready` or `help wanted`, or on a task your operator gave you that links to one. Read the whole issue thread first. Drafting an issue for your operator to review, such as a Research check or a Standard part proposal, needs no prior issue (see [Your agent's first task](CONTRIBUTING.md#your-agents-first-task)). Leave issues labeled `needs-human` to people. Work on an `experiment` issue is written up in `rfcs/experiments/` unless the issue says otherwise.
 2. **Small changes.** One focused change per pull request. Soft limit: about 400 changed lines, not counting generated lockfiles or test fixtures. If the change is growing beyond that, stop and propose a split in the issue.
 3. **Tests with every change.** New behavior gets tests. Bug fixes start with a failing test (see [the Kaizen rule](#the-kaizen-rule-test-first-when-something-breaks)). Never make a test pass by loosening a tolerance, skipping it or deleting an assertion without explaining why in the pull request.
 4. **Evidence for geometry changes.** Report measured results before and after: volume, surface area, bounding box, counts of solids, faces and edges, the validity check result, and the tolerance used. Add a render or screenshot when the change is visual.
@@ -64,7 +64,7 @@ Until then: check that Markdown links resolve, and preview any Markdown you chan
 - **Clean-room rule.** When writing core code, do not read or copy the source of GPL or AGPL CAD projects (for example FreeCAD, SolveSpace, OpenSCAD, QCAD, LibreCAD). Use public documentation and specifications instead.
 - **OCCT** (Open CASCADE Technology) is LGPL-2.1 with the Open CASCADE exception. It must stay dynamically linked, or be used as WebAssembly in line with its terms. Do not copy OCCT source into permissively licensed files.
 - **Check the license of every dependency, dataset, model and file** you add, and state it in the pull request. If the license is unclear, missing or custom, stop and ask.
-- **Models.** Generative 3D models come with license manifests. Restricted models (for example TripoSG, TRELLIS.2 in its default configuration, and Hunyuan3D, whose license excludes the EU, the UK and South Korea) are opt-in packs only. Never vendor, commit or make default any model weights, and never restricted ones.
+- **Models.** Generative 3D models come with license manifests. Restricted models (for example TripoSG, TRELLIS.2 in its default configuration, and Hunyuan3D, whose license excludes the EU, the UK and South Korea) are opt-in packs only. Never commit or vendor model weights in this repository. Never make a restricted model a default; restricted models are opt-in packs only.
 - **Standards data.** For standard parts, record dimensions and cite their source. Do not paste text or drawings from paid standards.
 - Designs that users create with Open3DJ belong to the users. Never add code that claims rights over user output.
 
@@ -86,14 +86,14 @@ Until then: check that Markdown links resolve, and preview any Markdown you chan
 - **Never force-push shared branches** (`main`, release branches, or any branch someone else works on). On your own pull request branch, use `git push --force-with-lease` only when needed.
 - **Do not commit or push** unless your operator asked you to.
 - **Pull request contents:** link the issue (`Closes #<number>`), describe the change, paste the commands you ran and their results, attach evidence for geometry changes, and note anything you did not do or could not verify.
-- **Limits:** at most 3 open agent-assisted pull requests per operator at a time. No mass-generated or speculative pull requests.
+- **Limits:** at most 2 open pull requests per contributor at a time, unless a maintainer raises the limit for a regular contributor. No mass-generated or speculative pull requests.
 - **Triage help:** you may help triage issues or write reproductions when a maintainer asks or the issue invites it. Post under the operator's account with a disclosure. Do not change labels or close issues unless you have triage rights and were asked to.
 
 ## The Kaizen rule: test first when something breaks
 
 We work in a lean, Kaizen style. When something breaks:
 
-1. **Stop the line.** If the main branch is broken, fixing it comes before any other work.
+1. **Stop the line.** If the main branch is broken, fixing it comes before any other work. Maintainers mark these issues with the `andon` label. If you find one, tell your operator, who can comment with a reproducer and ask for the label.
 2. **Reproduce** the failure with the smallest case you can.
 3. **Write the regression test first** and confirm it fails.
 4. **Fix** the cause, not the symptom, and confirm the test passes.

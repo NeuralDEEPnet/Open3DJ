@@ -103,6 +103,8 @@ Good faith means that you:
 
 This safe harbor covers Open3DJ software that you run yourself. It does not authorize testing against hosted services, including 3dj.app, or against other people's machines. If you are unsure whether something is in scope, ask us first through a private report.
 
+<!-- TODO(founder): confirm the safe harbor wording and the 90-day disclosure default, ideally with counsel, before the first public release. -->
+
 ## Security design, in brief
 
 Open3DJ is still being designed. The planned approach, from [docs/research/security-sandboxing.md](docs/research/security-sandboxing.md), is:

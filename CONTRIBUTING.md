@@ -2,11 +2,21 @@
 
 Welcome, and thank you for being here. Open3DJ is at the very start of its life, so the people, AI agents and organizations who join now will shape what it becomes. This guide explains how you can help, what we expect from a contribution, and how we say thank you.
 
+**Start here**
+
+| You are | Your first step |
+|---|---|
+| **New to GitHub** | [Create a free GitHub account](https://github.com/signup), then [pick a form](https://github.com/NeuralDEEPnet/Open3DJ/issues/new/choose): [Standard part proposal](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=part_library.yml), [Industrial design pipeline](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=industrial_design.yml) or [Research check](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=research_check.yml). No git, no code. |
+| **Using an AI agent** | Point it at [AGENTS.md](AGENTS.md) and try one of the [starter tasks for agents](#your-agents-first-task). |
+| **Representing an organization** | See [For organizations](#for-organizations). |
+
+Have a question? Ask in [Q&A on GitHub Discussions](https://github.com/NeuralDEEPnet/Open3DJ/discussions/categories/q-a).
+
 **The short version**
 
-1. Pick an issue labeled `good-first-issue`, `help-wanted` or `agent-friendly`, or open a new issue that describes what you would like to do.
+1. Pick an issue labeled `good first issue`, `help wanted` or `agent-ready`, or open a new issue that describes what you would like to do.
 2. Keep each pull request to one focused change, with tests or evidence.
-3. Sign off every commit with `git commit -s` ([Developer Certificate of Origin](#sign-your-work-the-developer-certificate-of-origin)).
+3. If you send a pull request, sign off each commit (`git commit -s`, or automatic in the browser editor). This is the [Developer Certificate of Origin](#sign-your-work-the-developer-certificate-of-origin).
 4. If an AI tool helped, say so in a commit trailer and in the pull request.
 5. Be kind. Everyone here follows our [Code of Conduct](CODE_OF_CONDUCT.md).
 
@@ -17,6 +27,7 @@ Welcome, and thank you for being here. Open3DJ is at the very start of its life,
 - [Find your path](#find-your-path)
   - [For people](#for-people)
   - [For AI agents and their operators](#for-ai-agents-and-their-operators)
+  - [Your agent's first task](#your-agents-first-task)
   - [For organizations](#for-organizations)
 - [How work is organized](#how-work-is-organized)
 - [Your first pull request, step by step](#your-first-pull-request-step-by-step)
@@ -79,23 +90,23 @@ Designers, engineers, makers, developers, writers, researchers and students: you
 
 | You are | Good first steps |
 |---|---|
-| Industrial or product designer | Read [docs/INDUSTRIAL-DESIGN.md](docs/INDUSTRIAL-DESIGN.md) and tell us where it differs from how you really work. Describe the outputs you hand to a supplier. |
+| Industrial or product designer | Read [docs/INDUSTRIAL-DESIGN.md](docs/INDUSTRIAL-DESIGN.md) and tell us where it differs from how you really work. Describe the outputs you hand to a supplier. Until that page lands, open an [Industrial design pipeline](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=industrial_design.yml) issue describing your outputs to suppliers. |
 | Mechanical or manufacturing engineer | Write a spec for a standard part. Contribute design-for-manufacture rules for a process you know (draft angles, minimum wall thickness, sheet metal bend radii, tool access for CNC), with sources. |
 | Maker or 3D printing enthusiast | Share test geometry that breaks other tools. Describe your print workflow and where it hurts. Later, test builds on your own printer. |
-| Developer | Review [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) and comment on open issues. When Step 1 opens, help with prototypes, CI and tooling. |
+| Developer | Review [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) and comment on open issues. Until that page lands, read the three architecture proposals in [docs/research/proposals/](docs/research/proposals/). When Step 1 opens, help with prototypes, CI and tooling. |
 | Writer or translator | Make the docs clearer. Write glossary entries that explain CAD terms to developers and AI terms to designers. Offer a language for translation. |
 | Researcher or student | Check a claim in [docs/research/](docs/research/) against its primary source. Propose benchmark tasks. Point us to papers we missed. |
 | Anyone who uses CAD | Tell us what slows you down in the CAD tools you use today. |
 
 **Concrete first tasks**
 
-1. **Write a standard part spec for the parts library.** Pick a common part, such as an ISO 4762 socket head cap screw, an ISO 4032 hex nut, a 608 ball bearing, a NEMA 17 motor mount or a 20 x 20 mm aluminum extrusion profile. Write down the dimensions and where they come from (the standard's number or a datasheet link), the parameters a user should be able to change, and facts we can check automatically, such as the bounding box or the volume within a tolerance. Record dimensions, not copied pages or drawings from paid standards. Use the `parts-library` label.
+1. **Write a standard part spec for the parts library.** Pick a common part, such as an ISO 4762 socket head cap screw, an ISO 4032 hex nut, a 608 ball bearing, a NEMA 17 motor mount or a 20 x 20 mm aluminum extrusion profile. Write down the dimensions and where they come from (the standard's number or a datasheet link), the parameters a user should be able to change, and facts we can check automatically, such as the bounding box or the volume within a tolerance. Record dimensions, not copied pages or drawings from paid standards. Use the [Standard part proposal](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=part_library.yml) form.
 2. **Contribute test geometry.** STEP, STL or 3MF files that are known to be hard: fillets on fillets, thin shells, nearly tangent faces, tiny edges. Add a note on what goes wrong in other tools. Only share files you made yourself or that carry a license allowing redistribution (for example CC0 or CC BY 4.0), and say which.
-3. **Write an example design brief.** Describe a real object (a phone stand, a wall bracket, an enclosure for a development board) with requirements that an agent's result could be checked against: sizes, loads, fit, material, process.
-4. **Check the research.** Every report in [docs/research/](docs/research/) is a snapshot dated 2026-10-27. Pick one claim (a version number, a price, a license, a benchmark score), check the primary source, and open an issue with what you found and the link.
-5. **Improve the docs.** Fix an unclear sentence, add a missing link or add a glossary entry.
-6. **Offer a translation.** Open an issue naming the language you can help with. We will start translations once the core docs settle, so your work does not go stale.
-7. **Give UX feedback.** Open an issue describing a task you do in CAD today, the steps you take and where it hurts. Sketches and screenshots are welcome.
+3. **Write an example design brief.** Describe a real object (a phone stand, a wall bracket, an enclosure for a development board) with requirements that an agent's result could be checked against: sizes, loads, fit, material, process. Use the [Industrial design pipeline](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=industrial_design.yml) form.
+4. **Check the research.** Every report in [docs/research/](docs/research/) is a snapshot dated 2026-10-27. Pick one claim (a version number, a price, a license, a benchmark score), check the primary source, and report what you found with the link in the [Research check](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=research_check.yml) form.
+5. **Improve the docs.** Fix an unclear sentence, add a missing link or add a glossary entry. You can do this in the browser (see [Editing in the browser](#editing-in-the-browser)).
+6. **Offer a translation.** Open an [Idea, feedback or Kaizen suggestion](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=feedback.yml) issue naming the language you can help with. We will start translations once the core docs settle, so your work does not go stale.
+7. **Give UX feedback.** Use the same [Idea, feedback or Kaizen suggestion](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=feedback.yml) form to describe a task you do in CAD today, the steps you take and where it hurts. Sketches and screenshots are welcome.
 
 ### For AI agents and their operators
 
@@ -111,16 +122,40 @@ AI coding agents are welcome here: Claude Code, Codex, Cursor, Gemini CLI, custo
    ```
 
    A `Co-Authored-By:` trailer that your tool adds automatically is also fine. See [Disclosing AI assistance](#disclosing-ai-assistance).
-4. **Link an issue.** Every agent pull request links to an issue that a maintainer has acknowledged or labeled `agent-friendly` or `help-wanted`.
+4. **Link an issue.** Every agent pull request links to an issue that a maintainer has acknowledged or labeled `agent-ready` or `help wanted`.
 5. **Keep it small.** One focused change per pull request. The soft limit is about 400 changed lines, not counting generated lockfiles or test fixtures. If you need more, agree on it in the issue first.
 6. **Run the checks and paste the results.** Include the commands you ran and their output, or a short summary of it, in the pull request. Geometry changes also need [evidence](#quality-bar).
-7. **No volume plays.** No mass-generated or speculative pull requests. No unsolicited drive-by refactors, reformatting or renames. At most 3 open agent-assisted pull requests per operator at a time, unless a maintainer agrees to more.
+7. **No volume plays.** No mass-generated or speculative pull requests. No unsolicited drive-by refactors, reformatting or renames. At most 2 open pull requests per contributor at a time. Regular contributors can ask a maintainer to raise this limit for them.
 8. **Keep the repository clean.** Never commit secrets (tokens, API keys, credentials), generated binaries or build outputs, or model weights. Restricted-license model weights must never enter the repository in any form.
 9. **Answer review as yourself.** Reviewers talk to the operator. You may use your agent to address feedback, but you check the result before you push.
 10. **Low-effort pull requests may be closed without a detailed review.** If a pull request looks mass-generated, unreviewed or unrelated to an issue, a maintainer may close it with a short note. This is not a ban. You are welcome to come back with a smaller change linked to an issue.
 11. **Agents can help beyond code.** When a maintainer asks, or an issue invites it, agents can help triage issues, write minimal reproductions and check research claims. Post the results under the operator's account with a disclosure, and do not change labels or close issues unless you have triage rights and were asked to.
 
-A friendly tip: prefer issues labeled `agent-friendly`, and leave `good-first-issue` for people taking their first steps in the project.
+A friendly tip: prefer issues labeled `agent-ready` ([see the open ones](https://github.com/NeuralDEEPnet/Open3DJ/issues?q=is%3Aopen+label%3Aagent-ready)), and leave `good first issue` for people taking their first steps in the project. Issues labeled `needs-human` need a person's judgment, hands or eyes, so please do not hand them to an agent.
+
+### Your agent's first task
+
+You do not need to wait for a labeled issue. These starter tasks are allowed without one, because what your agent produces is a draft issue that you check and file yourself. Copy a prompt, run it, and review every line before you submit.
+
+1. **Check a research claim.**
+
+   ```text
+   Read docs/research/README.md. Pick one dated claim in docs/research/gap-5.md, verify it against its primary source, and draft a Research check issue (.github/ISSUE_TEMPLATE/research_check.yml) for me to review. Quote the claim exactly, link every source with the date you checked it, and mark anything you could not verify.
+   ```
+
+2. **Draft a standard part.**
+
+   ```text
+   Draft a Standard part proposal (.github/ISSUE_TEMPLATE/part_library.yml) for an ISO 4032 M5 hex nut. Give the source of every dimension, the parameters a user should be able to set, and checkable acceptance criteria such as the bounding box within a tolerance. Do not copy tables from paid standards. I will check every number.
+   ```
+
+3. **Explain a term.**
+
+   ```text
+   Read CONTRIBUTING.md and docs/research/README.md. Draft an Idea, feedback or Kaizen suggestion issue (.github/ISSUE_TEMPLATE/feedback.yml) that proposes three glossary entries (B-rep, STEP, MCP), each in two plain sentences for a reader who has never used CAD or AI agents, with one primary source link each. Show me the draft and do not file anything yourself.
+   ```
+
+When you file the result, choose "an AI agent drafted or filed it for me, and I checked it" in the form. Once maintainers have labeled issues, the [open `agent-ready` issues](https://github.com/NeuralDEEPnet/Open3DJ/issues?q=is%3Aopen+label%3Aagent-ready) are the next step.
 
 ### For organizations
 
@@ -128,7 +163,7 @@ Companies, universities, research labs, makerspaces, print services, manufacture
 
 **What you can contribute**
 
-- **Engineers' time.** Your people contribute like anyone else, with a DCO sign-off on each commit. Please make sure they have your permission to contribute, because the DCO certifies the right to submit the work.
+- **Engineers' time.** Your people contribute like anyone else, with a DCO sign-off on each commit. Please make sure they have your permission to contribute, because the DCO certifies the right to submit the work. For the full picture, including patents, the DCO for employees and third-party rules, see [docs/LICENSING.md](docs/LICENSING.md).
 - **Parts catalogs.** Standard and catalog parts you are allowed to share (fasteners, bearings, extrusions, connectors, motors), in a form we can turn into parametric library parts.
 - **Benchmark datasets and test data.** Real CAD tasks, STEP files, and drawings with ground truth, under a license that allows redistribution.
 - **Compute or GPU credits.** For CI on Windows, macOS and Linux, nightly benchmark runs, and testing generative model packs.
@@ -138,7 +173,7 @@ Companies, universities, research labs, makerspaces, print services, manufacture
 
 **How to get in touch**
 
-- **In public:** open an issue titled `Organization: <your organization> - <what you would like to contribute>`.
+- **In public:** fill in the [Organization offer](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=organization.yml) form.
 - **In private** (for example commercial terms or data that is not public yet): contact Neural Deep Network LTD through the contact page at [neuraldeep.net](https://www.neuraldeep.net).
 
 Tell us who you are, what you would like to contribute, the license or terms that apply, and who our contact person is.
@@ -150,7 +185,7 @@ Tell us who you are, what you would like to contribute, the license or terms tha
 - Datasets, parts catalogs and other material keep your attribution in their files and notices, as their license requires.
 - For sustained support, such as engineering time or compute, we will agree on a fitting public acknowledgement together.
 
-**What does not change.** Contributions do not buy control of the roadmap. Decisions are made in public issues and RFCs. Open3DJ is company-led today. Governance details, including a proposal to move the trademark to a neutral home once several organizations have maintainers, will be published in `GOVERNANCE.md`.
+**What does not change.** Contributions do not buy control of the roadmap. Decisions are made in public issues and RFCs. Open3DJ is company-led today. [GOVERNANCE.md](GOVERNANCE.md) explains how decisions are made, the open-core charter, and the plan to move the trademark to a neutral foundation (see [Path to a neutral foundation](GOVERNANCE.md#path-to-a-neutral-foundation)).
 
 ## How work is organized
 
@@ -162,14 +197,23 @@ Almost everything starts as an issue. Please search first, then open a new issue
 
 | Label | Meaning |
 |---|---|
-| `good-first-issue` | Small, clearly described and mentored. Meant for people making their first contribution. |
-| `help-wanted` | Maintainers would welcome help. May need some experience or context. |
-| `agent-friendly` | Well specified, with checks an agent can run, and little ambiguity. A good fit for an operator and their agent. |
+| `good first issue` | Small, clearly described and mentored. Meant for people making their first contribution. |
+| `help wanted` | Maintainers would welcome help. May need some experience or context. |
+| `agent-ready` | Well specified, with an executable acceptance check, files in scope and little ambiguity. A good fit for an operator and their agent. |
+| `needs-human` | Needs a person's judgment, hands or eyes, for example design review, printing and measuring a part, or testing an install. |
+| `experiment` | An exploration or spike. It may never merge, and a written-up result, including a failure, counts as success. |
+| `andon` | Stop the line: the main branch is broken or a check gave a false pass. Fixing it comes before any other merge. |
 | `parts-library` | Standard and catalog parts for the parts library. |
 | `industrial-design` | The pipeline from brief and concept to design for manufacture and supplier handoff. |
+| `research` | Checks, corrections and new findings for the research in [docs/research/](docs/research/). |
+| `documentation` | Improvements or additions to the documentation. |
+| `security` | Security hardening. Report vulnerabilities privately, as described in [SECURITY.md](SECURITY.md). |
+| `organization` | An offer from a company, university, lab, makerspace, print service or other project. |
+| `feedback` | Ideas, UX feedback, translation offers and Kaizen suggestions. |
 | `rfc` | A design proposal under discussion. See [RFCs for big changes](#rfcs-for-big-changes). |
+| `needs-triage` | New, and waiting for a maintainer to read and label it. The issue forms add it for you. |
 
-More labels will appear as the code arrives.
+We use GitHub's default spelling for `good first issue` and `help wanted`, because GitHub surfaces issues with those exact labels to new contributors. Only maintainers can apply labels. If you think an issue deserves `andon`, comment with a reproducer and ask for it. More labels will appear as the code arrives.
 
 ### Claiming work
 
@@ -188,18 +232,18 @@ Some changes deserve a written proposal before code: new dependencies with notab
 3. A final comment period gives everyone a last chance to raise concerns before a decision. The plan proposes 10 days.
 4. The decision and the reasons are recorded in the issue. Once the `rfcs/` directory exists, accepted RFCs live there as Markdown files.
 
-Bold ideas are welcome. If you want to explore something off the main path, propose it as an experiment. A clearly written-up experiment that did not work is still a useful contribution.
+Bold ideas are welcome. If you want to explore something off the main path, propose it as an experiment (the `experiment` label). Write-ups of experiments will live in `rfcs/experiments/`. A clearly written-up experiment that did not work is still a useful contribution.
 
 ### The Kaizen rhythm
 
 We work in a lean, Kaizen style: small steady improvements, made visible.
 
 - **Small usable releases.** We ship often, in small steps that each do something useful.
-- **Weekly plan-do-check-act review.** Each week we plan what to try, do it, check the results against what we expected, and act: keep it, adjust it or drop it. We aim to publish the notes so everyone can follow along.
-- **Stop the line on regressions.** When the main branch breaks, fixing it comes before merging anything else.
+- **Weekly plan-do-check-act review.** Each week we plan what to try, do it, check the results against what we expected, and act: keep it, adjust it or drop it. Notes will be posted publicly in GitHub Discussions, so everyone can follow along.
+- **Stop the line on regressions.** When the main branch breaks, a maintainer labels the issue `andon`, and fixing it comes before merging anything else.
 - **Every failure becomes a regression test.** We find the root cause (we use "5 whys"), write a test that fails, then fix it, so the same problem cannot come back silently.
 - **Standard work.** [AGENTS.md](AGENTS.md), this guide and the issue and pull request templates are our standard work. When a problem comes from a gap in the process, we improve the standard.
-- **Anyone can suggest an improvement.** Open an issue with "Kaizen:" at the start of the title.
+- **Anyone can suggest an improvement.** Use the [Idea, feedback or Kaizen suggestion](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=feedback.yml) form and choose "Kaizen suggestion".
 
 ### Blameless, curious and sustainable
 
@@ -220,6 +264,12 @@ We work in a lean, Kaizen style: small steady improvements, made visible.
 
 Is this your first pull request ever? Say so in the description. We will walk you through it.
 
+### Editing in the browser
+
+You do not need git for small changes to text. Open any file on GitHub, click the pencil icon and make your edit. Then click the green button to commit or propose your changes, choose to start a pull request, and follow the steps. GitHub makes a copy of the repository (a fork) for you if you need one, and adds your sign-off automatically, so the DCO check passes. This works well for documentation fixes, glossary entries and adding yourself to [CONTRIBUTORS.md](CONTRIBUTORS.md).
+
+<!-- TODO(founder): the automatic sign-off needs "Require contributors to sign off on web-based commits" turned on (docs/REPO-SETTINGS.md, section 2). -->
+
 ### Build and test commands
 
 > Commands will be added when the first code lands in Step 1 of [docs/PLAN.md](docs/PLAN.md).
@@ -237,49 +287,9 @@ The DCO is a short statement that you have the right to submit your contribution
 - or someone who certified one of the above gave it to you and you did not change it;
 - and you understand the contribution and your sign-off are public and kept on record.
 
-<details>
-<summary>Full text of the Developer Certificate of Origin 1.1</summary>
+The full text of the DCO 1.1 is in [docs/LICENSING.md](docs/LICENSING.md#the-text-of-the-dco-11), together with a plain-language guide to licensing.
 
-```text
-Developer Certificate of Origin
-Version 1.1
-
-Copyright (C) 2004, 2006 The Linux Foundation and its contributors.
-
-Everyone is permitted to copy and distribute verbatim copies of this
-license document, but changing it is not allowed.
-
-
-Developer's Certificate of Origin 1.1
-
-By making a contribution to this project, I certify that:
-
-(a) The contribution was created in whole or in part by me and I
-    have the right to submit it under the open source license
-    indicated in the file; or
-
-(b) The contribution is based upon previous work that, to the best
-    of my knowledge, is covered under an appropriate open source
-    license and I have the right under that license to submit that
-    work with modifications, whether created in whole or in part
-    by me, under the same open source license (unless I am
-    permitted to submit under a different license), as indicated
-    in the file; or
-
-(c) The contribution was provided directly to me by some other
-    person who certified (a), (b) or (c) and I have not modified
-    it.
-
-(d) I understand and agree that this project and the contribution
-    are public and that a record of the contribution (including all
-    personal information I submit with it, including my sign-off) is
-    maintained indefinitely and may be redistributed consistent with
-    this project or the open source license(s) involved.
-```
-
-</details>
-
-**How to sign off.** Add `-s` when you commit:
+**How to sign off.** If you edit in the browser, GitHub adds the sign-off for you (see [Editing in the browser](#editing-in-the-browser)). On your own computer, add `-s` when you commit:
 
 ```sh
 git commit -s -m "Add ISO 4032 hex nut spec"
@@ -323,7 +333,7 @@ Every pull request should meet this bar. Reviewers use it too.
 
 We are a small team of volunteers, so here is an honest picture.
 
-- **First response:** we aim to respond to new issues and pull requests within 7 days.
+- **First response:** we aim to respond to new issues and pull requests within 48 hours. A clearly labeled bot may acknowledge them sooner, and a person always follows up.
 - **Review:** small, focused pull requests are usually reviewed within 14 days. Large changes and RFCs can take longer.
 - **Silence:** if you have heard nothing after 14 days, a polite ping on the pull request is welcome. It helps us.
 - **What reviewers look at:** whether the change solves the linked issue, the quality bar above, license hygiene, and whether the change is small enough to review well.
@@ -339,11 +349,14 @@ These are goals, not promises. As the team grows, we will tighten them.
 Every contribution counts, not only code.
 
 - **CONTRIBUTORS.md.** We add you to [CONTRIBUTORS.md](CONTRIBUTORS.md) with your first merged contribution, code or not. You can add yourself in your pull request, or ask us to do it.
+- **A useful issue counts too.** When a maintainer acts on your research check, part proposal, design brief or feedback, we add you to [CONTRIBUTORS.md](CONTRIBUTORS.md) (or you can add yourself in a one-line pull request).
 - **All kinds of work.** In the spirit of the [all-contributors](https://allcontributors.org/en/reference/emoji-key) specification, we credit design, documentation, research, testing, test data, translation, review, ideas, bug reports, mentoring, event organizing, funding and infrastructure as well as code.
 - **Release notes.** Every release names the people and organizations who contributed to it, and includes a contributor spotlight.
 - **Agents.** AI agents are credited through their operators, for example "Ada Lovelace (with Claude Code)".
 
 ## Licensing of contributions
+
+For the full picture, including patents, the DCO for employees and third-party rules, see [docs/LICENSING.md](docs/LICENSING.md).
 
 **Today.** Open3DJ is licensed under the [MIT License](LICENSE), "Copyright (c) 2026 Neural Deep Network LTD and the Open3DJ contributors".
 
@@ -351,7 +364,7 @@ Every contribution counts, not only code.
 
 **A proposed change.** The research recommends moving to a dual license, **MIT OR Apache-2.0**, as many open-source projects do. Apache-2.0 adds an explicit patent grant, and keeping MIT preserves compatibility. This is a founder decision that has **not been made yet**. Until it is, contributions are accepted under MIT. To keep the option open without asking everyone again later, we ask you to agree that your contribution may also be distributed under Apache-2.0 if the project adopts MIT OR Apache-2.0. If you do not agree, please say so in your pull request before it is merged.
 
-<!-- TODO(founder): confirm the forward-looking Apache-2.0 consent sentence above, or remove it. Update this section when the MIT OR Apache-2.0 decision is made. -->
+<!-- TODO(founder): confirm the forward-looking Apache-2.0 consent sentence above, or remove it. The same sentence is surfaced as a checkbox in .github/pull_request_template.md ("Before you request review"), so confirm or remove it in both places together. Update this section when the MIT OR Apache-2.0 decision is made. -->
 
 **Third-party code, data and models.** These rules keep Open3DJ safe to use, embed and sell:
 
@@ -376,6 +389,6 @@ Please do not report security vulnerabilities in public issues or pull requests.
 
 ## Questions
 
-Not sure where to start, or whether an idea fits? Open an issue and ask. There are no silly questions, and your question probably helps the next newcomer too.
+Not sure where to start, or whether an idea fits? Ask in [Q&A on GitHub Discussions](https://github.com/NeuralDEEPnet/Open3DJ/discussions/categories/q-a). There are no silly questions, and your question probably helps the next newcomer too. Ideas are welcome in the [Ideas category](https://github.com/NeuralDEEPnet/Open3DJ/discussions/categories/ideas), or through the [Idea, feedback or Kaizen suggestion](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=feedback.yml) form.
 
 Thank you for helping build Open3DJ.

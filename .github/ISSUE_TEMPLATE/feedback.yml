@@ -1,0 +1,85 @@
+name: Idea, feedback or Kaizen suggestion
+description: Share UX feedback, a translation offer, test geometry, a docs idea, or a better way for us to work.
+title: "[Feedback]: "
+labels: ["feedback", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping Open3DJ improve. This form is for everything that is not a bug report or a feature request with a clear proposal: how you work in CAD today, a language you can translate into, files that break other tools, ideas for the docs, and Kaizen suggestions for how we work.
+
+        Questions are best asked in [Q&A on GitHub Discussions](https://github.com/NeuralDEEPnet/Open3DJ/discussions/categories/q-a). Open-ended brainstorming fits the [Ideas category](https://github.com/NeuralDEEPnet/Open3DJ/discussions/categories/ideas).
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What is this?
+      options:
+        - UX feedback (a task you do in CAD today and where it hurts)
+        - Kaizen suggestion (a better way for us to work)
+        - Translation offer
+        - Test geometry that breaks other tools
+        - Glossary or documentation idea
+        - Another idea
+    validations:
+      required: true
+
+  - type: textarea
+    id: details
+    attributes:
+      label: Tell us about it
+      description: |
+        UX feedback: the task, the steps you take and where it hurts.
+        Kaizen suggestion: how we work now, the problem you see, and the change you suggest.
+        Translation offer: the language, and your experience with technical or CAD text.
+        Test geometry: what the file contains and what goes wrong in which tools.
+    validations:
+      required: true
+
+  - type: textarea
+    id: files
+    attributes:
+      label: Files, sketches or screenshots
+      description: Optional. Drag files in here. Put STEP, STL or 3MF files in a .zip first. Share only files you made yourself or that carry a license allowing redistribution, and do not share confidential designs.
+    validations:
+      required: false
+
+  - type: input
+    id: files-license
+    attributes:
+      label: License of any files you shared
+      description: Only if you attached files.
+      placeholder: "CC0, CC BY 4.0, or my own work contributed under the project license"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: ai-assistance
+    attributes:
+      label: Did AI tools help you write this?
+      description: AI help is welcome. Telling us helps reviewers. Whatever you choose, a person must read and check this issue before it is submitted.
+      options:
+        - "No, I wrote it without AI tools"
+        - "Yes, AI tools helped me write or research it"
+        - "Yes, an AI agent drafted or filed it for me, and I checked it"
+    validations:
+      required: true
+
+  - type: input
+    id: ai-tools
+    attributes:
+      label: Which AI tools, agents or models?
+      description: Only if AI helped. Name the tool and the model, if you know it.
+      placeholder: "Claude Code with Claude Opus, Codex, Cursor, a custom MCP agent"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before you submit
+      options:
+        - label: I searched the existing issues and discussions and this is not a duplicate.
+          required: true
+        - label: I agree to follow the [Code of Conduct](https://github.com/NeuralDEEPnet/Open3DJ/blob/main/CODE_OF_CONDUCT.md).
+          required: true

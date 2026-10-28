@@ -96,7 +96,7 @@ body:
     id: acceptance
     attributes:
       label: How can we check the part is right?
-      description: Checks that a test can run, such as expected volume, bounding box, or a key dimension with its tolerance. These make the part "agent-friendly", because an agent can build it and prove it.
+      description: Checks that a test can run, such as expected volume, bounding box, or a key dimension with its tolerance. These make the part "agent-ready", because an agent can build it and prove it.
       placeholder: |
         M4 x 12: bounding box 7.0 x 7.0 x 16.0 mm (within 0.05 mm)
         Socket: 3 mm hexagon, 2.0 mm deep

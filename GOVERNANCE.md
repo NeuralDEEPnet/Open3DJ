@@ -21,12 +21,12 @@ That is why contributions of every kind matter so much here, and why we work to 
 We work in a lean, Kaizen style. In practice that means:
 
 - **Small, usable releases.** We ship small working steps rather than big drops. The roadmap is in [docs/PLAN.md](docs/PLAN.md).
-- **A weekly plan-do-check-act review.** Once a week, maintainers review what shipped, what broke and what we learned, then adjust the plan. Notes are posted publicly in GitHub Discussions.
-- **Stop the line on regressions.** Any maintainer can pause merges when the main branch regresses. Fixing the regression comes before new work.
+- **A weekly plan-do-check-act review.** Once a week, maintainers review what shipped, what broke and what we learned, then adjust the plan. Notes will be posted publicly in GitHub Discussions.
+- **Stop the line on regressions.** Any maintainer can pause merges when the main branch regresses, by labeling the issue `andon`. Fixing the regression comes before new work.
 - **Every failure becomes a test.** We find the root cause of each bug and add a regression test so it cannot return quietly.
 - **Standard work.** [AGENTS.md](AGENTS.md), [CONTRIBUTING.md](CONTRIBUTING.md), the issue forms and the pull request template describe the standard way to work. When we find a better way, we update the standard.
 - **Blameless culture.** We look at systems, not at people. Failed experiments are documented, not punished, and a "what we tried" record is part of the docs. Off-path, ambitious ideas are welcome as experiments or RFCs.
-- **A sustainable pace.** Volunteers give their own time. Nobody is expected to work unpaid overtime, answer at weekends or stay forever. You can step back at any time, and we will thank you for what you gave.
+- **A sustainable pace.** Volunteers give their own time. Nobody is expected to work unpaid overtime, answer on weekends or stay forever. You can step back at any time, and we will thank you for what you gave.
 
 ## Roles
 
@@ -46,7 +46,7 @@ A person or organization who runs an AI agent (such as Claude Code, Codex, Curso
 
 - The operator is responsible for everything the agent submits, as if they had written it themselves.
 - The operator reviews the agent's work before it is submitted, discloses that an agent helped, and adds the human Developer Certificate of Origin sign-off. Agents must never sign off on their own behalf.
-- AI agents are tools, not members. An agent cannot hold a role, approve a pull request, vote, or count towards consensus. Maintainers may run project bots with narrowly scoped permissions, and those bots are the responsibility of the maintainer who runs them.
+- AI agents are tools, not members. An agent cannot hold a role, approve a pull request, vote, or count toward consensus. Maintainers may run project bots with narrowly scoped permissions, and those bots are the responsibility of the maintainer who runs them.
 
 ### Maintainers
 
@@ -89,7 +89,7 @@ Most work proceeds by lazy consensus. Someone proposes a change in an issue or p
 
 ### Big changes: RFCs
 
-Changes that are large, hard to reverse, or that affect many people go through a written RFC (request for comments), kept in `docs/rfcs/` once the first RFC lands. An RFC is needed for:
+Changes that are large, hard to reverse, or that affect many people go through a written RFC (request for comments), kept in `rfcs/` at the root of the repository once the first RFC lands. An RFC is needed for:
 
 - the public agent contract (MCP tools, CLI commands, SDK APIs) and file formats,
 - the script language and reference semantics,
@@ -101,11 +101,11 @@ The process, adapted from the Rust project's RFC process ([docs/research/communi
 
 1. Open an issue labeled `rfc` that describes the problem, the proposal, the alternatives you considered, the risks, and how we will know it worked.
 2. Everyone discusses it in the open, including organizations and agent operators. The relevant module owners guide the discussion.
-3. When the proposal needs a full write-up, open a pull request that adds it as a Markdown file in `docs/rfcs/`, starting from the template (`docs/rfcs/0000-template.md`, to be added).
+3. When the proposal needs a full write-up, open a pull request that adds it as a Markdown file in `rfcs/`, starting from the template (`rfcs/0000-template.md`, to be added).
 4. When discussion settles, a module owner proposes a decision (accept, reject or postpone) and starts a **final comment period of 10 calendar days, including at least 5 business days**.
-5. If no new concerns come up, the decision stands. It is recorded with its reasons in the issue, accepted RFCs are merged into `docs/rfcs/`, and each accepted RFC gets a tracking issue.
+5. If no new concerns come up, the decision stands. It is recorded with its reasons in the issue, accepted RFCs are merged into `rfcs/`, and each accepted RFC gets a tracking issue.
 
-Experiments do not need an RFC. Spikes and prototypes are welcome in `docs/rfcs/experiments/`, and their results, including failures, are written up so that everyone learns from them.
+Experiments do not need an RFC. Spikes and prototypes are welcome in `rfcs/experiments/`, tracked with the `experiment` label, and their results, including failures, are written up so that everyone learns from them.
 
 ### When consensus fails
 
@@ -137,7 +137,7 @@ Code is not the only path. Sustained work on parts, documentation, research chec
 
 We want every contribution to be seen. The details are in [CONTRIBUTING.md](CONTRIBUTING.md#recognition). In short:
 
-- Every contributor is added to [CONTRIBUTORS.md](CONTRIBUTORS.md) with their first merged contribution, code or not.
+- Every contributor is added to [CONTRIBUTORS.md](CONTRIBUTORS.md) with their first merged contribution, code or not, or when a maintainer acts on a useful issue they filed.
 - Release notes credit every contributor to that release, including contributors of parts, research checks, benchmarks, compute and test data, and each release note includes a contributor spotlight.
 - Agent-assisted work credits the human operator and names the agent, for example "Ada Lovelace (with Claude Code)".
 - Organizations that contribute are credited by name in [CONTRIBUTORS.md](CONTRIBUTORS.md) and in the release notes.
@@ -168,7 +168,7 @@ Changing this charter requires an RFC. A change can never take back rights alrea
 
 [3dj.app](https://www.3dj.app) is a separate, closed, hosted product made by the same company, Neural Deep Network LTD. It offers hosted services such as cloud GPU generation, a hosted MCP endpoint and print quotes.
 
-- **One provider among others.** In Open3DJ, 3dj.app is an optional provider. It plugs in through the same public provider interface as any other local or third-party service, and it passes the same conformance tests.
+- **One provider among others.** In Open3DJ, 3dj.app is an optional provider. It plugs in through the same public provider interface as any other local or third-party service, and it must pass the same conformance tests.
 - **Never required.** No Open3DJ feature requires a 3dj.app account. There are no 3dj.app-only APIs in Open3DJ.
 - **Your consent first.** Nothing leaves your machine for 3dj.app, or for any other cloud provider, without your explicit consent for that job.
 - **Openly declared.** Hosted providers, 3dj.app included, should declare which generative models they run and under which licenses.
@@ -177,7 +177,7 @@ Neural Deep Network LTD may earn money from hosted services such as 3dj.app. Tha
 
 ## Trademark
 
-The name "Open3DJ" and the Open3DJ logo belong to Neural Deep Network LTD. The open-source license covers the code, not the name or logo.
+Neural Deep Network LTD controls the use of the Open3DJ name, and of any future project logo, for this project. The open-source license covers the code, not the name or logo.
 
 - You may use the name to refer to the project truthfully, for example "works with Open3DJ" or "a fork of Open3DJ".
 - Please do not use the name or logo in a way that suggests that a fork, product or service is the official project or is endorsed by it. A short trademark policy will follow once the name is settled.

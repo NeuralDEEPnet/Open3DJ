@@ -51,7 +51,7 @@ body:
     attributes:
       label: How would an agent use it?
       description: For example, a new MCP tool, a new field in a tool result, or a CLI command. Leave blank if it does not apply.
-      placeholder: A tool option that checks the part against a named printer profile and returns the result in the GeometryReport.
+      placeholder: A tool option that checks the part against a named printer profile and returns the result in its geometry report.
     validations:
       required: false
 

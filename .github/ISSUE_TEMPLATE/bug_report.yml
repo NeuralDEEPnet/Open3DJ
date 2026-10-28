@@ -63,7 +63,7 @@ body:
     id: evidence
     attributes:
       label: Evidence
-      description: Error messages, logs, a GeometryReport, renders, screenshots or measurements. Drag files in here. Please do not attach confidential designs.
+      description: Error messages, logs, a geometry report (the planned GeometryReport measurement report, see docs/PLAN.md), renders, screenshots or measurements. Drag files in here. Please do not attach confidential designs.
       placeholder: Paste error text, or attach images and small files.
     validations:
       required: false
@@ -73,7 +73,7 @@ body:
     attributes:
       label: Version or commit
       description: The Open3DJ version, or the commit hash if you built from source. Write "docs" if this is about the documentation.
-      placeholder: "v0.1.0 or 518c77a"
+      placeholder: "Commit hash such as 518c77a, a release tag once releases exist, or 'docs'"
     validations:
       required: false
 

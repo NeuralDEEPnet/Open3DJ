@@ -22,10 +22,18 @@ Closes #
 - [ ] Industrial design pipeline
 - [ ] Documentation
 - [ ] Research correction (`docs/research/`)
-- [ ] RFC (`docs/rfcs/`)
+- [ ] RFC (`rfcs/`)
 - [ ] Tests, CI or tooling
 - [ ] Refactor or maintenance
 - [ ] Security hardening
+
+## New dependencies, data or models
+
+<!-- Name each new dependency, dataset, model or file, its license (SPDX id) and a link to the license text. Write "None" if there are none. -->
+
+## Root cause (bug fixes only)
+
+<!-- The 5 whys: why it broke, and what prevents it from happening again. Delete this section if this is not a bug fix. -->
 
 ## Checks run
 
@@ -43,15 +51,15 @@ $ <command>
 ## Evidence (required when geometry changes)
 
 <!--
-If this change can affect any geometry, show the result. Agents can produce most of this automatically.
+If this change can affect any geometry, show the result. Once the evidence tooling from docs/PLAN.md exists, agents will be able to produce most of this automatically.
 - Renders: before and after, from the same views.
-- GeometryReport: paste the concise report, or attach the detailed one.
+- Geometry report (the planned GeometryReport measurement report, see docs/PLAN.md): paste the concise report, or attach the detailed one.
 - Measurements: volume, bounding box, key dimensions and tolerances, compared with the expected values and their source.
 Write "No geometry change" if this does not apply.
 -->
 
 - Renders:
-- GeometryReport:
+- Geometry report:
 - Measurements:
 
 ## AI assistance
@@ -72,7 +80,11 @@ If AI tools were used:
 
 ## Before you request review
 
-- [ ] Every commit is signed off by a person under the [Developer Certificate of Origin](https://github.com/NeuralDEEPnet/Open3DJ/blob/main/docs/LICENSING.md#3-contributing-developer-certificate-of-origin-no-cla) (`git commit -s`).
+- [ ] Every commit is signed off by a person under the [Developer Certificate of Origin](https://github.com/NeuralDEEPnet/Open3DJ/blob/main/docs/LICENSING.md#3-contributing-developer-certificate-of-origin-no-cla) (`git commit -s`, or automatic in the browser editor).
 - [ ] No code was copied from GPL, AGPL or other copyleft sources, or from sources with an unknown license. Any new dependency and its license are listed above.
 - [ ] Documentation is updated, or no documentation change is needed.
 - [ ] Tests are added or updated for the change, including a regression test for any bug fixed.
+- [ ] I agree my contribution may also be distributed under Apache-2.0 if Open3DJ adopts MIT OR Apache-2.0 (see [CONTRIBUTING.md](https://github.com/NeuralDEEPnet/Open3DJ/blob/main/CONTRIBUTING.md#licensing-of-contributions)). If you do not agree, say so here.
+- [ ] I added myself to [CONTRIBUTORS.md](https://github.com/NeuralDEEPnet/Open3DJ/blob/main/CONTRIBUTORS.md) (optional).
+
+<!-- TODO(founder): the Apache-2.0 line above mirrors the forward-looking consent sentence in CONTRIBUTING.md#licensing-of-contributions. Confirm or remove both together. -->

@@ -70,12 +70,12 @@ Signed-off-by: Your Name <your-email-or-noreply-address>
 
 **Privacy tip:** you do not have to publish a personal email address. You can sign off with the private `noreply` address that GitHub gives you (Settings, then Emails). The sign-off must use the same email as the commit author.
 
-Forgot to sign off? Run `git commit --amend -s` for the last commit, or `git rebase --signoff main` for several, then push again.
+Forgot to sign off? Run `git commit --amend -s --no-edit` for the last commit, or `git rebase --signoff main` for several, then update your branch with `git push --force-with-lease`. If you edit files in the browser on GitHub, the sign-off is added for you ([CONTRIBUTING.md](../CONTRIBUTING.md#editing-in-the-browser)).
 
 ### Rules for AI agents
 
 - **AI agents must never add a `Signed-off-by` line on their own behalf.** Only a person can certify the DCO. The human operator who reviewed the work signs off and takes responsibility for it. This follows the Linux kernel's rule for AI coding assistants ([kernel.org: AI Coding Assistants](https://docs.kernel.org/process/coding-assistants.html)).
-- Disclose agent help in the pull request template. You may also add a trailer such as `Assisted-by: <agent> (<model>)` to the commit message.
+- Add a trailer such as `Assisted-by: <agent> (<model>)` to each commit an agent helped with (a `Co-Authored-By:` trailer your tool adds also counts), and disclose it in the pull request template.
 - Agents must not copy code from incompatible sources (see [section 5](#5-the-gpl-and-agpl-rule-for-the-core)). [AGENTS.md](../AGENTS.md) carries the detailed rules.
 
 ### Organizations
@@ -178,13 +178,13 @@ Copyleft programs may only be used as **separate, optional processes** with an a
 
 Model weights are licensed separately from code, and some licenses limit where and how a model can be used. Open3DJ treats each generative model as an optional **model pack**, and every pack ships a **machine-readable license manifest**. The research suggests fields such as `license`, `territory`, `commercial` and `mau_cap` (monthly active user limits). The desktop app will show the manifest to people, and the MCP server will show it to agents, before a pack is used ([research/community-licensing-business.md](research/community-licensing-business.md), section 2).
 
-- **Default packs** use only permissively licensed code, weights and dependencies.
+- **Default packs** use only permissively licensed code, weights and dependencies. Any weak-copyleft exception, such as easydict for TRELLIS (v1) below, is recorded openly in the license gate.
 - **Restricted packs** are opt-in only. They are never installed or enabled by default, and their restrictions are shown up front.
 - Model weights are accepted only in formats that cannot run code, such as safetensors ([research/security-sandboxing.md](research/security-sandboxing.md), section 8).
 
 | Model | What the research found | How Open3DJ treats it | Source |
 |---|---|---|---|
-| **TRELLIS (v1)** | Code and weights are MIT, and the geometry path uses permissive dependencies. Its rendering and texture-baking (GLB export) dependencies are not permissive: nvdiffrast (NVIDIA, research or evaluation only), diffoctreerast (research or evaluation only), diff-gaussian-rasterization (non-commercial), pymeshfix (GPL-3.0) and python-igraph (GPL-2.0+). | Candidate default, run geometry-only with permissive substitutes. Texture baking is a separate opt-in pack or a permissive re-implementation. | [gap-4.md](research/gap-4.md) |
+| **TRELLIS (v1)** | Code and weights are MIT. The geometry path has no GPL, AGPL or non-commercial dependencies. Its one weak-copyleft core dependency is easydict (LGPL-3.0), which will either be replaced or recorded as an allowed exception in the [license gate](#5-the-gpl-and-agpl-rule-for-the-core). Its rendering and texture-baking (GLB export) dependencies are not permissive: nvdiffrast (NVIDIA, research or evaluation only), diffoctreerast (research or evaluation only), diff-gaussian-rasterization (non-commercial), pymeshfix (GPL-3.0) and python-igraph (GPL-2.0+). | Candidate default, run geometry-only with permissive substitutes. Texture baking is a separate opt-in pack or a permissive re-implementation. | [gap-4.md](research/gap-4.md) |
 | **TripoSG** | Weights are MIT, but the required code is not. The `triposg/` package is under the Tencent Hunyuan FlashVDM Community License, which "DOES NOT APPLY IN THE EUROPEAN UNION, UNITED KINGDOM AND SOUTH KOREA". The default pipeline also pulls `diso` (CC BY-NC 4.0), RMBG-1.4 (non-commercial) and pymeshlab (GPL-3.0). | Restricted, opt-in pack only | [gap-4.md](research/gap-4.md) |
 | **TRELLIS.2** (default pipeline) | Pulls RMBG-2.0 (CC BY-NC 4.0), DINOv3 (custom license with a trade-control clause, gated), and nvdiffrast and nvdiffrec (NVIDIA, non-commercial). | Restricted, opt-in pack only | [gap-4.md](research/gap-4.md) |
 | **Hunyuan3D** 2.0 and 2.1 | Tencent Hunyuan 3D Community License. Its territory excludes the EU, the UK and South Korea. Services above 1 million monthly active users need a separate license, and outputs may not be used to train other models. | Restricted, opt-in pack only, with a territory and consent gate | [community-licensing-business.md](research/community-licensing-business.md), section 2 |
@@ -204,7 +204,7 @@ Some things you bring into a design keep their own terms:
 
 ## 8. Trademark
 
-The name "Open3DJ" and the Open3DJ logo belong to Neural Deep Network LTD. The MIT license does not grant any trademark rights, and neither would Apache-2.0. You may use the name to refer to the project truthfully. Please do not use it in a way that suggests your fork, product or service is the official project or is endorsed by it. See [GOVERNANCE.md](../GOVERNANCE.md#trademark).
+Neural Deep Network LTD controls the use of the Open3DJ name, and of any future project logo, for this project. The open-source license covers the code, not the name or logo. The MIT license does not grant any trademark rights, and neither would Apache-2.0. You may use the name to refer to the project truthfully. Please do not use it in a way that suggests your fork, product or service is the official project or is endorsed by it. See [GOVERNANCE.md](../GOVERNANCE.md#trademark).
 
 **The name may change before the first public release.** Trademark clearance is in progress. A similar mark, OPEN3D, is a live US registration (Reg. 6468139) for open-source 3D software, so the project is checking the name with counsel before any public listing. "Open3DJ" and "O3DJ" have no US trademark records, and the matching package names and domains were free when checked on 27 October 2026. EU and UK registers could not be checked: **to verify**. Open3DJ is not affiliated with the Open3D library ([research/gap-5.md](research/gap-5.md)).
 
