@@ -15,6 +15,12 @@ These reports were produced by parallel research agents and each was adversarial
 | [security-sandboxing.md](security-sandboxing.md) | Sandboxing agent-generated code, MCP security |
 | [community-licensing-business.md](community-licensing-business.md) | Licensing, governance, community, business model |
 
+## Hands-on spikes
+
+| Note | Result |
+|---|---|
+| [spike-occt-wasm.md](spike-occt-wasm.md) | Open CASCADE as WebAssembly runs in Node.js with no native build, fast enough for agent edits, with CPU-rendered drawings |
+
 ## Gap-fill notes
 
 A completeness review of the draft plan found gaps. These notes answer them and override the reports above where they conflict.
