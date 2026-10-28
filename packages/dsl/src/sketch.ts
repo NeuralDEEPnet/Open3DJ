@@ -1,5 +1,5 @@
-// 2D profiles. A profile is a brepjs Drawing while it is still being edited (booleans, corner
-// fillets), or a kernel face once it has been offset. Solids are always made through the
+// 2D profiles. A profile is a brepjs Drawing while it is still being edited (corner fillets
+// and chamfers), or a kernel face once it has been offset or combined with a 2D boolean. Solids are always made through the
 // kernel adapter (extrude, revolve, loft are checked there), except twisted and tapered
 // extrusions, which use brepjs sweeps and are checked here the same way.
 import type { Vec3 } from "@open3dj/schemas";
@@ -84,9 +84,30 @@ export class Sketches {
     return this.drawing(pen.close());
   }
 
+  /**
+   * An exact ellipse: the kernel's ellipse edge as the face, so volumes and areas integrate
+   * exactly. brepjs only draws ellipses as B-splines (about 1.5e-4 relative error in the
+   * measures), so its drawing is kept only for the drawing-only edits (corner fillets and
+   * chamfers), whose results are then approximate. Sketch booleans use the exact face.
+   */
+  ellipse(rx: number, ry: number): SketchEntry {
+    this.#needRaw("ellipse");
+    const [major, minor] = rx >= ry ? [rx, ry] : [ry, rx];
+    const edge = this.raw!.makeEllipseEdge({ x: 0, y: 0, z: 0 }, { x: 0, y: 0, z: 1 }, major, minor) as ShapeHandle;
+    const flat = this.kernel.face(this.kernel.wire([edge]));
+    // The kernel and brepjs put the major radius along X; turn both when ry is the larger one.
+    const face = rx >= ry ? flat : this.kernel.rotate(flat, 90);
+    const drawing = rx >= ry ? B.drawEllipse(major, minor) : B.drawEllipse(major, minor).rotate(90, [0, 0]);
+    return { kind: "sketch", drawing, face, exactFace: true };
+  }
+
   // ---- transforms ---------------------------------------------------------------------
-  /** Apply a 2D transform: as a Drawing op when possible, else to the kernel face. */
+  /**
+   * Apply a 2D transform: as a Drawing op when possible, else to the kernel face. An exact
+   * face (ellipse) is transformed too, so it stays the profile that solids are made from.
+   */
   transform(s: SketchEntry, onDrawing: (d: Drawing) => Drawing, onFace: (f: ShapeHandle) => ShapeHandle): SketchEntry {
+    if (s.drawing && s.exactFace && s.face !== undefined) return { kind: "sketch", drawing: onDrawing(s.drawing), face: onFace(s.face), exactFace: true };
     if (s.drawing) return { kind: "sketch", drawing: onDrawing(s.drawing) };
     return { kind: "sketch", face: onFace(s.face!) };
   }
@@ -117,17 +138,50 @@ export class Sketches {
 
   // ---- drawing-only edits -------------------------------------------------------------
   #drawingOf(s: SketchEntry, op: string): Drawing {
-    if (!s.drawing) throw notImplemented(`sketch.${op} after offset()`);
+    if (!s.drawing) {
+      throw new DslError("DSL_UNSUPPORTED", `sketch.${op} works on drawn profiles, not on the result of offset() or a sketch boolean`, `Apply ${op} to each profile before the boolean or offset, or extrude first and round the vertical edges with fillet(shape, r, { parallel: [0, 0, 1] }).`);
+    }
     return s.drawing;
   }
 
+  /**
+   * 2D booleans run in the kernel, never as brepjs Drawing booleans: brepjs 20.11.1 silently
+   * dropped the tool, or returned overlapping faces, when a profile had curved edges. Each
+   * operand is extruded 1 mm, the solids are combined, and the top face(s), moved back to z = 0,
+   * are the result (a top face faces +Z, so its outer wire runs counter-clockwise, which the
+   * shell fallback's profile offset relies on). Working on solids makes the result independent of each face's orientation (brepjs
+   * draws some profiles facing -Z), which a plain face boolean is not: coplanar faces facing
+   * opposite ways are not merged. The result is a kernel face (or compound of faces), like offset().
+   */
   boolean(op: "add" | "subtract" | "intersect", a: SketchEntry, others: SketchEntry[]): SketchEntry {
-    let d = this.#drawingOf(a, op);
+    this.#needRaw(`sketch.${op}`);
+    let solid = this.kernel.extrude(this.face(a), [0, 0, 1]);
     for (const o of others) {
-      const od = this.#drawingOf(o, op);
-      d = op === "add" ? d.fuse(od) : op === "subtract" ? d.cut(od) : d.intersect(od);
+      const tool = this.kernel.extrude(this.face(o), [0, 0, 1]);
+      const before = this.kernel.volume(solid);
+      const toolArea = this.kernel.volume(tool);
+      const out = op === "add" ? this.kernel.fuse(solid, tool) : op === "subtract" ? this.kernel.cut(solid, tool) : this.kernel.common(solid, tool);
+      // Merge the faces the boolean split along shared outlines, so a union is one region.
+      solid = this.kernel.counts(out).faces === 0 ? out : this.raw!.unifySameDomain(out) as ShapeHandle;
+      this.#checkArea(op, before, toolArea, this.kernel.counts(solid).faces === 0 ? 0 : this.kernel.volume(solid));
     }
-    return { kind: "sketch", drawing: d };
+    // Bounding boxes carry the edges' tolerance (1e-7 for some brepjs profiles), hence 1e-5.
+    const top = this.kernel.faces(solid).filter((f) => f.surface === "plane" && Math.abs(f.bbox.max[2] - 1) < 1e-5 && Math.abs(f.bbox.min[2] - 1) < 1e-5);
+    if (top.length === 0) {
+      throw new DslError("DSL_EMPTY_RESULT", `sketch.${op} left no area`, op === "intersect" ? "The profiles do not overlap: check their positions with bounds()." : "The tool covers the whole profile: make it smaller or move it.");
+    }
+    const all = this.kernel.subShapes(solid, "face");
+    const faces = top.map((f) => all[f.index - 1]!);
+    return { kind: "sketch", face: this.kernel.translate(faces.length === 1 ? faces[0]! : this.kernel.compound(faces), [0, 0, -1]) };
+  }
+
+  /** Area bounds every correct 2D boolean keeps; a result outside them is wrong geometry, not a design. */
+  #checkArea(op: string, a: number, b: number, out: number): void {
+    const tol = 1e-6 * Math.max(1, a, b);
+    const ok = op === "add" ? out >= Math.max(a, b) - tol && out <= a + b + tol
+      : op === "subtract" ? out <= a + tol && out >= a - b - tol
+      : out <= Math.min(a, b) + tol;
+    if (!ok) throw new DslError("DSL_UNSUPPORTED", `sketch.${op} gave an area of ${out.toPrecision(6)} from profiles of ${a.toPrecision(6)} and ${b.toPrecision(6)}, which cannot be right`, "Build the shape in 3D instead: extrude each profile and use union, subtract or intersect on the solids.");
   }
 
   filletCorners(s: SketchEntry, r: number): SketchEntry {

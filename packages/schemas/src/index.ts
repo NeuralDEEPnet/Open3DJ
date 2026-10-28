@@ -26,6 +26,8 @@ export type * from "./types.ts";
 export type { ValidationIssue, ValidationResult, JsonSchema, SchemaObject } from "./validator.ts";
 export { SchemaRegistry } from "./validator.ts";
 export { NotImplementedError } from "./errors.ts";
+export { MAX_NAME_LENGTH, cleanName } from "./names.ts";
+export { redactPaths } from "./redact.ts";
 export type { PackageStatus } from "./errors.ts";
 
 export const PACKAGE_STATUS: PackageStatus = "ready";

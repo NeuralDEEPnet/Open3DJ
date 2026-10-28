@@ -2,13 +2,14 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "urn:open3dj:v0:tool-run-input",
   "title": "run tool input (S1)",
-  "description": "Run a DSL script or apply graph ops, and get a GeometryReport. Give script, ops, or both.",
+  "description": "Run a DSL script or apply ops, and get a GeometryReport. Give script, ops, or both. To change a parameter of the stored script, send ops [{op: \"set_param\", name, value}].",
   "type": "object",
   "properties": {
     "project": {
       "description": "Project folder (.o3j). Created on the first run with a script.",
       "type": "string",
-      "minLength": 1
+      "minLength": 1,
+      "maxLength": 1024
     },
     "base_rev": {
       "description": "The revision this change builds on. A stale base_rev is refused.",
@@ -21,17 +22,24 @@
       "maxLength": 262144
     },
     "params": {
-      "description": "Values for Param.* entries, by name.",
+      "description": "Values for Param.* entries, by name. They are saved as the project's working values (params.o3j.json): later runs of the same script, and set_param, keep them until changed. A script that differs from the project's stored script starts from its own defaults plus these values, and the report warns which stored values it did not use.",
       "type": "object",
+      "maxProperties": 200,
+      "propertyNames": {
+        "minLength": 1,
+        "maxLength": 100
+      },
       "additionalProperties": {
         "type": [
           "number",
           "string",
           "boolean"
-        ]
+        ],
+        "maxLength": 4096
       }
     },
     "ops": {
+      "description": "S1 ops: set_param (re-run the stored script with a new value) and cancel_job (stop a queued run). Assembly edits such as add_occurrence arrive in S2; change the script instead.",
       "type": "array",
       "items": {
         "$ref": "#/$defs/op"
@@ -71,88 +79,20 @@
           "type": "object",
           "properties": {
             "op": {
-              "const": "add_occurrence"
-            },
-            "def": {
-              "type": "string",
-              "minLength": 1
-            },
-            "name": {
-              "type": "string",
-              "minLength": 1
-            },
-            "parent": {
-              "description": "Assembly definition to add to; the root when omitted.",
-              "type": "string"
-            },
-            "transform": {
-              "$ref": "urn:open3dj:v0:common#/$defs/transform"
-            },
-            "fixed": {
-              "type": "boolean"
-            }
-          },
-          "required": [
-            "op",
-            "def"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "op": {
-              "const": "remove"
-            },
-            "target": {
-              "description": "Occurrence path or id.",
-              "type": "string",
-              "minLength": 1
-            }
-          },
-          "required": [
-            "op",
-            "target"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "op": {
-              "const": "set_transform"
-            },
-            "target": {
-              "type": "string",
-              "minLength": 1
-            },
-            "transform": {
-              "$ref": "urn:open3dj:v0:common#/$defs/transform"
-            }
-          },
-          "required": [
-            "op",
-            "target",
-            "transform"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "op": {
               "const": "set_param"
             },
             "name": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "maxLength": 100
             },
             "value": {
               "type": [
                 "number",
                 "string",
                 "boolean"
-              ]
+              ],
+              "maxLength": 4096
             }
           },
           "required": [
@@ -166,33 +106,12 @@
           "type": "object",
           "properties": {
             "op": {
-              "const": "replace_definition"
-            },
-            "target": {
-              "type": "string",
-              "minLength": 1
-            },
-            "def": {
-              "type": "string",
-              "minLength": 1
-            }
-          },
-          "required": [
-            "op",
-            "target",
-            "def"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "op": {
               "const": "cancel_job"
             },
             "job_id": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "maxLength": 100
             }
           },
           "required": [

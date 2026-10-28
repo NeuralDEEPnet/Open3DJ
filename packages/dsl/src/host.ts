@@ -62,9 +62,7 @@ export function hostFunctions(kernel: KernelAdapter, state: RunState, parts: Hos
     },
     circle2d: (r) => put(sketches.drawing(B.drawCircle(pos(r, "circle2d radius")))),
     ellipse: (rx, ry) => {
-      const [a, b] = [pos(rx, "ellipse rx"), pos(ry, "ellipse ry")];
-      // brepjs wants the major radius first; rotate when ry is the larger one.
-      return put(sketches.drawing(a >= b ? B.drawEllipse(a, b) : B.drawEllipse(b, a).rotate(90, [0, 0])));
+      return put(sketches.ellipse(pos(rx, "ellipse rx"), pos(ry, "ellipse ry")));
     },
     ngon: (n, r) => put(sketches.drawing(B.drawPolysides(pos(r, "ngon radius"), int(n, "ngon sides", 3, 1000)))),
     star: (n, R, r) => {
@@ -82,8 +80,9 @@ export function hostFunctions(kernel: KernelAdapter, state: RunState, parts: Hos
     slot: (len, w) => {
       const [l, width] = [pos(len, "slot length"), pos(w, "slot width")];
       if (width > l) throw badArgument(`slot width (${width}) must not exceed its length (${l})`);
-      // A stadium: a rounded rectangle whose corner radius is half the width (a hair less, so the straight sides keep a length).
-      return put(sketches.drawing(B.drawRoundedRectangle(l, width, width / 2 - 1e-6)));
+      // A stadium: a rounded rectangle whose corner radius is exactly half the width. A radius
+      // a hair less left 2e-6 mm sliver faces at the ends, which broke meshes, fillets and shells.
+      return put(sketches.drawing(B.drawRoundedRectangle(l, width, width / 2)));
     },
     polygon: (points) => {
       if (!Array.isArray(points)) throw badArgument("polygon needs a list of [x, y] points");
@@ -113,7 +112,7 @@ export function hostFunctions(kernel: KernelAdapter, state: RunState, parts: Hos
       const height = num(h, "extrude height");
       if (height === 0) throw badArgument("extrude height must not be 0");
       const r = sketches.extrude(sketch(id), height, { twist: optNum(o["twist"], "twist", 0), scaleTop: optNum(o["scaleTop"], "scaleTop", 1) });
-      return solidOf(r.handle, r.prismWire !== undefined ? { prism: { wire: r.prismWire, height, offset: [0, 0, 0] } } : {});
+      return solidOf(r.handle, r.prismWire !== undefined ? { prism: { wire: r.prismWire, height, angle: 0, offset: [0, 0, 0] } } : {});
     },
     skRevolve: (id, deg) => {
       const angle = num(deg, "revolve angle");
@@ -185,7 +184,7 @@ export function hostFunctions(kernel: KernelAdapter, state: RunState, parts: Hos
     withReferences: (id, map) => {
       const e = shape(id);
       const refs = { ...e.refs };
-      for (const [k, v] of Object.entries(obj(map, "references"))) refs[str(k, "reference name", 100)] = vec3(v, `reference ${k}`);
+      for (const [k, v] of Object.entries(obj(map, "references"))) ownSet(refs, str(k, "reference name", 100), vec3(v, `reference ${k}`));
       return put(solids.withMeta(e, { refs }));
     },
     referenceNames: (id) => Object.keys(shape(id).refs),
@@ -201,7 +200,7 @@ export function hostFunctions(kernel: KernelAdapter, state: RunState, parts: Hos
     withConnectors: (id, map) => {
       const e = shape(id);
       const connectors = { ...e.connectors };
-      for (const [k, v] of Object.entries(obj(map, "connectors"))) connectors[str(k, "connector name", 100)] = connectorFrame(k, v);
+      for (const [k, v] of Object.entries(obj(map, "connectors"))) ownSet(connectors, str(k, "connector name", 100), connectorFrame(k, v));
       return put(solids.withMeta(e, { connectors }));
     },
     matchTo: (id, target, m, t) => {
@@ -239,6 +238,11 @@ export function hostFunctions(kernel: KernelAdapter, state: RunState, parts: Hos
 function opName(fn: string): string {
   if (fn.startsWith("sk")) return `sketch.${fn.slice(2, 3).toLowerCase()}${fn.slice(3)}`;
   return fn;
+}
+
+/** Set an own property, also for names like "__proto__" that plain assignment would treat specially. */
+function ownSet<T>(o: Record<string, T>, key: string, value: T): void {
+  Object.defineProperty(o, key, { value, enumerable: true, writable: true, configurable: true });
 }
 
 function connectorFrame(name: string, v: GuestValue): ConnectorFrame {

@@ -42,7 +42,24 @@ export interface ScriptReturn {
   mates: ScriptMate[];
   /** Resolved Param values (declared default or caller override). */
   params: Record<string, ParamValue>;
+  /** Every Param.* declaration in order, with its default, range and unit, for the report and UIs. */
+  paramSpecs?: ParamSpec[];
   warnings: string[];
+}
+
+/** One Param.* declaration as the script made it. */
+export interface ParamSpec {
+  name: string;
+  type: "number" | "bool" | "choice" | "string";
+  default: ParamValue;
+  value: ParamValue;
+  min?: number;
+  max?: number;
+  step?: number;
+  unit?: string;
+  integer?: boolean;
+  options?: ParamValue[];
+  maxLength?: number;
 }
 
 export interface DslOptions {

@@ -1,66 +1,40 @@
-// @open3dj/compute: the compute contract (C5) for S1: DeviceInventory, placement, the CPU
-// worker pool with two lanes, and the job worker that composes sandbox + dsl + assembly +
-// render (COMPUTE.md sections 3 and 4).
+// @open3dj/compute: the compute contract (C5) for S1 (COMPUTE.md sections 3 and 4).
+// - deviceInventory(): node:os facts and engine versions; gpus is empty until GPU discovery lands.
+// - place(): auto and cpu give the cpu.wasm compute block; gpu and cloud throw NO_BACKEND.
+// - createPool(): the CPU worker pool with captured stdout, two lanes, a wall-clock watchdog
+//   and recycling. The kernel loads only inside its workers.
+// - doctor(): the inventory plus quick benchmarks and pool scaling.
 //
-// Intended implementation:
-// - deviceInventory(): node:os only in S1 (cores, arch, RAM); gpus [] and backends ["cpu.wasm"].
-// - place(mode, kind): "auto" and "cpu" give { backend: "cpu.wasm", device: "cpu xN",
-//   placement_reason }; "gpu" and "cloud" throw ComputeError NO_BACKEND naming the missing backend.
-// - createPool(): own pool on worker_threads with stdout: true, stderr: true (piscina cannot
-//   pass these); interactive and batch lanes; wall-clock kill and respawn on timeout; recycle
-//   at recycleBytes, after maxJobsPerWorker, or on a fatal KernelError; re-queue innocent jobs
-//   when a worker dies.
-// - worker.ts: initKernel with a sink to stderr, createDsl, then for each job: checkpoint,
-//   runScript, collect, buildAssembly, computeFits, report, then render or exportArtifacts,
-//   releaseSince. Post plain data back; transfer image and artifact buffers.
-import { NotImplementedError } from "@open3dj/schemas";
-import type { ComputeBlock, ComputeMode, DeviceInventory, PackageStatus } from "@open3dj/schemas";
-import type { ComputeErrorShape, InventoryOptions, JobKind, JobRequest, JobResult, Pool, PoolOptions } from "./types.ts";
+// This entry point loads no kernel, DSL, assembly or render code, so the daemon and the CLI
+// start fast. The job runner itself is at "@open3dj/compute/job" (worker side only).
+import type { PackageStatus } from "@open3dj/schemas";
+import type { JobRequest, JobResult } from "./types.ts";
 
 export type * from "./types.ts";
+export type { DoctorBench, DoctorOptions, DoctorReport, ScalingPoint } from "./doctor.ts";
+export type { JobContext, JobOutcome, JobRunner } from "./job.ts";
 
-export const PACKAGE_STATUS: PackageStatus = "stub";
+export const PACKAGE_STATUS: PackageStatus = "ready";
 
-/** Path of the worker entry, for new Worker(WORKER_ENTRY, { stdout: true, stderr: true }). */
-export const WORKER_ENTRY: URL = new URL("./worker.ts", import.meta.url);
+export { DEFAULT_POOL_OPTIONS, GPU_NOTE, deviceInventory, interactiveReserved, inventoryHash, poolSize, runtimeVersions } from "./inventory.ts";
+export { ComputeError, INLINE_COMPUTE, cpuDevice, place } from "./place.ts";
+export { WORKER_ENTRY, createPool } from "./pool.ts";
+export { BENCH_SCRIPT, doctor } from "./doctor.ts";
 
-export const DEFAULT_POOL_OPTIONS = Object.freeze({
-  recycleBytes: 1.5 * 1024 ** 3,
-  maxJobsPerWorker: 200,
-  jobTimeoutMs: 30_000,
-});
-
-export class ComputeError extends Error implements ComputeErrorShape {
-  readonly code: ComputeErrorShape["code"];
-  constructor(code: ComputeErrorShape["code"], message: string) {
-    super(message);
-    this.name = "ComputeError";
-    this.code = code;
-  }
-}
-
-/** What this machine can run (open3dj doctor, inspect fields=[devices]). */
-export function deviceInventory(options?: InventoryOptions): DeviceInventory {
-  void options;
-  throw new NotImplementedError("compute.deviceInventory");
-}
-
-/** Decide where a job runs and why. Throws ComputeError NO_BACKEND for gpu or cloud in S1. */
-export function place(mode: ComputeMode, kind: JobKind, inventory: DeviceInventory): ComputeBlock {
-  void mode; void kind; void inventory;
-  throw new NotImplementedError("compute.place");
-}
-
-export function createPool(options?: PoolOptions): Pool {
-  void options;
-  throw new NotImplementedError("compute.createPool");
-}
+let inlineChain: Promise<unknown> = Promise.resolve();
 
 /**
  * Run one job in the current thread with a fresh kernel. For tests and the CLI's --inline
- * mode; never call it in the MCP daemon (the kernel prints to stdout).
+ * mode; never call it in the MCP daemon (the kernel prints to stdout without the worker's
+ * capture). Calls are serialised, because the DSL registers brepjs per thread.
  */
-export async function runJobInline(job: JobRequest): Promise<JobResult> {
-  void job;
-  throw new NotImplementedError("compute.runJobInline");
+export function runJobInline(job: JobRequest): Promise<JobResult> {
+  const next = inlineChain.then(async () => {
+    const [{ initKernel }, { createJobRunner }] = await Promise.all([import("@open3dj/kernel"), import("./job.ts")]);
+    const kernel = await initKernel();
+    const { result } = await createJobRunner(kernel).run(job, { workerId: 0, jobs: 1 });
+    return result;
+  });
+  inlineChain = next.catch(() => {});
+  return next;
 }

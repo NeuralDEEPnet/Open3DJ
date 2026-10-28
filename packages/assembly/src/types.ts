@@ -79,7 +79,7 @@ export interface ExportOptions {
   baseName?: string;
   /** root (default), a sub-assembly path or an occurrence path. */
   scope?: string;
-  /** Tessellation chord for STL, glTF and 3MF in mm. Default 0.1. */
+  /** Tessellation chord for STL, glTF and 3MF in mm. Default 0.1, or 1e-4 of the largest part diagonal when that is more. */
   linearDeflection?: number;
   /** Add the <base>.evidence.json sidecar to the artifacts. Default true. */
   evidence?: boolean;

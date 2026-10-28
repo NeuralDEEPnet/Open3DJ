@@ -116,3 +116,12 @@ export function bboxesOverlap(a: BBox, b: BBox, margin = 0): boolean {
   }
   return true;
 }
+
+/**
+ * sRGB colour (what a "#rrggbb" string means) to linear RGB. XCAF's setColor and glTF's
+ * baseColorFactor take linear values; OCCT converts back to sRGB when it writes COLOUR_RGB.
+ */
+export function srgbToLinear(c: readonly [number, number, number]): [number, number, number] {
+  const f = (x: number) => (x <= 0.04045 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4);
+  return [f(c[0]), f(c[1]), f(c[2])];
+}

@@ -6,13 +6,13 @@ Each package is an npm workspace named `@open3dj/<dir>` (the CLI is `open3dj`). 
 |---|---|---|---|
 | `schemas` | ready | v0 JSON Schemas (C1, C4, C5) and their TypeScript types | `validate`, `assertValid`, `dereferencedSchema`, all report and tool types |
 | `kernel` | ready | `KernelAdapter` (C3) on occt-wasm 5.8.1 | `initKernel`, `KernelError`, `withScope`, transform helpers |
-| `sandbox` | stub | QuickJS-WASM boundary for agent scripts | `runScript(source, { params, hostApi, limits })` |
-| `dsl` | stub | DSL v1 (C2) on brepjs 20.11.1 and the kernel | `createDsl(kernel)` returning `hostApi`, `reset`, `collect` |
-| `assembly` | stub | Graph, clone sharing, fits, GeometryReport, exports | `buildAssembly`, `computeFits`, `report`, `exportArtifacts`, `exportFiles` |
-| `render` | stub | Four-view HLR PNG and SVG | `renderAssembly(kernel, asm, { view, targets, format })` |
-| `compute` | stub | DeviceInventory, placement, worker pool, job worker | `deviceInventory`, `place`, `createPool`, `runJobInline`, `WORKER_ENTRY` |
-| `mcp` | stub (tool definitions ready) | Five tool handlers and the dual-era stdio server | `TOOL_DEFINITIONS`, `createHandlers`, `serveStdio`, `guardStdout` |
-| `open3dj` | stub (argument parsing ready) | CLI and daemon entry | `main(argv)`, `parseCommand` |
+| `sandbox` | ready | QuickJS-WASM boundary for agent scripts | `runScript(source, { params, hostApi, limits })` |
+| `dsl` | ready | DSL v1 (C2) on brepjs 20.11.1 and the kernel | `createDsl(kernel)` returning `hostApi`, `reset`, `collect` |
+| `assembly` | ready | Graph, clone sharing, fits, GeometryReport, exports | `buildAssembly`, `computeFits`, `report`, `exportArtifacts`, `exportFiles` |
+| `render` | ready | Four-view HLR PNG and SVG | `renderAssembly(kernel, asm, { view, targets, format })` |
+| `compute` | ready | DeviceInventory, placement, worker pool, job worker | `deviceInventory`, `place`, `createPool`, `doctor`, `runJobInline`; `createJobRunner` from `@open3dj/compute/job` |
+| `mcp` | ready | Five tool handlers and the dual-era stdio server | `TOOL_DEFINITIONS`, `createHandlers`, `serveStdio`, `guardStdout` |
+| `open3dj` | ready | CLI and daemon entry | `main(argv)`, `parseCommand` |
 
 ## How a run flows
 

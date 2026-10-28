@@ -290,13 +290,28 @@ class OcctAdapter implements Kernel {
     positive("fillet", radius);
     if (edges.length === 0) throw new KernelError("BAD_ARGUMENT", "fillet", "fillet: the edge query matched no edges", { hint: "Check the edge selector; inspect the part's edges first." });
     const s = this.asSolid(solid);
-    return this.#checked("fillet", () => this.raw.fillet(s, edges, radius) as ShapeHandle, this.#edgeAddresser(s));
+    return this.#onEdges("fillet", s, edges, () => this.raw.fillet(s, edges, radius) as ShapeHandle);
   }
   chamfer(solid: ShapeHandle, edges: ShapeHandle[], distance: number): ShapeHandle {
     positive("chamfer", distance);
     if (edges.length === 0) throw new KernelError("BAD_ARGUMENT", "chamfer", "chamfer: the edge query matched no edges", { hint: "Check the edge selector; inspect the part's edges first." });
     const s = this.asSolid(solid);
-    return this.#checked("chamfer", () => this.raw.chamfer(s, edges, distance) as ShapeHandle, this.#edgeAddresser(s));
+    return this.#onEdges("chamfer", s, edges, () => this.raw.chamfer(s, edges, distance) as ShapeHandle);
+  }
+
+  // A fillet or chamfer. OCCT names the faulty edges for some failures and none for others;
+  // when it names none, the error lists the edges the call asked for, so it is never empty.
+  #onEdges(op: string, solid: ShapeHandle, edges: ShapeHandle[], fn: () => ShapeHandle): ShapeHandle {
+    const address = this.#edgeAddresser(solid);
+    try {
+      return this.#checked(op, fn, address);
+    } catch (e) {
+      if (!(e instanceof KernelError) || e.elements.length > 0 || e.fatal || e.code === "INVALID_RESULT") throw e;
+      const elements = edges.slice(0, 20).map((h) => address(h as number)).filter((x): x is string => x !== undefined);
+      const detail: ConstructorParameters<typeof KernelError>[3] = { elements, cause: e.cause };
+      if (e.hint !== undefined) detail.hint = e.hint;
+      throw new KernelError(e.code, e.op, `${e.message} (the kernel named no edge; elements lists the ${edges.length} edges asked for)`, detail);
+    }
   }
   shell(solid: ShapeHandle, facesToRemove: ShapeHandle[], thickness: number, tolerance = 1e-6): ShapeHandle {
     finite("shell", thickness, tolerance);

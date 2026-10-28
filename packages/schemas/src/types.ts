@@ -98,11 +98,14 @@ export interface PartReport {
   occurrences?: number;
   valid: boolean;
   volume_mm3: number;
-  area_mm2: number;
+  /** Detailed reports only. */
+  area_mm2?: number;
   mass_g?: number;
   bbox: BBox;
-  center_of_mass: Vec3;
-  counts: { solids: number; faces: number; edges: number };
+  /** Detailed reports only. */
+  center_of_mass?: Vec3;
+  /** Detailed reports give all three; concise ones give solids, and only when it is not 1. */
+  counts?: { solids: number; faces?: number; edges?: number };
   gates?: PartGates;
 }
 
@@ -116,6 +119,8 @@ export interface FitReport {
   volume_mm3?: number;
   distance_mm?: number;
   confidence: Confidence;
+  /** Concise reports: how many identical fits this line stands for (a or b is then a range). */
+  n?: number;
 }
 
 export type RefState = "exact" | "re-resolved" | "disambiguated" | "ambiguous" | "broken";
@@ -226,12 +231,9 @@ export interface ProvenanceLine {
 export type ToolName = "run" | "inspect" | "render" | "export" | "docs";
 export type ParamValue = number | string | boolean;
 
+/** The S1 ops. add_occurrence, remove, set_transform and replace_definition arrive in S2. */
 export type RunOp =
-  | { op: "add_occurrence"; def: string; name?: string; parent?: string; transform?: Transform; fixed?: boolean }
-  | { op: "remove"; target: string }
-  | { op: "set_transform"; target: string; transform: Transform }
   | { op: "set_param"; name: string; value: ParamValue }
-  | { op: "replace_definition"; target: string; def: string }
   | { op: "cancel_job"; job_id: string };
 
 export interface RunInput {
@@ -244,10 +246,13 @@ export interface RunInput {
   detail?: "concise" | "detailed";
 }
 
+/** The report inside a run result: status, rev and compute sit next to it, once. */
+export type RunReport = Omit<GeometryReport, "status" | "rev" | "compute">;
+
 export interface RunOutput {
   status: "ok" | "warning" | "error" | "queued";
   rev?: Rev;
-  report?: GeometryReport;
+  report?: RunReport;
   error?: ScriptError;
   job_id?: string;
   compute: ComputeBlock;
@@ -276,6 +281,8 @@ export interface JobStatus {
   attempts?: Array<{ backend: string; device: string; outcome: "ok" | "failed" | "cancelled" | "fallback"; reason?: string }>;
   reason?: string;
   rev?: Rev;
+  /** A finished run job: the output run would have returned (report, or error with line and hint). */
+  result?: RunOutput;
 }
 
 export interface TreeNode {
@@ -293,6 +300,8 @@ export interface InspectOutput {
   refs?: RefReport[];
   fits?: FitReport[];
   measure?: PartReport[];
+  /** World bounding boxes of the targeted part occurrences (with measure and targets). */
+  placements?: Array<{ path: string; def: string; bbox: BBox }>;
   devices?: DeviceInventory;
   job?: JobStatus;
   error?: ScriptError;
@@ -360,4 +369,6 @@ export interface DocsOutput {
   page: number;
   pages: number;
   hits: DocsHit[];
+  /** A docs call with bad input: the problem, so an empty hit list is not read as "nothing documented". */
+  error?: ScriptError;
 }

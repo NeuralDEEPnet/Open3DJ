@@ -80,10 +80,11 @@ describe("report", () => {
     assert.equal(screw.occurrences, 4);
     const volume = Math.PI * 1.5 ** 2 * 12 + Math.PI * 2.75 ** 2 * 2;
     assert.ok(Math.abs(screw.volume_mm3 - volume) < 1e-3);
-    assert.ok(Math.abs(screw.mass_g! - volume * 0.00124) < 1e-3);
-    assert.match(rep.warnings!.join("\n"), /1\.24 g\/cm3 \(PLA, assumed\)/);
-    // Concise means short: well under 300 tokens of JSON for this assembly (about 4 chars a token).
-    assert.ok(JSON.stringify(rep).length < 2400, `concise report is ${JSON.stringify(rep).length} chars`);
+    assert.match(rep.warnings!.join("\n"), /1\.24 g\/cm3 \(PLA\)/);
+    // Concise means short (the 300-token budget is measured in packages/mcp/src/report-budget.test.ts):
+    // no area, centre of mass or counts for one-solid parts, and the four identical screw clashes on one line.
+    for (const p of rep.parts) assert.deepEqual([p.area_mm2, p.center_of_mass, p.counts], [undefined, undefined, undefined], p.def);
+    assert.deepEqual(rep.fits.filter((f) => f.kind === "clash").map((f) => [f.a, f.b, f.n]), [["lid", "screw#1..4", 4]]);
   });
 
   test("a clean assembly is ok; detailed keeps more digits", () => {
@@ -93,6 +94,9 @@ describe("report", () => {
     assert.equal(rep.status, "ok");
     assert.equal(rep.fits.length, 4);
     assert.deepEqual(rep.next?.slice(0, 2), ["render view=multiview", "export format=step"]);
+    const screw = rep.parts.find((p) => p.def === "screw")!;
+    assert.ok(Math.abs(screw.mass_g! - screw.volume_mm3 * 0.00124) < 1e-6, "detailed parts carry mass, area, centre of mass and counts");
+    assert.ok(screw.area_mm2! > 0 && screw.center_of_mass && screw.counts?.faces);
   });
 
   test("a single part reports one definition and one occurrence", () => {

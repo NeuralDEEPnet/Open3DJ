@@ -10,7 +10,7 @@ Open3DJ was created by Neural Deep Network LTD (https://www.neuraldeep.net).
 
 ## Current phase
 
-**Step 0 and Step 1 build started.** The stack is decided: TypeScript run directly by Node 24 (type stripping, erasable syntax only), npm workspaces under `packages/`, and `node:test`. The first goal is a vertical slice: a DSL script goes in, and a checked assembly, a GeometryReport, a four-view drawing and STEP, STL, glTF and 3MF files come out, through the CLI and the MCP server.
+**Step 1, first vertical slice working.** The stack is decided: TypeScript run directly by Node 24 (type stripping, erasable syntax only), npm workspaces under `packages/`, and `node:test`. A DSL script goes in, and a checked assembly, a GeometryReport, a four-view drawing and STEP, STL, glTF and 3MF files come out, through the CLI and the MCP server. See [docs/GETTING-STARTED.md](docs/GETTING-STARTED.md) and [examples/](examples/README.md).
 
 Do not add a language, framework, build tool or runtime dependency without an accepted issue or RFC. Dependencies are pinned to exact versions and must pass the licence gate.
 
@@ -31,8 +31,11 @@ Do not add a language, framework, build tool or runtime dependency without an ac
 | `docs/INDUSTRIAL-DESIGN.md` | Industrial design pipeline, stage by stage |
 | `docs/research/` | Research reports, dated 2026-10-27. Read `docs/research/README.md` first. The gap notes (`gap-*.md`) override the main reports where they conflict |
 | `docs/research/proposals/` | The three architecture proposals the plan was built from |
+| `docs/GETTING-STARTED.md` | First steps for people and agents: the CLI, connecting MCP clients, the tool loop |
+| `docs/DSL.md` | The DSL reference the `docs` tool searches. Generated: never edit it by hand |
+| `examples/` | Ten small parts and assemblies, each with `expected.json` and `drawing.png`; `scripts/examples.test.ts` runs them all |
 | `packages/` | The code: `schemas`, `kernel`, `sandbox`, `dsl`, `assembly`, `render`, `compute`, `mcp` and `open3dj` (the CLI). Each exports `src/index.ts`; tests sit next to sources as `*.test.ts` |
-| `scripts/` | `check`, the test runner, the stdout-leak gate and the licence gate |
+| `scripts/` | `check`, the test runner, the stdout-leak gate, the licence gate and the examples runner |
 | `.github/workflows/ci.yml` | CI: `npm run check` on Linux x64 and arm64, macOS, Windows x64 and arm64 |
 
 Code follows the layout in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). Do not create new top-level directories that the architecture does not define without an issue.
@@ -49,7 +52,11 @@ Use Node 24 (`.nvmrc`). From the repository root:
 | `npm test` | Every `*.test.ts` with `node:test`; `npm test -- kernel` runs only matching paths |
 | `npm run leak` | Starts the MCP server and fails if any stdout line is not JSON-RPC |
 | `npm run licenses` | Fails on a dependency licence outside the allowlist or an unpinned version |
-| `node packages/open3dj/src/cli.ts help` | The CLI, run from source |
+| `npm run examples` | Runs every example through the CLI in fresh processes, compares with `expected.json` and prints timings |
+| `node scripts/examples.ts --write` | Rewrites `examples/*/expected.json` and `drawing.png`. Only when a change moves the numbers on purpose; explain why in the pull request |
+| `node packages/mcp/src/dsl-docs.ts --check` | Fails if `docs/DSL.md` is stale; `--write` regenerates it from `DSL_ENTRIES` |
+| `npx open3dj help` | The CLI (runs `packages/open3dj/src/cli.ts`). Try `npx open3dj run examples/bracket/bracket.o3j.js` |
+| `npx open3dj mcp --root <dir>` | The MCP server over stdio, as agents start it |
 
 Code rules: erasable TypeScript only (no enums, namespaces, parameter properties or decorators), explicit `.ts` import extensions, and `import type` for types. A package that is declared but not built exports `PACKAGE_STATUS = "stub"`; its behaviour tests skip until it is `"ready"`. Never load the kernel in the MCP or daemon process: it prints to stdout.
 
@@ -132,6 +139,6 @@ This is blameless. The goal is a system where the same mistake cannot happen twi
 - [ ] Evidence attached for geometry changes; sources cited for research
 - [ ] Docs updated in the same pull request
 - [ ] Licenses of anything new checked and stated
-- [ ] No secrets, generated binaries or model weights
+- [ ] No secrets, generated binaries or model weights (one exception: the gallery drawings `examples/*/drawing.png`, regenerated with `npm run examples` and kept small)
 - [ ] Commits signed off by the human operator after review, with a disclosure trailer
 - [ ] Commands and results pasted into the pull request

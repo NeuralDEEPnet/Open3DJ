@@ -1,47 +1,29 @@
 // @open3dj/dsl: DSL v1 (contract C2), a 3dj-compatible modelling surface on the kernel adapter
-// and brepjs 20.11.1, exposed to scripts through the sandbox.
+// and brepjs 20.11.1, exposed to scripts through the sandbox. Ported from the DSL spike
+// (docs/research/spikes/dsl-brepjs/src/dsl.mjs).
 //
-// Intended implementation (port from docs/research/spikes/dsl-brepjs/src/dsl.mjs, 47/47 conformance):
-// - Host side keeps a per-run table guest-id -> ShapeHandle; the guest sees integer ids only.
-// - brepjs shares the worker's kernel: B.registerKernel("occt-wasm", B.OcctWasmAdapter.fromKernel(kernel.raw)).
-//   Booleans, fillet, chamfer and shell go through the KernelAdapter so isValid runs after each.
-// - S1 surface: Param.*, primitives, sketches, batched booleans (fuseAll, cutAll), fillet and
-//   chamfer with edge queries, shell, patterns, named descriptor returns, connector.male/female,
-//   matchTo, attachTo, withReferences, .color(), .name(), lib.bolt, lib.nut, lib.washer, .cutPlane.
-// - Known spike bugs to fix while porting: sketch mirror used the vector as a direction, not
-//   the plane normal; shell and chamfer failed on some inputs (now reported as KernelError).
-// - Kernel failures become ScriptErrors through the sandbox: throw an Error with code
-//   KERNEL_<KernelError.code>, elements and hint.
-import { NotImplementedError } from "@open3dj/schemas";
+// How a run uses it (inside a worker that owns the kernel):
+//   const dsl = createDsl(kernel);          // once per worker
+//   const mark = kernel.checkpoint();
+//   dsl.reset(params);                      // per run
+//   const r = await runScript(source, { hostApi: dsl.hostApi, params, limits });
+//   if (r.ok) { const out = dsl.collect(r.value); ... }
+//   kernel.releaseSince(mark);              // after the parts are exported or measured
+//
+// - The guest sees integer ids only; the host table in RunState maps them to kernel handles.
+// - Booleans, fillet, chamfer, shell, extrude, revolve and loft run through the kernel adapter,
+//   which checks validity after each. Twisted and tapered extrusions use brepjs and are
+//   checked the same way here. Failures reach the script as errors with code KERNEL_<code>,
+//   the faulty elements and a hint; uncaught, they become the run's ScriptError.
+// - Entries not in S1 throw DSL_NOT_IMPLEMENTED with the entry name (see DSL_ENTRIES).
 import type { PackageStatus } from "@open3dj/schemas";
-import type { KernelAdapter } from "@open3dj/kernel";
-import type { Dsl, DslEntry, DslOptions } from "./types.ts";
 
 export type * from "./types.ts";
+export { DslError } from "./errors.ts";
+export { DSL_ENTRIES } from "./entries.ts";
+export { runtimeHint } from "./hints.ts";
+export { DEFAULT_QUERY_TOLERANCE, createDsl } from "./dsl.ts";
+export { FASTENERS } from "./lib.ts";
+export type { FastenerSpec } from "./lib.ts";
 
-export const PACKAGE_STATUS: PackageStatus = "stub";
-
-/** Thrown for DSL misuse that is not a kernel failure, for example a bad return value. */
-export class DslError extends Error {
-  readonly code: string;
-  readonly hint: string | undefined;
-  constructor(code: string, message: string, hint?: string) {
-    super(message);
-    this.name = "DslError";
-    this.code = code;
-    this.hint = hint;
-  }
-}
-
-/** The DSL v1 entries planned for S1, for the docs tool and the conformance checklist. */
-export const DSL_ENTRIES: ReadonlyArray<DslEntry> = [];
-
-/**
- * Bind the DSL to a kernel. The kernel must be the full Kernel from initKernel() when brepjs
- * is used (it needs kernel.raw); the parameter is typed as the adapter so tests can pass fakes.
- */
-export function createDsl(kernel: KernelAdapter, options?: DslOptions): Dsl {
-  void kernel;
-  void options;
-  throw new NotImplementedError("dsl.createDsl");
-}
+export const PACKAGE_STATUS: PackageStatus = "ready";

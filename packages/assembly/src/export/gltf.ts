@@ -5,7 +5,7 @@ import type { Color3 } from "@open3dj/schemas";
 import type { Assembly } from "../types.ts";
 import type { ExportNode, ExportTree } from "../resolve.ts";
 import { nodeColor } from "../resolve.ts";
-import { isIdentity } from "../math.ts";
+import { isIdentity, srgbToLinear } from "../math.ts";
 import type { Mesh } from "./mesh.ts";
 
 const DEFAULT_COLOR: Color3 = [0.7, 0.7, 0.72];
@@ -74,7 +74,7 @@ export function writeGlb(asm: Assembly, tree: ExportTree, meshes: Map<string, Me
     let at = materialIndex.get(key);
     if (at === undefined) {
       at = materials.length;
-      materials.push({ name: `color_${materials.length}`, pbrMetallicRoughness: { baseColorFactor: [...c, 1], metallicFactor: 0, roughnessFactor: 0.6 } });
+      materials.push({ name: `color_${materials.length}`, pbrMetallicRoughness: { baseColorFactor: [...srgbToLinear(c), 1], metallicFactor: 0, roughnessFactor: 0.6 } });
       materialIndex.set(key, at);
     }
     return at;

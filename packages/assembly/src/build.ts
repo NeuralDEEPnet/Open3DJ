@@ -16,6 +16,7 @@ import type { Assembly, AssemblyInstance, BuildOptions } from "./types.ts";
 import { AssemblyError } from "./errors.ts";
 import { bboxDiagonal, bboxSize, compose, invert, isIdentity, rotateVector, tidy, translation } from "./math.ts";
 import { nameBasedId, sha256Hex, toDefId, uniqueId } from "./names.ts";
+import { cleanName } from "@open3dj/schemas";
 
 /** Relative tolerance for "same measures" when matching clones by geometry. */
 const MATCH_REL = 1e-6;
@@ -58,11 +59,12 @@ export function buildAssembly(kernel: KernelAdapter, script: ScriptReturn, optio
   script.parts.forEach((part, index) => {
     const label = describe(part, index);
     const shape = normalizeShape(kernel, part, label);
-    const measure = measureOf(kernel, shape, label);
+    const measure = measureOf(kernel, shape, label, part.line);
     if (measure.counts.solids === 0) {
       warnings.push(`${label} holds no solid (a ${kernel.shapeType(shape)}); its volume, mass and fits are not meaningful.`);
     }
-    const baseName = part.name && part.name.trim() !== "" ? part.name : "part";
+    const cleaned = cleanName(part.name ?? "");
+    const baseName = cleaned !== "" ? cleaned : "part";
 
     if (part.cloneOf !== undefined && part.cloneTransform !== undefined) {
       if (!isUnitQuaternion(part.cloneTransform.q)) {
@@ -73,7 +75,7 @@ export function buildAssembly(kernel: KernelAdapter, script: ScriptReturn, optio
       const existing = cloneDrafts.get(key);
       if (!existing) {
         const defShape = kernel.place(shape, invert(transform));
-        const draft: Draft = { baseName, cloneOf: part.cloneOf, shape: defShape, measure: measureOf(kernel, defShape, label), members: [{ part, index, shape, transform }] };
+        const draft: Draft = { baseName, cloneOf: part.cloneOf, shape: defShape, measure: measureOf(kernel, defShape, label, part.line), members: [{ part, index, shape, transform }] };
         cloneDrafts.set(key, draft);
         drafts.push(draft);
         return;
@@ -146,6 +148,8 @@ function assemble(script: ScriptReturn, drafts: Draft[], warnings: string[], opt
     const occurrences: Occurrence[] = [];
     const counts = new Map<string, number>();
     for (const c of g.children) if (c.kind === "part") counts.set(occName(c.member), (counts.get(occName(c.member)) ?? 0) + 1);
+    // A part named like a sibling sub-assembly gets #n, so the two paths stay distinct.
+    for (const c of g.children) if (c.kind === "group" && counts.has(c.node.occurrenceName)) counts.set(c.node.occurrenceName, 2);
     const seen = new Map<string, number>();
     for (const c of g.children) {
       if (c.kind === "group") {
@@ -204,23 +208,37 @@ function describe(part: ScriptPart, index: number): string {
   return `part '${part.name ?? "part"}' (#${index + 1}${line})`;
 }
 
+const BAD_PART_HINT = "Render the parts before the last operation to see what it does, and check that the script returns solids.";
+
 function normalizeShape(kernel: KernelAdapter, part: ScriptPart, label: string): ShapeHandle {
+  let counts: ReturnType<KernelAdapter["counts"]>;
+  let shape = part.shape;
   try {
     const type = kernel.shapeType(part.shape);
-    if ((type === "compound" || type === "compsolid") && kernel.counts(part.shape).solids === 1) return kernel.asSolid(part.shape);
-    return part.shape;
+    counts = kernel.counts(part.shape);
+    if ((type === "compound" || type === "compsolid") && counts.solids === 1) shape = kernel.asSolid(part.shape);
   } catch (e) {
     const detail = e instanceof KernelError ? e.message : String(e);
-    throw new AssemblyError("BAD_PART", `${label} is not a usable shape: ${detail}`);
+    throw new AssemblyError("BAD_PART", `${label} is not a usable shape: ${detail}`, BAD_PART_HINT, part.line);
   }
+  // A cut that removes everything leaves an empty compound: say so in the script's terms.
+  if (counts.solids === 0 && counts.faces === 0) {
+    throw new AssemblyError(
+      "DSL_EMPTY_RESULT",
+      `${label} has no solid left: the operation that made it removed everything`,
+      "The result has no solid left: check the cutter size and position, or render the parts before the cut.",
+      part.line,
+    );
+  }
+  return shape;
 }
 
-function measureOf(kernel: KernelAdapter, shape: ShapeHandle, label: string): ShapeMeasure {
+function measureOf(kernel: KernelAdapter, shape: ShapeHandle, label: string, line?: number): ShapeMeasure {
   try {
     return kernel.measure(shape);
   } catch (e) {
     const detail = e instanceof KernelError ? e.message : String(e);
-    throw new AssemblyError("BAD_PART", `${label} could not be measured: ${detail}`);
+    throw new AssemblyError("BAD_PART", `${label} could not be measured: ${detail}`, BAD_PART_HINT, line);
   }
 }
 
@@ -314,6 +332,9 @@ function forEachGroup(g: GroupNode, fn: (g: GroupNode) => void): void {
   for (const c of g.children) if (c.kind === "group") forEachGroup(c.node, fn);
 }
 
+/** Most occurrences read from a previous graph (the daemon checks the same bound on load). */
+const MAX_PREVIOUS_OCCURRENCES = 100_000;
+
 function previousOccurrenceIds(previous: AssemblyFile | undefined): Map<string, string> {
   const ids = new Map<string, string>();
   if (!previous) return ids;
@@ -321,6 +342,10 @@ function previousOccurrenceIds(previous: AssemblyFile | undefined): Map<string, 
     const def = previous.definitions[defId];
     if (!def || depth > 32) return;
     for (const o of def.occurrences ?? []) {
+      // The previous graph comes from disk: a definition reused at every level multiplies.
+      if (ids.size >= MAX_PREVIOUS_OCCURRENCES) {
+        throw new AssemblyError("ASSEMBLY_TOO_LARGE", `the previous revision's assembly expands to more than ${MAX_PREVIOUS_OCCURRENCES} occurrences`, "Restore the previous revision from git, or run the script in a fresh project.");
+      }
       const path = prefix + o.name;
       ids.set(path, o.id);
       if (previous.definitions[o.def]?.kind === "assembly") walk(o.def, `${path}/`, depth + 1);

@@ -37,24 +37,46 @@ export function definitionMeshes(kernel: KernelAdapter, asm: Assembly, defs: Ite
   return out;
 }
 
+/** Vertices closer than this (mm, on every axis) are one vertex. 3MF writes 1e-6 mm. */
+export const WELD_TOLERANCE_MM = 1e-5;
+
 /**
- * Merge vertices at identical positions (the tessellator repeats them per face) and drop
- * triangles that collapse, so 3MF gets the shared-vertex mesh its spec asks for.
+ * Merge vertices that sit within WELD_TOLERANCE_MM of each other (the tessellator repeats
+ * them per face, sometimes with noise such as 7e-15 against 1.4e-14) and drop triangles that
+ * collapse, so 3MF gets the shared-vertex, closed mesh its spec asks for. Each vertex looks
+ * in its grid cell and the 26 around it, so two close points are merged even when they
+ * round into neighbouring cells.
  */
-export function weld(mesh: Mesh): { vertices: number[]; triangles: number[] } {
-  const index = new Map<string, number>();
+export function weld(mesh: Mesh, tolerance = WELD_TOLERANCE_MM): { vertices: number[]; triangles: number[] } {
+  const cells = new Map<string, number[]>();
   const vertices: number[] = [];
   const remap = new Uint32Array(mesh.positions.length / 3);
+  const cell = (x: number) => Math.round(x / tolerance);
   for (let i = 0; i < remap.length; i++) {
     const x = mesh.positions[i * 3]!;
     const y = mesh.positions[i * 3 + 1]!;
     const z = mesh.positions[i * 3 + 2]!;
-    const key = `${x},${y},${z}`;
-    let at = index.get(key);
+    const [cx, cy, cz] = [cell(x), cell(y), cell(z)];
+    let at: number | undefined;
+    for (let dx = -1; dx <= 1 && at === undefined; dx++) {
+      for (let dy = -1; dy <= 1 && at === undefined; dy++) {
+        for (let dz = -1; dz <= 1 && at === undefined; dz++) {
+          for (const v of cells.get(`${cx + dx},${cy + dy},${cz + dz}`) ?? []) {
+            if (Math.abs(vertices[v * 3]! - x) <= tolerance && Math.abs(vertices[v * 3 + 1]! - y) <= tolerance && Math.abs(vertices[v * 3 + 2]! - z) <= tolerance) {
+              at = v;
+              break;
+            }
+          }
+        }
+      }
+    }
     if (at === undefined) {
       at = vertices.length / 3;
-      index.set(key, at);
       vertices.push(x, y, z);
+      const key = `${cx},${cy},${cz}`;
+      const list = cells.get(key);
+      if (list) list.push(at);
+      else cells.set(key, [at]);
     }
     remap[i] = at;
   }
@@ -66,4 +88,34 @@ export function weld(mesh: Mesh): { vertices: number[]; triangles: number[] } {
     if (a !== b && b !== c && a !== c) triangles.push(a, b, c);
   }
   return { vertices, triangles };
+}
+
+/**
+ * Edges of a welded mesh that are not shared by exactly two triangles. A closed solid has
+ * none; a crack (a dropped sliver face) or an open shell has some. The 3MF core spec requires
+ * manifold meshes, and slicers repair or reject the rest.
+ */
+export function openEdgeCount(welded: { triangles: number[] }): number {
+  const uses = new Map<number, number>();
+  const t = welded.triangles;
+  const n = t.length / 3 + 3;
+  for (let i = 0; i + 2 < t.length; i += 3) {
+    for (const [a, b] of [[t[i]!, t[i + 1]!], [t[i + 1]!, t[i + 2]!], [t[i + 2]!, t[i]!]] as const) {
+      const key = a < b ? a * n * 3 + b : b * n * 3 + a;
+      uses.set(key, (uses.get(key) ?? 0) + 1);
+    }
+  }
+  let open = 0;
+  for (const count of uses.values()) if (count !== 2) open++;
+  return open;
+}
+
+/** One warning per definition whose mesh has open or non-manifold edges. */
+export function manifoldWarnings(meshes: Map<string, Mesh>, label: (def: string) => string): string[] {
+  const out: string[] = [];
+  for (const [def, mesh] of meshes) {
+    const open = openEdgeCount(weld(mesh));
+    if (open > 0) out.push(`definition '${label(def)}': the mesh has ${open} open or non-manifold edges, so it is not watertight; slicers may report or repair it. Check the part for sliver faces or open shells.`);
+  }
+  return out;
 }

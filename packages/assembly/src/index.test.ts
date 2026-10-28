@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { initKernel } from "@open3dj/kernel";
 import type { Kernel } from "@open3dj/kernel";
 import { validate } from "@open3dj/schemas";
+import type { AssemblyFile } from "@open3dj/schemas";
 import { AssemblyError, DEFAULT_FIT_OPTIONS, PACKAGE_STATUS, buildAssembly, computeFits, exportArtifacts, report, resolveTargets } from "./index.ts";
 import { enclosure } from "./fixtures.ts";
 
@@ -132,6 +133,19 @@ describe("buildAssembly", () => {
     const next = buildAssembly(kernel, enclosure(kernel), { previous: edited });
     assert.equal(next.instances[1]!.id, "0193ab00-0000-7000-8000-000000000001");
     assert.equal(next.instances[0]!.id, first.instances[0]!.id);
+  });
+
+  // Regression (review round 2): a previous graph that reuses a definition at every level
+  // expanded exponentially in the worker (JOB_TIMEOUT on every run of the project).
+  test("a previous graph that expands past the occurrence cap is ASSEMBLY_TOO_LARGE, fast", () => {
+    const definitions: Record<string, unknown> = { leaf: { kind: "script", name: "leaf" } };
+    for (let i = 0; i < 20; i++) {
+      definitions[`d${i}`] = { kind: "assembly", name: `d${i}`, occurrences: [0, 1, 2, 3].map((j) => ({ id: `00000000-0000-8000-8000-${String(i * 4 + j).padStart(12, "0")}`, name: `o${j}`, def: i < 19 ? `d${i + 1}` : "leaf", transform: { t: [0, 0, 0], q: [0, 0, 0, 1] } })) };
+    }
+    const previous = { o3j: "0", root: "d0", definitions, mates: [] } as unknown as AssemblyFile;
+    const t = Date.now();
+    assert.throws(() => buildAssembly(kernel, enclosure(kernel), { previous }), (e: unknown) => e instanceof AssemblyError && e.code === "ASSEMBLY_TOO_LARGE");
+    assert.ok(Date.now() - t < 5_000, `took ${Date.now() - t} ms`);
   });
 
   test("empty returns and bad shapes are refused with an AssemblyError", () => {

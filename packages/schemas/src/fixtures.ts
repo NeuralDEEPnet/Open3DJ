@@ -86,9 +86,7 @@ export const runIn: RunInput = { project: "bracket.o3j", script: "return box(10,
 export const runInOps: RunInput = {
   project: "bracket.o3j", base_rev: "r_2",
   ops: [
-    { op: "add_occurrence", def: "screw", transform: { t: [1, 2, 3], q: [0, 0, 0, 1] } },
     { op: "set_param", name: "width", value: 12 },
-    { op: "remove", target: "screw#2" },
     { op: "cancel_job", job_id: "j_01" },
   ],
 };
@@ -137,7 +135,7 @@ const with_ = <T>(v: T, f: (x: T) => void): T => {
 /** [schema, value, JSON Pointer of the expected error, why] */
 export const INVALID: Array<[SchemaName, unknown, string, string]> = [
   ["geometry-report", with_(report, (r) => { (r as unknown as Record<string, unknown>).status = "fine"; }), "/status", "status outside the enum"],
-  ["geometry-report", with_(report, (r) => { delete (r as Partial<GeometryReport>).compute; }), "", "compute block missing"],
+  ["geometry-report", with_(report, (r) => { delete (r as Partial<GeometryReport>).assembly; }), "", "assembly block missing"],
   ["geometry-report", with_(report, (r) => { (r.parts[0] as unknown as Record<string, unknown>).volume = 1; }), "/parts/0/volume", "unknown property (typo of volume_mm3)"],
   ["geometry-report", with_(report, (r) => { r.parts[0]!.bbox.min = [0, 0] as unknown as [number, number, number]; }), "/parts/0/bbox/min", "vec3 with two numbers"],
   ["geometry-report", with_(report, (r) => { (r.fits[0] as unknown as Record<string, unknown>).kind = "overlap"; }), "/fits/0/kind", "fit kind outside clash, contact, clearance"],
@@ -156,7 +154,8 @@ export const INVALID: Array<[SchemaName, unknown, string, string]> = [
   ["assembly", with_(assembly, (a) => { (a.definitions.base as unknown as Record<string, unknown>).kind = "part"; }), "/definitions/base/kind", "unknown definition kind"],
   ["tool-run-input", { project: "p.o3j" }, "", "neither script nor ops"],
   ["tool-run-input", { project: "p.o3j", ops: [{ op: "explode" }] }, "/ops/0/op", "op not in the S1 subset"],
-  ["tool-run-input", { project: "p.o3j", ops: [{ op: "set_transform", target: "a#1" }] }, "/ops/0", "set_transform without transform"],
+  ["tool-run-input", { project: "p.o3j", ops: [{ op: "set_transform", target: "a#1", transform: { t: [0, 0, 0], q: [0, 0, 0, 1] } }] }, "/ops/0", "set_transform is an S2 op"],
+  ["tool-run-input", { project: "p.o3j", script: "x", params: { s: "y".repeat(4097) } }, "/params/s", "param strings are bounded"],
   ["tool-run-input", { project: "p.o3j", script: "x", compute: "quantum" }, "/compute", "unknown compute mode"],
   ["tool-inspect-input", { fields: ["dof"] }, "/fields/0", "dof is an S4 field"],
   ["tool-inspect-input", { fields: [] }, "/fields", "at least one field"],

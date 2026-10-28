@@ -17,7 +17,8 @@
     "typecheck": "tsc -p tsconfig.json",
     "test": "node scripts/test.ts",
     "leak": "node scripts/leak-gate.ts",
-    "licenses": "node scripts/license-gate.ts"
+    "licenses": "node scripts/license-gate.ts",
+    "examples": "node scripts/examples.ts"
   },
   "devDependencies": {
     "@modelcontextprotocol/client": "2.4.0",

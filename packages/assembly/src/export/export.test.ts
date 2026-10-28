@@ -6,12 +6,15 @@ import { join } from "node:path";
 import { unzipSync } from "fflate";
 import { initKernel, matrixFromTransform } from "@open3dj/kernel";
 import type { Kernel } from "@open3dj/kernel";
+import { cleanName } from "@open3dj/schemas";
 import type { Quaternion } from "@open3dj/schemas";
 import { AssemblyError, buildAssembly, exportArtifacts, exportFiles, writeArtifacts, xcafLocation } from "../index.ts";
 import type { ExportArtifact } from "../index.ts";
 import { enclosure } from "../fixtures.ts";
 import { sha256Hex } from "../names.ts";
 import { threeMfTransform } from "./threemf.ts";
+import { openEdgeCount, weld } from "./mesh.ts";
+import type { Mesh } from "./mesh.ts";
 
 let kernel: Kernel;
 let dir: string;
@@ -56,6 +59,60 @@ describe("STEP", () => {
     assert.deepEqual([b.min, b.max].flat().map((x) => Number(x.toFixed(6)) + 0), [0, 0, 0, 80, 60, 34]);
   });
 
+  // Regression (review round 2): the solids of a multi-solid part were written with no names.
+  test("each solid of a multi-solid part is named '<part> body n' in STEP", () => {
+    const two = kernel.compound([kernel.box(5, 5, 5), kernel.translate(kernel.box(5, 5, 5), [10, 0, 0])]);
+    const asm = buildAssembly(kernel, { parts: [{ name: "pair", shape: two }, { name: "single", shape: kernel.translate(kernel.box(2, 2, 2), [0, 20, 0]) }], mates: [], params: {}, warnings: [] }, { rootName: "multi" });
+    const [step] = exportArtifacts(kernel, asm, ["step"], { evidence: false });
+    const doc = kernel.raw.importXCAFFromSTEP(text(step));
+    try {
+      const [root] = doc.getRoots();
+      const pair = doc.getChildren(root!).find((c) => doc.getLabelInfo(c).name === "pair")!;
+      const ref = doc.getReferredLabel(pair)!;
+      assert.equal(doc.getLabelInfo(ref).name, "pair");
+      const inner = doc.getChildren(ref);
+      assert.equal(inner.length, 2);
+      assert.deepEqual(inner.map((c) => doc.getLabelInfo(c).name), ["pair body 1", "pair body 2"]);
+      assert.deepEqual(inner.map((c) => doc.getLabelInfo(doc.getReferredLabel(c) ?? c).name), ["pair body 1", "pair body 2"]);
+    } finally {
+      doc.close();
+    }
+    assert.doesNotMatch(text(step), /PRODUCT\('(SOLID)?'/);
+  });
+
+  // Regression (review round 2): names reached STEP as double-encoded UTF-8, a literal \\X2\\
+  // in a name was read as an encoding directive, and control characters made 3MF invalid XML.
+  test("hostile part names round-trip through STEP and 3MF", () => {
+    const hostile = "it's \"q\" a\\b \\X2\\0041\\X0\\ é ü 日本 😀 <x>&\u0001\u0007\n\u0085end";
+    const clean = "it's \"q\" a\\b \\X2\\0041\\X0\\ é ü 日本 😀 <x>&end";
+    const asm = buildAssembly(kernel, { parts: [{ name: hostile, shape: kernel.box(1, 1, 1) }], mates: [], params: {}, warnings: [] }, { rootName: "names" });
+    const [step, mf] = exportArtifacts(kernel, asm, ["step", "3mf"], { evidence: false });
+    assert.ok([...step!.bytes].every((b) => b >= 0x0a && b < 0x80), "the STEP file is plain ASCII");
+    const doc = kernel.raw.importXCAFFromSTEP(text(step));
+    try {
+      const [root] = doc.getRoots();
+      const [child] = doc.getChildren(root!);
+      // The instance carries the occurrence name (an id); the definition carries the display name.
+      assert.equal(doc.getLabelInfo(child!).name, asm.file.definitions[asm.file.root]!.occurrences![0]!.name);
+      assert.equal(doc.getLabelInfo(doc.getReferredLabel(child!)!).name, clean);
+    } finally {
+      doc.close();
+    }
+    const model = new TextDecoder().decode(unzipSync(mf!.bytes)["3D/3dmodel.model"]);
+    assert.doesNotMatch(model, /[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f-\u009f]/, "no characters XML 1.0 forbids");
+    const attr = /<object [^>]*name="([^"]*)"/.exec(model)![1]!;
+    const decoded = attr.replace(/&quot;/g, '"').replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
+    assert.equal(decoded, clean);
+  });
+
+  test("cleanName drops control characters, trims and caps the length", () => {
+    assert.equal(cleanName("  a\u0000b\tc\u009fd  "), "abcd");
+    assert.equal(cleanName("x".repeat(300)).length, 200);
+    // A cap never splits a surrogate pair.
+    assert.equal(cleanName(`${"x".repeat(199)}😀`), "x".repeat(199));
+    assert.equal(cleanName("\u0001"), "");
+  });
+
   test("rotations survive the Euler conversion at the XCAF boundary", () => {
     const q = (x: number, y: number, z: number, w: number): Quaternion => {
       const n = Math.hypot(x, y, z, w);
@@ -95,6 +152,81 @@ describe("STEP", () => {
   });
 });
 
+/**
+ * A revolved dome whose arc is centred off the axis (x = 0.5), as path().arcTo(0, 18, -40)
+ * makes it, or on the axis when onAxis is set. Sketch X is world X, sketch Y is world Z.
+ */
+function dome(onAxis: boolean) {
+  const p = (x: number, z: number): [number, number, number] => [x, 0, z];
+  const start = [13, 16] as const;
+  const end = [0, 18] as const;
+  let mid: [number, number];
+  if (onAxis) {
+    // The circle through start and end with its centre on the axis.
+    const zc = (start[0] ** 2 + start[1] ** 2 - end[1] ** 2) / (2 * (start[1] - end[1]));
+    const r = end[1] - zc;
+    const a = (Math.atan2(start[1] - zc, start[0]) + Math.PI / 2) / 2;
+    mid = [r * Math.cos(a), zc + r * Math.sin(a)];
+  } else {
+    const r = 40;
+    const m = [(start[0] + end[0]) / 2, (start[1] + end[1]) / 2];
+    const d = [end[0] - start[0], end[1] - start[1]];
+    const len = Math.hypot(d[0]!, d[1]!);
+    const right = [d[1]! / len, -d[0]! / len];
+    const sag = r - Math.sqrt(r * r - (len / 2) ** 2);
+    mid = [m[0]! + sag * right[0]!, m[1]! + sag * right[1]!];
+  }
+  const wire = kernel.wire([
+    kernel.lineEdge(p(0, 0), p(13, 0)),
+    kernel.lineEdge(p(13, 0), p(13, 16)),
+    kernel.arcEdge(p(13, 16), p(mid[0], mid[1]), p(0, 18)),
+    kernel.lineEdge(p(0, 18), p(0, 0)),
+  ]);
+  const solid = kernel.revolve(kernel.face(wire), { origin: [0, 0, 0], dir: [0, 0, 1] }, 360);
+  return buildAssembly(kernel, { parts: [{ name: "knob", shape: solid }], mates: [], params: {}, warnings: [] });
+}
+
+describe("STEP round trip", () => {
+  // Regression (review round 1): a dome whose meridian meets the axis at an angle is valid in
+  // the kernel, but its STEP face cannot be rebuilt on import (area 0, solid invalid, 15 %
+  // of the volume missing). The export must say so instead of writing a broken file.
+  test("a STEP file that does not re-import as the same solids is an error that names the face", () => {
+    const asm = dome(false);
+    assert.ok(kernel.isValid(asm.shapes.get("knob")!));
+    assert.throws(() => exportArtifacts(kernel, asm, ["step"], { evidence: false }), (e: unknown) => {
+      assert.ok(e instanceof AssemblyError, String(e));
+      assert.equal(e.code, "STEP_ROUNDTRIP_FAILED");
+      assert.match(e.message, /knob/);
+      assert.match(e.message, /face:\d+/);
+      assert.match(e.hint ?? "", /axis/);
+      return true;
+    });
+  });
+
+  test("a dome centred on the axis round-trips", () => {
+    const [step] = exportArtifacts(kernel, dome(true), ["step"], { evidence: false });
+    const back = kernel.importStep(text(step));
+    assert.ok(kernel.isValid(back));
+  });
+
+  // Regression (review round 1): sRGB hex colours went to XCAF unconverted. OCCT treats the
+  // input as linear and writes sRGB, so every colour came out lighter.
+  test("STEP COLOUR_RGB values are the sRGB colours the script gave", () => {
+    const asm = buildAssembly(kernel, {
+      parts: [{ name: "base", shape: kernel.box(10, 10, 10), color: [0x5b / 255, 0x6b / 255, 0x7a / 255] }],
+      mates: [],
+      params: {},
+      warnings: [],
+    });
+    const [step] = exportArtifacts(kernel, asm, ["step"], { evidence: false });
+    const colours = [...text(step).matchAll(/COLOUR_RGB\('[^']*',([-\d.Ee]+),([-\d.Ee]+),([-\d.Ee]+)\)/g)].map((m) => [m[1], m[2], m[3]].map(Number));
+    assert.ok(colours.length > 0, "a colour is written");
+    for (const c of colours) {
+      assert.deepEqual(c.map((x) => Math.round(x * 255)), [0x5b, 0x6b, 0x7a], JSON.stringify(c));
+    }
+  });
+});
+
 describe("STL, GLB and 3MF", () => {
   test("STL is binary, one file for the assembly plus one per definition", () => {
     const asm = buildAssembly(kernel, enclosure(kernel), { rootName: "enclosure" });
@@ -120,6 +252,18 @@ describe("STL, GLB and 3MF", () => {
     assert.equal(new Set(json.nodes.slice(3).map((n) => n.mesh)).size, 1);
     assert.deepEqual(json.nodes[4]!.translation, [74, 6, 20]);
     assert.ok(json.accessors[0]!.min);
+  });
+
+  // Regression (review round 1): baseColorFactor is linear in glTF; sRGB was written as is.
+  test("GLB baseColorFactor is the linear form of the sRGB colour", () => {
+    const asm = buildAssembly(kernel, { parts: [{ name: "base", shape: kernel.box(10, 10, 10), color: [0x5b / 255, 0x6b / 255, 0x7a / 255] }], mates: [], params: {}, warnings: [] });
+    const [glb] = exportArtifacts(kernel, asm, ["gltf"], { evidence: false });
+    const jsonLength = new DataView(glb!.bytes.buffer, glb!.bytes.byteOffset).getUint32(12, true);
+    const json = JSON.parse(new TextDecoder().decode(glb!.bytes.subarray(20, 20 + jsonLength))) as { materials: Array<{ pbrMetallicRoughness: { baseColorFactor: number[] } }> };
+    const toSrgb = (x: number) => (x <= 0.0031308 ? 12.92 * x : 1.055 * x ** (1 / 2.4) - 0.055);
+    const factor = json.materials[0]!.pbrMetallicRoughness.baseColorFactor;
+    assert.deepEqual(factor.slice(0, 3).map((x) => Math.round(toSrgb(x) * 255)), [0x5b, 0x6b, 0x7a]);
+    assert.ok(factor[0]! < 0.2, `linear red of #5b is about 0.104, got ${factor[0]}`);
   });
 
   test("3MF is a zip with a millimetre model, mesh objects and build items with transforms", () => {
@@ -152,6 +296,31 @@ describe("STL, GLB and 3MF", () => {
       }
     }
     assert.ok(edges.size > 0 && [...edges.values()].every((n) => n === 2), "screw mesh is watertight");
+  });
+
+  // Regression (review round 2): meshes with open edges (slot slivers) were written with no warning.
+  test("openEdgeCount counts edges not shared by exactly two triangles", () => {
+    const tetra: Mesh = {
+      positions: Float32Array.from([0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1]),
+      normals: new Float32Array(12),
+      indices: Uint32Array.from([0, 2, 1, 0, 1, 3, 1, 2, 3, 0, 3, 2]),
+    };
+    assert.equal(openEdgeCount(weld(tetra)), 0);
+    const open: Mesh = { ...tetra, indices: Uint32Array.from([0, 2, 1, 0, 1, 3]) };
+    assert.equal(openEdgeCount(weld(open)), 4);
+    // Tessellator noise (7.5e-15 against 1.4e-14 on the phone-stand example) is welded away.
+    const noisy: Mesh = { ...tetra, positions: Float32Array.from([0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1e-7, 0, 0]), indices: Uint32Array.from([0, 2, 1, 4, 1, 3, 1, 2, 3, 0, 3, 2]) };
+    assert.equal(openEdgeCount(weld(noisy)), 0);
+  });
+
+  test("STL, GLB and 3MF of a mesh with open edges carry a warning that names the definition", () => {
+    const tube = kernel.extrude(kernel.polygon([[0, 0, 0], [10, 0, 0], [10, 10, 0], [0, 10, 0]]), [0, 0, 5]);
+    const asm = buildAssembly(kernel, { parts: [{ name: "tube", shape: tube }], mates: [], params: {}, warnings: [] });
+    const files = exportArtifacts(kernel, asm, ["stl", "gltf", "3mf"], { evidence: false });
+    assert.equal(files.length, 3);
+    for (const f of files) assert.ok((f.warnings ?? []).some((w) => /'tube'.*8 open or non-manifold edges/.test(w)), `${f.name}: ${JSON.stringify(f.warnings)}`);
+    const closed = exportArtifacts(kernel, buildAssembly(kernel, enclosure(kernel), { rootName: "enclosure" }), ["stl", "gltf", "3mf"], { evidence: false });
+    for (const f of closed) assert.ok(!(f.warnings ?? []).some((w) => /non-manifold/.test(w)), `${f.name}: ${JSON.stringify(f.warnings)}`);
   });
 
   test("3MF transforms use the row-vector layout", () => {

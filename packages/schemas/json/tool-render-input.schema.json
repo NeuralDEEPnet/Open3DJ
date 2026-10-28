@@ -4,13 +4,14 @@
   "title": "render tool input (S1)",
   "type": "object",
   "properties": {
-    "project": { "type": "string", "minLength": 1 },
+    "project": { "type": "string", "minLength": 1, "maxLength": 1024 },
     "rev": { "$ref": "urn:open3dj:v0:common#/$defs/rev" },
     "view": { "enum": ["multiview"] },
     "targets": {
       "description": "Occurrence paths or definition ids. The whole assembly when omitted.",
       "type": "array",
-      "items": { "type": "string", "minLength": 1 }
+      "maxItems": 200,
+      "items": { "type": "string", "minLength": 1, "maxLength": 1024 }
     },
     "format": { "enum": ["png", "svg", "both"] },
     "width": { "type": "integer", "minimum": 64, "maximum": 4096 },

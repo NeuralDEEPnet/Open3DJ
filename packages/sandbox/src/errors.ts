@@ -68,11 +68,12 @@ export function scriptErrorFromGuest(dumped: unknown, filename: string, state: {
   const name = typeof e.name === "string" ? e.name : "";
   const message = cap(e.message ?? "");
   let code: string;
-  if (typeof e.code === "string" && CODE.test(e.code)) code = e.code;
   // Once the interrupt handler fired, the run ended because of it, whatever was thrown last
-  // (a getter on a thrown object can be the code that got interrupted).
-  else if (state.cancelled) code = "SCRIPT_CANCELLED";
+  // (a getter on a thrown object can be the code that got interrupted, and a script that
+  // swallowed the interrupt must not choose its own error code).
+  if (state.cancelled) code = "SCRIPT_CANCELLED";
   else if (state.interrupted) code = "SCRIPT_TIMEOUT";
+  else if (typeof e.code === "string" && CODE.test(e.code)) code = e.code;
   else if (/out of memory/i.test(message)) code = "SCRIPT_MEMORY";
   else if (/stack overflow|call stack size/i.test(message)) code = "SCRIPT_STACK";
   else if (name === "SyntaxError") code = "SCRIPT_SYNTAX";
@@ -89,6 +90,7 @@ export function scriptErrorFromGuest(dumped: unknown, filename: string, state: {
   if (Array.isArray(e.elements)) out.elements = e.elements.filter((x): x is string => typeof x === "string" && x.length > 0).slice(0, 50).map((x) => cap(x, 100));
   if (typeof e.hint === "string" && e.hint.length > 0) out.hint = cap(e.hint, 500);
   else if (code === "SCRIPT_TIMEOUT") out.hint = "The script ran past its time limit. Look for an endless loop, or build fewer shapes.";
+  else if (code === "SCRIPT_SYNTAX") out.hint = "Fix the syntax at this line and column (a missing bracket, comma or quote is the usual cause). Scripts are plain JavaScript without import or require.";
   else if (code === "SCRIPT_MEMORY") out.hint = "The script ran out of memory. Avoid huge arrays and strings.";
   else if (code === "SCRIPT_STACK") out.hint = "The script recursed too deeply. Use a loop instead of recursion.";
   return out;

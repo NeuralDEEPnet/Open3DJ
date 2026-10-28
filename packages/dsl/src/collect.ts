@@ -1,6 +1,7 @@
 // Turning the run's result value (what the prelude's __finish returned) into parts and mates.
+import { cleanName } from "@open3dj/schemas";
 import type { Connector } from "@open3dj/schemas";
-import type { KernelAdapter } from "@open3dj/kernel";
+import type { KernelAdapter, ShapeHandle } from "@open3dj/kernel";
 import type { GuestValue } from "@open3dj/sandbox";
 import { DslError } from "./errors.ts";
 import { parseColor } from "./math.ts";
@@ -35,6 +36,35 @@ function connectorsOf(e: SolidEntry): Connector[] | undefined {
   return list.length ? list : undefined;
 }
 
+/** Most solids in one part that are checked pair by pair for overlap (n^2 booleans). */
+const OVERLAP_CHECK_MAX_SOLIDS = 32;
+
+/**
+ * The first pair of solids in shape that share volume (1-based indices), or undefined. Solids
+ * that only touch share no volume. Pairs whose boxes do not overlap are skipped without a boolean.
+ */
+export function overlappingSolids(kernel: KernelAdapter, shape: ShapeHandle): { a: number; b: number; volume: number } | undefined {
+  const solids = kernel.subShapes(shape, "solid");
+  if (solids.length < 2 || solids.length > OVERLAP_CHECK_MAX_SOLIDS) return undefined;
+  const boxes = solids.map((s) => kernel.bbox(s));
+  const mark = kernel.checkpoint();
+  try {
+    for (let i = 0; i < solids.length; i++) {
+      for (let j = i + 1; j < solids.length; j++) {
+        const [p, q] = [boxes[i]!, boxes[j]!];
+        if ([0, 1, 2].some((k) => p.max[k]! <= q.min[k]! || q.max[k]! <= p.min[k]!)) continue;
+        const volume = kernel.volume(kernel.common(solids[i]!, solids[j]!));
+        // Relative to the smaller solid, so tolerance-sized slivers at touching faces do not count.
+        const scale = Math.min(kernel.volume(solids[i]!), kernel.volume(solids[j]!));
+        if (volume > 1e-6 * Math.max(1, scale)) return { a: i + 1, b: j + 1, volume };
+      }
+    }
+    return undefined;
+  } finally {
+    kernel.releaseSince(mark);
+  }
+}
+
 export function collect(kernel: KernelAdapter, state: RunState, value: GuestValue): ScriptReturn {
   const returned = readParts(value);
   const entries = returned.map((r) => ({ r, e: state.shape(r.id, "returned part") }));
@@ -44,7 +74,8 @@ export function collect(kernel: KernelAdapter, state: RunState, value: GuestValu
   for (const { e } of entries) if (e.lineage) lineageCount.set(e.lineage.id, (lineageCount.get(e.lineage.id) ?? 0) + 1);
 
   const parts: ScriptPart[] = entries.map(({ r, e }) => {
-    const part: ScriptPart = { name: (r.name ?? e.name ?? r.key ?? "part").slice(0, 200), shape: e.handle };
+    // Names are script text: drop control characters once here, so mates, reports and every export agree.
+    const part: ScriptPart = { name: cleanName(r.name ?? e.name ?? r.key ?? "part") || "part", shape: e.handle };
     if (r.color !== null) {
       const c = parseColor(r.color);
       if (c) part.color = c;
@@ -60,6 +91,12 @@ export function collect(kernel: KernelAdapter, state: RunState, value: GuestValu
     if (connectors) part.connectors = connectors;
     if (e.line !== undefined) part.line = e.line;
     const solidsCount = kernel.counts(e.handle).solids;
+    if (solidsCount > 1) {
+      const hit = overlappingSolids(kernel, e.handle);
+      if (hit) {
+        throw new DslError("DSL_OVERLAPPING_SOLIDS", `part ${part.name} has ${solidsCount} solids, and solids ${hit.a} and ${hit.b} overlap by ${hit.volume.toPrecision(4)} mm3; its volume would be counted twice`, "Union the pieces into one solid (a.union(b)), or return them as separate parts.");
+      }
+    }
     if (solidsCount !== 1) state.warn(`part ${part.name} has ${solidsCount} solids, not 1; check that its pieces touch`);
     return part;
   });

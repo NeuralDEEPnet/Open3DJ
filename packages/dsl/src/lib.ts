@@ -6,7 +6,7 @@ import type { Vec3 } from "@open3dj/schemas";
 import type { KernelAdapter, ShapeHandle } from "@open3dj/kernel";
 import type { GuestValue } from "@open3dj/sandbox";
 import { DslError, badArgument } from "./errors.ts";
-import { nonNeg, obj, optNum, pos, str } from "./state.ts";
+import { nonNeg, obj, pos, str } from "./state.ts";
 import type { ConnectorFrame } from "./state.ts";
 
 export interface FastenerSpec {
@@ -155,4 +155,4 @@ export class Library {
   }
 }
 
-export { optNum };
+

@@ -6,6 +6,7 @@
 import { performance } from "node:perf_hooks";
 import { DefaultIntrinsics } from "quickjs-emscripten-core";
 import type { QuickJSContext, QuickJSHandle, QuickJSRuntime } from "quickjs-emscripten-core";
+import { redactPaths as redactAll } from "@open3dj/schemas";
 import type { ScriptError } from "@open3dj/schemas";
 import { BRIDGE, FILES, HARDEN, RANDOM, SEAL, wrapUserSource } from "./guest.ts";
 import { cap, hostError, scriptErrorFromGuest, StickyFault, userSite } from "./errors.ts";
@@ -30,6 +31,8 @@ const MAX_ARGS_DEPTH = 16;
 const MAX_LOGS = 200;
 const MAX_LOG_CHARS = 2000;
 const CODE = /^[A-Z][A-Z0-9_]*$/;
+const TIMEOUT_MESSAGE = "The script was interrupted: it ran past its CPU time limit";
+const TIMEOUT_HINT = "The script ran past its time limit. Look for an endless loop, or build fewer shapes.";
 
 /** Check and complete the limits. Bad limits are a host bug, so this throws. */
 export function resolveLimits(limits: SandboxLimits = {}): Required<SandboxLimits> {
@@ -50,9 +53,9 @@ export function resolveLimits(limits: SandboxLimits = {}): Required<SandboxLimit
   return L;
 }
 
-/** Replace absolute file paths and file URLs in a host message. */
+/** Replace absolute file paths and file URLs in a host message (also paths with spaces). */
 export function redactPaths(message: string): string {
-  return message.replace(/(?:file:\/\/)?(?:[A-Za-z]:)?(?:[\\/][\w.@~+-]+){2,}/g, "<path>");
+  return redactAll(message);
 }
 
 function dropUndefined<T extends object>(o: T): Partial<T> {
@@ -129,11 +132,16 @@ class Run {
     rt.setMaxStackSize(L.stackBytes);
     rt.setInterruptHandler(() => {
       if (!this.armed) return false; // setup code is trusted and short
+      // An interrupt that lands inside an async function only rejects its promise, and a loop
+      // that keeps calling one would run on. With no memory left, every further call fails at
+      // once, so the next interrupt check lands in the loop itself and ends it.
       if (options.signal?.aborted) {
+        if (!this.cancelled) rt.setMemoryLimit(1);
         this.cancelled = true;
         return true;
       }
       if (Date.now() > this.deadline) {
+        if (!this.interrupted) rt.setMemoryLimit(1);
         this.interrupted = true;
         return true;
       }
@@ -210,6 +218,11 @@ class Run {
     const fail = (code: string, message: string, extra: Record<string, unknown> = {}) => reply({ e: { code, message: cap(message, 1000), ...extra } });
     if (this.sticky) return fail(this.sticky.error.code, this.sticky.error.message);
     const site = userSite(ctx.typeof(siteH) === "string" ? ctx.getString(siteH) : "", this.filename) ?? {};
+    // The timeout and the cancel are sticky: once the interrupt handler fired, nothing more
+    // runs on the host, even when the guest swallowed the interrupt (an async function turns
+    // it into a rejected promise).
+    if (this.cancelled) return this.stick(new StickyFault("SCRIPT_CANCELLED", "The script was cancelled"), site, fail);
+    if (this.interrupted) return this.stick(new StickyFault("SCRIPT_TIMEOUT", TIMEOUT_MESSAGE, TIMEOUT_HINT), site, fail);
     if (this.options.signal?.aborted) {
       this.cancelled = true;
       return this.stick(new StickyFault("SCRIPT_CANCELLED", "The script was cancelled"), site, fail);
@@ -230,7 +243,10 @@ class Run {
     }
     if (!Array.isArray(args)) return fail("HOST_ERROR", `${name}: arguments are not a list`);
     const bad = this.checkArgs(name, args, 0);
-    if (bad) return fail("SCRIPT_LIMIT", bad);
+    if (bad) {
+      const hint = bad.includes("batch limit") ? `Split the list into calls of at most ${L.maxBatch} items, for example union(a.slice(0, ${L.maxBatch})) and then union the results.` : undefined;
+      return fail("SCRIPT_LIMIT", bad, hint ? { hint } : {});
+    }
 
     const started = performance.now();
     try {
@@ -285,7 +301,7 @@ class Run {
   }
 
   hostLog(levelH: QuickJSHandle, messageH: QuickJSHandle): void {
-    if (this.logs.length >= MAX_LOGS) return;
+    if (this.logs.length >= MAX_LOGS || this.interrupted || this.cancelled) return;
     const level = this.ctx.typeof(levelH) === "string" ? this.ctx.getString(levelH) : "log";
     const message = this.ctx.typeof(messageH) === "string" ? this.ctx.getString(messageH) : "";
     this.logs.push({ level: level === "warn" || level === "error" ? level : "log", message: cap(message, MAX_LOG_CHARS) });
@@ -308,9 +324,12 @@ class Run {
       const ran = ctx.callFunction(compiled.value, ctx.undefined);
       if (ran.error) return this.guestFailure(ran.error);
       this.owned.push(ran.value);
+      // A run the interrupt handler stopped has failed, even if the guest caught the interrupt.
+      if (this.cancelled || this.interrupted) return this.interruptFailure();
       const sealed = ctx.callFunction(this.seal!, ctx.undefined, ran.value);
       if (sealed.error) return this.guestFailure(sealed.error);
       this.owned.push(sealed.value);
+      if (this.cancelled || this.interrupted) return this.interruptFailure();
       if (this.sticky) return this.stickyFailure();
       const type = ctx.typeof(sealed.value);
       if (type === "undefined") {
@@ -329,6 +348,11 @@ class Run {
       this.deadline = Infinity;
       this.execEnd = performance.now();
     }
+  }
+
+  interruptFailure(): Outcome {
+    if (this.sticky && (this.sticky.error.code === "SCRIPT_TIMEOUT" || this.sticky.error.code === "SCRIPT_CANCELLED")) return this.stickyFailure();
+    return { ok: false, error: this.cancelled ? hostError("SCRIPT_CANCELLED", "The script was cancelled") : hostError("SCRIPT_TIMEOUT", TIMEOUT_MESSAGE, TIMEOUT_HINT) };
   }
 
   stickyFailure(): Outcome {
@@ -409,7 +433,7 @@ class Run {
       return hostError("SCRIPT_STACK", "The script recursed too deeply", "Use a loop instead of recursion, or run the sandbox in a worker with a larger stack.");
     }
     if (/memory|Cannot enlarge/i.test(message)) return hostError("SCRIPT_MEMORY", "The script ran out of memory");
-    if (this.interrupted) return hostError("SCRIPT_TIMEOUT", "The script was interrupted: it ran past its CPU time limit");
+    if (this.interrupted) return hostError("SCRIPT_TIMEOUT", TIMEOUT_MESSAGE, TIMEOUT_HINT);
     return hostError("HOST_ERROR", `The script engine failed: ${cap(message, 300)}`);
   }
 

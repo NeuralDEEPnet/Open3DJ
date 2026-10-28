@@ -6,6 +6,9 @@ import type { ShapeHandle } from "@open3dj/kernel";
 import type { Drawing } from "brepjs";
 import type { GuestValue } from "@open3dj/sandbox";
 import { DslError, badArgument } from "./errors.ts";
+import type { ParamSpec } from "./types.ts";
+
+export type { ParamSpec };
 
 /** A connector frame as the DSL stores it (3dj names: axis and up). */
 export interface ConnectorFrame {
@@ -17,10 +20,16 @@ export interface ConnectorFrame {
 }
 
 /** A straight extrusion of a planar profile, kept so shell() can fall back to a profile offset. */
+/**
+ * A straight extrusion along +Z, kept so shell() can fall back to a profile offset. Its
+ * placement is: turn the profile by `angle` degrees about the Z axis, then move by `offset`.
+ * Translations and rotations about Z keep it; any other change drops it.
+ */
 export interface Prism {
-  /** Outer wire of the profile at z = 0, before `offset`. */
+  /** Outer wire of the profile at z = 0, before the placement. */
   wire: ShapeHandle;
   height: number;
+  angle: number;
   offset: Vec3;
 }
 
@@ -45,24 +54,15 @@ export interface SketchEntry {
   drawing?: Drawing;
   /** Kernel face(s) of the profile at z = 0 (a face, or a compound of faces). */
   face?: ShapeHandle;
+  /**
+   * The face is exact and the drawing only approximates it (ellipse): solids and measures
+   * use the face, and transforms update both.
+   */
+  exactFace?: boolean;
   line?: number;
 }
 
 export type Entry = SolidEntry | SketchEntry;
-
-export interface ParamSpec {
-  name: string;
-  type: "number" | "bool" | "choice" | "string";
-  default: ParamValue;
-  value: ParamValue;
-  min?: number;
-  max?: number;
-  step?: number;
-  unit?: string;
-  integer?: boolean;
-  options?: ParamValue[];
-  maxLength?: number;
-}
 
 export interface PendingMate {
   movingBody: number;

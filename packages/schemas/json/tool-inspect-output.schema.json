@@ -35,6 +35,33 @@
       "type": "array",
       "items": {
         "$ref": "urn:open3dj:v0:geometry-report#/$defs/part"
+      },
+      "description": "Per definition, in the definition's own coordinates (detailed by default; detail concise rounds to 3 digits and leaves out area, centre of mass and counts). placements gives where each targeted occurrence sits."
+    },
+    "placements": {
+      "description": "With measure and targets: each targeted part occurrence and its world bounding box (exact for moved parts, an enclosing box for rotated ones).",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "def": {
+            "type": "string",
+            "minLength": 1
+          },
+          "bbox": {
+            "$ref": "urn:open3dj:v0:common#/$defs/bbox"
+          }
+        },
+        "required": [
+          "path",
+          "def",
+          "bbox"
+        ],
+        "additionalProperties": false
       }
     },
     "devices": {
@@ -173,6 +200,10 @@
         },
         "rev": {
           "$ref": "urn:open3dj:v0:common#/$defs/rev"
+        },
+        "result": {
+          "description": "For a run job that has finished: the output run would have returned, with the concise report on success or the error with its line, column and hint on failure.",
+          "$ref": "urn:open3dj:v0:tool-run-output"
         }
       },
       "required": [

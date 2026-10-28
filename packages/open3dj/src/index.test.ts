@@ -1,30 +1,39 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
+import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { fileURLToPath } from "node:url";
+import { Client } from "@modelcontextprotocol/client";
+import { StdioClientTransport } from "@modelcontextprotocol/client/stdio";
 import { validate } from "@open3dj/schemas";
-import { PACKAGE_STATUS, defaultProject, main, parseCommand, parseParams } from "./index.ts";
+import { EXIT, PACKAGE_STATUS, defaultProject, main, parseCommand, parseParams } from "./index.ts";
 
 const capture = () => {
   const out: string[] = [];
   const err: string[] = [];
-  return { io: { out: (t: string) => void out.push(t), err: (t: string) => void err.push(t) }, out, err };
+  return { io: { out: (t: string) => void out.push(t), err: (t: string) => void err.push(t) }, out, err, text: () => out.join(""), errText: () => err.join("") };
 };
 
+const tmp = (prefix: string) => mkdtempSync(join(tmpdir(), prefix));
+
 test("help and version print to the io, never fail", async () => {
+  assert.equal(PACKAGE_STATUS, "ready");
   const c = capture();
   assert.equal(await main(["help"], c.io), 0);
-  assert.match(c.out.join(""), /open3dj run <script\.o3j\.js>/);
+  assert.match(c.text(), /open3dj run <script\.o3j\.js\|project\.o3j>/);
+  assert.match(c.text(), /Exit codes: 0 ok/);
   const v = capture();
   assert.equal(await main(["--version"], v.io), 0);
-  assert.match(v.out.join(""), /^\d+\.\d+\.\d+/);
+  assert.match(v.text(), /^\d+\.\d+\.\d+/);
 });
 
-test("usage errors exit 2 with a message", async () => {
-  const c = capture();
-  assert.equal(await main(["frobnicate"], c.io), 2);
-  assert.match(c.err.join(""), /unknown command/);
-  const e = capture();
-  assert.equal(await main(["export"], e.io), 2);
-  assert.match(e.err.join(""), /--format/);
+test("usage errors exit 3 with a message", async () => {
+  for (const [argv, msg] of [[["frobnicate"], /unknown command/], [["export", "x.o3j"], /--format/], [["run"], /needs a script/], [["render", "part.step"], /neither a script/], [["inspect", "--fields", "colours"], /fields/], [["new", "x", "--template", "nope"], /template/]] as const) {
+    const c = capture();
+    assert.equal(await main([...argv], c.io), EXIT.usage, argv.join(" "));
+    assert.match(c.errText(), msg);
+  }
 });
 
 test("arguments become valid tool inputs (CLI parity)", () => {
@@ -32,20 +41,123 @@ test("arguments become valid tool inputs (CLI parity)", () => {
   assert.equal(run.cmd, "run");
   if (run.cmd === "run") {
     assert.equal(run.input.project, "parts/bracket.o3j");
+    assert.deepEqual(run.source, { kind: "script", path: "parts/bracket.o3j.js", project: "parts/bracket.o3j" });
     assert.deepEqual(run.input.params, { width: 40, label: "A", solid: true });
     assert.ok(validate("tool-run-input", { ...run.input, script: "return box(1,1,1)" }).valid);
   }
-  for (const argv of [["inspect", "--fields", "tree,devices"], ["render", "-p", "x.o3j"], ["export", "-f", "step", "-p", "x.o3j"], ["docs", "fillet", "edges"]]) {
+  const proj = parseCommand(["run", "parts/bracket.o3j/"]).command;
+  assert.ok(proj.cmd === "run" && proj.source.kind === "project" && proj.source.project === "parts/bracket.o3j");
+  for (const argv of [["inspect", "--fields", "tree,devices"], ["inspect", "x.o3j", "--fields", "measure", "--targets", "lid,screw#2"], ["render", "x.o3j"], ["export", "-f", "step", "x.o3j"], ["docs", "fillet", "edges"]]) {
     const c = parseCommand(argv).command;
     assert.ok("input" in c);
     if ("input" in c) assert.ok(validate(`tool-${c.cmd}-input`, c.input).valid, argv.join(" "));
   }
+  const render = parseCommand(["render", "x.o3j", "--out", "drawing.svg"]).command;
+  assert.ok(render.cmd === "render" && render.input.format === "svg" && render.out === "drawing.svg");
+  const glb = parseCommand(["export", "x.o3j.js", "--format", "glb"]).command;
+  assert.ok(glb.cmd === "export" && glb.input.format === "gltf" && glb.source.kind === "script");
+  assert.deepEqual(parseCommand(["mcp", "--root", "/work"]).command, { cmd: "mcp", root: "/work" });
+  assert.deepEqual(parseCommand(["mcp", "--workers", "2"]).command, { cmd: "mcp", workers: 2 });
+  assert.throws(() => parseCommand(["mcp", "--workers", "0"]), /at least 1/);
+  assert.deepEqual(parseCommand(["new", "box", "-t", "assembly"]).command, { cmd: "new", name: "box", template: "assembly" });
   assert.deepEqual(parseParams(["n=1e3", "s=", "neg=-2"]), { n: 1000, s: "", neg: -2 });
   assert.equal(defaultProject("C:\\work\\lid.o3j.js"), "C:/work/lid.o3j");
 });
 
-test("commands report not implemented while the CLI is a stub", { skip: PACKAGE_STATUS === "stub" ? false : "implemented" }, async () => {
+test("the CLI tool schema dump equals tools/list of the MCP server", async () => {
   const c = capture();
-  assert.equal(await main(["doctor"], c.io), 1);
-  assert.match(c.err.join(""), /not implemented/);
+  assert.equal(await main(["tools"], c.io), 0);
+  const dumped = (JSON.parse(c.text()) as { tools: unknown[] }).tools;
+  const root = tmp("o3j-parity-");
+  const server = fileURLToPath(new URL("../../mcp/src/testing-server.ts", import.meta.url));
+  const client = new Client({ name: "parity", version: "0" });
+  await client.connect(new StdioClientTransport({ command: process.execPath, args: [server, root], cwd: root, stderr: "ignore" }));
+  try {
+    const listed = (await client.listTools()).tools.map((t) => ({ name: t.name, title: t.title, description: t.description, inputSchema: t.inputSchema, outputSchema: t.outputSchema, annotations: t.annotations }));
+    assert.deepEqual(JSON.parse(JSON.stringify(listed)), dumped);
+  } finally {
+    await client.close();
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("docs prints hits for people", async () => {
+  const c = capture();
+  assert.equal(await main(["docs", "shell"], c.io), 0);
+  assert.match(c.text(), /## shell {2}\[dsl\]/);
+  const j = capture();
+  assert.equal(await main(["docs", "REV_CONFLICT", "--json"], j.io), 0);
+  assert.equal((JSON.parse(j.text()) as { hits: Array<{ kind: string }> }).hits[0]?.kind, "error");
+});
+
+test("end to end on the real pool: new, run, render, export, inspect, and the exit codes", async () => {
+  const dir = tmp("o3j-cli-");
+  try {
+    const project = join(dir, "bracket.o3j");
+    const c0 = capture();
+    assert.equal(await main(["new", project], c0.io), 0, c0.errText());
+    assert.ok(existsSync(join(project, "main.o3j.js")));
+    assert.equal(await main(["new", project], capture().io), EXIT.usage, "new refuses an existing project");
+
+    const run = capture();
+    assert.equal(await main(["run", project, "--json"], run.io), 0, run.errText() + run.text());
+    const out = JSON.parse(run.text()) as { status: string; rev: string; report: { parts: Array<{ def: string; valid: boolean }> } };
+    assert.equal(out.status, "ok");
+    assert.equal(out.rev, "r_0001");
+    assert.deepEqual(out.report.parts.map((p) => [p.def, p.valid]), [["bracket", true]]);
+
+    const wider = capture();
+    assert.equal(await main(["run", project, "--param", "Width=80", "--base-rev", "r_0001"], wider.io), 0, wider.errText());
+    assert.match(wider.text(), /^ok {2}r_0002/);
+    assert.match(wider.text(), /bracket +valid/);
+
+    const stale = capture();
+    assert.equal(await main(["run", project, "--base-rev", "r_0001", "--param", "Width=90"], stale.io), EXIT.error);
+    assert.match(stale.text(), /error REV_CONFLICT/);
+
+    const png = join(dir, "bracket.png");
+    const render = capture();
+    assert.equal(await main(["render", project, "--out", png], render.io), 0, render.errText());
+    assert.equal(readFileSync(png).subarray(1, 4).toString(), "PNG");
+    assert.match(render.text(), /out\/r_0002\/multiview\.png/);
+
+    const exp = capture();
+    assert.equal(await main(["export", project, "--format", "3mf", "--out", join(dir, "exports")], exp.io), 0, exp.errText());
+    assert.ok(existsSync(join(dir, "exports", "bracket.3mf")));
+    assert.ok(existsSync(join(dir, "exports", "bracket.evidence.json")));
+
+    // Regression (review round 1): --param on a project source was ignored and the old
+    // revision was exported. It now runs the project with the values first.
+    const param = capture();
+    assert.equal(await main(["export", project, "--format", "step", "--param", "Width=60", "--json"], param.io), 0, param.errText());
+    assert.equal((JSON.parse(param.text()) as { rev: string }).rev, "r_0003");
+    assert.ok(existsSync(join(project, "revisions", "r_0003.json")));
+    assert.equal((JSON.parse(readFileSync(join(project, "revisions", "r_0003.json"), "utf8")) as { params: { Width: number } }).params.Width, 60);
+
+    const ins = capture();
+    assert.equal(await main(["inspect", project, "--fields", "tree,measure", "--json"], ins.io), 0, ins.errText());
+    const inspected = JSON.parse(ins.text()) as { rev: string; tree: Array<{ path: string }>; measure: Array<{ volume_mm3: number }> };
+    assert.equal(inspected.rev, "r_0003");
+    assert.deepEqual(inspected.tree.map((t) => t.path), ["bracket"]);
+    assert.ok(inspected.measure[0]!.volume_mm3 > 0);
+
+    // A script file keeps its project next to it; a broken script exits 2 with file and line.
+    const script = join(dir, "broken.o3j.js");
+    writeFileSync(script, "const a = box(10, 10, 10);\nreturn a.fillett(1);\n");
+    const broken = capture();
+    assert.equal(await main(["run", script], broken.io), EXIT.error);
+    assert.match(broken.text(), /error SCRIPT_RUNTIME at .*broken\.o3j\.js:2/);
+
+    const asm = join(dir, "enclosure.o3j");
+    assert.equal(await main(["new", asm, "--template", "assembly"], capture().io), 0);
+    const asmRun = capture();
+    assert.equal(await main(["run", asm, "--json"], asmRun.io), 0, asmRun.errText());
+    const asmOut = JSON.parse(asmRun.text()) as { status: string; report: { assembly: { occurrences: number; definitions: number }; fits: Array<{ kind: string }> } };
+    assert.equal(asmOut.status, "ok");
+    assert.equal(asmOut.report.assembly.occurrences, 6);
+    assert.equal(asmOut.report.assembly.definitions, 3, "four screw clones share one definition");
+    assert.ok(!asmOut.report.fits.some((f) => f.kind === "clash"), "the template has no clashes");
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
 });

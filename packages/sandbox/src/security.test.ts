@@ -40,6 +40,23 @@ const CASES: Case[] = [
   { id: "cpu-redos-regex", code: "/(a+)+$/.test('a'.repeat(40) + 'b'); " + OK, expect: ["SCRIPT_TIMEOUT"] },
   { id: "cpu-sort-comparator-loop", code: "[3,2,1].sort(() => { while (true) {} });", expect: ["SCRIPT_TIMEOUT"] },
   { id: "cpu-getter-on-thrown-error", code: "throw { get message() { while (true) {} }, get name() { while (true) {} } };", expect: ["SCRIPT_TIMEOUT"] },
+  // Regression (review round 2): an interrupt inside an async function became a rejected
+  // promise, so a synchronous loop that kept calling one ran on past cpuMs and returned ok.
+  {
+    id: "cpu-async-shield",
+    code: "const burn = async () => { let x = 0; for (let i = 0; i < 200000; i++) x += i; return x; }; for (let k = 0; k < 20000; k++) burn(); " + OK,
+    expect: ["SCRIPT_TIMEOUT"],
+    check: (r) => assert.ok(r.stats.cpuMs < 5 * FAST_LIMITS.cpuMs + 1000, `cpuMs ${r.stats.cpuMs}`),
+  },
+  {
+    id: "cpu-async-shield-caught",
+    code: "const burn = async () => { let x = 0; for (let i = 0; i < 200000; i++) x += i; return x; }; for (let k = 0; k < 300000; k++) { try { burn(); } catch (e) {} } " + OK,
+    expect: ["SCRIPT_TIMEOUT"],
+    check: (r) => assert.ok(r.stats.cpuMs < 5 * FAST_LIMITS.cpuMs + 1000, `cpuMs ${r.stats.cpuMs}`),
+  },
+  { id: "cpu-async-infinite", code: "async function f() { while (true) {} } f(); " + OK, expect: ["SCRIPT_TIMEOUT"] },
+  { id: "cpu-async-then-host-call", code: "async function f() { while (true) {} } f(); box(1, 1, 1); box(2, 2, 2); " + OK, expect: ["SCRIPT_TIMEOUT"] },
+  { id: "cpu-timeout-then-throw-own-code", code: "async function f() { while (true) {} } f(); throw { code: 'MY_CODE', message: 'x' };", expect: ["SCRIPT_TIMEOUT"] },
   { id: "cpu-microtask-flood-not-drained", code: "Promise.resolve().then(function f() { return Promise.resolve().then(f); }); " + OK, expect: ["ok"] },
   // ---- memory ----
   { id: "mem-array-1e9", code: "const a = new Array(1e9).fill(0); " + OK, expect: ["SCRIPT_MEMORY", "SCRIPT_RUNTIME", "SCRIPT_TIMEOUT"] },
@@ -132,7 +149,14 @@ const CASES: Case[] = [
   { id: "host-call-budget", code: "for (let i = 0; i < 100000; i++) box(1, 1, 1);", limits: { cpuMs: 10_000 }, expect: ["SCRIPT_LIMIT"] },
   { id: "host-call-budget-swallowed", code: "try { for (let i = 0; i < 100000; i++) box(1, 1, 1); } catch (e) {} " + OK, limits: { cpuMs: 10_000 }, expect: ["SCRIPT_LIMIT"] },
   { id: "host-handle-budget", code: "for (let i = 0; i < 200; i++) box(1, 1, 1);", limits: { maxHandles: 100 }, expect: ["SCRIPT_LIMIT"] },
-  { id: "host-batch-cap", code: "return union(Array.from({ length: 2000 }, (_, i) => box(1, 1, 1)));", limits: { cpuMs: 10_000 }, expect: ["SCRIPT_LIMIT"] },
+  {
+    id: "host-batch-cap",
+    code: "return union(Array.from({ length: 2000 }, (_, i) => box(1, 1, 1)));",
+    limits: { cpuMs: 10_000 },
+    expect: ["SCRIPT_LIMIT"],
+    // Regression (review round 2): the batch-limit error had no hint, and the playbook said to batch more.
+    check: (r) => assert.match(!r.ok ? r.error.hint ?? "" : "", /split the list into calls of at most 1000 items/i),
+  },
   { id: "host-long-string", code: "report('x'.repeat(1e5)); " + OK, expect: ["SCRIPT_LIMIT"] },
   // ---- output ----
   { id: "result-too-large", code: "const b = box(1, 1, 1); return Array.from({ length: 3000 }, () => ({ name: 'x'.repeat(100), shape: b }));", expect: ["SCRIPT_RESULT_TOO_LARGE"] },

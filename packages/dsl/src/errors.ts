@@ -25,7 +25,7 @@ export const notImplemented = (entry: string) =>
 
 /** Hints for kernel failures as the DSL user sees them (the kernel's hints name kernel terms). */
 const HINTS: Partial<Record<string, string>> = {
-  SHELL_FAILED: "shell failed: try a smaller thickness, or shell before adding fillets (keep corner radii larger than the wall).",
+  SHELL_FAILED: "shell failed: try a smaller thickness, or shell before adding fillets (keep corner radii larger than the wall). The fallback for straight extrusions needs the extrusion upright (only moved or turned about Z): shell before rotating it any other way.",
   FILLET_FAILED: "fillet failed: try a smaller radius, or fillet fewer edges at once (narrow the edge query).",
   CHAMFER_FAILED: "chamfer failed: try a smaller size, or chamfer fewer edges at once (narrow the edge query).",
   BOOLEAN_FAILED: "the boolean failed: make tools overlap the body clearly and avoid coincident faces (offset by 0.01 mm).",
@@ -44,7 +44,17 @@ export function guard<T>(op: string, fn: () => T): T {
     return fn();
   } catch (e) {
     if (e instanceof KernelError) throw fromKernelError(e, op);
-    if (e instanceof RangeError) throw new DslError("DSL_BAD_ARGUMENT", `${op}: ${e.message}`);
+    if (e instanceof RangeError) throw new DslError("DSL_BAD_ARGUMENT", `${op}: ${e.message}`, docsHint(op));
+    // A bad argument without its own hint points at the entry's docs.
+    if (e instanceof DslError && e.code === "DSL_BAD_ARGUMENT" && e.hint === undefined) {
+      const detail: { op?: string; elements?: string[] } = { op: e.op ?? op };
+      if (e.elements) detail.elements = e.elements;
+      throw new DslError(e.code, e.message, docsHint(op), detail);
+    }
     throw e;
   }
+}
+
+function docsHint(op: string): string {
+  return `Check the arguments of ${op}: docs {query: "${op}"} gives its signature and an example. Sizes are positive millimetres, angles are degrees.`;
 }
