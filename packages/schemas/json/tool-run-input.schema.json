@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:open3dj:v0:tool-run-input",
+  "title": "run tool input (S1)",
+  "description": "Run a DSL script or apply graph ops, and get a GeometryReport. Give script, ops, or both.",
+  "type": "object",
+  "properties": {
+    "project": { "description": "Project folder (.o3j). Created on the first run with a script.", "type": "string", "minLength": 1 },
+    "base_rev": { "description": "The revision this change builds on. A stale base_rev is refused.", "$ref": "urn:open3dj:v0:common#/$defs/rev" },
+    "script": { "description": "DSL source (JavaScript, 3dj dialect).", "type": "string", "minLength": 1, "maxLength": 262144 },
+    "params": {
+      "description": "Values for Param.* entries, by name.",
+      "type": "object",
+      "additionalProperties": { "type": ["number", "string", "boolean"] }
+    },
+    "ops": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/op" },
+      "maxItems": 500
+    },
+    "compute": { "$ref": "urn:open3dj:v0:common#/$defs/computeMode" },
+    "detail": { "enum": ["concise", "detailed"] }
+  },
+  "required": ["project"],
+  "anyOf": [{ "required": ["script"] }, { "required": ["ops"] }],
+  "additionalProperties": false,
+  "$defs": {
+    "op": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "op": { "const": "add_occurrence" },
+            "def": { "type": "string", "minLength": 1 },
+            "name": { "type": "string", "minLength": 1 },
+            "parent": { "description": "Assembly definition to add to; the root when omitted.", "type": "string" },
+            "transform": { "$ref": "urn:open3dj:v0:common#/$defs/transform" },
+            "fixed": { "type": "boolean" }
+          },
+          "required": ["op", "def"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "op": { "const": "remove" },
+            "target": { "description": "Occurrence path or id.", "type": "string", "minLength": 1 }
+          },
+          "required": ["op", "target"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "op": { "const": "set_transform" },
+            "target": { "type": "string", "minLength": 1 },
+            "transform": { "$ref": "urn:open3dj:v0:common#/$defs/transform" }
+          },
+          "required": ["op", "target", "transform"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "op": { "const": "set_param" },
+            "name": { "type": "string", "minLength": 1 },
+            "value": { "type": ["number", "string", "boolean"] }
+          },
+          "required": ["op", "name", "value"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "op": { "const": "replace_definition" },
+            "target": { "type": "string", "minLength": 1 },
+            "def": { "type": "string", "minLength": 1 }
+          },
+          "required": ["op", "target", "def"],
+          "additionalProperties": false
+        }
+      ]
+    }
+  }
+}

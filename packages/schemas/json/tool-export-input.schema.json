@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:open3dj:v0:tool-export-input",
+  "title": "export tool input (S1)",
+  "type": "object",
+  "properties": {
+    "project": { "type": "string", "minLength": 1 },
+    "rev": { "$ref": "urn:open3dj:v0:common#/$defs/rev" },
+    "format": { "enum": ["step", "stl", "gltf", "3mf"] },
+    "scope": { "description": "root, a sub-assembly path or an occurrence path.", "type": "string", "minLength": 1 },
+    "out_dir": { "description": "Relative to the project folder. Defaults to out/<rev>.", "type": "string", "minLength": 1 },
+    "compute": { "$ref": "urn:open3dj:v0:common#/$defs/computeMode" }
+  },
+  "required": ["project", "format"],
+  "additionalProperties": false
+}

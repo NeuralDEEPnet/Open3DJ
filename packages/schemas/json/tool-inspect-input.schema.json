@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:open3dj:v0:tool-inspect-input",
+  "title": "inspect tool input (S1)",
+  "type": "object",
+  "properties": {
+    "project": { "type": "string", "minLength": 1 },
+    "rev": { "$ref": "urn:open3dj:v0:common#/$defs/rev" },
+    "fields": {
+      "type": "array",
+      "items": { "enum": ["tree", "refs", "fits", "measure", "devices"] },
+      "minItems": 1
+    },
+    "targets": {
+      "description": "Occurrence paths or definition ids for measure.",
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "detail": { "enum": ["concise", "detailed"] },
+    "compute": { "$ref": "urn:open3dj:v0:common#/$defs/computeMode" }
+  },
+  "required": ["fields"],
+  "additionalProperties": false
+}

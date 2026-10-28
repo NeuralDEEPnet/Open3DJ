@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:open3dj:v0:tool-inspect-output",
+  "title": "inspect tool output (S1)",
+  "type": "object",
+  "properties": {
+    "status": { "enum": ["ok", "error"] },
+    "rev": { "$ref": "urn:open3dj:v0:common#/$defs/rev" },
+    "tree": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/treeNode" }
+    },
+    "refs": { "type": "array", "items": { "$ref": "urn:open3dj:v0:geometry-report#/$defs/ref" } },
+    "fits": { "type": "array", "items": { "$ref": "urn:open3dj:v0:geometry-report#/$defs/fit" } },
+    "measure": { "type": "array", "items": { "$ref": "urn:open3dj:v0:geometry-report#/$defs/part" } },
+    "devices": { "$ref": "urn:open3dj:v0:device-inventory" },
+    "error": { "$ref": "urn:open3dj:v0:script-error" },
+    "compute": { "$ref": "urn:open3dj:v0:compute" }
+  },
+  "required": ["status", "compute"],
+  "additionalProperties": false,
+  "$defs": {
+    "treeNode": {
+      "type": "object",
+      "properties": {
+        "path": { "description": "Occurrence path, for example enclosure/pcb_assy/standoff#2.", "type": "string", "minLength": 1 },
+        "def": { "type": "string", "minLength": 1 },
+        "kind": { "enum": ["script", "lib", "assembly", "imported"] },
+        "transform": { "$ref": "urn:open3dj:v0:common#/$defs/transform" },
+        "children": { "type": "integer", "minimum": 0 }
+      },
+      "required": ["path", "def", "kind"],
+      "additionalProperties": false
+    }
+  }
+}

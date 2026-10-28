@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:open3dj:v0:common",
+  "title": "Shared definitions",
+  "description": "Building blocks shared by every Open3DJ v0 schema. Units are millimetres, the project is Z-up.",
+  "$defs": {
+    "vec3": {
+      "type": "array",
+      "prefixItems": [{ "type": "number" }, { "type": "number" }, { "type": "number" }],
+      "minItems": 3,
+      "maxItems": 3
+    },
+    "quaternion": {
+      "description": "Unit quaternion [x, y, z, w] in glTF order.",
+      "type": "array",
+      "prefixItems": [{ "type": "number" }, { "type": "number" }, { "type": "number" }, { "type": "number" }],
+      "minItems": 4,
+      "maxItems": 4
+    },
+    "color": {
+      "description": "RGB, each channel 0 to 1.",
+      "type": "array",
+      "prefixItems": [
+        { "type": "number", "minimum": 0, "maximum": 1 },
+        { "type": "number", "minimum": 0, "maximum": 1 },
+        { "type": "number", "minimum": 0, "maximum": 1 }
+      ],
+      "minItems": 3,
+      "maxItems": 3
+    },
+    "bbox": {
+      "type": "object",
+      "properties": {
+        "min": { "$ref": "#/$defs/vec3" },
+        "max": { "$ref": "#/$defs/vec3" }
+      },
+      "required": ["min", "max"],
+      "additionalProperties": false
+    },
+    "transform": {
+      "description": "Translation in mm plus a unit quaternion. No scale, no shear.",
+      "type": "object",
+      "properties": {
+        "t": { "$ref": "#/$defs/vec3" },
+        "q": { "$ref": "#/$defs/quaternion" }
+      },
+      "required": ["t", "q"],
+      "additionalProperties": false
+    },
+    "confidence": {
+      "enum": ["measured", "observed", "inferred", "assumed"]
+    },
+    "computeMode": {
+      "enum": ["auto", "cpu", "gpu", "cloud"]
+    },
+    "rev": {
+      "type": "string",
+      "pattern": "^r_[0-9a-z]+$"
+    },
+    "errorCode": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9_]*$"
+    },
+    "fileRef": {
+      "type": "object",
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "format": { "type": "string", "minLength": 1 },
+        "bytes": { "type": "integer", "minimum": 0 },
+        "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+      },
+      "required": ["path", "format", "bytes", "sha256"],
+      "additionalProperties": false
+    }
+  }
+}

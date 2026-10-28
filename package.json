@@ -1,0 +1,28 @@
+{
+  "name": "open3dj-monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Open3DJ: open-source, agent-first, local-first CAD. Monorepo root.",
+  "license": "MIT",
+  "author": "Neural Deep Network LTD and the Open3DJ contributors",
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "check": "node scripts/check.ts",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "node scripts/test.ts",
+    "leak": "node scripts/leak-gate.ts",
+    "licenses": "node scripts/license-gate.ts"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/client": "2.4.0",
+    "@modelcontextprotocol/sdk": "1.32.2",
+    "@types/node": "24.19.2",
+    "typescript": "6.0.3"
+  }
+}

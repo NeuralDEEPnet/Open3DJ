@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:open3dj:v0:tool-docs-output",
+  "title": "docs tool output",
+  "type": "object",
+  "properties": {
+    "query": { "type": "string" },
+    "page": { "type": "integer", "minimum": 1 },
+    "pages": { "type": "integer", "minimum": 0 },
+    "hits": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string", "minLength": 1 },
+          "kind": { "enum": ["dsl", "lib", "error", "example"] },
+          "text": { "type": "string" },
+          "ref": { "type": "string" }
+        },
+        "required": ["title", "kind", "text"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["query", "page", "pages", "hits"],
+  "additionalProperties": false
+}

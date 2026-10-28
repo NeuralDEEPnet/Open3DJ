@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:open3dj:v0:assembly",
+  "title": "assembly.o3j.json (C4)",
+  "description": "The assembly graph. Structure is data, geometry is script. Every assembly-kind definition, including the root, lists its own occurrences, so sub-assemblies can be reused.",
+  "type": "object",
+  "properties": {
+    "o3j": { "const": "0" },
+    "root": { "$ref": "#/$defs/defId" },
+    "definitions": {
+      "type": "object",
+      "propertyNames": { "$ref": "#/$defs/defId" },
+      "additionalProperties": { "$ref": "#/$defs/definition" },
+      "minProperties": 1
+    },
+    "mates": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/mate" }
+    }
+  },
+  "required": ["o3j", "root", "definitions"],
+  "additionalProperties": false,
+  "$defs": {
+    "defId": {
+      "description": "snake_case definition id.",
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "definition": {
+      "type": "object",
+      "properties": {
+        "kind": { "enum": ["script", "lib", "assembly", "imported"] },
+        "name": { "type": "string" },
+        "partNumber": { "type": "string" },
+        "script": { "description": "Path of the DSL script, relative to the project folder.", "type": "string" },
+        "export": { "description": "Named descriptor or export in the script.", "type": "string" },
+        "lib": { "type": "string" },
+        "params": { "type": "object" },
+        "file": { "description": "Imported STEP file, relative to the project folder.", "type": "string" },
+        "geometry_hash": { "type": "string" },
+        "shared_by": { "description": "How clones were merged into this definition.", "enum": ["measured", "inferred"] },
+        "color": { "$ref": "urn:open3dj:v0:common#/$defs/color" },
+        "connectors": { "type": "array", "items": { "$ref": "#/$defs/connector" } },
+        "occurrences": { "type": "array", "items": { "$ref": "#/$defs/occurrence" } }
+      },
+      "required": ["kind"],
+      "additionalProperties": false
+    },
+    "occurrence": {
+      "type": "object",
+      "properties": {
+        "id": { "description": "UUIDv7, never changes.", "type": "string", "minLength": 1 },
+        "name": { "description": "Instance name, for example bracket#1.", "type": "string", "minLength": 1 },
+        "def": { "$ref": "#/$defs/defId" },
+        "transform": { "$ref": "urn:open3dj:v0:common#/$defs/transform" },
+        "fixed": { "type": "boolean" },
+        "suppressed": { "type": "boolean" },
+        "bom": { "type": "boolean" },
+        "color": { "$ref": "urn:open3dj:v0:common#/$defs/color" }
+      },
+      "required": ["id", "name", "def", "transform"],
+      "additionalProperties": false
+    },
+    "connector": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "origin": { "$ref": "urn:open3dj:v0:common#/$defs/vec3" },
+        "z": { "$ref": "urn:open3dj:v0:common#/$defs/vec3" },
+        "x": { "$ref": "urn:open3dj:v0:common#/$defs/vec3" },
+        "gender": { "enum": ["male", "female", "none"] },
+        "type": { "type": "string" },
+        "anchor": { "description": "Named reference, or literal, or implicit.", "type": "string" }
+      },
+      "required": ["name", "origin", "z"],
+      "additionalProperties": false
+    },
+    "mate": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "type": { "enum": ["fastened"] },
+        "a": { "type": "string", "minLength": 1 },
+        "b": { "type": "string", "minLength": 1 },
+        "flip": { "type": "boolean" },
+        "owner": { "enum": ["script", "graph"] }
+      },
+      "required": ["id", "type", "a", "b", "owner"],
+      "additionalProperties": false
+    }
+  }
+}

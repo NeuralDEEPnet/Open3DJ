@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:open3dj:v0:provenance",
+  "title": "Provenance line",
+  "description": "One line of provenance.jsonl. Append-only.",
+  "type": "object",
+  "properties": {
+    "ts": { "type": "string", "description": "ISO 8601 timestamp." },
+    "tool": { "enum": ["run", "inspect", "render", "export", "docs"] },
+    "args_hash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "result_hash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "base_rev": { "$ref": "urn:open3dj:v0:common#/$defs/rev" },
+    "rev": { "$ref": "urn:open3dj:v0:common#/$defs/rev" },
+    "engine": {
+      "type": "object",
+      "properties": {
+        "open3dj": { "type": "string" },
+        "occt_wasm": { "type": "string" },
+        "brepjs": { "type": "string" },
+        "quickjs": { "type": "string" }
+      },
+      "required": ["open3dj", "occt_wasm"],
+      "additionalProperties": false
+    },
+    "device_inventory_hash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "compute": { "$ref": "urn:open3dj:v0:compute" },
+    "approvals": { "type": "array", "items": { "type": "string" } }
+  },
+  "required": ["ts", "tool", "args_hash", "result_hash", "engine", "device_inventory_hash", "compute"],
+  "additionalProperties": false
+}
