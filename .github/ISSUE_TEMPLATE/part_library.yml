@@ -1,0 +1,154 @@
+name: Standard part proposal
+description: Propose a standard part (a screw, bearing, profile, connector and so on) for the Open3DJ parts library.
+title: "[Part]: "
+labels: ["parts-library", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for growing the parts library. Accurate standard parts save every designer and every agent time, and they are a great first contribution.
+
+        **The one rule that matters most: every dimension must be traceable to a source.** A part with invented or unverified dimensions is worse than no part. AI agents are good at drafting parts, but they can produce numbers that look right and are wrong. Please name where each number comes from.
+
+        Standards such as ISO and DIN are copyrighted documents. Do not paste tables from paid standards documents. Name the standard and point to a source whose data may be shared, such as a free manufacturer datasheet, a permissively licensed parts collection, or your own measurements. See [docs/LICENSING.md](https://github.com/NeuralDEEPnet/Open3DJ/blob/main/docs/LICENSING.md).
+
+  - type: input
+    id: part-name
+    attributes:
+      label: Part name
+      description: A plain, descriptive name.
+      placeholder: "Socket head cap screw"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Screws and bolts
+        - Nuts
+        - Washers
+        - Pins, keys and circlips
+        - Inserts and standoffs
+        - Bearings and bushings
+        - Shafts, couplings and pulleys
+        - Gears and sprockets
+        - Springs
+        - Structural profiles and extrusions
+        - Sheet metal features
+        - Electronic components and connectors
+        - Enclosure hardware (hinges, latches, feet)
+        - Something else
+    validations:
+      required: true
+
+  - type: input
+    id: standard
+    attributes:
+      label: Standard
+      description: The standard that defines the part, if any, such as ISO, DIN, EN, ANSI or ASME. Write "manufacturer part" or "no standard" otherwise.
+      placeholder: "ISO 4762 (formerly DIN 912)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: sizes
+    attributes:
+      label: Sizes and variants
+      description: Which sizes, lengths, materials or classes should the part cover? Start small. A few common sizes are better than a huge table nobody has checked.
+      placeholder: "M3, M4, M5 and M6, lengths 6 to 30 mm"
+    validations:
+      required: true
+
+  - type: textarea
+    id: parameters
+    attributes:
+      label: Parameters and key dimensions
+      description: The parameters a user or agent would set, and the dimensions that define the shape. Include tolerances or fit classes where they matter.
+      placeholder: |
+        Parameters: size (M3 to M6), length (mm)
+        Key dimensions: head diameter, head height, socket size, thread pitch
+    validations:
+      required: true
+
+  - type: textarea
+    id: dimensions-source
+    attributes:
+      label: Dimensions source
+      description: Where does each dimension come from? Give links, document names and versions, and the date you checked. If you measured a physical part, say how.
+      placeholder: |
+        Head diameter and height: manufacturer datasheet, link, checked 2026-10-28
+        Thread pitch: ISO 261 coarse series, as listed in the datasheet above
+    validations:
+      required: true
+
+  - type: input
+    id: source-license
+    attributes:
+      label: License of the source data
+      description: Under what terms may the source data be reused? For example, a public datasheet, CC-BY-4.0, Apache-2.0, or "my own measurements, contributed under the project license". Write "unknown" if you are not sure, and a maintainer will help.
+      placeholder: "Apache-2.0 (from a permissively licensed parts collection)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: How can we check the part is right?
+      description: Checks that a test can run, such as expected volume, bounding box, or a key dimension with its tolerance. These make the part "agent-friendly", because an agent can build it and prove it.
+      placeholder: |
+        M4 x 12: bounding box 7.0 x 7.0 x 16.0 mm (within 0.05 mm)
+        Socket: 3 mm hexagon, 2.0 mm deep
+    validations:
+      required: false
+
+  - type: textarea
+    id: reference-geometry
+    attributes:
+      label: Reference geometry or images
+      description: Optional. A drawing, photo or reference model that can be shared. Please state its license too.
+    validations:
+      required: false
+
+  - type: dropdown
+    id: ai-assistance
+    attributes:
+      label: Did AI tools help with this proposal?
+      description: AI help is welcome. If an AI tool supplied dimensions, please check each one against the source yourself.
+      options:
+        - "No, I wrote it without AI tools"
+        - "Yes, AI tools helped me write or research it, and I checked every dimension against the source"
+        - "Yes, an AI agent drafted or filed it for me, and I checked every dimension against the source"
+    validations:
+      required: true
+
+  - type: input
+    id: ai-tools
+    attributes:
+      label: Which AI tools, agents or models?
+      description: Only if AI helped. Name the tool and the model, if you know it.
+      placeholder: "Claude Code with Claude Opus, Codex, Cursor, a custom MCP agent"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: help
+    attributes:
+      label: Can you help build it?
+      options:
+        - label: I can build this part myself.
+        - label: My agent can build it, and I will review the result before submitting.
+        - label: I can review or test it against a physical part.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before you submit
+      options:
+        - label: I searched the existing issues and this part has not been proposed yet.
+          required: true
+        - label: I did not copy tables from a paid standards document, and the data I named may be shared under the license I gave.
+          required: true
+        - label: I agree to follow the [Code of Conduct](https://github.com/NeuralDEEPnet/Open3DJ/blob/main/CODE_OF_CONDUCT.md).
+          required: true

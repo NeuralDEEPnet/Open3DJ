@@ -1,0 +1,39 @@
+cff-version: 1.2.0
+message: >-
+  If you use Open3DJ in research, teaching, a publication or a product,
+  please cite the software using the metadata in this file. Thank you for
+  helping the project and its contributors get credit.
+title: Open3DJ
+type: software
+abstract: >-
+  Open3DJ is open-source, agent-first, local-first CAD created by Neural
+  Deep Network LTD. It provides precise parametric B-rep modeling that AI
+  agents drive over MCP and a CLI, a professional desktop user interface
+  for Windows, macOS and Linux, local compute with pluggable cloud GPUs, and
+  an industrial product design pipeline from brief and concept to design
+  for manufacture and supplier handoff.
+authors:
+  - name: Neural Deep Network LTD
+    website: "https://www.neuraldeep.net"
+  - name: The Open3DJ contributors
+repository-code: "https://github.com/NeuralDEEPnet/Open3DJ"
+url: "https://github.com/NeuralDEEPnet/Open3DJ"
+license: MIT
+keywords:
+  - CAD
+  - computer-aided design
+  - agentic AI
+  - AI agents
+  - Model Context Protocol
+  - MCP
+  - parametric modeling
+  - B-rep
+  - Open CASCADE
+  - industrial design
+  - product design
+  - design for manufacturing
+  - 3D printing
+  - text-to-CAD
+  - generative design
+  - local-first
+  - open source

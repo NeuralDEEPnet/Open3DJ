@@ -1,0 +1,134 @@
+name: Bug report
+description: Something in Open3DJ is broken, wrong or confusing, including the docs and the plan.
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to report a bug. Clear reports help people and agents fix problems fast.
+
+        **Security issues:** please do not report vulnerabilities here. Follow [SECURITY.md](https://github.com/NeuralDEEPnet/Open3DJ/blob/main/SECURITY.md) to report privately.
+
+        Open3DJ is in the planning stage. Until the first code lands, reports about mistakes in the docs, the plan or the architecture are very welcome. For a wrong claim in `docs/research/`, the **Research check** form is a better fit.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Which part of Open3DJ is affected? Pick the closest match.
+      options:
+        - Geometry and modeling (kernel, features, fillets, booleans)
+        - Agent tools (MCP server)
+        - Command line (CLI)
+        - Desktop app and user interface
+        - File import or export (STEP, STL, 3MF and others)
+        - Standard parts library
+        - Industrial design pipeline
+        - Compute and providers (local GPU, cloud GPU, 3dj.app)
+        - Documentation, plan or architecture
+        - Something else
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the problem in a few sentences.
+      placeholder: The fillet on the top edge of my bracket fails with a kernel error.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: The smallest set of steps that shows the problem. A minimal script, prompt or file is ideal. Remove anything confidential first.
+      placeholder: |
+        1. Run ...
+        2. Ask the agent to ...
+        3. See error ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Error messages, logs, a GeometryReport, renders, screenshots or measurements. Drag files in here. Please do not attach confidential designs.
+      placeholder: Paste error text, or attach images and small files.
+    validations:
+      required: false
+
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      description: The Open3DJ version, or the commit hash if you built from source. Write "docs" if this is about the documentation.
+      placeholder: "v0.1.0 or 518c77a"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      description: Select all that apply.
+      multiple: true
+      options:
+        - Windows
+        - macOS
+        - Linux
+        - Other or not relevant
+    validations:
+      required: false
+
+  - type: input
+    id: client
+    attributes:
+      label: Agent or MCP client in use
+      description: If an agent was driving Open3DJ when the bug happened, which one?
+      placeholder: "Claude Code, Codex, Cursor, Claude Desktop, a custom MCP agent, or not using an agent"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: ai-assistance
+    attributes:
+      label: Did AI tools help you write this report?
+      description: AI help is welcome. Telling us helps reviewers. Whatever you choose, a person must read and check this report before it is submitted.
+      options:
+        - "No, I wrote it without AI tools"
+        - "Yes, AI tools helped me write or research it"
+        - "Yes, an AI agent drafted or filed it for me, and I checked it"
+    validations:
+      required: true
+
+  - type: input
+    id: ai-tools
+    attributes:
+      label: Which AI tools, agents or models?
+      description: Only if AI helped. Name the tool and the model, if you know it.
+      placeholder: "Claude Code with Claude Opus, Codex, Cursor, a custom MCP agent"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before you submit
+      options:
+        - label: I searched the existing issues and this is not a duplicate.
+          required: true
+        - label: I agree to follow the [Code of Conduct](https://github.com/NeuralDEEPnet/Open3DJ/blob/main/CODE_OF_CONDUCT.md).
+          required: true
+        - label: I would like to help fix this, alone or with my agent.
+          required: false
