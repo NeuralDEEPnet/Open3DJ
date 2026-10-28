@@ -23,7 +23,7 @@ export const USAGE = `open3dj ${VERSION}: agent-first CAD. Every design is an as
 
 Usage:
   open3dj run <script.o3j.js> [--project dir] [--param name=value ...] [--base-rev r_x] [--json]
-  open3dj inspect [--project dir] [--fields tree,refs,fits,measure,devices] [--targets a#1,b#2]
+  open3dj inspect [--project dir] [--fields tree,refs,fits,measure,devices,job] [--targets a#1,b#2] [--job id]
   open3dj render [--project dir] [--targets a#1] [--format png|svg|both]
   open3dj export --format step|stl|gltf|3mf [--project dir] [--scope path] [--out dir]
   open3dj docs <query> [--page n]

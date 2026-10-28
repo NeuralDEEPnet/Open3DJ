@@ -15,6 +15,12 @@ export type GuestValue = null | boolean | number | string | GuestValue[] | { [ke
  */
 export type HostFunction = (...args: GuestValue[]) => GuestValue;
 
+/** Where in the user's script a host call was made (1-based, user lines, not wrapper lines). */
+export interface CallSite {
+  line?: number;
+  column?: number;
+}
+
 /** What a guest script can reach. Nothing else exists in the guest (no process, require, fetch, Date). */
 export interface HostApi {
   /** Exposed to the guest prelude as globalThis.__host[name]. Removed from the global scope before the user script runs. */
@@ -26,6 +32,13 @@ export interface HostApi {
    * returns what it gives back (plain data) as the run's value.
    */
   prelude: string;
+  /**
+   * Called before every host function with the user's script location of the call (the
+   * innermost frame in the user's file). The DSL uses it to record which line made a shape.
+   */
+  beforeCall?: (name: string, site: CallSite) => void;
+  /** Called once per run, before the prelude, with the run's resolved limits (for example maxHandles, which the host enforces). */
+  onStart?: (limits: Readonly<Required<SandboxLimits>>) => void;
 }
 
 export interface SandboxLimits {
@@ -48,12 +61,21 @@ export interface SandboxLimits {
 }
 
 export interface RunScriptOptions {
-  /** Values for Param.* by name; the prelude reads them through __host or a frozen global. */
+  /** Values for Param.* by name. The prelude can read them as the frozen global __params, which is removed before the user script runs. */
   params?: Record<string, ParamValue>;
   hostApi: HostApi;
   limits?: SandboxLimits;
-  /** Used in error locations. Default "part.o3j.js". */
+  /** Used in error locations. Default "part.o3j.js". Names starting with "open3dj:" are reserved. */
   filename?: string;
+  /**
+   * Cooperative cancel. The sandbox checks `aborted` in the QuickJS interrupt handler and
+   * before every host call, and ends the run with SCRIPT_CANCELLED. An AbortSignal fits, but a
+   * run is synchronous, so a signal aborted from the same thread only takes effect if a host
+   * function aborts it. To cancel from another thread, pass an object whose getter reads a
+   * SharedArrayBuffer flag (Atomics.load). Cancel cannot stop a long host call (a kernel
+   * boolean, for example): that needs the pool's wall-clock kill, which terminates the worker.
+   */
+  signal?: { readonly aborted: boolean };
 }
 
 export interface ScriptLog {
@@ -74,11 +96,11 @@ export interface SandboxStats {
 /**
  * Error codes the sandbox itself produces (host functions add their own, for example
  * KERNEL_FILLET_FAILED): SCRIPT_SYNTAX, SCRIPT_RUNTIME, SCRIPT_TIMEOUT, SCRIPT_MEMORY,
- * SCRIPT_STACK, SCRIPT_LIMIT, SCRIPT_RESULT_TOO_LARGE, SCRIPT_NO_RESULT, HOST_ERROR.
+ * SCRIPT_STACK, SCRIPT_LIMIT, SCRIPT_RESULT_TOO_LARGE, SCRIPT_NO_RESULT, SCRIPT_CANCELLED, HOST_ERROR.
  */
 export type SandboxErrorCode =
   | "SCRIPT_SYNTAX" | "SCRIPT_RUNTIME" | "SCRIPT_TIMEOUT" | "SCRIPT_MEMORY" | "SCRIPT_STACK"
-  | "SCRIPT_LIMIT" | "SCRIPT_RESULT_TOO_LARGE" | "SCRIPT_NO_RESULT" | "HOST_ERROR";
+  | "SCRIPT_LIMIT" | "SCRIPT_RESULT_TOO_LARGE" | "SCRIPT_NO_RESULT" | "SCRIPT_CANCELLED" | "HOST_ERROR";
 
 export type RunScriptResult =
   | { ok: true; value: GuestValue; logs: ScriptLog[]; stats: SandboxStats }

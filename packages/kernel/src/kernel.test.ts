@@ -2,7 +2,7 @@ import { before, describe, test } from "node:test";
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
-import { KernelError, initKernel, quaternionFromAxisAngle } from "./index.ts";
+import { KernelError, applyTransform, initKernel, isUnitQuaternion, matrixFromTransform, quaternionFromAxisAngle } from "./index.ts";
 import type { Kernel, ShapeHandle } from "./index.ts";
 
 const close = (actual: number, expected: number, rel = 1e-6, msg?: string) =>
@@ -90,6 +90,15 @@ describe("features", () => {
     );
   });
 
+  test("a failed fillet names the faulty edges as element addresses", () => {
+    const cube = k.box(10, 10, 10);
+    const edges = k.subShapes(cube, "edge").slice(0, 2);
+    assert.throws(
+      () => k.fillet(cube, edges, 20),
+      (e: unknown) => e instanceof KernelError && e.code === "FILLET_FAILED" && e.elements.join(",") === "edge:1,edge:2" && !!e.hint && !/fillet: fillet/.test(e.message),
+    );
+  });
+
   test("fillet with an empty edge query is a BAD_ARGUMENT with a hint", () => {
     assert.throws(() => k.fillet(k.box(1, 1, 1), [], 0.1), (e: unknown) => e instanceof KernelError && e.code === "BAD_ARGUMENT" && !!e.hint);
   });
@@ -156,6 +165,20 @@ describe("queries, transforms and sketches", () => {
     const v = k.volume(k.loft([sq(5, 0), sq(2.5, 10)], { solid: true, ruled: true }));
     const a1 = 100, a2 = 25;
     close(v, (10 / 3) * (a1 + a2 + Math.sqrt(a1 * a2)), 1e-6);
+  });
+});
+
+describe("transform math", () => {
+  test("quaternion to matrix and point transforms", () => {
+    const q = quaternionFromAxisAngle([0, 0, 1], 90);
+    assert.ok(isUnitQuaternion(q));
+    const p = applyTransform({ t: [1, 2, 3], q }, [1, 0, 0]);
+    [1, 3, 3].forEach((x, i) => close(p[i]!, x, 1e-12));
+    assert.deepEqual(matrixFromTransform({ t: [4, 5, 6], q: [0, 0, 0, 1] }), [1, 0, 0, 4, 0, 1, 0, 5, 0, 0, 1, 6]);
+    const qx = quaternionFromAxisAngle([1, 0, 0], 90);
+    const py = applyTransform({ t: [0, 0, 0], q: qx }, [0, 1, 0]);
+    [0, 0, 1].forEach((x, i) => close(py[i]!, x, 1e-12));
+    assert.equal(isUnitQuaternion([0, 0, 0, 1.01]), false);
   });
 });
 

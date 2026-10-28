@@ -231,7 +231,8 @@ export type RunOp =
   | { op: "remove"; target: string }
   | { op: "set_transform"; target: string; transform: Transform }
   | { op: "set_param"; name: string; value: ParamValue }
-  | { op: "replace_definition"; target: string; def: string };
+  | { op: "replace_definition"; target: string; def: string }
+  | { op: "cancel_job"; job_id: string };
 
 export interface RunInput {
   project: string;
@@ -252,15 +253,29 @@ export interface RunOutput {
   compute: ComputeBlock;
 }
 
-export type InspectField = "tree" | "refs" | "fits" | "measure" | "devices";
+export type InspectField = "tree" | "refs" | "fits" | "measure" | "devices" | "job";
 
 export interface InspectInput {
   project?: string;
   rev?: Rev;
   fields: InspectField[];
   targets?: string[];
+  job_id?: string;
   detail?: "concise" | "detailed";
   compute?: ComputeMode;
+}
+
+export type JobState = "queued" | "running" | "deferred" | "awaiting_approval" | "done" | "failed" | "cancelled";
+
+/** Minimal job model (S1). Long work returns job_id; agents poll with inspect fields=[job]. */
+export interface JobStatus {
+  job_id: string;
+  kind: string;
+  state: JobState;
+  progress?: { done: number; total: number; unit: string };
+  attempts?: Array<{ backend: string; device: string; outcome: "ok" | "failed" | "cancelled" | "fallback"; reason?: string }>;
+  reason?: string;
+  rev?: Rev;
 }
 
 export interface TreeNode {
@@ -279,6 +294,7 @@ export interface InspectOutput {
   fits?: FitReport[];
   measure?: PartReport[];
   devices?: DeviceInventory;
+  job?: JobStatus;
   error?: ScriptError;
   compute: ComputeBlock;
 }

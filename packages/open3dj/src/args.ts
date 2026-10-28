@@ -48,11 +48,12 @@ export function parseCommand(argv: string[]): Parsed {
       return { command: { cmd: "run", input, scriptPath }, json: values.json };
     }
     case "inspect": {
-      const { values } = parse(rest, { ...COMMON, fields: { type: "string", default: "tree,fits" }, targets: { type: "string" } });
+      const { values } = parse(rest, { ...COMMON, fields: { type: "string", default: "tree,fits" }, targets: { type: "string" }, job: { type: "string" } });
       if (values.help) return help("inspect");
       const input: InspectInput = { fields: list(values.fields) as InspectField[] };
       if (values.project) input.project = values.project;
       if (values.targets) input.targets = list(values.targets);
+      if (values.job) input.job_id = values.job;
       return { command: { cmd: "inspect", input }, json: values.json };
     }
     case "render": {

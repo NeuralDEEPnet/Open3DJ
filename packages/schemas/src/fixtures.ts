@@ -89,6 +89,7 @@ export const runInOps: RunInput = {
     { op: "add_occurrence", def: "screw", transform: { t: [1, 2, 3], q: [0, 0, 0, 1] } },
     { op: "set_param", name: "width", value: 12 },
     { op: "remove", target: "screw#2" },
+    { op: "cancel_job", job_id: "j_01" },
   ],
 };
 export const runOut: RunOutput = { status: "ok", rev: "r_2", report, compute };
@@ -98,6 +99,11 @@ export const inspectOut: InspectOutput = {
   status: "ok", rev: "r_2",
   tree: [{ path: "enclosure/base#1", def: "base", kind: "script", transform: { t: [0, 0, 0], q: [0, 0, 0, 1] } }],
   fits: report.fits, devices, compute,
+};
+export const inspectJob: InspectOutput = {
+  status: "ok",
+  job: { job_id: "j_01", kind: "export", state: "running", progress: { done: 3, total: 7, unit: "pairs" }, attempts: [{ backend: "cpu.wasm", device: "cpu x3", outcome: "ok" }] },
+  compute,
 };
 export const renderIn: RenderInput = { project: "bracket.o3j", view: "multiview", format: "both", targets: ["base#1"] };
 export const renderOut: RenderOutput = {
@@ -115,7 +121,7 @@ export const VALID: Array<[SchemaName, unknown]> = [
   ["compute", compute], ["geometry-report", report], ["script-error", scriptError], ["device-inventory", devices],
   ["provenance", provenance], ["project", project], ["assembly", assembly],
   ["tool-run-input", runIn], ["tool-run-input", runInOps], ["tool-run-output", runOut], ["tool-run-output", runOutError],
-  ["tool-inspect-input", inspectIn], ["tool-inspect-output", inspectOut],
+  ["tool-inspect-input", inspectIn], ["tool-inspect-input", { fields: ["job"], job_id: "j_01" }], ["tool-inspect-output", inspectOut], ["tool-inspect-output", inspectJob],
   ["tool-render-input", renderIn], ["tool-render-output", renderOut],
   ["tool-export-input", exportIn], ["tool-export-output", exportOut],
   ["tool-docs-input", docsIn], ["tool-docs-output", docsOut],
@@ -154,6 +160,8 @@ export const INVALID: Array<[SchemaName, unknown, string, string]> = [
   ["tool-run-input", { project: "p.o3j", script: "x", compute: "quantum" }, "/compute", "unknown compute mode"],
   ["tool-inspect-input", { fields: ["dof"] }, "/fields/0", "dof is an S4 field"],
   ["tool-inspect-input", { fields: [] }, "/fields", "at least one field"],
+  ["tool-inspect-output", with_(inspectJob, (o) => { (o.job as unknown as Record<string, unknown>).state = "paused"; }), "/job/state", "unknown job state"],
+  ["tool-run-input", { project: "p.o3j", ops: [{ op: "cancel_job" }] }, "/ops/0", "cancel_job without job_id"],
   ["tool-render-input", { project: "p.o3j", view: "exploded" }, "/view", "exploded is an S4 view"],
   ["tool-export-input", { project: "p.o3j", format: "urdf" }, "/format", "urdf is an S6 format"],
   ["tool-export-output", with_(exportOut, (o) => { o.files![0]!.sha256 = "zz"; }), "/files/0/sha256", "sha256 format"],

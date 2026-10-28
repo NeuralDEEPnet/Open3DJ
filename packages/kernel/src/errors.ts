@@ -88,9 +88,9 @@ export function toKernelError(op: string, e: unknown, faultyEdge?: (handle: numb
   if (e instanceof OcctError) {
     const elements = (e.faultyEdges ?? []).map((h) => faultyEdge?.(h)).filter((x): x is string => x !== undefined);
     const code = OP_CODES[op] ?? OCCT_CODES[e.code] ?? "UNKNOWN";
-    return new KernelError(code, op, `${op} failed: ${cleanMessage(e.message)}`, { elements, cause: e, hint: hintFor(code) });
+    return new KernelError(code, op, `${op} failed: ${cleanMessage(e.message, op)}`, { elements, cause: e, hint: hintFor(code) });
   }
-  return new KernelError(OP_CODES[op] ?? "UNKNOWN", op, `${op} failed: ${cleanMessage(messageOf(e))}`, { cause: e, hint: hintFor(OP_CODES[op]) });
+  return new KernelError(OP_CODES[op] ?? "UNKNOWN", op, `${op} failed: ${cleanMessage(messageOf(e), op)}`, { cause: e, hint: hintFor(OP_CODES[op]) });
 }
 
 function hintFor(code: KernelErrorCode | undefined): string | undefined {
@@ -107,7 +107,9 @@ function messageOf(e: unknown): string {
   return e instanceof Error ? e.message : String(e);
 }
 
-// The facade appends " [faulty edges: 3,7]" with arena ids; the addresses replace it.
-function cleanMessage(m: string): string {
-  return m.replace(/\s*\[faulty edges: [\d,]+\]/, "").trim();
+// The facade prefixes "<op>: " and appends " [faulty edges: 3,7]" with arena ids; our
+// message names the op once and the element addresses replace the ids.
+function cleanMessage(m: string, op: string): string {
+  const s = m.replace(/\s*\[faulty edges: [\d,]+\]/, "").trim();
+  return s.startsWith(`${op}: `) ? s.slice(op.length + 2) : s;
 }

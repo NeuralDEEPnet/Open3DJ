@@ -1,6 +1,7 @@
 // The WebAssembly global as Node 24 provides it. @types/node does not declare it and the
 // DOM lib would add browser globals we do not want, so this file declares the subset the
-// kernel and sandbox packages use. Extend it here (not per package) when more is needed.
+// kernel and sandbox packages use. It applies to the whole repo (one tsconfig). Extend it
+// here, not per package, when more is needed.
 declare namespace WebAssembly {
   type BufferSource = ArrayBufferView | ArrayBuffer;
   type ImportValue = Function | Global | Memory | Table | number | bigint;

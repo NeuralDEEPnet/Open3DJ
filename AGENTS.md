@@ -10,9 +10,9 @@ Open3DJ was created by Neural Deep Network LTD (https://www.neuraldeep.net).
 
 ## Current phase
 
-**Planning.** There is no application code yet, and the starting tech stack is not decided. Do not assume a language, framework, build tool or package manager, and do not add one without an accepted issue or RFC. The first code lands in Step 1 of [docs/PLAN.md](docs/PLAN.md).
+**Step 0 and Step 1 build started.** The stack is decided: TypeScript run directly by Node 24 (type stripping, erasable syntax only), npm workspaces under `packages/`, and `node:test`. The first goal is a vertical slice: a DSL script goes in, and a checked assembly, a GeometryReport, a four-view drawing and STEP, STL, glTF and 3MF files come out, through the CLI and the MCP server.
 
-Useful agent work right now: checking research claims against primary sources, improving docs, drafting part specs for the parts library, describing test geometry, and drafting RFCs when a maintainer asks.
+Do not add a language, framework, build tool or runtime dependency without an accepted issue or RFC. Dependencies are pinned to exact versions and must pass the licence gate.
 
 ## Where things are
 
@@ -31,14 +31,27 @@ Useful agent work right now: checking research claims against primary sources, i
 | `docs/INDUSTRIAL-DESIGN.md` | Industrial design pipeline, stage by stage |
 | `docs/research/` | Research reports, dated 2026-10-27. Read `docs/research/README.md` first. The gap notes (`gap-*.md`) override the main reports where they conflict |
 | `docs/research/proposals/` | The three architecture proposals the plan was built from |
+| `packages/` | The code: `schemas`, `kernel`, `sandbox`, `dsl`, `assembly`, `render`, `compute`, `mcp` and `open3dj` (the CLI). Each exports `src/index.ts`; tests sit next to sources as `*.test.ts` |
+| `scripts/` | `check`, the test runner, the stdout-leak gate and the licence gate |
+| `.github/workflows/ci.yml` | CI: `npm run check` on Linux x64 and arm64, macOS, Windows x64 and arm64 |
 
-When code arrives, it follows the layout in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). Do not create new top-level directories that the architecture does not define without an issue.
+Code follows the layout in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). Do not create new top-level directories that the architecture does not define without an issue.
 
 ## Commands
 
-> Commands will be added when the first code lands in Step 1 of [docs/PLAN.md](docs/PLAN.md).
+Use Node 24 (`.nvmrc`). From the repository root:
 
-Until then: check that Markdown links resolve, and preview any Markdown you change. Do not invent build, test or lint commands.
+| Command | What it does |
+|---|---|
+| `npm ci` | Install the pinned dependencies |
+| `npm run check` | Everything below; must pass before a pull request (budget: 10 minutes) |
+| `npm run typecheck` | `tsc` with no emit |
+| `npm test` | Every `*.test.ts` with `node:test`; `npm test -- kernel` runs only matching paths |
+| `npm run leak` | Starts the MCP server and fails if any stdout line is not JSON-RPC |
+| `npm run licenses` | Fails on a dependency licence outside the allowlist or an unpinned version |
+| `node packages/open3dj/src/cli.ts help` | The CLI, run from source |
+
+Code rules: erasable TypeScript only (no enums, namespaces, parameter properties or decorators), explicit `.ts` import extensions, and `import type` for types. A package that is declared but not built exports `PACKAGE_STATUS = "stub"`; its behaviour tests skip until it is `"ready"`. Never load the kernel in the MCP or daemon process: it prints to stdout.
 
 ## How to work
 
