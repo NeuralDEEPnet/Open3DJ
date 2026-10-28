@@ -43,8 +43,55 @@ type Shared = "kind" | "logs" | "stats" | "compute";
 /** A JobResult before the runner adds kind, logs, stats and compute. */
 type ResultBody = JobResult extends infer R ? (R extends JobResult ? Omit<R, Shared> : never) : never;
 
-/** Bind a runner to one kernel. One runner per thread: the DSL registers brepjs globally. */
+/**
+ * True when the job must run on a fresh kernel instance: an export that includes STEP, or a
+ * job that asks for it (record requests such as replay). Decided by the founder on 2026-10-28
+ * (ARCHITECTURE.md section 8): a warm kernel writes STEP colour entities in another order
+ * after other jobs, a fresh instance writes the same bytes as a fresh process.
+ */
+export function needsFreshKernel(job: JobRequest): boolean {
+  return job.freshKernel ?? (job.kind === "export" && (job.export?.formats ?? []).includes("step"));
+}
+
+/**
+ * Bind a runner to one kernel. One runner per thread: the DSL registers brepjs globally.
+ * A job that needsFreshKernel() runs on kernel.fresh() instead, which is disposed afterwards;
+ * the warm kernel is not touched and is registered with brepjs again at once.
+ */
 export function createJobRunner(kernel: Kernel): JobRunner {
+  const warm = bindRunner(kernel);
+  return {
+    kernel,
+    async run(job, context) {
+      if (!needsFreshKernel(job)) return warm.run(job, context);
+      const t0 = performance.now();
+      let fresh: Kernel | undefined;
+      let freshRunner: ReturnType<typeof bindRunner> | undefined;
+      try {
+        fresh = await kernel.fresh();
+        freshRunner = bindRunner(fresh);
+        const { result } = await freshRunner.run(job, context);
+        // A fault on the fresh instance does not touch the warm one, so nothing is recycled.
+        // The stats describe the worker's own kernel, which outlives this job.
+        return { result: { ...result, stats: workerStats(kernel, context, performance.now() - t0) } };
+      } catch (e) {
+        // Only the fresh kernel failing to load gets here: the runner turns job failures into results.
+        const { error } = toScriptError(e);
+        return { result: { ok: false, kind: job.kind, error, logs: [], stats: workerStats(kernel, context, performance.now() - t0), compute: job.compute ?? INLINE_COMPUTE } };
+      } finally {
+        try {
+          // The DSL first: it holds brepjs's link to the fresh kernel, which would keep it alive.
+          freshRunner?.dispose();
+          fresh?.dispose();
+        } finally {
+          warm.rebind();
+        }
+      }
+    },
+  };
+}
+
+function bindRunner(kernel: Kernel): JobRunner & { rebind(): void; dispose(): void } {
   const dsl = createDsl(kernel);
   // The last kernel error code a host function raised in this job. A script can catch a
   // kernel error and still succeed, but the kernel that raised it is retired all the same.
@@ -53,6 +100,8 @@ export function createJobRunner(kernel: Kernel): JobRunner {
 
   return {
     kernel,
+    rebind: () => dsl.reset(),
+    dispose: () => dsl.dispose(),
     async run(job, context) {
       const t0 = performance.now();
       const compute = job.compute ?? INLINE_COMPUTE;
@@ -100,10 +149,10 @@ export function createJobRunner(kernel: Kernel): JobRunner {
           if (!job.export || job.export.formats.length === 0) {
             return finish({ ok: false, error: { code: "BAD_JOB", message: "an export job needs export.formats", hint: "Pass export: { formats: ['step'] }." } });
           }
-          const { formats, baseName, scope, dir, root, author, organization } = job.export;
+          const { formats, baseName, scope, dir, root, author, organization, timestamp } = job.export;
           const artifacts = exportArtifacts(kernel, asm, formats, {
             rev: job.rev, engine: engineVersions(), ...(baseName ? { baseName } : {}), ...(scope ? { scope } : {}),
-            ...(author ? { author } : {}), ...(organization ? { organization } : {}),
+            ...(author ? { author } : {}), ...(organization ? { organization } : {}), ...(timestamp ? { timestamp } : {}),
           });
           if (dir === undefined) return finish({ ...base, artifacts });
           const files = await writeArtifacts(artifacts, dir, root === undefined ? {} : { root });

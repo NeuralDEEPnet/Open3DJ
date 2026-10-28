@@ -2,6 +2,39 @@
 
 A credited log of what was built and measured, newest first. The Friday review adds the week's entry with the founder's hours ([PLAN.md](../docs/PLAN.md) section 4.2). Measurements name the date, the machine, the commit or state, and the command, so anyone can repeat them.
 
+## 2026-10-28: STEP determinism fallback
+
+Built by neuraldeep.net design agents. Founder hours: to be filled in at the Friday review. Same machine as the Step 0 entry below, working tree of branch `ccr-1e979422-dguyci`.
+
+The founder confirmed the fallback proposed in the H-det verdict below (ARCHITECTURE.md section 8, COMPUTE.md section 6). What changed:
+
+- **STEP jobs run on a fresh kernel instance.** `Kernel.fresh()` (packages/kernel/src/occt.ts) makes a new instance from the thread's compiled WebAssembly module, with the same print sink, and `Kernel.dispose()` ends it. The job runner (packages/compute/src/job.ts) runs every job that exports STEP, and every job with `freshKernel: true`, on such an instance and disposes it afterwards; the worker's warm kernel is not touched. All kernels now instantiate one compiled module per thread instead of reading and compiling the binary each time.
+- **Usage ids are renumbered.** The STEP exporter writes `NEXT_ASSEMBLY_USAGE_OCCURRENCE` ids as '1', '2', ... in file order (`renumberUsageIds`, packages/assembly/src/export/step.ts). The scan skips string literals; the round-trip check runs on the renumbered file.
+- **Revision time as the STEP time stamp.** `ExportOptions.timestamp` and `ExportJob.timestamp` write an ISO 8601 time (UTC, to the second, the 19-character form OCCT writes) into FILE_NAME instead of the wall clock. The MCP `export` tool, and so `open3dj export`, pass the revision's `ts`. Exporting one revision again now gives the same STEP bytes, time stamp included. Direct library calls without the option keep the wall clock.
+- **Regression tests, written first and seen failing:** packages/compute/src/step-determinism.test.ts (5 enclosure STEP exports on one warm runner, with a shell run and a bracket STL export between them, byte-identical once the time stamp is blanked, and equal to a fresh kernel's file; it failed at export 2 before the change, and still failed with renumbering alone, on a `STYLED_ITEM` line), and the usage-id test in packages/assembly/src/export/export.test.ts (failed with ids '1', '2', '4', '3', ... on the first export, so the writer's own order is not file order).
+
+Cost, median of 10 (scratch script, same machine): `kernel.fresh()` plus `dispose()` on a warm thread 25.5 ms (a new instance read and compiled the binary in about 80 to 110 ms before). A STEP export job on a warm runner: bracket 150.5 ms on the warm kernel and 172.8 ms on a fresh one (+22.3 ms), enclosure 1051.4 ms and 1133.1 ms (+81.6 ms). The first STEP export job in a fresh process: bracket 695.0 ms and 691.5 ms (no difference within noise), enclosure 1920.0 ms and 2061.2 ms (+141.2 ms). Disposed instances are collected: 599 of 600 instances made and disposed in a loop were finalised, the JS heap stayed at 10 to 14 MB, and the process RSS rose from 164 MB to a plateau near 380 MB after about 400 instances.
+
+**Correction (verification, 2026-10-28): fresh kernels leaked when a script drew a 2D sketch.** The loop above made bare instances and never touched brepjs. The independent verifier ran 200 enclosure STEP exports on one pool worker: RSS grew from 477 MB to 2010 MB (about 7.7 MB per job) and the worker's JS heap from 169 MB to 701 MB, against a flat 476 to 459 MB at HEAD. Five whys:
+
+1. Why did memory grow? No fresh kernel used by bracket or enclosure was ever finalised, so each kept its Emscripten module and WebAssembly memory.
+2. Why were they kept? brepjs held them: every brepjs shape handle keeps the adapter registered when it was made, and the adapter keeps the `OcctKernel`.
+3. Why were the handles kept? brepjs 20.11.1 registers each handle in a module-level `FinalizationRegistry` with a held value that closes over the handle (`createHandle`), so no handle is ever collected. Only scripts that reach brepjs (`polygon`, `path` and the `lib` helpers that draw profiles) create them.
+4. Why did the tests miss it? The determinism tests compared bytes only, and the collection check used bare instances. The pool's recycle check reads the JS heap, which does not include WebAssembly memory.
+5. Why could a dead kernel stay reachable at all? The DSL registered the adapter itself with brepjs, with no way to take it back.
+
+Fix: the DSL registers a revocable proxy of the adapter with brepjs, and `Dsl.dispose()` revokes it (packages/dsl/src/dsl.ts). The job runner disposes the fresh kernel's DSL before the kernel. Leaked brepjs handles now hold a revoked proxy, not the kernel. Regression test, seen failing first (4 of 4 fresh kernels reachable after GC): "fresh kernels are freed after STEP exports that draw 2D sketches" in packages/compute/src/step-determinism.test.ts. After the fix, the same soak (200 enclosure STEP exports on one pool worker, `maxJobsPerWorker` raised, scratch script): 0 failed, 1 distinct STEP sha256, liveShapes 0, file descriptors flat at 26, RSS 492 MB after job 1, then 392 to 432 MB from job 20 to job 200; worker JS heap 284 to 287 MB from job 60 to job 200. The brepjs handle objects themselves still leak (small, also at HEAD); reporting that upstream is for the maintainers.
+
+H-det rerun: `node scripts/hdet.ts --cases enclosure,shell,offset` (20 fresh processes and 20 warm reuses per case; fresh series 127.7 s, warm series 51.2 s, one warm worker throughout):
+
+| Case | Volume and area bits | Bounding boxes | Face and edge counts | STEP without timestamp and usage ids | STEP without timestamp |
+|---|---|---|---|---|---|
+| enclosure | identical | identical | identical | identical | identical |
+| shell | identical | identical | identical | identical | identical |
+| offset | identical | identical | identical | identical | identical |
+
+H-det now holds for STEP bytes on this machine, in fresh processes and on a warm worker. bracket and tapered-cup were not rerun in this entry. The other tier-1 OSes still need the same run in CI.
+
 ## 2026-10-28: Step 0 tooling
 
 Built by neuraldeep.net design agents. Founder hours: to be filled in at the Friday review.
@@ -28,7 +61,7 @@ Result:
 - **STEP is byte-identical across fresh processes** once the FILE_NAME timestamp is stripped, for every case.
 - **STEP differs on a warm worker, for two reasons.** First, every `NEXT_ASSEMBLY_USAGE_OCCURRENCE` gets its id from a counter that lives as long as the kernel instance, so a warm worker writes '1', then '2', and so on. Second, in multi-colour assemblies run interleaved with other jobs (enclosure and shell), the colour `STYLED_ITEM` and `COLOUR_RGB` entities come out in a different order. That is consistent with a map keyed by heap addresses, the same class of problem as the pointer-keyed maps in ARCHITECTURE.md section 8. The geometry entities are the same.
 - **Correction (review round 2, 2026-10-28).** The offset row's warm variants were not the colour order. Blanking a usage id that grows from '9' to '10' moves the column where the OCCT writer wraps that `NEXT_ASSEMBLY_USAGE_OCCURRENCE` line, so the two warm files differed only in line breaks (3 lines, no `STYLED_ITEM` line among them). `normaliseStepIds` now removes whitespace outside strings as well (scripts/hdet-lib.ts, with a test in scripts/hdet.test.ts). Rerun of `node scripts/hdet.ts` (all five cases, 20 fresh and 20 warm, 355 s on the same container): measures, boxes and counts identical everywhere as before; STEP without timestamp and usage ids now identical for bracket, tapered-cup and offset, and still 1 fresh / 6 warm for enclosure and 1 fresh / 2 warm for shell. Cause per case: offset was the line wrap only; enclosure and shell are the real `STYLED_ITEM` and `COLOUR_RGB` order. The verdict below is unchanged.
-- **Verdict:** H-det holds for measures in both modes and for STEP in fresh processes, and fails for STEP bytes on a warm worker. Proposed fallback, for the founder to confirm: the first fallback of ARCHITECTURE.md section 8, run record requests (goldens, evidence hashes, replay) on a fresh kernel instance; and renumber the usage ids in the exporter so plain exports are stable too. This is one machine; the other tier-1 OSes still need the same run in CI.
+- **Verdict:** H-det holds for measures in both modes and for STEP in fresh processes, and fails for STEP bytes on a warm worker. Proposed fallback, for the founder to confirm: the first fallback of ARCHITECTURE.md section 8, run record requests (goldens, evidence hashes, replay) on a fresh kernel instance; and renumber the usage ids in the exporter so plain exports are stable too. (Confirmed by the founder on 2026-10-28 and built; see the STEP determinism fallback entry above.) This is one machine; the other tier-1 OSes still need the same run in CI.
 
 ### o3dj-bench v0
 

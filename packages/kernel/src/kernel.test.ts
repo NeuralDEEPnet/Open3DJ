@@ -250,6 +250,24 @@ describe("memory and output hygiene", () => {
     assert.ok(k.printed().some((l) => l.length > 0));
   });
 
+  test("fresh() gives an empty instance whose output goes to the same sink; dispose() ends it", async () => {
+    const lines: string[] = [];
+    const parent = await initKernel({ sink: (stream, line) => lines.push(`${stream}:${line}`) });
+    const kept = parent.box(1, 1, 1);
+    const fresh = await parent.fresh();
+    assert.notEqual(fresh.raw, parent.raw);
+    assert.equal(fresh.stats().liveShapes, 0);
+    const before = lines.length;
+    fresh.exportStep(fresh.box(1, 2, 3));
+    assert.ok(lines.length > before, "the fresh instance prints through the parent's sink");
+    assert.equal(fresh.printed().length > 0, true);
+    fresh.dispose();
+    assert.throws(() => fresh.box(1, 1, 1));
+    // The parent is untouched.
+    close(parent.volume(kept), 1);
+    parent.dispose();
+  });
+
   test("a STEP export in a fresh process writes zero bytes to stdout", () => {
     const probe = fileURLToPath(new URL("./fixtures/print-probe.ts", import.meta.url));
     const r = spawnSync(process.execPath, [probe], { encoding: "utf8", timeout: 60_000 });

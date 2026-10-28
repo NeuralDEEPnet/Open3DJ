@@ -47,7 +47,9 @@ export function normaliseStep(text: string): string {
  * STEP writer numbers these from a counter that lives as long as the kernel instance, so a
  * warm worker writes '1', then '2', and so on, while the geometry stays the same. A longer id
  * also moves where the writer wraps that line, so whitespace outside strings is removed too
- * (entities still end with ";", one per line).
+ * (entities still end with ";", one per line). Since 2026-10-28 the exporter renumbers the ids
+ * and STEP jobs run on a fresh kernel, so this field and the plain step field should agree;
+ * it stays as a check that tells the two causes apart.
  */
 export function normaliseStepIds(text: string): string {
   const blanked = normaliseStep(text).replace(/NEXT_ASSEMBLY_USAGE_OCCURRENCE\('[^']*'/g, "NEXT_ASSEMBLY_USAGE_OCCURRENCE('ID'");

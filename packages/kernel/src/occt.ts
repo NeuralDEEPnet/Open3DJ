@@ -6,6 +6,7 @@
 // shipped factory lets us inject Module.print and Module.printErr. Every printed line goes
 // to the sink, never to process.stdout. Workers add a second fence (stdout: true).
 import { readFileSync } from "node:fs";
+import { readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { OcctKernel } from "occt-wasm";
 import type { BoundingBox, OcctModuleFactory, Vec3 as OcctVec3, XCAFDocument } from "occt-wasm";
@@ -35,9 +36,30 @@ export interface Kernel extends KernelAdapter {
   readonly raw: OcctKernel;
   /** The last lines the kernel printed (at most 200). */
   printed(): string[];
+  /**
+   * A new, empty kernel instance with the same options, so its output goes to the same sink.
+   * It reuses this thread's compiled WebAssembly module, so it costs an instantiation, not a
+   * compile. Record requests run on one (ARCHITECTURE.md section 8). Dispose it when done.
+   */
+  fresh(): Promise<Kernel>;
+  /** Release every shape and the instance itself. The kernel must not be used afterwards. */
+  dispose(): void;
 }
 
 const RING = 200;
+
+// The compiled occt-wasm module of this thread. Instantiating a compiled module skips
+// reading and compiling the binary again, which is most of the cost of a new instance.
+let compiled: Promise<WebAssembly.Module> | undefined;
+function compiledModule(): Promise<WebAssembly.Module> {
+  if (!compiled) {
+    const url = import.meta.resolve("occt-wasm/dist/occt-wasm.wasm");
+    compiled = readFile(fileURLToPath(url)).then((bytes) => WebAssembly.compile(bytes));
+    // A failed compile is not cached: the next call tries again.
+    compiled.catch(() => (compiled = undefined));
+  }
+  return compiled;
+}
 
 export async function initKernel(options: InitKernelOptions = {}): Promise<Kernel> {
   const ring: string[] = [];
@@ -51,14 +73,25 @@ export async function initKernel(options: InitKernelOptions = {}): Promise<Kerne
   // The glue has no type declarations; a variable specifier keeps tsc from asking for them.
   const gluePath = "occt-wasm/dist/occt-wasm.js";
   const glue = (await import(gluePath)) as { default: OcctModuleFactory };
+  // Without an explicit binary, instantiate this thread's compiled module through
+  // Emscripten's instantiateWasm hook. An instantiation error rejects `failed`, because the
+  // glue would otherwise wait for the instance forever.
+  const wasmModule = options.wasm === undefined ? await compiledModule() : undefined;
+  let fail: (e: unknown) => void = () => {};
+  const failed = new Promise<never>((_, reject) => (fail = reject));
+  const instantiate = (imports: WebAssembly.Imports, done: (instance: WebAssembly.Instance, module: WebAssembly.Module) => void) => {
+    WebAssembly.instantiate(wasmModule!, imports).then((instance) => done(instance, wasmModule!), fail);
+    return {};
+  };
   const createModule: OcctModuleFactory = (moduleOptions) =>
     glue.default({
       ...moduleOptions,
+      ...(wasmModule ? { instantiateWasm: instantiate } : {}),
       print: (s: unknown) => sink("out", String(s)),
       printErr: (s: unknown) => sink("err", String(s)),
     });
-  const raw = await OcctKernel.init(options.wasm === undefined ? { createModule } : { createModule, wasm: options.wasm });
-  return new OcctAdapter(raw, () => ring.slice(), () => printedLines);
+  const raw = await Promise.race([OcctKernel.init(options.wasm === undefined ? { createModule } : { createModule, wasm: options.wasm }), failed]);
+  return new OcctAdapter(raw, () => ring.slice(), () => printedLines, () => initKernel(options));
 }
 
 let cachedVersions: KernelVersions | undefined;
@@ -90,11 +123,21 @@ class OcctAdapter implements Kernel {
   readonly raw: OcctKernel;
   readonly #printed: () => string[];
   readonly #printedCount: () => number;
+  readonly #fresh: () => Promise<Kernel>;
 
-  constructor(raw: OcctKernel, printed: () => string[], printedCount: () => number) {
+  constructor(raw: OcctKernel, printed: () => string[], printedCount: () => number, fresh: () => Promise<Kernel>) {
     this.raw = raw;
     this.#printed = printed;
     this.#printedCount = printedCount;
+    this.#fresh = fresh;
+  }
+
+  fresh(): Promise<Kernel> {
+    return this.#fresh();
+  }
+
+  dispose(): void {
+    this.raw[Symbol.dispose]();
   }
 
   get versions(): KernelVersions {

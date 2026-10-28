@@ -29,7 +29,7 @@ A project is a folder whose name ends in `.o3j` (ARCHITECTURE.md section 8, S1 s
 
 - **Revisions** are `r_0001`, `r_0002`, ... and only grow. A run that succeeds creates the next revision. A run with the same script and parameters as the head, on the same engine, keeps the head revision. A failed run creates none.
 - **base_rev.** `run` with a `base_rev` that is not the head returns `REV_CONFLICT` and changes nothing. The check runs again at commit time under a per-project lock, so two runs racing from one base revision cannot both win. Without `base_rev`, a run builds on the head.
-- **Old revisions.** `render`, `export` and `inspect` take `rev`. Each revision record holds its own script and parameters, so an old revision re-runs exactly what it was.
+- **Old revisions.** `render`, `export` and `inspect` take `rev`. Each revision record holds its own script and parameters, so an old revision re-runs exactly what it was. `export` writes the revision's `ts` as the STEP time stamp, so exporting a revision again gives the same STEP bytes; a record whose `ts` is not ISO 8601 with a time zone falls back to the wall clock.
 - **From a single script.** `run` with a script on a missing project creates the folder, the manifest and a `.gitignore`. The CLI keeps a script's project next to it: `part.o3j.js` uses `part.o3j/`.
 - **Not yet:** `parts/*.o3j.js` (one script per definition) and imported STEP definitions. The store writes from one daemon at a time; two processes writing one project at once are not coordinated yet.
 

@@ -21,6 +21,11 @@ export interface StepHeader {
   /** Empty when the project names no author or organisation. */
   author?: string;
   organization?: string;
+  /**
+   * ISO 8601 date and time to write as the time stamp instead of the writer's wall clock, for
+   * example the revision's time, so that re-exporting a revision gives the same bytes.
+   */
+  timestamp?: string;
 }
 
 export function writeStep(kernel: KernelAdapter, asm: Assembly, tree: ExportTree, header?: StepHeader): Uint8Array {
@@ -75,7 +80,7 @@ export function writeStep(kernel: KernelAdapter, asm: Assembly, tree: ExportTree
       });
     };
     for (const node of tree.nodes) add(root, node);
-    const raw = doc.exportStep();
+    const raw = renumberUsageIds(doc.exportStep());
     const text = header ? withStepHeader(raw, header) : raw;
     checkStepRoundTrip(kernel, asm, tree, text);
     return new TextEncoder().encode(text);
@@ -101,11 +106,62 @@ export function stepName(name: string): string {
   });
 }
 
+const USAGE = "NEXT_ASSEMBLY_USAGE_OCCURRENCE";
+
+/**
+ * Set the id of every NEXT_ASSEMBLY_USAGE_OCCURRENCE to '1', '2', ... in file order. The OCCT
+ * writer takes these ids from a counter that lives as long as the kernel instance, so the
+ * same assembly exported twice on one kernel got other ids (H-det, ops/build-log.md). The id
+ * is a plain STRING attribute that no other entity refers to (references use #n), so the file
+ * stays valid ISO 10303-21. The scan skips string literals, so a part name that contains the
+ * entity name is left alone.
+ */
+export function renumberUsageIds(text: string): string {
+  let out = "";
+  let from = 0;
+  let n = 0;
+  let quoted = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    // ISO 10303-21 strings are in apostrophes, with '' for one inside; toggling on each
+    // apostrophe keeps the inside of '' runs right.
+    if (c === "'") {
+      quoted = !quoted;
+      continue;
+    }
+    if (quoted || c !== "N" || !text.startsWith(USAGE, i) || /[A-Z0-9_]/.test(text[i - 1] ?? "")) continue;
+    let j = i + USAGE.length;
+    while (/\s/.test(text[j] ?? "")) j++;
+    if (text[j] !== "(") continue;
+    j++;
+    while (/\s/.test(text[j] ?? "")) j++;
+    if (text[j] !== "'") continue;
+    // The id string runs to the next apostrophe that is not doubled.
+    let end = j + 1;
+    while (end < text.length && !(text[end] === "'" && text[end + 1] !== "'")) end += text[end] === "'" ? 2 : 1;
+    if (end >= text.length) break;
+    out += `${text.slice(from, j + 1)}${++n}`;
+    from = end;
+    i = end;
+  }
+  return out + text.slice(from);
+}
+
+/**
+ * A time stamp for FILE_NAME from an ISO 8601 date and time: the UTC time to the second,
+ * written as YYYY-MM-DDThh:mm:ss, the 19-character form OCCT's writer uses.
+ */
+export function stepTimestamp(iso: string): string {
+  const t = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2}(\.\d+)?)?(Z|[+-]\d{2}:\d{2})$/.test(iso) ? Date.parse(iso) : Number.NaN;
+  if (!Number.isFinite(t)) throw new AssemblyError("BAD_OPTION", `timestamp '${iso.slice(0, 40)}' is not an ISO 8601 date and time with a time zone`, "Pass a time such as 2026-10-28T09:15:00Z.");
+  return new Date(t).toISOString().slice(0, 19);
+}
+
 /**
  * Replace OCCT's FILE_DESCRIPTION and FILE_NAME ('Open CASCADE Shape Model', author 'Author',
- * organisation 'Open CASCADE') with the file's own name and Open3DJ, keeping OCCT's time
- * stamp and FILE_SCHEMA. Author and organisation are lists of at least one string, so an
- * unknown one is written as ('').
+ * organisation 'Open CASCADE') with the file's own name and Open3DJ, keeping FILE_SCHEMA and
+ * OCCT's time stamp, or writing header.timestamp instead when it is set. Author and
+ * organisation are lists of at least one string, so an unknown one is written as ('').
  */
 export function withStepHeader(text: string, header: StepHeader): string {
   const start = text.indexOf("HEADER;");
@@ -114,7 +170,7 @@ export function withStepHeader(text: string, header: StepHeader): string {
   const old = text.slice(start + "HEADER;".length, end);
   const schema = /FILE_SCHEMA\s*\([\s\S]*?\)\s*;/.exec(old)?.[0];
   if (!schema) throw new AssemblyError("STEP_HEADER", "the STEP writer produced no FILE_SCHEMA");
-  const stamp = /FILE_NAME\s*\(\s*'(?:[^']|'')*'\s*,\s*'([^']*)'/.exec(old)?.[1] ?? "";
+  const stamp = header.timestamp !== undefined ? stepTimestamp(header.timestamp) : /FILE_NAME\s*\(\s*'(?:[^']|'')*'\s*,\s*'([^']*)'/.exec(old)?.[1] ?? "";
   const s = (v: string) => p21String(v);
   const lines = [
     "",

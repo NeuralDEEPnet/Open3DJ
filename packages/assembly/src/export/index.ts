@@ -41,6 +41,7 @@ export function exportArtifacts(kernel: KernelAdapter, asm: Assembly, formats: A
             system: `Open3DJ ${options.engine?.["open3dj"] ?? "unknown"}`,
             author: options.author ?? "",
             organization: options.organization ?? "",
+            ...(options.timestamp !== undefined ? { timestamp: options.timestamp } : {}),
           }) });
           break;
         case "stl": {

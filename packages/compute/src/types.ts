@@ -33,6 +33,12 @@ export interface JobRequest {
   detail?: "concise" | "detailed";
   /** Root definition id of the assembly. Default "root". */
   rootName?: string;
+  /**
+   * Run on a fresh kernel instance, disposed after the job, instead of the worker's warm one.
+   * Default: true for an export that includes STEP, false otherwise. Set it for other record
+   * requests whose bytes are hashed or compared (ARCHITECTURE.md section 8).
+   */
+  freshKernel?: boolean;
 }
 
 export interface ExportJob {
@@ -42,6 +48,11 @@ export interface ExportJob {
   /** Author and organisation for the STEP header, from the project manifest. */
   author?: string;
   organization?: string;
+  /**
+   * ISO 8601 time for the STEP FILE_NAME time stamp instead of the wall clock, such as the
+   * revision's time, so a re-export of one revision gives the same bytes.
+   */
+  timestamp?: string;
   /**
    * When set, the worker also writes the artifacts here with writeArtifacts() from
    * @open3dj/assembly (path policy included) and returns the FileRefs in JobResult.files.

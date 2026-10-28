@@ -22,9 +22,15 @@ export function createDsl(kernel: KernelAdapter, options: DslOptions = {}): Dsl 
   const raw = (kernel as Partial<Kernel>).raw;
   // brepjs keeps one global kernel registration per thread. It must be this kernel, so the
   // DSL re-registers on every reset() (one kernel per worker thread is the supported setup).
-  const brepAdapter = raw ? B.OcctWasmAdapter.fromKernel(raw) : undefined;
+  // brepjs 20.11.1 never frees a shape handle: its FinalizationRegistry entry closes over the
+  // handle, and the handle keeps the adapter that made it. brepjs therefore gets a revocable
+  // proxy, and dispose() revokes it, so a disposed kernel is not kept alive with its
+  // WebAssembly memory (fresh kernels for STEP exports leaked about 7.7 MB per job).
+  const brep = raw ? Proxy.revocable(B.OcctWasmAdapter.fromKernel(raw), {}) : undefined;
+  let disposed = false;
   const register = () => {
-    if (brepAdapter) B.registerKernel("occt-wasm", brepAdapter);
+    if (disposed) throw new Error("this DSL was disposed; create a new one with createDsl()");
+    if (brep) B.registerKernel("occt-wasm", brep.proxy);
   };
   register();
 
@@ -52,6 +58,10 @@ export function createDsl(kernel: KernelAdapter, options: DslOptions = {}): Dsl 
     },
     collect(value: GuestValue): ScriptReturn {
       return collect(kernel, state, value, tol);
+    },
+    dispose(): void {
+      disposed = true;
+      brep?.revoke();
     },
   };
 }

@@ -12,6 +12,7 @@ import { AssemblyError, buildAssembly, exportArtifacts, exportFiles, writeArtifa
 import type { ExportArtifact } from "../index.ts";
 import { enclosure } from "../fixtures.ts";
 import { sha256Hex } from "../names.ts";
+import { renumberUsageIds, stepTimestamp } from "./step.ts";
 import { threeMfTransform } from "./threemf.ts";
 import { openEdgeCount, weld } from "./mesh.ts";
 import type { Mesh } from "./mesh.ts";
@@ -76,6 +77,52 @@ describe("STEP", () => {
     assert.match(named, /FILE_NAME\('box-v2\.step','[^']+',\('Zo\\X2\\00EB\\X0\\ O''Neil'\),\('Neural Deep Network LTD'\),'Open3DJ unknown','Open3DJ unknown',''\);/);
     // Still a valid exchange file: it re-imports with the same geometry.
     assert.equal(kernel.subShapes(kernel.importStep(named), "solid").length, 6);
+  });
+
+  // Regression (H-det, 2026-10-28): the OCCT writer numbers NEXT_ASSEMBLY_USAGE_OCCURRENCE ids
+  // from a counter that lives as long as the kernel, so the second export of one kernel wrote
+  // '7', '8', ... and its bytes differed from the first.
+  test("NEXT_ASSEMBLY_USAGE_OCCURRENCE ids are '1', '2', ... in file order on every export of one kernel", () => {
+    const asm = buildAssembly(kernel, enclosure(kernel), { rootName: "enclosure" });
+    for (let i = 0; i < 3; i++) {
+      const step = text(exportArtifacts(kernel, asm, ["step"], { evidence: false })[0]);
+      const ids = [...step.matchAll(/NEXT_ASSEMBLY_USAGE_OCCURRENCE\s*\(\s*'([^']*)'/g)].map((m) => m[1]);
+      assert.ok(ids.length >= 6, `export ${i + 1} has ${ids.length} usage occurrences`);
+      assert.deepEqual(ids, ids.map((_, j) => String(j + 1)), `export ${i + 1}`);
+    }
+  });
+
+  test("usage ids are renumbered outside strings only, so a name with the entity name in it stays", () => {
+    const step = [
+      "DATA;",
+      "#1 = NEXT_ASSEMBLY_USAGE_OCCURRENCE('17','a NEXT_ASSEMBLY_USAGE_OCCURRENCE(''9'' b','',#2,#3,$);",
+      "#4 = NEXT_ASSEMBLY_USAGE_OCCURRENCE(\n  'x''y','c','',#5,#6,$);",
+      "#7 = PRODUCT('NEXT_ASSEMBLY_USAGE_OCCURRENCE(''3''','p','',(#8));",
+      "#9 = NEXT_ASSEMBLY_USAGE_OCCURRENCE('5','d','',#2,#3,$);",
+      "ENDSEC;",
+    ].join("\n");
+    assert.equal(renumberUsageIds(step), [
+      "DATA;",
+      "#1 = NEXT_ASSEMBLY_USAGE_OCCURRENCE('1','a NEXT_ASSEMBLY_USAGE_OCCURRENCE(''9'' b','',#2,#3,$);",
+      "#4 = NEXT_ASSEMBLY_USAGE_OCCURRENCE(\n  '2','c','',#5,#6,$);",
+      "#7 = PRODUCT('NEXT_ASSEMBLY_USAGE_OCCURRENCE(''3''','p','',(#8));",
+      "#9 = NEXT_ASSEMBLY_USAGE_OCCURRENCE('3','d','',#2,#3,$);",
+      "ENDSEC;",
+    ].join("\n"));
+  });
+
+  test("a timestamp option replaces the wall clock in FILE_NAME with that time in UTC", () => {
+    const asm = buildAssembly(kernel, enclosure(kernel), { rootName: "enclosure" });
+    const at = (timestamp: string) => text(exportArtifacts(kernel, asm, ["step"], { evidence: false, timestamp })[0]);
+    const a = at("2026-10-28T11:15:30.250+02:00");
+    assert.match(a, /FILE_NAME\('enclosure\.step','2026-10-28T09:15:30',/);
+    // The same instant written another way gives the same header.
+    const fileName = (s: string) => /FILE_NAME\(.*\);/.exec(s)?.[0];
+    assert.equal(fileName(at("2026-10-28T09:15:30Z")), fileName(a));
+    assert.equal(stepTimestamp("2026-10-28T09:15Z"), "2026-10-28T09:15:00");
+    for (const bad of ["yesterday", "2026-10-28", "2026-10-28T09:15:30", "2026-13-45T99:00:00Z"]) {
+      assert.throws(() => at(bad), (e: unknown) => e instanceof AssemblyError && e.code === "BAD_OPTION", bad);
+    }
   });
 
   test("each solid of a multi-solid part is named '<part> body n' in STEP", () => {

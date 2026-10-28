@@ -363,6 +363,23 @@ test("export passes the manifest's author and organisation to the STEP header", 
   }
 });
 
+test("export writes the revision's time as the STEP time stamp, so a re-export is the same file", async () => {
+  const c = setup();
+  try {
+    await c.h.run({ project: "p.o3j", script: TWO_PARTS });
+    const file = join(c.root, "p.o3j", "revisions", "r_0001.json");
+    const rec = readJson(file) as { ts: string };
+    await c.h.export({ project: "p.o3j", format: "step" });
+    assert.equal(c.pool.calls.at(-1)?.export?.timestamp, rec.ts);
+    // A record whose time is not ISO 8601 with a zone keeps the writer's clock instead of failing.
+    writeFileSync(file, JSON.stringify({ ...readJson(file), ts: "yesterday" }));
+    await c.h.export({ project: "p.o3j", format: "step" });
+    assert.equal(c.pool.calls.at(-1)?.export?.timestamp, undefined);
+  } finally {
+    c.done();
+  }
+});
+
 test("export writes files and the evidence sidecar; old revisions re-run their own script", async () => {
   const c = setup();
   try {

@@ -11,7 +11,10 @@ dsl.reset(params);                             // per run
 const r = await runScript(source, { hostApi: dsl.hostApi, params, limits });
 if (r.ok) { const out = dsl.collect(r.value); /* parts, mates, params, paramSpecs, warnings */ }
 kernel.releaseSince(mark);                     // after measuring and exporting the parts
+dsl.dispose();                                 // only before disposing a short-lived kernel
 ```
+
+`dispose()` revokes the DSL's brepjs registration. brepjs 20.11.1 never frees its shape handles, and each one keeps the registered adapter, so without it a disposed kernel (such as the fresh instance a STEP export runs on) stays in memory. Register another DSL with `reset()` before the next run.
 
 `DSL_ENTRIES` lists every entry with its signature and the plan step that ships it.
 

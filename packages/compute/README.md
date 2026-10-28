@@ -14,7 +14,7 @@ await pool.close();
 
 - `kind: "run"` returns the GeometryReport and the assembly graph.
 - `kind: "render"` adds `images` (multiview PNG and SVG bytes).
-- `kind: "export"` adds `artifacts` (files plus the evidence sidecar). With `export.dir` and `export.root` the worker also writes them under the path policy of `writeArtifacts()` and returns `files`.
+- `kind: "export"` adds `artifacts` (files plus the evidence sidecar). With `export.dir` and `export.root` the worker also writes them under the path policy of `writeArtifacts()` and returns `files`. `export.timestamp` (ISO 8601 with a time zone) is written as the STEP time stamp instead of the wall clock; the MCP `export` tool passes the revision's time.
 
 `run()` resolves with a JobResult for every outcome of the job. It rejects only with `ComputeError` `POOL_CLOSED`.
 
@@ -34,6 +34,7 @@ await pool.close();
 - **Watchdog.** A timer per job, started when a worker takes it. The QuickJS deadline is best effort and cannot stop a long kernel call, so the parent terminates the worker.
 - **Recycling.** A worker is retired after `maxJobsPerWorker` jobs (default 200), when kernel WASM memory plus its JS heap passes `recycleBytes` (default 1.5 GiB, because WebAssembly memory never shrinks), or after any kernel error, including one the script caught. Its slot gets a new worker at once. A kernel loads in about 120 ms.
 - **Per job.** `checkpoint()`, run the script, build the assembly, fits, report, then render or export, then `releaseSince()`. Every result reports `liveShapes` after release.
+- **Fresh kernel for STEP.** A job that exports STEP, or that sets `freshKernel: true`, runs on `kernel.fresh()`: a new kernel instance from the thread's compiled WebAssembly module, with the same print sink, disposed after the job. On a warm worker the STEP bytes then match a fresh process (ARCHITECTURE.md section 8, decided 2026-10-28). The instance costs a median of 25 ms; the result's stats describe the worker's own kernel, and a kernel error on the fresh instance does not recycle the worker.
 
 ## Inventory, placement and doctor
 
@@ -54,6 +55,7 @@ The package entry point loads no kernel, DSL, assembly or render code: `runJobIn
 
 - `index.test.ts`: inventory schema and versions, pool sizing, placement and the inventory hash.
 - `job.test.ts`: run, render and export composed inline; files under the path policy; error mapping.
+- `step-determinism.test.ts`: the enclosure's STEP is byte-identical across 5 exports on one warm runner with other jobs between them, and equal to a fresh kernel's; with a time stamp, two exports of one revision are the same bytes; which jobs get a fresh kernel.
 - `pool.test.ts`: parallel jobs, lanes, the watchdog, recycling by job count, memory and kernel error, cancel, NO_BACKEND, crashes (with `fake-worker.testing.ts`), failed starts and close.
 - `stdout.test.ts`: a child process runs STEP and 3MF exports and a render through the pool; its stdout must be 0 bytes, and the kernel's STEP statistics must appear in the log.
 - `doctor.test.ts`: the bench and the scaling series.

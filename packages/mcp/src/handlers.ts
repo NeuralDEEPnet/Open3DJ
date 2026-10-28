@@ -23,6 +23,9 @@ import { describeIssues } from "./validator.ts";
 
 export const DEFAULT_INTERACTIVE_MS = 20_000;
 
+/** A revision time the STEP writer accepts as its time stamp (ISO 8601 with a time zone). */
+const REVISION_TIME = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2}(\.\d+)?)?(Z|[+-]\d{2}:\d{2})$/;
+
 /** The compute block of a result that needed no kernel job. */
 export function noJob(reason: string): ComputeBlock {
   return { backend: "none", device: "daemon", placement_reason: reason };
@@ -315,6 +318,9 @@ export function createHandlers(deps: HandlerDeps): ToolHandlers {
         const manifest = store.require();
         if (manifest.author) exp.author = manifest.author;
         if (manifest.organization) exp.organization = manifest.organization;
+        // The STEP time stamp is the revision's time, not the wall clock, so exporting the same
+        // revision again gives the same bytes. A record without a usable time keeps the clock.
+        if (typeof rec.ts === "string" && REVISION_TIME.test(rec.ts)) exp.timestamp = rec.ts;
         job.export = exp;
         let output: ExportOutput;
         try {

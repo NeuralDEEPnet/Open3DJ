@@ -90,6 +90,12 @@ export interface ExportOptions {
   /** Author and organisation for the STEP header (project settings). Default empty. */
   author?: string;
   organization?: string;
+  /**
+   * ISO 8601 date and time with a time zone for the STEP FILE_NAME time stamp, written as UTC
+   * to the second. Default: the STEP writer's wall clock. Exports of a stored revision pass
+   * the revision's time, so exporting the same revision again gives the same bytes.
+   */
+  timestamp?: string;
   /** Also write one STL per definition when the scope holds several. Default true. */
   stlPerDefinition?: boolean;
 }
