@@ -34,7 +34,7 @@ The process used about 440 MB of resident memory after the run. The test part ha
 3. **The kernel prints to standard output.** The STEP writer prints transfer statistics to stdout. The MCP stdio transport uses stdout for its messages, so the kernel must run in a worker thread or child process whose output is captured. This is a hard requirement for the MCP server.
 4. **Agents get pictures for free.** `toMultiviewSVG` and `toMultiviewPNG` render front, top, right and isometric views with hidden lines and a size label, with no GPU. This can be the default render returned to agents and used for golden-image tests in CI.
 5. **The API covers far more than the first release needs.** The 210 methods include `draft` for injection-moulding draft angles, history-tracking variants of booleans, fillets and transforms for stable references, `subShapeHashes`, healing, curvature, inertia, sections, hidden-line projection for drawings, XCAF assemblies, STEP and STL import and export.
-6. **Gaps to fill above the kernel:** there is no glTF export in this build, so the viewer needs a small mesh-to-glTF step. Wall-thickness and overhang checks must be written on top of the kernel.
+6. **Gaps to fill above the kernel:** the kernel object has no direct glTF export. The XCAF assembly document does export binary glTF, as [spike-assemblies.md](spike-assemblies.md) later showed, so the viewer can use that or a small mesh-to-glTF step of its own. Wall-thickness and overhang checks must be written on top of the kernel.
 
 ## Multi-core CPU
 
