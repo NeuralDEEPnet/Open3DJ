@@ -2,7 +2,7 @@
 
 **Open3DJ was created by Neural Deep Network LTD** ([neuraldeep.net](https://www.neuraldeep.net)), based in Dublin and Malta, EU.
 
-Open3DJ is built by people, by AI agents working with people, and by organizations. Every kind of contribution counts here: code, design, documentation, research, testing, test data, parts, translation, review, ideas, bug reports, mentoring, compute and funding. See [CONTRIBUTING.md](CONTRIBUTING.md) to get started. You are added to this file with your first merged contribution, and you are welcome to add yourself in that pull request.
+Open3DJ is built by people, by AI agents working with people, and by organizations. Every kind of contribution counts here: code, design, documentation, research, testing, test data, parts, translation, review, ideas, bug reports, mentoring, compute and funding. See [CONTRIBUTING.md](CONTRIBUTING.md) to get started. You are added to this file with your first merged contribution, and you are welcome to add yourself in that pull request. A useful issue counts too: when a maintainer acts on your research check, part proposal, design brief or feedback, we add you here (or you can add yourself in a one-line pull request).
 
 ## Maintainers
 
