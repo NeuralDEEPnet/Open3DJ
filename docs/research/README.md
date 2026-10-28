@@ -19,6 +19,7 @@ These reports were produced by parallel research agents and each was adversarial
 
 | Note | Result |
 |---|---|
+| [spike-assemblies.md](spike-assemblies.md) | Multi-part assemblies with shared definitions export to STEP and glTF, survive re-import, and support interference checks |
 | [spike-occt-wasm.md](spike-occt-wasm.md) | Open CASCADE as WebAssembly runs in Node.js with no native build, fast enough for agent edits, with CPU-rendered drawings |
 
 ## Gap-fill notes
