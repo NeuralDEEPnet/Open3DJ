@@ -87,6 +87,12 @@ export interface Dsl {
    * Throws a DslError (code DSL_BAD_RETURN) when the value holds no shapes.
    */
   collect(value: GuestValue): ScriptReturn;
+  /**
+   * Cut this DSL's link to brepjs before its kernel is disposed, so the kernel can be freed.
+   * Call it for a DSL on a short-lived kernel (a fresh instance), then register another
+   * DSL with reset() before the next run. The DSL must not be used afterwards.
+   */
+  dispose(): void;
   /** Entry names and one-line signatures, for the docs tool. */
   readonly entries: ReadonlyArray<DslEntry>;
 }
