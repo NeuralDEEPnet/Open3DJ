@@ -27,6 +27,9 @@ A completeness review of the draft plan found gaps. These notes answer them and 
 | [gap-4.md](gap-4.md) | Licence audit of TripoSG and TRELLIS inference pipelines |
 | [gap-5.md](gap-5.md) | Trademark and namespace availability for the name Open3DJ |
 | [gap-6.md](gap-6.md) | MCP 2026-07-28 support in clients and in the Rust rmcp crate |
+| [gap-7.md](gap-7.md) | Adoption baselines for comparable CAD and 3D agent packages |
+| [gap-8.md](gap-8.md) | Developer OS share, and native versus WASM OCCT performance |
+| [gap-9.md](gap-9.md) | Code signing eligibility, CADGenBench scores, Apple fees, 3dj MCP inputs |
 
 ## Architecture proposals
 
@@ -37,3 +40,10 @@ Three independent proposals were scored by three judges. The final plan builds o
 | [Agent-first](proposals/proposal-agent-first.md) | 23.2 |
 | [Engineering rigour](proposals/proposal-engineering-rigor.md) | 22.3 |
 | [Adoption-first](proposals/proposal-adoption-first.md) | 19.3 |
+
+## Archive
+
+| Document | Status |
+|---|---|
+| [Full-scale plan](archive/full-scale-plan.md) | Superseded by the lean plan. Written for a funded team. |
+| [Full-scale architecture](archive/full-scale-architecture.md) | Superseded by the lean architecture. Kept for detail. |
