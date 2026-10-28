@@ -15,16 +15,41 @@ Open3DJ is created by **Neural Deep Network LTD** ([neuraldeep.net](https://www.
 - **Your designs are yours.** What you create with Open3DJ belongs to you.
 - **From idea to a part someone can make.** Exports and checks aimed at 3D printers, print services and manufacturers.
 
-## Status: planning
+## Status: first vertical slice
 
-Open3DJ is in the **planning stage**. There is no application code yet, and the starting tech stack is not decided. This is the best time to shape it.
+Open3DJ is early. The first slice works end to end on the command line and over MCP: a script in the Open3DJ DSL goes in, and a checked assembly, a short GeometryReport, a four-view drawing (PNG and SVG) and STEP, STL, glTF and 3MF files come out. There is no desktop app yet, and many DSL entries are still to come (see [docs/DSL.md](docs/DSL.md)). This is the best time to shape it.
 
-- [docs/research/README.md](docs/research/README.md): research on AI CAD, geometry kernels, agent protocols, security, licensing and more, dated 2026-10-27.
+- [docs/GETTING-STARTED.md](docs/GETTING-STARTED.md): your first part, for people and for agents.
+- [examples/](examples/README.md): ten small parts and assemblies with their measured results and drawings.
 - [docs/PLAN.md](docs/PLAN.md): the lean plan, how we work (the Kaizen loop) and the roadmap of small releases, S0 to S12.
 - [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md): the technical architecture, contracts, agent tools and repo layout.
 - [docs/ASSEMBLIES.md](docs/ASSEMBLIES.md): the assembly-first model: parts, occurrences, mates, fits, BOM and exports.
 - [docs/COMPUTE.md](docs/COMPUTE.md): how work runs on CPU, local GPU and cloud GPU, with a CPU path for everything.
 - [docs/INDUSTRIAL-DESIGN.md](docs/INDUSTRIAL-DESIGN.md): the industrial product design pipeline, from brief to supplier handoff.
+- [docs/research/README.md](docs/research/README.md): research on AI CAD, geometry kernels, agent protocols, security, licensing and more, dated 2026-10-27.
+
+## Try it
+
+You need [Node.js 24](https://nodejs.org) and git. Nothing is published to npm yet, so you run Open3DJ from a clone:
+
+```sh
+git clone https://github.com/NeuralDEEPnet/Open3DJ.git
+cd Open3DJ
+npm ci
+npx open3dj run examples/bracket/bracket.o3j.js
+npx open3dj render examples/bracket/bracket.o3j --out bracket.png
+npx open3dj export examples/bracket/bracket.o3j --format step
+```
+
+`run` prints the report: validity, volume, bounding box and counts for every part, and clashes, contacts and clearances between parts. `render` writes a four-view drawing, and `export` writes the STEP file and an evidence sidecar under `examples/bracket/bracket.o3j/out/r_0001/`. Start your own design with `npx open3dj new mypart` (or `--template assembly`).
+
+**Connect an AI agent.** Open3DJ is an MCP server with five tools: `run`, `inspect`, `render`, `export` and `docs`. For Claude Code, run this in the folder where your designs should live:
+
+```sh
+claude mcp add open3dj -- node /path/to/Open3DJ/packages/open3dj/src/cli.ts mcp
+```
+
+Then ask, for example, "make a 60 mm wall bracket with two M4 holes, check it and export STEP". Other clients (Codex, Gemini CLI, Cursor, VS Code, Claude Desktop) take the same command, `node /path/to/Open3DJ/packages/open3dj/src/cli.ts mcp`, in their MCP settings; [docs/GETTING-STARTED.md](docs/GETTING-STARTED.md) shows each one. Everything runs on your computer.
 
 ## Get involved in one minute
 
