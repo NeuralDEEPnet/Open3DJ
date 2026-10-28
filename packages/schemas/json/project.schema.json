@@ -10,6 +10,8 @@
     "units": { "const": "mm" },
     "up": { "const": "Z" },
     "rev": { "$ref": "urn:open3dj:v0:common#/$defs/rev" },
+    "author": { "type": "string", "maxLength": 256, "description": "Written as the author in exported STEP headers. Optional." },
+    "organization": { "type": "string", "maxLength": 256, "description": "Written as the organisation in exported STEP headers. Optional." },
     "engine": {
       "description": "Engine pins the project was last built with.",
       "type": "object",

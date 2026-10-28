@@ -3,11 +3,12 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, symlinkSync, writeFileSync } from "node:fs";
+import { createHash } from "node:crypto";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { validate } from "@open3dj/schemas";
 import type { AssemblyFile, ToolName } from "@open3dj/schemas";
-import { createHandlers } from "./handlers.ts";
+import { createHandlers, sameCode } from "./handlers.ts";
 import { checkGraphSize, flatten } from "./tree.ts";
 import { FAKE_INVENTORY, fakePlace, fakePool } from "./testing.ts";
 import type { FakePool } from "./testing.ts";
@@ -288,6 +289,80 @@ test("render writes images under out/<rev>/ and returns them", async () => {
   }
 });
 
+// Regression (S1 polish): each export wrote <name>.evidence.json listing only its own files,
+// so exporting STEP and then STL lost the STEP file's hash from the evidence.
+test("exports of one revision add to one evidence sidecar instead of replacing it", async () => {
+  const c = setup();
+  try {
+    await c.h.run({ project: "p.o3j", script: TWO_PARTS });
+    const step = await c.h.export({ project: "p.o3j", format: "step" });
+    const stl = await c.h.export({ project: "p.o3j", format: "stl" });
+    const glb = await c.h.export({ project: "p.o3j", format: "gltf" });
+    valid("export", glb);
+    const evidencePath = join(c.root, "p.o3j", "out", "r_0001", "p.evidence.json");
+    const ev = readJson(evidencePath) as { rev: string; files: Array<{ name: string; format: string; sha256: string; bytes: number }> };
+    assert.equal(ev.rev, "r_0001");
+    assert.deepEqual(ev.files.map((f) => [f.name, f.format]), [["p.step", "step"], ["p.stl", "stl"], ["p.glb", "gltf"]]);
+    // Each entry carries the hash the tool returned for that file.
+    const returned = new Map([...step.files!, ...stl.files!, ...glb.files!].map((f) => [f.path.split("/").pop()!, f.sha256]));
+    for (const f of ev.files) assert.equal(f.sha256, returned.get(f.name), f.name);
+    // The tool's own FileRef for the sidecar matches the merged bytes on disk.
+    const sidecar = glb.files!.find((f) => f.format === "evidence")!;
+    assert.equal(sidecar.sha256, createHash("sha256").update(readFileSync(evidencePath)).digest("hex"));
+
+    // Exporting STEP again replaces its entry, never duplicates it.
+    await c.h.export({ project: "p.o3j", format: "step" });
+    assert.deepEqual((readJson(evidencePath) as typeof ev).files.map((f) => f.name), ["p.stl", "p.glb", "p.step"]);
+
+    // A file changed or deleted after its export drops out: the sidecar never vouches for it.
+    writeFileSync(join(c.root, "p.o3j", "out", "r_0001", "p.stl"), "edited by hand");
+    rmSync(join(c.root, "p.o3j", "out", "r_0001", "p.glb"));
+    await c.h.export({ project: "p.o3j", format: "3mf" });
+    assert.deepEqual((readJson(evidencePath) as typeof ev).files.map((f) => f.name), ["p.step", "p.3mf"]);
+
+    // A sidecar of another revision in the same folder is replaced, not merged.
+    await c.h.run({ project: "p.o3j", script: `${TWO_PARTS}\n// v2` });
+    await c.h.export({ project: "p.o3j", format: "stl", out_dir: "out/r_0001" });
+    const other = readJson(evidencePath) as typeof ev;
+    assert.equal(other.rev, "r_0002");
+    assert.deepEqual(other.files.map((f) => f.name), ["p.stl"]);
+  } finally {
+    c.done();
+  }
+});
+
+test("save_params false runs with the values but keeps the working copy's params", async () => {
+  const c = setup();
+  try {
+    const script = "const W = Param.number(\"Width\", 10, { min: 1, max: 100 });\nreturn box(W, 5, 2);";
+    await c.h.run({ project: "p.o3j", script, params: { Width: 20 } });
+    const file = join(c.root, "p.o3j", "params.o3j.json");
+    assert.deepEqual(readJson(file), { Width: 20 });
+    const trial = await c.h.run({ project: "p.o3j", script, params: { Width: 30 }, save_params: false });
+    assert.equal(trial.rev, "r_0002");
+    assert.deepEqual(c.pool.calls.at(-1)?.params, { Width: 30 });
+    assert.deepEqual(readJson(file), { Width: 20 }, "the working copy keeps its values");
+    assert.deepEqual((readJson(join(c.root, "p.o3j", "revisions", "r_0002.json")) as { params: unknown }).params, { Width: 30 }, "the revision records what it ran");
+  } finally {
+    c.done();
+  }
+});
+
+test("export passes the manifest's author and organisation to the STEP header", async () => {
+  const c = setup();
+  try {
+    await c.h.run({ project: "p.o3j", script: TWO_PARTS });
+    await c.h.export({ project: "p.o3j", format: "step" });
+    assert.equal(c.pool.calls.at(-1)?.export?.author, undefined);
+    const file = join(c.root, "p.o3j", "project.o3j.json");
+    writeFileSync(file, JSON.stringify({ ...readJson(file), author: "A. Maker", organization: "Neural Deep Network LTD" }));
+    await c.h.export({ project: "p.o3j", format: "step" });
+    assert.deepEqual([c.pool.calls.at(-1)?.export?.author, c.pool.calls.at(-1)?.export?.organization], ["A. Maker", "Neural Deep Network LTD"]);
+  } finally {
+    c.done();
+  }
+});
+
 test("export writes files and the evidence sidecar; old revisions re-run their own script", async () => {
   const c = setup();
   try {
@@ -485,6 +560,61 @@ test("a new script starts from its own defaults; the same script keeps the store
     assert.ok(changed.report?.warnings?.some((w) => /Width/.test(w) && /script changed/.test(w)), JSON.stringify(changed.report?.warnings));
     const same = await c.h.run({ project: "p.o3j", script: C, params: { Width: 4 } });
     assert.ok(!(same.report?.warnings ?? []).some((w) => /script changed/.test(w)), "the same script keeps its values without a warning");
+  } finally {
+    c.done();
+  }
+});
+
+// Regression (review round 1, increment 2): every script edit warned that the stored values
+// of every param "were not used", though the new script resolved most of them to the same
+// value. Only values that the new script resolves differently are named.
+test("a script edit warns only about stored values the new script resolves differently", async () => {
+  const c = setup();
+  const run = c.pool.run.bind(c.pool);
+  c.pool.run = async (job, o) => {
+    const r = await run(job, o);
+    if (r.ok) {
+      // Defaults as the script declares them, overridden by the params passed.
+      const defaults = Object.fromEntries([...job.script.matchAll(/Param\.number\("(\w+)", (\d+)/g)].map((m) => [m[1]!, Number(m[2])]));
+      r.params = Object.fromEntries(Object.entries(defaults).map(([k, v]) => [k, typeof job.params?.[k] === "number" ? job.params[k] : v]));
+    }
+    return r;
+  };
+  const script = (w: number, fillet: number) => `const W = Param.number("Width", ${w});\nconst L = Param.number("Leg", 35);\nreturn box(W, L, 4); // fillet ${fillet}`;
+  try {
+    await c.h.run({ project: "p.o3j", script: script(40, 4) });
+    // An edit that leaves every param as it was: no warning.
+    const edit = await c.h.run({ project: "p.o3j", script: script(40, 5) });
+    assert.equal(edit.status, "ok", JSON.stringify(edit.report?.warnings));
+    // A value the new script resolves differently is named, and only that one.
+    await c.h.run({ project: "p.o3j", ops: [{ op: "set_param", name: "Width", value: 50 }] });
+    const changed = await c.h.run({ project: "p.o3j", script: script(60, 5) });
+    assert.equal(changed.status, "warning");
+    const w = (changed.report?.warnings ?? []).find((x) => /script changed/.test(x)) ?? "";
+    assert.match(w, /Width/);
+    assert.doesNotMatch(w, /Leg/);
+  } finally {
+    c.done();
+  }
+});
+
+// Regression (review round 1, increment 2): a run reused the head revision whenever script,
+// params and package versions matched, and the versions stay 0.0.0 in a checkout. So after a
+// pull with new fit or report code, run and view kept showing the old report. The revision
+// now records the analysis version, and a revision without the current one is not reused.
+test("a revision made by older analysis code is not reused for the same inputs", async () => {
+  const c = setup();
+  try {
+    const r1 = await c.h.run({ project: "p.o3j", script: TWO_PARTS });
+    assert.equal(r1.rev, "r_0001");
+    const file = join(c.root, "p.o3j", "revisions", "r_0001.json");
+    const rec = readJson(file);
+    assert.equal(typeof rec.analysis, "number", "the revision records its analysis version");
+    assert.equal((await c.h.run({ project: "p.o3j", script: TWO_PARTS })).rev, "r_0001", "the same analysis reuses the revision");
+    delete rec.analysis;
+    writeFileSync(file, JSON.stringify(rec));
+    const again = await c.h.run({ project: "p.o3j", script: TWO_PARTS });
+    assert.equal(again.rev, "r_0002", "a revision from before the analysis marker is rebuilt");
   } finally {
     c.done();
   }
@@ -707,4 +837,12 @@ test("a queued run keeps its full result: the report on success, the error with 
     c.h.shutdown();
     c.done();
   }
+});
+
+test("sameCode: comments, blank lines and trailing spaces do not count as a script change", () => {
+  const a = `const W = Param.number("Width", 80);\nreturn box(W, 10, 5);\n`;
+  assert.ok(sameCode(a, `// designer note\n${a}\n\n`));
+  assert.ok(sameCode(a, a.replace("80);", "80); // the default")));
+  assert.ok(!sameCode(a, a.replace("80", "90")), "a new default is a change");
+  assert.ok(!sameCode(`return { name: "a // b", shape: box(1, 1, 1) };`, `return { name: "a", shape: box(1, 1, 1) };`), "// inside a string is code");
 });

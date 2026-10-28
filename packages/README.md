@@ -12,7 +12,8 @@ Each package is an npm workspace named `@open3dj/<dir>` (the CLI is `open3dj`). 
 | `render` | ready | Four-view HLR PNG and SVG | `renderAssembly(kernel, asm, { view, targets, format })` |
 | `compute` | ready | DeviceInventory, placement, worker pool, job worker | `deviceInventory`, `place`, `createPool`, `doctor`, `runJobInline`; `createJobRunner` from `@open3dj/compute/job` |
 | `mcp` | ready | Five tool handlers and the dual-era stdio server | `TOOL_DEFINITIONS`, `createHandlers`, `serveStdio`, `guardStdout` |
-| `open3dj` | ready | CLI and daemon entry | `main(argv)`, `parseCommand` |
+| `open3dj` | ready | CLI and daemon entry; `open3dj view` serves the viewer | `main(argv)`, `parseCommand`, `startViewServer` |
+| `viewer` | ready | Browser viewer (S2): plain ES modules on three 0.186.1 | `viewerAssets`, `viewerPage`, `IMPORT_MAP`, `THREE_VERSION` |
 
 ## How a run flows
 
@@ -21,6 +22,7 @@ Each package is an npm workspace named `@open3dj/<dir>` (the CLI is `open3dj`). 
 3. A worker thread (stdout captured) runs `sandbox.runScript` with the `dsl` host API on its own kernel, inside `checkpoint()` and `releaseSince()`.
 4. `dsl.collect` turns the result into parts; `assembly.buildAssembly` makes definitions and occurrences; `assembly.computeFits` and `assembly.report` make the GeometryReport.
 5. For render and export jobs the worker adds `render.renderAssembly` or `assembly.exportArtifacts`, and the daemon writes the files inside the project folder.
+6. `open3dj view` serves the `viewer` page on 127.0.0.1. It asks the same export and render handlers for a GLB and a drawing per revision, and tells the page about new revisions over server-sent events.
 
 ## Rules for every package
 

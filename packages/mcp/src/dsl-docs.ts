@@ -80,7 +80,9 @@ return part;`,
   name: "return box(20, 20, 5).name(\"Base plate\");",
   withReferences: `const plate = box(40, 20, 5).withReferences({ hole: [10, 0, 5] }).translate(0, 0, 10);
 const [x, y, z] = plate.referencePoint("hole");
-return plate.subtract(cylinder(10, 2).translate(x, y, z - 7));`,
+const drilled = plate.subtract(cylinder(10, 2).translate(x, y, z - 7));
+// Name a face and an edge on the final shape: refs[] in the report says whether later runs still find them.
+return drilled.withReferences({ top: { face: { normal: [0, 0, 1], atZ: 15 } }, bore: { face: { surface: "cylinder" } }, front_top: { edge: { parallel: [1, 0, 0], atY: -10, atZ: 15 } } });`,
   attachTo: `const base = box(40, 40, 10);
 const knob = cylinder(8, 6).attachTo(base, "top", "bottom");
 return [{ name: "Base", shape: base }, { name: "Knob", shape: knob }];`,
@@ -185,7 +187,7 @@ export const PLAYBOOK: readonly PlaybookEntry[] = [
   { code: "DSL_MISSING_CONNECTOR", meaning: "matchTo named a connector the shape does not have.", fix: "Attach it first with withConnectors({ name: connector.male(...) })." },
   { code: "DSL_EMPTY_RESULT", meaning: "A part has no solid left, usually because a cut removed everything. line points at the call that made the part.", fix: "Check the cutter size and position (cutters bigger than the part remove it all), or render the parts before the cut." },
   { code: "BAD_PART", meaning: "A returned part is not a usable shape: it could not be measured, for example a surface or a broken result. line points at the call that made it.", fix: "Return solids. Render the parts before the last operation to see what it did." },
-  { code: "DSL_UNSUPPORTED", meaning: "The combination of options is not supported, for example offset on a profile with holes, or a 2D boolean whose result fails its area check.", fix: "Follow the hint; usually build the profile in two steps, or extrude the profiles and combine the solids." },
+  { code: "DSL_UNSUPPORTED", meaning: "The combination of options is not supported, for example offset on a profile with holes, or a 2D boolean or corner fillet whose result fails its area check.", fix: "Follow the hint; usually build the profile in two steps, or extrude the profiles and combine the solids." },
   { code: "DSL_OVERLAPPING_SOLIDS", meaning: "One returned part holds several solids that share volume, so its volume and mass would be counted twice.", fix: "Union the pieces into one solid (a.union(b)), or return them as separate parts." },
   { code: "KERNEL_BOOLEAN_FAILED", meaning: "OCCT could not compute a union, cut or intersection.", fix: "Make tools overlap the body clearly and avoid coincident faces: extend cutters 0.01 mm or more past the faces they cut." },
   { code: "KERNEL_FILLET_FAILED", meaning: "OCCT could not round the chosen edges. elements names them (edge:N).", fix: "Use a smaller radius, or fillet fewer edges at once; fillet before boolean cuts that meet the edge." },
@@ -222,7 +224,8 @@ export const PLAYBOOK: readonly PlaybookEntry[] = [
   { code: "PROJECT_REQUIRED", meaning: "inspect fields tree, refs, fits and measure need a project.", fix: "Pass project; devices and job work without one." },
   { code: "OP_NOT_IMPLEMENTED", meaning: "The run op arrives in a later step: add_occurrence, remove, set_transform and replace_definition come in S2. S1 supports set_param and cancel_job.", fix: "Change the script so it returns the parts with their placements, and run it again." },
   { code: "PROJECT_BUSY", meaning: "Another process (a second daemon or the CLI) held the project's lock file for more than 15 s.", fix: "Run again. If no other open3dj process runs, delete the project's .o3j-lock file." },
-  { code: "STEP_ROUNDTRIP_FAILED", meaning: "The STEP file did not re-import as the same solids (count, validity or volume), so other CAD tools would open a broken part. The message names the occurrence and faces.", fix: "Usually a revolved profile whose end meets the axis at an angle: end it square to the axis (an arc centred on the axis, or a short flat). STL, glTF and 3MF still work." },
+  { code: "STEP_HEADER", meaning: "The STEP writer produced a file without the HEADER section or FILE_SCHEMA that Open3DJ rewrites with the file name, author and version.", fix: "Report it with the script: the kernel's STEP writer changed. STL, glTF and 3MF still work." },
+  { code: "STEP_ROUNDTRIP_FAILED", meaning: "The STEP file did not re-import as the same solids (count, validity or volume), so other CAD tools would open a broken part. The message names the occurrence and faces.", fix: "Usually a revolved profile whose end meets the axis at an angle: end it square to the axis (an arc centred on the axis, or a short flat). A curve the STEP writer cannot express (an offset of a spline) is the other known cause: simplify that profile. STL, glTF and 3MF still work." },
   { code: "BAD_INPUT", meaning: "The tool input does not match the tool's input schema.", fix: "Check the schema in tools/list; the message names the field." },
   { code: "NO_BACKEND", meaning: "compute asked for gpu or cloud, which arrive in later steps.", fix: "Use compute \"auto\" or \"cpu\"." },
   { code: "JOB_TIMEOUT", meaning: "The job ran past the pool's wall-clock limit and its worker was stopped.", fix: "Simplify the script or split it into parts." },

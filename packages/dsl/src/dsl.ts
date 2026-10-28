@@ -51,7 +51,7 @@ export function createDsl(kernel: KernelAdapter, options: DslOptions = {}): Dsl 
       state.reset(params);
     },
     collect(value: GuestValue): ScriptReturn {
-      return collect(kernel, state, value);
+      return collect(kernel, state, value, tol);
     },
   };
 }

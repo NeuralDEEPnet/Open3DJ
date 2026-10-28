@@ -7,6 +7,7 @@ import { fileURLToPath } from "node:url";
 import { Client } from "@modelcontextprotocol/client";
 import { StdioClientTransport } from "@modelcontextprotocol/client/stdio";
 import { validate } from "@open3dj/schemas";
+import type { FitReport } from "@open3dj/schemas";
 import { EXIT, PACKAGE_STATUS, defaultProject, main, parseCommand, parseParams } from "./index.ts";
 
 const capture = () => {
@@ -157,6 +158,119 @@ test("end to end on the real pool: new, run, render, export, inspect, and the ex
     assert.equal(asmOut.report.assembly.occurrences, 6);
     assert.equal(asmOut.report.assembly.definitions, 3, "four screw clones share one definition");
     assert.ok(!asmOut.report.fits.some((f) => f.kind === "clash"), "the template has no clashes");
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+// Regression (S1 polish): --param silently rewrote params.o3j.json, so the next plain run
+// used the new value and people did not know why. The CLI now says when it saved the
+// values, and --no-save-params tries values without touching the working copy.
+test("--param says when it saved the working copy, and --no-save-params leaves it alone", async () => {
+  const dir = tmp("o3j-params-");
+  try {
+    const script = join(dir, "plate.o3j.js");
+    writeFileSync(script, "const W = Param.number(\"Width\", 10, { min: 1, max: 100 });\nreturn box(W, 5, 2);\n");
+    const paramsFile = join(dir, "plate.o3j", "params.o3j.json");
+    const stored = () => JSON.parse(readFileSync(paramsFile, "utf8")) as Record<string, unknown>;
+
+    const first = capture();
+    assert.equal(await main(["run", script, "--param", "Width=20"], first.io), 0, first.errText());
+    assert.match(first.text(), /\nsaved params: Width=20 in .*plate\.o3j[\\/]params\.o3j\.json\n$/);
+    assert.deepEqual(stored(), { Width: 20 });
+
+    // The same values again change nothing, so nothing is said.
+    const again = capture();
+    assert.equal(await main(["run", script], again.io), 0, again.errText());
+    assert.doesNotMatch(again.text() + again.errText(), /saved params/);
+
+    // --no-save-params: the run uses 30, the working copy keeps 20.
+    const trial = capture();
+    assert.equal(await main(["run", script, "--param", "Width=30", "--no-save-params", "--json"], trial.io), 0, trial.errText());
+    const out = JSON.parse(trial.text()) as { rev: string; report: { parts: Array<{ bbox: { max: number[]; min: number[] } }> } };
+    assert.equal(out.report.parts[0]!.bbox.max[0]! - out.report.parts[0]!.bbox.min[0]!, 30);
+    assert.deepEqual(stored(), { Width: 20 });
+    assert.match(trial.errText(), /params not saved \(--no-save-params\): params\.o3j\.json keeps Width=20/);
+
+    // With --json the note goes to stderr, so stdout stays one JSON document.
+    const json = capture();
+    assert.equal(await main(["export", script, "--format", "step", "--param", "Width=40", "--json"], json.io), 0, json.errText());
+    assert.doesNotThrow(() => JSON.parse(json.text()));
+    assert.match(json.errText(), /saved params: Width=40 \(was 20\)/);
+    assert.deepEqual(stored(), { Width: 40 });
+
+    const parsed = parseCommand(["run", "x.o3j.js", "--param", "a=1", "--no-save-params"]).command;
+    assert.ok(parsed.cmd === "run" && parsed.input.save_params === false);
+    assert.ok(validate("tool-run-input", { ...(parsed.cmd === "run" ? parsed.input : {}), script: "return box(1,1,1)" }).valid);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("inspect --fields refs lists named faces and edges with element addresses and fingerprints", async () => {
+  const dir = tmp("o3j-refs-");
+  try {
+    const script = join(dir, "plate.o3j.js");
+    writeFileSync(script, "const X = Param.number(\"HoleX\", 0, { min: -10, max: 10 });\nconst p = box(40, 20, 5).subtract(cylinder(7, 3).translate(X, 0, -1));\nreturn p.withReferences({ top: { face: { normal: [0, 0, 1], atZ: 5 } }, hole: { face: { surface: \"cylinder\" } } });\n");
+    const run = capture();
+    assert.equal(await main(["run", script], run.io), 0, run.errText());
+    assert.match(run.text(), /refs:\n {2}part\.top {2}exact\n {2}part\.hole {2}exact\n/);
+    const ins = capture();
+    assert.equal(await main(["inspect", join(dir, "plate.o3j"), "--fields", "refs", "--json"], ins.io), 0, ins.errText());
+    const out = JSON.parse(ins.text()) as { refs: Array<{ name: string; state: string; at: string; fingerprint: { type: string; surface?: string } }> };
+    assert.ok(validate("tool-inspect-output", out).valid, JSON.stringify(validate("tool-inspect-output", out).errors));
+    assert.deepEqual(out.refs.map((r) => [r.name, r.state, r.fingerprint.type, r.fingerprint.surface]), [["part.top", "exact", "face", "plane"], ["part.hole", "exact", "face", "cylinder"]]);
+    assert.ok(out.refs.every((r) => /^face:\d+$/.test(r.at)));
+    // Moving the hole keeps both names exact; the text view shows the element addresses.
+    const moved = capture();
+    assert.equal(await main(["run", script, "--param", "HoleX=8"], moved.io), 0, moved.errText());
+    const text = capture();
+    assert.equal(await main(["inspect", join(dir, "plate.o3j"), "--fields", "refs"], text.io), 0);
+    assert.match(text.text(), /part\.hole {2}exact {2}face:\d+/);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+// Regression (review round 1): inspect --fields fits printed extra lines like primary lines,
+// and run said "another gap" where the viewer and docs say "further gap".
+test("run and inspect label further gaps the same way, and a lone extra line says why", async () => {
+  const { formatInspect, formatReport } = await import("./format.ts");
+  const fits: FitReport[] = [
+    { a: "lid", b: "screw#1", kind: "contact" as const, distance_mm: 0, confidence: "measured" as const },
+    { a: "lid", b: "screw#1", kind: "clearance" as const, distance_mm: 0.2, confidence: "measured" as const, extra: true },
+    { a: "base", b: "lid", kind: "clearance" as const, distance_mm: 0.25, confidence: "measured" as const, extra: true },
+  ];
+  const inspect = formatInspect({ status: "ok", rev: "r_0001", fits, compute: { backend: "cpu.wasm", device: "cpu x1", placement_reason: "test" } });
+  assert.match(inspect, /clearance {2}lid \/ screw#1 {2}0\.2 mm \(measured\) further gap\n/);
+  assert.match(inspect, /clearance {2}base \/ lid {2}0\.25 mm \(measured\) beside a mated seat\n/);
+  assert.match(inspect, /contact {4}lid \/ screw#1 {2}0 mm \(measured\)\n/);
+  const run = formatReport({ status: "ok", rev: "r_0001", assembly: { occurrences: 3, definitions: 3 }, parts: [], fits, compute: { backend: "cpu.wasm", device: "cpu x1", placement_reason: "test" } });
+  assert.match(run, /0\.2 mm \(measured\) further gap\n/);
+  assert.doesNotMatch(run, /another gap/);
+});
+
+// Regression (review round 2 of increment 2): the CLI printed the token-budgeted report to a
+// person, so a fresh run of the enclosure listed one clearance line and "12 more fits not listed".
+test("open3dj run prints every collapsed fit line to a person, contacts first", async () => {
+  const dir = tmp("o3j-cli-fits-");
+  try {
+    const file = join(dir, "enclosure.o3j.js");
+    writeFileSync(file, readFileSync(fileURLToPath(new URL("../../../examples/enclosure/enclosure.o3j.js", import.meta.url)), "utf8"));
+    const c = capture();
+    assert.equal(await main(["run", file], c.io), EXIT.ok, c.errText());
+    const text = c.text();
+    assert.doesNotMatch(text, /more fits not listed/, text);
+    assert.match(text, /contact {4}lid \/ screw#1\.\.4 .* x4\n/, text);
+    const kinds = [...text.matchAll(/^ {2}(clash|contact|clearance) /gm)].map((m) => m[1]);
+    assert.ok(kinds.indexOf("contact") < kinds.indexOf("clearance"), kinds.join(","));
+    // Ten blocks in a row: nine contacts with distinct names, more than the concise report keeps.
+    const row = join(dir, "row.o3j.js");
+    writeFileSync(row, `return Array.from({ length: 10 }, (_, i) => ({ name: "block" + String.fromCharCode(65 + i), shape: box(10, 10, 10).translate(i * 10, 0, 0) }));\n`);
+    const r = capture();
+    assert.equal(await main(["run", row], r.io), EXIT.ok, r.errText());
+    assert.equal([...r.text().matchAll(/^ {2}contact {4}block/gm)].length, 9, r.text());
+    assert.doesNotMatch(r.text(), /more fits not listed/);
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }

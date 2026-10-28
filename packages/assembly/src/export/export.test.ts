@@ -60,6 +60,24 @@ describe("STEP", () => {
   });
 
   // Regression (review round 2): the solids of a multi-solid part were written with no names.
+  // Regression (S1 polish): the header said 'Open CASCADE Shape Model', author 'Author' and
+  // organisation 'Open CASCADE', so a supplier saw neither the design's name nor its tool.
+  test("the STEP header names the file, Open3DJ with its version, and the project's author", () => {
+    const asm = buildAssembly(kernel, enclosure(kernel), { rootName: "enclosure" });
+    const plain = text(exportArtifacts(kernel, asm, ["step"], { evidence: false, engine: { open3dj: "0.1.0" } })[0]);
+    const header = /HEADER;([\s\S]*?)ENDSEC;/.exec(plain)?.[1] ?? "";
+    assert.match(header, /FILE_DESCRIPTION\(\('Open3DJ model'\),'2;1'\);/);
+    assert.match(header, /FILE_NAME\('enclosure\.step','\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d',\(''\),\(''\),'Open3DJ 0\.1\.0','Open3DJ 0\.1\.0',''\);/);
+    assert.match(header, /FILE_SCHEMA\(\('AUTOMOTIVE_DESIGN/);
+    assert.doesNotMatch(plain, /Open CASCADE/);
+    // Author and organisation come from the project; quotes are doubled, other characters
+    // outside printable ASCII go out as \X2\ runs (ISO 10303-21 section 6.4.3).
+    const named = text(exportArtifacts(kernel, asm, ["step"], { evidence: false, baseName: "box-v2", author: "Zoë O'Neil", organization: "Neural Deep Network LTD" })[0]);
+    assert.match(named, /FILE_NAME\('box-v2\.step','[^']+',\('Zo\\X2\\00EB\\X0\\ O''Neil'\),\('Neural Deep Network LTD'\),'Open3DJ unknown','Open3DJ unknown',''\);/);
+    // Still a valid exchange file: it re-imports with the same geometry.
+    assert.equal(kernel.subShapes(kernel.importStep(named), "solid").length, 6);
+  });
+
   test("each solid of a multi-solid part is named '<part> body n' in STEP", () => {
     const two = kernel.compound([kernel.box(5, 5, 5), kernel.translate(kernel.box(5, 5, 5), [10, 0, 0])]);
     const asm = buildAssembly(kernel, { parts: [{ name: "pair", shape: two }, { name: "single", shape: kernel.translate(kernel.box(2, 2, 2), [0, 20, 0]) }], mates: [], params: {}, warnings: [] }, { rootName: "multi" });

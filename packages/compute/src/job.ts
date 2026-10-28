@@ -100,8 +100,11 @@ export function createJobRunner(kernel: Kernel): JobRunner {
           if (!job.export || job.export.formats.length === 0) {
             return finish({ ok: false, error: { code: "BAD_JOB", message: "an export job needs export.formats", hint: "Pass export: { formats: ['step'] }." } });
           }
-          const { formats, baseName, scope, dir, root } = job.export;
-          const artifacts = exportArtifacts(kernel, asm, formats, { rev: job.rev, engine: engineVersions(), ...(baseName ? { baseName } : {}), ...(scope ? { scope } : {}) });
+          const { formats, baseName, scope, dir, root, author, organization } = job.export;
+          const artifacts = exportArtifacts(kernel, asm, formats, {
+            rev: job.rev, engine: engineVersions(), ...(baseName ? { baseName } : {}), ...(scope ? { scope } : {}),
+            ...(author ? { author } : {}), ...(organization ? { organization } : {}),
+          });
           if (dir === undefined) return finish({ ...base, artifacts });
           const files = await writeArtifacts(artifacts, dir, root === undefined ? {} : { root });
           return finish({ ...base, artifacts, files });

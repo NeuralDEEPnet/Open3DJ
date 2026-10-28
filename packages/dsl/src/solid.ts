@@ -6,6 +6,8 @@ import type { KernelAdapter, ShapeHandle } from "@open3dj/kernel";
 import { DslError, badArgument } from "./errors.ts";
 import { IDENTITY, add, cross, dot, length, mirrorDir, mirrorPoint, mul, normalize, rotatePoint, sub, thenRotate, thenTranslate } from "./math.ts";
 import { matchEdges } from "./queries.ts";
+import { moveFingerprint } from "./refs.ts";
+import type { NamedRef } from "./refs.ts";
 import { checkShellWalls } from "./shellcheck.ts";
 import type { EdgeQuery } from "./queries.ts";
 import type { Sketches } from "./sketch.ts";
@@ -50,6 +52,18 @@ export class Solids {
     const refs = Object.fromEntries(Object.entries(e.refs).map(([k, p]) => [k, pt(p)]));
     const connectors = Object.fromEntries(Object.entries(e.connectors).map(([k, c]) => [k, { ...c, origin: pt(c.origin), axis: dir(c.axis), up: dir(c.up) }]));
     const out: SolidEntry = { kind: "shape", handle, refs, connectors, body: how.rigid ? e.body : this.state.newBody() };
+    if (e.named) {
+      // Named faces and edges move with the shape; collect() resolves them on the final part.
+      // frame collects the rigid moves since naming (the next revision compares in the naming
+      // frame); a mirror or scale changes the element itself, so the moved fingerprint becomes
+      // the new naming frame. Booleans and features (no pt) keep the frame.
+      out.named = Object.fromEntries(Object.entries(e.named).map(([k, r]) => {
+        const moved: NamedRef = r.fingerprint ? { ...r, fingerprint: moveFingerprint(r.fingerprint, pt, dir) } : { ...r };
+        if (how.rigid) moved.frame = how.rigid(r.frame ?? IDENTITY);
+        else if (how.pt) delete moved.frame;
+        return [k, moved];
+      }));
+    }
     if (e.name !== undefined) out.name = e.name;
     if (e.color !== undefined) out.color = e.color;
     if (how.rigid && e.lineage) out.lineage = { id: e.lineage.id, t: how.rigid(e.lineage.t) };
@@ -58,7 +72,7 @@ export class Solids {
   }
 
   /** Same shape, new metadata (name, colour, references, connectors). */
-  withMeta(e: SolidEntry, meta: Partial<Pick<SolidEntry, "name" | "color" | "refs" | "connectors">>): SolidEntry {
+  withMeta(e: SolidEntry, meta: Partial<Pick<SolidEntry, "name" | "color" | "refs" | "named" | "connectors">>): SolidEntry {
     const out: SolidEntry = { ...e, ...meta };
     delete out.line; // the new entry gets the line of the call that made it
     return out;
@@ -118,6 +132,7 @@ export class Solids {
   clone(e: SolidEntry): SolidEntry {
     if (!e.lineage) e.lineage = { id: this.state.newLineage(), t: IDENTITY };
     const out: SolidEntry = { ...e, body: this.state.newBody(), lineage: { ...e.lineage }, refs: { ...e.refs }, connectors: { ...e.connectors } };
+    if (e.named) out.named = { ...e.named };
     delete out.line;
     return out;
   }

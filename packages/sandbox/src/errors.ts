@@ -27,22 +27,57 @@ export interface Site {
 /**
  * Find the first stack frame in the user's file. QuickJS frames look like
  * "    at main (part.o3j.js:3:7)" or, for syntax errors, "    at part.o3j.js:4:1".
+ *
+ * With the source, the column is moved to the first character of the call that failed. The
+ * frame just above the user's frame is the sandbox function the user called (for example
+ * "at fillet (open3dj:prelude.js:81:39)"). QuickJS reports the column of that call's
+ * parenthesis, or of the whole statement when the call sits in a return (column 1), so the
+ * name is looked up on the user's line instead.
  */
-export function userSite(stack: unknown, filename: string): Site | undefined {
+export function userSite(stack: unknown, filename: string, source?: string): Site | undefined {
   if (typeof stack !== "string") return undefined;
+  let callee: string | undefined;
   for (const raw of stack.split("\n")) {
     const frame = raw.trim();
     const at = frame.lastIndexOf(`${filename}:`);
-    if (at < 0) continue;
+    if (at < 0) {
+      // A sandbox frame ("open3dj:..."), named: remember it as the entry the user called.
+      const m = /^at ([A-Za-z_$][\w$]*) \(open3dj:[\w.-]+:\d+(?::\d+)?\)$/.exec(frame);
+      callee = m ? m[1] : undefined;
+      continue;
+    }
     const m = /^(\d+)(?::(\d+))?/.exec(frame.slice(at + filename.length + 1));
     if (!m) continue;
     const line = Number(m[1]) - WRAP_LINE_OFFSET;
     if (line < 1) continue;
     const site: Site = { line };
     if (m[2] !== undefined) site.column = Math.max(1, Number(m[2]));
+    if (callee && source !== undefined) {
+      const text = source.split("\n")[line - 1];
+      if (text !== undefined) site.column = callColumn(text, callee, site.column ?? 1);
+    }
     return site;
   }
   return undefined;
+}
+
+/** Sandbox function names that are not entries a user calls by name. */
+const NOT_ENTRIES = new Set(["call", "value", "fail", "constructor"]);
+
+/**
+ * The 1-based column where a call of name starts on a line of user code. QuickJS's column
+ * (reported) picks the call when several on the line share the name: the call whose name
+ * through parenthesis span holds it, else the first call after it, else the last one before.
+ * Returns reported when the name is not called on the line.
+ */
+export function callColumn(text: string, name: string, reported: number): number {
+  if (NOT_ENTRIES.has(name)) return reported;
+  const calls: Array<{ start: number; paren: number }> = [];
+  const re = new RegExp(`(?<![\\w$])${name.replace(/\$/g, "\\$")}\\s*\\(`, "g");
+  for (const m of text.matchAll(re)) calls.push({ start: m.index + 1, paren: m.index + m[0].length });
+  if (calls.length === 0) return reported;
+  const hit = calls.find((c) => reported >= c.start && reported <= c.paren) ?? calls.find((c) => c.start >= reported) ?? calls[calls.length - 1]!;
+  return hit.start;
 }
 
 export function cap(text: unknown, max = MAX_MESSAGE): string {
@@ -63,7 +98,7 @@ export interface DumpedError {
 }
 
 /** Classify a guest exception. interrupted/cancelled come from the host's interrupt handler. */
-export function scriptErrorFromGuest(dumped: unknown, filename: string, state: { interrupted: boolean; cancelled: boolean; lines: number }): ScriptError {
+export function scriptErrorFromGuest(dumped: unknown, filename: string, state: { interrupted: boolean; cancelled: boolean; lines: number; source?: string }): ScriptError {
   const e: DumpedError = typeof dumped === "object" && dumped !== null ? (dumped as DumpedError) : { message: dumped };
   const name = typeof e.name === "string" ? e.name : "";
   const message = cap(e.message ?? "");
@@ -80,7 +115,7 @@ export function scriptErrorFromGuest(dumped: unknown, filename: string, state: {
   else code = "SCRIPT_RUNTIME";
 
   const out: ScriptError = { code, message: describe(name, message, code) };
-  const site = userSite(e.stack, filename) ?? lineOnly(e.lineNumber);
+  const site = userSite(e.stack, filename, state.source) ?? lineOnly(e.lineNumber);
   if (site) {
     // A syntax error at the end of input is reported on the wrapper's closing line.
     out.line = Math.min(site.line, Math.max(1, state.lines));

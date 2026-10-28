@@ -1,4 +1,4 @@
-import type { Color3, Connector, ParamValue, Transform, Vec3 } from "@open3dj/schemas";
+import type { Color3, Connector, DefinitionRef, ParamValue, Transform, Vec3 } from "@open3dj/schemas";
 import type { ShapeHandle } from "@open3dj/kernel";
 import type { GuestValue, HostApi } from "@open3dj/sandbox";
 
@@ -18,6 +18,8 @@ export interface ScriptPart {
   cloneTransform?: Transform;
   /** Named reference points carried through transforms (withReferences, onFace, hole). */
   refs?: Record<string, Vec3>;
+  /** Named faces and edges (withReferences with a face or edge query), resolved on this part, in its world frame. */
+  namedRefs?: DefinitionRef[];
   /** Connectors (connector.male/female), in the part's world frame. */
   connectors?: Connector[];
   /** Sub-assembly path segments from asm.part()/groups, for example ["pcb_assy"]. */

@@ -217,7 +217,7 @@ class Run {
     const reply = (body: unknown) => ctx.newString(JSON.stringify(body));
     const fail = (code: string, message: string, extra: Record<string, unknown> = {}) => reply({ e: { code, message: cap(message, 1000), ...extra } });
     if (this.sticky) return fail(this.sticky.error.code, this.sticky.error.message);
-    const site = userSite(ctx.typeof(siteH) === "string" ? ctx.getString(siteH) : "", this.filename) ?? {};
+    const site = userSite(ctx.typeof(siteH) === "string" ? ctx.getString(siteH) : "", this.filename, this.source) ?? {};
     // The timeout and the cancel are sticky: once the interrupt handler fired, nothing more
     // runs on the host, even when the guest swallowed the interrupt (an async function turns
     // it into a rejected promise).
@@ -376,7 +376,7 @@ class Run {
       handle.dispose();
     }
     if (this.sticky) return this.stickyFailure();
-    return { ok: false, error: scriptErrorFromGuest(dumped, this.filename, { interrupted: this.interrupted, cancelled: this.cancelled, lines: this.source.split("\n").length }) };
+    return { ok: false, error: scriptErrorFromGuest(dumped, this.filename, { interrupted: this.interrupted, cancelled: this.cancelled, lines: this.source.split("\n").length, source: this.source }) };
   }
 
   /** Read the parts of a thrown value we care about, as host data, without calling toString. */

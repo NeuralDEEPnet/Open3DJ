@@ -12,7 +12,18 @@ import { matrixDistance, srgbToLinear, xcafLocation } from "../math.ts";
 /** Largest allowed difference between the intended and the stored location matrix. */
 const LOCATION_TOLERANCE = 1e-9;
 
-export function writeStep(kernel: KernelAdapter, asm: Assembly, tree: ExportTree): Uint8Array {
+/** What the STEP header says about the file (ISO 10303-21 FILE_NAME). */
+export interface StepHeader {
+  /** The file name, for example bracket.step. */
+  name: string;
+  /** Preprocessor and originating system, for example "Open3DJ 0.1.0". */
+  system: string;
+  /** Empty when the project names no author or organisation. */
+  author?: string;
+  organization?: string;
+}
+
+export function writeStep(kernel: KernelAdapter, asm: Assembly, tree: ExportTree, header?: StepHeader): Uint8Array {
   const mark = kernel.checkpoint();
   const doc = kernel.createDocument();
   try {
@@ -64,7 +75,8 @@ export function writeStep(kernel: KernelAdapter, asm: Assembly, tree: ExportTree
       });
     };
     for (const node of tree.nodes) add(root, node);
-    const text = doc.exportStep();
+    const raw = doc.exportStep();
+    const text = header ? withStepHeader(raw, header) : raw;
     checkStepRoundTrip(kernel, asm, tree, text);
     return new TextEncoder().encode(text);
   } finally {
@@ -87,6 +99,46 @@ export function stepName(name: string): string {
     for (let i = 0; i < run.length; i++) hex += run.charCodeAt(i).toString(16).toUpperCase().padStart(4, "0");
     return `\\X2\\${hex}\\X0\\`;
   });
+}
+
+/**
+ * Replace OCCT's FILE_DESCRIPTION and FILE_NAME ('Open CASCADE Shape Model', author 'Author',
+ * organisation 'Open CASCADE') with the file's own name and Open3DJ, keeping OCCT's time
+ * stamp and FILE_SCHEMA. Author and organisation are lists of at least one string, so an
+ * unknown one is written as ('').
+ */
+export function withStepHeader(text: string, header: StepHeader): string {
+  const start = text.indexOf("HEADER;");
+  const end = text.indexOf("ENDSEC;", start);
+  if (start < 0 || end < 0) throw new AssemblyError("STEP_HEADER", "the STEP writer produced no HEADER section");
+  const old = text.slice(start + "HEADER;".length, end);
+  const schema = /FILE_SCHEMA\s*\([\s\S]*?\)\s*;/.exec(old)?.[0];
+  if (!schema) throw new AssemblyError("STEP_HEADER", "the STEP writer produced no FILE_SCHEMA");
+  const stamp = /FILE_NAME\s*\(\s*'(?:[^']|'')*'\s*,\s*'([^']*)'/.exec(old)?.[1] ?? "";
+  const s = (v: string) => p21String(v);
+  const lines = [
+    "",
+    `FILE_DESCRIPTION((${s("Open3DJ model")}),'2;1');`,
+    `FILE_NAME(${s(header.name)},${s(stamp)},(${s(header.author ?? "")}),(${s(header.organization ?? "")}),${s(header.system)},${s(header.system)},'');`,
+    `${schema.replace(/\s+/g, " ")}`,
+    "",
+  ];
+  return text.slice(0, start + "HEADER;".length) + lines.join("\n") + text.slice(end);
+}
+
+/**
+ * A string literal of ISO 10303-21: apostrophes doubled, and every character outside
+ * printable ASCII and every backslash as a \X2\ run of UTF-16 code units. Capped at 256
+ * characters, the STRING(256) width of the header attributes.
+ */
+export function p21String(value: string): string {
+  const v = cleanName(value).slice(0, 256);
+  const body = v.replace(/[^\u0020-\u005b\u005d-\u007e]+/g, (run) => {
+    let hex = "";
+    for (let i = 0; i < run.length; i++) hex += run.charCodeAt(i).toString(16).toUpperCase().padStart(4, "0");
+    return `\\X2\\${hex}\\X0\\`;
+  }).replace(/'/g, "''");
+  return `'${body}'`;
 }
 
 /**
@@ -165,7 +217,7 @@ export function checkStepRoundTrip(kernel: KernelAdapter, asm: Assembly, tree: E
     throw new AssemblyError(
       "STEP_ROUNDTRIP_FAILED",
       `the STEP file does not re-import as the assembly: ${problems.join("; ")}`,
-      "The model is valid, but its STEP form is not. A revolved profile whose end meets the rotation axis at an angle is the usual cause: end it on the axis square to the axis (an arc centred on the axis, or a short flat), then export again. STL, glTF and 3MF are not affected.",
+      "The model is valid, but its STEP form is not. Known causes: a revolved profile whose end meets the rotation axis at an angle (end it on the axis, square to it: an arc centred on the axis, or a short flat), and a curve the STEP writer cannot express, such as an offset of a spline. Simplify the named occurrence's profile, then export again. STL, glTF and 3MF are not affected.",
     );
   } finally {
     kernel.releaseSince(mark);

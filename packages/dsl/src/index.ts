@@ -24,6 +24,8 @@ export { DSL_ENTRIES } from "./entries.ts";
 export { runtimeHint } from "./hints.ts";
 export { DEFAULT_QUERY_TOLERANCE, createDsl } from "./dsl.ts";
 export { FASTENERS } from "./lib.ts";
+export { describeKind, elementAddress, faceFingerprint, judgeReference, moveFingerprint, roundFaceConvex, sameSignature, signatureCandidates } from "./refs.ts";
+export type { Judgement } from "./refs.ts";
 export type { FastenerSpec } from "./lib.ts";
 
 export const PACKAGE_STATUS: PackageStatus = "ready";

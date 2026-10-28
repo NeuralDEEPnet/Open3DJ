@@ -16,4 +16,10 @@ test("doctor --bench measures kernel init, the bench part and scaling over 1..N 
   assert.deepEqual(b.scaling.map((s) => [s.workers, s.jobs]), [[1, 2], [2, 4]]);
   assert.equal(b.scaling[0]!.speedup, 1);
   for (const s of b.scaling) assert.ok(s.jobs_per_s > 0 && s.wall_ms > 0);
+  // S0 (PLAN.md section 12, issue 12): kernel micro-benchmarks per operation, each a warm job
+  // minus the same job without the operation.
+  assert.deepEqual(Object.keys(b.kernel_ops_ms).sort(), ["boolean", "fillet", "hlr_render", "shell", "step_write", "tessellate_glb"]);
+  for (const [op, ms] of Object.entries(b.kernel_ops_ms)) assert.ok(Number.isFinite(ms) && ms >= 0, `${op}: ${ms}`);
+  assert.ok(b.baseline_job_ms > 0);
+  assert.ok(b.kernel_ops_ms.hlr_render > 0, "a four-view render takes measurable time");
 });

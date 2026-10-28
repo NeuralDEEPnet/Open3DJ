@@ -17,14 +17,14 @@ A project is a folder whose name ends in `.o3j` (ARCHITECTURE.md section 8, S1 s
 
 | File | Holds |
 |---|---|
-| `project.o3j.json` | Format version `"0"`, name, units `mm`, `Z` up, the head `rev`, engine pins |
+| `project.o3j.json` | Format version `"0"`, name, units `mm`, `Z` up, the head `rev`, engine pins, and optionally `author` and `organization` for STEP headers |
 | `main.o3j.js` | The DSL script of the working copy |
-| `params.o3j.json` | Parameter values of the working copy |
+| `params.o3j.json` | Parameter values of the working copy: `run` saves its params and set_param values here unless `save_params` is false |
 | `assembly.o3j.json` | The assembly graph from the head revision |
 | `evidence.json` | The GeometryReport of the head revision |
 | `provenance.jsonl` | One line per run, render and export call: tool, args hash, result hash, engine pins, DeviceInventory hash, compute block, revs |
 | `revisions/r_0001.json` | One record per revision: script, params, inputs hash, engine, graph and report |
-| `out/<rev>/` | Renders and exports (git-ignored) |
+| `out/<rev>/` | Renders and exports (git-ignored), with one `<name>.evidence.json` that lists every export of the revision in that folder. An earlier entry stays only while its file is on disk with the recorded hash |
 | `.o3j-cache/` | Detailed reports computed for `inspect` (git-ignored) |
 
 - **Revisions** are `r_0001`, `r_0002`, ... and only grow. A run that succeeds creates the next revision. A run with the same script and parameters as the head, on the same engine, keeps the head revision. A failed run creates none.

@@ -2,7 +2,8 @@
 // assembly, validity, volume, area, bbox, centre of mass, mass and counts, plus fits and
 // next-step hints. Concise by default (rounded, problems first, capped lists); detailed on
 // request (everything, more digits).
-import type { BBox, FitReport, GeometryReport, PartReport, Vec3 } from "@open3dj/schemas";
+import type { BBox, FitReport, GeometryReport, PartReport, RefReport, Vec3 } from "@open3dj/schemas";
+import { collapseFits, rankFits } from "@open3dj/schemas";
 import type { KernelAdapter, ShapeMeasure } from "@open3dj/kernel";
 import type { Assembly, ReportContext } from "./types.ts";
 import { computeFits } from "./fits.ts";
@@ -17,10 +18,14 @@ export const DEFAULT_DENSITY_G_PER_CM3 = 1.24;
 // The run tool wraps the report in about 20 characters, so the report itself gets less.
 export const CONCISE_REPORT_CHARS = 970;
 const CONCISE_PARTS = 5;
-const CONCISE_FITS = 5;
+const CONCISE_FITS = 6;
+const CONCISE_REFS = 6;
 const CONCISE_WARNINGS = 4;
 const WARNING_CHARS = 160;
 const NEXT_TARGETS = 6;
+/** Names (definitions, occurrence paths, refs) are cut to this many characters, then halved down to MIN_NAME_CHARS. */
+const NAME_CHARS = 64;
+const MIN_NAME_CHARS = 16;
 
 export function report(kernel: KernelAdapter, asm: Assembly, context: ReportContext): GeometryReport {
   const detailed = context.detail === "detailed";
@@ -66,7 +71,9 @@ export function report(kernel: KernelAdapter, asm: Assembly, context: ReportCont
   const clashes = fits.filter((f) => f.kind === "clash");
   const invalid = parts.filter((p) => !p.valid);
   const problems = [...asm.warnings, ...(context.warnings ?? [])];
-  const status: GeometryReport["status"] = invalid.length > 0 ? "error" : clashes.length > 0 || problems.length > 0 ? "warning" : "ok";
+  const refs = refReports(asm, detailed);
+  const badRefs = refs.filter((x) => x.state === "ambiguous" || x.state === "broken");
+  const status: GeometryReport["status"] = invalid.length > 0 ? "error" : clashes.length > 0 || problems.length > 0 || badRefs.length > 0 ? "warning" : "ok";
 
   const warnings = [...problems];
   const notes: string[] = [`mass_g assumes ${density} g/cm3 (PLA).`];
@@ -79,89 +86,139 @@ export function report(kernel: KernelAdapter, asm: Assembly, context: ReportCont
     fits: [...fits].map((f) => roundFit(f, r)),
     compute: context.compute,
   };
+  if (refs.length > 0) out.refs = refs;
   if (bbox) out.assembly.bbox = rb(bbox);
   if (detailed) {
     out.warnings = [...warnings, ...notes];
-    out.next = nextHints(asm, invalid, clashes, fits, 6);
+    out.next = nextHints(asm, invalid, clashes, fits, badRefs, 6);
     return out;
   }
   // One occurrence: its part's bbox is the assembly's, so say it once.
   if (asm.instances.length === 1) delete out.assembly.bbox;
+  return trimConcise(out, {
+    parts: rankParts(parts, asm, clashes),
+    fits: rankFits(collapseFits(out.fits)),
+    refs: [...badRefs, ...refs.filter((x) => !badRefs.includes(x))],
+    warnings,
+    notes,
+    next: (targets) => nextHints(asm, invalid, clashes, fits, badRefs, targets),
+  });
+}
 
-  // Concise: problems first, then trimmed to the budget, lowest-ranked entries first.
+/** Problem parts first: invalid, then in a clash, then the rest. */
+function rankParts(parts: PartReport[], asm: Assembly, clashes: FitReport[]): PartReport[] {
   const inClash = new Set(clashes.flatMap((f) => [f.a, f.b]));
   const pathsOf = (def: string) => asm.instances.filter((i) => i.def === def).map((i) => i.path);
   const rank = (p: PartReport) => (!p.valid ? 0 : pathsOf(p.def).some((x) => inClash.has(x)) ? 1 : 2);
-  const rankedParts = [...parts].sort((a, b) => rank(a) - rank(b));
-  const order = { clash: 0, contact: 1, clearance: 2 } as const;
-  const rankedFits = collapseFits(out.fits).sort((a, b) => order[a.kind] - order[b.kind]);
-  const fitCount = (list: FitReport[]) => list.reduce((n, f) => n + (f.n ?? 1), 0);
-  const shownWarnings = warnings.slice(0, CONCISE_WARNINGS).map((w) => (w.length > WARNING_CHARS ? `${w.slice(0, WARNING_CHARS - 3)}...` : w));
-  let nParts = Math.min(CONCISE_PARTS, rankedParts.length);
-  let nFits = Math.min(CONCISE_FITS, rankedFits.length);
-  let nTargets = NEXT_TARGETS;
+  return [...parts].sort((a, b) => rank(a) - rank(b));
+}
+
+interface ConciseInput {
+  parts: PartReport[];
+  fits: FitReport[];
+  refs: RefReport[];
+  warnings: string[];
+  notes: string[];
+  next: (targets: number) => string[];
+}
+
+/**
+ * Fit the concise report into CONCISE_REPORT_CHARS (about 300 tokens at 4 characters a token,
+ * ARCHITECTURE.md section 9) whatever the assembly holds: many parts, long names, many fits,
+ * warnings and references. Entries are ranked (problems first) and dropped from the end,
+ * one step at a time, cheapest information first; long names are shortened; every list that
+ * lost entries says how many in a closing note. The steps end with empty lists, so the budget
+ * always holds.
+ */
+function trimConcise(out: GeometryReport, input: ConciseInput): GeometryReport {
+  const limit = {
+    targets: NEXT_TARGETS,
+    fits: Math.min(CONCISE_FITS, input.fits.length),
+    refs: Math.min(CONCISE_REFS, input.refs.length),
+    parts: Math.min(CONCISE_PARTS, input.parts.length),
+    warnings: Math.min(CONCISE_WARNINGS, input.warnings.length),
+    name: NAME_CHARS,
+    next: 4,
+    notes: true,
+  };
+  const cut = (text: string, max: number) => (text.length > max ? `${text.slice(0, Math.max(1, max - 3))}...` : text);
+  // Reasons end with what to do or which candidate is the query's pick: keep both ends.
+  const cutMiddle = (text: string, max: number) => {
+    if (text.length <= max) return text;
+    const head = Math.max(1, Math.floor((max - 3) * 0.4));
+    return `${text.slice(0, head)}...${text.slice(text.length - Math.max(1, max - 3 - head))}`;
+  };
+  const count = (list: FitReport[]) => list.reduce((n, f) => n + (f.n ?? 1), 0);
   const build = () => {
-    out.parts = rankedParts.slice(0, nParts);
-    out.fits = rankedFits.slice(0, nFits);
+    out.parts = input.parts.slice(0, limit.parts).map((p) => (p.def.length > limit.name ? { ...p, def: cut(p.def, limit.name) } : p));
+    out.fits = input.fits.slice(0, limit.fits).map((f) => ({ ...f, a: cut(f.a, limit.name), b: cut(f.b, limit.name) }));
+    const refs = input.refs.slice(0, limit.refs).map((x) => {
+      const ref: RefReport = { name: cut(x.name, limit.name), state: x.state };
+      if (x.candidates) ref.candidates = x.candidates.slice(0, 4);
+      if (x.reason) ref.reason = cutMiddle(x.reason, limit.name * 2);
+      return ref;
+    });
+    if (refs.length > 0) out.refs = refs;
+    else delete out.refs;
     const extra: string[] = [];
-    if (warnings.length > shownWarnings.length) extra.push(`${warnings.length - shownWarnings.length} more warnings; use detail=detailed.`);
-    if (rankedParts.length > nParts) extra.push(`${rankedParts.length - nParts} more definitions not listed; use detail=detailed.`);
-    const hidden = fitCount(rankedFits) - fitCount(out.fits);
+    if (input.warnings.length > limit.warnings) extra.push(`${input.warnings.length - limit.warnings} more warnings; use detail=detailed.`);
+    if (input.parts.length > limit.parts) extra.push(`${input.parts.length - limit.parts} more definitions not listed; use detail=detailed.`);
+    const hidden = count(input.fits) - count(out.fits);
     if (hidden > 0) extra.push(`${hidden} more fits not listed; use inspect fields=[fits].`);
-    out.warnings = [...shownWarnings, ...extra, ...notes];
-    out.next = nextHints(asm, invalid, clashes, fits, nTargets);
+    const hiddenRefs = input.refs.slice(limit.refs);
+    if (hiddenRefs.length > 0) {
+      const exact = hiddenRefs.filter((x) => x.state === "exact").length;
+      extra.push(`${hiddenRefs.length} more refs not listed (${exact} exact); use inspect fields=[refs].`);
+    }
+    out.warnings = [...input.warnings.slice(0, limit.warnings).map((w) => cut(w, WARNING_CHARS)), ...extra, ...(limit.notes ? input.notes : [])];
+    out.next = input.next(limit.targets).slice(0, limit.next).map((n) => cut(n, Math.max(90, limit.name * 3)));
     return JSON.stringify(out).length;
   };
-  // Shrink one step at a time, cheapest information first: render targets, then fits, then
-  // parts (problem parts and clashes are ranked first, so they stay longest).
-  while (build() > CONCISE_REPORT_CHARS) {
-    if (nTargets > 1) nTargets--;
-    else if (nFits > 1) nFits--;
-    else if (nParts > 1) nParts--;
-    else break;
+  // Fits go after parts and warnings: they are what an assembly report is for.
+  const steps: Array<() => boolean> = [
+    () => limit.targets > 1 && (limit.targets--, true),
+    () => limit.refs > 1 && (limit.refs--, true),
+    () => limit.parts > 1 && (limit.parts--, true),
+    () => limit.warnings > 1 && (limit.warnings--, true),
+    () => limit.fits > 1 && (limit.fits--, true),
+    () => limit.name > MIN_NAME_CHARS && ((limit.name = Math.max(MIN_NAME_CHARS, Math.floor(limit.name / 2))), true),
+    () => limit.notes && ((limit.notes = false), true),
+    () => limit.warnings > 0 && (limit.warnings--, true),
+    () => limit.refs > 0 && (limit.refs--, true),
+    () => limit.fits > 0 && (limit.fits--, true),
+    () => limit.parts > 0 && (limit.parts--, true),
+    () => limit.next > 1 && (limit.next--, true),
+  ];
+  while (build() > CONCISE_REPORT_CHARS && steps.some((step) => step())) {
+    // each pass applies the first step that can still shrink the report
   }
   return out;
 }
 
-/**
- * Collapse fits that differ only in the #n of their occurrence names (four screws that sit
- * the same way in the base) into one line with n, naming the range: screw#1..4.
- */
-export function collapseFits(fits: FitReport[]): FitReport[] {
-  const base = (path: string) => /^(.*)#(\d+)$/.exec(path);
-  const groups = new Map<string, FitReport[]>();
-  for (const f of fits) {
-    const key = [f.kind, f.volume_mm3 ?? "", f.distance_mm ?? "", f.confidence, base(f.a)?.[1] ?? f.a, base(f.b)?.[1] ?? f.b].join("\u0000");
-    const g = groups.get(key);
-    if (g) g.push(f);
-    else groups.set(key, [f]);
+/** refs[] from the named faces and edges stored with each part definition. */
+function refReports(asm: Assembly, detailed: boolean): RefReport[] {
+  const out: RefReport[] = [];
+  for (const [id, def] of Object.entries(asm.file.definitions)) {
+    for (const x of def.refs ?? []) {
+      const ref: RefReport = { name: `${id}.${x.name}`, state: x.state };
+      if (x.candidates?.length) ref.candidates = x.candidates;
+      if (x.reason) ref.reason = x.reason;
+      if (detailed && x.at) ref.at = x.at;
+      out.push(ref);
+    }
   }
-  return [...groups.values()].map((g) => {
-    if (g.length === 1) return g[0]!;
-    return { ...g[0]!, a: rangeName(g.map((f) => f.a)), b: rangeName(g.map((f) => f.b)), n: g.length };
-  });
-}
-
-/** One name for several paths: the path itself when all agree, else stem#first..last or stem#1,3,7. */
-function rangeName(paths: string[]): string {
-  const unique = [...new Set(paths)];
-  if (unique.length === 1) return unique[0]!;
-  const parsed = unique.map((p) => /^(.*)#(\d+)$/.exec(p));
-  const stem = parsed[0]?.[1];
-  if (!stem || parsed.some((m) => !m || m[1] !== stem)) return unique.join(",");
-  const nums = parsed.map((m) => Number(m![2])).sort((a, b) => a - b);
-  const consecutive = nums.every((x, i) => i === 0 || x === nums[i - 1]! + 1);
-  return consecutive ? `${stem}#${nums[0]}..${nums[nums.length - 1]}` : `${stem}#${nums.join(",")}`;
+  return out;
 }
 
 function roundFit(f: FitReport, r: (x: number) => number): FitReport {
   const out: FitReport = { a: f.a, b: f.b, kind: f.kind, confidence: f.confidence };
   if (f.volume_mm3 !== undefined) out.volume_mm3 = Math.max(0, r(f.volume_mm3));
   if (f.distance_mm !== undefined) out.distance_mm = Math.max(0, r(f.distance_mm));
+  if (f.extra) out.extra = true;
   return out;
 }
 
-function nextHints(asm: Assembly, invalid: PartReport[], clashes: FitReport[], fits: FitReport[], maxTargets: number): string[] {
+function nextHints(asm: Assembly, invalid: PartReport[], clashes: FitReport[], fits: FitReport[], badRefs: RefReport[], maxTargets: number): string[] {
   const next: string[] = [];
   for (const p of invalid.slice(0, 2)) next.push(`inspect fields=[measure] targets=[${p.def}] detail=detailed`);
   if (clashes.length > 0) {
@@ -169,6 +226,10 @@ function nextHints(asm: Assembly, invalid: PartReport[], clashes: FitReport[], f
     next.push(`render view=multiview targets=[${targets.join(",")}]`);
     next.push("fix the clash: move or resize one part, then run again");
   }
+  if (badRefs.some((x) => x.state === "ambiguous" && /query's pick/.test(x.reason ?? ""))) {
+    // The query is already unique; the fingerprint cannot confirm it (a twin moved with it).
+    next.push("a named face or edge moved and has an identical twin: the query's pick is candidates[0]; confirm it with inspect fields=[refs] or render, then carry on");
+  } else if (badRefs.length > 0) next.push("inspect fields=[refs]: a named face or edge is ambiguous or broken; check its query");
   if (next.length === 0) {
     next.push("render view=multiview");
     next.push("export format=step");

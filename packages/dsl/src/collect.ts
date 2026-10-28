@@ -7,6 +7,9 @@ import { DslError } from "./errors.ts";
 import { parseColor } from "./math.ts";
 import type { RunState, SolidEntry } from "./state.ts";
 import type { ScriptMate, ScriptPart, ScriptReturn } from "./types.ts";
+import { countTwins, elementAddress, judgeReference, signatureCandidates, withTwins } from "./refs.ts";
+import type { NamedRef } from "./refs.ts";
+import type { DefinitionRef } from "@open3dj/schemas";
 
 interface ReturnedPart {
   id: number;
@@ -65,7 +68,7 @@ export function overlappingSolids(kernel: KernelAdapter, shape: ShapeHandle): { 
   }
 }
 
-export function collect(kernel: KernelAdapter, state: RunState, value: GuestValue): ScriptReturn {
+export function collect(kernel: KernelAdapter, state: RunState, value: GuestValue, tol = 1e-3): ScriptReturn {
   const returned = readParts(value);
   const entries = returned.map((r) => ({ r, e: state.shape(r.id, "returned part") }));
 
@@ -87,6 +90,7 @@ export function collect(kernel: KernelAdapter, state: RunState, value: GuestValu
       part.cloneTransform = e.lineage.t;
     }
     if (Object.keys(e.refs).length) part.refs = { ...e.refs };
+    if (e.named && Object.keys(e.named).length) part.namedRefs = resolveNamed(kernel, e.handle, e.named, tol);
     const connectors = connectorsOf(e);
     if (connectors) part.connectors = connectors;
     if (e.line !== undefined) part.line = e.line;
@@ -123,4 +127,38 @@ export function collect(kernel: KernelAdapter, state: RunState, value: GuestValu
   }
   const params = Object.fromEntries([...state.params.values()].map((p) => [p.name, p.value]));
   return { parts, mates, params, paramSpecs: [...state.params.values()], warnings: [...state.warnings] };
+}
+
+const isIdentity = (t: { t: number[]; q: number[] }) => Math.hypot(...t.t) <= 1e-12 && Math.abs(Math.abs(t.q[3]!) - 1) <= 1e-12;
+
+/**
+ * Named faces and edges on the returned part. A name given before later booleans or
+ * features is found again on the final shape by its fingerprint; a name given on the final
+ * shape matches itself. The fingerprint stored is the final element's.
+ */
+function resolveNamed(kernel: KernelAdapter, shape: ShapeHandle, named: Record<string, NamedRef>, tol: number): DefinitionRef[] {
+  return Object.entries(named).map(([name, r]) => {
+    const out: DefinitionRef = { name, type: r.type, state: r.state };
+    if (r.frame && !isIdentity(r.frame)) out.frame = r.frame;
+    if (r.state !== "exact" || !r.fingerprint) {
+      if (r.candidates) out.candidates = r.candidates.map((i) => elementAddress(r.type, i));
+      if (r.reason) out.reason = r.reason;
+      return out;
+    }
+    const candidates = signatureCandidates(kernel, shape, r.fingerprint);
+    const j = judgeReference(r.fingerprint, candidates.map((c) => c.fp), undefined, tol);
+    out.state = j.state;
+    if (j.match !== undefined) {
+      const fp = candidates[j.match]!.fp;
+      out.at = elementAddress(r.type, candidates[j.match]!.index);
+      // Twins on the final shape: the next revision compares with this fingerprint.
+      out.fingerprint = withTwins(fp, countTwins(fp, candidates.filter((_, i) => i !== j.match).map((c) => c.fp), tol));
+    } else {
+      // Keep the fingerprint from naming time, so the next run can still compare with it.
+      out.fingerprint = r.fingerprint;
+      if (j.candidates?.length) out.candidates = j.candidates.map((i) => elementAddress(r.type, candidates[i]!.index));
+      out.reason = `named before later changes to the shape, and ${j.reason ?? "it could not be found again"}; name it on the final shape`;
+    }
+    return out;
+  });
 }

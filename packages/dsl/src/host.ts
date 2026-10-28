@@ -10,6 +10,7 @@ import { Library, fastener } from "./lib.ts";
 import type { LibShape } from "./lib.ts";
 import { normalize, parseColor } from "./math.ts";
 import { matchEdges, parseEdgeQuery } from "./queries.ts";
+import { nameElement } from "./refs.ts";
 import { Sketches, drawPath } from "./sketch.ts";
 import { Solids } from "./solid.ts";
 import { dir3, ids, int, nonNeg, num, obj, optNum, pos, str, vec2, vec3 } from "./state.ts";
@@ -184,8 +185,20 @@ export function hostFunctions(kernel: KernelAdapter, state: RunState, parts: Hos
     withReferences: (id, map) => {
       const e = shape(id);
       const refs = { ...e.refs };
-      for (const [k, v] of Object.entries(obj(map, "references"))) ownSet(refs, str(k, "reference name", 100), vec3(v, `reference ${k}`));
-      return put(solids.withMeta(e, { refs }));
+      const named = { ...e.named };
+      for (const [k, v] of Object.entries(obj(map, "references"))) {
+        const name = str(k, "reference name", 100);
+        // A point [x, y, z] is a construction point; { face } or { edge } names an element.
+        if (v !== null && typeof v === "object" && !Array.isArray(v)) {
+          if (!/^[A-Za-z0-9_-]+$/.test(name)) throw badArgument(`reference name "${name}" for a face or edge may use letters, digits, _ and - only`);
+          ownSet(named, name, nameElement(kernel, e.handle, v, name, solids.tol));
+          delete refs[name];
+        } else {
+          ownSet(refs, name, vec3(v, `reference ${k}`));
+          delete named[name];
+        }
+      }
+      return put(solids.withMeta(e, Object.keys(named).length ? { refs, named } : { refs }));
     },
     referenceNames: (id) => Object.keys(shape(id).refs),
     referencePoint: (id, name) => solids.anchor(shape(id), str(name, "reference name", 100)),

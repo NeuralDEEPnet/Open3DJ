@@ -46,6 +46,8 @@ export interface RevisionRecord {
   /** Hash of script and params: a run with the same inputs reuses the revision. */
   inputs_hash: string;
   engine: Engine;
+  /** ANALYSIS_VERSION of the code that made the report. Missing in revisions made before it existed. */
+  analysis?: number;
   assembly: AssemblyFile;
   report: GeometryReport;
   detail: "concise" | "detailed";
@@ -169,7 +171,7 @@ export class ProjectStore {
    * project lock. The revision file is created exclusively: if another writer took that
    * number anyway, this throws REV_CONFLICT and changes nothing.
    */
-  commit(rec: RevisionRecord): void {
+  commit(rec: RevisionRecord, options: { saveParams?: boolean } = {}): void {
     const m = this.require();
     try {
       writeProjectFile(this.project, `${FILES.revisions}/${rec.rev}.json`, json(rec), { exclusive: true });
@@ -178,7 +180,8 @@ export class ProjectStore {
       throw new ToolError("REV_CONFLICT", `${this.project.label}/${FILES.revisions}/${rec.rev}.json already exists: another change landed first`, "Run again; the next run builds on the new head.");
     }
     writeProjectFile(this.project, FILES.script, rec.script);
-    writeProjectFile(this.project, FILES.params, json(rec.params));
+    // save_params: false tries values without changing the working copy's params.
+    if (options.saveParams ?? true) writeProjectFile(this.project, FILES.params, json(rec.params));
     writeProjectFile(this.project, FILES.assembly, json(rec.assembly));
     writeProjectFile(this.project, FILES.evidence, json(rec.report));
     writeProjectFile(this.project, FILES.manifest, json({ ...m, rev: rec.rev, engine: rec.engine }));

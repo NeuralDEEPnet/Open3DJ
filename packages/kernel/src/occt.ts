@@ -193,6 +193,9 @@ class OcctAdapter implements Kernel {
   }
 
   // ---- curves, wires, faces, swept solids ------------------------------------------------
+  vertex(point: Vec3): ShapeHandle {
+    return this.#call("vertex", () => this.raw.makeVertex(point[0], point[1], point[2]) as ShapeHandle);
+  }
   lineEdge(start: Vec3, end: Vec3): ShapeHandle {
     return this.#call("lineEdge", () => this.raw.makeLineEdge(v(start), v(end)) as ShapeHandle);
   }

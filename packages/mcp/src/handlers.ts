@@ -3,14 +3,15 @@
 // read and write the project store.
 import { inventoryHash } from "@open3dj/compute";
 import type { ArtifactFormat, JobKind, JobRequest, JobResult } from "@open3dj/compute";
-import { validate } from "@open3dj/schemas";
+import { ANALYSIS_VERSION, validate } from "@open3dj/schemas";
 import type {
-  ComputeBlock, ComputeMode, DocsInput, DocsOutput, ExportOutput, GeometryReport, InspectOutput,
-  ParamValue, PartReport, ProvenanceLine, RenderOutput, RunInput, RunOutput, ScriptError, ToolName,
+  AssemblyFile, ComputeBlock, ComputeMode, DocsInput, DocsOutput, ExportOutput, GeometryReport, InspectOutput,
+  ParamValue, PartReport, ProvenanceLine, RefReport, RenderOutput, RunInput, RunOutput, ScriptError, ToolName,
 } from "@open3dj/schemas";
 import { loadDocs, searchDocs } from "./docs.ts";
 import type { DocSection } from "./docs.ts";
 import { ToolError, toScriptError } from "./errors.ts";
+import { mergeEvidence } from "./evidence.ts";
 import { hashJson } from "./hash.ts";
 import { JobTable } from "./jobs.ts";
 import { lockProject, projectKey, resolveProject, writeOutputs, safeSegments } from "./paths.ts";
@@ -111,17 +112,27 @@ export function createHandlers(deps: HandlerDeps): ToolHandlers {
       : "Run again without base_rev to create the first revision.");
 
   /**
-   * Run the job and commit a revision. dropped names the stored working values that were not
-   * used because the script changed: the result says so, so the reset is never silent.
+   * Run the job and commit a revision. dropped holds the stored working values that were not
+   * passed because the script changed. Those the new script declares and resolved to another
+   * value are named in a warning, so the reset is never silent; values equal to what the new
+   * script resolved, or of params it no longer declares, changed nothing and are not named.
    */
-  async function runAndCommit(store: ProjectStore, input: RunInput, job: JobRequest, signal: AbortSignal, dropped: string[] = []): Promise<RunOutput> {
+  async function runAndCommit(store: ProjectStore, input: RunInput, job: JobRequest, signal: AbortSignal, droppedValues: Record<string, ParamValue> = {}): Promise<RunOutput> {
     const compute = job.compute!;
     let output: RunOutput;
     let rev: string | undefined;
     try {
       const r = await runPool(job, input.compute, "interactive", signal);
       if (signal.aborted) throw new ToolError("JOB_CANCELLED", "the job was cancelled; no revision was created");
-      const report = r.report;
+      let report = r.report;
+      // Stored values the new script did not use: said in the revision itself, so the viewer,
+      // inspect and a later api/model show it, not only this run's result.
+      const dropped = Object.keys(droppedValues).filter((k) => Object.hasOwn(r.params, k) && hashJson(r.params[k]) !== hashJson(droppedValues[k]));
+      if (dropped.length > 0) {
+        const names = dropped.slice(0, 8).join(", ") + (dropped.length > 8 ? ", ..." : "");
+        const text = `the script changed, so the stored values of ${names} were not used; the run started from the new script's defaults (pass params to set them again)`;
+        report = { ...report, status: report.status === "ok" ? "warning" : report.status, warnings: [text, ...(report.warnings ?? [])] };
+      }
       rev = await withLock(store, () => {
         const head = store.head();
         if (input.base_rev !== undefined && head !== input.base_rev) throw conflict(store, input.base_rev, head, store.project.label);
@@ -130,24 +141,21 @@ export function createHandlers(deps: HandlerDeps): ToolHandlers {
         const hash = inputsHash(job.script, params);
         if (head) {
           const h = store.revision(head);
-          // The same inputs on the same engine give the same design: keep the revision.
-          if (h.inputs_hash === hash && hashJson(h.engine) === hashJson(engine)) return head;
+          // The same inputs on the same engine and analysis give the same report: keep the
+          // revision. Package versions do not move in a checkout, so the analysis version
+          // decides whether new fit or report code must rebuild it.
+          if (h.inputs_hash === hash && hashJson(h.engine) === hashJson(engine) && h.analysis === ANALYSIS_VERSION) return head;
         }
         const next = store.nextRev();
         const rec: RevisionRecord = {
-          rev: next, ts: now().toISOString(), script: job.script, params, inputs_hash: hash, engine,
+          rev: next, ts: now().toISOString(), script: job.script, params, inputs_hash: hash, engine, analysis: ANALYSIS_VERSION,
           assembly: r.assembly, report: { ...report, rev: next }, detail: job.detail ?? "concise",
         };
         if (head) rec.base_rev = head;
-        store.commit(rec);
+        store.commit(rec, { saveParams: input.save_params ?? true });
         return next;
       });
       output = runResult(report, rev, compute);
-      if (dropped.length > 0 && output.report) {
-        const names = dropped.slice(0, 8).join(", ") + (dropped.length > 8 ? ", ..." : "");
-        output.report.warnings = [...(output.report.warnings ?? []), `the script changed, so the stored values of ${names} were not used; the run started from the new script's defaults (pass params to set them again)`];
-        if (output.status === "ok") output.status = "warning";
-      }
     } catch (e) {
       output = { status: "error", error: e instanceof JobFailure ? e.error : toScriptError(e), compute };
     }
@@ -185,8 +193,11 @@ export function createHandlers(deps: HandlerDeps): ToolHandlers {
         // The working copy's values (params.o3j.json) belong to the working script. A different
         // script starts from its own defaults, so stale values never resize a new design.
         const kept = store.params();
-        const stored = script === working ? kept : {};
-        const dropped = script === working ? [] : Object.keys(kept).filter((k) => !Object.hasOwn(input.params ?? {}, k));
+        // A change to comments or blank lines only keeps them: a note in the script must not
+        // throw away the values an agent set.
+        const same = working !== undefined && sameCode(script, working);
+        const stored = same ? kept : {};
+        const dropped = same ? {} : Object.fromEntries(Object.entries(kept).filter(([k]) => !Object.hasOwn(input.params ?? {}, k) && !ops.some((o) => o.op === "set_param" && o.name === k)));
         const params: Record<string, ParamValue> = { ...stored, ...input.params };
         for (const op of ops) if (op.op === "set_param") params[op.name] = op.value;
         const compute = place(input.compute, "run");
@@ -227,7 +238,8 @@ export function createHandlers(deps: HandlerDeps): ToolHandlers {
         out.rev = rec.rev;
         const targets = input.targets?.length ? resolveTargets(rec.assembly, input.targets) : undefined;
         if (fields.has("tree")) out.tree = tree(rec.assembly);
-        if (fields.has("refs")) out.refs = rec.report.refs ?? [];
+        // Every named face and edge, with its element address and fingerprint, from the graph.
+        if (fields.has("refs")) out.refs = graphRefs(rec.assembly);
         if (fields.has("fits") || fields.has("measure")) {
           const { report, compute } = await detailedReport(store, rec, input.compute);
           if (compute) out.compute = compute;
@@ -299,12 +311,18 @@ export function createHandlers(deps: HandlerDeps): ToolHandlers {
         const baseName = input.scope ? `${store.project.name}-${input.scope.replace(/[^A-Za-z0-9_-]/g, "_")}` : store.project.name;
         const exp: NonNullable<JobRequest["export"]> = { formats: [input.format as ArtifactFormat], baseName };
         if (input.scope) exp.scope = input.scope;
+        // The STEP header names the project's author and organisation when the manifest sets them.
+        const manifest = store.require();
+        if (manifest.author) exp.author = manifest.author;
+        if (manifest.organization) exp.organization = manifest.organization;
         job.export = exp;
         let output: ExportOutput;
         try {
           const r = await runPool(job, input.compute, "batch");
           const artifacts = r.artifacts ?? [];
-          const files = writeOutputs(store.project, outDir, artifacts.map((a) => ({ name: a.name, format: a.format, bytes: a.bytes })));
+          // One sidecar per revision and folder lists every export made into it.
+          const outputs = mergeEvidence(store.project, outDir, artifacts.map((a) => ({ name: a.name, format: a.format, bytes: a.bytes })));
+          const files = writeOutputs(store.project, outDir, outputs);
           output = { status: "ok", rev: rec.rev, files, compute };
           const warnings = [...new Set(artifacts.flatMap((a) => a.warnings ?? []))];
           if (warnings.length) output.warnings = warnings;
@@ -363,6 +381,22 @@ export function createHandlers(deps: HandlerDeps): ToolHandlers {
   return handlers;
 }
 
+/** refs for inspect: every named face and edge of every definition, with address and fingerprint. */
+export function graphRefs(graph: AssemblyFile): RefReport[] {
+  const out: RefReport[] = [];
+  for (const [id, def] of Object.entries(graph.definitions)) {
+    for (const x of def.refs ?? []) {
+      const ref: RefReport = { name: `${id}.${x.name}`, state: x.state };
+      if (x.candidates?.length) ref.candidates = x.candidates;
+      if (x.reason) ref.reason = x.reason;
+      if (x.at) ref.at = x.at;
+      if (x.fingerprint) ref.fingerprint = x.fingerprint;
+      out.push(ref);
+    }
+  }
+  return out;
+}
+
 /** A part measure for detail concise: 3 digits, and no area, centre of mass or full counts. */
 function concisePart(p: PartReport): PartReport {
   const r = (x: number) => Number(x.toFixed(3)) + 0;
@@ -372,6 +406,29 @@ function concisePart(p: PartReport): PartReport {
   if (p.mass_g !== undefined) out.mass_g = r(p.mass_g);
   if (p.counts && p.counts.solids !== 1) out.counts = { solids: p.counts.solids };
   return out;
+}
+
+/**
+ * Whether two scripts differ only in comments, blank lines and trailing spaces. Whole-line //
+ * comments are dropped, and so is a trailing // comment outside quotes. Anything else counts
+ * as a change (the stored values are then dropped, which is the safe side).
+ */
+export function sameCode(a: string, b: string): boolean {
+  if (a === b) return true;
+  const strip = (line: string) => {
+    let quote = "";
+    for (let i = 0; i < line.length; i++) {
+      const c = line[i]!;
+      if (quote) {
+        if (c === "\\") i++;
+        else if (c === quote) quote = "";
+      } else if (c === "'" || c === '"' || c === "`") quote = c;
+      else if (c === "/" && line[i + 1] === "/") return line.slice(0, i);
+    }
+    return line;
+  };
+  const norm = (text: string) => text.split(/\r?\n/).map((line) => strip(line).trimEnd()).filter((line) => line.trim() !== "").join("\n");
+  return norm(a) === norm(b);
 }
 
 /** A run result: status, rev and compute once at the top, and the report without them. */

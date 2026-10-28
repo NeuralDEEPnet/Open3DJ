@@ -104,7 +104,8 @@
         "volume_mm3": { "type": "number", "minimum": 0 },
         "distance_mm": { "type": "number", "minimum": 0 },
         "confidence": { "$ref": "urn:open3dj:v0:common#/$defs/confidence" },
-        "n": { "description": "Concise reports only: how many identical fits this line stands for.", "type": "integer", "minimum": 2 }
+        "n": { "description": "Concise reports only: how many identical fits this line stands for.", "type": "integer", "minimum": 2 },
+        "extra": { "description": "true for another distinct gap of a pair: its closest relation (clash, contact or the smallest clearance) has its own line without extra, or is a mated contact, which is not listed.", "const": true }
       },
       "required": ["a", "b", "kind", "confidence"],
       "additionalProperties": false
@@ -112,13 +113,50 @@
     "ref": {
       "type": "object",
       "properties": {
-        "name": { "type": "string", "minLength": 1 },
+        "name": { "description": "<definition>.<reference name>, for example bracket.hole.", "type": "string", "minLength": 1 },
         "state": { "enum": ["exact", "re-resolved", "disambiguated", "ambiguous", "broken"] },
-        "candidates": { "type": "array", "items": { "type": "string" } },
-        "reason": { "type": "string" }
+        "candidates": { "description": "Element addresses (face:7, edge:12) that a broken or ambiguous reference could mean. Never auto-picked.", "type": "array", "items": { "type": "string" } },
+        "reason": { "type": "string" },
+        "at": { "description": "The element the reference resolves to (face:7 or edge:12) when exact. Detailed reports and inspect only.", "type": "string" },
+        "fingerprint": { "$ref": "#/$defs/fingerprint" }
       },
       "required": ["name", "state"],
       "additionalProperties": false
+    },
+    "fingerprint": {
+      "description": "Geometric fingerprint of a named face or edge in its part definition's frame: type, surface or curve, area or length, centroid, normal, axis or direction, and adjacency counts (ARCHITECTURE.md section 10).",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "type": { "const": "face" },
+            "surface": { "type": "string" },
+            "area": { "type": "number", "minimum": 0 },
+            "centroid": { "$ref": "urn:open3dj:v0:common#/$defs/vec3" },
+            "normal": { "$ref": "urn:open3dj:v0:common#/$defs/vec3" },
+            "axis": { "$ref": "urn:open3dj:v0:common#/$defs/vec3" },
+            "edges": { "description": "Edges bounding the face.", "type": "integer", "minimum": 0 },
+            "twins": { "description": "Other faces of the same kind, orientation, area and edge count when the fingerprint was taken (a pattern of holes). A name with twins stays exact only at its position or on its plane or axis.", "type": "integer", "minimum": 1 }
+          },
+          "required": ["type", "surface", "area", "centroid", "edges"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": { "const": "edge" },
+            "curve": { "type": "string" },
+            "length": { "type": "number", "minimum": 0 },
+            "centroid": { "$ref": "urn:open3dj:v0:common#/$defs/vec3" },
+            "direction": { "$ref": "urn:open3dj:v0:common#/$defs/vec3" },
+            "axis": { "$ref": "urn:open3dj:v0:common#/$defs/vec3" },
+            "faces": { "description": "Faces that share the edge.", "type": "integer", "minimum": 0 },
+            "twins": { "description": "Other edges of the same kind, orientation, length and face count when the fingerprint was taken.", "type": "integer", "minimum": 1 }
+          },
+          "required": ["type", "curve", "length", "centroid", "faces"],
+          "additionalProperties": false
+        }
+      ]
     }
   }
 }

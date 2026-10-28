@@ -12,10 +12,11 @@ export type Source = { kind: "script"; path: string; project: string } | { kind:
 
 export type Command =
   | { cmd: "run"; input: RunInput; source: Source }
-  | { cmd: "inspect"; input: InspectInput; source?: Source; params: Record<string, ParamValue> }
-  | { cmd: "render"; input: RenderInput; source: Source; params: Record<string, ParamValue>; out?: string }
-  | { cmd: "export"; input: ExportInput; source: Source; params: Record<string, ParamValue>; out?: string }
+  | { cmd: "inspect"; input: InspectInput; source?: Source; params: Record<string, ParamValue>; saveParams: boolean }
+  | { cmd: "render"; input: RenderInput; source: Source; params: Record<string, ParamValue>; saveParams: boolean; out?: string }
+  | { cmd: "export"; input: ExportInput; source: Source; params: Record<string, ParamValue>; saveParams: boolean; out?: string }
   | { cmd: "docs"; input: DocsInput }
+  | { cmd: "view"; source: Source; params: Record<string, ParamValue>; saveParams: boolean; port?: number; open: boolean }
   | { cmd: "mcp"; root?: string; workers?: number }
   | { cmd: "doctor"; bench: boolean }
   | { cmd: "new"; name: string; template: "part" | "assembly" }
@@ -40,7 +41,9 @@ const COMMON = {
   json: { type: "boolean", default: false },
   help: { type: "boolean", short: "h", default: false },
 } as const;
-const PARAMS = { param: { type: "string", multiple: true } } as const;
+// --param values are saved to the project's working copy (params.o3j.json) unless
+// --no-save-params is given.
+const PARAMS = { param: { type: "string", multiple: true }, "no-save-params": { type: "boolean", default: false } } as const;
 const REV = { rev: { type: "string" } } as const;
 
 /** Parse argv (without node and the script path). Throws UsageError for bad input. */
@@ -57,6 +60,7 @@ export function parseCommand(argv: string[]): Parsed {
       if (values["base-rev"]) input.base_rev = values["base-rev"];
       if (values.detailed) input.detail = "detailed";
       if (values.compute) input.compute = values.compute as RunInput["compute"];
+      if (values["no-save-params"]) input.save_params = false;
       return { command: { cmd: "run", input, source }, json: values.json };
     }
     case "inspect": {
@@ -69,7 +73,7 @@ export function parseCommand(argv: string[]): Parsed {
       if (values.targets) input.targets = list(values.targets);
       if (values.job) input.job_id = values.job;
       if (values.detailed) input.detail = "detailed";
-      const command: Command = { cmd: "inspect", input, params: parseParams(values.param ?? []) };
+      const command: Command = { cmd: "inspect", input, params: parseParams(values.param ?? []), saveParams: !values["no-save-params"] };
       if (source) command.source = source;
       return { command, json: values.json };
     }
@@ -83,7 +87,7 @@ export function parseCommand(argv: string[]): Parsed {
       if (values.targets) input.targets = list(values.targets);
       if (values.width) input.width = int(values.width, "--width");
       if (values.height) input.height = int(values.height, "--height");
-      const command: Command = { cmd: "render", input, source, params: parseParams(values.param ?? []) };
+      const command: Command = { cmd: "render", input, source, params: parseParams(values.param ?? []), saveParams: !values["no-save-params"] };
       if (values.out) command.out = values.out;
       return { command, json: values.json };
     }
@@ -96,7 +100,7 @@ export function parseCommand(argv: string[]): Parsed {
       const input: ExportInput = { project: source.project, format };
       if (values.rev) input.rev = values.rev;
       if (values.scope) input.scope = values.scope;
-      const command: Command = { cmd: "export", input, source, params: parseParams(values.param ?? []) };
+      const command: Command = { cmd: "export", input, source, params: parseParams(values.param ?? []), saveParams: !values["no-save-params"] };
       if (values.out) command.out = values.out;
       return { command, json: values.json };
     }
@@ -107,6 +111,17 @@ export function parseCommand(argv: string[]): Parsed {
       if (!input.query) throw new UsageError("docs needs a query, for example: open3dj docs fillet");
       if (values.page) input.page = int(values.page, "--page");
       return { command: { cmd: "docs", input }, json: values.json };
+    }
+    case "view": {
+      const { values, positionals } = parse(rest, { ...COMMON, ...PARAMS, port: { type: "string" }, "no-open": { type: "boolean", default: false } });
+      if (values.help) return help("view");
+      const source = sourceOf(positionals, values.project, "view needs a script or project, for example: open3dj view bracket.o3j.js");
+      const command: Command = { cmd: "view", source, params: parseParams(values.param ?? []), saveParams: !values["no-save-params"], open: !values["no-open"] };
+      if (values.port !== undefined) {
+        command.port = int(values.port, "--port");
+        if (command.port < 0 || command.port > 65535) throw new UsageError(`--port is 0 to 65535, got ${command.port}`);
+      }
+      return { command, json: false };
     }
     case "mcp": {
       const { values } = parse(rest, { root: { type: "string" }, workers: { type: "string" }, help: { type: "boolean", short: "h", default: false } });

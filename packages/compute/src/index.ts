@@ -11,7 +11,7 @@ import type { PackageStatus } from "@open3dj/schemas";
 import type { JobRequest, JobResult } from "./types.ts";
 
 export type * from "./types.ts";
-export type { DoctorBench, DoctorOptions, DoctorReport, ScalingPoint } from "./doctor.ts";
+export type { DoctorBench, DoctorOptions, DoctorReport, KernelOp, ScalingPoint } from "./doctor.ts";
 export type { JobContext, JobOutcome, JobRunner } from "./job.ts";
 
 export const PACKAGE_STATUS: PackageStatus = "ready";

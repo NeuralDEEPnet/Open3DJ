@@ -121,15 +121,76 @@ export interface FitReport {
   confidence: Confidence;
   /** Concise reports: how many identical fits this line stands for (a or b is then a range). */
   n?: number;
+  /** Another distinct gap of the pair; the pair's closest relation is the line without extra (or a mated contact, not listed). */
+  extra?: true;
 }
 
 export type RefState = "exact" | "re-resolved" | "disambiguated" | "ambiguous" | "broken";
 
+/**
+ * The geometric fingerprint of a named face or edge (ARCHITECTURE.md section 10), in the
+ * frame of its part definition. A later run compares it with the new geometry.
+ */
+export type RefFingerprint =
+  | {
+    type: "face";
+    /** plane, cylinder, cone, sphere, torus, bspline, ... */
+    surface: string;
+    area: number;
+    centroid: Vec3;
+    /** Outward normal of a plane. */
+    normal?: Vec3;
+    /** Axis of a cylinder, cone or torus (either sense). */
+    axis?: Vec3;
+    /** Edges bounding the face (adjacency count). */
+    edges: number;
+    /** Other faces of the same kind, orientation, area and edge count when it was taken (a pattern of holes). */
+    twins?: number;
+  }
+  | {
+    type: "edge";
+    /** line, circle, ellipse, bspline, ... */
+    curve: string;
+    length: number;
+    centroid: Vec3;
+    /** Direction of a line (either sense). */
+    direction?: Vec3;
+    /** Axis of a circle or ellipse (either sense). */
+    axis?: Vec3;
+    /** Faces that share the edge (adjacency count). */
+    faces: number;
+    /** Other edges of the same kind, orientation, length and face count when it was taken. */
+    twins?: number;
+  };
+
 export interface RefReport {
+  /** <definition>.<reference name>, for example bracket.hole. */
   name: string;
   state: RefState;
+  /** Element addresses (face:7, edge:12) a broken or ambiguous reference could mean. Never auto-picked. */
   candidates?: string[];
   reason?: string;
+  /** The element the reference resolves to when exact. Detailed reports and inspect only. */
+  at?: string;
+  /** inspect fields=[refs] only. */
+  fingerprint?: RefFingerprint;
+}
+
+/** A named face or edge stored with its part definition in the assembly graph. */
+export interface DefinitionRef {
+  name: string;
+  type: "face" | "edge";
+  state: RefState;
+  at?: string;
+  candidates?: string[];
+  reason?: string;
+  fingerprint?: RefFingerprint;
+  /**
+   * Maps the frame the name was given in to the definition's frame, when the part was moved
+   * or turned after withReferences. The next run compares fingerprints in the naming frame,
+   * so moving a whole part does not change what a name means.
+   */
+  frame?: Transform;
 }
 
 export interface GeometryReport {
@@ -152,6 +213,9 @@ export interface ProjectManifest {
   units: "mm";
   up: "Z";
   rev?: Rev;
+  /** Author and organisation for exported STEP headers. */
+  author?: string;
+  organization?: string;
   engine: { open3dj: string; occt_wasm: string; brepjs?: string };
 }
 
@@ -193,6 +257,8 @@ export interface Definition {
   shared_by?: "measured" | "inferred";
   color?: Color3;
   connectors?: Connector[];
+  /** Named faces and edges (withReferences) with their fingerprints and resolution state. */
+  refs?: DefinitionRef[];
   /** Children, for assembly-kind definitions only. */
   occurrences?: Occurrence[];
 }
@@ -241,6 +307,8 @@ export interface RunInput {
   base_rev?: Rev;
   script?: string;
   params?: Record<string, ParamValue>;
+  /** false: run with params but keep the working copy's params.o3j.json as it was. Default true. */
+  save_params?: boolean;
   ops?: RunOp[];
   compute?: ComputeMode;
   detail?: "concise" | "detailed";

@@ -33,6 +33,9 @@ function brepShape(kind: "wire" | "face", id: ShapeHandle): unknown {
   return B.castShape({ __occtWasm: true, type: kind, id, delete() {}, HashCode: (u: number) => (id as number) % u, IsNull: () => false } as never);
 }
 
+/** Points per offset edge for its B-spline rebuild; enough for 1e-6 relative area on an ellipse offset. */
+const OFFSET_SAMPLES = 128;
+
 export class Sketches {
   readonly kernel: KernelAdapter;
   readonly raw: Kernel["raw"] | undefined;
@@ -136,14 +139,6 @@ export class Sketches {
     return this.transform(s, (d) => d.mirror(dir, [0, 0], "plane"), (f) => this.kernel.mirror(f, { origin: [0, 0, 0], normal: [n[0], n[1], 0] }));
   }
 
-  // ---- drawing-only edits -------------------------------------------------------------
-  #drawingOf(s: SketchEntry, op: string): Drawing {
-    if (!s.drawing) {
-      throw new DslError("DSL_UNSUPPORTED", `sketch.${op} works on drawn profiles, not on the result of offset() or a sketch boolean`, `Apply ${op} to each profile before the boolean or offset, or extrude first and round the vertical edges with fillet(shape, r, { parallel: [0, 0, 1] }).`);
-    }
-    return s.drawing;
-  }
-
   /**
    * 2D booleans run in the kernel, never as brepjs Drawing booleans: brepjs 20.11.1 silently
    * dropped the tool, or returned overlapping faces, when a profile had curved edges. Each
@@ -185,18 +180,160 @@ export class Sketches {
   }
 
   filletCorners(s: SketchEntry, r: number): SketchEntry {
-    return { kind: "sketch", drawing: this.#drawingOf(s, "filletCorners").fillet(r) };
+    if (s.drawing) return { kind: "sketch", drawing: s.drawing.fillet(r) };
+    return this.#cornersOnFace(s, r, "fillet");
   }
 
   chamferCorners(s: SketchEntry, r: number): SketchEntry {
-    return { kind: "sketch", drawing: this.#drawingOf(s, "chamferCorners").chamfer(r) };
+    if (s.drawing) return { kind: "sketch", drawing: s.drawing.chamfer(r) };
+    return this.#cornersOnFace(s, r, "chamfer");
+  }
+
+  /**
+   * Corner fillets and chamfers on a kernel profile (after offset or a sketch boolean). Each
+   * region is extruded 1 mm, the vertical edges at its corners (vertices where the outline
+   * turns, not smooth joins of a line and a tangent arc) are filleted or chamfered by the
+   * kernel, and the top face, moved back to z = 0, is the result. The area may change only by
+   * what the corners can account for, so a wrong kernel result is refused, not returned. At a
+   * corner between two lines that is r^2 (tan(t/2) - t/2) for a fillet and s^2 sin(t) / 2 for
+   * a chamfer, where t is the turn. A corner with an arc or another curve on one side can lose
+   * more than that, because the curve bends away from its tangent; there the change stays
+   * inside the disk around the corner that reaches the new edge's far end, pi rho^2.
+   */
+  #cornersOnFace(s: SketchEntry, size: number, op: "fillet" | "chamfer"): SketchEntry {
+    const name = `sketch.${op}Corners`;
+    this.#needRaw(name);
+    const k = this.kernel;
+    const profile = this.face(s);
+    const regions = k.shapeType(profile) === "face" ? [profile] : k.subShapes(profile, "face");
+    const out: ShapeHandle[] = [];
+    for (const region of regions) {
+      const corners = this.#corners(region);
+      if (corners.length === 0) {
+        out.push(region);
+        continue;
+      }
+      const solid = k.extrude(region, [0, 0, 1]);
+      const handles = k.subShapes(solid, "edge");
+      const vertical = k.edges(solid).filter((e) => e.curve === "line"
+        && Math.abs(e.start[0] - e.end[0]) < 1e-7 && Math.abs(e.start[1] - e.end[1]) < 1e-7 && Math.abs(Math.abs(e.end[2] - e.start[2]) - 1) < 1e-6
+        && corners.some((c) => Math.hypot(e.start[0] - c.x, e.start[1] - c.y) < 1e-6));
+      const edges = vertical.map((e) => handles[e.index - 1]!);
+      const done = op === "fillet" ? k.fillet(solid, edges, size) : k.chamfer(solid, edges, size);
+      const all = k.subShapes(done, "face");
+      const top = k.faces(done).filter((f) => f.surface === "plane" && Math.abs(f.bbox.max[2] - 1) < 1e-5 && Math.abs(f.bbox.min[2] - 1) < 1e-5);
+      if (top.length !== 1) throw new DslError("DSL_UNSUPPORTED", `${name} gave ${top.length} top faces for one region`, `Use a smaller ${op === "fillet" ? "radius" : "size"}, or extrude first and use ${op}(shape, ${size}, { parallel: [0, 0, 1] }).`);
+      const before = k.area(region);
+      const after = top[0]!.area;
+      const reach = corners.some((c) => c.curved) ? this.#cornerReach(region, all[top[0]!.index - 1]!, corners) : [];
+      const bound = corners.reduce((sum, c, i) => {
+        if (c.curved) return sum + Math.PI * reach[i]! ** 2;
+        return sum + (op === "fillet" ? size * size * (Math.tan(c.turn / 2) - c.turn / 2) : (size * size * Math.sin(c.turn)) / 2);
+      }, 0);
+      if (!(after > 0) || Math.abs(after - before) > bound + 1e-6 * Math.max(1, before)) {
+        throw new DslError("DSL_UNSUPPORTED", `${name} changed the area from ${before.toPrecision(6)} to ${after.toPrecision(6)} mm2, more than its ${corners.length} corners can account for`, `Use a smaller ${op === "fillet" ? "radius" : "size"}, or extrude first and use ${op}(shape, ${size}, { parallel: [0, 0, 1] }).`);
+      }
+      out.push(k.translate(all[top[0]!.index - 1]!, [0, 0, -1]));
+    }
+    return { kind: "sketch", face: out.length === 1 ? out[0]! : k.compound(out) };
+  }
+
+  /**
+   * The corners of a planar region: vertices where its outline turns (outer wire and holes).
+   * turn is the turning angle in radians (0 for a smooth join, near pi for a cusp); curved is
+   * true when either side is not a line.
+   */
+  #corners(region: ShapeHandle): Array<{ x: number; y: number; turn: number; curved: boolean }> {
+    const raw = this.raw!;
+    const dirs = new Map<string, { x: number; y: number; d: Array<[number, number]>; curved: boolean }>();
+    const key = (x: number, y: number) => `${Math.round(x * 1e6)},${Math.round(y * 1e6)}`;
+    const add = (p: { x: number; y: number }, q: { x: number; y: number }, line: boolean) => {
+      const len = Math.hypot(q.x - p.x, q.y - p.y);
+      if (len < 1e-12) return;
+      const k2 = key(p.x, p.y);
+      const v = dirs.get(k2) ?? { x: p.x, y: p.y, d: [], curved: false };
+      v.d.push([(q.x - p.x) / len, (q.y - p.y) / len]);
+      if (!line) v.curved = true;
+      dirs.set(k2, v);
+    };
+    for (const e of this.kernel.subShapes(region, "edge")) {
+      const { first, last } = raw.curveParameters(e);
+      const step = (last - first) * 1e-6;
+      const line = this.kernel.edgeInfo(e).curve === "line";
+      add(raw.curvePointAtParam(e, first), raw.curvePointAtParam(e, first + step), line);
+      add(raw.curvePointAtParam(e, last), raw.curvePointAtParam(e, last - step), line);
+    }
+    const corners: Array<{ x: number; y: number; turn: number; curved: boolean }> = [];
+    for (const v of dirs.values()) {
+      if (v.d.length !== 2) continue;
+      const [a, b] = v.d as [[number, number], [number, number]];
+      // Leaving directions of a smooth join point opposite ways (dot -1); the turn is what is left.
+      const turn = Math.PI - Math.acos(Math.max(-1, Math.min(1, a[0] * b[0] + a[1] * b[1])));
+      if (turn > 1e-6) corners.push({ x: v.x, y: v.y, turn, curved: v.curved });
+    }
+    return corners;
+  }
+
+  /**
+   * For each corner, how far from it the result's outline changed: the distance to the
+   * farthest end of a new edge (a fillet arc or a chamfer line) nearest to that corner. Ends
+   * of new edges are the result's outline points that are not points of the region's outline.
+   */
+  #cornerReach(region: ShapeHandle, top: ShapeHandle, corners: Array<{ x: number; y: number }>): number[] {
+    const k = this.kernel;
+    const ends = (shape: ShapeHandle) => k.subShapes(shape, "edge").flatMap((e) => {
+      const info = k.edgeInfo(e);
+      return [info.start, info.end];
+    });
+    const old = ends(region);
+    const fresh = ends(top).filter((p) => !old.some((q) => Math.hypot(p[0] - q[0], p[1] - q[1]) < 1e-6));
+    const reach = corners.map(() => 0);
+    for (const p of fresh) {
+      let best = 0;
+      corners.forEach((c, i) => {
+        if (Math.hypot(p[0] - c.x, p[1] - c.y) < Math.hypot(p[0] - corners[best]!.x, p[1] - corners[best]!.y)) best = i;
+      });
+      reach[best] = Math.max(reach[best]!, Math.hypot(p[0] - corners[best]!.x, p[1] - corners[best]!.y));
+    }
+    return reach;
   }
 
   /** Exact 2D offset through OCCT (brepjs Drawing.offset gave an invalid hexagon inset in the spike). */
   offset(s: SketchEntry, dist: number): SketchEntry {
     const wire = this.outerWire(s, "offset");
     const out = idOf(unwrap("offset", B.offsetWire2D(brepShape("wire", wire) as never, dist, "arc")));
-    return { kind: "sketch", face: this.kernel.face(out) };
+    return { kind: "sketch", face: this.kernel.face(this.#withoutOffsetCurves(out)) };
+  }
+
+  /**
+   * OCCT offsets an ellipse (or a B-spline) into an offset curve, which the STEP writer
+   * cannot express: the file came back as 0 solids (measured on occt-wasm 5.8.1). Such edges
+   * are rebuilt as B-splines interpolated through OFFSET_SAMPLES points of the offset curve;
+   * the end points are the curve's own, so the wire stays closed. The area of the face
+   * changes by less than 1e-6 relative (checked), and lines and arcs are kept as they are.
+   */
+  #withoutOffsetCurves(wire: ShapeHandle): ShapeHandle {
+    const k = this.kernel;
+    const edges = k.subShapes(wire, "edge");
+    const infos = edges.map((e) => k.edgeInfo(e));
+    if (!infos.some((e) => e.curve === "offset")) return wire;
+    const raw = this.raw!;
+    const rebuilt = edges.map((e, i) => {
+      if (infos[i]!.curve !== "offset") return e;
+      const { first, last } = raw.curveParameters(e);
+      const pts = Array.from({ length: OFFSET_SAMPLES + 1 }, (_, j) => {
+        const p = raw.curvePointAtParam(e, first + ((last - first) * j) / OFFSET_SAMPLES);
+        return { x: p.x, y: p.y, z: p.z };
+      });
+      return raw.interpolatePoints(pts, false) as ShapeHandle;
+    });
+    const out = k.wire(rebuilt);
+    const before = k.area(k.face(wire));
+    const after = k.area(k.face(out));
+    if (Math.abs(after - before) > 1e-6 * Math.max(1, before)) {
+      throw new DslError("DSL_UNSUPPORTED", `offset could not turn its curved edges into splines (area ${before.toPrecision(8)} became ${after.toPrecision(8)} mm2)`, "Offset a profile made of lines and arcs, or build the shape in 3D (extrude, then shell or a 3D offset).");
+    }
+    return out;
   }
 
   // ---- measures -----------------------------------------------------------------------

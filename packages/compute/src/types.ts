@@ -39,6 +39,9 @@ export interface ExportJob {
   formats: ArtifactFormat[];
   baseName?: string;
   scope?: string;
+  /** Author and organisation for the STEP header, from the project manifest. */
+  author?: string;
+  organization?: string;
   /**
    * When set, the worker also writes the artifacts here with writeArtifacts() from
    * @open3dj/assembly (path policy included) and returns the FileRefs in JobResult.files.

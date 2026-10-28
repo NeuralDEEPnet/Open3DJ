@@ -22,7 +22,7 @@
       "maxLength": 262144
     },
     "params": {
-      "description": "Values for Param.* entries, by name. They are saved as the project's working values (params.o3j.json): later runs of the same script, and set_param, keep them until changed. A script that differs from the project's stored script starts from its own defaults plus these values, and the report warns which stored values it did not use.",
+      "description": "Values for Param.* entries, by name. They are saved to the project's working copy (params.o3j.json, after clamping to each Param's min and max): later runs of the same script, and set_param, use them until changed. Pass save_params: false to try values without saving them. A script that differs from the project's stored script starts from its own defaults plus these values, and the report warns which stored values it did not use.",
       "type": "object",
       "maxProperties": 200,
       "propertyNames": {
@@ -37,6 +37,10 @@
         ],
         "maxLength": 4096
       }
+    },
+    "save_params": {
+      "description": "Default true: params and set_param values are saved to the project's working copy (params.o3j.json). false runs with them and records them in the new revision, but keeps params.o3j.json as it was.",
+      "type": "boolean"
     },
     "ops": {
       "description": "S1 ops: set_param (re-run the stored script with a new value) and cancel_job (stop a queued run). Assembly edits such as add_occurrence arrive in S2; change the script instead.",

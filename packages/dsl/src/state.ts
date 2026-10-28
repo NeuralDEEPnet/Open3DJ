@@ -1,6 +1,7 @@
 // Per-run host state: the guest-id table, declared params, mates and warnings. The guest
 // only ever sees the integer ids; every entry is immutable once made, except that clone()
 // marks its source as the start of a clone lineage.
+import type { NamedRef } from "./refs.ts";
 import type { Color3, ParamValue, Transform, Vec3 } from "@open3dj/schemas";
 import type { ShapeHandle } from "@open3dj/kernel";
 import type { Drawing } from "brepjs";
@@ -37,6 +38,8 @@ export interface SolidEntry {
   kind: "shape";
   handle: ShapeHandle;
   refs: Record<string, Vec3>;
+  /** Named faces and edges (withReferences with a face or edge query), with fingerprints. */
+  named?: Record<string, NamedRef>;
   connectors: Record<string, ConnectorFrame>;
   name?: string;
   color?: Color3;

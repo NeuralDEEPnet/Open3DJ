@@ -6,5 +6,7 @@ dist/
 .env
 .env.*
 
-# Projects that example runs create next to their scripts
+# Projects that example, bench and corpus runs create next to their scripts
 examples/**/*.o3j/
+bench/**/*.o3j/
+corpora/**/*.o3j/

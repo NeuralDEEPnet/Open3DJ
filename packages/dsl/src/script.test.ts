@@ -140,6 +140,28 @@ test("bad arguments are refused with DSL_BAD_ARGUMENT at the user's line", async
   }
 });
 
+// Regression (S1 polish): QuickJS gives the column of the statement, not of the call, when
+// the failing call sits in a return statement, so errors there said column 1. The column is
+// the first character of the entry's name, wherever the call sits.
+test("errors point at the column of the failing call, also inside return and chains", async () => {
+  const h = await harness();
+  const cases: Array<[string, number, number]> = [
+    // [script, line, column of the entry name]
+    ["const a = 1;\nreturn box(1, 1, 1).fillet(-1, (e) => e);", 2, 21],
+    ["const a = 1;\nreturn box(-1, 1, 1);", 2, 8],
+    ["const s = box(10, 10, 10)\n  .translate(1, 2, 3)\n    .fillet(-1, (e) => e);\nreturn s;", 3, 6],
+    ["const s = box(10, 10, 10);\n    const u = union(s, rect(3, 3));\nreturn u;", 2, 15],
+    ["const c = [1, 2].map((i) => cylinder(-i, 3));\nreturn box(1, 1, 1);", 1, 29],
+    ["const k = box(1, 1, 1).translate(1, 0, 0).translate('a');\nreturn k;", 1, 43],
+    ["const W = Param.number(\"W\", \"x\");\nreturn box(W, 1, 1);", 1, 17],
+  ];
+  for (const [code, line, column] of cases) {
+    const r = await h.run(code);
+    assert.equal(r.ok, false, code);
+    assert.deepEqual([r.error!.line, r.error!.column], [line, column], `${code}\n${r.error!.code}: ${r.error!.message}`);
+  }
+});
+
 test("a syntax error points at the user's line", async () => {
   const h = await harness();
   const r = await h.run("const a = box(1, 1, 1);\nconst b = a.translate(1, 0, 0;\nreturn b;");

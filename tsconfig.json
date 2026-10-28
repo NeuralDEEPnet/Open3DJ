@@ -18,5 +18,5 @@
     "resolveJsonModule": true,
     "skipLibCheck": true
   },
-  "include": ["packages/*/src/**/*.ts", "scripts/**/*.ts"]
+  "include": ["packages/*/src/**/*.ts", "scripts/**/*.ts", "bench/**/*.ts"]
 }

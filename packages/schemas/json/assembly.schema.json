@@ -41,6 +41,26 @@
         "shared_by": { "description": "How clones were merged into this definition.", "enum": ["measured", "inferred"] },
         "color": { "$ref": "urn:open3dj:v0:common#/$defs/color" },
         "connectors": { "type": "array", "items": { "$ref": "#/$defs/connector" } },
+        "refs": {
+          "description": "Named faces and edges (withReferences) with their fingerprints, so the next run can tell whether each name still means the same element.",
+          "type": "array",
+          "maxItems": 1000,
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string", "minLength": 1, "maxLength": 100 },
+              "type": { "enum": ["face", "edge"] },
+              "state": { "enum": ["exact", "re-resolved", "disambiguated", "ambiguous", "broken"] },
+              "at": { "type": "string" },
+              "candidates": { "type": "array", "items": { "type": "string" }, "maxItems": 50 },
+              "reason": { "type": "string" },
+              "fingerprint": { "$ref": "urn:open3dj:v0:geometry-report#/$defs/fingerprint" },
+              "frame": { "description": "Maps the frame the name was given in to the definition's frame, when the part was moved or turned after withReferences. Fingerprints are compared in the naming frame.", "$ref": "urn:open3dj:v0:common#/$defs/transform" }
+            },
+            "required": ["name", "type", "state"],
+            "additionalProperties": false
+          }
+        },
         "occurrences": { "type": "array", "items": { "$ref": "#/$defs/occurrence" } }
       },
       "required": ["kind"],

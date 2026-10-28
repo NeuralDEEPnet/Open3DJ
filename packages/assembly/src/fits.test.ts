@@ -45,6 +45,71 @@ describe("computeFits", () => {
     assert.equal(fits.filter((f) => f.kind === "clash").length, 4);
   });
 
+  // Regression (S1 polish): one line per pair hid the lip of a box lid. The lid rests on the
+  // rim (a mated contact, exempt) and its lip clears the inner wall by 0.25 mm, but the
+  // report said nothing about the lip because the pair's minimum distance was 0.
+  test("a mated lid reports its lip clearance in addition to the exempt seat contact", () => {
+    const base = kernel.cut(kernel.box(70, 50, 30), kernel.translate(kernel.box(66, 46, 30), [2, 2, 2]));
+    const ring = kernel.cut(kernel.translate(kernel.box(65.5, 45.5, 4), [2.25, 2.25, 26]), kernel.translate(kernel.box(62.3, 42.3, 6), [3.85, 3.85, 25]));
+    const lid = kernel.fuse(kernel.translate(kernel.box(70, 50, 3), [0, 0, 30]), ring);
+    const parts = [{ name: "base", shape: base }, { name: "lid", shape: lid }];
+    const mated = buildAssembly(kernel, { parts, mates: [{ a: "lid.rim", b: "base.rim", flip: true }], params: {}, warnings: [] });
+    const fits = computeFits(kernel, mated);
+    assert.deepEqual(fits.map((f) => [f.a, f.b, f.kind]), [["base", "lid", "clearance"]], JSON.stringify(fits));
+    assert.ok(Math.abs(fits[0]!.distance_mm! - 0.25) < 1e-6, JSON.stringify(fits));
+    assert.equal(fits[0]!.extra, true, "a further gap of a pair whose closest relation (the mated contact) is not listed");
+    // Without the mate the seat contact is listed too, and the lip clearance after it.
+    const loose = buildAssembly(kernel, { parts, mates: [], params: {}, warnings: [] });
+    assert.deepEqual(computeFits(kernel, loose).map((f) => [f.kind, f.distance_mm === undefined ? undefined : Number(f.distance_mm.toFixed(6))]), [["contact", 0], ["clearance", 0.25]]);
+  });
+
+  test("distinct gaps of one pair are separate lines; equal gaps are one", () => {
+    // A pin in a hole: 0.1 mm radial clearance and a 0.3 mm gap under its head.
+    const block = kernel.cut(kernel.box(20, 20, 10), kernel.translate(kernel.cylinder(3.1, 12), [10, 10, -1]));
+    const pin = kernel.fuse(kernel.translate(kernel.cylinder(3, 10), [10, 10, 0]), kernel.translate(kernel.cylinder(5, 2), [10, 10, 10.3]));
+    const asm = buildAssembly(kernel, { parts: [{ name: "block", shape: block }, { name: "pin", shape: pin }], mates: [], params: {}, warnings: [] });
+    const fits = computeFits(kernel, asm);
+    assert.deepEqual(fits.map((f) => [f.kind, Number(f.distance_mm!.toFixed(6)), f.extra ?? false]), [["clearance", 0.1, false], ["clearance", 0.3, true]], JSON.stringify(fits));
+    // The concise report keeps both, and its budget still holds.
+    const r = report(kernel, asm, { rev: "r_0001", compute, fits });
+    assert.equal(r.fits.length, 2);
+  });
+
+  // Regression (review round 1): two parallel planes facing the same way, with one part's
+  // material between them, were reported as a further gap. A 0.2 mm sheet held 0.1 mm above
+  // a plate has one air gap (0.1); the plate top to the sheet top (0.3) is not a gap.
+  test("parallel faces count as a gap only when they face each other across empty space", () => {
+    const plate = kernel.box(20, 20, 2);
+    const sheet = kernel.translate(kernel.box(10, 10, 0.2), [5, 5, 2.1]);
+    const asm = buildAssembly(kernel, { parts: [{ name: "plate", shape: plate }, { name: "sheet", shape: sheet }], mates: [], params: {}, warnings: [] });
+    const fits = computeFits(kernel, asm);
+    assert.deepEqual(fits.map((f) => [f.kind, Number(f.distance_mm!.toFixed(6)), f.extra ?? false]), [["clearance", 0.1, false]], JSON.stringify(fits));
+  });
+
+  test("a gap measured through a part's own fin and slot is not a gap", () => {
+    // Regression (review round 2 of increment 2): A is a U channel, a 0.1 mm fin at x 0..0.1, a
+    // slot from 0.1 to 0.3 and a wall from 0.3 to 1; B's face is at x = -0.1. The 0.4 mm from
+    // B to A's wall crosses A's fin, so only the 0.1 mm gap to the fin is real.
+    const floor = kernel.translate(kernel.box(1, 10, 1), [0, -5, 0]);
+    const fin = kernel.translate(kernel.box(0.1, 10, 5), [0, -5, 0]);
+    const wall = kernel.translate(kernel.box(0.7, 10, 5), [0.3, -5, 0]);
+    const a = kernel.fuseAll([floor, fin, wall]);
+    const b = kernel.translate(kernel.box(2.9, 10, 5), [-3, -5, 0]);
+    const asm = buildAssembly(kernel, { parts: [{ name: "A", shape: a }, { name: "B", shape: b }], mates: [], params: {}, warnings: [] });
+    const fits = computeFits(kernel, asm);
+    assert.deepEqual(fits.map((f) => [f.kind, Number(f.distance_mm!.toFixed(6)), f.extra ?? false]), [["clearance", 0.1, false]], JSON.stringify(fits));
+  });
+
+  test("round faces count as a gap only between a convex and a concave face", () => {
+    // A pin (r 3) in a thin sleeve (bore r 3.1, outside r 3.4): the gap is 0.1. The sleeve's
+    // outside is 0.4 mm from the pin, but behind the sleeve wall, so it is not a gap.
+    const sleeve = kernel.cut(kernel.cylinder(3.4, 10), kernel.translate(kernel.cylinder(3.1, 12), [0, 0, -1]));
+    const pin = kernel.translate(kernel.cylinder(3, 14), [0, 0, -2]);
+    const asm = buildAssembly(kernel, { parts: [{ name: "sleeve", shape: sleeve }, { name: "pin", shape: pin }], mates: [], params: {}, warnings: [] });
+    const fits = computeFits(kernel, asm);
+    assert.deepEqual(fits.map((f) => [f.kind, Number(f.distance_mm!.toFixed(6)), f.extra ?? false]), [["clearance", 0.1, false]], JSON.stringify(fits));
+  });
+
   test("a part nested inside another is a clash, not a clearance", () => {
     const asm = buildAssembly(kernel, {
       parts: [{ name: "block", shape: kernel.box(10, 10, 10) }, { name: "pin", shape: kernel.translate(kernel.box(2, 2, 2), [4, 4, 4]) }],

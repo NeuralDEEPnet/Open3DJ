@@ -21,12 +21,14 @@ import exportIn from "../json/tool-export-input.schema.json" with { type: "json"
 import exportOut from "../json/tool-export-output.schema.json" with { type: "json" };
 import docsIn from "../json/tool-docs-input.schema.json" with { type: "json" };
 import docsOut from "../json/tool-docs-output.schema.json" with { type: "json" };
+import benchTask from "../json/bench-task.schema.json" with { type: "json" };
 
 export type * from "./types.ts";
 export type { ValidationIssue, ValidationResult, JsonSchema, SchemaObject } from "./validator.ts";
 export { SchemaRegistry } from "./validator.ts";
 export { NotImplementedError } from "./errors.ts";
 export { MAX_NAME_LENGTH, cleanName } from "./names.ts";
+export { collapseFits, rankFits } from "./fits.ts";
 export { redactPaths } from "./redact.ts";
 export type { PackageStatus } from "./errors.ts";
 
@@ -34,6 +36,14 @@ export const PACKAGE_STATUS: PackageStatus = "ready";
 
 /** Major version of every schema in this package. */
 export const SCHEMA_VERSION = "v0";
+
+/**
+ * Version of the analysis that turns a model into a report: fits, fingerprint references and
+ * report fields. A revision records it, and a run reuses a revision for the same script and
+ * params only when it matches. Package versions stay 0.0.0 in a checkout, so bump this
+ * whenever a change moves what a report says for the same model.
+ */
+export const ANALYSIS_VERSION = 2;
 
 /** Short names accepted by validate(), mapped to their $id. */
 export const SCHEMA_IDS = {
@@ -55,13 +65,14 @@ export const SCHEMA_IDS = {
   "tool-export-output": "urn:open3dj:v0:tool-export-output",
   "tool-docs-input": "urn:open3dj:v0:tool-docs-input",
   "tool-docs-output": "urn:open3dj:v0:tool-docs-output",
+  "bench-task": "urn:open3dj:v0:bench-task",
 } as const;
 
 export type SchemaName = keyof typeof SCHEMA_IDS;
 
 const ALL: SchemaObject[] = [
   common, compute, deviceInventory, scriptError, geometryReport, provenance, project, assembly,
-  runIn, runOut, inspectIn, inspectOut, renderIn, renderOut, exportIn, exportOut, docsIn, docsOut,
+  runIn, runOut, inspectIn, inspectOut, renderIn, renderOut, exportIn, exportOut, docsIn, docsOut, benchTask,
 ];
 
 /** The registry holding every v0 schema. Built once; every $ref is checked at load. */

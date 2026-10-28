@@ -18,7 +18,12 @@
     "test": "node scripts/test.ts",
     "leak": "node scripts/leak-gate.ts",
     "licenses": "node scripts/license-gate.ts",
-    "examples": "node scripts/examples.ts"
+    "examples": "node scripts/examples.ts",
+    "bench:lint": "node bench/lint.ts",
+    "bench:regression": "node bench/run-regression.ts",
+    "bench:grade": "node bench/grade.ts",
+    "hdet": "node scripts/hdet.ts",
+    "corpus": "node scripts/reference-assemblies.ts"
   },
   "devDependencies": {
     "@modelcontextprotocol/client": "2.4.0",

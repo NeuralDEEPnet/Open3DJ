@@ -134,11 +134,18 @@ export function compare(expected: Pick<Expected, "status" | "assembly" | "parts"
     box(`${at}.bbox`, e.bbox, a.bbox);
   }
   same("fits", expected.fits.map((f) => `${f.a}|${f.b}|${f.kind}`), actual.fits.map((f) => `${f.a}|${f.b}|${f.kind}`));
+  // A pair can have several fits of one kind (each distinct gap is a clearance line), so the
+  // n-th expected line of a pair and kind is compared with the n-th measured one.
+  const key = (f: ExpectedFit) => `${f.a}|${f.b}|${f.kind}`;
+  const seen = new Map<string, number>();
   for (const e of expected.fits) {
-    const a = actual.fits.find((f) => f.a === e.a && f.b === e.b && f.kind === e.kind);
+    const n = seen.get(key(e)) ?? 0;
+    seen.set(key(e), n + 1);
+    const a = actual.fits.filter((f) => key(f) === key(e))[n];
     if (!a) continue;
-    num(`fits[${e.a}|${e.b}].volume_mm3`, e.volume_mm3, a.volume_mm3);
-    num(`fits[${e.a}|${e.b}].distance_mm`, e.distance_mm, a.distance_mm);
+    const at = n === 0 ? `fits[${e.a}|${e.b}]` : `fits[${e.a}|${e.b}|${e.kind}#${n + 1}]`;
+    num(`${at}.volume_mm3`, e.volume_mm3, a.volume_mm3);
+    num(`${at}.distance_mm`, e.distance_mm, a.distance_mm);
   }
   return diffs;
 }

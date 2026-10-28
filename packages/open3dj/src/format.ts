@@ -1,10 +1,21 @@
 // Human-readable output. The same results the MCP tools return, laid out for a terminal.
 // --json prints the raw results instead.
-import type { DocsOutput, ExportOutput, FileRef, GeometryReport, InspectOutput, RenderOutput, RunOutput, ScriptError, BBox } from "@open3dj/schemas";
+import type { DocsOutput, ExportOutput, FileRef, FitReport, GeometryReport, InspectOutput, RefReport, RenderOutput, RunOutput, ScriptError, BBox } from "@open3dj/schemas";
 import type { DoctorReport } from "@open3dj/compute";
 
 const n = (x: number, digits = 3): string => String(Number(x.toFixed(digits)));
 const size = (b: BBox): string => `${n(b.max[0] - b.min[0], 2)} x ${n(b.max[1] - b.min[1], 2)} x ${n(b.max[2] - b.min[2], 2)} mm`;
+
+/**
+ * The note after a fit line marked extra: "further gap" next to its pair's own line, or "beside
+ * a mated seat" when it is the pair's only line (the mated contact is not listed). The viewer
+ * uses the same words (packages/viewer/web/fits.js).
+ */
+function extraNote(f: FitReport, all: FitReport[]): string {
+  if (!f.extra) return "";
+  const lone = !all.some((g) => !g.extra && ((g.a === f.a && g.b === f.b) || (g.a === f.b && g.b === f.a)));
+  return lone ? " beside a mated seat" : " further gap";
+}
 
 export function formatError(e: ScriptError, file?: string): string {
   const at = e.line !== undefined ? ` at ${file ? `${file}:` : "line "}${e.line}${e.column !== undefined ? `:${e.column}` : ""}` : "";
@@ -30,13 +41,23 @@ export function formatReport(r: GeometryReport): string {
     lines.push("fits:");
     for (const f of r.fits) {
       const v = f.volume_mm3 !== undefined ? `${n(f.volume_mm3)} mm3` : f.distance_mm !== undefined ? `${n(f.distance_mm)} mm` : "";
-      lines.push(`  ${f.kind.padEnd(9)}  ${f.a} / ${f.b}  ${v} (${f.confidence})${f.n ? ` x${f.n}` : ""}`);
+      lines.push(`  ${f.kind.padEnd(9)}  ${f.a} / ${f.b}  ${v} (${f.confidence})${extraNote(f, r.fits)}${f.n ? ` x${f.n}` : ""}`);
     }
+  }
+  if (r.refs?.length) {
+    lines.push("refs:");
+    for (const ref of r.refs) lines.push(formatRef(ref));
   }
   for (const w of r.warnings ?? []) lines.push(`warning: ${w}`);
   for (const x of r.next ?? []) lines.push(`next: ${x}`);
   lines.push(`compute: ${r.compute.backend} on ${r.compute.device} (${r.compute.placement_reason})`);
   return `${lines.join("\n")}\n`;
+}
+
+/** "  bracket.hole  exact  face:7", or the candidates and the reason of an ambiguous or broken name. */
+export function formatRef(r: RefReport): string {
+  const where = r.at ? `  ${r.at}` : r.candidates?.length ? `  candidates ${r.candidates.join(", ")}` : "";
+  return `  ${r.name}  ${r.state}${where}${r.reason ? `: ${r.reason}` : ""}`;
 }
 
 export function formatRun(out: RunOutput, file?: string): string {
@@ -79,9 +100,12 @@ export function formatInspect(out: InspectOutput): string {
   }
   if (out.fits) {
     lines.push(out.fits.length ? "fits:" : "fits: none");
-    for (const f of out.fits) lines.push(`  ${f.kind.padEnd(9)}  ${f.a} / ${f.b}  ${f.volume_mm3 !== undefined ? `${n(f.volume_mm3)} mm3` : `${n(f.distance_mm ?? 0)} mm`} (${f.confidence})`);
+    for (const f of out.fits) lines.push(`  ${f.kind.padEnd(9)}  ${f.a} / ${f.b}  ${f.volume_mm3 !== undefined ? `${n(f.volume_mm3)} mm3` : `${n(f.distance_mm ?? 0)} mm`} (${f.confidence})${extraNote(f, out.fits)}`);
   }
-  if (out.refs) lines.push(out.refs.length ? `refs: ${out.refs.map((r) => `${r.name} ${r.state}`).join(", ")}` : "refs: none");
+  if (out.refs) {
+    lines.push(out.refs.length ? "refs:" : "refs: none");
+    for (const r of out.refs) lines.push(formatRef(r));
+  }
   if (out.devices) lines.push(formatDevices(out.devices));
   if (out.job) lines.push(`job ${out.job.job_id}: ${out.job.state}${out.job.rev ? ` (${out.job.rev})` : ""}${out.job.reason ? `: ${out.job.reason}` : ""}`);
   return `${lines.join("\n")}\n`;
@@ -111,6 +135,8 @@ export function formatDoctor(r: DoctorReport): string {
       `  first part        ${n(b.part_first_ms, 1)} ms`,
       `  warm part (p50)   ${n(b.part_ms, 1)} ms  (${n(b.part_volume_mm3, 2)} mm3)`,
       `  peak worker mem   ${n(b.peak_worker_memory_bytes / 1024 ** 2, 1)} MiB`,
+      `  kernel ops (warm job minus a ${n(b.baseline_job_ms, 1)} ms baseline job):`,
+      ...Object.entries(b.kernel_ops_ms).map(([op, ms]) => `    ${op.padEnd(16)} ${n(ms, 1)} ms`),
       "  scaling:",
       ...b.scaling.map((s) => `    ${s.workers} worker${s.workers === 1 ? " " : "s"}  ${s.jobs} jobs  ${n(s.wall_ms, 0)} ms  ${n(s.jobs_per_s, 2)} jobs/s  x${n(s.speedup, 2)}`),
     );

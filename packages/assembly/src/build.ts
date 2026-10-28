@@ -8,10 +8,11 @@
 // 3. Anything else is its own definition. A same-named part that matches in volume, area and
 //    counts but is rotated cannot be recovered from final geometry alone; it stays separate
 //    and a warning says so.
-import type { AssemblyFile, Color3, Connector, Definition, Mate, Occurrence, Transform, Vec3 } from "@open3dj/schemas";
+import type { AssemblyFile, Color3, Connector, Definition, DefinitionRef, Mate, Occurrence, Transform, Vec3 } from "@open3dj/schemas";
 import type { KernelAdapter, ShapeHandle, ShapeMeasure } from "@open3dj/kernel";
 import { IDENTITY, KernelError, isUnitQuaternion } from "@open3dj/kernel";
 import type { ScriptPart, ScriptReturn } from "@open3dj/dsl";
+import { DEFAULT_QUERY_TOLERANCE, judgeReference, moveFingerprint, signatureCandidates } from "@open3dj/dsl";
 import type { Assembly, AssemblyInstance, BuildOptions } from "./types.ts";
 import { AssemblyError } from "./errors.ts";
 import { bboxDiagonal, bboxSize, compose, invert, isIdentity, rotateVector, tidy, translation } from "./math.ts";
@@ -109,10 +110,10 @@ export function buildAssembly(kernel: KernelAdapter, script: ScriptReturn, optio
     drafts.push({ baseName, shape, measure, members: [{ part, index, shape, transform: IDENTITY }] });
   });
 
-  return assemble(script, drafts, warnings, options);
+  return assemble(kernel, script, drafts, warnings, options);
 }
 
-function assemble(script: ScriptReturn, drafts: Draft[], warnings: string[], options: BuildOptions): Assembly {
+function assemble(kernel: KernelAdapter, script: ScriptReturn, drafts: Draft[], warnings: string[], options: BuildOptions): Assembly {
   const rootId = toDefId(options.rootName ?? "root", "root");
   const used = new Set<string>([rootId]);
 
@@ -185,6 +186,8 @@ function assemble(script: ScriptReturn, drafts: Draft[], warnings: string[], opt
     if (color) def.color = color;
     const connectors = (first.part.connectors ?? []).map((c) => toDefinitionFrame(c, first.transform));
     if (connectors.length > 0) def.connectors = connectors;
+    const refs = (first.part.namedRefs ?? []).map((r) => refToDefinitionFrame(r, first.transform));
+    if (refs.length > 0) def.refs = checkAgainstPrevious(kernel, d.shape, refs, options.previous?.definitions[d.id!]?.refs);
     definitions[d.id!] = def;
     shapes.set(d.id!, d.shape);
   }
@@ -325,6 +328,57 @@ function toDefinitionFrame(c: Connector, transform: Transform): Connector {
   const out: Connector = { ...c, origin: point(c.origin), z: rotateVector(inv.q, c.z) };
   if (c.x) out.x = rotateVector(inv.q, c.x);
   return out;
+}
+
+function refToDefinitionFrame(r: DefinitionRef, transform: Transform): DefinitionRef {
+  if (isIdentity(transform)) return r;
+  const inv = invert(transform);
+  const out: DefinitionRef = { ...r };
+  if (r.fingerprint) out.fingerprint = moveFingerprintBy(r.fingerprint, inv);
+  const frame = compose(inv, r.frame ?? IDENTITY);
+  if (isIdentity(frame, 1e-9)) delete out.frame;
+  else out.frame = frame;
+  return out;
+}
+
+function moveFingerprintBy(fp: NonNullable<DefinitionRef["fingerprint"]>, tr: Transform): NonNullable<DefinitionRef["fingerprint"]> {
+  const point = (p: Vec3): Vec3 => {
+    const v = rotateVector(tr.q, p);
+    return [v[0] + tr.t[0], v[1] + tr.t[1], v[2] + tr.t[2]];
+  };
+  return moveFingerprint(fp, point, (v) => rotateVector(tr.q, v));
+}
+
+/**
+ * Fingerprint references across revisions (ARCHITECTURE.md section 10): each name the
+ * query resolved this run is compared with the fingerprint the previous revision stored
+ * for the same definition and name. A name whose query now lands on another element is
+ * ambiguous or broken, never silently exact.
+ */
+function checkAgainstPrevious(kernel: KernelAdapter, shape: ShapeHandle, refs: DefinitionRef[], previous: DefinitionRef[] | undefined): DefinitionRef[] {
+  if (!previous?.length) return refs;
+  return refs.map((r) => {
+    const stored = previous.find((p) => p.name === r.name && p.type === r.type);
+    if (!stored?.fingerprint || r.state !== "exact" || !r.fingerprint || !r.at) return r;
+    // Compare in the frame the name was given in: the previous fingerprint goes from its
+    // definition frame back to its naming frame, then out with this revision's moves.
+    const toHere = compose(r.frame ?? IDENTITY, invert(stored.frame ?? IDENTITY));
+    const prev = { ...stored, fingerprint: isIdentity(toHere, 1e-12) ? stored.fingerprint : moveFingerprintBy(stored.fingerprint, toHere) };
+    const pickIndex = Number(r.at.split(":")[1]);
+    const candidates = signatureCandidates(kernel, shape, prev.fingerprint);
+    let pick = candidates.findIndex((c) => c.index === pickIndex);
+    if (pick < 0) {
+      candidates.push({ index: pickIndex, fp: r.fingerprint });
+      pick = candidates.length - 1;
+    }
+    const j = judgeReference(prev.fingerprint, candidates.map((c) => c.fp), pick, DEFAULT_QUERY_TOLERANCE);
+    if (j.state === "exact") return r;
+    const out: DefinitionRef = { name: r.name, type: r.type, state: j.state, fingerprint: r.fingerprint };
+    if (r.frame) out.frame = r.frame;
+    if (j.candidates?.length) out.candidates = [...new Set(j.candidates.map((i) => `${r.type}:${candidates[i]!.index}`))];
+    out.reason = `since the previous revision: ${j.reason ?? "it no longer matches"}`;
+    return out;
+  });
 }
 
 function forEachGroup(g: GroupNode, fn: (g: GroupNode) => void): void {

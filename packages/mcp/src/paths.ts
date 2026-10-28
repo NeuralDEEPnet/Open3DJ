@@ -226,6 +226,12 @@ export function appendProjectLine(project: ProjectDir, relPath: string, line: st
  * do: a cloned project can carry a symlinked revisions/ folder that points elsewhere.
  */
 export function readProjectFile(project: ProjectDir, relPath: string): string | undefined {
+  const bytes = readProjectBytes(project, relPath);
+  return bytes === undefined ? undefined : Buffer.from(bytes.buffer, bytes.byteOffset, bytes.byteLength).toString("utf8");
+}
+
+/** Like readProjectFile, as bytes: undefined when missing, and never through a symlink. */
+export function readProjectBytes(project: ProjectDir, relPath: string): Uint8Array | undefined {
   let p = project.dir;
   for (const s of ["", ...safeSegments(relPath)]) {
     if (s) p = join(p, s);
@@ -237,7 +243,7 @@ export function readProjectFile(project: ProjectDir, relPath: string): string | 
     }
     if (st.isSymbolicLink()) throw new ToolError("PATH_REFUSED", `${relLabel(project, p)} is a symlink; refusing to read through it`);
   }
-  return readFileSync(p, "utf8");
+  return readFileSync(p);
 }
 
 /** Write files into a project folder and describe them as FileRefs relative to the project. */

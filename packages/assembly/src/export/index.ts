@@ -36,7 +36,12 @@ export function exportArtifacts(kernel: KernelAdapter, asm: Assembly, formats: A
     for (const format of [...new Set(formats)]) {
       switch (format) {
         case "step":
-          out.push({ name: `${base}.step`, format, bytes: writeStep(kernel, asm, tree) });
+          out.push({ name: `${base}.step`, format, bytes: writeStep(kernel, asm, tree, {
+            name: `${base}.step`,
+            system: `Open3DJ ${options.engine?.["open3dj"] ?? "unknown"}`,
+            author: options.author ?? "",
+            organization: options.organization ?? "",
+          }) });
           break;
         case "stl": {
           const placed = tree.instances.map((i) => kernel.place(asm.shapes.get(i.def)!, i.world));

@@ -175,6 +175,8 @@ export interface KernelAdapter {
   torus(majorRadius: number, minorRadius: number): ShapeHandle;
 
   // ---- curves, wires, faces and swept solids -------------------------------------------
+  /** A vertex at a point, for distance queries. */
+  vertex(point: Vec3): ShapeHandle;
   lineEdge(start: Vec3, end: Vec3): ShapeHandle;
   arcEdge(start: Vec3, mid: Vec3, end: Vec3): ShapeHandle;
   circleEdge(center: Vec3, normal: Vec3, radius: number): ShapeHandle;

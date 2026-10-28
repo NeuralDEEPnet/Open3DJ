@@ -87,6 +87,9 @@ export interface ExportOptions {
   rev?: Rev;
   /** Extra engine pins for the sidecar (open3dj, brepjs, quickjs); occt_wasm is always added. */
   engine?: Record<string, string>;
+  /** Author and organisation for the STEP header (project settings). Default empty. */
+  author?: string;
+  organization?: string;
   /** Also write one STL per definition when the scope holds several. Default true. */
   stlPerDefinition?: boolean;
 }

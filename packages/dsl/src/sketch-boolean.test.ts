@@ -4,6 +4,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { overlappingSolids } from "./collect.ts";
+import { runScript } from "@open3dj/sandbox";
 import { harness, near } from "./testing.ts";
 
 const PI = Math.PI;
@@ -112,10 +113,126 @@ test("overlappingSolids finds solids of one part that share volume", async () =>
   }
 });
 
-test("corner fillets after a sketch boolean say what to do instead", async () => {
+// S1 polish: filletCorners and chamferCorners used to refuse kernel profiles (the result of a
+// sketch boolean or offset) with DSL_UNSUPPORTED. They now work on the kernel face: the
+// profile is extruded 1 mm, the vertical edges at its corners are filleted or chamfered, and
+// the top face comes back. Smooth joins (a line running into a tangent arc) are not corners.
+const filletLoss = (r: number) => (4 - PI) * r * r / 4; // one 90 degree corner
+const chamferLoss = (s: number) => (s * s) / 2;
+
+test("filletCorners and chamferCorners work after a sketch boolean and after offset", async () => {
   const h = await harness();
-  const r = await h.run("return rect(20, 20).subtract(circle2d(3)).filletCorners(1).extrude(1);");
-  assert.equal(r.ok, false);
-  assert.equal(r.error!.code, "DSL_UNSUPPORTED");
-  assert.match(r.error!.hint ?? "", /before the boolean/);
+  const cases: Array<[string, number]> = [
+    // A square with a round hole: the hole has no corners, the four outer corners are rounded.
+    ["rect(20, 20).subtract(circle2d(3)).filletCorners(1)", 400 - 9 * PI - 4 * filletLoss(1)],
+    ["rect(20, 20).subtract(circle2d(3)).chamferCorners(2)", 400 - 9 * PI - 4 * chamferLoss(2)],
+    // An L made by a boolean: five convex corners lose area, the concave one gains it.
+    ["rect(20, 20).subtract(rect(10, 10).translate(5, 5)).filletCorners(1)", 300 - 5 * filletLoss(1) + filletLoss(1)],
+    // A square hole in a square: its four corners are concave from the material's side.
+    ["rect(30, 30).subtract(rect(10, 10)).filletCorners(2)", 800 - 4 * filletLoss(2) + 4 * filletLoss(2)],
+    // offset keeps sharp corners with the "arc" join only outside; inside it is a smaller square.
+    ["rect(20, 20).offset(-2).filletCorners(1)", 256 - 4 * filletLoss(1)],
+    // A slot unioned with a rect: the arcs join the slot's sides smoothly, only true corners round.
+    ["slot(30, 10).add(rect(10, 20)).filletCorners(1)", 20 * 10 + 25 * PI + 10 * 5 * 2 - 0],
+  ];
+  for (const [code, want] of cases) {
+    const r = await h.run(`const p = ${code};\nreturn p.extrude(1);`);
+    assert.equal(r.ok, true, `${code}: ${r.error?.code} ${r.error?.message}`);
+    const got = r.parts[0]!.m.volume;
+    if (!code.startsWith("slot")) assert.ok(near(got, want, 1e-6), `${code}: area ${got}, hand value ${want}`);
+    assert.equal(r.parts[0]!.m.valid, true, code);
+  }
 });
+
+test("a corner radius too large for the kernel profile fails with the fillet hint", async () => {
+  const h = await harness();
+  const r = await h.run("return rect(20, 20).subtract(circle2d(3)).filletCorners(15).extrude(1);");
+  assert.equal(r.ok, false);
+  assert.match(r.error!.code, /^KERNEL_FILLET_FAILED$|^DSL_BAD_ARGUMENT$/);
+  assert.match(r.error!.hint ?? r.error!.message, /smaller radius|radius/);
+});
+
+// Regression (review round 1): the area guard assumed both sides of every corner were
+// straight, so the kernel's correct fillet at a corner between a line and an arc (a D profile,
+// a lens) was refused with DSL_UNSUPPORTED. Hand values come from Green's theorem over the
+// corner piece: the straight side, the fillet arc and the profile's arc.
+type P2 = [number, number];
+const seg2 = (p: P2, q: P2) => (p[0] * q[1] - p[1] * q[0]) / 2;
+const arc2 = (c: P2, r: number, a: number, b: number) => (r * r * (b - a) + r * (c[0] * (Math.sin(b) - Math.sin(a)) - c[1] * (Math.cos(b) - Math.cos(a)))) / 2;
+const ang2 = (c: P2, p: P2) => Math.atan2(p[1] - c[1], p[0] - c[0]);
+/** Area a fillet of radius r removes at one corner of a disk of radius R cut by the line y = h. */
+function dCornerLoss(R: number, h: number, r: number): number {
+  const C: P2 = [Math.sqrt((R - r) ** 2 - (h - r) ** 2), h - r];
+  const V: P2 = [Math.sqrt(R * R - h * h), h];
+  const T1: P2 = [C[0], h];
+  const T2: P2 = [(C[0] * R) / (R - r), (C[1] * R) / (R - r)];
+  return Math.abs(seg2(V, T1) + arc2(C, r, ang2(C, T1), ang2(C, T2)) + arc2([0, 0], R, ang2([0, 0], T2), ang2([0, 0], V)));
+}
+/** Area a fillet of radius r removes at one tip of the lens of two radius-R circles d apart. */
+function lensCornerLoss(R: number, d: number, r: number): number {
+  const O1: P2 = [0, 0];
+  const O2: P2 = [d, 0];
+  const C: P2 = [d / 2, Math.sqrt((R - r) ** 2 - (d / 2) ** 2)];
+  const V: P2 = [d / 2, Math.sqrt(R * R - (d / 2) ** 2)];
+  const T1: P2 = [(C[0] * R) / (R - r), (C[1] * R) / (R - r)];
+  const T2: P2 = [d + ((C[0] - d) * R) / (R - r), (C[1] * R) / (R - r)];
+  return Math.abs(arc2(O1, R, ang2(O1, V), ang2(O1, T1)) + arc2(C, r, ang2(C, T1), ang2(C, T2)) + arc2(O2, R, ang2(O2, T2), ang2(O2, V)));
+}
+
+test("filletCorners and chamferCorners work at corners between a line or an arc and an arc", async () => {
+  const h = await harness();
+  const D = "circle2d(10).subtract(rect(30, 20).translate(0, 15))";
+  const dArea = 100 * PI - segmentBeyond(10, 5);
+  const lensArea = lens(10, 12);
+  const cases: Array<[string, number]> = [
+    [`${D}.filletCorners(1)`, dArea - 2 * dCornerLoss(10, 5, 1)],
+    [`${D}.filletCorners(0.3)`, dArea - 2 * dCornerLoss(10, 5, 0.3)],
+    ["circle2d(10).intersect(circle2d(10).translate(12, 0)).filletCorners(1)", lensArea - 2 * lensCornerLoss(10, 12, 1)],
+  ];
+  for (const [code, want] of cases) {
+    const r = await h.run(`return ${code}.extrude(1);`);
+    assert.equal(r.ok, true, `${code}: ${r.error?.code} ${r.error?.message}`);
+    assert.ok(near(r.parts[0]!.m.volume, want, 1e-7), `${code}: area ${r.parts[0]!.m.volume}, hand value ${want}`);
+    assert.equal(r.parts[0]!.m.valid, true, code);
+  }
+  // A chamfer of 1 at the D's two corners removes a sliver: less area than the profile, and
+  // no more than the fillet-free triangle each corner can lose (half of 1 x 1 x sin 60, doubled, plus slack).
+  const r = await h.run(`return ${D}.chamferCorners(1).extrude(1);`);
+  assert.equal(r.ok, true, `${r.error?.code} ${r.error?.message}`);
+  const lost = dArea - r.parts[0]!.m.volume;
+  assert.ok(lost > 0 && lost < 2, `chamfer removed ${lost}`);
+  assert.equal(r.parts[0]!.m.valid, true);
+});
+
+// Regression (ops/build-log.md, H-det run): ellipse(18, 10).offset(3) made edges on offset
+// curves, which the STEP writer cannot express (NUL REF in SURFACE_OF_LINEAR_EXTRUSION), so
+// the STEP file re-imported as 0 solids while the model was valid. offset() now rebuilds such
+// edges as B-splines through the offset curve, within 1e-6 of the area.
+test("an offset ellipse writes a STEP file that re-imports as the same solid", async () => {
+  const h = await harness();
+  const k = h.kernel;
+  const mark = k.checkpoint();
+  try {
+    h.dsl.reset({});
+    const raw = await runScript("return ellipse(18, 10).offset(3).extrude(10);", { hostApi: h.dsl.hostApi, params: {} });
+    assert.ok(raw.ok, raw.ok ? "" : raw.error.message);
+    if (!raw.ok) return;
+    const shape = h.dsl.collect(raw.value).parts[0]!.shape;
+    assert.ok(!k.edges(shape).some((e) => e.curve === "offset"), "no offset curves are left");
+    // The offset of an ellipse by d has area pi*a*b + d*perimeter + pi*d^2.
+    const perimeter = ellipsePerimeter(18, 10);
+    const area = PI * 180 + 3 * perimeter + 9 * PI;
+    assert.ok(near(k.volume(shape) / 10, area, 1e-6), `area ${k.volume(shape) / 10}, hand value ${area}`);
+    const back = k.importStep(k.exportStep(shape));
+    assert.equal(k.counts(back).solids, 1);
+    assert.ok(near(k.volume(back), k.volume(shape), 1e-6));
+  } finally {
+    k.releaseSince(mark);
+  }
+});
+
+/** Ellipse perimeter by Ramanujan's second formula (relative error about 1e-10 here). */
+function ellipsePerimeter(a: number, b: number): number {
+  const hh = ((a - b) / (a + b)) ** 2;
+  return PI * (a + b) * (1 + (3 * hh) / (10 + Math.sqrt(4 - 3 * hh)));
+}
