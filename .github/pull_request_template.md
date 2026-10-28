@@ -78,9 +78,18 @@ If AI tools were used:
 - What it did: <!-- for example wrote the code, wrote the tests, drafted the docs, found the bug -->
 - Human operator: <!-- your GitHub handle. You reviewed the whole change and can explain it. -->
 
+## Merge lane
+
+<!--
+You do not need to fill this in. A bot checks every pull request and labels its lane (rules in .github/merge-policy.json):
+- "lane: auto": only docs, examples, new bench tasks, new corpus files or standard parts. It merges by itself when every check and the AI review pass.
+- "lane: maintainer": code, workflows, hooks, dependencies, licenses or governance (or a very large change). It is checked the same way, then merges by itself after one maintainer approval.
+A first-time contributor's checks start after a maintainer approves the workflow runs.
+-->
+
 ## Before you request review
 
-- [ ] Every commit is signed off by a person under the [Developer Certificate of Origin](https://github.com/NeuralDEEPnet/Open3DJ/blob/main/docs/LICENSING.md#3-contributing-developer-certificate-of-origin-no-cla) (`git commit -s`, or automatic in the browser editor).
+- [ ] Every commit is signed off by a person under the [Developer Certificate of Origin](https://github.com/NeuralDEEPnet/Open3DJ/blob/main/docs/LICENSING.md#3-contributing-developer-certificate-of-origin-no-cla) (`git commit -s`; in the browser editor, add the `Signed-off-by` line yourself until the automatic web sign-off is turned on).
 - [ ] No code was copied from GPL, AGPL or other copyleft sources, or from sources with an unknown license. Any new dependency and its license are listed above.
 - [ ] Documentation is updated, or no documentation change is needed.
 - [ ] Tests are added or updated for the change, including a regression test for any bug fixed.

@@ -1,9 +1,12 @@
 name: CI
 
+# Required checks: "check (<os>)" for each runner below. Keep the job name format, because the
+# branch ruleset and .github/merge-policy.json refer to these exact names.
 on:
   push:
     branches: [main]
   pull_request:
+  merge_group:
   workflow_dispatch:
 
 permissions:
@@ -24,6 +27,8 @@ jobs:
         os: [ubuntu-latest, ubuntu-24.04-arm, macos-latest, windows-latest, windows-11-arm]
     steps:
       - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
       - uses: actions/setup-node@v5
         with:
           node-version: 24
