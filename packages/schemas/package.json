@@ -10,7 +10,8 @@
     "node": ">=24"
   },
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./json/*": "./json/*"
   },
   "dependencies": {}
 }

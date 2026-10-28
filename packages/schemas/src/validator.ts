@@ -217,8 +217,10 @@ export class SchemaRegistry {
       });
       const passing = results.filter((e) => e.length === 0).length;
       if (passing === 0) {
-        // Report the branch with the fewest errors: usually the one the author meant.
-        const best = results.reduce((a, b) => (b.length < a.length ? b : a));
+        // Report the branch the author most likely meant: a failed const (a discriminator such
+        // as "op") rules a branch out more strongly than any number of other errors.
+        const score = (e: ValidationIssue[]) => e.length + 1000 * e.filter((x) => x.message.startsWith("must equal")).length;
+        const best = results.reduce((a, b) => (score(b) < score(a) ? b : a));
         errors.push(...best);
         if (best.length === 0) fail("must match exactly one of the oneOf schemas");
       } else if (passing > 1) fail(`matches ${passing} oneOf schemas, expected exactly one`);
