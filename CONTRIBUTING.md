@@ -1,13 +1,13 @@
 # Contributing to Open3DJ
 
-Welcome, and thank you for being here. Open3DJ is at the very start of its life, so the people, AI agents and organizations who join now will shape what it becomes. This guide explains how you can help, what we expect from a contribution, and how we say thank you.
+Welcome, and thank you for being here. Open3DJ is at the very start of its life, and it has no outside contributors yet, so the people, AI agents and organizations who join now will shape what it becomes. This guide explains how you can help, how your pull request is evaluated and merged, and how we say thank you. Where the project is going is in [ROADMAP.md](ROADMAP.md).
 
 **Start here**
 
 | You are | Your first step |
 |---|---|
-| **New to GitHub** | [Create a free GitHub account](https://github.com/signup), then [pick a form](https://github.com/NeuralDEEPnet/Open3DJ/issues/new/choose): [Standard part proposal](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=part_library.yml), [Industrial design pipeline](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=industrial_design.yml) or [Research check](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=research_check.yml). No git, no code. |
-| **Using an AI agent** | Point it at [AGENTS.md](AGENTS.md) and try one of the [starter tasks for agents](#your-agents-first-task). |
+| **Working with an AI agent** (Claude Code, Codex, Cursor, Gemini CLI, your own MCP agent) | Point your agent at [AGENTS.md](AGENTS.md), load the [Claude Code plugin](skills/README.md) or the [skill](skills/open3dj/SKILL.md), and try a [starter task](#your-agents-first-task). The most wanted one: run the [capability benchmark](bench/run-capability.md) and share the first score. Rules: [AI_POLICY.md](AI_POLICY.md). |
+| **A person** (designer, engineer, maker, developer, writer, researcher, student) | Pick a [`good first issue`](https://github.com/NeuralDEEPnet/Open3DJ/issues?q=is%3Aopen+label%3A%22good+first+issue%22), or [pick a form](https://github.com/NeuralDEEPnet/Open3DJ/issues/new/choose): [Standard part proposal](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=part_library.yml), [Industrial design pipeline](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=industrial_design.yml), [Hardware report](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=hardware_report.yml) or [Research check](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=research_check.yml). Many need no git and no code. New to GitHub? [Create a free account](https://github.com/signup) first. |
 | **Representing an organization** | See [For organizations](#for-organizations). |
 
 Have a question? Ask in [Q&A on GitHub Discussions](https://github.com/NeuralDEEPnet/Open3DJ/discussions/categories/q-a).
@@ -16,9 +16,10 @@ Have a question? Ask in [Q&A on GitHub Discussions](https://github.com/NeuralDEE
 
 1. Pick an issue labeled `good first issue`, `help wanted` or `agent-ready`, or open a new issue that describes what you would like to do.
 2. Keep each pull request to one focused change, with tests or evidence.
-3. If you send a pull request, sign off each commit (`git commit -s`, or automatic in the browser editor). This is the [Developer Certificate of Origin](#sign-your-work-the-developer-certificate-of-origin).
+3. If you send a pull request, sign off each commit (`git commit -s`, or automatic in the browser editor). This is the [Developer Certificate of Origin](#sign-your-work-the-developer-certificate-of-origin). If an agent made the commit, you, the person, add the sign-off.
 4. If an AI tool helped, say so in a commit trailer and in the pull request.
-5. Be kind. Everyone here follows our [Code of Conduct](CODE_OF_CONDUCT.md).
+5. Your pull request is checked automatically. Documentation, examples, new bench tasks and similar data merge on their own when every check and the AI review pass (the auto lane); code merges after one maintainer approves (the maintainer lane). See [How your pull request is evaluated and merged](#how-your-pull-request-is-evaluated-and-merged).
+6. Be kind. Everyone here follows our [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## Contents
 
@@ -31,6 +32,7 @@ Have a question? Ask in [Q&A on GitHub Discussions](https://github.com/NeuralDEE
   - [For organizations](#for-organizations)
 - [How work is organized](#how-work-is-organized)
 - [Your first pull request, step by step](#your-first-pull-request-step-by-step)
+- [How your pull request is evaluated and merged](#how-your-pull-request-is-evaluated-and-merged)
 - [Sign your work: the Developer Certificate of Origin](#sign-your-work-the-developer-certificate-of-origin)
 - [Disclosing AI assistance](#disclosing-ai-assistance)
 - [Quality bar](#quality-bar)
@@ -45,7 +47,7 @@ Have a question? Ask in [Q&A on GitHub Discussions](https://github.com/NeuralDEE
 
 ### What Open3DJ is
 
-Open3DJ is open-source, agent-first and local-first CAD. It does precise parametric B-rep modeling, the exact solid geometry that engineering and manufacturing depend on. AI agents drive it through the [Model Context Protocol](https://modelcontextprotocol.io) (MCP) and a command-line interface, and people drive it through a professional desktop app. It will install on Windows, macOS and Linux, run on your own computer, and let you plug in cloud GPUs when you want more power. It also covers the industrial product design pipeline, from a brief and a concept through design for manufacture to a clean handoff to suppliers.
+Open3DJ is open-source, agent-first and local-first CAD. It does precise parametric B-rep modeling, the exact solid geometry that engineering and manufacturing depend on. AI agents drive it through the [Model Context Protocol](https://modelcontextprotocol.io) (MCP) and a command-line interface, and people will drive it through a professional desktop app. It will install on Windows, macOS and Linux, run on your own computer, and let you plug in cloud GPUs when you want more power. It also covers the industrial product design pipeline, from a brief and a concept through design for manufacture to a clean handoff to suppliers.
 
 ### Why it matters
 
@@ -63,22 +65,24 @@ Today the team is the founder, unpaid volunteers, and AI agents, including Claud
 ### What you get
 
 - Credit that lasts, in [CONTRIBUTORS.md](CONTRIBUTORS.md) and in release notes.
-- A real voice in the design while it is still on paper.
+- A real voice in the design while it is still young.
 - Interesting problems: geometry kernels, agent tooling, human and agent collaboration, and manufacturing.
 - A friendly place to learn, where trying new things is encouraged.
 
 ## Where the project is today
 
-Open3DJ is in the **planning stage**. There is no application code yet. What exists:
+Open3DJ has its **first vertical slice** working, in steps S0 to S2 of the [roadmap](ROADMAP.md). A DSL script goes in, and a checked assembly, a GeometryReport, a four-view drawing and STEP, STL, GLB and 3MF files come out, through the `open3dj` CLI and an MCP server with five tools. `open3dj view` shows the result in a local browser viewer. The stack is TypeScript run directly by Node 24, with the geometry kernel as WebAssembly. There is no desktop app yet, and nothing is published to npm.
 
-- [docs/research/](docs/research/): research reports on the CAD landscape, geometry kernels, agent protocols, security, licensing and more. Start with [docs/research/README.md](docs/research/README.md).
-- [docs/PLAN.md](docs/PLAN.md): the lean plan and its steps.
-- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md): the technical architecture.
-- [docs/ASSEMBLIES.md](docs/ASSEMBLIES.md): assemblies, mates, fits and exports.
-- [docs/COMPUTE.md](docs/COMPUTE.md): CPU and GPU compute.
-- [docs/INDUSTRIAL-DESIGN.md](docs/INDUSTRIAL-DESIGN.md): the industrial design pipeline, from brief to supplier handoff.
+Where to look:
 
-The starting tech stack is not decided yet. The first code lands in Step 1 of [docs/PLAN.md](docs/PLAN.md). Until then, the most valuable help is reviewing the plan, checking the research, writing specs for standard parts, collecting test geometry and telling us how you work today.
+- [docs/GETTING-STARTED.md](docs/GETTING-STARTED.md): your first part, for people and for agents.
+- [examples/](examples/README.md): ten parts and assemblies with their measured results and drawings.
+- [bench/](bench/README.md): o3dj-bench, with 12 regression tasks and 10 capability tasks.
+- [ROADMAP.md](ROADMAP.md) and [docs/PLAN.md](docs/PLAN.md): where we are going, and the plan in full.
+- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md), [docs/ASSEMBLIES.md](docs/ASSEMBLIES.md), [docs/COMPUTE.md](docs/COMPUTE.md) and [docs/INDUSTRIAL-DESIGN.md](docs/INDUSTRIAL-DESIGN.md): the design.
+- [docs/research/](docs/research/): research reports, dated 2026-10-27. Start with [docs/research/README.md](docs/research/README.md).
+
+The most valuable help right now: run the capability benchmark with your agent, test on Windows, macOS and ARM machines (CI has not run there yet), write standard part specs, add examples and bench tasks, collect hard test geometry, and tell us how you work today.
 
 **About the name.** "Open3DJ" is a working name. It is pending trademark clearance and may change before the first public release. If it does, we will rename the repository (GitHub redirects old links), and your work and your credit carry over unchanged.
 
@@ -92,10 +96,10 @@ Designers, engineers, makers, developers, writers, researchers and students: you
 
 | You are | Good first steps |
 |---|---|
-| Industrial or product designer | Read [docs/INDUSTRIAL-DESIGN.md](docs/INDUSTRIAL-DESIGN.md) and tell us where it differs from how you really work. Describe the outputs you hand to a supplier. Until that page lands, open an [Industrial design pipeline](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=industrial_design.yml) issue describing your outputs to suppliers. |
+| Industrial or product designer | Read [docs/INDUSTRIAL-DESIGN.md](docs/INDUSTRIAL-DESIGN.md) and tell us where it differs from how you really work. Describe the outputs you hand to a supplier in an [Industrial design pipeline](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=industrial_design.yml) issue. |
 | Mechanical or manufacturing engineer | Write a spec for a standard part. Contribute design-for-manufacture rules for a process you know (draft angles, minimum wall thickness, sheet metal bend radii, tool access for CNC), with sources. |
-| Maker or 3D printing enthusiast | Share test geometry that breaks other tools. Describe your print workflow and where it hurts. Later, test builds on your own printer. |
-| Developer | Review [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) and comment on open issues. Until that page lands, read the three architecture proposals in [docs/research/proposals/](docs/research/proposals/). When Step 1 opens, help with prototypes, CI and tooling. |
+| Maker or 3D printing enthusiast | Share test geometry that breaks other tools. Print an example, measure it and tell us how it fits. Describe your print workflow and where it hurts. |
+| Developer | Run `npm ci` and `npm run check` on your machine, especially on Windows, macOS or ARM, and report what breaks. Read [docs/GETTING-STARTED.md](docs/GETTING-STARTED.md#for-contributors) and [packages/README.md](packages/README.md), then pick a `good first issue` or `help wanted` issue. |
 | Writer or translator | Make the docs clearer. Write glossary entries that explain CAD terms to developers and AI terms to designers. Offer a language for translation. |
 | Researcher or student | Check a claim in [docs/research/](docs/research/) against its primary source. Propose benchmark tasks. Point us to papers we missed. |
 | Anyone who uses CAD | Tell us what slows you down in the CAD tools you use today. |
@@ -112,7 +116,7 @@ Designers, engineers, makers, developers, writers, researchers and students: you
 
 ### For AI agents and their operators
 
-AI coding agents are welcome here: Claude Code, Codex, Cursor, Gemini CLI, custom MCP agents and others. Open3DJ is itself built with agents. To keep quality high and review time fair for a small team, agent contributions follow these rules. The short policy behind them is [AI_POLICY.md](AI_POLICY.md): disclose AI help, only a person signs off, and no agent opens an issue, a pull request or a review without a person pressing the button.
+AI coding agents are welcome here: Claude Code, Codex, Cursor, Gemini CLI, custom MCP agents and others. Open3DJ is itself built with agents, and it is built for them: your agent can use Open3DJ as a tool (load the [Claude Code plugin](skills/README.md), or give any MCP client the server and [skills/open3dj/SKILL.md](skills/open3dj/SKILL.md), as in [docs/GETTING-STARTED.md](docs/GETTING-STARTED.md#for-agents)) and also work on its code. To keep quality high and review time fair for a small team, agent contributions follow these rules. The short policy behind them is [AI_POLICY.md](AI_POLICY.md): disclose AI help, only a person signs off, and no agent opens an issue, a pull request or a review without a person pressing the button.
 
 1. **A human is accountable.** Every agent contribution has a human operator who has read the whole change, can explain it, and signs off the [DCO](#sign-your-work-the-developer-certificate-of-origin). Only a person can certify the DCO. This is the same principle as the [Linux kernel's policy for coding assistants](https://docs.kernel.org/process/coding-assistants.html).
 2. **Read [AGENTS.md](AGENTS.md) first.** Point your agent at it. Codex, Cursor and many other tools read `AGENTS.md` directly, and Claude Code loads it through [CLAUDE.md](CLAUDE.md).
@@ -132,6 +136,7 @@ AI coding agents are welcome here: Claude Code, Codex, Cursor, Gemini CLI, custo
 9. **Answer review as yourself.** Reviewers talk to the operator. You may use your agent to address feedback, but you check the result before you push.
 10. **Low-effort pull requests may be closed without a detailed review.** If a pull request looks mass-generated, unreviewed or unrelated to an issue, a maintainer may close it with a short note. This is not a ban. You are welcome to come back with a smaller change linked to an issue.
 11. **Agents can help beyond code.** When a maintainer asks, or an issue invites it, agents can help triage issues, write minimal reproductions and check research claims. Post the results under the operator's account with a disclosure, and do not change labels or close issues unless you have triage rights and were asked to.
+12. **Agents never approve or merge.** An agent's review is never an approval, and no agent presses the merge button. Merging is done by the project's deterministic merge automation after every gate passes, and, in the maintainer lane, after a maintainer approves ([How your pull request is evaluated and merged](#how-your-pull-request-is-evaluated-and-merged)).
 
 A friendly tip: prefer issues labeled `agent-ready` ([see the open ones](https://github.com/NeuralDEEPnet/Open3DJ/issues?q=is%3Aopen+label%3Aagent-ready)), and leave `good first issue` for people taking their first steps in the project. Issues labeled `needs-human` need a person's judgment, hands or eyes, so please do not hand them to an agent.
 
@@ -156,6 +161,14 @@ You do not need to wait for a labeled issue. These starter tasks are allowed wit
    ```text
    Read CONTRIBUTING.md and docs/research/README.md. Draft an Idea, feedback or Kaizen suggestion issue (.github/ISSUE_TEMPLATE/feedback.yml) that proposes three glossary entries (B-rep, STEP, MCP), each in two plain sentences for a reader who has never used CAD or AI agents, with one primary source link each. Show me the draft and do not file anything yourself.
    ```
+
+4. **Set the first capability score.** No agent has run the capability split of o3dj-bench yet, so the first result becomes the baseline. Here your agent is the one being measured. Follow [bench/run-capability.md](bench/run-capability.md): you start a fresh session for each of the 10 briefs, 3 times, paste the fixed prompt and give no hints. Then grade the folder and let an agent draft the report:
+
+   ```text
+   Run node bench/grade.ts --runs <folder> and draft a short report for me from its output: the client and its version, the commit, pass^3 and pass@1, and one line per failed task on why it failed. Do not file anything yourself.
+   ```
+
+   Share the table in [Discussions](https://github.com/NeuralDEEPnet/Open3DJ/discussions) or in an [Idea, feedback or Kaizen suggestion](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=feedback.yml) issue, and turn each failed run that shows a product problem into a [failure report](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=failure_report.yml). You can also run fewer tasks; say which.
 
 When you file the result, choose the option that starts "Yes, an AI agent drafted or filed it for me" in the form. It confirms that you checked the draft yourself, so make sure its promise (every source, every dimension or the whole draft checked) is true. Once maintainers have labeled issues, the [open `agent-ready` issues](https://github.com/NeuralDEEPnet/Open3DJ/issues?q=is%3Aopen+label%3Aagent-ready) are the next step.
 
@@ -217,6 +230,8 @@ Almost everything starts as an issue. Please search first, then open a new issue
 
 We use GitHub's default spelling for `good first issue` and `help wanted`, because GitHub surfaces issues with those exact labels to new contributors. Only maintainers can apply labels. If you think an issue deserves `andon`, comment with a reproducer and ask for it. More labels will appear as the code arrives.
 
+The repository is new, so some of these labels have no open issues yet. Until they do, the [concrete first tasks for people](#for-people) and the [starter tasks for agents](#your-agents-first-task) need no issue at all.
+
 ### Claiming work
 
 Comment on the issue to say you are working on it, and a maintainer will assign it to you. If plans change, just say so on the issue. Nobody minds. If a claimed issue has no update for 14 days, we may free it up for someone else, and you are welcome to pick it up again later.
@@ -262,7 +277,8 @@ We work in a lean, Kaizen style: small steady improvements, made visible.
 4. **Run the checks** (see below).
 5. **Commit with a sign-off:** `git commit -s`. If an AI tool helped, add a disclosure trailer.
 6. **Push and open a pull request.** Fill in the template and link the issue, for example `Closes #57`.
-7. **Work through the review** with the maintainers. When it is merged, you are credited.
+7. **Watch the checks.** They tell you within minutes whether your change is ready, and which lane it is in (see [below](#how-your-pull-request-is-evaluated-and-merged)). Fix what they report and push again.
+8. **Work through the review.** Auto-lane changes merge on their own when everything passes; maintainer-lane changes merge after a maintainer approves. When it is merged, you are credited.
 
 Is this your first pull request ever? Say so in the description. We will walk you through it.
 
@@ -270,13 +286,88 @@ Is this your first pull request ever? Say so in the description. We will walk yo
 
 You do not need git for small changes to text. Open any file on GitHub, click the pencil icon and make your edit. Then click the green button to commit or propose your changes, choose to start a pull request, and follow the steps. GitHub makes a copy of the repository (a fork) for you if you need one, and adds your sign-off automatically, so the DCO check passes. This works well for documentation fixes, glossary entries and adding yourself to [CONTRIBUTORS.md](CONTRIBUTORS.md). If a DCO check ever fails on your pull request, do not worry: comment and a maintainer will help you fix it.
 
-<!-- TODO(founder): the automatic sign-off needs "Require contributors to sign off on web-based commits" turned on (docs/REPO-SETTINGS.md, section 2). -->
+> **Note (October 2026):** the automatic sign-off for browser edits is not switched on in the repository yet. Until it is, add a line `Signed-off-by: Your Name <your-email>` at the end of the commit description box yourself, using the email of your GitHub account (or your GitHub noreply address). The founder is turning the setting on ([docs/REPO-SETTINGS.md](docs/REPO-SETTINGS.md#2-features)), and this note goes away then.
 
 ### Build and test commands
 
-> Commands will be added when the first code lands in Step 1 of [docs/PLAN.md](docs/PLAN.md).
+You need [Node.js 24](https://nodejs.org) and git. From the repository root:
 
-Until then, most changes are documentation. Before you open a pull request, check that your links work, preview the Markdown, and read your text once more for plain, clear sentences.
+```sh
+npm ci                    # install the pinned dependencies
+npm run check             # typecheck, every test, the bench regression split, the leak gate and the license gate
+npm test -- dsl           # only the tests whose path contains "dsl"
+npm run examples          # run every example through the CLI and print timings
+npm run bench:lint        # task-lint every bench task
+```
+
+`npm run check` must pass before you open a pull request, and it is what CI runs on every platform. It takes about 2 minutes on a 4-core Linux machine. Paste its summary into the pull request. [docs/GETTING-STARTED.md](docs/GETTING-STARTED.md#for-contributors) lists every command, and [AGENTS.md](AGENTS.md#commands) explains each one.
+
+For a documentation-only change, check that your links work, preview the Markdown, and read your text once more for plain, clear sentences. CI still runs `npm run check`, which also catches a stale generated file such as `docs/DSL.md`.
+
+## How your pull request is evaluated and merged
+
+Open3DJ has a very small team, so every pull request is evaluated automatically, and many merge automatically too. This keeps your wait short and puts human attention on the changes that need it. The rules are the same for people and for agents.
+
+### What runs on every pull request
+
+| Check | What it does |
+|---|---|
+| `check (ubuntu-latest)`, `check (ubuntu-24.04-arm)`, `check (macos-latest)`, `check (windows-latest)`, `check (windows-11-arm)` | `npm run check` on Linux x64 and ARM64, macOS, Windows x64 and Windows ARM64: the typecheck, every test (task-lint of all bench tasks included), the bench regression split with 3 replays, the stdout-leak gate and the license gate. |
+| `dco` | Every commit carries a `Signed-off-by` line from a person ([below](#sign-your-work-the-developer-certificate-of-origin)). |
+| `evaluate` | Sorts the pull request into a lane from the files it changes, and writes a table of every file, its lane and the rule that decided it. |
+| AI review (`ai-review`) | An AI model reads the diff and posts an advisory comment, plus a label with its verdict: `ai-review: pass` or `ai-review: changes-suggested`. |
+| `merge-policy` | A status that combines all of the above with the reviews and says, in one line, whether the pull request can merge and what it is waiting for. |
+
+### Two lanes
+
+The lane depends only on the files the pull request changes. The rules live in one file, [.github/merge-policy.json](.github/merge-policy.json), and the automation always reads the copy on `main`, never the one in your pull request. One file in the maintainer lane puts the whole pull request in the maintainer lane.
+
+| | Auto lane | Maintainer lane |
+|---|---|---|
+| **Covers** | Documentation, and data that only ever runs inside the sandbox: Markdown files such as `CONTRIBUTORS.md`, `rfcs/` and most of `docs/`; new doc images up to 200 KB; example and bench task scripts (`*.o3j.js`); new examples' `expected.json` and new bench tasks' `task.json`; new example drawings up to 200 KB; new corpus files; standard parts under `lib/` | Everything else, including: code (`packages/`, `scripts/`, any `.ts`, `.js`, `.sh` or `.py` file other than `*.o3j.js`), dependencies and build settings (`package.json`, `package-lock.json`, `tsconfig*.json`), workflows and everything in `.github/`, hooks and `.claude/`, dotfiles, agent instructions (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `CONVENTIONS.md`, `skills/` and similar files), the front page and plan (`README.md`, `ROADMAP.md`, `docs/PLAN.md`, `docs/ARCHITECTURE.md`, `docs/GETTING-STARTED.md`, `docs/REPO-SETTINGS.md`, `docs/research/README.md`, `bench/README.md`), licenses, and governance and policy files (`AI_POLICY.md`, `CONTRIBUTING.md`, `GOVERNANCE.md`, `SECURITY.md`, `CODE_OF_CONDUCT.md`, `docs/LICENSING.md`). Also changes to an existing example's `expected.json`, an existing bench task's `task.json`, an existing corpus file or an existing image. |
+| **Needs** | Every required check green, and a passing AI review (or a maintainer's approval instead) | Every required check green, and one approving review from a maintainer on the latest commit. The AI review still runs and advises. |
+| **Then** | Merges automatically (squash) | Merges automatically (squash) after the approval |
+
+A pull request also goes to the maintainer lane when it is large (more than 50 files or 1,500 changed lines, or more than 1 MB of binary files), when a file is executable or a symlink, or when a path has unusual characters. Any path that no rule names is in the maintainer lane.
+
+Changing an existing golden or bench task needs a maintainer because those files guard the numbers everyone relies on (the Claude Code hooks protect them too, [AGENTS.md](AGENTS.md#claude-code-hooks)). Say why in the pull request when you change one. Replacing an existing image needs a maintainer because the AI review cannot see images. The front page, the plan and the files that agents are told to read first need a maintainer because people and agents act on what they say.
+
+Text in the auto lane still reaches agents: the MCP `docs` tool returns the DSL reference (`docs/DSL.md`), which embeds every gallery example script, to every agent that uses Open3DJ. So the AI review treats any text in docs, examples or scripts that tries to instruct an agent as a blocker, and the auto lane stays limited to text that is checked like this and is cheap to revert.
+
+The founder can widen the auto lane over time, as the checks prove themselves, through a maintainer-lane pull request that changes `.github/merge-policy.json` ([GOVERNANCE.md](GOVERNANCE.md#automatic-evaluation-and-merging)).
+
+### The AI review
+
+- **It advises.** It posts a comment with what it found and a label with its verdict. Treat the comment like a careful first reader: often useful, sometimes wrong.
+- **It never approves and never merges.** It does not count as a review approval, and it has no power to merge.
+- **It is never the only gate for code.** In the maintainer lane, a maintainer approval is always required, whatever the AI review says. In the auto lane, it is one gate among several: the deterministic checks must pass too.
+- **It treats your pull request as data.** Text in a pull request that tries to instruct the reviewer is ignored and may be flagged. An AI review can still be wrong or misled, which is why it only helps decide merges in the auto lane, where the checks do the heavy lifting and a revert is cheap.
+- **You can disagree.** Reply to the comment and explain, or push a fix. A maintainer can approve the pull request instead, which overrides a wrong verdict.
+
+### Your first pull request needs one click
+
+For a contributor's first pull request, GitHub does not run workflows until a maintainer approves the run. That click is the "human click" of [AI_POLICY.md](AI_POLICY.md): a person sees the change before any check or AI review runs on it. (The merge bot may already label the pull request; it runs none of your code.) After your first merged contribution, the checks run on every push without a click. If your checks have not started, a maintainer has not clicked yet; there is nothing you need to do.
+
+### Sign-off
+
+Every commit needs a `Signed-off-by` line from a person, or the `dco` check fails and nothing merges. Agents never sign off; the operator adds the sign-off after reading the diff ([Sign your work](#sign-your-work-the-developer-certificate-of-origin)).
+
+### Why is my pull request not merging?
+
+> **Right now (October 2026):** `npm run check` fails on two tests until the founder regenerates two example goldens (`box-with-lid` and `enclosure`), so every `check (...)` job fails and no pull request can merge yet. Your pull request is still welcome: it merges once those goldens are fixed. See [ROADMAP.md](ROADMAP.md#what-works-today).
+
+Look at the `merge-policy` status at the bottom of the pull request: its one line says what it is waiting for. For the lane, open the **Checks** tab and click **evaluate**: its summary lists every file with its lane and the rule that decided it. The labels show the same at a glance: `lane: auto` or `lane: maintainer`, `needs-maintainer`, and the AI review verdict. Common reasons:
+
+- **A required check failed.** Open the `check (...)` job and read the first failure. Run `npm run check` locally to reproduce it.
+- **The `dco` check failed.** Add your sign-off with `git commit --amend -s --no-edit` (or `git rebase --signoff main`) and push again with `git push --force-with-lease`.
+- **Maintainer lane: waiting for a maintainer approval.** See [Review: what to expect](#review-what-to-expect) for response times. A push after the approval needs a new approval.
+- **Auto lane: the AI review suggested changes.** Fix it and push, or reply with your reasons and ask a maintainer to look.
+- **A maintainer requested changes.** Address the review; the request blocks the merge until the maintainer approves.
+- **On hold.** A `hold` or `andon` label is set. Maintainers use these to pause automatic merging, for example while `main` is broken.
+- **Checks never started.** Your first pull request is waiting for a maintainer's click.
+- **The pull request is a draft.** Mark it ready for review.
+
+When the main branch is broken (an `andon`), maintainers pause automatic merging until it is fixed. Fixing the line comes first.
 
 ## Sign your work: the Developer Certificate of Origin
 
@@ -348,8 +439,9 @@ Every pull request should meet this bar. Reviewers use it too.
 
 We are a small team of volunteers, so here is an honest picture.
 
-- **First response:** we aim to respond to new issues and pull requests within 48 hours. A clearly labeled bot may acknowledge them sooner, and a person always follows up.
-- **Review:** small, focused pull requests are usually reviewed within 14 days. Large changes and RFCs can take longer.
+- **First response:** the automatic checks and the AI review answer a pull request within minutes, once its workflows run. We aim to respond to new issues and pull requests as people within 48 hours. A clearly labeled bot may acknowledge them sooner, and a person always follows up.
+- **Auto lane:** a pull request that passes every check and the AI review merges without waiting for anyone. A maintainer may still comment afterwards, and a follow-up or a revert is normal, not a judgment.
+- **Maintainer lane:** small, focused pull requests are usually reviewed within 14 days. Large changes and RFCs can take longer.
 - **Silence:** if you have heard nothing after 14 days, a polite ping on the pull request is welcome. It helps us.
 - **What reviewers look at:** whether the change solves the linked issue, the quality bar above, license hygiene, and whether the change is small enough to review well.
 - **Splitting:** we may ask you to split a large pull request. This is normal and makes merging faster.

@@ -19,6 +19,7 @@ Do not add a language, framework, build tool or runtime dependency without an ac
 | Path | What it holds |
 |---|---|
 | `README.md` | Project overview |
+| `ROADMAP.md` | The public roadmap: where the project is going, step by step, and how to help. `docs/PLAN.md` wins if they disagree |
 | `LICENSE` | MIT license text |
 | `CONTRIBUTING.md` | How to contribute; the rules for people, agents and organizations |
 | `AI_POLICY.md` | The AI policy: disclosure, human-only DCO sign-off, no agent action on GitHub without a human click |
@@ -44,6 +45,10 @@ Do not add a language, framework, build tool or runtime dependency without an ac
 | `skills/` | `open3dj/SKILL.md` (how agents use Open3DJ) and `claude-code-plugin/` (the same skill plus the MCP server as a Claude Code plugin). Read `skills/README.md` |
 | `.claude/settings.json` | Claude Code hooks for contributors (see [Claude Code hooks](#claude-code-hooks)) |
 | `.github/workflows/ci.yml` | CI: `npm run check` (bench regression split included) on Linux x64 and arm64, macOS, Windows x64 and arm64 |
+| `.github/workflows/` (the others) | The merge automation: `evaluate.yml` (reports the lane), `dco.yml` (sign-off check), `ai-review.yml` (advisory AI review), `automerge.yml` (the required `merge-policy` status and auto-merge), `review-relay.yml` |
+| `.github/merge-policy.json` | The merge lanes: which paths merge automatically after the checks and the AI review (auto lane) and which need a maintainer approval (maintainer lane) |
+| `.github/CODEOWNERS` | Code owners for every maintainer-lane path, a second line of defense for the policy |
+| `scripts/automerge/` | The code behind the merge workflows, with its own README; it never runs pull request code |
 
 Code follows the layout in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). Do not create new top-level directories that the architecture does not define without an issue.
 
@@ -122,6 +127,7 @@ Code rules: erasable TypeScript only (no enums, namespaces, parameter properties
 - **Commit messages:** an imperative subject line of 72 characters or fewer, a blank line, then a body that explains why.
 - **Never force-push shared branches** (`main`, release branches, or any branch someone else works on). On your own pull request branch, use `git push --force-with-lease` only when needed.
 - **Do not commit or push** unless your operator asked you to.
+- **Merging is automatic, in two lanes.** Every pull request is evaluated automatically. Docs and sandbox-only data in the auto lane merge after every check and the AI review pass; anything else, including code, workflows, hooks, agent instructions and changed goldens, merges after one maintainer approval. See [How your pull request is evaluated and merged](CONTRIBUTING.md#how-your-pull-request-is-evaluated-and-merged). Never try to move a change into the auto lane by splitting or renaming files.
 - **Pull request contents:** link the issue (`Closes #<number>`), describe the change, paste the commands you ran and their results, attach evidence for geometry changes, and note anything you did not do or could not verify.
 - **Limits:** at most 2 open pull requests per contributor at a time, unless a maintainer raises the limit for a regular contributor. No mass-generated or speculative pull requests.
 - **Triage help:** you may help triage issues or write reproductions when a maintainer asks or the issue invites it. Post under the operator's account with a disclosure. Do not change labels or close issues unless you have triage rights and were asked to.

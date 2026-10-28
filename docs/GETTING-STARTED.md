@@ -9,7 +9,7 @@ Open3DJ is early (step S1 of [PLAN.md](PLAN.md)). It has a command line and an M
 - [Node.js 24](https://nodejs.org) or newer. Check with `node --version`. `npm ci` refuses older versions.
 - git.
 - Memory: a worker used about 200 MB at peak on small parts. The pool runs one worker per core minus one, fewer when free memory is short.
-- Windows, macOS or Linux. The geometry kernel is WebAssembly, so nothing is compiled on install. So far Open3DJ has been run on Linux only. CI for Windows and macOS is set up but has not run yet.
+- Windows, macOS or Linux. The geometry kernel is WebAssembly, so nothing is compiled on install. So far Open3DJ has been run on Linux only. CI for Windows, macOS and ARM is set up but has not run yet. If you try it there, please file a [hardware report](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=hardware_report.yml) with the output of `npx open3dj doctor --bench`.
 
 ```sh
 git clone https://github.com/NeuralDEEPnet/Open3DJ.git
@@ -146,7 +146,7 @@ Open3DJ is an MCP server over stdio. It offers five tools:
 | `docs` | Searches the DSL reference, the error playbook and examples. |
 | `run` | Runs a script in a project and returns the GeometryReport and a new `rev`. |
 | `render` | Returns the four-view drawing as a PNG image, or SVG. |
-| `export` | Writes STEP, STL, glTF (.glb) or 3MF into the project, plus one evidence sidecar (`<name>.evidence.json`) per revision and folder that lists every file exported there with its sha256. STEP headers name the file, Open3DJ and its version, and the `author` and `organization` set in `project.o3j.json` (empty when unset). |
+| `export` | Writes STEP, STL, glTF (.glb) or 3MF into the project, plus one evidence sidecar (`<name>.evidence.json`) per revision and folder that lists every file exported there with its sha256. STEP headers name the file, the revision's time (UTC) as the time stamp, Open3DJ and its version, and the `author` and `organization` set in `project.o3j.json` (empty when unset). Exporting the same revision again gives the same STEP bytes. |
 | `inspect` | Reads the tree, references, fits, measures of chosen targets, job status or the device inventory. |
 
 ### Connect a client
@@ -244,8 +244,11 @@ npm run corpus            # time the 145 and 1,025 occurrence reference assembli
 
 `npm run check` must pass before a pull request. It takes about 2 minutes on a 4-core Linux machine, within its 10 minute budget. It includes the examples regression test, so a change that moves a measured volume fails until you explain it and regenerate the expected files with `node scripts/examples.ts --write`. It also runs task-lint on all 22 bench tasks (inside `npm test`) and the 12-task regression split three times, which must give identical numbers. The package map and the data flow are in [packages/README.md](../packages/README.md).
 
+When you open a pull request, CI runs the same `npm run check` on Linux x64 and ARM64, macOS, and Windows x64 and ARM64, together with a sign-off check, an evaluation that picks the merge lane and an advisory AI review. Documentation, examples, new bench tasks and similar data merge automatically when everything passes (the auto lane); code merges after one maintainer approves (the maintainer lane). [CONTRIBUTING.md](../CONTRIBUTING.md#how-your-pull-request-is-evaluated-and-merged) explains the lanes and how to see why a pull request is not merging yet.
+
 Other places to know:
 
+- [ROADMAP.md](../ROADMAP.md): where the project is going, step by step, with concrete ways to help in each step.
 - [bench/README.md](../bench/README.md): o3dj-bench, its task format and how capability runs are graded.
 - [corpora/](../corpora/): the reference assemblies and the determinism corpus.
 - [ops/](../ops/): the scorecard and A3 templates, the value-stream log and the build log.

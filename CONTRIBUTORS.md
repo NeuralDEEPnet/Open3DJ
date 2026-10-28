@@ -4,6 +4,24 @@
 
 Open3DJ is built by people, by AI agents working with people, and by organizations. Every kind of contribution counts here: code, design, documentation, research, testing, test data, parts, translation, review, ideas, bug reports, mentoring, compute and funding. See [CONTRIBUTING.md](CONTRIBUTING.md) to get started. You are added to this file with your first merged contribution, and you are welcome to add yourself in that pull request. A useful issue counts too: when a maintainer acts on your research check, part proposal, design brief or feedback, we add you here (or you can add yourself in a one-line pull request).
 
+## Be the first
+
+The tables below are almost empty. That is not a sign that nobody is welcome; it is a sign that the project is new. The first slice works today ([what works](ROADMAP.md#what-works-today)), and the first names on this page will be the people who helped shape it. Pick the path that suits you, or both.
+
+**Bring your agent.** If you work with Claude Code, Codex, Cursor, Gemini CLI or your own MCP agent:
+
+- Load the [Claude Code plugin](skills/README.md), or connect your client with [docs/GETTING-STARTED.md](docs/GETTING-STARTED.md#for-agents), and ask your agent to design something real.
+- Run the [capability benchmark](bench/run-capability.md) and share the score. Nobody has posted one yet, so yours becomes the baseline.
+- Turn what your agent got wrong into a [failure report](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=failure_report.yml) or a [bench task](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=bench_task.yml), or take a [starter task](CONTRIBUTING.md#your-agents-first-task) that needs no issue (issues labeled [`agent-ready`](https://github.com/NeuralDEEPnet/Open3DJ/issues?q=is%3Aopen+label%3Aagent-ready) are being filed). The rules are in [AI_POLICY.md](AI_POLICY.md).
+
+**Contribute as a person.** If you design, engineer, make, code, write or research:
+
+- Pick a [concrete first task](CONTRIBUTING.md#for-people) that needs no issue (issues labeled [`good first issue`](https://github.com/NeuralDEEPnet/Open3DJ/issues?q=is%3Aopen+label%3A%22good+first+issue%22) are being filed), or propose a [standard part](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=part_library.yml).
+- Run `npx open3dj doctor --bench` on Windows, macOS or ARM, where CI has not run yet, and file a [hardware report](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=hardware_report.yml).
+- Add an example, send test geometry that breaks other tools, check a research claim, or write a design brief.
+
+Documentation, examples, new bench tasks and similar data merge automatically once every check and the AI review pass, so your first contribution can land quickly ([how merging works](CONTRIBUTING.md#how-your-pull-request-is-evaluated-and-merged)). Then add your row below. (One caveat today: `npm run check` is red until two example goldens are regenerated, so nothing merges until then. See the README.)
+
 ## Maintainers
 
 | Maintainer | GitHub | Role |
@@ -16,7 +34,7 @@ Designers, engineers, makers, developers, writers, researchers and students.
 
 | Name | GitHub | Contributions |
 |---|---|---|
-| *Your name here* | | *Your first part spec, test file, doc fix, research check or idea. [Start here.](CONTRIBUTING.md#for-people)* |
+| *Your name here* | | *Your first part spec, example, test file, hardware report, doc fix, research check or idea. [Start here.](CONTRIBUTING.md#for-people)* |
 
 ## AI agents
 
@@ -24,8 +42,8 @@ AI agents are credited through their human operators, who are accountable for th
 
 | Agent | Operator | Contributions |
 |---|---|---|
-| neuraldeep.net design agents | Neural Deep Network LTD | Research, planning, spikes and documentation |
-| *Your agent here* | *You* | *[Start here.](CONTRIBUTING.md#for-ai-agents-and-their-operators)* |
+| neuraldeep.net design agents | Neural Deep Network LTD | Research, planning, spikes, the first vertical slice, the viewer, o3dj-bench and documentation |
+| *Your agent here* | *You* | *The first capability benchmark score, a failure report, a bench task or an `agent-ready` issue. [Start here.](CONTRIBUTING.md#for-ai-agents-and-their-operators)* |
 
 ## Organizations
 

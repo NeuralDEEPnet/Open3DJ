@@ -12,7 +12,7 @@ This document explains who runs Open3DJ, how decisions are made, how you can gai
 
 ## Who works on Open3DJ today
 
-Open3DJ is honest about its size. Today the team is the founder of Neural Deep Network LTD, unpaid volunteers, Claude, and the founder's other AI agents. **There are no paid engineers.** Agents do a lot of the work, and people review and merge it.
+Open3DJ is honest about its size. Today the team is the founder of Neural Deep Network LTD, unpaid volunteers, Claude, and the founder's other AI agents. **There are no paid engineers.** Agents do a lot of the work. Automatic checks evaluate every change, people approve every code change, and a deterministic merge bot merges what has passed (see [Automatic evaluation and merging](#automatic-evaluation-and-merging)).
 
 That is why contributions of every kind matter so much here, and why we work to make your first contribution easy and your work visible.
 
@@ -20,7 +20,7 @@ That is why contributions of every kind matter so much here, and why we work to 
 
 We work in a lean, Kaizen style. In practice that means:
 
-- **Small, usable releases.** We ship small working steps rather than big drops. The roadmap is in [docs/PLAN.md](docs/PLAN.md).
+- **Small, usable releases.** We ship small working steps rather than big drops. The roadmap is in [ROADMAP.md](ROADMAP.md), with the full plan in [docs/PLAN.md](docs/PLAN.md).
 - **A weekly plan-do-check-act review.** Once a week, maintainers review what shipped, what broke and what we learned, then adjust the plan. Notes will be posted publicly in GitHub Discussions.
 - **Stop the line on regressions.** Any maintainer can pause merges when the main branch regresses, by labeling the issue `andon`. Fixing the regression comes before new work.
 - **Every failure becomes a test.** We find the root cause of each bug and add a regression test so it cannot return quietly.
@@ -46,15 +46,15 @@ A person or organization who runs an AI agent (such as Claude Code, Codex, Curso
 
 - The operator is responsible for everything the agent submits, as if they had written it themselves.
 - The operator reviews the agent's work before it is submitted, discloses that an agent helped, and adds the human Developer Certificate of Origin sign-off. Agents never add a `Signed-off-by` line; the operator adds their own after reviewing the full diff.
-- AI agents are tools, not members. An agent cannot hold a role, approve a pull request, vote, or count toward consensus. Maintainers may run project bots with narrowly scoped permissions, and those bots are the responsibility of the maintainer who runs them.
+- AI agents are tools, not members. An agent cannot hold a role, approve a pull request, merge, vote, or count toward consensus. Maintainers may run project bots with narrowly scoped permissions, and those bots are the responsibility of the maintainer who runs them. Today there are two: the AI reviewer, which only comments and labels, and the merge workflow, which turns on GitHub auto-merge and contains no AI model.
 
 ### Maintainers
 
-Contributors with merge rights. Maintainers review and merge pull requests, triage issues, label good first issues, run the weekly review, enforce the Code of Conduct, and mentor new contributors. Maintainers must enable two-factor authentication on GitHub.
+Contributors with merge rights. Maintainers review and approve pull requests in the maintainer lane, can pause or reverse any automatic merge, triage issues, label good first issues, run the weekly review, enforce the Code of Conduct, and mentor new contributors. Maintainers must enable two-factor authentication on GitHub.
 
 ### Module owners
 
-Maintainers who hold final review responsibility for an area of the project. Ownership is recorded in a `CODEOWNERS` file so that reviews are routed automatically. Areas are expected to include:
+Maintainers who hold final review responsibility for an area of the project. Ownership is recorded in a `CODEOWNERS` file so that reviews are routed automatically. It also backs up the merge lanes: every path has an owner except the auto-lane paths, so GitHub itself asks for an owner's approval on a change to code or governance. Areas are expected to include:
 
 - geometry kernel integration
 - the agent contract (MCP server, CLI and SDKs)
@@ -83,8 +83,8 @@ The lead maintainer is appointed by Neural Deep Network LTD. Today that is the c
 
 Most work proceeds by lazy consensus. Someone proposes a change in an issue or pull request. If nobody raises a reasoned objection, the change goes ahead.
 
-- A pull request needs approval from one maintainer, or from the module owner for the area it touches, and all required checks must pass.
-- Allow at least two working days for comments on anything that changes behavior, so that people in other time zones can respond. Typo fixes and other trivial changes can merge sooner.
+- A pull request in the maintainer lane needs approval from one maintainer, or from the module owner for the area it touches, and all required checks must pass. A pull request in the auto lane merges automatically once all required checks and the AI review pass (see [Automatic evaluation and merging](#automatic-evaluation-and-merging)).
+- Allow at least two working days for comments on anything that changes behavior, so that people in other time zones can respond. Typo fixes and other trivial changes can merge sooner. A maintainer who wants that time on a maintainer-lane pull request simply waits before approving, and any maintainer can add the `hold` label to an auto-lane pull request that deserves the wait.
 - An objection should explain the problem and, where possible, suggest an alternative. "I'd prefer not" is not a blocking objection.
 
 ### Big changes: RFCs
@@ -106,6 +106,19 @@ The process, adapted from the Rust project's RFC process ([docs/research/communi
 5. If no new concerns come up, the decision stands. It is recorded with its reasons in the issue, accepted RFCs are merged into `rfcs/`, and each accepted RFC gets a tracking issue.
 
 Experiments do not need an RFC. Spikes and prototypes are welcome in `rfcs/experiments/`, tracked with the `experiment` label, and their results, including failures, are written up so that everyone learns from them.
+
+### Automatic evaluation and merging
+
+Every pull request is evaluated automatically, and merging is automatic too, within these limits. The contributor-facing description is in [CONTRIBUTING.md](CONTRIBUTING.md#how-your-pull-request-is-evaluated-and-merged), and the rules for AI are in [AI_POLICY.md](AI_POLICY.md).
+
+- **Evaluation.** Required checks run on every pull request: `npm run check` on the five tier-1 platforms, the `dco` sign-off check, the `evaluate` check, which reports the lane from the rules in [.github/merge-policy.json](.github/merge-policy.json), and the `merge-policy` status, which is the gate: a deterministic workflow sets it to success only when the rules for the pull request's lane are met on its latest commit. An AI review posts an advisory comment and a label.
+- **Auto lane.** A pull request whose files all fall under the auto rules of that file (documentation, examples, new bench tasks, standard parts and similar data that runs only inside the sandbox) merges automatically when every required check and the AI review pass, or when a maintainer approves it.
+- **Maintainer lane.** Every other pull request, including any change to code, workflows, hooks, dependencies, licenses, governance or an existing golden, needs the same checks plus one approving review from a maintainer or the module owner on its latest commit. It then merges automatically.
+- **Who merges.** GitHub auto-merge, turned on by a deterministic workflow. No AI model approves or merges, and the AI review is never the only gate for code.
+- **Human click.** A contributor's first pull request runs no workflows until a maintainer approves the run.
+- **Stop the line.** While the main branch is broken (an open `andon` issue), maintainers pause automatic merging. Any maintainer can hold a single pull request with the `hold` or `andon` label, request changes, or revert any merge, at any time, with a short public note.
+- **How this section was adopted.** The lead maintainer approved this first version of the merge policy and of this section as a lead-maintainer decision while bootstrapping the project, before any RFC process existed, and recorded it in the pull request that added it. Later changes follow the rules in this section and in [Changing this document](#changing-this-document).
+- **Changing the lanes.** The lead maintainer can widen or narrow the auto lane by changing `.github/merge-policy.json` (and the `CODEOWNERS` file to match) in a maintainer-lane pull request that states the reason, for example a check that has proven itself over a month of merges. Two changes need an RFC: letting any code, workflow, dependency, license or governance change merge without a human approval, and letting an AI model approve or merge.
 
 ### When consensus fails
 
