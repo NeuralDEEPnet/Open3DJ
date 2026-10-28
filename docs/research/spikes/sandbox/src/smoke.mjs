@@ -1,0 +1,10 @@
+import { readFileSync } from "node:fs";
+import { loadQuickJS, loadKernel, runScript } from "./lib/bridge.mjs";
+import { depsPath } from "./lib/util.mjs";
+const deps = depsPath();
+const qjs = await loadQuickJS(deps, process.argv[3] || "quickjs");
+const kernel = await loadKernel(deps);
+const code = readFileSync(new URL("./scripts/enclosure.js", import.meta.url), "utf8");
+console.log(JSON.stringify(runScript({ qjs, kernel, code }), null, 1));
+console.log(JSON.stringify(runScript({ qjs, kernel, code: "return box(1,1,1).fillet(0.2, {parallel:'Z'})" })));
+console.log(JSON.stringify(runScript({ qjs, kernel, code: "return 5" })));

@@ -1,0 +1,48 @@
+{
+ "instances": 145,
+ "bad_instances": [
+  7,
+  72
+ ],
+ "exact_brep": {
+  "ms": 4147.6,
+  "per_pair_ms": 28.8,
+  "clashes": [
+   {
+    "idx": 7,
+    "mm3": 14.68
+   },
+   {
+    "idx": 72,
+    "mm3": 14.68
+   }
+  ]
+ },
+ "tessellate_and_weld_ms": 792.3,
+ "manifold_mesh": {
+  "ms": 780.3,
+  "per_pair_ms": 5.419,
+  "clashes": [
+   {
+    "idx": 7,
+    "mm3": 14.64
+   },
+   {
+    "idx": 72,
+    "mm3": 14.64
+   }
+  ]
+ },
+ "manifold_minGap": {
+  "mm": 0,
+  "ms": 5.5,
+  "note": "0 = touching: the head rests on the plate"
+ },
+ "bvh_build_ms": 68.6,
+ "bvh_surface_intersect": {
+  "ms": 128.3,
+  "per_pair_ms": 0.891,
+  "hits_count": 144,
+  "note": "touching faces count as hits; surface test only"
+ }
+}
