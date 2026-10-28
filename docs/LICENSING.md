@@ -75,7 +75,7 @@ Forgot to sign off? Run `git commit --amend -s --no-edit` for the last commit, o
 ### Rules for AI agents
 
 - **AI agents must never add a `Signed-off-by` line.** Only a person can certify the DCO. Agents commit without `-s`. The human operator reviews the full diff, then adds their own sign-off (`git commit --amend -s --no-edit` for one commit, `git rebase --signoff <base>` for several) and takes responsibility for the work. This follows the Linux kernel's rule for AI coding assistants ([kernel.org: AI Coding Assistants](https://docs.kernel.org/process/coding-assistants.html)).
-- Add a trailer such as `Assisted-by: <agent> (<model>)` to each commit an agent helped with (a `Co-Authored-By:` trailer your tool adds also counts), and disclose it in the pull request template.
+- Add a trailer such as `Assisted-by: <agent or tool name>` to each commit an agent helped with (a `Co-Authored-By:` trailer your tool adds also counts), and disclose it in the pull request template. Agents operated by Neural Deep Network LTD use `Assisted-by: neuraldeep.net design agents` (see [CONTRIBUTING.md](../CONTRIBUTING.md#attribution-for-neural-deep-network-agents)).
 - Agents must not copy code from incompatible sources (see [section 5](#5-the-gpl-and-agpl-rule-for-the-core)). [AGENTS.md](../AGENTS.md) carries the detailed rules.
 
 ### Organizations

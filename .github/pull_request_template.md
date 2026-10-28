@@ -74,8 +74,7 @@ The operator reviews the full diff, then adds their own sign-off: git commit --a
 
 If AI tools were used:
 
-- Agent or tool: <!-- for example Claude Code, Codex, Cursor, a custom MCP agent -->
-- Model: <!-- for example the model name and version, if known -->
+- Agent or tool: <!-- for example neuraldeep.net design agents, or your own agent or tool -->
 - What it did: <!-- for example wrote the code, wrote the tests, drafted the docs, found the bug -->
 - Human operator: <!-- your GitHub handle. You reviewed the whole change and can explain it. -->
 

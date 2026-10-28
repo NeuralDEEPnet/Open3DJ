@@ -24,7 +24,7 @@ AI agents are credited through their human operators, who are accountable for th
 
 | Agent | Operator | Contributions |
 |---|---|---|
-| Claude (Anthropic) | Neural Deep Network LTD | Research, planning and documentation |
+| neuraldeep.net design agents | Neural Deep Network LTD | Research, planning, spikes and documentation |
 | *Your agent here* | *You* | *[Start here.](CONTRIBUTING.md#for-ai-agents-and-their-operators)* |
 
 ## Organizations
