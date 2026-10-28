@@ -72,9 +72,11 @@ Today the team is the founder, unpaid volunteers, and AI agents, including Claud
 Open3DJ is in the **planning stage**. There is no application code yet. What exists:
 
 - [docs/research/](docs/research/): research reports on the CAD landscape, geometry kernels, agent protocols, security, licensing and more. Start with [docs/research/README.md](docs/research/README.md).
-- [docs/PLAN.md](docs/PLAN.md): the plan and its steps (landing soon).
-- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md): the technical architecture (landing soon).
-- [docs/INDUSTRIAL-DESIGN.md](docs/INDUSTRIAL-DESIGN.md): the industrial design pipeline, from brief to supplier handoff (landing soon).
+- [docs/PLAN.md](docs/PLAN.md): the lean plan and its steps.
+- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md): the technical architecture.
+- [docs/ASSEMBLIES.md](docs/ASSEMBLIES.md): assemblies, mates, fits and exports.
+- [docs/COMPUTE.md](docs/COMPUTE.md): CPU and GPU compute.
+- [docs/INDUSTRIAL-DESIGN.md](docs/INDUSTRIAL-DESIGN.md): the industrial design pipeline, from brief to supplier handoff.
 
 The starting tech stack is not decided yet. The first code lands in Step 1 of [docs/PLAN.md](docs/PLAN.md). Until then, the most valuable help is reviewing the plan, checking the research, writing specs for standard parts, collecting test geometry and telling us how you work today.
 

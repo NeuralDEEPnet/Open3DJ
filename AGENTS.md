@@ -24,9 +24,11 @@ Useful agent work right now: checking research claims against primary sources, i
 | `AGENTS.md` | This file |
 | `CLAUDE.md` | Claude Code entry point; imports this file |
 | `CONTRIBUTORS.md` | Credits |
-| `docs/PLAN.md` | The plan and its steps (landing soon) |
-| `docs/ARCHITECTURE.md` | Technical architecture, including the future code layout (landing soon) |
-| `docs/INDUSTRIAL-DESIGN.md` | Industrial design pipeline (landing soon) |
+| `docs/PLAN.md` | The lean plan, the Kaizen loop and the roadmap of small releases (S0 to S12) |
+| `docs/ARCHITECTURE.md` | Technical architecture: contracts, process model, agent tools (section 9 is the canonical tool list), repo layout |
+| `docs/ASSEMBLIES.md` | Assembly-first document model, mates, fits, BOM and exports |
+| `docs/COMPUTE.md` | CPU, local GPU and cloud GPU compute, placement rules and CPU fallbacks |
+| `docs/INDUSTRIAL-DESIGN.md` | Industrial design pipeline, stage by stage |
 | `docs/research/` | Research reports, dated 2026-10-27. Read `docs/research/README.md` first. The gap notes (`gap-*.md`) override the main reports where they conflict |
 | `docs/research/proposals/` | The three architecture proposals the plan was built from |
 

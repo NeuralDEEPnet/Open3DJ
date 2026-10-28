@@ -20,8 +20,11 @@ Open3DJ is created by **Neural Deep Network LTD** ([neuraldeep.net](https://www.
 Open3DJ is in the **planning stage**. There is no application code yet, and the starting tech stack is not decided. This is the best time to shape it.
 
 - [docs/research/README.md](docs/research/README.md): research on AI CAD, geometry kernels, agent protocols, security, licensing and more, dated 2026-10-27.
-- [docs/PLAN.md](docs/PLAN.md): the plan and its steps (landing soon). The first code lands in Step 1.
-- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) and [docs/INDUSTRIAL-DESIGN.md](docs/INDUSTRIAL-DESIGN.md): the architecture and the industrial design pipeline (landing soon).
+- [docs/PLAN.md](docs/PLAN.md): the lean plan, how we work (the Kaizen loop) and the roadmap of small releases, S0 to S12.
+- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md): the technical architecture, contracts, agent tools and repo layout.
+- [docs/ASSEMBLIES.md](docs/ASSEMBLIES.md): the assembly-first model: parts, occurrences, mates, fits, BOM and exports.
+- [docs/COMPUTE.md](docs/COMPUTE.md): how work runs on CPU, local GPU and cloud GPU, with a CPU path for everything.
+- [docs/INDUSTRIAL-DESIGN.md](docs/INDUSTRIAL-DESIGN.md): the industrial product design pipeline, from brief to supplier handoff.
 
 ## Get involved in one minute
 
