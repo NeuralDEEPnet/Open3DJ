@@ -91,4 +91,4 @@ Publish raw JSON; each number is a go/no-go input, not a promise.
 - https://github.com/sgenoud/replicad/issues/282 ; https://github.com/w1ne/kernelCAD-web/pull/1008 ; https://github.com/taucad/tau/pull/839
 - https://raw.githubusercontent.com/WebAssembly/website/main/features.json
 - https://github.com/schlessera/brain-kit/issues/2375 ; https://jvns.ca/blog/2022/06/28/some-notes-on-bubblewrap/ ; https://docs.wasmtime.dev/examples-fast-instantiation.html
-- Measurement scripts: /tmp/claude-0/-home-user-Open3DJ/45a63da6-7d73-5326-9c09-0591c87c12c4/scratchpad/bench8/scripts/bench_native.py (output native.json)
+- Measurement scripts: [bench/bench_native.py](bench/bench_native.py) (output [bench/native.json](bench/native.json)); the matched WASM script [bench/bench_wasm.mjs](bench/bench_wasm.mjs) was written but not run
