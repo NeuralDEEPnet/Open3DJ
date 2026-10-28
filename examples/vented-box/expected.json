@@ -1,0 +1,61 @@
+{
+  "example": "vented-box",
+  "script": "vented-box.o3j.js",
+  "note": "Written by node scripts/examples.ts --write from a detailed open3dj run. scripts/examples.test.ts compares status, counts and fits exactly, and volume, area, bbox and fit measures within the tolerance (relative).",
+  "engine": {
+    "occt_wasm": "5.8.1",
+    "brepjs": "20.11.1"
+  },
+  "tolerance": 0.000001,
+  "status": "ok",
+  "assembly": {
+    "occurrences": 1,
+    "definitions": 1,
+    "bbox": {
+      "min": [
+        -45,
+        -30,
+        0
+      ],
+      "max": [
+        45,
+        30,
+        40
+      ]
+    }
+  },
+  "parts": [
+    {
+      "def": "vented_box",
+      "occurrences": 1,
+      "valid": true,
+      "volume_mm3": 29705.879459,
+      "area_mm2": 32263.118345,
+      "bbox": {
+        "min": [
+          -45,
+          -30,
+          0
+        ],
+        "max": [
+          45,
+          30,
+          40
+        ]
+      },
+      "counts": {
+        "solids": 1,
+        "faces": 167,
+        "edges": 492
+      }
+    }
+  ],
+  "fits": [],
+  "exports": [
+    "vented-box.3mf",
+    "vented-box.evidence.json",
+    "vented-box.glb",
+    "vented-box.step",
+    "vented-box.stl"
+  ]
+}
