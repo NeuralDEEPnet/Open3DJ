@@ -36,6 +36,21 @@ The process used about 440 MB of resident memory after the run. The test part ha
 5. **The API covers far more than the first release needs.** The 210 methods include `draft` for injection-moulding draft angles, history-tracking variants of booleans, fillets and transforms for stable references, `subShapeHashes`, healing, curvature, inertia, sections, hidden-line projection for drawings, XCAF assemblies, STEP and STL import and export.
 6. **Gaps to fill above the kernel:** there is no glTF export in this build, so the viewer needs a small mesh-to-glTF step. Wall-thickness and overhang checks must be written on top of the kernel.
 
+## Multi-core CPU
+
+occt-wasm 5.8.1 is built single-threaded: its loader has no SharedArrayBuffer, pthread or Atomics code. One kernel instance uses one CPU core. To use several cores, Open3DJ runs several kernel instances, one per worker thread, each with its own WebAssembly memory.
+
+A pool benchmark ran 96 rebuilds of a parametric part, each a filleted box with four holes cut in one batch and a fused boss, spread over 1 to 4 workers. Each worker released its intermediate shapes after every rebuild.
+
+| Workers | Rebuilds per second | Speedup |
+|---|---|---|
+| 1 | 33.2 | 1.00 |
+| 2 | 48.5 | 1.46 |
+| 3 | 49.1 | 1.48 |
+| 4 | 55.5 | 1.67 |
+
+The container has 4 vCPUs, but two other research workflows were running on it at the same time, so these speedups understate what an idle machine would give. A single rebuild takes about 30 ms. The pool raises throughput for batches such as parameter sweeps, best-of-N candidates and assembly regeneration. It does not make one operation faster. The benchmark scripts are [spike/pool_worker.mjs](spike/pool_worker.mjs) and [spike/pool_bench.mjs](spike/pool_bench.mjs).
+
 ## Licences
 
 - occt-wasm tooling and TypeScript code: MIT OR Apache-2.0.
