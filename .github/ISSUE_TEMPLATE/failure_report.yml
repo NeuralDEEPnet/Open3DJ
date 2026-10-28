@@ -1,0 +1,190 @@
+name: Failure report
+description: Something failed (wrong geometry, a false pass, a confusing agent run, a failed print, a supplier question). We turn every failure into a regression test.
+title: "[Failure]: "
+labels: ["failure-report", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you. Every failure becomes a regression test, a bench task or a better standard before its issue closes ([PLAN.md section 4.5](https://github.com/NeuralDEEPnet/Open3DJ/blob/main/docs/PLAN.md#45-every-failure-becomes-a-regression-test)).
+
+        This report is **blameless**. Ask "why" until the answer is a missing check, missing context or a missing standard, never a person. A partial answer is fine: triage helps finish the five whys.
+
+        **Security issues:** do not report them here. Follow [SECURITY.md](https://github.com/NeuralDEEPnet/Open3DJ/blob/main/SECURITY.md) to report privately. Do not attach confidential designs.
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What failed?
+      options:
+        - Wrong geometry or wrong numbers in a report
+        - A check passed that should have failed (false pass)
+        - A kernel, script or tool error
+        - An agent run went wrong or was confusing
+        - A printed part did not fit or failed
+        - A supplier asked a question the export should have answered
+        - Install, CI or `npm run check`
+        - Documentation
+        - Something else
+    validations:
+      required: true
+
+  - type: dropdown
+    id: andon
+    attributes:
+      label: How serious is it?
+      description: The andon levels are in PLAN.md section 4.4. If you are not sure, pick "Not sure"; triage decides.
+      options:
+        - "Red, repo: main is red, a false pass on a seeded corpus, kernel output on MCP stdout, a licence or security problem"
+        - "Red, project: a fault inside one project, such as a dimension labelled measured with no measurement"
+        - "Yellow: a capability drop, a slow review, a step overrun"
+        - Not an andon
+        - Not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened, and what did you expect?
+      placeholder: The fit check reported no clash between the lid and the base, but the printed lid does not go on.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Smallest reproduction
+      description: A short script, the command you ran and its output. Remove anything confidential.
+      render: text
+      placeholder: |
+        npx open3dj run lid.o3j.js --detailed --json
+        (script and output here)
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: The GeometryReport, a render, a photo of the print, measurements with the tool you used, or a link to the agent transcript.
+    validations:
+      required: false
+
+  - type: textarea
+    id: why-1
+    attributes:
+      label: Why 1. Why did it fail?
+      placeholder: The lip was 0.3 mm wider than the cavity.
+    validations:
+      required: true
+
+  - type: textarea
+    id: why-2
+    attributes:
+      label: Why 2. Why did that happen?
+      placeholder: The agent used the outer size of the base for the lip.
+    validations:
+      required: false
+
+  - type: textarea
+    id: why-3
+    attributes:
+      label: Why 3
+      placeholder: The brief did not say which faces the clearance is measured between.
+    validations:
+      required: false
+
+  - type: textarea
+    id: why-4
+    attributes:
+      label: Why 4
+    validations:
+      required: false
+
+  - type: textarea
+    id: why-5
+    attributes:
+      label: Why 5. The root cause
+      description: A missing check, context or standard that a change in code, tests or process can prevent. Never a person.
+    validations:
+      required: false
+
+  - type: dropdown
+    id: countermeasure-kind
+    attributes:
+      label: Proposed countermeasure
+      description: What would stop this happening twice? Pick the closest.
+      multiple: true
+      options:
+        - A regression test
+        - A bench task (bench/tasks)
+        - A seeded corpus entry (corpora)
+        - A hook or a gate in npm run check
+        - A line in AGENTS.md or CONTRIBUTING.md
+        - A SKILL.md example or a docs fix
+        - A DSL or error-message change
+        - Not sure yet
+    validations:
+      required: true
+
+  - type: textarea
+    id: countermeasure
+    attributes:
+      label: Countermeasure details
+      placeholder: Add a bench task with a 0.25 mm lip clearance and a seeded mutant with -0.3 mm.
+    validations:
+      required: false
+
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      placeholder: "Commit hash such as 518c77a"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      multiple: true
+      options:
+        - Windows
+        - macOS
+        - Linux
+        - Other or not relevant
+    validations:
+      required: false
+
+  - type: input
+    id: client
+    attributes:
+      label: Agent or MCP client in use
+      placeholder: "Claude Code, Codex, Gemini CLI, Cursor, a custom MCP agent, or none"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: ai-assistance
+    attributes:
+      label: Did AI tools help you write this report?
+      description: AI help is welcome. A person must read and check this report before it is submitted (AI_POLICY.md).
+      options:
+        - "No, I wrote it without AI tools"
+        - "Yes, AI tools helped me write or research it"
+        - "Yes, an AI agent drafted or filed it for me, and I checked it"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before you submit
+      options:
+        - label: I searched the existing issues and this is not a duplicate.
+          required: true
+        - label: The five whys name missing checks, context or standards, not people.
+          required: true
+        - label: I agree to follow the [Code of Conduct](https://github.com/NeuralDEEPnet/Open3DJ/blob/main/CODE_OF_CONDUCT.md).
+          required: true

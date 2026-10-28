@@ -1,0 +1,97 @@
+{
+  "$schema": "../../../packages/schemas/json/bench-task.schema.json",
+  "id": "reg-gear-blank",
+  "version": 1,
+  "split": "regression",
+  "title": "Spur gear blank",
+  "brief": "A spur gear blank 6 mm thick: a 48 mm root disc with 20 straight-sided teeth 3 mm tall and 3 mm wide, a hub 18 mm across standing 4 mm proud, an 8 mm bore with a 3 mm keyway, and four 7 mm lightening holes on a 32 mm circle at 45 degrees. One part.",
+  "params": {},
+  "assertions": [
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "size-x",
+      "kind": "measure",
+      "quantity": "size_x",
+      "target": "assembly",
+      "expect": {
+        "eq": 54,
+        "tol": {
+          "abs": 0.0001
+        }
+      }
+    },
+    {
+      "id": "size-y",
+      "kind": "measure",
+      "quantity": "size_y",
+      "target": "assembly",
+      "expect": {
+        "eq": 54,
+        "tol": {
+          "abs": 0.0001
+        }
+      }
+    },
+    {
+      "id": "size-z",
+      "kind": "measure",
+      "quantity": "size_z",
+      "target": "assembly",
+      "expect": {
+        "eq": 10,
+        "tol": {
+          "abs": 0.0001
+        }
+      }
+    },
+    {
+      "id": "volume",
+      "kind": "measure",
+      "quantity": "volume_mm3",
+      "target": "gear",
+      "expect": {
+        "eq": 11486.690439,
+        "tol": {
+          "rel": 0.000001
+        }
+      }
+    },
+    {
+      "id": "faces",
+      "kind": "count",
+      "quantity": "faces",
+      "target": "gear",
+      "expect": {
+        "eq": 173
+      }
+    }
+  ],
+  "reference": "reference.o3j.js",
+  "mutant": "mutant.o3j.js",
+  "mutant_defect": "The gear has 19 teeth.",
+  "mutant_fails": [
+    "volume",
+    "faces",
+    "size-y"
+  ],
+  "tags": [
+    "single-part",
+    "pattern",
+    "booleans"
+  ],
+  "source": "original",
+  "licence": "MIT",
+  "authors": [
+    "neuraldeep.net design agents"
+  ]
+}

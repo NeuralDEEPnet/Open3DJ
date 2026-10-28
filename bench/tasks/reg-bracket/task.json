@@ -1,0 +1,104 @@
+{
+  "$schema": "../../../packages/schemas/json/bench-task.schema.json",
+  "id": "reg-bracket",
+  "version": 1,
+  "split": "regression",
+  "title": "Corner bracket with gusset",
+  "brief": "A corner bracket: an L-angle 40 mm wide with 35 mm legs and 4 mm walls, a centre gusset, two M4 clearance holes in each flange and 1 mm fillets on the long outer edges. One part.",
+  "params": {},
+  "assertions": [
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "occurrences",
+      "kind": "count",
+      "quantity": "occurrences",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "size-x",
+      "kind": "measure",
+      "quantity": "size_x",
+      "target": "assembly",
+      "expect": {
+        "eq": 40,
+        "tol": {
+          "abs": 0.0001
+        }
+      }
+    },
+    {
+      "id": "size-y",
+      "kind": "measure",
+      "quantity": "size_y",
+      "target": "assembly",
+      "expect": {
+        "eq": 35,
+        "tol": {
+          "abs": 0.0001
+        }
+      }
+    },
+    {
+      "id": "size-z",
+      "kind": "measure",
+      "quantity": "size_z",
+      "target": "assembly",
+      "expect": {
+        "eq": 35,
+        "tol": {
+          "abs": 0.0001
+        }
+      }
+    },
+    {
+      "id": "volume",
+      "kind": "measure",
+      "quantity": "volume_mm3",
+      "target": "bracket",
+      "expect": {
+        "eq": 11320.610628,
+        "tol": {
+          "rel": 0.0001
+        }
+      }
+    },
+    {
+      "id": "faces",
+      "kind": "count",
+      "quantity": "faces",
+      "target": "bracket",
+      "expect": {
+        "eq": 26
+      }
+    }
+  ],
+  "reference": "reference.o3j.js",
+  "mutant": "mutant.o3j.js",
+  "mutant_defect": "The two holes in the upright flange are missing.",
+  "mutant_fails": [
+    "volume",
+    "faces"
+  ],
+  "tags": [
+    "single-part",
+    "fillet",
+    "holes"
+  ],
+  "source": "examples/bracket",
+  "licence": "MIT",
+  "authors": [
+    "neuraldeep.net design agents"
+  ]
+}

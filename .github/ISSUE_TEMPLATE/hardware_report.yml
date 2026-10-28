@@ -1,0 +1,105 @@
+name: Hardware report
+description: Share what Open3DJ measures on your machine with open3dj doctor --bench. It helps us size the worker pool and plan GPU work.
+title: "[Hardware]: "
+labels: ["hardware-report", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for measuring your machine. From a checkout with Node 24, run:
+
+        ```sh
+        npm ci
+        node packages/open3dj/src/cli.ts doctor --bench --json
+        ```
+
+        Close other heavy programs first, because the bench measures worker scaling. The JSON holds your operating system, CPU model, core count, memory, GPU list and timings. It holds no user names, host names or file paths, but please read it before you paste it.
+
+        Optional: `node scripts/hdet.ts --runs 5` checks determinism on your machine (about a minute), and `npm run check` shows the time from a fresh clone to green.
+
+  - type: textarea
+    id: doctor
+    attributes:
+      label: doctor --bench JSON
+      description: "The full output of: node packages/open3dj/src/cli.ts doctor --bench --json"
+      render: json
+    validations:
+      required: true
+
+  - type: dropdown
+    id: machine
+    attributes:
+      label: What kind of machine is this?
+      options:
+        - Desktop
+        - Laptop on mains power
+        - Laptop on battery
+        - Cloud or CI runner
+        - Single-board computer
+        - Something else
+    validations:
+      required: true
+
+  - type: input
+    id: gpu
+    attributes:
+      label: GPU and driver
+      description: Open3DJ does not detect GPUs yet, so please name yours.
+      placeholder: "Integrated Intel Iris Xe, driver 31.0.101; or none"
+    validations:
+      required: false
+
+  - type: input
+    id: commit
+    attributes:
+      label: Commit
+      placeholder: "Commit hash such as 518c77a"
+    validations:
+      required: true
+
+  - type: textarea
+    id: hdet
+    attributes:
+      label: H-det output (optional)
+      description: "The output of: node scripts/hdet.ts --runs 5"
+      render: text
+    validations:
+      required: false
+
+  - type: input
+    id: check-time
+    attributes:
+      label: Time for npm run check (optional)
+      placeholder: "4 min 10 s"
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything unusual?
+      placeholder: Thermal throttling, other programs running, a virtual machine, an antivirus scanner.
+    validations:
+      required: false
+
+  - type: dropdown
+    id: ai-assistance
+    attributes:
+      label: Did AI tools help you write this report?
+      description: A person must check the report before it is submitted (AI_POLICY.md).
+      options:
+        - "No, I wrote it without AI tools"
+        - "Yes, AI tools helped me write or research it"
+        - "Yes, an AI agent drafted or filed it for me, and I checked it"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before you submit
+      options:
+        - label: I read the JSON and it holds nothing I do not want to share.
+          required: true
+        - label: I agree to follow the [Code of Conduct](https://github.com/NeuralDEEPnet/Open3DJ/blob/main/CODE_OF_CONDUCT.md).
+          required: true

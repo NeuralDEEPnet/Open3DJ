@@ -1,0 +1,106 @@
+{
+  "$schema": "../../../packages/schemas/json/bench-task.schema.json",
+  "id": "reg-vented-box",
+  "version": 1,
+  "split": "regression",
+  "title": "Vented project box",
+  "brief": "An open project box 90 x 60 x 40 mm with 2 mm walls made by shelling, three columns of four 18 x 3 mm vent slots through both long walls, and four M3 clearance holes in the floor 10 mm in from the corners. One part.",
+  "params": {},
+  "assertions": [
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "size-x",
+      "kind": "measure",
+      "quantity": "size_x",
+      "target": "assembly",
+      "expect": {
+        "eq": 90,
+        "tol": {
+          "abs": 0.0001
+        }
+      }
+    },
+    {
+      "id": "size-y",
+      "kind": "measure",
+      "quantity": "size_y",
+      "target": "assembly",
+      "expect": {
+        "eq": 60,
+        "tol": {
+          "abs": 0.0001
+        }
+      }
+    },
+    {
+      "id": "size-z",
+      "kind": "measure",
+      "quantity": "size_z",
+      "target": "assembly",
+      "expect": {
+        "eq": 40,
+        "tol": {
+          "abs": 0.0001
+        }
+      }
+    },
+    {
+      "id": "volume",
+      "kind": "measure",
+      "quantity": "volume_mm3",
+      "target": "vented_box",
+      "expect": {
+        "eq": 29705.879459,
+        "tol": {
+          "rel": 0.000001
+        }
+      }
+    },
+    {
+      "id": "faces",
+      "kind": "count",
+      "quantity": "faces",
+      "target": "vented_box",
+      "expect": {
+        "eq": 167
+      }
+    },
+    {
+      "id": "edges",
+      "kind": "count",
+      "quantity": "edges",
+      "target": "vented_box",
+      "expect": {
+        "eq": 492
+      }
+    }
+  ],
+  "reference": "reference.o3j.js",
+  "mutant": "mutant.o3j.js",
+  "mutant_defect": "The middle column of vent slots is missing.",
+  "mutant_fails": [
+    "volume",
+    "faces"
+  ],
+  "tags": [
+    "single-part",
+    "shell",
+    "pattern",
+    "slots"
+  ],
+  "source": "examples/vented-box",
+  "licence": "MIT",
+  "authors": [
+    "neuraldeep.net design agents"
+  ]
+}

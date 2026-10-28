@@ -1,6 +1,8 @@
 // npm run check: the one command that must pass before every merge. It runs the typecheck,
-// every test, the stdout-leak gate and the licence gate, then prints a summary. The budget
-// for a fresh clone to a green check is 10 minutes (PLAN.md S0 Kaizen metric).
+// every test (task-lint of every bench task runs there, in scripts/bench.test.ts), the bench
+// regression split with 3 identical replays, the stdout-leak gate and the licence gate, then
+// prints a summary. The budget for a fresh clone to a green check is 10 minutes (PLAN.md S0
+// Kaizen metric).
 import { spawnSync } from "node:child_process";
 import { join } from "node:path";
 import { ROOT, ms } from "./lib.ts";
@@ -9,6 +11,7 @@ const BUDGET_MS = 10 * 60 * 1000;
 const steps: Array<{ name: string; args: string[] }> = [
   { name: "typecheck", args: [join(ROOT, "node_modules", "typescript", "bin", "tsc"), "-p", join(ROOT, "tsconfig.json")] },
   { name: "test", args: [join(ROOT, "scripts", "test.ts")] },
+  { name: "bench", args: [join(ROOT, "bench", "run-regression.ts"), "--repeat", "3"] },
   { name: "leak", args: [join(ROOT, "scripts", "leak-gate.ts")] },
   { name: "licenses", args: [join(ROOT, "scripts", "license-gate.ts")] },
 ];

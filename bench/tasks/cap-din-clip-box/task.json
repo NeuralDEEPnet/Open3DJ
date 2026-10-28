@@ -1,0 +1,143 @@
+{
+  "$schema": "../../../packages/schemas/json/bench-task.schema.json",
+  "id": "cap-din-clip-box",
+  "version": 2,
+  "split": "capability",
+  "title": "DIN-rail clip enclosure",
+  "brief": "A small enclosure that clips onto a standard 35 mm top-hat DIN rail (35 mm wide, 7.5 mm deep, 1 mm steel). The body is about 45 mm wide along the rail, 90 mm tall and 60 mm deep, with a separate lid on the front, and a clip on the back that hooks over both rail lips. Please include a 100 mm piece of rail in the model, named Rail, so we can check the clip; call the other parts Body and Lid. The body must sit against the rail without interfering with it, and the lid sits on the body.",
+  "params": {},
+  "assertions": [
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "rail",
+      "kind": "occurrences",
+      "name": "rail",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "body",
+      "kind": "occurrences",
+      "name": "body",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "lid",
+      "kind": "occurrences",
+      "name": "lid",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "no-clash",
+      "kind": "fits",
+      "fit": "clash",
+      "expect": {
+        "eq": 0
+      }
+    },
+    {
+      "id": "body-on-rail",
+      "kind": "fits",
+      "fit": "contact",
+      "a": "body",
+      "b": "rail",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "lid-on-body",
+      "kind": "fits",
+      "fit": "contact",
+      "a": "lid",
+      "b": "body",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "rail-width",
+      "kind": "measure",
+      "quantity": "size_mid",
+      "target": "rail",
+      "expect": {
+        "min": 34.99,
+        "max": 35.01
+      }
+    },
+    {
+      "id": "rail-depth",
+      "kind": "measure",
+      "quantity": "size_min",
+      "target": "rail",
+      "expect": {
+        "min": 7.49,
+        "max": 7.51
+      }
+    },
+    {
+      "id": "body-width",
+      "kind": "measure",
+      "quantity": "size_min",
+      "target": "body",
+      "expect": {
+        "min": 40,
+        "max": 50
+      }
+    },
+    {
+      "id": "body-height",
+      "kind": "measure",
+      "quantity": "size_max",
+      "target": "body",
+      "expect": {
+        "min": 85,
+        "max": 95
+      }
+    },
+    {
+      "id": "body-depth",
+      "kind": "measure",
+      "quantity": "size_mid",
+      "target": "body",
+      "expect": {
+        "min": 50,
+        "max": 70
+      }
+    }
+  ],
+  "reference": "reference.o3j.js",
+  "mutant": "mutant.o3j.js",
+  "mutant_defect": "The hook nose reaches 0.2 mm into the rail lip.",
+  "mutant_fails": [
+    "status",
+    "no-clash",
+    "body-on-rail"
+  ],
+  "tags": [
+    "enclosure",
+    "multi-part",
+    "din-rail",
+    "clip"
+  ],
+  "source": "original",
+  "licence": "MIT",
+  "authors": [
+    "neuraldeep.net design agents"
+  ]
+}

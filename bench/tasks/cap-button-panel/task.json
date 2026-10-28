@@ -1,0 +1,142 @@
+{
+  "$schema": "../../../packages/schemas/json/bench-task.schema.json",
+  "id": "cap-button-panel",
+  "version": 2,
+  "split": "capability",
+  "title": "Button panel with three caps",
+  "brief": "A front panel 80 x 30 x 3 mm with three round push-button caps in a row, 20 mm apart. Each cap has a round plunger through a hole in the panel and a wider flange behind the panel that stops it falling out. The plunger must clear its hole by 0.2 to 0.3 mm all round, and at rest the flange sits 0.35 to 0.45 mm behind the panel, so it never touches it. The three caps are the same part used three times. Name them Panel and Cap; nothing may interfere.",
+  "params": {},
+  "assertions": [
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "panel",
+      "kind": "occurrences",
+      "name": "panel",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "caps",
+      "kind": "occurrences",
+      "name": "cap*",
+      "expect": {
+        "eq": 3
+      }
+    },
+    {
+      "id": "cap-clones",
+      "kind": "same_definition",
+      "name": "cap*"
+    },
+    {
+      "id": "no-clash",
+      "kind": "fits",
+      "fit": "clash",
+      "expect": {
+        "eq": 0
+      }
+    },
+    {
+      "id": "cap-clearance",
+      "kind": "fits",
+      "fit": "clearance",
+      "a": "panel",
+      "b": "cap*",
+      "expect": {
+        "eq": 3
+      },
+      "gap": {
+        "min": 0.2,
+        "max": 0.3,
+        "tol": {
+          "abs": 1e-06
+        }
+      },
+      "note": "The plunger gap of each cap; the flange gap has its own range (flange-gap)."
+    },
+    {
+      "id": "flange-gap",
+      "kind": "fits",
+      "fit": "clearance",
+      "a": "panel",
+      "b": "cap*",
+      "gap": {
+        "min": 0.35,
+        "max": 0.45,
+        "tol": {
+          "abs": 1e-06
+        }
+      },
+      "expect": {
+        "eq": 3
+      },
+      "note": "The flange gap behind the panel of each cap. A flange that touches, or sits more than 0.5 mm back (not reported), fails."
+    },
+    {
+      "id": "panel-length",
+      "kind": "measure",
+      "quantity": "size_max",
+      "target": "panel",
+      "expect": {
+        "min": 79.99,
+        "max": 80.01
+      }
+    },
+    {
+      "id": "panel-height",
+      "kind": "measure",
+      "quantity": "size_mid",
+      "target": "panel",
+      "expect": {
+        "min": 29.99,
+        "max": 30.01
+      }
+    },
+    {
+      "id": "panel-thickness",
+      "kind": "measure",
+      "quantity": "size_min",
+      "target": "panel",
+      "expect": {
+        "min": 2.99,
+        "max": 3.01
+      }
+    }
+  ],
+  "reference": "reference.o3j.js",
+  "mutant": "mutant.o3j.js",
+  "mutant_defect": "At rest the cap flanges touch the back of the panel.",
+  "mutant_fails": [
+    "flange-gap"
+  ],
+  "more_mutants": [
+    {
+      "file": "mutant-wide-hole.o3j.js",
+      "defect": "The plunger clears its hole by 0.33 mm all round, just over the 0.3 mm limit, while the flange gap stays at 0.4 mm.",
+      "fails": [
+        "cap-clearance"
+      ]
+    }
+  ],
+  "tags": [
+    "multi-part",
+    "clones",
+    "clearance"
+  ],
+  "source": "original",
+  "licence": "MIT",
+  "authors": [
+    "neuraldeep.net design agents"
+  ]
+}
