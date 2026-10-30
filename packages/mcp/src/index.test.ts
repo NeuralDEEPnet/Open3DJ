@@ -1,7 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
-import { fileURLToPath } from "node:url";
 import { PACKAGE_STATUS, TOOL_DEFINITIONS, TOOL_NAMES, toolList } from "./index.ts";
 
 test("five tools with self-contained object schemas", () => {
@@ -41,7 +40,8 @@ test("tools/list stays small, and the slim output schemas accept every valid res
 });
 
 test("guardStdout sends every console method to stderr", () => {
-  const index = fileURLToPath(new URL("./index.ts", import.meta.url));
+  // A file URL, not a path: on Windows an absolute path like D:\\... is read as a URL with scheme "d:".
+  const index = new URL("./index.ts", import.meta.url).href;
   const code = `const { guardStdout } = await import(${JSON.stringify(index)}); guardStdout();
 console.log("log"); console.info("info"); console.debug("debug"); console.dir({ a: 1 }); console.table([1]); console.warn("warn");`;
   const r = spawnSync(process.execPath, ["--input-type=module", "-e", code], { encoding: "utf8" });

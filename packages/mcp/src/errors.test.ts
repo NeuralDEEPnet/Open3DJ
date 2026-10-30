@@ -17,7 +17,8 @@ test("an fs error names only the last path segment and its code", async () => {
     const out = toScriptError(e);
     assert.equal(out.code, "PROJECT_PATH");
     assert.doesNotMatch(JSON.stringify(out), /Jane|Doe|Designs|open3dj-errors/);
-    assert.match(out.message, /ENOTDIR/);
+    // Creating a folder under a file is ENOTDIR on Linux and macOS, and ENOENT on Windows.
+    assert.match(out.message, process.platform === "win32" ? /ENOENT/ : /ENOTDIR/);
     assert.match(out.message, /x\.o3j/);
     assert.ok(out.hint);
   } finally {
