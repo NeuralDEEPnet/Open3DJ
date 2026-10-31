@@ -265,8 +265,13 @@ if [ -n "$source_dir" ]; then
   [ -f "$source_dir/package.json" ] && [ -f "$source_dir/packages/open3dj/src/cli.ts" ] \
     || die "$source_dir is not an Open3DJ folder (no packages/open3dj/src/cli.ts)"
   # The copy would take in the old install (and the private Node) if the prefix were inside.
-  real_prefix="$prefix"
-  [ -d "$prefix" ] && real_prefix="$(cd "$prefix" && pwd -P)"
+  # Resolve the deepest folder that exists and keep the rest, so a prefix that is not made
+  # yet still compares as a real path (on macOS the temp folder /var is a link to /private/var).
+  real_prefix="$prefix"; rest=""
+  while [ ! -d "$real_prefix" ] && [ "$real_prefix" != "$(dirname "$real_prefix")" ]; do
+    rest="/$(basename "$real_prefix")$rest"; real_prefix="$(dirname "$real_prefix")"
+  done
+  real_prefix="$(cd "$real_prefix" && pwd -P)$rest"
   case "$real_prefix/" in
     "$source_dir/"*) die "the install folder $prefix is inside --source $source_dir. Choose a --prefix outside it." ;;
   esac

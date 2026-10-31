@@ -159,6 +159,16 @@ function Invoke-Open3DJInstaller {
     try { return (Test-Path -LiteralPath $File -PathType Leaf) -and ([IO.File]::ReadAllText($File).Contains($ShimTag)) } catch { return $false }
   }
   # True when $Child is $Parent or a folder inside it.
+  # Windows keeps a file busy for a moment after the program that used it exits, and virus
+  # scanners open new files briefly. A rename that fails is tried again for about ten seconds
+  # before the folder counts as in use. Returns $true when the rename happened.
+  function Rename-WithRetry([string]$Path, [string]$NewName, [int]$Tries = 20) {
+    for ($i = 1; $i -le $Tries; $i++) {
+      try { Rename-Item -LiteralPath $Path $NewName -ErrorAction Stop; return $true }
+      catch { if ($i -lt $Tries) { Start-Sleep -Milliseconds 500 } }
+    }
+    return $false
+  }
   function Test-Inside([string]$Child, [string]$Parent) {
     $c = $Child.TrimEnd('\'); $p = $Parent.TrimEnd('\')
     return (Test-SamePath $c $p) -or $c.StartsWith($p + '\', [StringComparison]::OrdinalIgnoreCase)
@@ -253,9 +263,9 @@ function Invoke-Open3DJInstaller {
     foreach ($name in 'node', 'app') {
       $p = Join-Path $dir $name
       if (-not (Test-Path -LiteralPath $p)) { continue }
-      try { Rename-Item -LiteralPath $p "$name.removing"; $renamed += $name }
-      catch {
-        foreach ($r in $renamed) { try { Rename-Item -LiteralPath (Join-Path $dir "$r.removing") $r } catch { } }
+      if (Rename-WithRetry $p "$name.removing") { $renamed += $name }
+      else {
+        foreach ($r in $renamed) { [void](Rename-WithRetry (Join-Path $dir "$r.removing") $r) }
         Fail 'Open3DJ is in use. Close programs that use it (an MCP client such as Claude Desktop, or a running open3dj view) and run this again. Nothing was removed.'
       }
     }
@@ -377,8 +387,7 @@ function Invoke-Open3DJInstaller {
           Expand-Zip $zip (Join-Path $tmp 'node')
           Remove-Tree (Join-Path $dir 'node.old')
           if (Test-Path -LiteralPath (Join-Path $dir 'node')) {
-            try { Rename-Item -LiteralPath (Join-Path $dir 'node') 'node.old' }
-            catch { Fail "the private Node is in use. Close programs that use Open3DJ (an MCP client such as Claude Desktop) and run this again." }
+            if (-not (Rename-WithRetry (Join-Path $dir 'node') 'node.old')) { Fail "the private Node is in use. Close programs that use Open3DJ (an MCP client such as Claude Desktop) and run this again." }
           }
           Move-Item -LiteralPath (Join-Path $tmp "node\node-$version-win-$arch") (Join-Path $dir 'node')
           Remove-Tree (Join-Path $dir 'node.old')
@@ -426,8 +435,7 @@ function Invoke-Open3DJInstaller {
     $old = Join-Path $dir 'app.old'
     Remove-Tree $old
     if (Test-Path -LiteralPath $app) {
-      try { Rename-Item -LiteralPath $app 'app.old' }
-      catch { Fail 'Open3DJ is in use. Close programs that use it (an MCP client such as Claude Desktop, or a running open3dj view) and run this again.' }
+      if (-not (Rename-WithRetry $app 'app.old')) { Fail 'Open3DJ is in use. Close programs that use it (an MCP client such as Claude Desktop, or a running open3dj view) and run this again.' }
     }
     Move-Item -LiteralPath $src $app
     $npmCli = Join-Path $nodeDir 'node_modules\npm\bin\npm-cli.js'

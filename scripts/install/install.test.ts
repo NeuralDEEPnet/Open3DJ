@@ -3,9 +3,9 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
-import { cpSync, existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { cpSync, existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, symlinkSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
-import { delimiter, dirname, join } from "node:path";
+import { delimiter, dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 import { mcpSmoke, PROTOCOL } from "./mcp-smoke.ts";
 
@@ -167,6 +167,16 @@ test("install.sh writes the PATH lines to the right profiles when HOME has space
     assert.equal(inside.status, 1);
     assert.match(inside.stderr, /is inside --source/);
     assert.ok(!existsSync(join(src, "inst")));
+
+    // The same through a symbolic link, as macOS has for its temp folder (/var -> /private/var):
+    // the prefix does not exist yet, so only its parent can be resolved.
+    const link = join(tmp, "linked");
+    symlinkSync(tmp, link);
+    const viaLink = join(link, relative(tmp, src));
+    const linked = spawnSync("sh", [SH, "--source", viaLink, "--prefix", join(viaLink, "inst-linked"), "--yes"], { cwd: run, encoding: "utf8", env });
+    assert.equal(linked.status, 1, linked.stdout + linked.stderr);
+    assert.match(linked.stderr, /is inside --source/);
+    assert.ok(!existsSync(join(src, "inst-linked")));
   } finally {
     rmSync(tmp, { recursive: true, force: true });
   }
@@ -202,8 +212,11 @@ for (const ps of shells.length ? shells : ["PowerShell"]) {
         inside: boolean[];
         shim: { private: string; nvm: string; percent: string; ascii: boolean; refused: string; asciiPreamble: number };
         run?: { output: string; exitCode: number };
+        retry: { free: boolean; busyFails?: boolean; renamesAfterClose?: boolean };
       };
-      assert.equal(out.functions.length, 9, out.functions.join(", "));
+      assert.equal(out.functions.length, 10, out.functions.join(", "));
+      assert.equal(out.retry.free, true, "Rename-WithRetry did not rename a free folder");
+      if (process.platform === "win32") assert.deepEqual([out.retry.busyFails, out.retry.renamesAfterClose], [true, true], "Rename-WithRetry on a busy folder");
       assert.deepEqual(out.trees.map((t) => t.name), odd);
       for (const t of out.trees) assert.deepEqual([t.linked, t.removed, t.siblingKept], [true, true, true], t.name);
       assert.ok(out.linkTargetKept, "Remove-Tree followed a link and deleted its target");

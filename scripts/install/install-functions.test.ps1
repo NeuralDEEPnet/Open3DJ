@@ -13,7 +13,7 @@ $ShimTag = 'Open3DJ command, written by the Open3DJ installer.'
 $errors = $null
 $ast = [System.Management.Automation.Language.Parser]::ParseFile($env:O3J_PS1, [ref]$null, [ref]$errors)
 if ($errors.Count) { throw "install.ps1 does not parse: $($errors[0].Message)" }
-$wanted = 'Fail', 'Remove-TreeChildren', 'Remove-Tree', 'Test-RefName', 'ConvertTo-CmdPath', 'New-CmdShimText', 'Test-Shim', 'Test-Inside', 'Test-SamePath'
+$wanted = 'Fail', 'Remove-TreeChildren', 'Remove-Tree', 'Test-RefName', 'ConvertTo-CmdPath', 'New-CmdShimText', 'Test-Shim', 'Test-Inside', 'Test-SamePath', 'Rename-WithRetry'
 $found = @()
 foreach ($f in $ast.FindAll({ param($n) $n -is [System.Management.Automation.Language.FunctionDefinitionAst] }, $true)) {
   if ($wanted -contains $f.Name) { . ([scriptblock]::Create($f.Extent.Text)); $found += $f.Name }
@@ -31,7 +31,8 @@ $out.trees = @()
 foreach ($odd in ($env:O3J_ODD -split '\|')) {
   $root = New-Dir (Join-Path $base $odd)
   # cmd.exe would split "a&b" at the '&' and delete "a": this sibling must survive.
-  $sibling = New-Dir (Join-Path $base (($odd -split '&')[0]))
+  # Windows drops trailing spaces and dots from folder names, as cmd.exe does with the name it splits off.
+  $sibling = New-Dir (Join-Path $base (($odd -split '&')[0].TrimEnd(' ', '.')))
   New-File (Join-Path $sibling 'still-here.txt') 'x'
   New-File (Join-Path $root '.open3dj-install') 'marker'
   $nm = New-Dir (Join-Path $root 'app\node_modules\@open3dj')
@@ -71,6 +72,16 @@ if ($IsWin) {
   } finally { $fs.Dispose() }
   Remove-Tree $busy
   $out.busy.removedAfterClose = -not (Test-Path -LiteralPath $busy)
+}
+
+# ---- Rename-WithRetry: a free folder renames; a busy one fails after its tries, then renames --
+$free = New-Dir (Join-Path $base 'rename-free')
+$out.retry = [ordered]@{ free = (Rename-WithRetry $free 'rename-free-done' 2) }
+if ($IsWin) {
+  $busyDir = New-Dir (Join-Path $base 'rename-busy')
+  $stream = [IO.File]::Open((Join-Path $busyDir 'held.txt'), 'Create', 'ReadWrite', 'None')
+  try { $out.retry.busyFails = -not (Rename-WithRetry $busyDir 'rename-busy-done' 2) } finally { $stream.Dispose() }
+  $out.retry.renamesAfterClose = (Rename-WithRetry $busyDir 'rename-busy-done' 2)
 }
 
 # ---- Test-RefName ---------------------------------------------------------------------------
