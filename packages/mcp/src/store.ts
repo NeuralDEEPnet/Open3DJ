@@ -10,6 +10,8 @@
 //     revisions/r_0001.json  one immutable record per revision (script, params, graph, report)
 //     out/r_0001/          renders and exports of a revision (git-ignored)
 //     .o3j-cache/          derived data such as detailed reports (git-ignored)
+//     .o3j-view/           what open3dj view shares with agents: the person's selection and
+//                          the agent's highlight (git-ignored, never part of a revision)
 //
 // Revisions are r_0001, r_0002, ... and only grow. Each record holds everything needed to
 // rebuild that revision, so render and export of an old revision re-run its own script.
@@ -33,6 +35,7 @@ export const FILES = Object.freeze({
   revisions: "revisions",
   out: "out",
   cache: ".o3j-cache",
+  view: ".o3j-view",
 });
 
 export type Engine = ProjectManifest["engine"];
@@ -95,7 +98,7 @@ export class ProjectStore {
     ensureProjectRoot(this.project);
     const m: ProjectManifest = { o3j: "0", name: this.project.name, units: "mm", up: "Z", engine };
     writeProjectFile(this.project, FILES.manifest, json(m));
-    if (readProjectFile(this.project, ".gitignore") === undefined) writeProjectFile(this.project, ".gitignore", `${FILES.out}/\n${FILES.cache}/\n${LOCK_FILE}\n`);
+    if (readProjectFile(this.project, ".gitignore") === undefined) writeProjectFile(this.project, ".gitignore", `${FILES.out}/\n${FILES.cache}/\n${FILES.view}/\n${LOCK_FILE}\n`);
     return m;
   }
 

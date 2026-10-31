@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { relative, sep } from "node:path";
 import { IMPORT_MAP, PACKAGE_STATUS, THREE_VERSION, WEB_DIR, escapeHtml, viewerAssets, viewerPage } from "./index.ts";
 
@@ -28,14 +28,28 @@ test("the package is ready and pins three", () => {
   assert.equal(THREE_VERSION, "0.186.1");
 });
 
-test("the asset table holds the page modules and four three.js files, all inside their folders", () => {
+test("the asset table holds the page modules and nine three.js files, all inside their folders", () => {
   const assets = viewerAssets();
-  for (const name of ["app/main.js", "app/glb.js", "app/scene.js", "app/camera.js", "app/fits.js", "app/viewer.css", "app/icon.svg", "vendor/three.module.js", "vendor/three.core.js", "vendor/three.webgpu.js", "vendor/OrbitControls.js"]) {
+  for (const name of [
+    "app/main.js", "app/glb.js", "app/scene.js", "app/camera.js", "app/fits.js", "app/faces.js", "app/measure.js", "app/analysis.js", "app/tools.js", "app/viewer.css", "app/icon.svg",
+    "vendor/three.module.js", "vendor/three.core.js", "vendor/three.webgpu.js", "vendor/OrbitControls.js", "vendor/addons/environments/RoomEnvironment.js",
+    "vendor/addons/lines/LineSegments2.js", "vendor/addons/lines/LineSegmentsGeometry.js", "vendor/addons/lines/LineMaterial.js", "vendor/addons/lines/webgpu/LineSegments2.js",
+  ]) {
     const a = assets.get(name);
     assert.ok(a, name);
     assert.ok(existsSync(a.file), name);
   }
-  assert.equal([...assets.keys()].filter((k) => k.startsWith("vendor/")).length, 4);
+  assert.equal([...assets.keys()].filter((k) => k.startsWith("vendor/")).length, 9);
+  // Every import map target is a served file, and the add-ons' relative imports land on served files too.
+  for (const target of Object.values(IMPORT_MAP.imports)) assert.ok(assets.has(target.replace(/^\.\//, "")), target);
+  for (const [name, a] of assets) {
+    if (!name.startsWith("vendor/addons/")) continue;
+    const text = readFileSync(a.file, "utf8");
+    for (const m of text.matchAll(/from\s+'(\.{1,2}\/[^']+)'/g)) {
+      const resolved = new URL(m[1]!, `http://x/${name}`).pathname.slice(1);
+      assert.ok(assets.has(resolved), `${name} imports ${m[1]} (${resolved}), which is not served`);
+    }
+  }
   for (const [name, a] of assets) {
     assert.doesNotMatch(name, /\.\.|\/\/|^\//, name);
     if (name.startsWith("app/")) assert.ok(!relative(WEB_DIR, a.file).includes(`..${sep}`), name);

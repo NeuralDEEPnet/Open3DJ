@@ -22,6 +22,9 @@ import exportOut from "../json/tool-export-output.schema.json" with { type: "jso
 import docsIn from "../json/tool-docs-input.schema.json" with { type: "json" };
 import docsOut from "../json/tool-docs-output.schema.json" with { type: "json" };
 import benchTask from "../json/bench-task.schema.json" with { type: "json" };
+import viewerSelection from "../json/viewer-selection.schema.json" with { type: "json" };
+import viewerSelectionInput from "../json/viewer-selection-input.schema.json" with { type: "json" };
+import viewerHighlight from "../json/viewer-highlight.schema.json" with { type: "json" };
 
 export type * from "./types.ts";
 export type { ValidationIssue, ValidationResult, JsonSchema, SchemaObject } from "./validator.ts";
@@ -66,6 +69,9 @@ export const SCHEMA_IDS = {
   "tool-docs-input": "urn:open3dj:v0:tool-docs-input",
   "tool-docs-output": "urn:open3dj:v0:tool-docs-output",
   "bench-task": "urn:open3dj:v0:bench-task",
+  "viewer-selection": "urn:open3dj:v0:viewer-selection",
+  "viewer-selection-input": "urn:open3dj:v0:viewer-selection-input",
+  "viewer-highlight": "urn:open3dj:v0:viewer-highlight",
 } as const;
 
 export type SchemaName = keyof typeof SCHEMA_IDS;
@@ -73,6 +79,7 @@ export type SchemaName = keyof typeof SCHEMA_IDS;
 const ALL: SchemaObject[] = [
   common, compute, deviceInventory, scriptError, geometryReport, provenance, project, assembly,
   runIn, runOut, inspectIn, inspectOut, renderIn, renderOut, exportIn, exportOut, docsIn, docsOut, benchTask,
+  viewerSelection, viewerSelectionInput, viewerHighlight,
 ];
 
 /** The registry holding every v0 schema. Built once; every $ref is checked at load. */

@@ -326,7 +326,7 @@ export interface RunOutput {
   compute: ComputeBlock;
 }
 
-export type InspectField = "tree" | "refs" | "fits" | "measure" | "devices" | "job";
+export type InspectField = "tree" | "refs" | "fits" | "measure" | "devices" | "job" | "selection";
 
 export interface InspectInput {
   project?: string;
@@ -372,11 +372,14 @@ export interface InspectOutput {
   placements?: Array<{ path: string; def: string; bbox: BBox }>;
   devices?: DeviceInventory;
   job?: JobStatus;
+  /** With fields [selection]: what the person selected in open3dj view. */
+  selection?: ViewerSelection;
   error?: ScriptError;
   compute: ComputeBlock;
 }
 
-export type RenderView = "multiview";
+/** multiview: a four-view hidden-line drawing. highlight: no image; points a running viewer at the targets. */
+export type RenderView = "multiview" | "highlight";
 export type RenderFormat = "png" | "svg" | "both";
 
 export interface RenderInput {
@@ -384,6 +387,8 @@ export interface RenderInput {
   rev?: Rev;
   view: RenderView;
   targets?: string[];
+  /** view highlight: a short message shown next to the highlight. */
+  note?: string;
   format?: RenderFormat;
   width?: number;
   height?: number;
@@ -439,4 +444,59 @@ export interface DocsOutput {
   hits: DocsHit[];
   /** A docs call with bad input: the problem, so an empty hit list is not read as "nothing documented". */
   error?: ScriptError;
+}
+
+// ---- viewer state shared with agents (open3dj view) ---------------------------------------
+
+/** Numbers read off the display mesh, in the definition's frame. Observed, never measured. */
+export interface ObservedElement {
+  area_mm2?: number;
+  length_mm?: number;
+  centroid?: Vec3;
+  normal?: Vec3;
+}
+
+/** What the viewer page sends to share its selection (POST api/selection). */
+export interface ViewerSelectionInput {
+  rev?: Rev;
+  items: Array<{ path: string; face?: number; edge_faces?: number[]; observed?: ObservedElement }>;
+}
+
+export interface ViewerSelectionItem {
+  path: string;
+  def: string;
+  kind: "occurrence" | "face" | "edge";
+  /** The occurrence path, or <path>@elem:face:<n>. Edges have none yet. */
+  address?: string;
+  /** A face: face:<n>. */
+  element?: string;
+  /** An edge: the faces it bounds. */
+  faces?: string[];
+  /** A named reference that resolves to this face: <definition>.<name>. */
+  ref?: string;
+  fingerprint?: RefFingerprint;
+  observed?: ObservedElement;
+}
+
+/** .o3j-view/selection.json, and inspect fields=[selection]. */
+export interface ViewerSelection {
+  rev?: Rev;
+  ts?: string;
+  source?: "viewer";
+  items: ViewerSelectionItem[];
+  /** inspect only. */
+  head?: Rev;
+  stale?: boolean;
+  note?: string;
+}
+
+/** .o3j-view/highlight.json, written by render view=highlight. */
+export interface ViewerHighlight {
+  id: string;
+  rev: Rev;
+  ts: string;
+  source: "render";
+  targets: Array<{ target: string; paths: string[]; element?: string }>;
+  note?: string;
+  truncated?: boolean;
 }

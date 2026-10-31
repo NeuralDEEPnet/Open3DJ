@@ -6,13 +6,13 @@ import type { ArtifactFormat, JobKind, JobRequest, JobResult } from "@open3dj/co
 import { ANALYSIS_VERSION, validate } from "@open3dj/schemas";
 import type {
   AssemblyFile, ComputeBlock, ComputeMode, DocsInput, DocsOutput, ExportOutput, GeometryReport, InspectOutput,
-  ParamValue, PartReport, ProvenanceLine, RefReport, RenderOutput, RunInput, RunOutput, ScriptError, ToolName,
+  ParamValue, PartReport, ProvenanceLine, RefReport, RenderInput, RenderOutput, RunInput, RunOutput, ScriptError, ToolName,
 } from "@open3dj/schemas";
 import { loadDocs, searchDocs } from "./docs.ts";
 import type { DocSection } from "./docs.ts";
 import { ToolError, toScriptError } from "./errors.ts";
 import { mergeEvidence } from "./evidence.ts";
-import { hashJson } from "./hash.ts";
+import { hashJson, sha256Hex } from "./hash.ts";
 import { JobTable } from "./jobs.ts";
 import { lockProject, projectKey, resolveProject, writeOutputs, safeSegments } from "./paths.ts";
 import { FILES, ProjectStore, STORE_ENTRIES, inputsHash, isKnownRev } from "./store.ts";
@@ -20,6 +20,7 @@ import type { Engine, RevisionRecord } from "./store.ts";
 import { placements, resolveTargets, tree } from "./tree.ts";
 import type { HandlerDeps, RenderResult, ToolHandlers } from "./types.ts";
 import { describeIssues } from "./validator.ts";
+import { HIGHLIGHT_FILE, buildHighlight, faceCounts, selectionForAgent, writeHighlight } from "./viewstate.ts";
 
 export const DEFAULT_INTERACTIVE_MS = 20_000;
 
@@ -233,10 +234,16 @@ export function createHandlers(deps: HandlerDeps): ToolHandlers {
           if (!job) throw new ToolError("JOB_NOT_FOUND", `no job ${input.job_id} in this daemon`, "Jobs live in the daemon's memory; a restarted daemon forgets them.");
           out.job = job;
         }
-        const projectFields = (["tree", "refs", "fits", "measure"] as const).filter((f) => fields.has(f));
+        const projectFields = (["tree", "refs", "fits", "measure", "selection"] as const).filter((f) => fields.has(f));
         if (projectFields.length === 0) return out;
         if (!input.project) throw new ToolError("PROJECT_REQUIRED", `fields ${projectFields.join(", ")} need a project`, "Pass project, for example \"bracket.o3j\". Only devices and job work without one.");
         const store = new ProjectStore(resolveProject(root, input.project));
+        // What the person selected in open3dj view: a small file, no revision needed.
+        if (fields.has("selection")) {
+          store.require();
+          out.selection = selectionForAgent(store);
+          if (projectFields.length === 1) return out;
+        }
         const rec = store.resolve(input.rev);
         out.rev = rec.rev;
         const targets = input.targets?.length ? resolveTargets(rec.assembly, input.targets) : undefined;
@@ -272,6 +279,7 @@ export function createHandlers(deps: HandlerDeps): ToolHandlers {
         checkInput("render", input);
         const store = new ProjectStore(resolveProject(root, input.project));
         const rec = store.resolve(input.rev);
+        if (input.view === "highlight") return highlight(store, rec, input);
         compute = place(input.compute, "render");
         const render: NonNullable<JobRequest["render"]> = { view: input.view, format: input.format ?? "png" };
         if (input.targets) render.targets = input.targets;
@@ -363,6 +371,22 @@ export function createHandlers(deps: HandlerDeps): ToolHandlers {
       jobs.cancelAll();
     },
   };
+
+  /**
+   * render view=highlight: no kernel job and no image. The targets go to .o3j-view/highlight.json,
+   * which a running open3dj view of the project picks up and shows the person.
+   */
+  function highlight(store: ProjectStore, rec: RevisionRecord, input: RenderInput): RenderResult {
+    const compute = noJob("view highlight: written for a running open3dj view; no drawing");
+    // Face numbers are checked when the revision's detailed report is at hand (no job for it).
+    const report = rec.detail === "detailed" ? rec.report : store.cachedReport(rec.rev);
+    const h = buildHighlight(rec, input.targets ?? [], input.note, faceCounts(report?.parts), now());
+    const bytes = writeHighlight(store, h);
+    const files = [{ path: HIGHLIGHT_FILE, format: "json", bytes: bytes.byteLength, sha256: sha256Hex(bytes) }];
+    const output: RenderOutput = { status: "ok", rev: rec.rev, view: "highlight", targets: h.targets.map((t) => t.target), files, compute };
+    provenance(store, "render", input, output, compute, { rev: rec.rev });
+    return { output, images: [] };
+  }
 
   function jobFor(kind: JobKind, rec: RevisionRecord, compute: ComputeBlock): JobRequest {
     return { kind, script: rec.script, params: rec.params, rev: rec.rev, compute, previous: rec.assembly };

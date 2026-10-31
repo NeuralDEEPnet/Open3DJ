@@ -1276,7 +1276,7 @@ Fix: Fix or delete the named file or folder by hand, or restore it from git.
 
 ### PROJECT_REQUIRED
 
-inspect fields tree, refs, fits and measure need a project.
+inspect fields tree, refs, fits, measure and selection need a project.
 
 Fix: Pass project; devices and job work without one.
 

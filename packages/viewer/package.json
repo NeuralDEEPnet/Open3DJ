@@ -15,5 +15,8 @@
   "dependencies": {
     "@open3dj/schemas": "0.0.0",
     "three": "0.186.1"
+  },
+  "devDependencies": {
+    "@open3dj/kernel": "0.0.0"
   }
 }

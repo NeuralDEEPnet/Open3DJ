@@ -26,6 +26,7 @@ A project is a folder whose name ends in `.o3j` (ARCHITECTURE.md section 8, S1 s
 | `revisions/r_0001.json` | One record per revision: script, params, inputs hash, engine, graph and report |
 | `out/<rev>/` | Renders and exports (git-ignored), with one `<name>.evidence.json` that lists every export of the revision in that folder. An earlier entry stays only while its file is on disk with the recorded hash |
 | `.o3j-cache/` | Detailed reports computed for `inspect` (git-ignored) |
+| `.o3j-view/` | What `open3dj view` shares with agents (git-ignored, never part of a revision): `selection.json`, the person's selection, which `inspect fields=[selection]` returns; `highlight.json`, what an agent points the viewer at with `render view=highlight`. Both are checked against their schema (`viewer-selection`, `viewer-highlight`) and the revision on every read and write (`src/viewstate.ts`) |
 
 - **Revisions** are `r_0001`, `r_0002`, ... and only grow. A run that succeeds creates the next revision. A run with the same script and parameters as the head, on the same engine, keeps the head revision. A failed run creates none.
 - **base_rev.** `run` with a `base_rev` that is not the head returns `REV_CONFLICT` and changes nothing. The check runs again at commit time under a per-project lock, so two runs racing from one base revision cannot both win. Without `base_rev`, a run builds on the head.

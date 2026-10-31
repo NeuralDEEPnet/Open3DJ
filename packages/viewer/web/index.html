@@ -28,6 +28,13 @@
     <button type="button" data-action="show-all" title="Show all hidden parts (Shift+H)">Show all</button>
     <button type="button" data-action="drawing" aria-pressed="false" title="Hidden-line drawing of this revision (D)">Drawing</button>
   </div>
+  <div class="group" aria-label="Tools">
+    <button type="button" data-action="section" aria-pressed="false" title="Section plane (S)">Section</button>
+    <button type="button" data-action="xray" aria-pressed="false" title="X-ray: see through the parts (X)">X-ray</button>
+    <button type="button" data-action="measure" aria-pressed="false" title="Measure faces, edges and distances (R)">Measure</button>
+    <button type="button" data-action="overlay" aria-pressed="false" title="Analysis overlay: off, overhang, draft (O)">Analysis</button>
+    <button type="button" data-action="screenshot" title="Save the view as a PNG (Shift+S)">PNG</button>
+  </div>
   <div class="group end">
     <label class="nav" title="Mouse navigation preset (N cycles)">Mouse
       <select id="nav-preset">
@@ -47,6 +54,13 @@
   </aside>
   <section class="viewport" id="viewport" aria-label="3D view">
     <div class="message" id="message" role="status">Loading the model...</div>
+    <div class="agent" id="agent" role="status" aria-live="polite" hidden>
+      <div class="agent-head"><span class="agent-dot" aria-hidden="true"></span><strong>Pointed at in this project</strong><span class="agent-rev" id="agent-rev"></span></div>
+      <p class="agent-source muted">From <code>render view=highlight</code>, usually your agent. Click a target to select and frame it.</p>
+      <ul class="agent-targets" id="agent-targets"></ul>
+      <p class="agent-note" id="agent-note" hidden></p>
+      <div class="agent-actions"><button type="button" id="agent-frame" title="Frame every target (A)">Frame</button><button type="button" id="agent-dismiss" title="Hide the agent's highlight (it stays in the project until the agent points again)">Dismiss</button></div>
+    </div>
     <div class="drawing" id="drawing" hidden>
       <p class="note" id="drawing-note"></p>
       <img id="drawing-img" alt="Hidden-line drawing: front, top, right and iso views">
@@ -56,6 +70,78 @@
     <section>
       <h2>Selection</h2>
       <div id="measure"><p class="muted">Click a part in the view or the tree.</p></div>
+      <div class="share" id="share">
+        <label class="check" title="Agents read what you select with inspect fields=[selection]"><input type="checkbox" id="share-on"> Share with agents</label>
+        <span class="share-state muted" id="share-state"></span>
+        <button type="button" id="share-clear" title="Clear the selection, here and for agents">Clear</button>
+      </div>
+    </section>
+    <section class="tools" aria-label="View tools">
+      <h2>View</h2>
+      <div class="tool">
+        <span class="label">Section</span>
+        <div class="seg" role="group" aria-label="Section plane">
+          <button type="button" data-section="off" aria-pressed="true">Off</button>
+          <button type="button" data-section="x" aria-pressed="false">X</button>
+          <button type="button" data-section="y" aria-pressed="false">Y</button>
+          <button type="button" data-section="z" aria-pressed="false">Z</button>
+        </div>
+        <input type="range" id="section-at" aria-label="Section position" disabled>
+        <span class="value fixed" id="section-value">off</span>
+        <label class="check" title="The side kept is chosen to face the camera when the section starts; this flips it"><input type="checkbox" id="section-flip"> Flip side</label>
+        <span class="value" id="section-side"></span>
+      </div>
+      <div class="tool">
+        <label class="label" for="explode">Explode</label>
+        <input type="range" id="explode" min="0" max="1.5" step="0.01" value="0" title="View only; parts that leave the view are framed again when you let go (F also frames)">
+        <span class="value fixed" id="explode-value">off</span>
+      </div>
+      <div class="tool">
+        <label class="label" for="overlay-kind">Analysis</label>
+        <select id="overlay-kind">
+          <option value="off">Off</option>
+          <option value="overhang">Overhang (3D print, build +Z)</option>
+          <option value="draft">Draft angle</option>
+        </select>
+        <div id="overhang-controls" hidden>
+          <label class="sub" for="overhang-limit">Limit past vertical</label>
+          <input type="range" id="overhang-limit" min="10" max="80" step="1" value="45">
+          <span class="value" id="overhang-value">45°</span>
+        </div>
+        <div id="draft-controls" hidden>
+          <label class="sub" for="draft-pull">Pull direction</label>
+          <select id="draft-pull">
+            <option value="+z">+Z</option><option value="-z">-Z</option><option value="+x">+X</option><option value="-x">-X</option><option value="+y">+Y</option><option value="-y">-Y</option>
+          </select>
+          <label class="sub" for="draft-min">Minimum draft</label>
+          <input type="range" id="draft-min" min="0" max="10" step="0.5" value="1">
+          <span class="value" id="draft-value">1°</span>
+        </div>
+        <ul class="legend" id="overlay-legend"></ul>
+        <p class="note muted" id="overlay-note" hidden><span class="tier preview">preview</span> Computed on the display mesh in this browser (areas observed). The CPU kernel decides gates of record.</p>
+      </div>
+      <details class="quality">
+      <summary>Quality and performance</summary>
+      <div class="tool grid2">
+        <label for="quality-dpr">Pixel ratio cap</label>
+        <select id="quality-dpr"><option value="1">1</option><option value="1.5">1.5</option><option value="2">2</option><option value="3">3</option></select>
+        <label for="quality-edges">Edges</label>
+        <select id="quality-edges"><option value="thin">Thin lines</option><option value="fat">Fat lines</option></select>
+        <label for="quality-batch">Batching</label>
+        <select id="quality-batch"><option value="auto">Auto</option><option value="on">BatchedMesh</option><option value="off">Instanced only</option></select>
+        <label for="quality-env">Environment light</label>
+        <input type="checkbox" id="quality-env">
+        <label for="quality-perf">Frame-time readout</label>
+        <input type="checkbox" id="quality-perf">
+        <label for="quality-adaptive">Lower resolution while moving</label>
+        <input type="checkbox" id="quality-adaptive">
+      </div>
+      </details>
+    </section>
+    <section id="measure-tools">
+      <h2>Measure</h2>
+      <div id="measure-result"></div>
+      <div class="measure-actions"><button type="button" data-action="measure">Measure</button><button type="button" id="measure-clear">Clear</button></div>
     </section>
     <section>
       <h2>Fits <span class="count" id="fits-count"></span></h2>
@@ -73,30 +159,42 @@
   <span id="status-compute"></span>
   <span id="status-renderer"></span>
   <span id="status-run"></span>
+  <span id="status-perf"></span>
   <span class="grow"></span>
   <span id="status-link" title="Live updates from open3dj view">connecting</span>
   <span class="muted">three.js {{THREE_VERSION}}</span>
 </footer>
 <div class="overlay" id="help" hidden role="dialog" aria-modal="true" aria-labelledby="help-title">
   <div class="card">
-    <h2 id="help-title">Keyboard and mouse</h2>
+    <h2 id="help-title" tabindex="-1">Keyboard and mouse</h2>
+    <div class="keys">
     <table>
       <tbody>
         <tr><td><kbd>F</kbd></td><td>Fit all; <kbd>Shift</kbd>+<kbd>F</kbd> fits the selection</td></tr>
         <tr><td><kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd></td><td>Front, top, right and iso views</td></tr>
         <tr><td><kbd>P</kbd></td><td>Perspective or orthographic</td></tr>
-        <tr><td><kbd>H</kbd></td><td>Hide the selection</td></tr>
-        <tr><td><kbd>Shift</kbd>+<kbd>H</kbd></td><td>Show all parts</td></tr>
+        <tr><td><kbd>H</kbd></td><td>Hide the selection; <kbd>Shift</kbd>+<kbd>H</kbd> shows all parts</td></tr>
         <tr><td><kbd>I</kbd></td><td>Isolate the selection, or leave isolation</td></tr>
         <tr><td><kbd>Esc</kbd></td><td>Clear the selection, leave isolation, close this help</td></tr>
         <tr><td><kbd>E</kbd> / <kbd>M</kbd></td><td>Edges / fit markers on or off</td></tr>
         <tr><td><kbd>D</kbd></td><td>Hidden-line drawing of this revision</td></tr>
-        <tr><td><kbd>C</kbd></td><td>Copy the selected occurrence path for an agent</td></tr>
-        <tr><td><kbd>N</kbd></td><td>Next mouse preset</td></tr>
-        <tr><td><kbd>T</kbd></td><td>Dark or light theme</td></tr>
+        <tr><td><kbd>C</kbd></td><td>Copy the picked face addresses (for example <code>screw#2@elem:face:7</code>), or the occurrence path</td></tr>
+        <tr><td><kbd>N</kbd> / <kbd>T</kbd></td><td>Next mouse preset / dark or light theme</td></tr>
+      </tbody>
+    </table>
+    <table>
+      <tbody>
+        <tr><td><kbd>S</kbd></td><td>Section plane on or off (axis, position and side in the View panel)</td></tr>
+        <tr><td><kbd>X</kbd></td><td>X-ray: see through the parts</td></tr>
+        <tr><td><kbd>R</kbd></td><td>Measure: click a face, an edge or a point, then a second one</td></tr>
+        <tr><td><kbd>O</kbd></td><td>Analysis overlay: off, overhang, draft</td></tr>
+        <tr><td><kbd>Shift</kbd>+<kbd>S</kbd></td><td>Save the view as a PNG</td></tr>
+        <tr><td><kbd>A</kbd></td><td>Frame what is pointed at; <kbd>Shift</kbd>+<kbd>A</kbd> dismisses it</td></tr>
         <tr><td><kbd>?</kbd></td><td>This help</td></tr>
       </tbody>
     </table>
+    </div>
+    <p class="muted">Shortcuts work while a slider or a checkbox has focus, and with Caps Lock on.</p>
     <h3>Mouse presets</h3>
     <table>
       <tbody>
@@ -105,7 +203,9 @@
         <tr><td>Onshape</td><td>Right drag orbits, middle drag (or <kbd>Ctrl</kbd>+right drag) pans, wheel zooms at the cursor</td></tr>
       </tbody>
     </table>
-    <p class="muted">A left click selects in every preset; <kbd>Ctrl</kbd>+click adds to the selection. Double-click a tree row to fit that part.</p>
+    <p class="muted">A left click selects the part and the face or edge under the cursor in every preset; <kbd>Shift</kbd>+click or <kbd>Ctrl</kbd>+click adds to the selection. On a part that is small on screen a click keeps the face; zoom in to pick its edges. Double-click a tree row to fit that part.</p>
+    <p class="muted">With "Share with agents" on, what you select (parts, and faces as element addresses) is saved in the project, where an agent reads it with <code>inspect fields=[selection]</code>. An agent can point at parts and faces with <code>render view=highlight</code>; they show in magenta <span class="swatch agent-swatch" aria-hidden="true"></span> with a note, without moving your view, until you dismiss them.</p>
+    <p class="muted">Labels: <span class="tier measured">measured</span> numbers come from the CPU kernel (the report); <span class="tier observed">observed</span> numbers are read off the display mesh; <span class="tier preview">preview</span> overlays show where to look, and the kernel decides.</p>
     <button type="button" data-action="help">Close</button>
   </div>
 </div>

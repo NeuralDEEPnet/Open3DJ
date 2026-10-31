@@ -67,6 +67,9 @@
     "devices": {
       "$ref": "urn:open3dj:v0:device-inventory"
     },
+    "selection": {
+      "$ref": "urn:open3dj:v0:viewer-selection"
+    },
     "job": {
       "$ref": "#/$defs/job"
     },

@@ -15,7 +15,7 @@ import { sha256Hex } from "./hash.ts";
 const NOFOLLOW = constants.O_NOFOLLOW ?? 0;
 const SEGMENT = /^[A-Za-z0-9_][A-Za-z0-9._#-]{0,127}$/;
 /** Hidden names the store itself uses; every other name must not start with a dot. */
-const STORE_NAMES = new Set([".gitignore", ".o3j-cache", ".o3j-lock"]);
+const STORE_NAMES = new Set([".gitignore", ".o3j-cache", ".o3j-lock", ".o3j-view"]);
 /** The lock file that serializes commits to one project across processes. */
 export const LOCK_FILE = ".o3j-lock";
 /** A lock file older than this belongs to a process that died while committing. */

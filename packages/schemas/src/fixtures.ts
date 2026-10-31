@@ -3,7 +3,7 @@
 import type {
   AssemblyFile, ComputeBlock, DeviceInventory, DocsInput, DocsOutput, ExportInput, ExportOutput,
   GeometryReport, InspectInput, InspectOutput, ProjectManifest, ProvenanceLine, RenderInput,
-  RenderOutput, RunInput, RunOutput, ScriptError,
+  RenderOutput, RunInput, RunOutput, ScriptError, ViewerHighlight, ViewerSelection, ViewerSelectionInput,
 } from "./types.ts";
 import type { SchemaName } from "./index.ts";
 
@@ -115,6 +115,23 @@ export const exportOut: ExportOutput = {
 export const docsIn: DocsInput = { query: "fillet", page: 1 };
 export const docsOut: DocsOutput = { query: "fillet", page: 1, pages: 1, hits: [{ title: "fillet(shape, r, query)", kind: "dsl", text: "Round edges." }] };
 
+export const viewerSelectionIn: ViewerSelectionInput = {
+  rev: "r_2",
+  items: [{ path: "base#1" }, { path: "base#1", face: 5, observed: { area_mm2: 1200, centroid: [30, 20, 30], normal: [0, 0, 1] } }, { path: "screw#2", edge_faces: [1, 3], observed: { length_mm: 9.4 } }],
+};
+export const viewerSelection: ViewerSelection = {
+  rev: "r_2", ts: "2026-10-31T12:00:00.000Z", source: "viewer",
+  items: [
+    { path: "base#1", def: "base", kind: "occurrence", address: "base#1" },
+    { path: "base#1", def: "base", kind: "face", element: "face:5", address: "base#1@elem:face:5", ref: "base.top", fingerprint: { type: "face", surface: "plane", area: 1200, centroid: [30, 20, 30], normal: [0, 0, 1], edges: 4 }, observed: { area_mm2: 1200 } },
+    { path: "screw#2", def: "screw", kind: "edge", faces: ["face:1", "face:3"] },
+  ],
+};
+export const viewerHighlight: ViewerHighlight = {
+  id: "0123456789abcdef", rev: "r_2", ts: "2026-10-31T12:00:00.000Z", source: "render",
+  targets: [{ target: "base#1@elem:face:5", paths: ["base#1"], element: "face:5" }, { target: "screw", paths: ["screw#1", "screw#2"] }], note: "the face to fillet",
+};
+
 export const VALID: Array<[SchemaName, unknown]> = [
   ["compute", compute], ["geometry-report", report], ["script-error", scriptError], ["device-inventory", devices],
   ["provenance", provenance], ["project", project], ["assembly", assembly],
@@ -123,6 +140,11 @@ export const VALID: Array<[SchemaName, unknown]> = [
   ["tool-render-input", renderIn], ["tool-render-output", renderOut],
   ["tool-export-input", exportIn], ["tool-export-output", exportOut],
   ["tool-docs-input", docsIn], ["tool-docs-output", docsOut],
+  ["tool-inspect-input", { project: "bracket.o3j", fields: ["selection"] }], ["tool-inspect-output", { status: "ok", selection: { ...viewerSelection, head: "r_3", stale: true }, compute }],
+  ["tool-inspect-output", { status: "ok", selection: { items: [] }, compute }],
+  ["tool-render-input", { project: "bracket.o3j", view: "highlight", targets: ["base#1@elem:face:5"], note: "here" }],
+  ["tool-render-output", { status: "ok", rev: "r_2", view: "highlight", targets: ["base#1"], files: [{ path: ".o3j-view/highlight.json", format: "json", bytes: 220, sha256: HASH }], compute }],
+  ["viewer-selection-input", viewerSelectionIn], ["viewer-selection-input", { items: [] }], ["viewer-selection", viewerSelection], ["viewer-highlight", viewerHighlight],
 ];
 
 const clone = <T>(v: T): T => structuredClone(v);
@@ -165,4 +187,13 @@ export const INVALID: Array<[SchemaName, unknown, string, string]> = [
   ["tool-export-input", { project: "p.o3j", format: "urdf" }, "/format", "urdf is an S6 format"],
   ["tool-export-output", with_(exportOut, (o) => { o.files![0]!.sha256 = "zz"; }), "/files/0/sha256", "sha256 format"],
   ["tool-docs-input", { query: "" }, "/query", "empty query"],
+  ["viewer-selection-input", { items: [{ path: "a", face: 0 }] }, "/items/0/face", "face numbers start at 1"],
+  ["viewer-selection-input", { items: [{ path: "a", def: "b" }] }, "/items/0/def", "the page cannot name the definition"],
+  ["viewer-selection-input", { items: [{ path: "a", edge_faces: [1, 2, 3] }] }, "/items/0/edge_faces", "an edge bounds at most two faces"],
+  ["viewer-selection-input", { items: Array.from({ length: 65 }, () => ({ path: "a" })) }, "/items", "at most 64 items"],
+  ["viewer-selection-input", { items: [{ path: "a", observed: { area_mm2: 1e300 } }] }, "/items/0/observed/area_mm2", "observed numbers are bounded"],
+  ["viewer-selection", with_(viewerSelection, (v) => { v.items[1]!.element = "face:0"; }), "/items/1/element", "face:0 is not an element address"],
+  ["viewer-highlight", with_(viewerHighlight, (v) => { v.note = "x".repeat(201); }), "/note", "note is bounded"],
+  ["viewer-highlight", with_(viewerHighlight, (v) => { v.id = "../../etc"; }), "/id", "id is 16 hex digits"],
+  ["tool-render-input", { project: "p.o3j", view: "highlight", note: "y".repeat(201) }, "/note", "note is bounded"],
 ];

@@ -133,6 +133,34 @@ test("path traversal never reaches a file outside the viewer assets", async () =
   assert.match(String(three.headers["content-type"]), /javascript/);
 });
 
+test("the three.js add-ons are served at their nested paths, with the nonce, and cannot climb out", async () => {
+  for (const path of ["vendor/addons/lines/LineSegments2.js", "vendor/addons/lines/webgpu/LineSegments2.js", "vendor/addons/lines/LineSegmentsGeometry.js", "vendor/addons/lines/LineMaterial.js", "vendor/addons/environments/RoomEnvironment.js", "app/faces.js", "app/tools.js"]) {
+    const ok = await get(`/${NONCE}/${path}`);
+    assert.equal(ok.status, 200, path);
+    assert.match(String(ok.headers["content-type"]), /javascript/, path);
+    assert.equal((await get(`/${path}`)).status, 404, `${path} without the nonce`);
+    assert.equal((await get(`/${NONCE}/${path}`, { host: "evil.example" })).status, 403, `${path} with a foreign Host`);
+    assert.equal((await get(`/${NONCE}/${path}`, { origin: "http://evil.example" })).status, 403, `${path} with a foreign Origin`);
+  }
+  for (const path of [
+    `/${NONCE}/vendor/addons/lines/../../../package.json`,
+    `/${NONCE}/vendor/addons/lines/..%2f..%2f..%2fpackage.json`,
+    `/${NONCE}/vendor/addons/lines/webgpu/%2e%2e/%2e%2e/%2e%2e/build/three.cjs`,
+    `/${NONCE}/vendor/addons/lines/Wireframe.js`,
+    `/${NONCE}/vendor/addons/controls/TransformControls.js`,
+    `/${NONCE}/vendor/addons/lines/LineSegments2.js%00.css`,
+  ]) {
+    const r = await get(path);
+    assert.ok([400, 404].includes(r.status), `${path} answered ${r.status}`);
+  }
+});
+
+test("the model JSON carries the kernel's face count per definition, which face addresses depend on", async () => {
+  const m = JSON.parse((await get(`/${NONCE}/api/model`)).body.toString()) as { parts: Array<{ def: string; counts?: { faces?: number } }> };
+  assert.ok(m.parts.length > 0);
+  for (const p of m.parts) assert.equal(typeof p.counts?.faces, "number", `${p.def} has a face count`);
+});
+
 test("the model JSON lists the tree and the report, and the GLB route returns binary glTF", async () => {
   const m = await get(`/${NONCE}/api/model`);
   assert.equal(m.status, 200);

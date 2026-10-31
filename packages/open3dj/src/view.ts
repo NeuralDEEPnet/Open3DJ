@@ -1,5 +1,5 @@
-// open3dj view: a read-only loopback HTTP server for the browser viewer (PLAN.md S2,
-// ARCHITECTURE.md sections 12 and 13).
+// open3dj view: a loopback HTTP server for the browser viewer (PLAN.md S2, ARCHITECTURE.md
+// sections 12 and 13). It never changes the design: GET and HEAD only, plus POST api/selection.
 //
 // Security, sized for a local single-user tool:
 // - It listens on 127.0.0.1 only.
@@ -8,16 +8,24 @@
 // - The Host header must name this loopback port (against DNS rebinding), and a request that
 //   carries an Origin must come from this page. Sec-Fetch-Site cross-site and same-site
 //   requests are refused too. There are no CORS headers, so other pages cannot read answers.
-// - Only GET and HEAD. The routes are a fixed table: the page, the viewer's own assets
-//   (@open3dj/viewer), and JSON, GLB and PNG made by the tool handlers from the project. A
-//   request path is never joined onto a folder, so it cannot name another file.
+// - GET and HEAD, plus one write: POST api/selection, which shares the person's selection with
+//   agents (.o3j-view/selection.json). It needs the page's own Origin (a missing Origin is
+//   refused too), Content-Type application/json, a Content-Length of 16 KiB or less, and passes
+//   a token-bucket rate limit; the body must match the viewer-selection-input schema and name
+//   parts and face numbers of a stored revision. It can write nothing else.
+// - The routes are a fixed table: the page, the viewer's own assets (@open3dj/viewer), and
+//   JSON, GLB and PNG made by the tool handlers from the project. A request path is never
+//   joined onto a folder, so it cannot name another file.
 //
 // It watches the script and runs it again on save (debounced), and polls the project head,
-// so a revision made by an agent through open3dj mcp shows up too. New revisions are
-// announced on a server-sent-events stream.
+// so a revision made by an agent through open3dj mcp shows up too. It also polls
+// .o3j-view/highlight.json, which render view=highlight writes from any process, and checks it
+// (schema, time and revision) before the page sees it. Both .o3j-view files are rebuilt from the
+// revision on every read, because any local process can write them. New revisions, runs, shared selections and
+// agent highlights are announced on a server-sent-events stream.
 import { spawn } from "node:child_process";
 import { randomBytes, timingSafeEqual } from "node:crypto";
-import { mkdtempSync, readFileSync, rmSync, watch, writeFileSync } from "node:fs";
+import { lstatSync, mkdtempSync, readFileSync, rmSync, watch, writeFileSync } from "node:fs";
 import type { FSWatcher } from "node:fs";
 import { createServer } from "node:http";
 import type { IncomingMessage, ServerResponse } from "node:http";
@@ -25,9 +33,9 @@ import type { AddressInfo } from "node:net";
 import { tmpdir } from "node:os";
 import { basename, dirname, join } from "node:path";
 import { pathToFileURL } from "node:url";
-import { FILES, ProjectStore, resolveProject, toScriptError } from "@open3dj/mcp";
+import { FILES, HIGHLIGHT_FILE, MAX_HIGHLIGHT_BYTES, MAX_VIEW_STATE_BYTES, ProjectStore, ToolError, buildSelection, faceCounts, readHighlight, readSelection, resolveProject, toScriptError, writeSelection } from "@open3dj/mcp";
 import type { ToolHandlers } from "@open3dj/mcp";
-import type { FitReport, ParamValue, PartReport, RunOutput, ScriptError, TreeNode } from "@open3dj/schemas";
+import type { FitReport, ParamValue, PartReport, RunOutput, ScriptError, TreeNode, ViewerHighlight, ViewerSelection } from "@open3dj/schemas";
 import { viewerAssets, viewerPage } from "@open3dj/viewer";
 
 export interface ViewServerOptions {
@@ -54,6 +62,10 @@ export interface ViewServerOptions {
   onRun?: (run: RunState, out?: RunOutput) => void;
   /** Diagnostics. Default: stderr. */
   log?: (line: string) => void;
+  /** Rate limit of POST api/selection: a bucket of burst requests, refilled at perSecond. Default 20 and 5. */
+  selectionRate?: { burst: number; perSecond: number };
+  /** Clock for the shared selection's time stamp; tests pin it. */
+  now?: () => Date;
 }
 
 export interface RunState {
@@ -105,6 +117,8 @@ const SECURITY_HEADERS: Record<string, string> = {
 
 const REV = /^r_\d{1,7}$/;
 const CACHE_REVS = 8;
+/** A highlight older than this is not sent to a page that connects later. */
+const HIGHLIGHT_FRESH_MS = 15 * 60 * 1000;
 
 class HttpError extends Error {
   readonly status: number;
@@ -135,6 +149,12 @@ export async function startViewServer(o: ViewServerOptions): Promise<ViewServer>
   let port = 0;
   let allowedHosts = new Set<string>();
   let allowedOrigins = new Set<string>();
+  const now = o.now ?? (() => new Date());
+  const rate = o.selectionRate ?? { burst: 20, perSecond: 5 };
+  let tokens = rate.burst;
+  let refilled = Date.now();
+  let highlightKey = "";
+  let highlight: ViewerHighlight | undefined;
 
   function safeHead(): string | undefined {
     try {
@@ -298,7 +318,33 @@ export async function startViewServer(o: ViewServerOptions): Promise<ViewServer>
   } catch (e) {
     log(`open3dj view: cannot watch ${basename(scriptFile)}: ${(e as Error).message}`);
   }
-  const poll = setInterval(checkHead, o.pollMs ?? 1000);
+  /** Read .o3j-view/highlight.json when its size or time changed; announce a new, valid one. */
+  function checkHighlight(): void {
+    let key: string;
+    try {
+      const st = lstatSync(join(dir, ...HIGHLIGHT_FILE.split("/")));
+      key = st.isFile() && st.size <= MAX_HIGHLIGHT_BYTES ? `${st.size}:${st.mtimeMs}` : "";
+    } catch {
+      key = "";
+    }
+    if (key === highlightKey) return;
+    highlightKey = key;
+    const h = key ? readHighlight(store) : undefined;
+    if (!h || h.id === highlight?.id) return;
+    highlight = h;
+    broadcast("highlight", h);
+  }
+  highlightKey = "";
+  try {
+    // A highlight already there when the viewer starts is shown only while it is fresh.
+    checkHighlight();
+  } catch {
+    // Nothing to show.
+  }
+  const poll = setInterval(() => {
+    checkHead();
+    checkHighlight();
+  }, o.pollMs ?? 1000);
   poll.unref();
   const heartbeat = setInterval(() => {
     for (const c of clients) c.write(": ping\n\n");
@@ -326,9 +372,9 @@ export async function startViewServer(o: ViewServerOptions): Promise<ViewServer>
     if (origin !== undefined && !allowedOrigins.has(origin)) return text(res, req, 403, "refused: cross-origin request");
     const site = req.headers["sec-fetch-site"];
     if (site === "cross-site" || site === "same-site") return text(res, req, 403, "refused: cross-site request");
-    if (req.method !== "GET" && req.method !== "HEAD") {
+    if (req.method !== "GET" && req.method !== "HEAD" && req.method !== "POST") {
       res.setHeader("Allow", "GET, HEAD");
-      return text(res, req, 405, "refused: the viewer is read-only");
+      return text(res, req, 405, "refused: GET and HEAD only, plus POST api/selection");
     }
     const raw = (req.url ?? "/").split("?")[0]!;
     if (!raw.startsWith("/")) return text(res, req, 400, "bad request");
@@ -347,6 +393,13 @@ export async function startViewServer(o: ViewServerOptions): Promise<ViewServer>
     if (parts.some((p) => p === "." || p === ".." || /[\\/\0]/.test(p) || p.startsWith("."))) return text(res, req, 400, "refused: path");
     const route = parts.join("/");
 
+    if (req.method === "POST") {
+      if (route !== "api/selection") {
+        res.setHeader("Allow", "GET, HEAD");
+        return text(res, req, 405, "refused: GET and HEAD only, plus POST api/selection");
+      }
+      return postSelection(req, res);
+    }
     if (route === "") return send(res, req, 200, "text/html; charset=utf-8", page.html, { "Content-Security-Policy": page.csp });
     const asset = assets.get(route);
     if (asset) return send(res, req, 200, asset.type, readFileSync(asset.file));
@@ -357,6 +410,7 @@ export async function startViewServer(o: ViewServerOptions): Promise<ViewServer>
       return json(res, req, 200, { ...m, head, run });
     }
     if (route === "api/events") return events(req, res);
+    if (route === "api/selection") return json(res, req, 200, readSelection(store) ?? { items: [] });
     const m = /^api\/rev\/([^/]+)\/(model\.glb|drawing\.png)$/.exec(route);
     if (m) {
       const rev = m[1]!;
@@ -373,9 +427,66 @@ export async function startViewServer(o: ViewServerOptions): Promise<ViewServer>
       res.end();
       return;
     }
-    res.write(`retry: 2000\n\nevent: hello\ndata: ${JSON.stringify({ rev: safeHead() ?? null, run })}\n\n`);
+    const hello: { rev: string | null; run: RunState; highlight?: ViewerHighlight } = { rev: safeHead() ?? null, run };
+    // readHighlight refused a time in the future, so the age is never negative here.
+    const age = highlight ? Date.now() - Date.parse(highlight.ts) : Number.POSITIVE_INFINITY;
+    if (highlight && age >= 0 && age < HIGHLIGHT_FRESH_MS) hello.highlight = highlight;
+    res.write(`retry: 2000\n\nevent: hello\ndata: ${JSON.stringify(hello)}\n\n`);
     clients.add(res);
     req.on("close", () => clients.delete(res));
+  }
+
+  // ---- the one write: the person's selection, shared with agents --------------------------
+
+  function takeToken(): boolean {
+    const t = Date.now();
+    tokens = Math.min(rate.burst, tokens + ((t - refilled) / 1000) * rate.perSecond);
+    refilled = t;
+    if (tokens < 1) return false;
+    tokens -= 1;
+    return true;
+  }
+
+  async function postSelection(req: IncomingMessage, res: ServerResponse): Promise<void> {
+    // A write needs the page's own Origin: browsers always send it on a POST fetch, so a
+    // request without one did not come from the page.
+    if (!allowedOrigins.has(req.headers.origin ?? "")) return text(res, req, 403, "refused: a write needs this page's Origin");
+    const site = req.headers["sec-fetch-site"];
+    if (site !== undefined && site !== "same-origin") return text(res, req, 403, "refused: cross-site request");
+    const type = String(req.headers["content-type"] ?? "").split(";")[0]!.trim().toLowerCase();
+    if (type !== "application/json") return text(res, req, 415, "refused: send application/json");
+    if (req.headers["transfer-encoding"] !== undefined || req.headers["content-length"] === undefined) return text(res, req, 411, "refused: a Content-Length is required");
+    const length = Number(req.headers["content-length"]);
+    if (!Number.isInteger(length) || length < 0) return text(res, req, 400, "bad request");
+    if (length > MAX_VIEW_STATE_BYTES) return text(res, req, 413, `refused: the body is over ${MAX_VIEW_STATE_BYTES} bytes`);
+    if (!takeToken()) {
+      res.setHeader("Retry-After", "1");
+      return text(res, req, 429, "refused: too many selection updates; try again in a second");
+    }
+    const body = await readBody(req, MAX_VIEW_STATE_BYTES);
+    let input: unknown;
+    try {
+      input = JSON.parse(body.toString("utf8"));
+    } catch {
+      return json(res, req, 400, { error: { code: "BAD_INPUT", message: "the body is not JSON" } });
+    }
+    const head = safeHead();
+    if (!head) return json(res, req, 409, { error: { code: "NO_REVISION", message: "there is no revision to select in yet" } });
+    const asked = input && typeof input === "object" ? (input as { rev?: unknown }).rev : undefined;
+    const rev = typeof asked === "string" && REV.test(asked) ? asked : head;
+    let sel: ViewerSelection;
+    try {
+      const rec = store.resolve(rev);
+      // Face numbers are checked against the kernel's face counts: the detailed measures the page shows.
+      const model = await modelFor(rev);
+      sel = buildSelection(rec, input, faceCounts(model.parts), now());
+    } catch (e) {
+      const err = toScriptError(e);
+      return json(res, req, e instanceof ToolError && err.code !== "INTERNAL_ERROR" ? 400 : 500, { error: { code: err.code, message: err.message } });
+    }
+    writeSelection(store, sel);
+    broadcast("selection", sel);
+    return json(res, req, 200, sel);
   }
 
   const server = createServer((req, res) => {
@@ -388,6 +499,7 @@ export async function startViewServer(o: ViewServerOptions): Promise<ViewServer>
     });
   });
   server.headersTimeout = 10_000;
+  server.requestTimeout = 30_000;
 
   await new Promise<void>((resolveListen, reject) => {
     server.once("error", reject);
@@ -461,4 +573,23 @@ export function openBrowser(url: string, log: (line: string) => void, launch: La
     log("open3dj view: could not start a browser; open the URL by hand");
   }
   return { file, cleanup };
+}
+
+/** The request body, at most limit bytes (the Content-Length was checked before). */
+function readBody(req: IncomingMessage, limit: number): Promise<Buffer> {
+  return new Promise((resolveBody, reject) => {
+    const chunks: Buffer[] = [];
+    let size = 0;
+    req.on("data", (c: Buffer) => {
+      size += c.byteLength;
+      if (size > limit) {
+        reject(new HttpError(413, `refused: the body is over ${limit} bytes`));
+        req.destroy();
+        return;
+      }
+      chunks.push(c);
+    });
+    req.on("end", () => resolveBody(Buffer.concat(chunks)));
+    req.on("error", reject);
+  });
 }

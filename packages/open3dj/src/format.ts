@@ -106,6 +106,12 @@ export function formatInspect(out: InspectOutput): string {
     lines.push(out.refs.length ? "refs:" : "refs: none");
     for (const r of out.refs) lines.push(formatRef(r));
   }
+  if (out.selection) {
+    const sel = out.selection;
+    const where = [sel.stale ? "stale" : "", sel.head && sel.head !== sel.rev ? `head ${sel.head}` : ""].filter(Boolean).join("; ");
+    lines.push(sel.items.length ? `selection (${sel.rev ?? "?"}${where ? `, ${where}` : ""}):` : "selection: none");
+    for (const i of sel.items) lines.push(`  ${i.address ?? `${i.path}: the edge between ${(i.faces ?? []).join(" and ")}`}${i.ref ? ` (${i.ref})` : ""}`);
+  }
   if (out.devices) lines.push(formatDevices(out.devices));
   if (out.job) lines.push(`job ${out.job.job_id}: ${out.job.state}${out.job.rev ? ` (${out.job.rev})` : ""}${out.job.reason ? `: ${out.job.reason}` : ""}`);
   return `${lines.join("\n")}\n`;

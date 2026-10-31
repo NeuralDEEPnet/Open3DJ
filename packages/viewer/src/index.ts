@@ -36,12 +36,21 @@ const TYPES: Record<string, string> = {
 /** Published name of a page module: lower case, digits and dashes, one known extension. */
 const SAFE = /^[a-z0-9][a-z0-9-]*\.(js|css|svg)$/;
 
-/** The three.js files the page imports, by published name. Nothing else of three is served. */
+/**
+ * The three.js files the page imports, by published name. Nothing else of three is served. The
+ * add-ons keep their folder layout under addons/, so their relative imports (the WebGPU
+ * LineSegments2 imports ../LineSegmentsGeometry.js) resolve to files in this table.
+ */
 const VENDOR: Record<string, string> = {
   "three.core.js": "build/three.core.js",
   "three.module.js": "build/three.module.js",
   "three.webgpu.js": "build/three.webgpu.js",
   "OrbitControls.js": "examples/jsm/controls/OrbitControls.js",
+  "addons/environments/RoomEnvironment.js": "examples/jsm/environments/RoomEnvironment.js",
+  "addons/lines/LineSegments2.js": "examples/jsm/lines/LineSegments2.js",
+  "addons/lines/LineSegmentsGeometry.js": "examples/jsm/lines/LineSegmentsGeometry.js",
+  "addons/lines/LineMaterial.js": "examples/jsm/lines/LineMaterial.js",
+  "addons/lines/webgpu/LineSegments2.js": "examples/jsm/lines/webgpu/LineSegments2.js",
 };
 
 /** The import map the page uses. Paths are relative to the page, which lives at /<nonce>/. */
@@ -50,6 +59,11 @@ export const IMPORT_MAP = Object.freeze({
     three: "./vendor/three.module.js",
     "three/webgpu": "./vendor/three.webgpu.js",
     "three/addons/controls/OrbitControls.js": "./vendor/OrbitControls.js",
+    "three/addons/environments/RoomEnvironment.js": "./vendor/addons/environments/RoomEnvironment.js",
+    "three/addons/lines/LineSegments2.js": "./vendor/addons/lines/LineSegments2.js",
+    "three/addons/lines/LineSegmentsGeometry.js": "./vendor/addons/lines/LineSegmentsGeometry.js",
+    "three/addons/lines/LineMaterial.js": "./vendor/addons/lines/LineMaterial.js",
+    "three/addons/lines/webgpu/LineSegments2.js": "./vendor/addons/lines/webgpu/LineSegments2.js",
   },
 });
 

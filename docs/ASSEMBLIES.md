@@ -35,7 +35,7 @@ Status: assembly design of record from 28 Oct 2026, paired with [PLAN.md](PLAN.m
 - **Occurrence ids** are UUIDv7 and never change. Renames keep the id.
 - **Paths** are built from names: `handheld/pcb_assy/led#1`. Agents may write paths; the daemon resolves them to ids when it accepts the write.
 - **Connector paths** add the connector name: `top_shell#1.boss_2`.
-- **Element addresses** (faces, edges) use the `@elem:` form from [ARCHITECTURE.md](ARCHITECTURE.md) section 9, prefixed by the occurrence path.
+- **Element addresses** (faces, edges) use the `@elem:` form from [ARCHITECTURE.md](ARCHITECTURE.md) section 9, prefixed by the occurrence path: `<path>@elem:face:<n>`, for example `lid@elem:face:5` or `pcb_assy/standoff#2@elem:face:3`, where `face:<n>` is the kernel's face number in the definition (1-based, as in `refs`). In S2 the viewer gives faces this form; edges have no address yet (the display mesh does not carry the kernel's edge numbers), so the viewer names an edge by the faces it bounds.
 
 ### 2.3 Transforms
 
@@ -309,7 +309,8 @@ Ops apply atomically against `base_rev`. `replace_definition` keeps mates whose 
 - **Tree** (S2): occurrence paths with status icons for reference state, mate status and fits; isolate, hide and section.
 - **Fit list:** click a row to highlight the pair and fly to it; declared fits shown separately.
 - **DOF:** free motions drawn as arrows on hover; conflicting mates in red with their residual.
-- **Picking:** GPU picking copies an element address for the agent.
+- **Picking:** picking gives an element address for the agent (S2: a CPU ray cast; `C` copies it).
+- **Shared selection and agent highlights** (S2): what the person selects is shared with agents (`inspect fields=[selection]`: occurrence, element address, a named reference and its fingerprint when one resolves to that face, observed numbers, revision); an agent points at parts and faces with `render view=highlight`, and the viewer tints and frames them with the agent's note until the person dismisses it ([ARCHITECTURE.md](ARCHITECTURE.md) sections 9 and 12).
 - **Exploded slider** (S4, read-only); **step editor** (S5, the first page write with the approval panel, through `run` with `base_rev` and the page nonce); motion scrubber (S6).
 - **BOM table** with part numbers (S4).
 - **Approvals** (S5): design freeze shows the BOM, fit table, declared fits and waivers with their hashes. Approval is on the nonce page, never via MCP.

@@ -7,7 +7,7 @@
   "properties": {
     "status": { "enum": ["ok", "error"] },
     "rev": { "$ref": "urn:open3dj:v0:common#/$defs/rev" },
-    "view": { "enum": ["multiview"] },
+    "view": { "enum": ["multiview", "highlight"] },
     "targets": { "type": "array", "items": { "type": "string" } },
     "files": { "type": "array", "items": { "$ref": "urn:open3dj:v0:common#/$defs/fileRef" } },
     "error": { "$ref": "urn:open3dj:v0:script-error" },

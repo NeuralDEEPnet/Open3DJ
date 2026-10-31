@@ -17,6 +17,14 @@
   --ok: #15803d;
   --bad: #c0262d;
   --kbd: #e3e7ec;
+  --measure: #e8590c;
+  --agent: #c026d3;
+  --pick: #0b3fa8;
+  --ov-ok: #9aa5b1;
+  --ov-bad: #e03131;
+  --ov-bed: #1c7ed6;
+  --ov-neg: #f59f00;
+  --ov-pos: #2f9e44;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
@@ -37,6 +45,14 @@
     --ok: #4ade80;
     --bad: #ff6b6b;
     --kbd: #2a3038;
+    --measure: #ff922b;
+    --agent: #e879f9;
+    --pick: #a5c8ff;
+    --ov-ok: #7d8794;
+    --ov-bad: #ff6b6b;
+    --ov-bed: #4dabf7;
+    --ov-neg: #fcc419;
+    --ov-pos: #51cf66;
     color-scheme: dark;
   }
 }
@@ -57,6 +73,14 @@
   --ok: #4ade80;
   --bad: #ff6b6b;
   --kbd: #2a3038;
+  --measure: #ff922b;
+  --agent: #e879f9;
+  --pick: #a5c8ff;
+  --ov-ok: #7d8794;
+  --ov-bad: #ff6b6b;
+  --ov-bed: #4dabf7;
+  --ov-neg: #fcc419;
+  --ov-pos: #51cf66;
   color-scheme: dark;
 }
 
@@ -175,6 +199,11 @@ h2 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: 
 .kv { display: grid; grid-template-columns: auto 1fr; gap: 3px 10px; margin: 0; }
 .kv dt { color: var(--muted); }
 .kv dd { margin: 0; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+/* The measure result: each label (often a long element address) on its own line, its value below. */
+.stack { margin: 0; }
+.stack dt { color: var(--muted); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 6px; }
+.stack dt:first-child { margin-top: 0; }
+.stack dd { margin: 1px 0 0; font-variant-numeric: tabular-nums; overflow-wrap: break-word; }
 .measure-actions { margin-top: 8px; display: flex; gap: 6px; flex-wrap: wrap; }
 
 .fits li {
@@ -225,7 +254,7 @@ h2 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: 
   border: 1px solid var(--border);
   border-radius: 10px;
   padding: 16px 20px;
-  max-width: 560px;
+  max-width: 880px;
   width: 100%;
   max-height: 100%;
   overflow: auto;
@@ -235,6 +264,70 @@ h2 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: 
 .overlay td { padding: 4px 6px; vertical-align: top; }
 .overlay td:first-child { white-space: nowrap; width: 1%; }
 
+.tools .tool { display: grid; grid-template-columns: 1fr auto; gap: 4px 8px; align-items: center; margin-bottom: 12px; }
+.tools .tool > .label, .tools .tool > .seg, .tools .tool > .check, .tools .tool > select, .tools .tool > div, .tools .tool > .legend, .tools .tool > .note { grid-column: 1 / -1; }
+.tools .tool > div:not(.seg) { display: grid; grid-template-columns: 1fr auto; gap: 4px 8px; align-items: center; }
+.tools .tool > div .sub, .tools .tool > div select { grid-column: 1 / -1; }
+.tools .label { color: var(--muted); }
+.tools .value { color: var(--muted); font-variant-numeric: tabular-nums; min-width: 4.5em; text-align: right; }
+.tools .value.fixed { min-width: 9em; white-space: nowrap; }
+.tools input[type="range"] { width: 100%; margin: 0; accent-color: var(--accent); }
+.tools .check { display: flex; gap: 6px; align-items: center; color: var(--muted); }
+.tools .grid2 { grid-template-columns: 1fr auto; }
+.tools .grid2 label { color: var(--muted); }
+.seg { display: flex; gap: 0; }
+.seg button { border-radius: 0; flex: 1; }
+.seg button:first-child { border-radius: 6px 0 0 6px; }
+.seg button:last-child { border-radius: 0 6px 6px 0; }
+.seg button + button { margin-left: -1px; }
+.legend { list-style: none; margin: 4px 0 0; padding: 0; }
+.legend li { display: grid; grid-template-columns: 14px 1fr auto; gap: 6px; align-items: center; padding: 2px 0; }
+.legend .swatch { width: 12px; height: 12px; border-radius: 3px; border: 1px solid var(--border); }
+.legend .value { font-size: 11px; }
+.note { font-size: 11px; margin: 6px 0 0; }
+.tier { display: inline-block; white-space: nowrap; font-size: 10px; line-height: 1; padding: 2px 4px; border-radius: 4px; border: 1px solid var(--border); text-transform: uppercase; letter-spacing: 0.03em; vertical-align: 1px; }
+.tier.measured { color: var(--ok); border-color: var(--ok); }
+.tier.observed { color: var(--muted); }
+.tier.preview { color: var(--contact); border-color: var(--contact); }
+#measure-tools.active h2 { color: var(--accent); }
+.quality summary { cursor: pointer; color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; margin: 4px 0 8px; }
+code { font: 11px/1 ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+/* What an agent points at (render view=highlight). */
+.agent {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 3;
+  max-width: min(360px, calc(100% - 24px));
+  padding: 10px 12px;
+  border: 1px solid var(--agent);
+  border-left-width: 4px;
+  border-radius: 6px;
+  background: var(--panel);
+  color: var(--text);
+  box-shadow: 0 4px 16px rgb(0 0 0 / 18%);
+  font-size: 13px;
+}
+.agent[hidden] { display: none; }
+.agent-head { display: flex; align-items: center; gap: 6px; }
+.agent-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--agent); flex: none; }
+.agent-rev { color: var(--muted); margin-left: auto; font-size: 12px; }
+.agent-targets { margin: 6px 0 0; padding: 0; list-style: none; max-height: 120px; overflow: auto; }
+.agent-targets li { margin: 2px 0; }
+.agent-targets button { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; overflow-wrap: anywhere; text-align: left; width: 100%; border-color: var(--agent); }
+.agent-source { margin: 4px 0 0; font-size: 12px; }
+.agent-swatch { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--agent); vertical-align: -1px; }
+/* Tree rows of what is pointed at: a ring in the agent colour around the part's swatch. */
+[role="treeitem"].agent-target .swatch { box-shadow: 0 0 0 2px var(--agent); }
+.keys { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
+@media (max-width: 760px) { .keys { grid-template-columns: 1fr; } }
+.agent-note { margin: 6px 0 0; overflow-wrap: anywhere; }
+.agent-actions { display: flex; gap: 6px; margin-top: 8px; }
+.share { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin-top: 8px; font-size: 12px; }
+.share-state { flex: 1 1 auto; min-width: 0; overflow-wrap: anywhere; }
+.share-state.bad { color: var(--bad); }
+
 @media (max-width: 900px) {
   body { overflow: auto; grid-template-rows: auto auto auto; }
   .layout { grid-template-columns: minmax(0, 1fr); grid-template-rows: 60vh auto auto; }
@@ -242,3 +335,6 @@ h2 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: 
   #tree-panel, #side-panel { border: none; border-top: 1px solid var(--border); max-height: none; }
   .toolbar .end { margin-left: 0; }
 }
+.tools [hidden] { display: none !important; }
+/* The help heading takes the focus when the help opens (so the card starts at its top); it is not a control. */
+#help-title:focus { outline: none; }

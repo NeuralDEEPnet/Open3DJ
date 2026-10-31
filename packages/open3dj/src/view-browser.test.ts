@@ -25,14 +25,32 @@ interface Page {
   evaluate<T, A = undefined>(fn: (arg: A) => T, arg?: A): Promise<T>;
   locator(selector: string): { count(): Promise<number>; getAttribute(name: string): Promise<string | null> };
   mouse: { click(x: number, y: number): Promise<void> };
+  keyboard: { press(key: string): Promise<void> };
+  focus(selector: string): Promise<void>;
+  waitForTimeout(ms: number): Promise<void>;
   screenshot(options: { path: string }): Promise<unknown>;
   on(event: string, fn: (e: { message?: string }) => void): void;
 }
 interface Browser { newPage(options: object): Promise<Page>; close(): Promise<void> }
 /** What the page functions below touch. They run in the browser (Playwright passes functions, never strings, so the page CSP holds). */
+interface FaceFacts { face: number; address: string | null; area: number; planar: boolean; normal?: number[]; centre: number[] }
 interface ViewerWindow {
-  document: { documentElement: { dataset: Record<string, string> }; getElementById(id: string): { textContent: string } | null };
-  open3dj: { state(): { rev: string; renderer: string; parts: number; selected: string[] }; projectPath(path: string): { x: number; y: number } | null };
+  document: {
+    documentElement: { dataset: Record<string, string> };
+    getElementById(id: string): { textContent: string; hidden: boolean; scrollTop: number; querySelector(s: string): { scrollTop: number } | null } | null;
+    querySelector(s: string): { getAttribute(name: string): string | null } | null;
+    activeElement: { id: string } | null;
+    dispatchEvent(e: unknown): boolean;
+  };
+  KeyboardEvent: new (type: string, init: object) => unknown;
+  open3dj: {
+    state(): { rev: string; renderer: string; parts: number; selected: string[]; elements: Array<{ address: string | null; text: string }> };
+    projectPath(path: string): { x: number; y: number } | null;
+    faces(path: string): FaceFacts[];
+    pointOnFace(path: string, face: number): { x: number; y: number } | null;
+    tools(options: object): { section: { axis: string } | null; explode: number; overlay: Record<string, number> | null };
+    perf(): { frames: number; drawCalls: number; scene: { addressedDefinitions: number; definitions: number } };
+  };
 }
 interface Playwright { chromium: { launch(options: { args: string[] }): Promise<Browser> } }
 
@@ -44,7 +62,7 @@ function loadPlaywright(): Playwright | string {
   }
 }
 
-test("the viewer shows examples/enclosure: 6 occurrences, and a click selects a screw", { timeout: 180_000 }, async (t) => {
+test("the viewer shows examples/enclosure: 6 occurrences, a click selects a screw, and a click on a face gives its element address", { timeout: 180_000 }, async (t) => {
   const pw = loadPlaywright();
   if (typeof pw === "string") return t.skip(pw);
   let browser: Browser;
@@ -86,6 +104,72 @@ test("the viewer shows examples/enclosure: 6 occurrences, and a click selects a 
     const measure = await page.evaluate(() => (globalThis as unknown as ViewerWindow).document.getElementById("measure")?.textContent ?? "");
     assert.match(measure, /Screw/);
     assert.match(measure, /mm³/);
+
+    // Element addresses: every definition's faces line up with the kernel's face count.
+    const perf = await page.evaluate(() => (globalThis as unknown as ViewerWindow).open3dj.perf());
+    assert.equal(perf.scene.addressedDefinitions, perf.scene.definitions);
+    // Click the lid's top face (the highest planar face that looks up) and read its address.
+    const lidFaces = await page.evaluate(() => (globalThis as unknown as ViewerWindow).open3dj.faces("lid"));
+    const top = lidFaces.filter((f) => f.planar && (f.normal?.[2] ?? 0) > 0.99).sort((a, b) => b.centre[2]! - a.centre[2]!)[0];
+    assert.ok(top, "the lid has an upward planar face");
+    assert.equal(top.centre[2], 36, "the lid top is at z = 36 mm, as in the report's bounding box");
+    const onFace = await page.evaluate(([path, face]) => (globalThis as unknown as ViewerWindow).open3dj.pointOnFace(path, face), ["lid", top.face] as [string, number]);
+    assert.ok(onFace, "a visible point on the lid top");
+    await page.mouse.click(onFace.x, onFace.y);
+    await page.waitForFunction(() => (globalThis as unknown as ViewerWindow).open3dj.state().elements.length === 1, null, { timeout: 10_000 });
+    const element = (await page.evaluate(() => (globalThis as unknown as ViewerWindow).open3dj.state())).elements[0]!;
+    assert.equal(element.address, `lid@elem:face:${top.face + 1}`);
+    const faceCount = Number(/(\d+) faces/.exec(await page.evaluate(() => (globalThis as unknown as ViewerWindow).document.getElementById("measure")?.textContent ?? ""))?.[1]);
+    assert.equal(lidFaces.length, faceCount, "as many faces as the kernel counts for the lid");
+    assert.ok(top.face + 1 <= faceCount);
+
+    // The view tools run without errors: section, explode and the overhang preview.
+    const applied = await page.evaluate(() => (globalThis as unknown as ViewerWindow).open3dj.tools({ section: { axis: "y", t: 0.5 }, explode: 0.6, overlay: { kind: "overhang", limitDeg: 45 } }));
+    assert.equal(applied.section?.axis, "y");
+    assert.equal(applied.explode, 0.6);
+    assert.ok((applied.overlay?.bed ?? 0) > 0, "the base and the screws' undersides rest on the bed");
+    assert.deepEqual(errors, []);
+
+    // A click on a section cap selects the part that was cut, not a face hidden behind the cap.
+    await page.evaluate(() => (globalThis as unknown as ViewerWindow).open3dj.tools({ section: { axis: "z", at: 30 }, explode: 0, overlay: null }));
+    await page.keyboard.press("2");
+    await page.waitForTimeout(1200);
+    for (const screw of ["screw#1", "screw#3"]) {
+      const cap = await page.evaluate((path) => (globalThis as unknown as ViewerWindow).open3dj.projectPath(path), screw);
+      assert.ok(cap, `${screw} is in the scene`);
+      await page.mouse.click(cap.x, cap.y);
+      await page.waitForTimeout(150);
+      const s = await page.evaluate(() => (globalThis as unknown as ViewerWindow).open3dj.state());
+      assert.deepEqual(s.selected, [screw], `a click on the cap of ${screw} selected ${JSON.stringify(s.selected)} ${JSON.stringify(s.elements)}`);
+      assert.deepEqual(s.elements.map((e) => e.address), [], "a cap has no face address");
+    }
+
+    // Shortcuts work after a slider or a checkbox had focus, and they follow Shift, not the letter case.
+    const pressed = (action: string) => page.evaluate((a) => (globalThis as unknown as ViewerWindow).document.querySelector(`[data-action="${a}"]`)?.getAttribute("aria-pressed") ?? null, action);
+    await page.focus("#explode");
+    await page.keyboard.press("x");
+    assert.equal(await pressed("xray"), "true", "X toggles x-ray while the explode slider has focus");
+    await page.keyboard.press("x");
+    await page.focus("#share-on");
+    await page.keyboard.press("Escape");
+    assert.deepEqual((await page.evaluate(() => (globalThis as unknown as ViewerWindow).open3dj.state())).selected, [], "Esc clears the selection while a checkbox has focus");
+    assert.equal(await pressed("section"), "true");
+    // Caps Lock: "S" without Shift is the section key, not the screenshot.
+    await page.evaluate(() => {
+      const w = globalThis as unknown as ViewerWindow;
+      w.document.dispatchEvent(new w.KeyboardEvent("keydown", { key: "S", shiftKey: false, bubbles: true }));
+    });
+    assert.equal(await pressed("section"), "false", "S with Caps Lock turns the section off");
+
+    // The help opens at the top, with the focus on its heading.
+    await page.keyboard.press("?");
+    const help = await page.evaluate(() => {
+      const d = (globalThis as unknown as ViewerWindow).document;
+      return { hidden: d.getElementById("help")?.hidden, top: d.getElementById("help")?.querySelector(".card")?.scrollTop, focus: d.activeElement?.id };
+    });
+    assert.deepEqual(help, { hidden: false, top: 0, focus: "help-title" });
+    await page.keyboard.press("Escape");
+    assert.deepEqual(errors, []);
 
     const shots = process.env.OPEN3DJ_VIEWER_SHOTS;
     const out = shots ? join(shots, "enclosure-selected.png") : join(dir, "enclosure-selected.png");

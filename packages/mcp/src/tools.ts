@@ -50,13 +50,13 @@ export const TOOL_DEFINITIONS: Readonly<Record<ToolName, ToolDefinition>> = Obje
   inspect: def(
     "inspect",
     "Inspect a design or this machine",
-    "Read details without changing anything: the assembly tree, references, fits, measurements of chosen targets, or the compute devices of this machine (devices needs no project). fields: tree, refs, fits, measure (with targets), devices, job (with job_id, to poll a queued run).",
+    "Read details without changing anything. fields: tree, refs, fits, measure (of targets), devices (this machine; no project), job (job_id of a queued run), selection (what the person clicked in open3dj view).",
     reads,
   ),
   render: def(
     "render",
     "Render a four-view drawing",
-    "Render the assembly or chosen parts as a deterministic four-view hidden-line drawing (front, top, right, iso) with overall dimensions. Returns the PNG as image content (format png, the default), the SVG as an embedded resource (format svg), or both, and writes them under out/<rev>/ in the project.",
+    "Render the assembly or chosen parts as a deterministic four-view hidden-line drawing (front, top, right, iso) with overall dimensions: PNG image content (format png, the default), an SVG embedded resource (svg), or both, written under out/<rev>/. view highlight: no image; points a live open3dj view at targets (or <path>@elem:face:<n>).",
     writes(true),
   ),
   export: def(
