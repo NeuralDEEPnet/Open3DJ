@@ -81,6 +81,7 @@ Status: pipeline of record from 28 Oct 2026, paired with [PLAN.md](PLAN.md), [AR
 - **Human approves:** CMF, checked against physical sample chips recorded in the prototype record as "measured".
 - **Tools:** `run ops=[{op: "set_cmf"}]`; `render view=cmf`; `export format=gltf` with `KHR_materials_variants`.
 - **Evidence:** CMF sheet, variant renders with scene hash and renderer version.
+- **Display only:** materials a person sets up by hand in Blender after a hand-off to Blender ([BLENDER.md](BLENDER.md)) are for looks. `cmf.o3j.json` stays the CMF of record, and a Blender image is never evidence of a physical finish.
 - **Open source:** Cycles inside an official Blender build, run in background mode (`blender -b`) as a GPL subprocess from the user's install or an on-demand download (Cycles code is Apache-2.0; the Cycles repository publishes no binaries, so Open3DJ does not build it, [ARCHITECTURE.md](ARCHITECTURE.md) section 11); glTF. No Pantone libraries: users attach their own reference names to numeric colours. STEP exports carry colours, but colours did not read back on STEP import in the spike ([ASSEMBLIES.md](ASSEMBLIES.md) section 12), so the CMF sheet, not STEP colour, is the supplier's reference.
 - **Compute:** Cycles on CUDA, OptiX, HIP, oneAPI or Metal, otherwise Cycles on the CPU; a cloud render only with approval. Official Blender builds cover Windows x64 and ARM64, macOS arm64 and Linux x64; on Linux ARM64 a `cmf` render needs a distribution's Blender package (to verify), otherwise CMF review uses the viewer's glTF material variants.
 
@@ -96,6 +97,7 @@ Status: pipeline of record from 28 Oct 2026, paired with [PLAN.md](PLAN.md), [AR
 - **Agent:** renders multiview, section, highlight, exploded (S4) and motion (S6) views for its own checks and CI, and photoreal views from S9. Each render records revision, view, CMF variant and backend.
 - **Human approves:** picks hero renders; sharing them is the human's act.
 - **Tools and open source:** `render`; the viewer (S2); occt-wasm HLR, three.js r186 `WebGPURenderer`, Cycles.
+- **Hand off to Blender:** a person or an agent opens a checked revision's GLB in the user's own Blender for look development and presentation renders; parts keep their Open3DJ ids as custom properties ([BLENDER.md](BLENDER.md)). Those images are display only, like every render here.
 - **Compute:** HLR on the CPU (byte-identical, record); viewer on WebGPU, then WebGL2, then the CPU HLR image view; Cycles on the GPU or CPU.
 
 ### 3.9 Prototyping (ID-0; gates S3, loop S5)

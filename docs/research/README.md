@@ -38,10 +38,11 @@ A completeness review of the draft plan found gaps. These notes answer them and 
 | [gap-7.md](gap-7.md) | Adoption baselines for comparable CAD and 3D agent packages |
 | [gap-8.md](gap-8.md) | Developer OS share, and native versus WASM OCCT performance |
 | [gap-9.md](gap-9.md) | Code signing eligibility, CADGenBench scores, Apple fees, 3dj MCP inputs |
+| [gap-10.md](gap-10.md) | Blender integration: MCP servers, licences, importer behaviour and CVEs |
 
 ## Lean re-plan notes (28 Oct 2026)
 
-Written under the founder's constraints (no paid engineers, small releases, Kaizen, an industrial design pipeline, CPU and GPU compute). They are newer than the reports and gap notes above and feed the lean [PLAN.md](../PLAN.md).
+Written under the founder's constraints (no paid engineers, small releases, Kaizen, an industrial design pipeline, CPU and GPU compute). They are newer than the reports and gap-1 to gap-9 above and feed the lean [PLAN.md](../PLAN.md).
 
 | Note | Topic |
 |---|---|

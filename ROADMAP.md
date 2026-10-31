@@ -2,7 +2,7 @@
 
 This is the public roadmap: where Open3DJ is going, what each step ships, and how you can help with each one, as a person or with your AI agent. The full plan, with metrics, exit criteria and the reasons behind each decision, is [docs/PLAN.md](docs/PLAN.md). If this page and PLAN.md disagree, PLAN.md wins; please open an issue so we can fix this page.
 
-Last updated: 2026-10-29.
+Last updated: 2026-10-31.
 
 ## Where we are going
 
@@ -38,6 +38,8 @@ Every design is an assembly, from a single bracket to a product with enclosure h
 | [S10](#s10-molding-dfm-id-3) | Molding DFM (ID-3) | Later | Injection-molding rule checks before a molder sees the part |
 | [S11](#s11-engineering-and-validation-id-4) | Engineering and validation (ID-4) | Later | A mate solver, tolerance stacks and simulation |
 | [S12](#s12-handoff-and-rfq-id-5) | Handoff and RFQ (ID-5) | Later | Drawings, AP242 and a pack suppliers can quote from |
+
+**Side lane, not a step: Hand off to Blender** (works with Blender, and with Blender's official MCP server for agents). GLB exports now carry stable part ids, and [docs/BLENDER.md](docs/BLENDER.md) shows people, and agents that also run Blender Lab's MCP server, how to open a checked revision in Blender for materials, lighting and renders. For this hand-off, Blender is a separate GPL program you install yourself. Nobody has run the import in a real Blender yet: if you have Blender 5.2.3 or newer, try section 2 of the guide and tell us what you see ([docs/PLAN.md](docs/PLAN.md) section 7).
 
 ## What works today
 
@@ -217,6 +219,7 @@ These wait on a trigger, written down in [docs/PLAN.md](docs/PLAN.md) section 7.
 - A desktop app, installers and auto-update, when users ask for them.
 - A public leaderboard, gallery site and browser playground, once the bench is stable and a volunteer owns them.
 - Scan to CAD, a sketcher, sheet metal, CAM and more process profiles, when a named project needs them.
+- Further steps for handing designs off to Blender, each when its trigger fires: a reload add-on that keeps your Blender materials across CAD changes, render-quality meshes, a true-size layout, CAD face ids, USD, and a Blender selection that agents can read.
 
 Never: telemetry by default, a restricted model as a default, GPL or AGPL code inside the process, automatic ordering, a verdict of record from GPU output, or a GPU path without a CPU path.
 
