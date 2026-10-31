@@ -154,8 +154,47 @@ export function writeProjectFile(project: ProjectDir, relPath: string, data: str
     }
     return target;
   }
-  renameSync(tmp, target);
+  try {
+    renameWithRetry(tmp, target);
+  } catch (e) {
+    rmSync(tmp, { force: true });
+    throw e;
+  }
   return target;
+}
+
+/** Error codes Windows gives while another process holds the target of a rename open. */
+const RENAME_BUSY = new Set(["EPERM", "EACCES", "EBUSY"]);
+
+/**
+ * renameSync that waits for readers on Windows. Windows refuses to replace a file that another
+ * process has open, even for the moment of a read, with EPERM, EACCES or EBUSY. Those codes are
+ * tried again with a growing wait, for up to retryMs in all. Other codes, and every code on
+ * other systems (where EPERM is a real permission error), throw at once.
+ */
+export function renameWithRetry(
+  from: string,
+  to: string,
+  options: { platform?: NodeJS.Platform; retryMs?: number; rename?: (from: string, to: string) => void; sleep?: (ms: number) => void } = {},
+): void {
+  const { platform = process.platform, retryMs = 3_000, rename = renameSync, sleep = sleepSync } = options;
+  let waited = 0;
+  for (let delay = 1; ; delay = Math.min(delay * 2, 100)) {
+    try {
+      rename(from, to);
+      return;
+    } catch (e) {
+      const code = (e as NodeJS.ErrnoException).code;
+      if (platform !== "win32" || code === undefined || !RENAME_BUSY.has(code) || waited >= retryMs) throw e;
+    }
+    sleep(delay);
+    waited += delay;
+  }
+}
+
+/** Blocks the thread for ms milliseconds; writeProjectFile is synchronous. */
+function sleepSync(ms: number): void {
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
 }
 
 /**
