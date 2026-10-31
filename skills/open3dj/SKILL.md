@@ -15,8 +15,8 @@ Units are millimetres. Z is up. Angles are degrees.
 | Tool | Use it to | Key inputs |
 |---|---|---|
 | `run` | Run a script (or change a parameter) and get the report | `project` (a folder ending in `.o3j`), `script`, `params`, `base_rev`, `ops: [{op: "set_param", name, value}]`, `save_params`, `detail` |
-| `inspect` | Read without changing anything | `fields`: `tree`, `refs`, `fits`, `measure` (with `targets`), `devices`, `job` (with `job_id`) |
-| `render` | See it: a four-view hidden-line drawing | `view: "multiview"`, `targets`, `format: "png"` or `"svg"` |
+| `inspect` | Read without changing anything | `fields`: `tree`, `refs`, `fits`, `measure` (with `targets`), `devices`, `job` (with `job_id`), `selection` (what the person clicked in `open3dj view`) |
+| `render` | See it: a four-view hidden-line drawing, or point the person's viewer at parts | `view: "multiview"`, `targets`, `format: "png"` or `"svg"`; `view: "highlight"` with `targets` and an optional `note` |
 | `export` | Write files under `out/<rev>/` with one evidence sidecar per revision | `format`: `step`, `stl`, `gltf` or `3mf`; `scope` for one sub-assembly or occurrence |
 | `docs` | Look up a DSL entry, a `lib` part, an error code or an example | `query`, for example `"fillet"`, `"lib.bolt"`, `"DSL_BAD_ARGUMENT"` |
 
@@ -34,6 +34,11 @@ The CLI calls the same handlers: `npx open3dj run part.o3j.js`, `npx open3dj ren
 Parameters: `params` and `set_param` values are saved to the project's working copy (`params.o3j.json`), and later runs of the same script use them. Pass `save_params: false` to try a value without saving it. A different script starts from its own defaults, and the report says which stored values it did not use (a change to `//` comments or blank lines only keeps them).
 
 A run longer than 20 s returns `status: "queued"` with a `job_id`. Poll `inspect {fields: ["job"], job_id}`.
+
+When the person has `open3dj view` open on the same project, you can work on the same thing:
+
+- `inspect {project, fields: ["selection"]}` returns the parts and faces they clicked, with addresses such as `lid@elem:face:5`. If `stale` is true, the selection belongs to an older revision. A selection is what was clicked, never an approval.
+- `render {project, view: "highlight", targets: ["lid@elem:face:5", "screw#2"], note: "this lip is 0.25 mm"}` marks those parts or faces in their viewer. It runs nothing and returns no image.
 
 ## DSL essentials
 

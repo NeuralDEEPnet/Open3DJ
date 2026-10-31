@@ -78,13 +78,14 @@ export function parseCommand(argv: string[]): Parsed {
       return { command, json: values.json };
     }
     case "render": {
-      const { values, positionals } = parse(rest, { ...COMMON, ...PARAMS, ...REV, targets: { type: "string" }, format: { type: "string" }, view: { type: "string", default: "multiview" }, out: { type: "string", short: "o" }, width: { type: "string" }, height: { type: "string" } });
+      const { values, positionals } = parse(rest, { ...COMMON, ...PARAMS, ...REV, targets: { type: "string" }, format: { type: "string" }, view: { type: "string", default: "multiview" }, note: { type: "string" }, out: { type: "string", short: "o" }, width: { type: "string" }, height: { type: "string" } });
       if (values.help) return help("render");
       const source = sourceOf(positionals, values.project, "render needs a script or project, for example: open3dj render bracket.o3j");
       const format = (values.format ?? (values.out?.endsWith(".svg") ? "svg" : values.out?.endsWith(".png") ? "png" : "both")) as RenderFormat;
       const input: RenderInput = { project: source.project, view: values.view as RenderInput["view"], format };
       if (values.rev) input.rev = values.rev;
       if (values.targets) input.targets = list(values.targets);
+      if (values.note !== undefined) input.note = values.note;
       if (values.width) input.width = int(values.width, "--width");
       if (values.height) input.height = int(values.height, "--height");
       const command: Command = { cmd: "render", input, source, params: parseParams(values.param ?? []), saveParams: !values["no-save-params"] };

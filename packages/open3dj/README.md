@@ -16,9 +16,9 @@ node packages/open3dj/src/cli.ts export bracket.o3j --format step --out exports
 | Command | Does |
 |---|---|
 | `run <script.o3j.js \| project.o3j> [--param k=v] [--no-save-params] [--base-rev r] [--detailed]` | Runs the script and prints the report, including named faces and edges (`refs`). A script file keeps its project next to it (`part.o3j.js` uses `part.o3j/`). A project runs its `main.o3j.js`. `--param` values are saved to the project's `params.o3j.json`, and the CLI prints `saved params: ...` when that file changes; `--no-save-params` runs with the values but keeps the file as it was. |
-| `render <script \| project> [--targets a,b] [--format png\|svg\|both] [--out file.png] [--rev r]` | Four-view drawing, written under `out/<rev>/`; `--out` also copies it. |
+| `render <script \| project> [--view multiview\|highlight] [--targets a,b] [--format png\|svg\|both] [--out file.png] [--rev r]` | Four-view drawing, written under `out/<rev>/`; `--out` also copies it. `--view highlight --targets lid@elem:face:5,screw#2` draws nothing and points a running `open3dj view` of the project at the targets (`--note "text"` adds a short message, 200 characters at most). |
 | `export <script \| project> --format step\|stl\|glb\|3mf [--scope path] [--out dir] [--rev r]` | Files under `out/<rev>/`, and the evidence sidecar, which lists every export of that revision in that folder; `--out` also copies them. `glb` and `gltf` are the same format. |
-| `inspect [<script \| project>] [--fields tree,refs,fits,measure,devices,job] [--targets ...] [--job id]` | Reads details; `devices` needs no project. |
+| `inspect [<script \| project>] [--fields tree,refs,fits,measure,devices,job,selection] [--targets ...] [--job id]` | Reads details; `devices` needs no project. `selection` is what the person selected in `open3dj view` (element addresses such as `lid@elem:face:5`), rebuilt from its revision. |
 | `docs <query> [--page n]` | Searches docs/DSL.md. |
 | `view <script \| project> [--port n] [--no-open] [--param k=v]` | The browser viewer ([packages/viewer](../viewer/README.md)) on `http://127.0.0.1:<port>/<nonce>/`. Runs the script, then runs it again on every save, and shows each new revision, including revisions an agent makes in the same project. Stops on Ctrl+C. |
 | `new <name> [--template part\|assembly]` | Creates `<name>.o3j` with a starter script that runs as it is. |
@@ -42,4 +42,4 @@ Set `OPEN3DJ_VERBOSE=1` to see the workers' kernel output on stderr.
 ## Not yet
 
 - `bin` points at `src/cli.ts`. Node does not strip types under `node_modules`, so a published package needs a JavaScript entry or a build step first.
-- `render --view highlight`, inspect fields `params` and `errors`, and run ops other than `set_param` and `cancel_job` arrive in later steps.
+- Inspect fields `params` and `errors`, and run ops other than `set_param` and `cancel_job` arrive in later steps.

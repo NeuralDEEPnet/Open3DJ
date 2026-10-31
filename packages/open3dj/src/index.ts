@@ -39,8 +39,10 @@ export const USAGE = `open3dj ${VERSION}: agent-first CAD. Every design is an as
 Usage:
   open3dj run <script.o3j.js|project.o3j> [--param name=value ...] [--no-save-params] [--base-rev r_0001] [--detailed] [--json]
   open3dj render <script|project> [--targets lid,screw#2] [--format png|svg|both] [--out file.png] [--rev r_0001]
+  open3dj render <script|project> --view highlight --targets lid@elem:face:5,screw#2 [--note text]
+                                                   point a running open3dj view at parts or faces
   open3dj export <script|project> --format step|stl|glb|3mf [--scope path] [--out dir] [--rev r_0001]
-  open3dj inspect [<script|project>] [--fields tree,refs,fits,measure,devices,job] [--targets a,b] [--job id]
+  open3dj inspect [<script|project>] [--fields tree,refs,fits,measure,devices,job,selection] [--targets a,b] [--job id]
   open3dj docs <query> [--page n]
   open3dj view <script|project> [--port n] [--no-open] [--param name=value ...]
                                                    browser viewer on 127.0.0.1; re-runs the script on save

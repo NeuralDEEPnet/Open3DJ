@@ -55,6 +55,10 @@ test("arguments become valid tool inputs (CLI parity)", () => {
   }
   const render = parseCommand(["render", "x.o3j", "--out", "drawing.svg"]).command;
   assert.ok(render.cmd === "render" && render.input.format === "svg" && render.out === "drawing.svg");
+  const highlight = parseCommand(["render", "x.o3j", "--view", "highlight", "--targets", "lid@elem:face:5,screw#2", "--note", "check this lip"]).command;
+  assert.ok(highlight.cmd === "render" && highlight.input.view === "highlight" && highlight.input.note === "check this lip");
+  assert.deepEqual(highlight.input.targets, ["lid@elem:face:5", "screw#2"]);
+  assert.ok(validate("tool-render-input", highlight.input).valid);
   const glb = parseCommand(["export", "x.o3j.js", "--format", "glb"]).command;
   assert.ok(glb.cmd === "export" && glb.input.format === "gltf" && glb.source.kind === "script");
   assert.deepEqual(parseCommand(["mcp", "--root", "/work"]).command, { cmd: "mcp", root: "/work" });
