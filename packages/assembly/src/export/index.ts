@@ -55,7 +55,12 @@ export function exportArtifacts(kernel: KernelAdapter, asm: Assembly, formats: A
           break;
         }
         case "gltf": {
-          const { bytes, warnings } = writeGlb(asm, tree, meshesOnce());
+          const { bytes, warnings } = writeGlb(asm, tree, meshesOnce(), {
+            scope: scoped ? tree.name : "root",
+            tessMm: linearDeflection,
+            ...(options.project !== undefined ? { project: options.project } : {}),
+            ...(options.rev !== undefined ? { rev: options.rev } : {}),
+          });
           out.push(withWarnings({ name: `${base}.glb`, format, bytes }, [...warnings, ...cracksOnce().map((w) => `GLB: ${w}`)]));
           break;
         }

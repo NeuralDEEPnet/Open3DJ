@@ -69,7 +69,7 @@
     "occurrence": {
       "type": "object",
       "properties": {
-        "id": { "description": "UUIDv7, never changes.", "type": "string", "minLength": 1 },
+        "id": { "description": "Name-based UUID (version 8) from the root and the occurrence path. A re-run keeps it, because ids from the previous graph win; renaming the occurrence in the script gives a new id.", "type": "string", "minLength": 1 },
         "name": { "description": "Instance name, for example bracket#1.", "type": "string", "minLength": 1 },
         "def": { "$ref": "#/$defs/defId" },
         "transform": { "$ref": "urn:open3dj:v0:common#/$defs/transform" },

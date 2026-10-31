@@ -51,6 +51,10 @@ export function resolveTargets(asm: Assembly, targets: string[]): AssemblyInstan
 
 /** One node of the export tree: a part occurrence or a sub-assembly occurrence. */
 export interface ExportNode {
+  /** Occurrence id, as in assembly.o3j.json. */
+  id: string;
+  /** Occurrence path below the root, as inspect prints it, for example pcb_assy/standoff#2. */
+  path: string;
   name: string;
   /** Definition id: a part definition, or an assembly definition when children is set. */
   def: string;
@@ -74,20 +78,21 @@ export interface ExportTree {
  */
 export function exportTree(asm: Assembly, scope?: string): ExportTree {
   if (scope === undefined || ["", "root", asm.file.root].includes(normalizeTarget(asm, scope))) {
-    const walk = (defId: string, depth: number): ExportNode[] => {
+    const walk = (defId: string, depth: number, prefix: string): ExportNode[] => {
       if (depth > 32) throw new AssemblyError("ASSEMBLY_TOO_DEEP", "sub-assemblies nest deeper than 32 levels");
       return (asm.file.definitions[defId]?.occurrences ?? []).filter((o) => !o.suppressed).map((o) => {
-        const node: ExportNode = { name: o.name, def: o.def, transform: o.transform };
+        const path = prefix + o.name;
+        const node: ExportNode = { id: o.id, path, name: o.name, def: o.def, transform: o.transform };
         if (o.color) node.color = o.color;
-        if (asm.file.definitions[o.def]?.kind === "assembly") node.children = walk(o.def, depth + 1);
+        if (asm.file.definitions[o.def]?.kind === "assembly") node.children = walk(o.def, depth + 1, `${path}/`);
         return node;
       });
     };
-    return { name: asm.file.root, nodes: walk(asm.file.root, 0), instances: [...asm.instances] };
+    return { name: asm.file.root, nodes: walk(asm.file.root, 0, ""), instances: [...asm.instances] };
   }
   const instances = resolveTargets(asm, [scope]);
   const nodes = instances.map((i): ExportNode => {
-    const node: ExportNode = { name: i.path, def: i.def, transform: i.world };
+    const node: ExportNode = { id: i.id, path: i.path, name: i.path, def: i.def, transform: i.world };
     const color = occurrenceColor(asm, i);
     if (color) node.color = color;
     return node;

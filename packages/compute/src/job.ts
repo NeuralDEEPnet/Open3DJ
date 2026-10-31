@@ -149,9 +149,9 @@ function bindRunner(kernel: Kernel): JobRunner & { rebind(): void; dispose(): vo
           if (!job.export || job.export.formats.length === 0) {
             return finish({ ok: false, error: { code: "BAD_JOB", message: "an export job needs export.formats", hint: "Pass export: { formats: ['step'] }." } });
           }
-          const { formats, baseName, scope, dir, root, author, organization, timestamp } = job.export;
+          const { formats, baseName, scope, project, dir, root, author, organization, timestamp } = job.export;
           const artifacts = exportArtifacts(kernel, asm, formats, {
-            rev: job.rev, engine: engineVersions(), ...(baseName ? { baseName } : {}), ...(scope ? { scope } : {}),
+            rev: job.rev, engine: engineVersions(), ...(baseName ? { baseName } : {}), ...(scope ? { scope } : {}), ...(project ? { project } : {}),
             ...(author ? { author } : {}), ...(organization ? { organization } : {}), ...(timestamp ? { timestamp } : {}),
           });
           if (dir === undefined) return finish({ ...base, artifacts });

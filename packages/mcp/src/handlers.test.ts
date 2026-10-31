@@ -363,6 +363,19 @@ test("export passes the manifest's author and organisation to the STEP header", 
   }
 });
 
+// The GLB root node names the project and the revision (docs/ASSEMBLIES.md section 12.1), so the worker gets both.
+test("export passes the project name and the resolved revision to the export job", async () => {
+  const c = setup();
+  try {
+    await c.h.run({ project: "p.o3j", script: TWO_PARTS });
+    await c.h.export({ project: "p.o3j", format: "gltf" });
+    assert.equal(c.pool.calls.at(-1)?.export?.project, "p");
+    assert.equal(c.pool.calls.at(-1)?.rev, "r_0001");
+  } finally {
+    c.done();
+  }
+});
+
 test("export writes the revision's time as the STEP time stamp, so a re-export is the same file", async () => {
   const c = setup();
   try {

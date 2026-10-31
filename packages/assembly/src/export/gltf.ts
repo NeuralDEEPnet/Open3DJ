@@ -1,6 +1,8 @@
 // Binary glTF 2.0 (GLB) from an own writer: one mesh per definition (and colour), a node per
 // occurrence, sub-assemblies as nested nodes (ARCHITECTURE.md section 14). Geometry stays
-// in mm and Z-up; one root node scales by 0.001 and turns Z-up into glTF's Y-up.
+// in mm and Z-up; one root node scales by 0.001 and turns Z-up into glTF's Y-up. Nodes,
+// meshes and materials carry o3j_* extras (contract version 1, docs/ASSEMBLIES.md section 12.1), which
+// Blender's glTF importer turns into custom properties.
 import type { Color3 } from "@open3dj/schemas";
 import type { Assembly } from "../types.ts";
 import type { ExportNode, ExportTree } from "../resolve.ts";
@@ -21,9 +23,25 @@ interface GltfNode {
   rotation?: number[];
   scale?: number[];
   children?: number[];
+  extras?: Record<string, string | number>;
 }
 
-export function writeGlb(asm: Assembly, tree: ExportTree, meshes: Map<string, Mesh>): { bytes: Uint8Array; warnings: string[] } {
+/** Version of the o3j_* extras contract. Adding a key keeps it; renaming or removing a key bumps it. */
+export const GLB_EXTRAS_VERSION = 1;
+
+/** What the root node says about the file. No paths, user names or organisation. */
+export interface GlbHeader {
+  /** Project name (the project folder without .o3j). Left out when unknown. */
+  project?: string;
+  /** Revision. Left out when unknown. */
+  rev?: string;
+  /** "root", or the scope path of a scoped export. */
+  scope: string;
+  /** Linear tessellation chord used, in mm. */
+  tessMm: number;
+}
+
+export function writeGlb(asm: Assembly, tree: ExportTree, meshes: Map<string, Mesh>, header: GlbHeader): { bytes: Uint8Array; warnings: string[] } {
   const warnings: string[] = [];
   const chunks: Uint8Array[] = [];
   let byteLength = 0;
@@ -69,13 +87,18 @@ export function writeGlb(asm: Assembly, tree: ExportTree, meshes: Map<string, Me
 
   const materials: Array<Record<string, unknown>> = [];
   const materialIndex = new Map<string, number>();
+  // One material per 8-bit sRGB value, named by that value, so one part's colour change never
+  // renames another part's material. The colour is rebuilt from the hex, so the material is a
+  // function of its name alone (colours that round to the same hex differ by at most 0.5/255).
   const material = (c: Color3): number => {
-    const key = c.join(",");
-    let at = materialIndex.get(key);
+    const hex = srgbHex(c);
+    let at = materialIndex.get(hex);
     if (at === undefined) {
       at = materials.length;
-      materials.push({ name: `color_${materials.length}`, pbrMetallicRoughness: { baseColorFactor: [...srgbToLinear(c), 1], metallicFactor: 0, roughnessFactor: 0.6 } });
-      materialIndex.set(key, at);
+      const byte = (i: number) => parseInt(hex.slice(i, i + 2), 16) / 255;
+      const srgb: Color3 = [byte(0), byte(2), byte(4)];
+      materials.push({ name: `o3j_srgb_${hex}`, pbrMetallicRoughness: { baseColorFactor: [...srgbToLinear(srgb), 1], metallicFactor: 0, roughnessFactor: 0.6 }, extras: { o3j_color: `#${hex}` } });
+      materialIndex.set(hex, at);
     }
     return at;
   };
@@ -89,15 +112,27 @@ export function writeGlb(asm: Assembly, tree: ExportTree, meshes: Map<string, Me
     let at = meshIndex.get(key);
     if (at === undefined) {
       at = gltfMeshes.length;
-      gltfMeshes.push({ name: asm.file.definitions[node.def]?.name ?? node.def, primitives: [{ attributes: { POSITION: g.position, NORMAL: g.normal }, indices: g.indices, material: mat, mode: 4 }] });
+      const def = asm.file.definitions[node.def];
+      const extras: Record<string, string> = { o3j_def: node.def };
+      if (def?.geometry_hash) extras["o3j_geometry_hash"] = def.geometry_hash;
+      gltfMeshes.push({ name: def?.name ?? node.def, primitives: [{ attributes: { POSITION: g.position, NORMAL: g.normal }, indices: g.indices, material: mat, mode: 4 }], extras });
       meshIndex.set(key, at);
     }
     return at;
   };
 
-  const nodes: GltfNode[] = [{ name: tree.name, rotation: [-Math.SQRT1_2, 0, 0, Math.SQRT1_2], scale: [0.001, 0.001, 0.001], children: [] }];
+  const root: Record<string, string | number> = { o3j_extras: GLB_EXTRAS_VERSION };
+  if (header.project !== undefined) root["o3j_project"] = header.project;
+  if (header.rev !== undefined) root["o3j_rev"] = header.rev;
+  Object.assign(root, { o3j_scope: header.scope, o3j_units: "mm", o3j_up: "Z", o3j_tess_mm: header.tessMm });
+  const nodes: GltfNode[] = [{ name: tree.name, rotation: [-Math.SQRT1_2, 0, 0, Math.SQRT1_2], scale: [0.001, 0.001, 0.001], children: [], extras: root }];
   const addNode = (n: ExportNode): number => {
     const node: GltfNode = { name: n.name };
+    // Identity for consumers such as Blender, which rename objects whose names clash.
+    const extras: Record<string, string> = { o3j_path: n.path, o3j_occ: n.id, o3j_def: n.def };
+    const partNumber = asm.file.definitions[n.def]?.partNumber;
+    if (partNumber) extras["o3j_part_number"] = partNumber;
+    node.extras = extras;
     if (!isIdentity(n.transform)) {
       if (Math.hypot(...n.transform.t) > 0) node.translation = [...n.transform.t];
       if (Math.abs(n.transform.q[3]) < 1) node.rotation = [...n.transform.q];
@@ -126,6 +161,11 @@ export function writeGlb(asm: Assembly, tree: ExportTree, meshes: Map<string, Me
     ...(byteLength ? { buffers: [{ byteLength: byteLength + ((4 - (byteLength % 4)) % 4) }] } : {}),
   };
   return { bytes: glb(json, chunks, byteLength), warnings };
+}
+
+/** Lowercase rrggbb of an sRGB colour with channels from 0 to 1. */
+function srgbHex(c: Color3): string {
+  return c.map((x) => Math.round(Math.min(1, Math.max(0, x)) * 255).toString(16).padStart(2, "0")).join("");
 }
 
 function glb(json: unknown, chunks: Uint8Array[], binLength: number): Uint8Array {

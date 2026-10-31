@@ -135,6 +135,19 @@ test("run: a part with nothing left is DSL_EMPTY_RESULT with the line and a hint
   }
 });
 
+test("export: the GLB root node names the project and the job's revision", async () => {
+  const r = await runJobInline(job({ kind: "export", script: TWO_PARTS, export: { formats: ["gltf"], baseName: "plate", project: "plate" } }));
+  assert.ok(r.ok, r.ok ? "" : JSON.stringify(r.error));
+  if (!r.ok) return;
+  const glb = r.artifacts!.find((a) => a.format === "gltf")!;
+  const length = new DataView(glb.bytes.buffer, glb.bytes.byteOffset).getUint32(12, true);
+  const json = JSON.parse(new TextDecoder().decode(glb.bytes.subarray(20, 20 + length))) as { nodes: Array<{ name: string; extras?: Record<string, unknown> }> };
+  // docs/BLENDER.md section 2: the root empty is named "root"; the project name travels as o3j_project.
+  assert.equal(json.nodes[0]!.name, "root");
+  assert.equal(json.nodes[0]!.extras?.["o3j_project"], "plate");
+  assert.equal(json.nodes[0]!.extras?.["o3j_rev"], "r_test");
+});
+
 // Regression (review round 1): exports tessellated at an absolute 0.1 mm, so a 200 km sphere
 // (inside the DSL's size limit) made meshes that never finished. The deflection now grows
 // with the part, and the evidence sidecar records the value used.

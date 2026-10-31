@@ -29,6 +29,16 @@ after(async () => {
 
 const text = (a: ExportArtifact | undefined) => new TextDecoder().decode(a!.bytes);
 const byName = (list: ExportArtifact[], suffix: string) => list.find((a) => a.name.endsWith(suffix));
+type Extras = Record<string, string | number> | undefined;
+interface GlbJson {
+  scenes: Array<{ extras?: unknown }>;
+  nodes: Array<{ name: string; scale?: number[]; rotation?: number[]; extras?: Extras }>;
+  meshes: Array<{ primitives: unknown[]; extras?: Extras }>;
+  materials: Array<{ name: string; extras?: Record<string, string> }>;
+}
+/** The JSON chunk of a GLB, as text and parsed. */
+const jsonText = (a: ExportArtifact) => new TextDecoder().decode(a.bytes.subarray(20, 20 + new DataView(a.bytes.buffer, a.bytes.byteOffset).getUint32(12, true)));
+const glbJson = (a: ExportArtifact) => JSON.parse(jsonText(a)) as GlbJson;
 
 describe("STEP", () => {
   test("the enclosure round-trips with names at both levels and 3 definitions for 6 occurrences", () => {
@@ -329,6 +339,103 @@ describe("STL, GLB and 3MF", () => {
     const factor = json.materials[0]!.pbrMetallicRoughness.baseColorFactor;
     assert.deepEqual(factor.slice(0, 3).map((x) => Math.round(toSrgb(x) * 255)), [0x5b, 0x6b, 0x7a]);
     assert.ok(factor[0]! < 0.2, `linear red of #5b is about 0.104, got ${factor[0]}`);
+  });
+
+  // The extras contract (docs/ASSEMBLIES.md section 12.1, version 1). Blender's glTF importer turns node, mesh
+  // and material extras into custom properties, so a part keeps its Open3DJ identity when
+  // Blender renames the object (screw#1.001). CI has no Blender, so the file is checked here.
+  test("GLB extras: occurrence path and id on every node, the header on the root node", () => {
+    const asm = buildAssembly(kernel, enclosure(kernel), { rootName: "enclosure" });
+    asm.file.definitions.lid!.partNumber = "LID-01";
+    const [glb] = exportArtifacts(kernel, asm, ["gltf"], { evidence: false, project: "enclosure", rev: "r_0007" });
+    const json = glbJson(glb!);
+    const occurrences = json.nodes.slice(1);
+    assert.deepEqual(occurrences.map((n) => n.extras?.["o3j_path"]), ["base", "lid", "screw#1", "screw#2", "screw#3", "screw#4"]);
+    for (const n of occurrences) {
+      const instance = asm.instances.find((i) => i.path === n.extras?.["o3j_path"])!;
+      assert.equal(n.extras?.["o3j_occ"], instance.id, n.name);
+      assert.equal(n.extras?.["o3j_def"], instance.def, n.name);
+      assert.equal(n.extras?.["o3j_part_number"], instance.def === "lid" ? "LID-01" : undefined, n.name);
+    }
+    assert.deepEqual(json.nodes[0]!.extras, { o3j_extras: 1, o3j_project: "enclosure", o3j_rev: "r_0007", o3j_scope: "root", o3j_units: "mm", o3j_up: "Z", o3j_tess_mm: 0.1 });
+    // The root transform is unchanged: mm to metres and Z-up to Y-up.
+    assert.deepEqual(json.nodes[0]!.scale, [0.001, 0.001, 0.001]);
+    assert.deepEqual(json.nodes[0]!.rotation, [-Math.SQRT1_2, 0, 0, Math.SQRT1_2]);
+    // The chord used is the one written.
+    const [coarse] = exportArtifacts(kernel, asm, ["gltf"], { evidence: false, linearDeflection: 0.25 });
+    const coarseRoot = glbJson(coarse!).nodes[0]!.extras;
+    assert.equal(coarseRoot?.["o3j_tess_mm"], 0.25);
+    assert.ok(!("o3j_project" in coarseRoot!) && !("o3j_rev" in coarseRoot!), "left out when unknown");
+  });
+
+  test("GLB extras: sub-assemblies and scoped exports use full occurrence paths", () => {
+    const asm = buildAssembly(kernel, {
+      parts: [
+        { name: "board", shape: kernel.box(20, 20, 1), group: ["pcb_assy"] },
+        { name: "standoff", shape: kernel.translate(kernel.cylinder(1, 5), [2, 2, -5]), group: ["pcb_assy"] },
+        { name: "standoff", shape: kernel.translate(kernel.cylinder(1, 5), [18, 2, -5]), group: ["pcb_assy"] },
+        { name: "case", shape: kernel.translate(kernel.box(30, 30, 2), [-5, -5, -8]) },
+      ],
+      mates: [], params: {}, warnings: [],
+    });
+    const nested = glbJson(exportArtifacts(kernel, asm, ["gltf"], { evidence: false })[0]!);
+    const paths = nested.nodes.slice(1).map((n) => n.extras?.["o3j_path"]);
+    assert.deepEqual(paths, ["pcb_assy", "pcb_assy/board", "pcb_assy/standoff#1", "pcb_assy/standoff#2", "case"]);
+    const group = nested.nodes.find((n) => n.extras?.["o3j_path"] === "pcb_assy")!;
+    assert.equal(group.extras?.["o3j_occ"], asm.file.definitions[asm.file.root]!.occurrences!.find((o) => o.name === "pcb_assy")!.id);
+    const scoped = glbJson(exportArtifacts(kernel, asm, ["gltf"], { evidence: false, scope: "pcb_assy" })[0]!);
+    assert.deepEqual(scoped.nodes.slice(1).map((n) => [n.name, n.extras?.["o3j_path"]]), [
+      ["pcb_assy/board", "pcb_assy/board"], ["pcb_assy/standoff#1", "pcb_assy/standoff#1"], ["pcb_assy/standoff#2", "pcb_assy/standoff#2"],
+    ]);
+    assert.equal(scoped.nodes[0]!.extras?.["o3j_scope"], "pcb_assy");
+  });
+
+  test("GLB extras: one primitive per mesh with its definition and hash, no scene extras, no extensions, no paths", async () => {
+    const root = join(dir, "glb-project");
+    await mkdir(root);
+    const asm = buildAssembly(kernel, enclosure(kernel), { rootName: "enclosure" });
+    const [ref] = await exportFiles(kernel, asm, ["gltf"], "out/r_0001", { root, evidence: false, project: "enclosure", rev: "r_0001" });
+    const bytes = await readFile(join(root, ref!.path));
+    const json = glbJson({ name: "x", format: "gltf", bytes });
+    for (const mesh of json.meshes) {
+      assert.equal(mesh.primitives.length, 1);
+      const def = mesh.extras?.["o3j_def"] as string;
+      assert.equal(mesh.extras?.["o3j_geometry_hash"], asm.file.definitions[def]!.geometry_hash, def);
+    }
+    const raw = jsonText({ name: "x", format: "gltf", bytes });
+    assert.equal(json.scenes[0]!.extras, undefined);
+    assert.ok(!("extensionsUsed" in json) && !("extensionsRequired" in json));
+    assert.ok(!raw.includes(dir) && !raw.includes(tmpdir()), "no absolute path in the file");
+  });
+
+  test("GLB materials are named by colour value, so one part's change keeps the others' names", () => {
+    const asm = buildAssembly(kernel, enclosure(kernel), { rootName: "enclosure" });
+    const names = (a: typeof asm) => glbJson(exportArtifacts(kernel, a, ["gltf"], { evidence: false })[0]!).materials;
+    const before = names(asm);
+    for (const m of before) {
+      assert.match(m.name, /^o3j_srgb_[0-9a-f]{6}$/);
+      assert.equal(`o3j_srgb_${m.extras?.["o3j_color"]?.slice(1)}`, m.name);
+    }
+    assert.equal(new Set(before.map((m) => m.name)).size, before.length);
+    // The lid turns orange: the base and screw materials keep their names.
+    const edited = buildAssembly(kernel, enclosure(kernel), { rootName: "enclosure" });
+    edited.file.definitions.lid!.color = [1, 0.5, 0];
+    const after = names(edited).map((m) => m.name);
+    for (const m of before.filter((x) => x.extras?.["o3j_color"] !== "#00d4ff")) assert.ok(after.includes(m.name), m.name);
+    assert.ok(after.includes("o3j_srgb_ff8000"));
+  });
+
+  // Regression (review of the extras contract): materials were keyed by the raw colour but named by its
+  // 8-bit hex. The DSL's "gray" is 0.5 and "#808080" is 128/255, so two parts that look the same got
+  // o3j_srgb_808080 and o3j_srgb_808080_2, and a colour change on one renamed the other.
+  test("GLB parts whose colours round to the same sRGB hex share one material", () => {
+    const part = (name: string, x: number, color: [number, number, number]) => ({ name, shape: kernel.translate(kernel.box(10, 10, 10), [x, 0, 0]), color });
+    const glbOf = (first: [number, number, number]) =>
+      glbJson(exportArtifacts(kernel, buildAssembly(kernel, { parts: [part("a", 0, first), part("b", 20, [128 / 255, 128 / 255, 128 / 255])], mates: [], params: {}, warnings: [] }), ["gltf"], { evidence: false })[0]!);
+    const same = glbOf([0.5, 0.5, 0.5]);
+    assert.deepEqual(same.materials.map((m) => m.name), ["o3j_srgb_808080"]);
+    const edited = glbOf([1, 0, 0]);
+    assert.deepEqual(edited.materials.map((m) => m.name).sort(), ["o3j_srgb_808080", "o3j_srgb_ff0000"]);
   });
 
   test("3MF is a zip with a millimetre model, mesh objects and build items with transforms", () => {

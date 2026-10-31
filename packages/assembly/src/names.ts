@@ -26,7 +26,8 @@ export function uniqueId(base: string, used: Set<string>): string {
 /**
  * A name-based id in UUID form (version 8, RFC 9562 custom layout) from the root and the
  * occurrence path, so a re-run of the same script yields the same ids and the same bytes.
- * Ids from a previous graph always win, so renames through ops keep their id.
+ * Ids from a previous graph win for the same path, so a re-run keeps every id; a rename gives a new
+ * path and so a new id (there is no rename op yet).
  */
 export function nameBasedId(key: string): string {
   const h = createHash("sha256").update(`open3dj-occurrence:${key}`).digest("hex");

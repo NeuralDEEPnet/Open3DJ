@@ -320,7 +320,8 @@ export function createHandlers(deps: HandlerDeps): ToolHandlers {
         const job = jobFor("export", rec, compute);
         // A scoped export names its scope, as render names its targets, so it never replaces the root export.
         const baseName = input.scope ? `${store.project.name}-${input.scope.replace(/[^A-Za-z0-9_-]/g, "_")}` : store.project.name;
-        const exp: NonNullable<JobRequest["export"]> = { formats: [input.format as ArtifactFormat], baseName };
+        // The GLB root node names the project and the revision (docs/ASSEMBLIES.md section 12.1); job.rev carries the revision.
+        const exp: NonNullable<JobRequest["export"]> = { formats: [input.format as ArtifactFormat], baseName, project: store.project.name };
         if (input.scope) exp.scope = input.scope;
         // The STEP header names the project's author and organisation when the manifest sets them.
         const manifest = store.require();

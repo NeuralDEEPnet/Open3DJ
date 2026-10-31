@@ -19,7 +19,7 @@ Status: assembly design of record from 28 Oct 2026, paired with [PLAN.md](PLAN.m
 |---|---|---|
 | Definition | id, name, kind, `partNumber`, params, connectors, BOM fields | Kinds: `script` (a `parts/*.o3j.js` file, optionally one named export of it), `lib` (standard part plus parameters), `assembly` (content is occurrences), `imported` (STEP geometry stored in the project, references by fingerprint only). A mirrored part is its own "handed" definition (`handedOf`) |
 | Configuration | definition id plus configuration name, or a params hash for library parts | Each unique key is its own entry for tessellation, mass and BOM |
-| Occurrence | UUIDv7 id, name, definition key, transform, `fixed`, `suppressed`, `bom`, colour override | Addressed by path; mates and overrides key on the id |
+| Occurrence | name-based id (UUID version 8), name, definition key, transform, `fixed`, `suppressed`, `bom`, colour override | Addressed by path; mates and overrides key on the id |
 | Connector | name, origin, Z axis, X axis, gender (`male`, `female`, none), type tag (`insert_m3`, `press`), anchor reference | 3dj-compatible |
 | Mate | id, type, connector paths `a` and `b`, offset, `flip`, limits, value bound to a `Param`, owner (`script` or `graph`) | Status is derived |
 | Declared fit | pair or connector types, kind (`press`, `thread`), expected overlap range, reason, author | Turns an intended overlap into a checked expectation |
@@ -32,7 +32,7 @@ Status: assembly design of record from 28 Oct 2026, paired with [PLAN.md](PLAN.m
 
 ### 2.2 Addressing
 
-- **Occurrence ids** are UUIDv7 and never change. Renames keep the id.
+- **Occurrence ids** are name-based UUIDs (version 8, RFC 9562 custom layout) made from the root and the occurrence path (`packages/assembly/src/names.ts`). Ids from the previous graph win, so a re-run of the same script keeps every id. Renaming an occurrence in the script changes its path and so gives it a new id; there is no rename op yet (run ops are `set_param` and `cancel_job`). Exports carry the id: the GLB writes it as `o3j_occ` on each node (section 12.1).
 - **Paths** are built from names: `handheld/pcb_assy/led#1`. Agents may write paths; the daemon resolves them to ids when it accepts the write.
 - **Connector paths** add the connector name: `top_shell#1.boss_2`.
 - **Element addresses** (faces, edges) use the `@elem:` form from [ARCHITECTURE.md](ARCHITECTURE.md) section 9, prefixed by the occurrence path: `<path>@elem:face:<n>`, for example `lid@elem:face:5` or `pcb_assy/standoff#2@elem:face:3`, where `face:<n>` is the kernel's face number in the definition (1-based, as in `refs`). In S2 the viewer gives faces this form; edges have no address yet (the display mesh does not carry the kernel's edge numbers), so the viewer names an edge by the faces it bounds.
@@ -291,12 +291,28 @@ The pull-board trigger is a real project over 1,000 occurrences, or a real proje
 | STEP in | Imported structure becomes `imported` definitions and occurrences. Known gap: the spike's STEP file held 5 colour records, but `getLabelInfo` reported no colour on any label after import (the colours are probably attached to shapes, not labels). Until a follow-up fixes the reader, imported definitions carry no colour, the report says so, and Open3DJ does not promise a colour round trip | S1 |
 | STEP AP242 with PMI | Same structure plus semantic PMI, after an occt-wasm facade contribution | S12 |
 | 3MF | Objects with components (3x4 transforms) and build items; `partnumber` from the definition's stored `partNumber` where set (S1), daemon-assigned numbers from S4; per-part print plates | S1, S5 |
-| glTF 2.0 | A node per occurrence, one mesh per definition (own writer; occt-wasm wrote 6 meshes for 3 definitions). `EXT_mesh_gpu_instancing` must be listed in `extensionsRequired`, so it is opt-in | S1, S6 |
+| glTF 2.0 | A node per occurrence, one mesh per definition (own writer; occt-wasm wrote 6 meshes for 3 definitions). Each node carries its occurrence path and id as `o3j_*` extras (section 12.1). `EXT_mesh_gpu_instancing` must be listed in `extensionsRequired`, so it is opt-in; it stays off for files meant for Blender, whose importer makes each instance a separate object with no extras (https://github.com/blender/blender/blob/v5.2.3/scripts/addons_core/io_scene_gltf2/blender/imp/vnode.py) and names it after its mesh (https://github.com/blender/blender/blob/v5.2.3/scripts/addons_core/io_scene_gltf2/blender/imp/node.py, lines 56 and 322; importer source at v5.2.3, both checked 31 Oct 2026) | S1, S6 |
 | STL | Per definition | S1 |
 | URDF | Links are rigid groups joined by fastened mates; revolute and prismatic joints. URDF has no loops: a loop returns a structured error pointing to MJCF | S6 |
 | MJCF | Loops via equality `connect` | S11 |
 
 Round trips must keep definition sharing: four screws stay one definition after STEP export and re-import, as the spike showed.
+
+### 12.1 glTF extras (contract version 1)
+
+Every GLB that Open3DJ writes carries its ids as glTF `extras`, so a downstream tool can trace each object back to its occurrence. Blender's glTF importer, for example, turns node, mesh and material extras into custom properties (importer source at v5.2.3, https://github.com/blender/blender/blob/v5.2.3/scripts/addons_core/io_scene_gltf2/blender/com/extras.py, checked 31 Oct 2026). Keys are flat. Values are strings, except `o3j_extras` (an integer) and `o3j_tess_mm` (a number).
+
+| Where | Keys |
+|---|---|
+| Root node | `o3j_extras` (the contract version, 1); `o3j_project` and `o3j_rev` (left out when a caller of the export library does not pass them; the MCP tool, the CLI and the viewer always do); `o3j_scope` (`root`, or the scope as passed to `export`, without a leading `/` or `<root>/`); `o3j_units` (`mm`); `o3j_up` (`Z`); `o3j_tess_mm` (the chord height, or linear deflection, used in tessellation, in mm) |
+| Occurrence node, sub-assemblies included | `o3j_path` (the path below the root, as `inspect` prints it, for example `pcb_assy/standoff#2`); `o3j_occ` (occurrence id); `o3j_def` (definition id); `o3j_part_number` (only when the definition has one) |
+| Mesh | `o3j_def`; `o3j_geometry_hash` (when the definition has one) |
+| Material | `o3j_color` (`#rrggbb`, sRGB, lowercase). The material is named `o3j_srgb_<rrggbb>`, one per 8-bit sRGB value: colours that round to the same hex share one material |
+
+- No scene extras, no `extensionsUsed` or `extensionsRequired`, and no absolute path, user name, author, organisation or email in any value.
+- The root transform (scale 0.001, -90 degrees about X), one primitive per mesh and the unwelded per-face triangle runs do not change.
+- `o3j_rev` changes the file's sha256 with every revision. `o3j_geometry_hash` per mesh is the signal for a geometry change.
+- Adding a key is a minor change. Renaming or removing a key raises `o3j_extras`. The 3MF writer still names its materials by index (`color_<n>`).
 
 ## 13. Agent tool surface
 

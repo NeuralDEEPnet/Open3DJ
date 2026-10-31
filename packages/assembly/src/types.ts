@@ -83,8 +83,10 @@ export interface ExportOptions {
   linearDeflection?: number;
   /** Add the <base>.evidence.json sidecar to the artifacts. Default true. */
   evidence?: boolean;
-  /** Revision recorded in the sidecar. */
+  /** Revision recorded in the sidecar and, as o3j_rev, on the GLB root node. */
   rev?: Rev;
+  /** Project name (the project folder without .o3j), written as o3j_project on the GLB root node. */
+  project?: string;
   /** Extra engine pins for the sidecar (open3dj, brepjs, quickjs); occt_wasm is always added. */
   engine?: Record<string, string>;
   /** Author and organisation for the STEP header (project settings). Default empty. */

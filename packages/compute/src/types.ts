@@ -45,6 +45,8 @@ export interface ExportJob {
   formats: ArtifactFormat[];
   baseName?: string;
   scope?: string;
+  /** Project name for the GLB root node's o3j_project (docs/ASSEMBLIES.md section 12.1). */
+  project?: string;
   /** Author and organisation for the STEP header, from the project manifest. */
   author?: string;
   organization?: string;
