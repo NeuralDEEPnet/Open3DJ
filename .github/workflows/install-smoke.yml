@@ -242,7 +242,10 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci --no-audit --no-fund
-      - run: npm install --no-save --no-audit --no-fund "playwright@$PLAYWRIGHT_VERSION"
+      # bash on every OS: on Windows the default shell is PowerShell, where $PLAYWRIGHT_VERSION
+      # is an unset PowerShell variable, not the environment variable.
+      - shell: bash
+        run: npm install --no-save --no-audit --no-fund "playwright@$PLAYWRIGHT_VERSION"
       - name: Install Chromium
         shell: bash
         run: |

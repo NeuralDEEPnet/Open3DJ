@@ -207,3 +207,44 @@ describe("docs and CODEOWNERS match the merge policy", () => {
     }
   });
 });
+
+/**
+ * Steps that use $NAME shell variables without naming a shell, in workflows that run on
+ * Windows. The default shell there is PowerShell, where $NAME is a PowerShell variable and
+ * not the environment variable, so the step fails or silently gets an empty value.
+ */
+export function unshelledWindowsSteps(text: string): string[] {
+  if (!/windows-/.test(text)) return [];
+  const lines = text.split("\n");
+  const found: string[] = [];
+  for (let i = 0; i < lines.length; i++) {
+    const step = /^(\s*)- /.exec(lines[i]!);
+    if (!step) continue;
+    const indent = step[1]!.length;
+    let end = i + 1;
+    while (end < lines.length && (lines[end]!.trim() === "" || /^\s*/.exec(lines[end]!)![0].length > indent)) end++;
+    const block = lines.slice(i, end).join("\n");
+    const run = runScripts(block).join("\n").replace(/\$\{\{[^}]*\}\}/g, "");
+    if (!/\$[A-Za-z_][A-Za-z0-9_]*/.test(run) || /^\s*(?:- )?shell:/m.test(block)) continue;
+    let job = i;
+    while (job > 0 && !/^ {2}[A-Za-z0-9_-]+:\s*$/.test(lines[job]!)) job--;
+    let jobEnd = job + 1;
+    while (jobEnd < lines.length && !/^ {2}[A-Za-z0-9_-]+:\s*$/.test(lines[jobEnd]!) && !/^\S/.test(lines[jobEnd]!)) jobEnd++;
+    if (/defaults:\s*\n\s+run:\s*\n\s+shell:/.test(lines.slice(job, jobEnd).join("\n"))) continue;
+    found.push(`line ${i + 1}: ${lines[i]!.trim()}`);
+  }
+  return found;
+}
+
+describe("Windows shells", () => {
+  it("flags a step that reads $NAME on a Windows runner without a shell", () => {
+    const bad = "jobs:\n  j:\n    runs-on: windows-latest\n    steps:\n      - run: echo \"$FOO\"\n";
+    assert.equal(unshelledWindowsSteps(bad).length, 1);
+    assert.equal(unshelledWindowsSteps(bad.replace("- run:", "- shell: bash\n        run:")).length, 0);
+    assert.equal(unshelledWindowsSteps(bad.replace("echo \"$FOO\"", "echo ${{ env.FOO }}")).length, 0);
+  });
+
+  it("every workflow that runs on Windows names a shell for steps that use $NAME", () => {
+    for (const w of workflows) assert.deepEqual(unshelledWindowsSteps(w.text), [], w.name);
+  });
+});
