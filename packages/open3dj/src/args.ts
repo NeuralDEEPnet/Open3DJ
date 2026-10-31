@@ -18,7 +18,7 @@ export type Command =
   | { cmd: "docs"; input: DocsInput }
   | { cmd: "view"; source: Source; params: Record<string, ParamValue>; saveParams: boolean; port?: number; open: boolean }
   | { cmd: "mcp"; root?: string; workers?: number }
-  | { cmd: "doctor"; bench: boolean }
+  | { cmd: "doctor"; bench: boolean; report: boolean }
   | { cmd: "new"; name: string; template: "part" | "assembly" }
   | { cmd: "tools" }
   | { cmd: "help"; topic?: string }
@@ -135,9 +135,11 @@ export function parseCommand(argv: string[]): Parsed {
       return { command, json: false };
     }
     case "doctor": {
-      const { values } = parse(rest, { ...COMMON, bench: { type: "boolean", default: false } });
+      const { values } = parse(rest, { ...COMMON, bench: { type: "boolean", default: false }, report: { type: "boolean", default: false } });
       if (values.help) return help("doctor");
-      return { command: { cmd: "doctor", bench: values.bench }, json: values.json };
+      if (values.report && values.json) throw new UsageError("doctor takes --json or --report, not both");
+      // The report always holds the bench: it is what the hardware report form asks for.
+      return { command: { cmd: "doctor", bench: values.bench || values.report, report: values.report }, json: values.json };
     }
     case "new": {
       const { values, positionals } = parse(rest, { ...COMMON, template: { type: "string", short: "t", default: "part" } });

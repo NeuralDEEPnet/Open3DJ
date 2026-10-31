@@ -21,7 +21,7 @@ The first vertical slice runs end to end, from a clone:
 - **Examples and a benchmark.** [10 examples](examples/README.md) with a gallery, [o3dj-bench v0](bench/README.md) with 12 regression and 10 capability tasks, and reference assemblies of 145 and 1,025 occurrences.
 - **One command to check it all.** `npm run check` runs the typecheck, every test (about 690), the bench regression split, and the stdout-leak and license gates.
 
-Not yet: there is no desktop app. Nothing is published to npm (the name is pending trademark clearance). CI is set up for Linux, macOS and Windows on x64 and ARM, but it has not run on Windows, macOS or ARM yet; so far Open3DJ has been run on Linux only. No agent has run the capability benchmark yet. **`npm run check` is red on two tests today**: two example goldens (`box-with-lid` and `enclosure`) are waiting for the founder to regenerate them, and until then every CI run fails, so no pull request can merge in either lane. Contributions are welcome now and will merge once that is fixed. See [ROADMAP.md](ROADMAP.md) for the full picture.
+Not yet: there is no desktop app. Nothing is published to npm (the name is pending trademark clearance). CI runs the full check on Linux, macOS and Windows on x64 and ARM, and passes there except for the two goldens below (the browser viewer test is skipped on CI). Nobody outside the project has tested Open3DJ on their own machine yet: see [Help test Open3DJ on your machine](#help-test-open3dj-on-your-machine). No agent has run the capability benchmark yet. **`npm run check` is red on two tests today**: two example goldens (`box-with-lid` and `enclosure`) are waiting for the founder to regenerate them, and until then every CI run fails, so no pull request can merge in either lane. Contributions are welcome now and will merge once that is fixed. See [ROADMAP.md](ROADMAP.md) for the full picture.
 
 ### Try it
 
@@ -69,6 +69,27 @@ Open3DJ aims to be the best agentic CAD software you can get. Agents fail at CAD
 
 [ROADMAP.md](ROADMAP.md) gives each step's goal, what ships and how you can help. [docs/PLAN.md](docs/PLAN.md) has the full plan.
 
+## Help test Open3DJ on your machine
+
+Open3DJ runs on your own computer, so we need people with real machines to tell us whether it works on theirs: other operating systems, ARM boards, antivirus scanners and real GPUs that our cloud checks cannot cover. **Platform status:** CI runs the full check on Windows x64 and ARM64, macOS on Apple Silicon, and Linux x64 and ARM64, but nobody outside the project has tested Open3DJ on a real machine yet.
+
+Install with one command, then follow the 15-minute checklist in [docs/TESTING.md](docs/TESTING.md):
+
+```powershell
+# Windows (PowerShell)
+irm https://raw.githubusercontent.com/NeuralDEEPnet/Open3DJ/main/scripts/install/install.ps1 | iex
+```
+
+```sh
+# macOS and Linux
+curl -fsSL https://raw.githubusercontent.com/NeuralDEEPnet/Open3DJ/main/scripts/install/install.sh | sh
+```
+
+<!-- REMOVE AFTER PULL REQUEST #3 MERGES -->
+Until pull request #3 merges, the installers are only on its branch: use the commands in [Before pull request #3 merges](docs/TESTING.md#before-pull-request-3-merges).
+
+Then file a [hardware report](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=hardware_report.yml) with the output of `open3dj doctor --report`. A report that says "everything worked" helps too, and every tester is credited.
+
 ## Join us
 
 The repository is new and the contributor list is empty. Whatever you bring, your work will be visible and credited. There are two ways in, and you can use both.
@@ -97,7 +118,7 @@ For designers, engineers, makers, developers, writers, researchers and students.
 - **Start small.** Pick one of the [concrete first tasks](CONTRIBUTING.md#for-people), which need no issue. Issues labeled `good first issue` are being filed and will show up [here](https://github.com/NeuralDEEPnet/Open3DJ/issues?q=is%3Aopen+label%3A%22good+first+issue%22).
 - **Grow the parts library.** Propose a [standard part](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=part_library.yml) with dimensions and sources.
 - **Add an example or test geometry.** A real part you need, or a file that breaks other CAD tools.
-- **Test on your machine.** Run `npx open3dj doctor --bench` on Windows, macOS or ARM and file a [hardware report](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=hardware_report.yml).
+- **Test on your machine.** Follow the 15-minute checklist in [docs/TESTING.md](docs/TESTING.md) on Windows, macOS, Linux or ARM and file a [hardware report](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=hardware_report.yml).
 - **Check the research** with a [research check](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=research_check.yml), or **write a design brief** with the [industrial design form](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=industrial_design.yml).
 
 </td>
@@ -147,6 +168,7 @@ We work in a lean, Kaizen style: small usable releases, a weekly plan-do-check-a
 | [SECURITY.md](SECURITY.md) | How to report a vulnerability privately |
 | [CONTRIBUTORS.md](CONTRIBUTORS.md) | Everyone who has helped |
 | [docs/GETTING-STARTED.md](docs/GETTING-STARTED.md) | Your first part, for people and for agents |
+| [docs/TESTING.md](docs/TESTING.md) | Install with one command and test Open3DJ on your machine in 15 minutes |
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | The technical architecture, contracts and agent tools |
 | [docs/research/README.md](docs/research/README.md) | Research on AI CAD, kernels, agent protocols, security and licensing |
 | [CITATION.cff](CITATION.cff) | How to cite Open3DJ |

@@ -82,7 +82,7 @@ Where to look:
 - [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md), [docs/ASSEMBLIES.md](docs/ASSEMBLIES.md), [docs/COMPUTE.md](docs/COMPUTE.md) and [docs/INDUSTRIAL-DESIGN.md](docs/INDUSTRIAL-DESIGN.md): the design.
 - [docs/research/](docs/research/): research reports, dated 2026-10-27. Start with [docs/research/README.md](docs/research/README.md).
 
-The most valuable help right now: run the capability benchmark with your agent, test on Windows, macOS and ARM machines (CI has not run there yet), write standard part specs, add examples and bench tasks, collect hard test geometry, and tell us how you work today.
+The most valuable help right now: run the capability benchmark with your agent, test on your own Windows, macOS, Linux or ARM machine with [docs/TESTING.md](docs/TESTING.md) (CI runs on all five tier-1 runners, but no person outside the project has tested yet), write standard part specs, add examples and bench tasks, collect hard test geometry, and tell us how you work today.
 
 **About the name.** "Open3DJ" is a working name. It is pending trademark clearance and may change before the first public release. If it does, we will rename the repository (GitHub redirects old links), and your work and your credit carry over unchanged.
 
@@ -113,6 +113,7 @@ Designers, engineers, makers, developers, writers, researchers and students: you
 5. **Improve the docs.** Fix an unclear sentence, add a missing link or add a glossary entry. You can do this in the browser (see [Editing in the browser](#editing-in-the-browser)).
 6. **Offer a translation.** Open an [Idea, feedback or Kaizen suggestion](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=feedback.yml) issue naming the language you can help with. We will start translations once the core docs settle, so your work does not go stale.
 7. **Give UX feedback.** Use the same [Idea, feedback or Kaizen suggestion](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=feedback.yml) form to describe a task you do in CAD today, the steps you take and where it hurts. Sketches and screenshots are welcome.
+8. **Test on your hardware.** Install Open3DJ with one command and run the 15-minute checklist in [docs/TESTING.md](docs/TESTING.md): describe your machine with `open3dj doctor --report`, run three examples, try the viewer, open an exported STEP file in another CAD tool, and optionally print a part or connect an agent. Then file a [Hardware report](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=hardware_report.yml), and a [Failure report](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=failure_report.yml) for anything broken. No git or Node.js experience is needed. CI covers five platforms, but nobody outside the project has tested a real machine yet, so the first report for Windows, macOS on Intel, a Linux distribution other than Ubuntu, WSL2, a Raspberry Pi, a Chromebook or any real GPU is especially valuable. Testers are credited in [CONTRIBUTORS.md](CONTRIBUTORS.md).
 
 ### For AI agents and their operators
 

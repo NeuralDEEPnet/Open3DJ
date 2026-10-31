@@ -1,15 +1,90 @@
 # Getting started
 
-This guide takes you from a fresh clone to your own checked part. The first half is for people at a terminal. The second half is for AI agents and the people who connect them. The last section is for contributors.
+This guide takes you from installing Open3DJ to your own checked part. The first half is for people at a terminal. The second half is for AI agents and the people who connect them. The last section is for contributors.
 
 Open3DJ is early (step S1 of [PLAN.md](PLAN.md)). It has a command line and an MCP server, but no desktop app yet. Everything runs on your own computer.
 
-## What you need
+## Install
+
+Open3DJ runs on Windows, macOS and Linux, on x64 and ARM64. It is not published to npm yet, so you install it from GitHub, with an installer script or from a git clone. The installers need no admin rights and no sudo. Unless you choose to install Node with winget on Windows, they change nothing outside your user account.
+
+### Help us test on your platform
+
+CI installs Open3DJ with these scripts on Linux (x64 and ARM64), macOS, and Windows (x64 and ARM64), but real computers differ more than CI runners do. Please install it on yours, try an example, and tell us what happened, even if it just worked. [TESTING.md](TESTING.md) has a 15-minute checklist. The most useful part of a report is:
+
+```sh
+open3dj doctor --report
+```
+
+It measures your machine for about a minute and prints a Markdown report with your operating system, CPU, memory, GPU names, versions, the commit and timings. It holds no user names, host names or file paths. Read it, then paste all of it into a [hardware report](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=hardware_report.yml). If something failed, a [failure report](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=failure_report.yml) with the installer's output helps most.
+
+### Windows (PowerShell)
+
+Download the installer, read it, then run it:
+
+```powershell
+Invoke-WebRequest https://raw.githubusercontent.com/NeuralDEEPnet/Open3DJ/main/scripts/install/install.ps1 -OutFile install-open3dj.ps1
+notepad install-open3dj.ps1
+powershell -ExecutionPolicy Bypass -File .\install-open3dj.ps1
+```
+
+Many projects offer a one-line form instead, and this one works too:
+
+```powershell
+irm https://raw.githubusercontent.com/NeuralDEEPnet/Open3DJ/main/scripts/install/install.ps1 | iex
+```
+
+The one-liner runs whatever the server sends at that moment, and you never see it. The two steps above let you read the exact file you run and keep it. `-ExecutionPolicy Bypass` applies to that one run only; it does not change your settings.
+
+The script works in Windows PowerShell 5.1 (built into Windows 10 and 11) and in PowerShell 7. It:
+
+1. Uses the `node` on your PATH if it is version 24 or newer. If not, it asks how to get one: download the official Node 24 zip from nodejs.org into the install folder (the default: private to Open3DJ, no admin, checked against nodejs.org's `SHASUMS256.txt`, which catches a broken or cut-off download; that the file comes from nodejs.org rests on HTTPS), or install Node LTS for every program with `winget` (`OpenJS.NodeJS.LTS`, only when its LTS line is 24 or newer; this may ask for admin rights).
+2. Downloads the Open3DJ source for the chosen ref from GitHub and runs `npm ci --omit=dev --ignore-scripts` in it. Only runtime dependencies are installed, and no package install scripts run.
+3. Writes `open3dj.cmd` to `%LOCALAPPDATA%\Open3DJ\bin` and adds that folder to your user PATH. It never touches the machine PATH. A `.cmd` runs in cmd.exe, Windows PowerShell 5.1 and PowerShell 7 alike, whatever their execution policies. Pressing `Ctrl+C` in a command such as `open3dj view` makes cmd.exe ask `Terminate batch job (Y/N)?`; type `Y`.
+4. Runs `open3dj doctor` and prints the next steps, including the exact MCP configuration for Claude Code and Claude Desktop with full paths.
+
+Options: `-Ref <branch, tag or commit>` (default `main`), `-InstallDir <folder>` (default `%LOCALAPPDATA%\Open3DJ`), `-NoPath`, `-Yes` (no questions; picks the private Node), `-PrivateNode`, `-UseWinget`, `-Source <folder>` (install from a local copy, as CI does) and `-Uninstall`. To pass options to the one-liner, use `& ([scriptblock]::Create((irm <url>))) -Ref main -Yes`.
+
+Open a new terminal afterwards, so that it sees the new PATH.
+
+### macOS and Linux
+
+Download the installer, read it, then run it:
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/NeuralDEEPnet/Open3DJ/main/scripts/install/install.sh -o install-open3dj.sh
+less install-open3dj.sh
+sh install-open3dj.sh
+```
+
+The one-line form, with the same caveat as on Windows, is `curl -fsSL <url> | sh`, and `curl -fsSL <url> | sh -s -- --yes` passes options.
+
+It uses the `node` on your PATH if it is version 24 or newer. If not, it downloads the official Node 24 build for your platform from nodejs.org, checks it against `SHASUMS256.txt` (a guard against broken downloads; trust in the server rests on HTTPS) and keeps it in the install folder. It never changes a system Node. Then it downloads the source, runs `npm ci --omit=dev --ignore-scripts`, writes the `open3dj` command to `~/.local/bin` and, if that folder is not on your PATH yet, adds one marked line to `~/.profile` and to your shell's rc file (`~/.bashrc`, `~/.zshrc` or a fish `conf.d` file). Alpine and other musl systems need Node 24 from their package manager first, because nodejs.org builds are for glibc.
+
+Options: `--ref <ref>`, `--prefix <dir>` (default `~/.local/share/open3dj`), `--bin-dir <dir>` (default `~/.local/bin`), `--no-path`, `--yes`, `--private-node`, `--source <dir>` and `--uninstall`.
+
+### Upgrade, uninstall and where things are
+
+Run the installer again to upgrade. It replaces the app folder in place and keeps the old one until the new one has its dependencies and starts. Close programs that run Open3DJ first (an MCP client such as Claude Desktop, or `open3dj view`), because Windows does not let the installer replace or remove files in use. If one is still running, the Windows installer stops before it changes anything; close it and run the command again.
+
+| | Windows | macOS and Linux |
+|---|---|---|
+| App (the source and its `node_modules`) | `%LOCALAPPDATA%\Open3DJ\app` | `~/.local/share/open3dj/app` |
+| Private Node, when it was needed | `%LOCALAPPDATA%\Open3DJ\node` | `~/.local/share/open3dj/node` |
+| Command | `%LOCALAPPDATA%\Open3DJ\bin\open3dj.cmd` | `~/.local/bin/open3dj` |
+| What was installed (paths, ref, commit) | `%LOCALAPPDATA%\Open3DJ\install.json` | `~/.local/share/open3dj/install.json` |
+| Uninstall (close Claude Desktop and other MCP clients first) | In PowerShell: `powershell -ExecutionPolicy Bypass -File "$env:LOCALAPPDATA\Open3DJ\app\scripts\install\install.ps1" -Uninstall` | `sh ~/.local/share/open3dj/app/scripts/install/install.sh --uninstall` |
+
+Uninstalling removes the install folder, the command and the PATH entries the installer added. It never touches your designs. Both installers refuse to install into, or remove, a folder they did not create.
+
+The rest of this guide writes `npx open3dj`, which works inside a clone. After an install, type `open3dj` instead. Where the guide says `/path/to/Open3DJ`, an installed copy lives in the app folder above, and `node` is the Node the installer printed.
+
+### From a git clone
+
+Use a clone to contribute, or if you prefer to see every step. You need:
 
 - [Node.js 24](https://nodejs.org) or newer. Check with `node --version`. `npm ci` refuses older versions.
 - git.
-- Memory: a worker used about 200 MB at peak on small parts. The pool runs one worker per core minus one, fewer when free memory is short.
-- Windows, macOS or Linux. The geometry kernel is WebAssembly, so nothing is compiled on install. So far Open3DJ has been run on Linux only. CI for Windows, macOS and ARM is set up but has not run yet. If you try it there, please file a [hardware report](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=hardware_report.yml) with the output of `npx open3dj doctor --bench`.
 
 ```sh
 git clone https://github.com/NeuralDEEPnet/Open3DJ.git
@@ -18,7 +93,13 @@ npm ci
 npx open3dj --version
 ```
 
-Nothing is published to npm yet. Run `npx open3dj` from inside the clone, or `node /path/to/Open3DJ/packages/open3dj/src/cli.ts` from anywhere.
+Run `npx open3dj` from inside the clone, or `node /path/to/Open3DJ/packages/open3dj/src/cli.ts` from anywhere.
+
+### What your computer needs
+
+- Windows 10 or 11, macOS, or Linux with glibc, on x64 or ARM64. The geometry kernel is WebAssembly, so nothing is compiled on install.
+- Disk: about 85 MB for the app and its dependencies, plus 100 to 210 MB when the installer downloads a private Node (the Windows zip is the smaller one).
+- Memory: a worker used about 200 MB at peak on small parts. The pool runs one worker per core minus one, fewer when free memory is short.
 
 ## For people
 

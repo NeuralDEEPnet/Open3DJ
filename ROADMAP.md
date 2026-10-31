@@ -55,7 +55,7 @@ The first vertical slice runs end to end, from a clone, on the command line and 
 - Reference assemblies of 145 and 1,025 occurrences.
 - `npm run check`: typecheck, every test (about 690), the bench regression split, and the stdout-leak and license gates.
 
-Not yet: CI has not run on Windows, macOS or ARM (it runs on pull requests and on `main`, and has not had a run there yet). So far Open3DJ has been run on Linux only. Nothing is published to npm, because the name is pending trademark clearance. Two example goldens (`box-with-lid` and `enclosure`) are waiting for the founder to regenerate them, so `npm run check` reports those two tests as failing until then, and no pull request can merge in either lane before they are regenerated.
+Not yet: As of 2026-10-31, CI runs `npm run check` on Linux x64 and ARM64, macOS on Apple Silicon, and Windows x64 and ARM64. Everything passes there except two example goldens (`box-with-lid` and `enclosure`) that are waiting to be regenerated, and the browser viewer test is skipped because CI has no browser driver. Nobody outside the project has tested Open3DJ on their own machine yet; [docs/TESTING.md](docs/TESTING.md) shows how. Nothing is published to npm, because the name is pending trademark clearance. Two example goldens (`box-with-lid` and `enclosure`) are waiting for the founder to regenerate them, so `npm run check` reports those two tests as failing until then, and no pull request can merge in either lane before they are regenerated.
 
 ## The steps
 
@@ -64,10 +64,10 @@ Not yet: CI has not run on Windows, macOS or ARM (it runs on pull requests and o
 - **Goal:** set up the production line and measure real machines before designing around guesses.
 - **Status:** in progress.
 - **Shipped:** AGENTS.md, AI_POLICY.md, Claude Code hooks, the one-command `check`, the leak and license gates, issue forms, contract schemas v0, o3dj-bench v0 with task-lint, the reference assemblies, a first determinism (H-det) run on one Linux machine, and a first `doctor --bench`.
-- **Still to do:** CI results from all five tier-1 runners (Linux x64 and ARM64, macOS, Windows x64 and ARM64); `doctor --bench` micro-benchmarks, a viewer frame-time probe and a WebGPU probe; H-det on the other operating systems; a baseline value stream from 2 or 3 real enclosure briefs.
+- **Still to do:** reports from people on real machines for each tier-1 platform (CI already runs on all five runners); `doctor --bench` micro-benchmarks, a viewer frame-time probe and a WebGPU probe; H-det on the other operating systems; a baseline value stream from 2 or 3 real enclosure briefs.
 - **Kaizen metric:** fresh clone to a green `check` in 10 minutes or less on Linux, macOS and Windows.
 - **How you can help:**
-  - People: run `npm ci` and `npm run check` on Windows, macOS or an ARM machine, time it, and tell us what broke. Run `npx open3dj doctor --bench` and file a [hardware report](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=hardware_report.yml).
+  - People: install Open3DJ on your own machine, follow the 15-minute checklist in [docs/TESTING.md](docs/TESTING.md), and paste the output of `open3dj doctor --report` into a [hardware report](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=hardware_report.yml). Developers can also time `npm run check` from a clone.
   - Agents: run `npm run hdet` on a new operating system and draft a hardware report with the table it prints, for your operator to check and file.
 
 ### S1. Agent Preview

@@ -14,12 +14,15 @@ import type { PackageStatus, ParamValue, RunInput, RunOutput, ScriptError } from
 import { UsageError, parseCommand } from "./args.ts";
 import type { Command, Source } from "./args.ts";
 import { formatDocs, formatDoctor, formatError, formatExport, formatInspect, formatRender, formatRun } from "./format.ts";
+import { formatHardwareReport, gpuNames, installContext } from "./report.ts";
 import { TEMPLATES } from "./templates.ts";
 import { openBrowser, startViewServer } from "./view.ts";
 
 export { parseCommand, parseParams, defaultProject, UsageError } from "./args.ts";
 export type { Command, Parsed, Source } from "./args.ts";
 export { TEMPLATES } from "./templates.ts";
+export { HARDWARE_REPORT_URL, formatHardwareReport, gpuNames, installContext } from "./report.ts";
+export type { ReportContext } from "./report.ts";
 export type { TemplateName } from "./templates.ts";
 export { startViewServer, openBrowser } from "./view.ts";
 export type { RunState, ViewModel, ViewServer, ViewServerOptions } from "./view.ts";
@@ -43,7 +46,9 @@ Usage:
                                                    browser viewer on 127.0.0.1; re-runs the script on save
   open3dj new <name> [--template part|assembly]   scaffold name.o3j with a starter script
   open3dj mcp [--root dir] [--workers n]           stdio MCP server for agents
-  open3dj doctor [--bench] [--json]                what this machine can run
+  open3dj doctor [--bench] [--json | --report]     what this machine can run; --report prints a
+                                                   Markdown hardware report (with the bench) to paste
+                                                   into the hardware report issue form
   open3dj tools                                    the tool schemas, as MCP tools/list publishes them
 
 A script path (part.o3j.js) runs first and keeps its project next to it (part.o3j).
@@ -122,8 +127,10 @@ async function execute(command: Command, json: boolean, io: Io): Promise<number>
     case "view":
       return view(command, io);
     case "doctor": {
+      if (command.report) io.err("open3dj doctor --report: measuring this machine, which can take a minute...\n");
       const report = await doctor({ bench: command.bench, pool: { log: workerLog() } });
-      io.out(json ? `${JSON.stringify(report, null, 2)}\n` : formatDoctor(report));
+      if (command.report) io.out(formatHardwareReport(report, { ...installContext(), gpus: gpuNames() }));
+      else io.out(json ? `${JSON.stringify(report, null, 2)}\n` : formatDoctor(report));
       return EXIT.ok;
     }
     case "new":

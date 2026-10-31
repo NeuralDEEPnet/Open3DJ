@@ -13,6 +13,8 @@ const policy = validatePolicy(JSON.parse(readFileSync(new URL("../../.github/mer
 
 const UNTRUSTED = /github\.head_ref|github\.event\.(?:pull_request\.(?:title|body|head\.ref|head\.label)|issue\.(?:title|body)|comment\.body|review\.body|review_comment\.body|head_commit\.(?:message|author)|commits|pages|workflow_run\.(?:head_branch|display_title|head_commit|pull_requests))/;
 const PRIVILEGED = /^\s*(pull_request_target|workflow_run|check_suite|schedule|pull_request_review):/m;
+/** Workflows that build and run the repository's code (CI and the install smoke). */
+const BUILDS = ["ci.yml", "install-smoke.yml"];
 
 /** The text of every run: script, single-line or block. */
 function runScripts(text: string): string[] {
@@ -35,7 +37,7 @@ function runScripts(text: string): string[] {
 
 describe("workflows", () => {
   it("finds the expected workflow files", () => {
-    assert.deepEqual(workflows.map((w) => w.name), ["ai-review.yml", "automerge.yml", "ci.yml", "dco.yml", "evaluate.yml", "review-relay.yml"]);
+    assert.deepEqual(workflows.map((w) => w.name), ["ai-review.yml", "automerge.yml", "ci.yml", "dco.yml", "evaluate.yml", "install-smoke.yml", "review-relay.yml"]);
   });
 
   for (const w of workflows) {
@@ -57,7 +59,16 @@ describe("workflows", () => {
         const off = w.text.split("persist-credentials: false").length - 1;
         assert.equal(off, checkouts);
       });
-      if (w.name !== "ci.yml") {
+      if (BUILDS.includes(w.name)) {
+        // These two exist to install and run the code under test, so they may only do it
+        // unprivileged: pull_request (never pull_request_target), a read-only token.
+        it("runs pull request code only without privileges", () => {
+          assert.ok(!PRIVILEGED.test(w.text), "a privileged trigger");
+          assert.ok(!/pull_request_target/.test(w.text));
+          assert.match(w.text, /^permissions:\n  contents: read\n/m);
+          assert.ok(!/^\s+[a-z-]+: write$/m.test(w.text), "a write permission");
+        });
+      } else {
         it("never installs or runs the repository's packages", () => {
           assert.ok(!/\bnpm (ci|install|run|test|exec)\b|\bnpx\b|\byarn\b|\bpnpm\b/.test(w.text));
         });
@@ -77,6 +88,7 @@ describe("workflows", () => {
   it("gives write permissions only to the jobs that need them", () => {
     const writes = (name: string) => [...(workflows.find((w) => w.name === name)?.text ?? "").matchAll(/^\s+([a-z-]+): write$/gm)].map((m) => m[1]).sort();
     assert.deepEqual(writes("ci.yml"), []);
+    assert.deepEqual(writes("install-smoke.yml"), []);
     assert.deepEqual(writes("evaluate.yml"), []);
     assert.deepEqual(writes("dco.yml"), []);
     assert.deepEqual(writes("review-relay.yml"), []);

@@ -98,7 +98,7 @@ Welcome to Open3DJ, open-source and agent-first CAD created by Neural Deep Netwo
 **We have no outside contributors yet. You can be the first.** There are two ways in:
 
 - **Bring your agent.** Load the Claude Code plugin from [skills/](https://github.com/NeuralDEEPnet/Open3DJ/blob/main/skills/README.md), or connect Codex, Cursor, Gemini CLI or your own MCP agent. The most wanted task: run the [capability benchmark](https://github.com/NeuralDEEPnet/Open3DJ/blob/main/bench/run-capability.md) and post the first pass^3 score in Agents and MCP. Then pick an `agent-ready` issue. The rules are short: [AI_POLICY.md](https://github.com/NeuralDEEPnet/Open3DJ/blob/main/AI_POLICY.md).
-- **Contribute as a person.** Pick a `good first issue`, propose a standard part, add an example or test geometry, run `npx open3dj doctor --bench` on Windows, macOS or ARM and file a hardware report, check a research claim, or write a design brief in Industrial design.
+- **Contribute as a person.** Pick a `good first issue`, propose a standard part, add an example or test geometry, install Open3DJ on your own machine with [docs/TESTING.md](https://github.com/NeuralDEEPnet/Open3DJ/blob/main/docs/TESTING.md) and paste `open3dj doctor --report` into a hardware report, check a research claim, or write a design brief in Industrial design.
 
 **How your pull request is handled.** Every pull request is checked automatically on five platforms, with a DCO sign-off check and an advisory AI review. Documentation, examples, new bench tasks and similar data merge on their own when everything passes. Code merges after one maintainer approves. [CONTRIBUTING.md](https://github.com/NeuralDEEPnet/Open3DJ/blob/main/CONTRIBUTING.md) has the details.
 
@@ -340,8 +340,9 @@ Then, to welcome the first contributors, and before you announce the project any
   - `Test geometry: a STEP file with fillets on fillets` (`help wanted`)
   - `Docs: check every link in CONTRIBUTING.md and AGENTS.md` (`documentation`, `agent-ready`)
   - `Bench: first capability run with Claude Code, Codex or Gemini CLI` (`bench`, `help wanted`)
-  - `Hardware: npm run check and doctor --bench on Windows, macOS or ARM64` (`hardware-report`, `needs-human`)
+  - `Hardware: install with docs/TESTING.md and file open3dj doctor --report on Windows, macOS or ARM64` (`hardware-report`, `needs-human`)
 - Pin the welcome discussion and the best starter issues.
+- To ask people to test on their machines, use the ready-to-post texts and the posting checklist in [ops/outreach/](../ops/outreach/README.md).
 
 ## Checklist
 
