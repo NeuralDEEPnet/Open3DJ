@@ -2,6 +2,42 @@
 
 A credited log of what was built and measured, newest first. The Friday review adds the week's entry with the founder's hours ([PLAN.md](../docs/PLAN.md) section 4.2). Measurements name the date, the machine, the commit or state, and the command, so anyone can repeat them.
 
+## 2026-10-31: Viewer and agents on one project, and the viewer frame-time benchmark
+
+Built by neuraldeep.net design agents. Founder hours: to be filled in at the Friday review. Working tree of branch `ccr-1e979422-dguyci` on 2026-10-31 (uncommitted, on top of the three.js viewer rework).
+
+What changed:
+
+- **Selection sharing.** What the person selects in `open3dj view` (parts, faces as `<path>@elem:face:<n>`, edges by the faces they bound) goes to the view server through its one write route, `POST <nonce>/api/selection`, and is kept in `.o3j-view/selection.json`. Agents read it with `inspect fields=[selection]` (a new, additive field). The security model of that route is in ARCHITECTURE.md section 12.
+- **Agent highlights.** `render view=highlight` with targets and an optional note writes `.o3j-view/highlight.json` without a kernel job. The view server polls it, checks it (schema, a time that is not in the future, and every target resolved again on its revision) and sends it on the event stream; the page fills the faces, tints parts named whole, shows hidden targets through the parts in front, and says "Pointed at in this project", with a dismiss button. It never moves the person's camera.
+- **Both files are untrusted on read.** Any process of the same user, or a cloned project, can write them. The selection is rebuilt from its revision every time it is read, and `inspect` says it is what was clicked, not an approval.
+- **The benchmark.** `npm run viewer:bench` (`scripts/viewer-bench.ts`).
+
+### Viewer frame time
+
+Command: `npm run viewer:bench -- --with-adaptive` (3 s orbits). Machine: a shared Linux container, Linux 6.18 x64, Intel Xeon at 2.80 GHz with 4 logical cores, 15.7 GB, Node 24.22.1, headless Chromium 153.0.8010.12 from Playwright, 1280 x 800. **There is no GPU.** WebGL2 runs on SwiftShader (`ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero)), SwiftShader driver)`), a software rasteriser on the CPU. Chromium offers a WebGPU adapter (`vendor=google architecture=swiftshader isFallbackAdapter=true`), but it fails at the first frame ("Instance dropped in popErrorScope") and the page falls back to WebGL2 by itself, so every row asked for WebGPU was drawn with WebGL2 too (those rows are in the script's output, not repeated here). Load average 2.0 at the start and 3.5 at the end of the run (another workflow shares the container).
+
+**Every frame of the rows marked "full" is drawn at pixel ratio 1.** The page is opened with `adaptive=0`, so it never halves the resolution while the view moves, and the script fails a row whose probe or orbit saw another ratio or any low-resolution frame. An earlier version of this entry measured with adaptive resolution on (the page's default), so its frame times were drawn at pixel ratio 0.5 while the view moved; those numbers are replaced here. The rows marked "half while moving" are the same cases with adaptive resolution on, for comparison only; they never count for the gate. Each motion is warmed up first (a 0.8 s drag and a 0.8 s probe), because SwiftShader compiles a pipeline the first time it meets a new draw state, which showed as one frame of 500 to 1,000 ms in the p95 of the first run.
+
+"Load first" is page navigation to the first drawn frame on the first open; for the first row of each case it includes the server making the GLB (and, for plate-145, the detailed report). "Reload" has the GLB cached. "Probe orbit" is `open3dj.probe(3000)` (one camera step per frame, no mouse); "mouse orbit" is a 3 s left drag. Draw calls and triangles are those of the last frame, with the cursor off the model.
+
+| Case | Occurrences | Resolution while moving | Load first / reload (ms) | Probe orbit p50 / p95 (ms) | Mouse orbit p50 / p95 (ms) | Draw calls | Triangles | JS heap (MB) |
+|---|---|---|---|---|---|---|---|---|
+| enclosure | 6 | full (pixel ratio 1) | 1,815 / 281 | 49.9 / 50.1 | 66.6 / 66.8 | 6 | 5,724 | 14.8 |
+| enclosure | 6 | half (adaptive) | 393 / 303 | 16.7 / 33.4 | 33.3 / 50 | 6 | 5,724 | 12.9 |
+| plate-145 | 145 | full (pixel ratio 1) | 23,417 / 441 | 150.1 / 216.6 | 216.6 / 283.4 | 6 | 96,444 | 15.6 |
+| plate-145 | 145 | half (adaptive) | 745 / 479 | 133.3 / 166.6 | 150 / 233.3 | 6 | 96,444 | 16 |
+| grid-1025 | 1,025 | full (pixel ratio 1) | 3,152 / 370 | 150 / 183.3 | 166.6 / 200 | 6 | 72,716 | 20.2 |
+| grid-1025 | 1,025 | half (adaptive) | 506 / 370 | 116.7 / 149.9 | 133.3 / 166.7 | 6 | 72,716 | 20.5 |
+
+On a shared software rasteriser the frame times move with the machine's load: an earlier run the same afternoon, while another workflow's `npm run check` held the load average at about 9 on the 4 cores, gave plate-145 probe p95 967 ms. Draw calls, triangles and heap do not move. Read the frame times above as an upper bound for this container, not as a property of the viewer.
+
+**The S2 gate is not judged here.** PLAN.md S2 asks for p95 under 33 ms with WebGPU and under 50 ms (proposed) with WebGL2 while orbiting plate-145 at full resolution, measured on the founder's GPU machine (an integrated GPU counts). This container's 217 ms p95 is software rendering and says nothing about a GPU. Target to check on real GPUs: `npm run viewer:bench -- --cases plate-145` on the founder's machine and on volunteer machines (Windows, macOS and Linux, integrated and discrete), recording the table and its machine block here; add `--dpr 2` on a high-density screen. The script needs Playwright with Chromium where Node can `require("playwright")`; it is not a dependency of the repository, and it skips without it. (One way is `npm install --no-save playwright` and `npx playwright install chromium`; not tried here, where Playwright was preinstalled.)
+
+### Tests
+
+- `packages/mcp/src/viewstate.test.ts` (9 tests, among them planted selection and highlight files), `packages/open3dj/src/view-share.test.ts` (5 tests, among them 25 refused write requests that leave the file unchanged and a planted selection read through `GET api/selection`), `packages/open3dj/src/view-agent.test.ts` (end to end with `open3dj mcp` in its own process and the viewer in Chromium; skips without Playwright), `packages/open3dj/src/format.test.ts` (the terminal layout of `inspect --fields selection`), and schema fixtures for the three new schemas.
+
 ## 2026-10-28: STEP determinism fallback
 
 Built by neuraldeep.net design agents. Founder hours: to be filled in at the Friday review. Same machine as the Step 0 entry below, working tree of branch `ccr-1e979422-dguyci`.

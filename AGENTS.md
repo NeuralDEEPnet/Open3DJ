@@ -71,6 +71,7 @@ Use Node 24 (`.nvmrc`). From the repository root:
 | `npm run bench:grade -- --runs <dir>` | Grades capability runs and computes pass^3 (`bench/grade.ts`, see `bench/run-capability.md`) |
 | `npm run hdet` | H-det (`scripts/hdet.ts`): 20 fresh processes and 20 warm reuses per corpus case; compares measure bits and STEP (about 4 minutes) |
 | `npm run corpus` | Times the reference assemblies in `corpora/reference-assemblies/` (`scripts/reference-assemblies.ts`) |
+| `npm run viewer:bench` | The viewer frame-time benchmark (`scripts/viewer-bench.ts`): enclosure, `plate-145` and `grid-1025` in headless Chromium at a fixed pixel ratio; needs Playwright and skips without it. The S2 gate needs a real GPU |
 | `node packages/mcp/src/dsl-docs.ts --check` | Fails if `docs/DSL.md` is stale; `--write` regenerates it from `DSL_ENTRIES` |
 | `npx open3dj help` | The CLI (runs `packages/open3dj/src/cli.ts`). Try `npx open3dj run examples/bracket/bracket.o3j.js` |
 | `npx open3dj mcp --root <dir>` | The MCP server over stdio, as agents start it |

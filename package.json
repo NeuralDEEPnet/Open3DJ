@@ -23,7 +23,8 @@
     "bench:regression": "node bench/run-regression.ts",
     "bench:grade": "node bench/grade.ts",
     "hdet": "node scripts/hdet.ts",
-    "corpus": "node scripts/reference-assemblies.ts"
+    "corpus": "node scripts/reference-assemblies.ts",
+    "viewer:bench": "node scripts/viewer-bench.ts"
   },
   "devDependencies": {
     "@modelcontextprotocol/client": "2.4.0",
