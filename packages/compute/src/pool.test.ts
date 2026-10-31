@@ -29,12 +29,24 @@ function expectError(r: JobResult, code: string): void {
   if (!r.ok) assert.equal(r.error.code, code, JSON.stringify(r.error));
 }
 
+// Regression (windows-latest CI, 31 Oct 2026): busy never reached 2. Each worker loads the kernel
+// when it starts, so on a slow runner the first worker finished its job before the second was
+// ready. The test now waits for both workers (warm: true, then pairs of short jobs until a pair
+// starts at once), and checks busy right after run(), which dispatches two jobs to two idle
+// workers before it returns.
 test("runs jobs in parallel on separate workers, each with a schema-valid compute block", async () => {
-  await withPool({ size: 2 }, async (pool) => {
-    let maxBusy = 0;
-    const poll = setInterval(() => (maxBusy = Math.max(maxBusy, pool.stats().busy)), 5);
-    const results = await Promise.all([pool.run(job({ script: BUSY })), pool.run(job({ script: BUSY }))]);
-    clearInterval(poll);
+  await withPool({ size: 2, warm: true }, async (pool) => {
+    let pairs = 0;
+    let running: Array<Promise<JobResult>> = [];
+    while (pairs < 200) {
+      pairs++;
+      running = [pool.run(job()), pool.run(job())];
+      if (pool.stats().busy === 2) break;
+      await Promise.all(running);
+      running = [];
+    }
+    assert.equal(running.length, 2, `two idle workers never took two jobs at once in ${pairs} tries`);
+    const results = await Promise.all(running);
     for (const r of results) {
       assert.ok(r.ok, r.ok ? "" : JSON.stringify(r.error));
       assert.ok(validate("compute", r.compute).valid);
@@ -43,8 +55,7 @@ test("runs jobs in parallel on separate workers, each with a schema-valid comput
       if (r.ok) assert.deepEqual(r.report.compute, r.compute);
     }
     assert.notEqual(results[0]!.stats.workerId, results[1]!.stats.workerId);
-    assert.equal(maxBusy, 2, "both workers ran at the same time");
-    assert.equal(pool.stats().completed, 2);
+    assert.equal(pool.stats().completed, 2 * pairs);
   });
 });
 
