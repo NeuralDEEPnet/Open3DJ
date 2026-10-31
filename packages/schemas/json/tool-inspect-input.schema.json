@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:open3dj:v0:tool-inspect-input",
+  "title": "inspect tool input (S1)",
+  "type": "object",
+  "properties": {
+    "project": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1024
+    },
+    "rev": {
+      "$ref": "urn:open3dj:v0:common#/$defs/rev"
+    },
+    "fields": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "tree",
+          "refs",
+          "fits",
+          "measure",
+          "devices",
+          "job",
+          "selection"
+        ]
+      },
+      "minItems": 1
+    },
+    "targets": {
+      "description": "Occurrence paths or definition ids for measure (occurrence paths also get placements) and fits.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 1024
+      },
+      "maxItems": 200
+    },
+    "job_id": {
+      "description": "Job to report on, with fields [job].",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "detail": {
+      "description": "measure detail: detailed (default) or concise (3 digits, no area, centre of mass or counts).",
+      "enum": [
+        "concise",
+        "detailed"
+      ]
+    },
+    "compute": {
+      "$ref": "urn:open3dj:v0:common#/$defs/computeMode"
+    }
+  },
+  "required": [
+    "fields"
+  ],
+  "additionalProperties": false
+}

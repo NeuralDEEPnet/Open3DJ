@@ -1,0 +1,127 @@
+{
+  "$schema": "../../../packages/schemas/json/bench-task.schema.json",
+  "id": "cap-junction-box",
+  "version": 1,
+  "split": "capability",
+  "title": "Wall-mount junction box with screwed lid",
+  "brief": "A wall-mount junction box, about 100 x 100 mm and 50 to 70 mm deep, with a flat lid held by four M4 x 12 socket head screws into brass inserts in the corners of the box. It needs a way to screw it to the wall, such as tabs or a flange with holes. Please model the four screws too (the standard M4 socket head screw is fine), named Screw, with their heads resting on the lid; call the other parts Box and Lid. The lid sits on the box, and the screws must not hit anything.",
+  "params": {},
+  "assertions": [
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "box",
+      "kind": "occurrences",
+      "name": "box",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "lid",
+      "kind": "occurrences",
+      "name": "lid",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "screws",
+      "kind": "occurrences",
+      "name": "screw*",
+      "expect": {
+        "eq": 4
+      }
+    },
+    {
+      "id": "screw-clones",
+      "kind": "same_definition",
+      "name": "screw*"
+    },
+    {
+      "id": "no-clash",
+      "kind": "fits",
+      "fit": "clash",
+      "expect": {
+        "eq": 0
+      }
+    },
+    {
+      "id": "heads-on-lid",
+      "kind": "fits",
+      "fit": "contact",
+      "a": "lid",
+      "b": "screw*",
+      "expect": {
+        "eq": 4
+      }
+    },
+    {
+      "id": "lid-on-box",
+      "kind": "fits",
+      "fit": "contact",
+      "a": "lid",
+      "b": "box",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "box-width",
+      "kind": "measure",
+      "quantity": "size_x",
+      "target": "box",
+      "expect": {
+        "min": 95,
+        "max": 150
+      }
+    },
+    {
+      "id": "box-depth",
+      "kind": "measure",
+      "quantity": "size_y",
+      "target": "box",
+      "expect": {
+        "min": 95,
+        "max": 150
+      }
+    },
+    {
+      "id": "box-height",
+      "kind": "measure",
+      "quantity": "size_z",
+      "target": "box",
+      "expect": {
+        "min": 50,
+        "max": 70
+      }
+    }
+  ],
+  "reference": "reference.o3j.js",
+  "mutant": "mutant.o3j.js",
+  "mutant_defect": "The screws are M4 x 30 and run into the bosses below the insert pockets.",
+  "mutant_fails": [
+    "status",
+    "no-clash"
+  ],
+  "tags": [
+    "enclosure",
+    "multi-part",
+    "fasteners",
+    "lib"
+  ],
+  "source": "original",
+  "licence": "MIT",
+  "authors": [
+    "neuraldeep.net design agents"
+  ]
+}

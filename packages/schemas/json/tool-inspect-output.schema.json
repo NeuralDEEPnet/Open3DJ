@@ -1,0 +1,220 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:open3dj:v0:tool-inspect-output",
+  "title": "inspect tool output (S1)",
+  "type": "object",
+  "properties": {
+    "status": {
+      "enum": [
+        "ok",
+        "error"
+      ]
+    },
+    "rev": {
+      "$ref": "urn:open3dj:v0:common#/$defs/rev"
+    },
+    "tree": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/treeNode"
+      }
+    },
+    "refs": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:open3dj:v0:geometry-report#/$defs/ref"
+      }
+    },
+    "fits": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:open3dj:v0:geometry-report#/$defs/fit"
+      }
+    },
+    "measure": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:open3dj:v0:geometry-report#/$defs/part"
+      },
+      "description": "Per definition, in the definition's own coordinates (detailed by default; detail concise rounds to 3 digits and leaves out area, centre of mass and counts). placements gives where each targeted occurrence sits."
+    },
+    "placements": {
+      "description": "With measure and targets: each targeted part occurrence and its world bounding box (exact for moved parts, an enclosing box for rotated ones).",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "def": {
+            "type": "string",
+            "minLength": 1
+          },
+          "bbox": {
+            "$ref": "urn:open3dj:v0:common#/$defs/bbox"
+          }
+        },
+        "required": [
+          "path",
+          "def",
+          "bbox"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "devices": {
+      "$ref": "urn:open3dj:v0:device-inventory"
+    },
+    "selection": {
+      "$ref": "urn:open3dj:v0:viewer-selection"
+    },
+    "job": {
+      "$ref": "#/$defs/job"
+    },
+    "error": {
+      "$ref": "urn:open3dj:v0:script-error"
+    },
+    "compute": {
+      "$ref": "urn:open3dj:v0:compute"
+    }
+  },
+  "required": [
+    "status",
+    "compute"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "treeNode": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "description": "Occurrence path, for example enclosure/pcb_assy/standoff#2.",
+          "type": "string",
+          "minLength": 1
+        },
+        "def": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "enum": [
+            "script",
+            "lib",
+            "assembly",
+            "imported"
+          ]
+        },
+        "transform": {
+          "$ref": "urn:open3dj:v0:common#/$defs/transform"
+        },
+        "children": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "path",
+        "def",
+        "kind"
+      ],
+      "additionalProperties": false
+    },
+    "job": {
+      "description": "Minimal job model (S1): long work returns job_id; agents poll with inspect fields=[job].",
+      "type": "object",
+      "properties": {
+        "job_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "type": "string",
+          "minLength": 1
+        },
+        "state": {
+          "enum": [
+            "queued",
+            "running",
+            "deferred",
+            "awaiting_approval",
+            "done",
+            "failed",
+            "cancelled"
+          ]
+        },
+        "progress": {
+          "type": "object",
+          "properties": {
+            "done": {
+              "type": "number",
+              "minimum": 0
+            },
+            "total": {
+              "type": "number",
+              "minimum": 0
+            },
+            "unit": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "done",
+            "total",
+            "unit"
+          ],
+          "additionalProperties": false
+        },
+        "attempts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "backend": {
+                "type": "string"
+              },
+              "device": {
+                "type": "string"
+              },
+              "outcome": {
+                "enum": [
+                  "ok",
+                  "failed",
+                  "cancelled",
+                  "fallback"
+                ]
+              },
+              "reason": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "backend",
+              "device",
+              "outcome"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "reason": {
+          "description": "Why the job is deferred or failed.",
+          "type": "string"
+        },
+        "rev": {
+          "$ref": "urn:open3dj:v0:common#/$defs/rev"
+        },
+        "result": {
+          "description": "For a run job that has finished: the output run would have returned, with the concise report on success or the error with its line, column and hint on failure.",
+          "$ref": "urn:open3dj:v0:tool-run-output"
+        }
+      },
+      "required": [
+        "job_id",
+        "kind",
+        "state"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

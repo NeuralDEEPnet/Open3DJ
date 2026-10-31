@@ -1,0 +1,268 @@
+name: Install smoke
+
+# Not a required check: neither job is named in the branch ruleset or in .github/merge-policy.json.
+# It tells us whether the installers and the installed open3dj work on each platform, so a
+# failure here is a signal to look at, not a merge gate.
+#
+# install: runs scripts/install/install.sh or install.ps1 from the checked-out source on the five
+# CI runners, then in a fresh shell (a login shell, or PowerShell with the PATH read back from the
+# registry) runs scripts/install/smoke.sh or smoke.ps1: doctor --json, run on examples/bracket and
+# examples/enclosure, export STEP and 3MF, render PNGs and a raw JSON-RPC MCP session over stdio
+# (scripts/install/mcp-smoke.ts). It reruns the installer to check an upgrade in place, then
+# uninstalls and checks that nothing is left behind. It also installs into a folder whose name
+# holds a space, '&' and letters outside any single code page, and on windows-latest it installs
+# from GitHub the way testers do (irm and a script block in Windows PowerShell 5.1), for pushes
+# and for pull requests from this repository.
+#
+# viewer-browser: runs packages/open3dj/src/view-browser.test.ts in real Chromium (Playwright,
+# installed only for this job and never saved to package.json) on Windows, macOS and Linux.
+on:
+  pull_request:
+    paths:
+      - scripts/install/**
+      - package.json
+      - package-lock.json
+      - packages/**
+      - .github/workflows/install-smoke.yml
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: install-smoke-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  install:
+    name: install (${{ matrix.os }}, ${{ matrix.node }} node)
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # "system": Node 24 is on PATH and the installer uses it. "private": the installer
+          # downloads Node 24 from nodejs.org and checks it against SHASUMS256.txt.
+          - { os: ubuntu-latest, node: system }
+          - { os: ubuntu-24.04-arm, node: private }
+          - { os: macos-latest, node: private }
+          - { os: windows-latest, node: system }
+          - { os: windows-11-arm, node: private }
+    env:
+      PRIVATE_NODE: ${{ matrix.node == 'private' && '1' || '' }}
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+        with:
+          persist-credentials: false
+      - if: matrix.node == 'system'
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+        with:
+          node-version: 24
+
+      # ---- macOS and Linux ----
+      - name: Install with install.sh
+        if: runner.os != 'Windows'
+        shell: bash
+        run: |
+          mkdir -p "$RUNNER_TEMP/smoke"
+          # Take ~/.local/bin off PATH, so the installer has to add it to the shell profile.
+          PATH="$(printf '%s' "$PATH" | tr ':' '\n' | grep -vx "$HOME/.local/bin" | paste -sd: -)"
+          set -- --source "$GITHUB_WORKSPACE" --yes
+          if [ -n "$PRIVATE_NODE" ]; then set -- "$@" --private-node; fi
+          sh scripts/install/install.sh "$@" 2>&1 | tee "$RUNNER_TEMP/smoke/install.log"
+      - name: Smoke test in a fresh login shell
+        if: runner.os != 'Windows'
+        shell: bash
+        run: |
+          # env -i drops the runner's PATH, so open3dj must come from the profile the installer wrote.
+          env -i HOME="$HOME" sh -lc 'sh "$0" "$1"' "$GITHUB_WORKSPACE/scripts/install/smoke.sh" "$RUNNER_TEMP/smoke" 2>&1 | tee "$RUNNER_TEMP/smoke/smoke.log"
+      - name: Upgrade in place, then doctor --report
+        if: runner.os != 'Windows'
+        shell: bash
+        run: |
+          set -- --source "$GITHUB_WORKSPACE" --yes
+          if [ -n "$PRIVATE_NODE" ]; then set -- "$@" --private-node; fi
+          sh scripts/install/install.sh "$@" 2>&1 | tee "$RUNNER_TEMP/smoke/upgrade.log"
+          "$HOME/.local/bin/open3dj" doctor --report > "$RUNNER_TEMP/smoke/hardware-report.md"
+          cat "$RUNNER_TEMP/smoke/hardware-report.md"
+      - name: Uninstall
+        if: runner.os != 'Windows'
+        shell: bash
+        run: |
+          sh "$HOME/.local/share/open3dj/app/scripts/install/install.sh" --uninstall --yes 2>&1 | tee "$RUNNER_TEMP/smoke/uninstall.log"
+          test ! -e "$HOME/.local/share/open3dj"
+          test ! -e "$HOME/.local/bin/open3dj"
+          if grep -l "added by the Open3DJ installer" "$HOME/.profile" "$HOME/.bashrc" "$HOME/.zshrc" 2>/dev/null; then
+            echo "a PATH line is left behind"; exit 1
+          fi
+
+      # ---- Windows: install with Windows PowerShell 5.1, upgrade with PowerShell 7 ----
+      # Each script runs as its own process with -File, the way the docs tell people to run it,
+      # and the step checks its exit code. Native stderr must not stop the step.
+      - name: Install with install.ps1 (Windows PowerShell 5.1)
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Continue'
+          New-Item -ItemType Directory -Force -Path "$env:RUNNER_TEMP\smoke" | Out-Null
+          $a = @('-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', "$env:GITHUB_WORKSPACE\scripts\install\install.ps1", '-Source', $env:GITHUB_WORKSPACE, '-Yes')
+          if ($env:PRIVATE_NODE) { $a += '-PrivateNode' }
+          & powershell.exe @a 2>&1 | Tee-Object -FilePath "$env:RUNNER_TEMP\smoke\install.log"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Smoke test in a fresh PowerShell 7 with the user PATH from the registry
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Continue'
+          # A new terminal reads PATH from the registry; the runner's own PATH has no open3dj.
+          $env:Path = [Environment]::GetEnvironmentVariable('Path', 'Machine') + ';' + [Environment]::GetEnvironmentVariable('Path', 'User')
+          & pwsh.exe -NoProfile -File "$env:GITHUB_WORKSPACE\scripts\install\smoke.ps1" -OutDir "$env:RUNNER_TEMP\smoke" 2>&1 | Tee-Object -FilePath "$env:RUNNER_TEMP\smoke\smoke.log"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Smoke test in Windows PowerShell 5.1
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Continue'
+          $env:Path = [Environment]::GetEnvironmentVariable('Path', 'Machine') + ';' + [Environment]::GetEnvironmentVariable('Path', 'User')
+          & powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$env:GITHUB_WORKSPACE\scripts\install\smoke.ps1" -OutDir "$env:RUNNER_TEMP\smoke\ps51" 2>&1 | Tee-Object -FilePath "$env:RUNNER_TEMP\smoke\smoke-ps51.log"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Upgrade in place (PowerShell 7), then doctor --report
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Continue'
+          $a = @('-NoProfile', '-File', "$env:GITHUB_WORKSPACE\scripts\install\install.ps1", '-Source', $env:GITHUB_WORKSPACE, '-Yes')
+          if ($env:PRIVATE_NODE) { $a += '-PrivateNode' }
+          & pwsh.exe @a 2>&1 | Tee-Object -FilePath "$env:RUNNER_TEMP\smoke\upgrade.log"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          & "$env:LOCALAPPDATA\Open3DJ\bin\open3dj.cmd" doctor --report > "$env:RUNNER_TEMP\smoke\hardware-report.md"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          Get-Content "$env:RUNNER_TEMP\smoke\hardware-report.md"
+      - name: Uninstall
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Continue'
+          & powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$env:LOCALAPPDATA\Open3DJ\app\scripts\install\install.ps1" -Uninstall -Yes 2>&1 | Tee-Object -FilePath "$env:RUNNER_TEMP\smoke\uninstall.log"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          if (Test-Path "$env:LOCALAPPDATA\Open3DJ") { throw 'the install folder is left behind' }
+          $bin = "$env:LOCALAPPDATA\Open3DJ\bin"
+          $userPath = [Environment]::GetEnvironmentVariable('Path', 'User')
+          if ($userPath -and ($userPath -split ';' | Where-Object { $_.TrimEnd('\') -eq $bin })) { throw "the user PATH still holds $bin" }
+          if ([Environment]::GetEnvironmentVariable('OPEN3DJ_INSTALL_DIR', 'User')) { throw 'OPEN3DJ_INSTALL_DIR is left behind' }
+
+      # ---- a folder name that cmd.exe and code pages get wrong ----
+      - name: Install into an odd folder, run, uninstall (install.sh)
+        if: runner.os != 'Windows'
+        shell: bash
+        run: |
+          odd="$RUNNER_TEMP/R&D Zoë Ł"
+          set -- --source "$GITHUB_WORKSPACE" --prefix "$odd/o3j" --bin-dir "$odd/bin" --no-path --yes
+          if [ -n "$PRIVATE_NODE" ]; then set -- "$@" --private-node; fi
+          sh scripts/install/install.sh "$@" 2>&1 | tee "$RUNNER_TEMP/smoke/install-odd.log"
+          "$odd/bin/open3dj" --version
+          sh "$odd/o3j/app/scripts/install/install.sh" --uninstall --prefix "$odd/o3j" --yes
+          test ! -e "$odd/o3j"
+          test ! -e "$odd/bin/open3dj"
+      - name: Install into an odd folder, run, uninstall (install.ps1, Windows PowerShell 5.1)
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Continue'
+          # A space, '&' (where cmd.exe splits a command) and letters no single code page holds,
+          # written as code points so the encoding of this step's script file does not matter.
+          $odd = Join-Path $env:RUNNER_TEMP ('R&D Zo' + [char]0xEB + ' ' + [char]0x141 + '\Open3DJ')
+          $a = @('-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', "$env:GITHUB_WORKSPACE\scripts\install\install.ps1", '-Source', $env:GITHUB_WORKSPACE, '-InstallDir', $odd, '-NoPath', '-Yes')
+          if ($env:PRIVATE_NODE) { $a += '-PrivateNode' }
+          & powershell.exe @a 2>&1 | Tee-Object -FilePath "$env:RUNNER_TEMP\smoke\install-odd.log"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $shim = Join-Path $odd 'bin\open3dj.cmd'
+          $bytes = [IO.File]::ReadAllBytes($shim)
+          if (@($bytes | Where-Object { $_ -gt 126 }).Count) { throw 'open3dj.cmd is not plain ASCII' }
+          & $shim --version
+          if ($LASTEXITCODE -ne 0) { throw 'open3dj.cmd does not run from PowerShell' }
+          foreach ($cp in 437, 65001) {
+            & cmd.exe /d /c "chcp $cp >nul 2>&1 & call `"$shim`" --version"
+            if ($LASTEXITCODE -ne 0) { throw "open3dj.cmd does not run from cmd.exe with code page $cp" }
+          }
+          & powershell.exe -NoProfile -ExecutionPolicy Bypass -File (Join-Path $odd 'app\scripts\install\install.ps1') -Uninstall -InstallDir $odd -Yes 2>&1 | Tee-Object -FilePath "$env:RUNNER_TEMP\smoke\uninstall-odd.log"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          if (Test-Path -LiteralPath $odd) { throw "$odd is left behind" }
+
+      # ---- the download path testers use, before any person tries it ----
+      - name: Install from GitHub with irm (Windows PowerShell 5.1)
+        if: matrix.os == 'windows-latest' && (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository)
+        shell: powershell
+        env:
+          SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+          OPEN3DJ_REPO: ${{ github.repository }}
+        run: |
+          $ErrorActionPreference = 'Continue'
+          $dir = "$env:RUNNER_TEMP\o3j-gh"
+          $url = "https://raw.githubusercontent.com/$env:OPEN3DJ_REPO/$env:SHA/scripts/install/install.ps1"
+          & ([scriptblock]::Create((irm $url))) -Ref $env:SHA -InstallDir $dir -NoPath -Yes *>&1 | Tee-Object -FilePath "$env:RUNNER_TEMP\smoke\install-github.log"
+          $info = Get-Content -Raw -LiteralPath "$dir\install.json" | ConvertFrom-Json
+          if ($info.source -ne 'github') { throw "install.json says source=$($info.source)" }
+          & "$dir\bin\open3dj.cmd" --version
+          if ($LASTEXITCODE -ne 0) { throw 'open3dj.cmd does not run' }
+          & powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$dir\app\scripts\install\install.ps1" -Uninstall -InstallDir $dir -Yes
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          if (Test-Path -LiteralPath $dir) { throw "$dir is left behind" }
+
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: install-smoke-${{ matrix.os }}
+          path: ${{ runner.temp }}/smoke/
+          if-no-files-found: warn
+          retention-days: 14
+
+  viewer-browser:
+    name: viewer-browser (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, macos-latest, ubuntu-latest]
+    env:
+      # Playwright (Apache-2.0) is installed for this job only, with --no-save, so it never
+      # enters package.json, the lockfile or the licence gate.
+      PLAYWRIGHT_VERSION: 1.64.1
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      # bash on every OS: on Windows the default shell is PowerShell, where $PLAYWRIGHT_VERSION
+      # is an unset PowerShell variable, not the environment variable.
+      - shell: bash
+        run: npm install --no-save --no-audit --no-fund "playwright@$PLAYWRIGHT_VERSION"
+      - name: Install Chromium
+        shell: bash
+        run: |
+          if [ "$RUNNER_OS" = Linux ]; then npx playwright install --with-deps chromium; else npx playwright install chromium; fi
+      - name: Viewer browser test
+        shell: bash
+        env:
+          OPEN3DJ_VIEWER_SHOTS: ${{ runner.temp }}/viewer-shots
+        run: |
+          node --test --test-reporter=spec packages/open3dj/src/view-browser.test.ts
+          # The test skips when Chromium does not start; here that counts as a failure.
+          node -e 'const f = require("node:path").join(process.env.OPEN3DJ_VIEWER_SHOTS, "enclosure-selected.png"); if (!require("node:fs").existsSync(f)) { console.error("the browser test did not run: no " + f); process.exit(1); }' 
+      - name: Upload screenshot
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: viewer-browser-${{ matrix.os }}
+          path: ${{ runner.temp }}/viewer-shots/
+          if-no-files-found: warn
+          retention-days: 14

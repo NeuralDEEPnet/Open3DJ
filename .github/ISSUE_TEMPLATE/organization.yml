@@ -1,0 +1,125 @@
+name: Organization offer
+description: Offer a contribution from a company, university, lab, makerspace, print service, manufacturer or other open-source project.
+title: "[Organization]: "
+labels: ["organization", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for considering Open3DJ. Organizations can make a big difference here, through engineering time, parts catalogs, benchmark data, compute, integrations, research and hands-on testing. [CONTRIBUTING.md](https://github.com/NeuralDEEPnet/Open3DJ/blob/main/CONTRIBUTING.md#for-organizations) explains how organizations are credited, [GOVERNANCE.md](https://github.com/NeuralDEEPnet/Open3DJ/blob/main/GOVERNANCE.md) explains how decisions are made, and [docs/LICENSING.md](https://github.com/NeuralDEEPnet/Open3DJ/blob/main/docs/LICENSING.md) covers licenses, patents and the DCO for employees.
+
+        **This issue is public.** For commercial terms or data that is not public yet, contact Neural Deep Network LTD through the contact page at https://www.neuraldeep.net instead. Please do not post personal email addresses or phone numbers here.
+
+  - type: input
+    id: org-name
+    attributes:
+      label: Organization name
+      placeholder: "Example Robotics Ltd, the University of Example, Example Makerspace"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: org-type
+    attributes:
+      label: Kind of organization
+      options:
+        - Company
+        - University or school
+        - Research lab
+        - Makerspace or training center
+        - Print service or manufacturer
+        - Open-source project or foundation
+        - Something else
+    validations:
+      required: true
+
+  - type: dropdown
+    id: offer
+    attributes:
+      label: What would you like to contribute?
+      description: Select all that apply.
+      multiple: true
+      options:
+        - Engineers' time
+        - Parts catalogs (fasteners, bearings, extrusions, connectors, motors)
+        - Benchmark datasets or test data
+        - Compute or GPU credits
+        - Integration with printers, slicers, print services or manufacturers
+        - Integration with CAD or PLM tools, or a cloud GPU provider
+        - Research, teaching or student projects
+        - Hands-on testing or workshops with new users
+        - Something else
+    validations:
+      required: true
+
+  - type: textarea
+    id: details
+    attributes:
+      label: Tell us more
+      description: What exactly would you contribute, how much, and over what time? What would you like Open3DJ to do with it?
+      placeholder: We can share a catalog of 120 aluminum extrusion profiles with dimensions and could give an engineer two days a month for the parts library.
+    validations:
+      required: true
+
+  - type: input
+    id: terms
+    attributes:
+      label: License or terms
+      description: Under what license or terms would you contribute? Code is MIT today. Data and parts need a license that allows redistribution, such as CC0 or CC BY 4.0. Write "to discuss" if you are not sure yet.
+      placeholder: "MIT for code, CC BY 4.0 for the catalog data"
+    validations:
+      required: true
+
+  - type: input
+    id: contact
+    attributes:
+      label: Public contact
+      description: The GitHub username of the person we should follow up with here. Please do not post personal email addresses.
+      placeholder: "your-github-username"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: credit
+    attributes:
+      label: How would you like to be credited?
+      description: Organizations are listed in CONTRIBUTORS.md and thanked in release notes. For sustained support we agree on a fitting acknowledgement together.
+      options:
+        - By organization name
+        - By organization name and the people involved
+        - Let's discuss
+    validations:
+      required: false
+
+  - type: dropdown
+    id: ai-assistance
+    attributes:
+      label: Did AI tools help you write this?
+      description: AI help is welcome. Telling us helps reviewers. Whatever you choose, a person must read and check this issue before it is submitted.
+      options:
+        - "No, I wrote it without AI tools"
+        - "Yes, AI tools helped me write or research it"
+        - "Yes, an AI agent drafted or filed it for me, and I checked it"
+    validations:
+      required: true
+
+  - type: input
+    id: ai-tools
+    attributes:
+      label: Which AI tools, agents or models?
+      description: Only if AI helped. Name the tool and the model, if you know it.
+      placeholder: "Claude Code with Claude Opus, Codex, Cursor, a custom MCP agent"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before you submit
+      options:
+        - label: I am allowed to make this offer on behalf of my organization.
+          required: true
+        - label: This issue contains no confidential information.
+          required: true
+        - label: I agree to follow the [Code of Conduct](https://github.com/NeuralDEEPnet/Open3DJ/blob/main/CODE_OF_CONDUCT.md).
+          required: true

@@ -1,0 +1,95 @@
+{
+  "$schema": "../../../packages/schemas/json/bench-task.schema.json",
+  "id": "reg-tapered-cup",
+  "version": 1,
+  "split": "regression",
+  "title": "Lofted tapered cup",
+  "brief": "A tapered cup 70 mm tall, lofted from a 60 mm circle at the base to a 76 mm circle at the rim, with a 2.5 mm wall measured across at every height, a 2.5 mm floor and a 3 mm fillet on the outside base edge. One part.",
+  "params": {},
+  "assertions": [
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "size-x",
+      "kind": "measure",
+      "quantity": "size_x",
+      "target": "assembly",
+      "expect": {
+        "eq": 76,
+        "tol": {
+          "abs": 0.0001
+        }
+      }
+    },
+    {
+      "id": "size-z",
+      "kind": "measure",
+      "quantity": "size_z",
+      "target": "assembly",
+      "expect": {
+        "eq": 70,
+        "tol": {
+          "abs": 0.0001
+        }
+      }
+    },
+    {
+      "id": "volume",
+      "kind": "measure",
+      "quantity": "volume_mm3",
+      "target": "cup",
+      "expect": {
+        "eq": 41739.084724,
+        "tol": {
+          "rel": 0.0001
+        }
+      }
+    },
+    {
+      "id": "area",
+      "kind": "measure",
+      "quantity": "area_mm2",
+      "target": "cup",
+      "expect": {
+        "eq": 34200.449862,
+        "tol": {
+          "rel": 0.0001
+        }
+      }
+    },
+    {
+      "id": "faces",
+      "kind": "count",
+      "quantity": "faces",
+      "target": "cup",
+      "expect": {
+        "eq": 9
+      }
+    }
+  ],
+  "reference": "reference.o3j.js",
+  "mutant": "mutant.o3j.js",
+  "mutant_defect": "The cavity is a straight cylinder, so the wall thickens towards the rim.",
+  "mutant_fails": [
+    "volume"
+  ],
+  "tags": [
+    "single-part",
+    "loft",
+    "fillet"
+  ],
+  "source": "examples/tapered-cup",
+  "licence": "MIT",
+  "authors": [
+    "neuraldeep.net design agents"
+  ]
+}

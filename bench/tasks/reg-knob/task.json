@@ -1,0 +1,84 @@
+{
+  "$schema": "../../../packages/schemas/json/bench-task.schema.json",
+  "id": "reg-knob",
+  "version": 1,
+  "split": "regression",
+  "title": "Turned knob with D bore",
+  "brief": "A lathe-style knob 32 mm across and 18 mm tall with a domed top, twelve grip flutes around the side and a D-shaped bore for a 6 mm shaft with a flat 1.5 mm from the axis, 12 mm deep. One part.",
+  "params": {},
+  "assertions": [
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "size-x",
+      "kind": "measure",
+      "quantity": "size_x",
+      "target": "assembly",
+      "expect": {
+        "eq": 32,
+        "tol": {
+          "abs": 0.0001
+        }
+      }
+    },
+    {
+      "id": "size-z",
+      "kind": "measure",
+      "quantity": "size_z",
+      "target": "assembly",
+      "expect": {
+        "eq": 18,
+        "tol": {
+          "abs": 0.0001
+        }
+      }
+    },
+    {
+      "id": "volume",
+      "kind": "measure",
+      "quantity": "volume_mm3",
+      "target": "knob",
+      "expect": {
+        "eq": 12498.481721,
+        "tol": {
+          "rel": 0.000001
+        }
+      }
+    },
+    {
+      "id": "faces",
+      "kind": "count",
+      "quantity": "faces",
+      "target": "knob",
+      "expect": {
+        "eq": 46
+      }
+    }
+  ],
+  "reference": "reference.o3j.js",
+  "mutant": "mutant.o3j.js",
+  "mutant_defect": "The bore is round, without the D flat.",
+  "mutant_fails": [
+    "volume",
+    "faces"
+  ],
+  "tags": [
+    "single-part",
+    "revolve",
+    "pattern"
+  ],
+  "source": "examples/knob",
+  "licence": "MIT",
+  "authors": [
+    "neuraldeep.net design agents"
+  ]
+}

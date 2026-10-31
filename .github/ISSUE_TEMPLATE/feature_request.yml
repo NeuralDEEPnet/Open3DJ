@@ -1,0 +1,126 @@
+name: Feature request
+description: Suggest a new capability or an improvement for people or agents using Open3DJ.
+title: "[Feature]: "
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping shape Open3DJ. Ambitious and unusual ideas are welcome. We would rather hear an idea early than miss it.
+
+        Open3DJ serves both people and AI agents, so it helps to describe how each would use your feature. Large changes, such as new MCP tools, file format changes or new dependencies, will go through an RFC (see [GOVERNANCE.md](https://github.com/NeuralDEEPnet/Open3DJ/blob/main/GOVERNANCE.md)). Opening this issue is a great first step. For open-ended brainstorming, [Discussions](https://github.com/NeuralDEEPnet/Open3DJ/discussions/categories/ideas) also works well.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+      description: Describe the situation and what gets in your way today.
+      placeholder: When my agent designs a bracket, it cannot check whether the part fits on my printer bed before exporting.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: who
+    attributes:
+      label: Who is this for?
+      description: Select all that apply.
+      multiple: true
+      options:
+        - Industrial or product designers
+        - Mechanical engineers
+        - Makers and 3D printing hobbyists
+        - Developers building agents or integrations
+        - AI agents driving Open3DJ over MCP or the CLI
+        - Manufacturers and suppliers
+        - Teachers, students and researchers
+        - Organizations and teams
+        - Someone else
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Your proposed solution
+      description: What would you like Open3DJ to do? Sketches, mock-ups and example prompts are welcome.
+    validations:
+      required: true
+
+  - type: textarea
+    id: agent-use
+    attributes:
+      label: How would an agent use it?
+      description: For example, a new MCP tool, a new field in a tool result, or a CLI command. Leave blank if it does not apply.
+      placeholder: A tool option that checks the part against a named printer profile and returns the result in its geometry report.
+    validations:
+      required: false
+
+  - type: textarea
+    id: human-use
+    attributes:
+      label: How would a person use it?
+      description: For example, in the desktop app. Leave blank if it does not apply.
+    validations:
+      required: false
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you have considered
+      description: Other tools, workarounds or approaches you have tried.
+    validations:
+      required: false
+
+  - type: dropdown
+    id: size
+    attributes:
+      label: How big do you think this is?
+      options:
+        - Small, a focused change
+        - Medium, a few days of work
+        - Large, probably needs an RFC
+        - Not sure
+    validations:
+      required: false
+
+  - type: dropdown
+    id: ai-assistance
+    attributes:
+      label: Did AI tools help you write this request?
+      description: AI help is welcome. Telling us helps reviewers. Whatever you choose, a person must read and check this request before it is submitted.
+      options:
+        - "No, I wrote it without AI tools"
+        - "Yes, AI tools helped me write or research it"
+        - "Yes, an AI agent drafted or filed it for me, and I checked it"
+    validations:
+      required: true
+
+  - type: input
+    id: ai-tools
+    attributes:
+      label: Which AI tools, agents or models?
+      description: Only if AI helped. Name the tool and the model, if you know it.
+      placeholder: "Claude Code with Claude Opus, Codex, Cursor, a custom MCP agent"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: help
+    attributes:
+      label: Can you help?
+      description: Entirely optional. Every kind of help counts.
+      options:
+        - label: I can work on a pull request.
+        - label: My agent can draft a pull request, and I will review it before submitting.
+        - label: I can test it and give feedback.
+        - label: My organization can contribute (code, test data, compute or expertise).
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before you submit
+      options:
+        - label: I searched the existing issues and discussions and this is not a duplicate.
+          required: true
+        - label: I agree to follow the [Code of Conduct](https://github.com/NeuralDEEPnet/Open3DJ/blob/main/CODE_OF_CONDUCT.md).
+          required: true

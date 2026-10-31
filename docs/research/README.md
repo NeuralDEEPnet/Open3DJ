@@ -15,6 +15,14 @@ These reports were produced by parallel research agents and each was adversarial
 | [security-sandboxing.md](security-sandboxing.md) | Sandboxing agent-generated code, MCP security |
 | [community-licensing-business.md](community-licensing-business.md) | Licensing, governance, community, business model |
 
+## Hands-on spikes
+
+| Note | Result |
+|---|---|
+| [spikes/README.md](spikes/README.md) | Step 0: MCP server with kernel worker, script sandbox, 3dj DSL on brepjs, endurance and determinism. Independently reproduced. |
+| [spike-assemblies.md](spike-assemblies.md) | Multi-part assemblies with shared definitions export to STEP and glTF, survive re-import, and support interference checks |
+| [spike-occt-wasm.md](spike-occt-wasm.md) | Open CASCADE as WebAssembly runs in Node.js with no native build, fast enough for agent edits, with CPU-rendered drawings |
+
 ## Gap-fill notes
 
 A completeness review of the draft plan found gaps. These notes answer them and override the reports above where they conflict.
@@ -27,13 +35,45 @@ A completeness review of the draft plan found gaps. These notes answer them and 
 | [gap-4.md](gap-4.md) | Licence audit of TripoSG and TRELLIS inference pipelines |
 | [gap-5.md](gap-5.md) | Trademark and namespace availability for the name Open3DJ |
 | [gap-6.md](gap-6.md) | MCP 2026-07-28 support in clients and in the Rust rmcp crate |
+| [gap-7.md](gap-7.md) | Adoption baselines for comparable CAD and 3D agent packages |
+| [gap-8.md](gap-8.md) | Developer OS share, and native versus WASM OCCT performance |
+| [gap-9.md](gap-9.md) | Code signing eligibility, CADGenBench scores, Apple fees, 3dj MCP inputs |
+
+## Lean re-plan notes (28 Oct 2026)
+
+Written under the founder's constraints (no paid engineers, small releases, Kaizen, an industrial design pipeline, CPU and GPU compute). They are newer than the reports and gap notes above and feed the lean [PLAN.md](../PLAN.md).
+
+| Note | Topic |
+|---|---|
+| [lean-stack.md](lean-stack.md) | Lean starting stack: TypeScript, occt-wasm, QuickJS sandbox, measured overheads |
+| [kaizen-ops.md](kaizen-ops.md) | Kaizen operating model for a founder, volunteers and AI agents; free programmes and cash costs |
+| [assemblies.md](assemblies.md) | Assemblies, mates, solvers and fit checks, with two spikes |
+| [compute-cpu-gpu.md](compute-cpu-gpu.md) | CPU and GPU compute: worker pool, WebGPU spike on lavapipe, sidecar and vendors |
+| [industrial-design.md](industrial-design.md) | Industrial product design pipeline: tools survey, moulding rules, gaps |
+
+Spike scripts and raw output for these notes are in [spike/lean/](spike/lean/), [spike/asm2/](spike/asm2/), [spike/compute/](spike/compute/) and [bench/](bench/).
 
 ## Architecture proposals
 
-Three independent proposals were scored by three judges. The final plan builds on the agent-first proposal and grafts ideas from the other two.
+Three independent proposals for the funded-team plan were scored by three judges. That plan built on the agent-first proposal and grafted ideas from the other two.
 
 | Proposal | Judge total |
 |---|---|
 | [Agent-first](proposals/proposal-agent-first.md) | 23.2 |
 | [Engineering rigour](proposals/proposal-engineering-rigor.md) | 22.3 |
 | [Adoption-first](proposals/proposal-adoption-first.md) | 19.3 |
+
+Three lean proposals followed under the founder's new constraints and were scored by three judges. The lean plan builds on the judges' winner and grafts ideas from the other two.
+
+| Lean proposal | Angle | Judge total |
+|---|---|---|
+| [Agents first](proposals/lean-proposal-agents-first-lean.md) | Agent value first | 24.5 |
+| [Industrial pipeline first](proposals/lean-proposal-industrial-pipeline-first.md) | The product design pipeline first | 23.5 |
+| [Community flywheel first](proposals/lean-proposal-community-flywheel-first.md) | Users and volunteers for little founder time | 18.9 |
+
+## Archive
+
+| Document | Status |
+|---|---|
+| [Full-scale plan](archive/full-scale-plan.md) | Superseded by the lean plan. Written for a funded team. |
+| [Full-scale architecture](archive/full-scale-architecture.md) | Superseded by the lean architecture. Kept for detail. |

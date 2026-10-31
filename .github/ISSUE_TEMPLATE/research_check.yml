@@ -1,0 +1,106 @@
+name: Research check
+description: Verify, correct or update a claim in docs/research or in another Open3DJ document.
+title: "[Research check]: "
+labels: ["research", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Open3DJ's plan rests on the research in [docs/research/](https://github.com/NeuralDEEPnet/Open3DJ/tree/main/docs/research). It was written by AI research agents and fact-checked against primary sources on 27 October 2026, but facts go out of date and checks miss things. Finding a wrong or stale claim is one of the most useful contributions you can make, and a great first one.
+
+        Confirming that a claim is still correct is valuable too. Choose "Still correct" below.
+
+  - type: input
+    id: document
+    attributes:
+      label: Document
+      description: The file that contains the claim, with the section if you can.
+      placeholder: "docs/research/gap-5.md, section USPTO findings"
+    validations:
+      required: true
+
+  - type: textarea
+    id: claim
+    attributes:
+      label: The claim
+      description: Quote the exact text you are checking.
+      render: markdown
+    validations:
+      required: true
+
+  - type: dropdown
+    id: finding
+    attributes:
+      label: What did you find?
+      options:
+        - Still correct (confirmed against a primary source)
+        - Out of date (it was true, but something changed)
+        - Incorrect
+        - The cited source does not say this
+        - The claim has no source
+        - A license or legal detail needs checking
+        - Something else
+    validations:
+      required: true
+
+  - type: textarea
+    id: correction
+    attributes:
+      label: What should it say?
+      description: Your suggested wording. Leave blank if the claim is still correct.
+    validations:
+      required: false
+
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources
+      description: Links to primary sources (official docs, license files, registers, release notes) with the date you checked each one. Primary sources beat blog posts and summaries.
+      placeholder: |
+        https://example.org/official-page (checked 2026-10-28)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: confidence
+    attributes:
+      label: How sure are you?
+      options:
+        - I read the primary source myself
+        - I relied on a secondary source
+        - Not sure, please double-check
+    validations:
+      required: true
+
+  - type: dropdown
+    id: ai-assistance
+    attributes:
+      label: Did AI tools help with this check?
+      description: AI help is welcome. AI tools can invent sources or misquote them, so if a tool found this, please open each source and confirm it says what the tool claims.
+      options:
+        - "No, I checked it without AI tools"
+        - "Yes, AI tools helped, and I opened and read every source myself"
+        - "Yes, an AI agent drafted or filed it for me, and I opened and read every source myself"
+    validations:
+      required: true
+
+  - type: input
+    id: ai-tools
+    attributes:
+      label: Which AI tools, agents or models?
+      description: Only if AI helped. Name the tool and the model, if you know it.
+      placeholder: "Claude Code with Claude Opus, Codex, Cursor, a custom MCP agent"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before you submit
+      options:
+        - label: I searched the existing issues and this claim has not already been reported.
+          required: true
+        - label: I agree to follow the [Code of Conduct](https://github.com/NeuralDEEPnet/Open3DJ/blob/main/CODE_OF_CONDUCT.md).
+          required: true
+        - label: I would like to open a pull request with the correction.
+          required: false

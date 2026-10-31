@@ -1,0 +1,148 @@
+{
+  "$comment": "Merge lanes for pull requests. Read by scripts/automerge (always the default branch's copy, never a pull request's). Rules are checked in order and the first rule whose globs match a file decides that file's lane; a file no rule matches is in defaultLane. A pull request's lane is the strictest lane of any changed file, or of the old path of a renamed file. Globs: * matches inside one folder, ** matches across folders, matching ignores case. To widen the auto lane, add a rule above the final docs rule or relax a limit, in a pull request of its own.",
+  "version": 1,
+  "defaultLane": "maintainer",
+  "rules": [
+    {
+      "id": "workflows-and-agent-config",
+      "lane": "maintainer",
+      "why": "CI, hooks, agent instructions and dotfiles change what runs or what agents read",
+      "globs": [
+        ".github/**", ".claude/**", "**/.*", "**/.*/**", "skills/**",
+        "**/CLAUDE.md", "**/CLAUDE.local.md", "**/AGENTS.md", "**/AGENT.md", "**/SKILL.md", "**/GEMINI.md",
+        "**/CONVENTIONS.md", "**/copilot-instructions.md", "**/llms.txt", "**/llms-full.txt"
+      ]
+    },
+    {
+      "id": "governance",
+      "lane": "maintainer",
+      "why": "license, policy and governance files",
+      "globs": ["LICENSE", "LICENSE.*", "COPYING*", "AI_POLICY.md", "CONTRIBUTING.md", "GOVERNANCE.md", "SECURITY.md", "CODE_OF_CONDUCT.md", "docs/LICENSING.md"]
+    },
+    {
+      "id": "front-page-and-plan",
+      "lane": "maintainer",
+      "why": "the front page, the plan of record, the setup guide and the files AGENTS.md tells every agent to read first: they hold install commands, direction and instructions that people and agents act on",
+      "globs": ["README.md", "ROADMAP.md", "docs/GETTING-STARTED.md", "docs/PLAN.md", "docs/ARCHITECTURE.md", "docs/REPO-SETTINGS.md", "docs/research/README.md", "bench/README.md"]
+    },
+    {
+      "id": "code",
+      "lane": "maintainer",
+      "why": "code, dependencies and build configuration",
+      "globs": [
+        "packages/**", "scripts/**", "bench/*.ts", "bench/**/*.ts",
+        "**/package.json", "**/package-lock.json", "**/npm-shrinkwrap.json", "**/tsconfig*.json",
+        "**/*.ts", "**/*.mts", "**/*.cts", "**/*.tsx", "**/*.js", "**/*.mjs", "**/*.cjs", "**/*.jsx",
+        "**/*.wasm", "**/*.node", "**/*.so", "**/*.dll", "**/*.dylib", "**/*.exe",
+        "**/*.sh", "**/*.bash", "**/*.ps1", "**/*.bat", "**/*.cmd", "**/*.py", "**/Makefile", "**/Dockerfile"
+      ],
+      "exceptGlobs": ["**/*.o3j.js"]
+    },
+    {
+      "id": "markdown",
+      "lane": "auto",
+      "why": "documentation text",
+      "globs": ["**/*.md"]
+    },
+    {
+      "id": "example-goldens",
+      "lane": "auto",
+      "statuses": ["added"],
+      "why": "a new example's golden file; changing an existing golden needs a maintainer",
+      "globs": ["examples/*/expected.json"]
+    },
+    {
+      "id": "bench-task-spec",
+      "lane": "auto",
+      "statuses": ["added"],
+      "why": "a new bench task; changing an existing task.json (and its tolerances) needs a maintainer",
+      "globs": ["bench/tasks/*/task.json"]
+    },
+    {
+      "id": "example-scripts",
+      "lane": "auto",
+      "why": "DSL scripts run only inside the QuickJS sandbox",
+      "globs": ["examples/*/*.o3j.js"]
+    },
+    {
+      "id": "example-drawings",
+      "lane": "auto",
+      "statuses": ["added", "removed"],
+      "maxBytes": 204800,
+      "why": "a new example's gallery drawing, 200 KB at most; the AI review cannot see images, so replacing an existing drawing needs a maintainer",
+      "globs": ["examples/*/drawing.png"]
+    },
+    {
+      "id": "bench-task-scripts",
+      "lane": "auto",
+      "why": "reference and mutant DSL scripts run only inside the sandbox",
+      "globs": ["bench/tasks/*/*.o3j.js"]
+    },
+    {
+      "id": "corpora",
+      "lane": "auto",
+      "statuses": ["added"],
+      "why": "new corpus files; changing an existing corpus moves recorded timings",
+      "globs": ["corpora/**"]
+    },
+    {
+      "id": "standard-parts",
+      "lane": "auto",
+      "why": "standard parts data, run only inside the sandbox",
+      "globs": ["lib/**"]
+    },
+    {
+      "id": "doc-images",
+      "lane": "auto",
+      "statuses": ["added", "removed"],
+      "maxBytes": 204800,
+      "why": "new screenshots for the docs, 200 KB each at most; the AI review cannot see images, so replacing an existing image needs a maintainer",
+      "globs": ["docs/images/**"]
+    },
+    {
+      "id": "docs",
+      "lane": "auto",
+      "why": "documentation",
+      "globs": ["docs/**"]
+    }
+  ],
+  "limits": {
+    "maxFiles": 50,
+    "maxChangedLines": 1500,
+    "maxBinaryBytesPerFile": 204800,
+    "maxBinaryBytesTotal": 1048576,
+    "maxPathLength": 200,
+    "asciiPathsOnly": true
+  },
+  "requiredChecks": [
+    "check (ubuntu-latest)",
+    "check (ubuntu-24.04-arm)",
+    "check (macos-latest)",
+    "check (windows-latest)",
+    "check (windows-11-arm)",
+    "dco",
+    "evaluate"
+  ],
+  "approvals": {
+    "required": 1,
+    "permissions": ["admin", "maintain", "write"],
+    "mustMatchHeadCommit": true
+  },
+  "labels": {
+    "laneAuto": "lane: auto",
+    "laneMaintainer": "lane: maintainer",
+    "needsMaintainer": "needs-maintainer",
+    "aiPass": "ai-review: pass",
+    "aiChanges": "ai-review: changes-suggested",
+    "hold": ["hold", "andon"]
+  },
+  "aiReview": {
+    "maxReviewsPerPullRequestPerDay": 6,
+    "maxNewPullRequestsPerAuthorPerDay": 5
+  },
+  "statusContexts": {
+    "mergePolicy": "merge-policy",
+    "aiReview": "ai-review"
+  },
+  "mergeMethod": "SQUASH"
+}

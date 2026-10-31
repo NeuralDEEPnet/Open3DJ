@@ -1,0 +1,177 @@
+{
+  "$schema": "../../../packages/schemas/json/bench-task.schema.json",
+  "id": "cap-light-pipe-box",
+  "version": 2,
+  "split": "capability",
+  "title": "Status box with light pipes",
+  "brief": "A small status box about 60 x 40 x 25 mm: a base with a 50 x 30 x 1.6 mm circuit board (named Board) resting on bosses, and a lid. Three LEDs on the board, which you can model as 3 x 3 x 1.5 mm blocks named LED, 10 mm apart along the centre line, shine through three 3 mm clear light pipes (named Pipe) that pass through holes in the lid and end flush with its top. Each pipe must clear its lid hole by 0.1 to 0.25 mm and stop 0.2 to 0.5 mm above its LED. The three pipes are one part used three times. Name the rest Base and Lid. Nothing may interfere.",
+  "params": {},
+  "assertions": [
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "base",
+      "kind": "occurrences",
+      "name": "base",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "lid",
+      "kind": "occurrences",
+      "name": "lid",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "board",
+      "kind": "occurrences",
+      "name": "board",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "leds",
+      "kind": "occurrences",
+      "name": "led*",
+      "expect": {
+        "eq": 3
+      }
+    },
+    {
+      "id": "pipes",
+      "kind": "occurrences",
+      "name": "pipe*",
+      "expect": {
+        "eq": 3
+      }
+    },
+    {
+      "id": "pipe-clones",
+      "kind": "same_definition",
+      "name": "pipe*"
+    },
+    {
+      "id": "no-clash",
+      "kind": "fits",
+      "fit": "clash",
+      "expect": {
+        "eq": 0
+      }
+    },
+    {
+      "id": "pipe-clearance",
+      "kind": "fits",
+      "fit": "clearance",
+      "a": "lid",
+      "b": "pipe*",
+      "expect": {
+        "eq": 3
+      },
+      "distance": {
+        "min": 0.1,
+        "max": 0.25,
+        "tol": {
+          "abs": 1e-06
+        }
+      }
+    },
+    {
+      "id": "pipe-above-led",
+      "kind": "fits",
+      "fit": "clearance",
+      "a": "led*",
+      "b": "pipe*",
+      "expect": {
+        "eq": 3
+      },
+      "distance": {
+        "min": 0.2,
+        "max": 0.5,
+        "tol": {
+          "abs": 1e-06
+        }
+      }
+    },
+    {
+      "id": "leds-on-board",
+      "kind": "fits",
+      "fit": "contact",
+      "a": "led*",
+      "b": "board",
+      "expect": {
+        "eq": 3
+      }
+    },
+    {
+      "id": "board-on-bosses",
+      "kind": "fits",
+      "fit": "contact",
+      "a": "board",
+      "b": "base",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "length",
+      "kind": "measure",
+      "quantity": "size_max",
+      "target": "assembly",
+      "expect": {
+        "min": 55,
+        "max": 65
+      }
+    },
+    {
+      "id": "width",
+      "kind": "measure",
+      "quantity": "size_mid",
+      "target": "assembly",
+      "expect": {
+        "min": 35,
+        "max": 45
+      }
+    },
+    {
+      "id": "height",
+      "kind": "measure",
+      "quantity": "size_z",
+      "target": "assembly",
+      "expect": {
+        "min": 20,
+        "max": 30
+      }
+    }
+  ],
+  "reference": "reference.o3j.js",
+  "mutant": "mutant.o3j.js",
+  "mutant_defect": "The lid holes leave only 0.03 mm around the pipes.",
+  "mutant_fails": [
+    "pipe-clearance"
+  ],
+  "tags": [
+    "enclosure",
+    "multi-part",
+    "pcb",
+    "light-pipes",
+    "clearance"
+  ],
+  "source": "original",
+  "licence": "MIT",
+  "authors": [
+    "neuraldeep.net design agents"
+  ]
+}

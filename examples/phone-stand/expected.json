@@ -1,0 +1,61 @@
+{
+  "example": "phone-stand",
+  "script": "phone-stand.o3j.js",
+  "note": "Written by node scripts/examples.ts --write from a detailed open3dj run. scripts/examples.test.ts compares status, counts and fits exactly, and volume, area, bbox and fit measures within the tolerance (relative).",
+  "engine": {
+    "occt_wasm": "5.8.1",
+    "brepjs": "20.11.1"
+  },
+  "tolerance": 0.0001,
+  "status": "ok",
+  "assembly": {
+    "occurrences": 1,
+    "definitions": 1,
+    "bbox": {
+      "min": [
+        -35,
+        0,
+        0
+      ],
+      "max": [
+        35,
+        95,
+        80.522705
+      ]
+    }
+  },
+  "parts": [
+    {
+      "def": "phone_stand",
+      "occurrences": 1,
+      "valid": true,
+      "volume_mm3": 92790.939889,
+      "area_mm2": 28595.915737,
+      "bbox": {
+        "min": [
+          -35,
+          0,
+          0
+        ],
+        "max": [
+          35,
+          95,
+          80.522705
+        ]
+      },
+      "counts": {
+        "solids": 1,
+        "faces": 32,
+        "edges": 90
+      }
+    }
+  ],
+  "fits": [],
+  "exports": [
+    "phone-stand.3mf",
+    "phone-stand.evidence.json",
+    "phone-stand.glb",
+    "phone-stand.step",
+    "phone-stand.stl"
+  ]
+}

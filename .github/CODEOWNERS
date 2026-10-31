@@ -1,0 +1,89 @@
+# Code owners: a second line of defense for the maintainer lane of .github/merge-policy.json.
+#
+# With "Require review from Code Owners" on in the ruleset for main, a pull request that
+# touches an owned path needs a code owner's approval. The last matching line wins, and a
+# pattern without an owner means "no owner". The required merge-policy status applies the
+# full policy, including what this file cannot express (new files only, size caps), so
+# existing goldens, bench tasks, corpus files and images are left unowned here on purpose.
+# When the lanes change in merge-policy.json, change this file in the same pull request;
+# scripts/automerge/workflows.test.ts checks that every maintainer-lane glob has an owner.
+
+# 1. Every path needs a maintainer's approval by default (maintainer lane).
+*                         @NeuralDEEPnet
+
+# 2. Auto-lane paths: no owner, so GitHub asks for no approval.
+*.md
+/docs/
+/examples/
+/bench/tasks/
+/corpora/
+/lib/
+
+# 3. Back to the maintainer lane: code, scripts, binaries and build files in any folder,
+#    including the auto-lane folders above.
+*.ts                      @NeuralDEEPnet
+*.mts                     @NeuralDEEPnet
+*.cts                     @NeuralDEEPnet
+*.tsx                     @NeuralDEEPnet
+*.js                      @NeuralDEEPnet
+*.mjs                     @NeuralDEEPnet
+*.cjs                     @NeuralDEEPnet
+*.jsx                     @NeuralDEEPnet
+*.wasm                    @NeuralDEEPnet
+*.node                    @NeuralDEEPnet
+*.so                      @NeuralDEEPnet
+*.dll                     @NeuralDEEPnet
+*.dylib                   @NeuralDEEPnet
+*.exe                     @NeuralDEEPnet
+*.sh                      @NeuralDEEPnet
+*.bash                    @NeuralDEEPnet
+*.ps1                     @NeuralDEEPnet
+*.bat                     @NeuralDEEPnet
+*.cmd                     @NeuralDEEPnet
+*.py                      @NeuralDEEPnet
+Makefile                  @NeuralDEEPnet
+Dockerfile                @NeuralDEEPnet
+package.json              @NeuralDEEPnet
+package-lock.json         @NeuralDEEPnet
+npm-shrinkwrap.json       @NeuralDEEPnet
+tsconfig*.json            @NeuralDEEPnet
+
+# 4. DSL scripts of examples and bench tasks run only inside the sandbox: auto lane again.
+/examples/*/*.o3j.js
+/bench/tasks/*/*.o3j.js
+
+# 5. Always the maintainer lane: code folders, configuration, agent instructions, the front
+#    page and plan, and governance. These come last so that nothing above can un-own them.
+/packages/                @NeuralDEEPnet
+/scripts/                 @NeuralDEEPnet
+/skills/                  @NeuralDEEPnet
+/.github/                 @NeuralDEEPnet
+/.claude/                 @NeuralDEEPnet
+.*                        @NeuralDEEPnet
+AGENTS.md                 @NeuralDEEPnet
+AGENT.md                  @NeuralDEEPnet
+CLAUDE.md                 @NeuralDEEPnet
+CLAUDE.local.md           @NeuralDEEPnet
+GEMINI.md                 @NeuralDEEPnet
+CONVENTIONS.md            @NeuralDEEPnet
+SKILL.md                  @NeuralDEEPnet
+copilot-instructions.md   @NeuralDEEPnet
+llms.txt                  @NeuralDEEPnet
+llms-full.txt             @NeuralDEEPnet
+/README.md                @NeuralDEEPnet
+/ROADMAP.md               @NeuralDEEPnet
+/docs/GETTING-STARTED.md  @NeuralDEEPnet
+/docs/PLAN.md             @NeuralDEEPnet
+/docs/ARCHITECTURE.md     @NeuralDEEPnet
+/docs/REPO-SETTINGS.md    @NeuralDEEPnet
+/docs/research/README.md  @NeuralDEEPnet
+/bench/README.md          @NeuralDEEPnet
+/AI_POLICY.md             @NeuralDEEPnet
+/CONTRIBUTING.md          @NeuralDEEPnet
+/GOVERNANCE.md            @NeuralDEEPnet
+/SECURITY.md              @NeuralDEEPnet
+/CODE_OF_CONDUCT.md       @NeuralDEEPnet
+/LICENSE                  @NeuralDEEPnet
+/LICENSE.*                @NeuralDEEPnet
+/COPYING*                 @NeuralDEEPnet
+/docs/LICENSING.md        @NeuralDEEPnet

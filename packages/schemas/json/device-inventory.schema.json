@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:open3dj:v0:device-inventory",
+  "title": "DeviceInventory (C5)",
+  "description": "What this machine can run. Built by open3dj doctor and recorded (as a hash) in provenance.",
+  "type": "object",
+  "properties": {
+    "created": { "type": "string", "description": "ISO 8601 timestamp." },
+    "os": {
+      "type": "object",
+      "properties": {
+        "platform": { "type": "string" },
+        "release": { "type": "string" },
+        "arch": { "type": "string" }
+      },
+      "required": ["platform", "arch"],
+      "additionalProperties": false
+    },
+    "runtime": {
+      "type": "object",
+      "properties": {
+        "node": { "type": "string" },
+        "open3dj": { "type": "string" },
+        "occt_wasm": { "type": "string" },
+        "brepjs": { "type": "string" },
+        "quickjs": { "type": "string" }
+      },
+      "required": ["node"],
+      "additionalProperties": false
+    },
+    "cpu": {
+      "type": "object",
+      "properties": {
+        "model": { "type": "string" },
+        "cores": { "type": "integer", "minimum": 1 },
+        "arch": { "type": "string" }
+      },
+      "required": ["cores"],
+      "additionalProperties": false
+    },
+    "memory": {
+      "type": "object",
+      "properties": {
+        "total_bytes": { "type": "integer", "minimum": 0 },
+        "free_bytes": { "type": "integer", "minimum": 0 }
+      },
+      "required": ["total_bytes", "free_bytes"],
+      "additionalProperties": false
+    },
+    "gpus": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "vendor": { "type": "string" },
+          "model": { "type": "string" },
+          "vram_bytes": { "type": "integer", "minimum": 0 },
+          "shared_memory": { "type": "boolean" },
+          "backends": { "type": "array", "items": { "type": "string" } }
+        },
+        "required": ["id"],
+        "additionalProperties": false
+      }
+    },
+    "backends": {
+      "description": "Backend ids available now, for example cpu.wasm.",
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "pool": {
+      "type": "object",
+      "properties": {
+        "workers": { "type": "integer", "minimum": 1 },
+        "interactive_reserved": { "type": "integer", "minimum": 0 },
+        "recycle_limit_bytes": { "type": "integer", "minimum": 0 }
+      },
+      "required": ["workers"],
+      "additionalProperties": false
+    },
+    "power": {
+      "type": "object",
+      "properties": {
+        "ac_connected": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "providers": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "required": ["created", "os", "runtime", "cpu", "memory", "gpus", "backends"],
+  "additionalProperties": false
+}

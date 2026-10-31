@@ -1,0 +1,61 @@
+{
+  "example": "flange",
+  "script": "flange.o3j.js",
+  "note": "Written by node scripts/examples.ts --write from a detailed open3dj run. scripts/examples.test.ts compares status, counts and fits exactly, and volume, area, bbox and fit measures within the tolerance (relative).",
+  "engine": {
+    "occt_wasm": "5.8.1",
+    "brepjs": "20.11.1"
+  },
+  "tolerance": 0.000001,
+  "status": "ok",
+  "assembly": {
+    "occurrences": 1,
+    "definitions": 1,
+    "bbox": {
+      "min": [
+        -40,
+        -40,
+        0
+      ],
+      "max": [
+        40,
+        40,
+        20
+      ]
+    }
+  },
+  "parts": [
+    {
+      "def": "flange",
+      "occurrences": 1,
+      "valid": true,
+      "volume_mm3": 41856.31857,
+      "area_mm2": 14387.423401,
+      "bbox": {
+        "min": [
+          -40,
+          -40,
+          0
+        ],
+        "max": [
+          40,
+          40,
+          20
+        ]
+      },
+      "counts": {
+        "solids": 1,
+        "faces": 15,
+        "edges": 32
+      }
+    }
+  ],
+  "fits": [],
+  "exports": [
+    "flange.3mf",
+    "flange.evidence.json",
+    "flange.glb",
+    "flange.step",
+    "flange.stl"
+  ]
+}

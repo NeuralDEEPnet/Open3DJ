@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:open3dj:v0:geometry-report",
+  "title": "GeometryReport (concise)",
+  "description": "The feedback an agent gets after every change. Concise by default (300 tokens or fewer): no area, centre of mass or face and edge counts per part, and identical fits collapsed into one line with n. Detailed on request. Numbers are mm, mm2, mm3 and g. Inside a run result, status, rev and compute are given once next to the report and left out of it.",
+  "type": "object",
+  "properties": {
+    "status": { "enum": ["ok", "warning", "error"] },
+    "rev": { "$ref": "urn:open3dj:v0:common#/$defs/rev" },
+    "assembly": {
+      "type": "object",
+      "properties": {
+        "occurrences": { "type": "integer", "minimum": 0 },
+        "definitions": { "type": "integer", "minimum": 0 },
+        "mass_g": { "type": "number", "minimum": 0 },
+        "bbox": { "$ref": "urn:open3dj:v0:common#/$defs/bbox" }
+      },
+      "required": ["occurrences", "definitions"],
+      "additionalProperties": false
+    },
+    "parts": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/part" }
+    },
+    "fits": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/fit" }
+    },
+    "refs": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/ref" }
+    },
+    "compute": { "$ref": "urn:open3dj:v0:compute" },
+    "warnings": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "next": {
+      "description": "Suggested next tool calls.",
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "required": ["assembly", "parts", "fits"],
+  "additionalProperties": false,
+  "$defs": {
+    "part": {
+      "description": "One entry per definition (not per occurrence). area_mm2, center_of_mass and full counts are in detailed reports; a concise report gives counts only for a part with other than one solid.",
+      "type": "object",
+      "properties": {
+        "def": { "type": "string", "minLength": 1 },
+        "occurrences": { "type": "integer", "minimum": 1 },
+        "valid": { "type": "boolean" },
+        "volume_mm3": { "type": "number" },
+        "area_mm2": { "type": "number", "minimum": 0 },
+        "mass_g": { "type": "number", "minimum": 0 },
+        "bbox": { "$ref": "urn:open3dj:v0:common#/$defs/bbox" },
+        "center_of_mass": { "$ref": "urn:open3dj:v0:common#/$defs/vec3" },
+        "counts": {
+          "type": "object",
+          "properties": {
+            "solids": { "type": "integer", "minimum": 0 },
+            "faces": { "type": "integer", "minimum": 0 },
+            "edges": { "type": "integer", "minimum": 0 }
+          },
+          "required": ["solids"],
+          "additionalProperties": false
+        },
+        "gates": { "$ref": "#/$defs/gates" }
+      },
+      "required": ["def", "valid", "volume_mm3", "bbox"],
+      "additionalProperties": false
+    },
+    "gates": {
+      "description": "Gate verdicts (from S3). Present only when a gate profile ran.",
+      "type": "object",
+      "properties": {
+        "pass": { "type": "array", "items": { "type": "string" } },
+        "fail": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "gate": { "type": "string" },
+              "value": { "type": "number" },
+              "limit": { "type": "number" },
+              "at": { "type": "string" },
+              "waivable": { "enum": ["agent", "human"] }
+            },
+            "required": ["gate"],
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "fit": {
+      "description": "A pair of occurrences that clash, touch or sit within the watch distance.",
+      "type": "object",
+      "properties": {
+        "a": { "description": "Occurrence path, or a range such as screw#1..4 when n is set.", "type": "string", "minLength": 1 },
+        "b": { "type": "string", "minLength": 1 },
+        "kind": { "enum": ["clash", "contact", "clearance"] },
+        "volume_mm3": { "type": "number", "minimum": 0 },
+        "distance_mm": { "type": "number", "minimum": 0 },
+        "confidence": { "$ref": "urn:open3dj:v0:common#/$defs/confidence" },
+        "n": { "description": "Concise reports only: how many identical fits this line stands for.", "type": "integer", "minimum": 2 },
+        "extra": { "description": "true for another distinct gap of a pair: its closest relation (clash, contact or the smallest clearance) has its own line without extra, or is a mated contact, which is not listed.", "const": true }
+      },
+      "required": ["a", "b", "kind", "confidence"],
+      "additionalProperties": false
+    },
+    "ref": {
+      "type": "object",
+      "properties": {
+        "name": { "description": "<definition>.<reference name>, for example bracket.hole.", "type": "string", "minLength": 1 },
+        "state": { "enum": ["exact", "re-resolved", "disambiguated", "ambiguous", "broken"] },
+        "candidates": { "description": "Element addresses (face:7, edge:12) that a broken or ambiguous reference could mean. Never auto-picked.", "type": "array", "items": { "type": "string" } },
+        "reason": { "type": "string" },
+        "at": { "description": "The element the reference resolves to (face:7 or edge:12) when exact. Detailed reports and inspect only.", "type": "string" },
+        "fingerprint": { "$ref": "#/$defs/fingerprint" }
+      },
+      "required": ["name", "state"],
+      "additionalProperties": false
+    },
+    "fingerprint": {
+      "description": "Geometric fingerprint of a named face or edge in its part definition's frame: type, surface or curve, area or length, centroid, normal, axis or direction, and adjacency counts (ARCHITECTURE.md section 10).",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "type": { "const": "face" },
+            "surface": { "type": "string" },
+            "area": { "type": "number", "minimum": 0 },
+            "centroid": { "$ref": "urn:open3dj:v0:common#/$defs/vec3" },
+            "normal": { "$ref": "urn:open3dj:v0:common#/$defs/vec3" },
+            "axis": { "$ref": "urn:open3dj:v0:common#/$defs/vec3" },
+            "edges": { "description": "Edges bounding the face.", "type": "integer", "minimum": 0 },
+            "twins": { "description": "Other faces of the same kind, orientation, area and edge count when the fingerprint was taken (a pattern of holes). A name with twins stays exact only at its position or on its plane or axis.", "type": "integer", "minimum": 1 }
+          },
+          "required": ["type", "surface", "area", "centroid", "edges"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": { "const": "edge" },
+            "curve": { "type": "string" },
+            "length": { "type": "number", "minimum": 0 },
+            "centroid": { "$ref": "urn:open3dj:v0:common#/$defs/vec3" },
+            "direction": { "$ref": "urn:open3dj:v0:common#/$defs/vec3" },
+            "axis": { "$ref": "urn:open3dj:v0:common#/$defs/vec3" },
+            "faces": { "description": "Faces that share the edge.", "type": "integer", "minimum": 0 },
+            "twins": { "description": "Other edges of the same kind, orientation, length and face count when the fingerprint was taken.", "type": "integer", "minimum": 1 }
+          },
+          "required": ["type", "curve", "length", "centroid", "faces"],
+          "additionalProperties": false
+        }
+      ]
+    }
+  }
+}

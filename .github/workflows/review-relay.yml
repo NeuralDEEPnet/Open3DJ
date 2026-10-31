@@ -1,0 +1,19 @@
+name: Review relay
+run-name: "Review relay #${{ github.event.pull_request.number }}"
+
+# Reviews on pull requests from forks get a read-only token, so this workflow does nothing
+# but finish. Its completion starts automerge.yml (workflow_run), which re-evaluates the
+# pull request from the default branch with the permissions it needs.
+on:
+  pull_request_review:
+    types: [submitted, dismissed]
+
+permissions: {}
+
+jobs:
+  relay:
+    name: review relay
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - run: echo "A review changed; automerge.yml re-evaluates the pull request."

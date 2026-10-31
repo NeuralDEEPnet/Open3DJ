@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:open3dj:v0:compute",
+  "title": "Compute block (C5)",
+  "description": "Where a result ran. Every tool result carries one.",
+  "type": "object",
+  "properties": {
+    "backend": {
+      "description": "Backend id, for example cpu.wasm, cpu.subprocess, webgpu.vulkan, sidecar.cuda, cloud.modal.",
+      "type": "string",
+      "pattern": "^[a-z0-9]+(\\.[a-z0-9_-]+)*$"
+    },
+    "device": { "type": "string", "minLength": 1 },
+    "placement_reason": { "type": "string", "minLength": 1 },
+    "fallback_from": { "type": "string" },
+    "cpu_confirmed": { "type": "integer", "minimum": 0 }
+  },
+  "required": ["backend", "device", "placement_reason"],
+  "additionalProperties": false
+}

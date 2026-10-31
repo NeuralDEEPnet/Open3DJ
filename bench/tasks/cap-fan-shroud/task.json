@@ -1,0 +1,135 @@
+{
+  "$schema": "../../../packages/schemas/json/bench-task.schema.json",
+  "id": "cap-fan-shroud",
+  "version": 1,
+  "split": "capability",
+  "title": "Fan shroud with M3 inserts",
+  "brief": "A shroud that ducts a 40 mm fan (40 x 40 x 10 mm, mounting holes on a 32 mm square) onto a 20 x 20 mm outlet about 30 mm away. The fan screws into four M3 heat-set inserts in the shroud flange, on the fan's hole square. Please model the fan as a simple block with its centre opening and holes (named Fan), the shroud (Shroud), and the four inserts as 3.8 mm x 5.7 mm cylinders (named Insert) sitting in 4 mm pockets. The fan sits flat against the shroud flange, the inserts sit in their pockets without interfering, and the whole thing stays within 60 mm in both directions across.",
+  "params": {},
+  "assertions": [
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "shroud",
+      "kind": "occurrences",
+      "name": "shroud",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "fan",
+      "kind": "occurrences",
+      "name": "fan",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "inserts",
+      "kind": "occurrences",
+      "name": "insert*",
+      "expect": {
+        "eq": 4
+      }
+    },
+    {
+      "id": "insert-clones",
+      "kind": "same_definition",
+      "name": "insert*"
+    },
+    {
+      "id": "no-clash",
+      "kind": "fits",
+      "fit": "clash",
+      "expect": {
+        "eq": 0
+      }
+    },
+    {
+      "id": "fan-on-flange",
+      "kind": "fits",
+      "fit": "contact",
+      "a": "fan",
+      "b": "shroud",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "inserts-in-pockets",
+      "kind": "fits",
+      "fit": "any",
+      "a": "insert*",
+      "b": "shroud",
+      "expect": {
+        "eq": 4
+      }
+    },
+    {
+      "id": "fan-size",
+      "kind": "measure",
+      "quantity": "size_x",
+      "target": "fan",
+      "expect": {
+        "min": 39.99,
+        "max": 40.01
+      }
+    },
+    {
+      "id": "width",
+      "kind": "measure",
+      "quantity": "size_x",
+      "target": "assembly",
+      "expect": {
+        "max": 60
+      }
+    },
+    {
+      "id": "depth",
+      "kind": "measure",
+      "quantity": "size_y",
+      "target": "assembly",
+      "expect": {
+        "max": 60
+      }
+    },
+    {
+      "id": "shroud-height",
+      "kind": "measure",
+      "quantity": "size_z",
+      "target": "shroud",
+      "expect": {
+        "min": 25,
+        "max": 50
+      }
+    }
+  ],
+  "reference": "reference.o3j.js",
+  "mutant": "mutant.o3j.js",
+  "mutant_defect": "The insert pockets are 3.6 mm across, smaller than the 3.8 mm inserts.",
+  "mutant_fails": [
+    "status",
+    "no-clash"
+  ],
+  "tags": [
+    "multi-part",
+    "loft",
+    "inserts",
+    "fits"
+  ],
+  "source": "original",
+  "licence": "MIT",
+  "authors": [
+    "neuraldeep.net design agents"
+  ]
+}
