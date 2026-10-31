@@ -141,6 +141,8 @@ npx open3dj export examples/bracket/bracket.o3j --format step
 
 `render` draws four views (front, top, right and isometric) with hidden lines dashed. Add `--format svg` for a vector drawing, or `--targets lid,screw#2` to draw only some parts. `export` writes `bracket.step` and `bracket.evidence.json` (hashes and measures) under `examples/bracket/bracket.o3j/out/r_0001/`. The formats are `step`, `stl`, `glb` and `3mf`. Add `--out folder` to copy the files somewhere else.
 
+To open a design in Blender for materials, lighting and renders, export with `--format glb` and follow [BLENDER.md](BLENDER.md). For this hand-off, Blender is a separate program that you install yourself, and the hand-off never installs or starts it. From S9, `render view=cmf` will run `blender -b` itself ([ARCHITECTURE.md](ARCHITECTURE.md) section 11).
+
 ### Watch it in the viewer
 
 ```sh

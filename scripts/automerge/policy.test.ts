@@ -85,6 +85,7 @@ describe("rules", () => {
     ["docs/PLAN.md", "modified", "maintainer", "front-page-and-plan"],
     ["docs/ARCHITECTURE.md", "modified", "maintainer", "front-page-and-plan"],
     ["docs/GETTING-STARTED.md", "modified", "maintainer", "front-page-and-plan"],
+    ["docs/BLENDER.md", "modified", "maintainer", "front-page-and-plan"],
     ["docs/REPO-SETTINGS.md", "modified", "maintainer", "front-page-and-plan"],
     ["docs/research/README.md", "modified", "maintainer", "front-page-and-plan"],
     ["bench/README.md", "modified", "maintainer", "front-page-and-plan"],

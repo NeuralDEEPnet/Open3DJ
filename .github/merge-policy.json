@@ -23,7 +23,7 @@
       "id": "front-page-and-plan",
       "lane": "maintainer",
       "why": "the front page, the plan of record, the setup guide and the files AGENTS.md tells every agent to read first: they hold install commands, direction and instructions that people and agents act on",
-      "globs": ["README.md", "ROADMAP.md", "docs/GETTING-STARTED.md", "docs/PLAN.md", "docs/ARCHITECTURE.md", "docs/REPO-SETTINGS.md", "docs/research/README.md", "bench/README.md"]
+      "globs": ["README.md", "ROADMAP.md", "docs/GETTING-STARTED.md", "docs/BLENDER.md", "docs/PLAN.md", "docs/ARCHITECTURE.md", "docs/REPO-SETTINGS.md", "docs/research/README.md", "bench/README.md"]
     },
     {
       "id": "code",
