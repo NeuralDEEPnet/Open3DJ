@@ -87,8 +87,8 @@ Not yet: As of 2026-10-31, CI runs `npm run check` on Linux x64 and ARM64, macOS
 
 - **Goal:** people can see agent assemblies quickly; the first GPU path ships.
 - **Status:** in progress. `open3dj view` has shipped.
-- **Shipped:** a read-only viewer on 127.0.0.1 with a session key, the assembly tree, one instanced mesh per definition, picking, fit markers, a hidden-line fallback without a GPU, and live reload.
-- **Still to do:** GPU picking that copies face and edge addresses; the frame-time gate on the 145-occurrence assembly (p95 under 33 ms with WebGPU); a check of the WebGPU path on real GPUs; clash and reference overlays from the report.
+- **Shipped:** a viewer on 127.0.0.1 with a session key, the assembly tree, batched instanced meshes (7 draw calls on the 1,025-occurrence corpus), face and edge picking that copies the kernel's element addresses, section planes, an exploded view, a measure tool, X-ray, overhang and draft overlays, selection shared with agents and agent highlights, a hidden-line fallback without a GPU, live reload, and a frame-time benchmark (`npm run viewer:bench`).
+- **Still to do:** the frame-time gate on the 145-occurrence assembly (p95 under 33 ms with WebGPU); a check of the WebGPU path on real GPUs; clash and reference overlays from the report.
 - **Kaizen metric:** viewer-only defects per week (problems a person sees that the report did not flag).
 - **How you can help:**
   - People: open `npx open3dj view examples/enclosure/enclosure.o3j.js` on your GPU and browser, and report what renderer it shows and how it feels. Every viewer-only defect becomes a regression task.
