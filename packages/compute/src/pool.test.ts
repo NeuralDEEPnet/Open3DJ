@@ -86,8 +86,14 @@ test("export jobs default to the batch lane", async () => {
   });
 });
 
+// Regression (full npm run check, 2 Nov 2026): "stopped after 5293 ms" against the 5000 ms bound.
+// The clock started before the worker existed, so it measured worker start-up and kernel load
+// (seconds under a loaded test suite) as well as the 800 ms deadline. The worker is warmed
+// first now, and the clock covers only the stuck job, which the deadline counts from dispatch.
 test("the watchdog kills a job past its deadline, returns JOB_TIMEOUT and the pool recovers", async () => {
-  await withPool({ size: 1 }, async (pool, lines) => {
+  await withPool({ size: 1, warm: true }, async (pool, lines) => {
+    const warm = await pool.run(job());
+    assert.ok(warm.ok, warm.ok ? "" : JSON.stringify(warm.error));
     const t0 = performance.now();
     const r = await pool.run(job({ script: "for (;;) {}", limits: { cpuMs: 60_000 } }), { timeoutMs: 800 });
     const elapsed = performance.now() - t0;
