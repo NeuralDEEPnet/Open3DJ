@@ -50,7 +50,7 @@ export const TOOL_DEFINITIONS: Readonly<Record<ToolName, ToolDefinition>> = Obje
   inspect: def(
     "inspect",
     "Inspect a design or this machine",
-    "Read details without changing anything. fields: tree, refs, fits, measure (of targets), devices (this machine; no project), job (job_id of a queued run), selection (what the person clicked in open3dj view).",
+    "Read details without changing anything. fields: tree, refs, fits, measure (of targets), devices (this machine; no project), job (job_id of a queued run), selection (what the person clicked in open3dj view), gates (3D printing checks per part; build default [0,0,1]; bed [x,y,height] mm, default [220,220,250]).",
     reads,
   ),
   render: def(

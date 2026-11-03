@@ -112,6 +112,18 @@ export function formatInspect(out: InspectOutput): string {
     lines.push(sel.items.length ? `selection (${sel.rev ?? "?"}${where ? `, ${where}` : ""}):` : "selection: none");
     for (const i of sel.items) lines.push(`  ${i.address ?? `${i.path}: the edge between ${(i.faces ?? []).join(" and ")}`}${i.ref ? ` (${i.ref})` : ""}`);
   }
+  if (out.gates) {
+    const g = out.gates;
+    lines.push(`gates ${g.profile} (build ${g.build.join(", ")}; bed ${g.bed_mm.join(" x ")} mm):`);
+    for (const p of g.parts) {
+      lines.push(`  ${p.def}  pass ${p.pass.join(", ") || "none"}${p.wall.min_mm !== undefined ? `  (thinnest wall ${n(p.wall.min_mm)} mm, ${p.wall.rays} rays)` : ""}`);
+      for (const f of p.fail) {
+        const measured = f.value !== undefined ? `  ${f.value} against ${f.limit}` : f.limit !== undefined ? `  limit ${f.limit}` : "";
+        lines.push(`    FAIL ${f.gate}${f.marginal ? " (marginal)" : ""}${measured}${f.at ? ` at ${f.at}` : ""}  waivable by ${f.waivable === "human" ? "a person only" : "an agent, with a reason"}${f.note ? `: ${f.note}` : ""}`);
+      }
+    }
+    for (const x of g.notes) lines.push(`  note: ${x}`);
+  }
   if (out.devices) lines.push(formatDevices(out.devices));
   if (out.job) lines.push(`job ${out.job.job_id}: ${out.job.state}${out.job.rev ? ` (${out.job.rev})` : ""}${out.job.reason ? `: ${out.job.reason}` : ""}`);
   return `${lines.join("\n")}\n`;

@@ -1,11 +1,11 @@
 import type {
-  AssemblyFile, ComputeBlock, ComputeMode, DeviceInventory, FileRef, GeometryReport, ParamValue, Rev, ScriptError,
+  AssemblyFile, ComputeBlock, ComputeMode, DeviceInventory, FileRef, GateRun, GeometryReport, ParamValue, Rev, ScriptError,
 } from "@open3dj/schemas";
 import type { SandboxLimits, ScriptLog } from "@open3dj/sandbox";
-import type { ArtifactFormat, ExportArtifact } from "@open3dj/assembly";
+import type { ArtifactFormat, ExportArtifact, GateOptions } from "@open3dj/assembly";
 import type { RenderImage, RenderOptions } from "@open3dj/render";
 
-export type { ArtifactFormat, ExportArtifact, RenderImage, RenderOptions };
+export type { ArtifactFormat, ExportArtifact, GateOptions, RenderImage, RenderOptions };
 
 /** Job kinds the CPU pool runs in S1. Each declares runsOn ["cpu.wasm"]. */
 export type JobKind = "run" | "render" | "export";
@@ -31,6 +31,13 @@ export interface JobRequest {
   export?: ExportJob;
   limits?: SandboxLimits;
   detail?: "concise" | "detailed";
+  /** A run job with gates also runs the print checks (printGates) and returns them in JobResult.gates. */
+  gates?: GateOptions;
+  /**
+   * false skips the exact fit check: the report then lists no fits and is not the revision's
+   * report. Only inspect fields=[gates] sets it, because it reads nothing but the gates.
+   */
+  fits?: false;
   /** Root definition id of the assembly. Default "root". */
   rootName?: string;
   /**
@@ -84,6 +91,8 @@ export type JobResult =
     params: Record<string, ParamValue>;
     images?: RenderImage[];
     artifacts?: ExportArtifact[];
+    /** Print checks, when the job asked for gates. */
+    gates?: GateRun;
     /** Files written when the export job named a dir. */
     files?: FileRef[];
     logs: ScriptLog[];

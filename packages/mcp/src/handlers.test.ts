@@ -8,6 +8,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { validate } from "@open3dj/schemas";
 import type { AssemblyFile, ToolName } from "@open3dj/schemas";
+import type { JobRequest, RunOptions } from "@open3dj/compute";
 import { createHandlers, sameCode } from "./handlers.ts";
 import { checkGraphSize, flatten } from "./tree.ts";
 import { FAKE_INVENTORY, fakePlace, fakePool } from "./testing.ts";
@@ -216,6 +217,47 @@ test("inspect measure honours detail and gives occurrence targets their world bb
     assert.equal(concise.measure?.[0]?.center_of_mass, undefined, "concise measure leaves out the detailed fields");
     assert.equal(concise.measure?.[0]?.area_mm2, undefined);
     assert.ok(detailed.measure?.[0]?.center_of_mass, "detailed (the default) keeps them");
+  } finally {
+    c.done();
+  }
+});
+
+test("inspect gates runs fdm.v1 on the targeted definitions and rejects a zero build direction", async () => {
+  const c = setup();
+  try {
+    await c.h.run({ project: "p.o3j", script: TWO_PARTS });
+    const out = await c.h.inspect({ project: "p.o3j", fields: ["gates"], targets: ["pin"], bed: [300, 300, 300] });
+    valid("inspect", out);
+    assert.equal(out.status, "ok", JSON.stringify(out.error));
+    assert.deepEqual(c.pool.calls.at(-1)?.gates, { profile: "fdm.v1", build: [0, 0, 1], bed: [300, 300, 300], defs: ["pin"] });
+    assert.equal(c.pool.lanes.at(-1), "batch", "print checks run on the batch lane");
+    assert.equal(c.pool.calls.at(-1)?.fits, false, "the gate job skips the fit check it would throw away");
+    assert.deepEqual(out.gates?.parts.map((p) => p.def), ["pin"]);
+    assert.match(out.compute.placement_reason, /^inspect \(fdm\.v1 gates of r_0001\)/);
+    const zero = await c.h.inspect({ project: "p.o3j", fields: ["gates"], build: [0, 0, 0] });
+    valid("inspect", zero);
+    assert.equal(zero.error?.code, "BAD_INPUT");
+  } finally {
+    c.done();
+  }
+});
+
+// Regression (review, finding 6): a failed gate job came back as if it never ran (backend none).
+test("a failed gate job keeps its placement and the revision in the error result", async () => {
+  const c = setup();
+  const stats = { workerId: 1, jobs: 1, wallMs: 1, memoryBytes: 1, liveShapes: 0 };
+  const failing = { ...c.pool, run: (job: JobRequest, opts?: RunOptions) => job.gates
+    ? Promise.resolve({ ok: false as const, kind: job.kind, error: { code: "JOB_TIMEOUT", message: "the job ran past its deadline" }, logs: [], stats, compute: job.compute! })
+    : c.pool.run(job, opts) };
+  c.h = createHandlers({ pool: failing, inventory: FAKE_INVENTORY, place: fakePlace, root: c.root, interactiveMs: 5_000 });
+  try {
+    await c.h.run({ project: "p.o3j", script: TWO_PARTS });
+    const out = await c.h.inspect({ project: "p.o3j", fields: ["gates"] });
+    valid("inspect", out);
+    assert.equal(out.error?.code, "JOB_TIMEOUT");
+    assert.equal(out.compute.backend, "cpu.wasm");
+    assert.match(out.compute.placement_reason, /^inspect \(fdm\.v1 gates of r_0001\)/);
+    assert.equal(out.rev, "r_0001");
   } finally {
     c.done();
   }

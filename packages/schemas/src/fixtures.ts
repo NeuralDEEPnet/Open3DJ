@@ -142,6 +142,14 @@ export const VALID: Array<[SchemaName, unknown]> = [
   ["tool-docs-input", docsIn], ["tool-docs-output", docsOut],
   ["tool-inspect-input", { project: "bracket.o3j", fields: ["selection"] }], ["tool-inspect-output", { status: "ok", selection: { ...viewerSelection, head: "r_3", stale: true }, compute }],
   ["tool-inspect-output", { status: "ok", selection: { items: [] }, compute }],
+  ["tool-inspect-input", { project: "bracket.o3j", fields: ["gates"], gates: "fdm.v1", build: [0, 0, -1], bed: [250, 210, 220], targets: ["base"] }],
+  ["tool-inspect-output", { status: "ok", rev: "r_2", compute, gates: {
+    profile: "fdm.v1", build: [0, 0, 1], bed_mm: [220, 220, 250], notes: ["Rule checks, not a print simulation."],
+    parts: [{ def: "base", pass: ["watertight", "bed"], wall: { min_mm: 0.6, rays: 14000, spacing_mm: 0.5 }, fail: [
+      { gate: "min_wall", value: 0.6, limit: 0.8, at: "face:5", waivable: "agent", confidence: "measured", note: "Thinner than the 0.8 mm limit." },
+      { gate: "overhang", value: 45.5, limit: 45, waivable: "agent", confidence: "measured", marginal: true },
+    ] }],
+  } }],
   ["tool-render-input", { project: "bracket.o3j", view: "highlight", targets: ["base#1@elem:face:5"], note: "here" }],
   ["tool-render-output", { status: "ok", rev: "r_2", view: "highlight", targets: ["base#1"], files: [{ path: ".o3j-view/highlight.json", format: "json", bytes: 220, sha256: HASH }], compute }],
   ["viewer-selection-input", viewerSelectionIn], ["viewer-selection-input", { items: [] }], ["viewer-selection", viewerSelection], ["viewer-highlight", viewerHighlight],
@@ -181,6 +189,8 @@ export const INVALID: Array<[SchemaName, unknown, string, string]> = [
   ["tool-run-input", { project: "p.o3j", script: "x", compute: "quantum" }, "/compute", "unknown compute mode"],
   ["tool-inspect-input", { fields: ["dof"] }, "/fields/0", "dof is an S4 field"],
   ["tool-inspect-input", { fields: [] }, "/fields", "at least one field"],
+  ["tool-inspect-input", { fields: ["gates"], gates: "sla.v1" }, "/gates", "no SLA profile yet"],
+  ["tool-inspect-input", { fields: ["gates"], bed: [220, 0, 250] }, "/bed/1", "a bed has a size"],
   ["tool-inspect-output", with_(inspectJob, (o) => { (o.job as unknown as Record<string, unknown>).state = "paused"; }), "/job/state", "unknown job state"],
   ["tool-run-input", { project: "p.o3j", ops: [{ op: "cancel_job" }] }, "/ops/0", "cancel_job without job_id"],
   ["tool-render-input", { project: "p.o3j", view: "exploded" }, "/view", "exploded is an S4 view"],

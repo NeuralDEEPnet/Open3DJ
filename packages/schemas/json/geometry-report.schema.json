@@ -76,22 +76,58 @@
       "type": "object",
       "properties": {
         "pass": { "type": "array", "items": { "type": "string" } },
-        "fail": {
+        "fail": { "type": "array", "items": { "$ref": "#/$defs/gateFailure" } }
+      },
+      "additionalProperties": false
+    },
+    "gateFailure": {
+      "type": "object",
+      "properties": {
+        "gate": { "type": "string" },
+        "value": { "type": "number" },
+        "limit": { "type": "number" },
+        "at": { "description": "Element address, for example face:7.", "type": "string" },
+        "waivable": { "enum": ["agent", "human"] },
+        "confidence": { "$ref": "urn:open3dj:v0:common#/$defs/confidence" },
+        "marginal": { "description": "The value lies inside the guard band around the limit: it cannot pass, so it fails until waived.", "const": true },
+        "note": { "type": "string" }
+      },
+      "required": ["gate"],
+      "additionalProperties": false
+    },
+    "gateRun": {
+      "type": "object",
+      "properties": {
+        "profile": { "enum": ["fdm.v1"] },
+        "build": { "description": "Unit build direction.", "$ref": "urn:open3dj:v0:common#/$defs/vec3" },
+        "bed_mm": { "description": "Printer build volume: the two bed axes, then the height.", "$ref": "urn:open3dj:v0:common#/$defs/vec3" },
+        "parts": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
-              "gate": { "type": "string" },
-              "value": { "type": "number" },
-              "limit": { "type": "number" },
-              "at": { "type": "string" },
-              "waivable": { "enum": ["agent", "human"] }
+              "def": { "type": "string", "minLength": 1 },
+              "pass": { "type": "array", "items": { "type": "string" } },
+              "fail": { "type": "array", "items": { "$ref": "#/$defs/gateFailure" } },
+              "wall": {
+                "description": "How min_wall sampled the part: the thinnest wall found, the rays cast, and spacing_mm, the largest gap between neighbouring rays on a face.",
+                "type": "object",
+                "properties": {
+                  "min_mm": { "type": "number", "minimum": 0 },
+                  "rays": { "type": "integer", "minimum": 0 },
+                  "spacing_mm": { "type": "number", "exclusiveMinimum": 0 }
+                },
+                "required": ["rays", "spacing_mm"],
+                "additionalProperties": false
+              }
             },
-            "required": ["gate"],
+            "required": ["def", "pass", "fail", "wall"],
             "additionalProperties": false
           }
-        }
+        },
+        "notes": { "description": "inspect fields=[gates] (S3): print checks per part definition in its own frame. Rule checks on the CPU kernel's geometry, not a print simulation; the notes say how each check samples.", "type": "array", "items": { "type": "string" } }
       },
+      "required": ["profile", "build", "bed_mm", "parts", "notes"],
       "additionalProperties": false
     },
     "fit": {

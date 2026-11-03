@@ -2,7 +2,7 @@
 // Parsing is pure: no file is read here, so every case is testable without a disk.
 import { parseArgs } from "node:util";
 import type { ParseArgsOptionsConfig } from "node:util";
-import type { DocsInput, ExportFormat, ExportInput, InspectField, InspectInput, ParamValue, RenderFormat, RenderInput, RunInput } from "@open3dj/schemas";
+import type { DocsInput, ExportFormat, ExportInput, GateProfile, InspectField, InspectInput, ParamValue, RenderFormat, RenderInput, RunInput, Vec3 } from "@open3dj/schemas";
 
 /**
  * Where a command's design comes from: a script file (its project is created or updated
@@ -64,7 +64,7 @@ export function parseCommand(argv: string[]): Parsed {
       return { command: { cmd: "run", input, source }, json: values.json };
     }
     case "inspect": {
-      const { values, positionals } = parse(rest, { ...COMMON, ...PARAMS, ...REV, fields: { type: "string", default: "tree,fits" }, targets: { type: "string" }, job: { type: "string" }, detailed: { type: "boolean", default: false } });
+      const { values, positionals } = parse(rest, { ...COMMON, ...PARAMS, ...REV, fields: { type: "string", default: "tree,fits" }, targets: { type: "string" }, job: { type: "string" }, detailed: { type: "boolean", default: false }, gates: { type: "string" }, build: { type: "string" }, bed: { type: "string" } });
       if (values.help) return help("inspect");
       const input: InspectInput = { fields: list(values.fields) as InspectField[] };
       const source = positionals.length || values.project ? sourceOf(positionals, values.project, "inspect takes one script or project") : undefined;
@@ -73,6 +73,9 @@ export function parseCommand(argv: string[]): Parsed {
       if (values.targets) input.targets = list(values.targets);
       if (values.job) input.job_id = values.job;
       if (values.detailed) input.detail = "detailed";
+      if (values.gates) input.gates = values.gates as GateProfile;
+      if (values.build) input.build = vec3(values.build, "--build", "0,0,1");
+      if (values.bed) input.bed = vec3(values.bed, "--bed", "220,220,250");
       const command: Command = { cmd: "inspect", input, params: parseParams(values.param ?? []), saveParams: !values["no-save-params"] };
       if (source) command.source = source;
       return { command, json: values.json };
@@ -180,6 +183,12 @@ function int(s: string, flag: string): number {
   const n = Number(s);
   if (!Number.isInteger(n)) throw new UsageError(`${flag} needs a whole number, got "${s}"`);
   return n;
+}
+
+function vec3(s: string, flag: string, example: string): Vec3 {
+  const v = list(s).map(Number);
+  if (v.length !== 3 || v.some((x) => !Number.isFinite(x))) throw new UsageError(`${flag} needs three numbers, for example ${flag} ${example}; got "${s}"`);
+  return v as Vec3;
 }
 
 function list(s: string): string[] {

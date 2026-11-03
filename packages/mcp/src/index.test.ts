@@ -26,7 +26,9 @@ test("five tools with self-contained object schemas", () => {
 // (top-level shape); the full schemas in @open3dj/schemas still validate every result in tests.
 test("tools/list stays small, and the slim output schemas accept every valid result", async () => {
   const size = JSON.stringify(toolList()).length;
-  assert.ok(size <= 12_000, `tools/list is ${size} characters`);
+  // 12,000 through S2, when the list was exactly that size. S3's inspect fields=[gates] with its
+  // gates, build and bed inputs costs about 200 characters after trimming, hence 12,250.
+  assert.ok(size <= 12_250, `tools/list is ${size} characters`);
   // The schema fixtures are test data of @open3dj/schemas, not part of its public exports.
   const { VALID } = await import("../../schemas/src/fixtures.ts");
   const { SchemaRegistry } = await import("@open3dj/schemas");

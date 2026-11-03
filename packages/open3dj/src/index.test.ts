@@ -30,7 +30,7 @@ test("help and version print to the io, never fail", async () => {
 });
 
 test("usage errors exit 3 with a message", async () => {
-  for (const [argv, msg] of [[["frobnicate"], /unknown command/], [["export", "x.o3j"], /--format/], [["run"], /needs a script/], [["render", "part.step"], /neither a script/], [["inspect", "--fields", "colours"], /fields/], [["new", "x", "--template", "nope"], /template/]] as const) {
+  for (const [argv, msg] of [[["frobnicate"], /unknown command/], [["export", "x.o3j"], /--format/], [["run"], /needs a script/], [["render", "part.step"], /neither a script/], [["inspect", "--fields", "colours"], /fields/], [["inspect", "x.o3j", "--fields", "gates", "--bed", "220,220"], /--bed needs three numbers, for example --bed 220,220,250;/], [["new", "x", "--template", "nope"], /template/]] as const) {
     const c = capture();
     assert.equal(await main([...argv], c.io), EXIT.usage, argv.join(" "));
     assert.match(c.errText(), msg);
@@ -48,7 +48,7 @@ test("arguments become valid tool inputs (CLI parity)", () => {
   }
   const proj = parseCommand(["run", "parts/bracket.o3j/"]).command;
   assert.ok(proj.cmd === "run" && proj.source.kind === "project" && proj.source.project === "parts/bracket.o3j");
-  for (const argv of [["inspect", "--fields", "tree,devices"], ["inspect", "x.o3j", "--fields", "measure", "--targets", "lid,screw#2"], ["render", "x.o3j"], ["export", "-f", "step", "x.o3j"], ["docs", "fillet", "edges"]]) {
+  for (const argv of [["inspect", "--fields", "tree,devices"], ["inspect", "x.o3j", "--fields", "measure", "--targets", "lid,screw#2"], ["inspect", "x.o3j", "--fields", "gates", "--gates", "fdm.v1", "--build", "0,0,-1", "--bed", "250,210,220"], ["render", "x.o3j"], ["export", "-f", "step", "x.o3j"], ["docs", "fillet", "edges"]]) {
     const c = parseCommand(argv).command;
     assert.ok("input" in c);
     if ("input" in c) assert.ok(validate(`tool-${c.cmd}-input`, c.input).valid, argv.join(" "));
@@ -231,6 +231,29 @@ test("inspect --fields refs lists named faces and edges with element addresses a
     const text = capture();
     assert.equal(await main(["inspect", join(dir, "plate.o3j"), "--fields", "refs"], text.io), 0);
     assert.match(text.text(), /part\.hole {2}exact {2}face:\d+/);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("inspect --fields gates runs the fdm.v1 print checks in a worker: a 0.6 mm tray fails min_wall", async () => {
+  const dir = tmp("o3j-gates-");
+  try {
+    const script = join(dir, "tray.o3j.js");
+    writeFileSync(script, "return box(30, 20, 15).subtract(box(28.8, 18.8, 15).translateZ(0.6));\n");
+    const ins = capture();
+    assert.equal(await main(["inspect", script, "--fields", "gates", "--json"], ins.io), 0, ins.errText());
+    const out = JSON.parse(ins.text()) as { gates: { parts: Array<{ pass: string[]; fail: Array<{ gate: string; value: number; waivable: string }> }> }; compute: { backend: string } };
+    assert.ok(validate("tool-inspect-output", out).valid, JSON.stringify(validate("tool-inspect-output", out).errors));
+    assert.deepEqual(out.gates.parts[0]!.pass, ["watertight", "overhang", "bed"]);
+    assert.deepEqual(out.gates.parts[0]!.fail.map((f) => [f.gate, f.value, f.waivable]), [["min_wall", 0.6, "agent"]]);
+    assert.equal(out.compute.backend, "cpu.wasm");
+    const text = capture();
+    assert.equal(await main(["inspect", join(dir, "tray.o3j"), "--fields", "gates", "--build", "0,0,-1"], text.io), 0, text.errText());
+    assert.match(text.text(), /gates fdm\.v1 \(build 0, 0, -1; bed 220 x 220 x 250 mm\):/);
+    assert.match(text.text(), /FAIL min_wall {2}0\.6 against 0\.8 at face:\d+ {2}waivable by an agent/);
+    assert.match(text.text(), /FAIL overhang/, "upside down, the floor hangs over the open top");
+    assert.match(text.text(), /not a print simulation/);
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }

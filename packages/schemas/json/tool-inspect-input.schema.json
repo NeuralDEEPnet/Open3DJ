@@ -22,13 +22,14 @@
           "measure",
           "devices",
           "job",
-          "selection"
+          "selection",
+          "gates"
         ]
       },
       "minItems": 1
     },
     "targets": {
-      "description": "Occurrence paths or definition ids for measure (occurrence paths also get placements) and fits.",
+      "description": "Occurrence paths or definition ids for measure (paths also get placements), fits and gates.",
       "type": "array",
       "items": {
         "type": "string",
@@ -49,6 +50,23 @@
         "concise",
         "detailed"
       ]
+    },
+    "gates": {
+      "enum": [
+        "fdm.v1"
+      ]
+    },
+    "build": {
+      "type": "array",
+      "items": { "type": "number" },
+      "minItems": 3,
+      "maxItems": 3
+    },
+    "bed": {
+      "type": "array",
+      "items": { "type": "number", "exclusiveMinimum": 0 },
+      "minItems": 3,
+      "maxItems": 3
     },
     "compute": {
       "$ref": "urn:open3dj:v0:common#/$defs/computeMode"

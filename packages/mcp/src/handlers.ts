@@ -5,7 +5,7 @@ import { inventoryHash } from "@open3dj/compute";
 import type { ArtifactFormat, JobKind, JobRequest, JobResult } from "@open3dj/compute";
 import { ANALYSIS_VERSION, validate } from "@open3dj/schemas";
 import type {
-  AssemblyFile, ComputeBlock, ComputeMode, DocsInput, DocsOutput, ExportOutput, GeometryReport, InspectOutput,
+  AssemblyFile, ComputeBlock, ComputeMode, DocsInput, DocsOutput, ExportOutput, GeometryReport, InspectInput, InspectOutput,
   ParamValue, PartReport, ProvenanceLine, RefReport, RenderInput, RenderOutput, RunInput, RunOutput, ScriptError, ToolName,
 } from "@open3dj/schemas";
 import { loadDocs, searchDocs } from "./docs.ts";
@@ -234,7 +234,7 @@ export function createHandlers(deps: HandlerDeps): ToolHandlers {
           if (!job) throw new ToolError("JOB_NOT_FOUND", `no job ${input.job_id} in this daemon`, "Jobs live in the daemon's memory; a restarted daemon forgets them.");
           out.job = job;
         }
-        const projectFields = (["tree", "refs", "fits", "measure", "selection"] as const).filter((f) => fields.has(f));
+        const projectFields = (["tree", "refs", "fits", "measure", "selection", "gates"] as const).filter((f) => fields.has(f));
         if (projectFields.length === 0) return out;
         if (!input.project) throw new ToolError("PROJECT_REQUIRED", `fields ${projectFields.join(", ")} need a project`, "Pass project, for example \"bracket.o3j\". Only devices and job work without one.");
         const store = new ProjectStore(resolveProject(root, input.project));
@@ -267,9 +267,19 @@ export function createHandlers(deps: HandlerDeps): ToolHandlers {
             }
           }
         }
+        if (fields.has("gates")) {
+          const job = gateJob(rec, input, targets?.defs);
+          // Said before the job runs, so a failed or timed-out job still names where it ran.
+          out.compute = job.compute!;
+          const r = await runPool(job, input.compute, "batch");
+          if (!r.gates) throw new ToolError("INTERNAL_ERROR", "the gate job returned no gates", "This is a bug in Open3DJ. Please report it with the project.");
+          out.gates = r.gates;
+        }
         return out;
       } catch (e) {
-        return { status: "error", error: e instanceof JobFailure ? e.error : toScriptError(e), compute: out.compute };
+        const err: InspectOutput = { status: "error", error: e instanceof JobFailure ? e.error : toScriptError(e), compute: out.compute };
+        if (out.rev) err.rev = out.rev;
+        return err;
       }
     },
 
@@ -407,6 +417,27 @@ export function createHandlers(deps: HandlerDeps): ToolHandlers {
     const report = { ...r.report, rev: rec.rev };
     store.cacheReport(rec.rev, report);
     return { report, compute };
+  }
+
+  /**
+   * The job for print checks (fields [gates]), run on the batch lane: the worker rebuilds the
+   * revision and runs the profile on each targeted part definition, without the fit check.
+   * Never cached, so the result is this call's.
+   */
+  function gateJob(rec: RevisionRecord, input: InspectInput, defs: string[] | undefined): JobRequest {
+    const build = input.build ?? [0, 0, 1];
+    if (!build.every(Number.isFinite) || !(Math.max(...build.map(Math.abs)) > 0)) {
+      throw new ToolError("BAD_INPUT", "build must be a finite, non-zero direction", "Leave build out to print with +Z up, or pass a direction such as [0, 0, -1] for upside down.");
+    }
+    const profile = input.gates ?? "fdm.v1";
+    const placed = place(input.compute, "run");
+    const compute = { ...placed, placement_reason: `inspect (${profile} gates of ${rec.rev}); ${placed.placement_reason.replace(/\brun runs\b/, "it runs")}` };
+    const job = jobFor("run", rec, compute);
+    job.gates = { profile, build };
+    if (input.bed) job.gates.bed = input.bed;
+    if (defs) job.gates.defs = defs;
+    job.fits = false;
+    return job;
   }
 
   return handlers;

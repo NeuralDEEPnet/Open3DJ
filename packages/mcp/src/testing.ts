@@ -25,6 +25,8 @@ export const TINY_PNG = Uint8Array.from(Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAE
 
 export interface FakePool extends Pool {
   calls: JobRequest[];
+  /** The lane each call asked for, in call order. */
+  lanes: Array<"interactive" | "batch" | undefined>;
   closed: boolean;
 }
 
@@ -33,10 +35,12 @@ export function fakePool(options: { slowMs?: number } = {}): FakePool {
   let completed = 0;
   const pool: FakePool = {
     calls: [],
+    lanes: [],
     closed: false,
     place: (mode, kind) => fakePlace(mode, kind),
     async run(job, opts) {
       pool.calls.push(structuredClone(job));
+      pool.lanes.push(opts?.lane);
       const signal = opts?.signal;
       if (/\bslow\b/.test(job.script)) {
         await new Promise<void>((resolve, reject) => {
@@ -75,6 +79,13 @@ export function fakeResult(job: JobRequest): JobResult {
   const assembly = fakeAssembly(names, job.previous);
   const report = fakeReport(job, names);
   const result: Extract<JobResult, { ok: true }> = { ok: true, kind: job.kind, report, assembly, params: job.params ?? {}, logs: [], stats, compute };
+  if (job.gates) {
+    const parts = names.filter((n) => !job.gates!.defs || job.gates!.defs.includes(n));
+    result.gates = {
+      profile: job.gates.profile ?? "fdm.v1", build: job.gates.build ?? [0, 0, 1], bed_mm: job.gates.bed ?? [220, 220, 250], notes: ["fake gates"],
+      parts: parts.map((def) => ({ def, pass: ["watertight", "min_wall", "overhang", "bed"], fail: [], wall: { min_mm: 10, rays: 100, spacing_mm: 0.5 } })),
+    };
+  }
   if (job.kind === "render") {
     const fmt = job.render?.format ?? "both";
     const images: RenderImage[] = [];

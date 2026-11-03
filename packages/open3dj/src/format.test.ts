@@ -26,3 +26,22 @@ test("inspect --fields selection prints what the person selected, or says nothin
     "",
   ].join("\n"));
 });
+
+// Regression (review, findings 8 and 11): a failure without value and limit printed "? against ?".
+test("inspect --fields gates prints value against limit only where they apply", () => {
+  const text = formatInspect({
+    status: "ok", compute,
+    gates: {
+      profile: "fdm.v1", build: [0, 0, 1], bed_mm: [220, 220, 250], notes: [],
+      parts: [{ def: "pair", pass: ["bed"], wall: { rays: 10, spacing_mm: 0.5 }, fail: [
+        { gate: "watertight", waivable: "human", note: "Not a closed solid: it holds 2 solids." },
+        { gate: "min_wall", limit: 0.8, waivable: "agent", note: "No wall was measured." },
+        { gate: "overhang", value: 45.5, limit: 45, at: "face:3", waivable: "agent", marginal: true },
+      ] }],
+    },
+  });
+  assert.doesNotMatch(text, /\?/);
+  assert.match(text, /FAIL watertight {2}waivable by a person only: Not a closed solid/);
+  assert.match(text, /FAIL min_wall {2}limit 0\.8 {2}waivable by an agent/);
+  assert.match(text, /FAIL overhang \(marginal\) {2}45\.5 against 45 at face:3 {2}waivable/);
+});

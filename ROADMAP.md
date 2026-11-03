@@ -26,7 +26,7 @@ Every design is an assembly, from a single bracket to a product with enclosure h
 | [S0](#s0-line-and-gauge) | Line and gauge | In progress | The production line (checks, hooks, bench) and measurements on real machines |
 | [S1](#s1-agent-preview) | Agent Preview | In progress | A write, run, see and export loop over MCP, where every design is an assembly |
 | [S2](#s2-see-it) | See it | In progress | A local 3D viewer for people, with a GPU path and fallbacks |
-| [S3](#s3-trust) | Trust | Next | Print checks, full reference states, error recovery, replay |
+| [S3](#s3-trust) | Trust | In progress | Print checks, full reference states, error recovery, replay |
 | [S4](#s4-mates-bom-and-library) | Mates, BOM and library | Later | Fastened mates, a bill of materials and a standard parts library |
 | [S5](#s5-approve-and-print-id-0) | Approve and print (ID-0) | Later | From a brief to a measured printed prototype, with human approvals |
 | [S6](#s6-mechanisms) | Mechanisms | Later | Hinges, slides and lids with real degrees of freedom |
@@ -97,8 +97,9 @@ Not yet: As of 2026-10-31, CI runs `npm run check` on Linux x64 and ARM64, macOS
 ### S3. Trust
 
 - **Goal:** agents know a part or assembly is right and keep it right while editing.
-- **Status:** next.
-- **Ships:** 3D printing checks per printable part (watertight, 0.8 mm wall, 45 degree overhang, bed size) on the CPU; checks split into agent-waivable and human-only; full five-state references through history; a fast "observed" fit tier; `open3dj replay`; structured errors with a suggested fix.
+- **Status:** in progress. The 3D printing checks have shipped.
+- **Shipped:** `inspect fields=[gates]` runs the `fdm.v1` checks on each part on the CPU (watertight, 0.8 mm wall, 45 degree overhang, 220 x 220 x 250 mm bed), with a build direction and a bed size, and marks each failure agent-waivable or human-only.
+- **Still to do:** waivers; gates in the run report and before export; full five-state references through history; a fast "observed" fit tier; `open3dj replay`; structured errors with a suggested fix; a seeded gate corpus.
 - **Kaizen metric:** error recovery: the share of failures fixed within 2 further calls. Exit: at least 80%, and zero false passes on a seeded corpus.
 - **How you can help:**
   - People: send hard test geometry (thin walls, overhangs, nearly tangent faces) with a note on what other tools get wrong.

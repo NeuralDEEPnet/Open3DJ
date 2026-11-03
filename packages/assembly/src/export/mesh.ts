@@ -47,7 +47,7 @@ export const WELD_TOLERANCE_MM = 1e-5;
  * in its grid cell and the 26 around it, so two close points are merged even when they
  * round into neighbouring cells.
  */
-export function weld(mesh: Mesh, tolerance = WELD_TOLERANCE_MM): { vertices: number[]; triangles: number[] } {
+export function weld(mesh: Mesh, tolerance = WELD_TOLERANCE_MM): { vertices: number[]; triangles: number[]; remap: Uint32Array } {
   const cells = new Map<string, number[]>();
   const vertices: number[] = [];
   const remap = new Uint32Array(mesh.positions.length / 3);
@@ -87,7 +87,8 @@ export function weld(mesh: Mesh, tolerance = WELD_TOLERANCE_MM): { vertices: num
     const c = remap[mesh.indices[t + 2]!]!;
     if (a !== b && b !== c && a !== c) triangles.push(a, b, c);
   }
-  return { vertices, triangles };
+  // remap[i] is the welded vertex of input vertex i (the print checks match edges with it).
+  return { vertices, triangles, remap };
 }
 
 /**

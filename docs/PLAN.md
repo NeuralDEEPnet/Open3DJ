@@ -200,7 +200,7 @@ S0 to S6 deliver the agent core with mechanisms in 19 to 30 FW: about 38 to 77 c
 ### S3. Trust (3-5 FW)
 
 - **Goal:** agents know a part or assembly is right and keep it right while editing.
-- **Ships:** FDM evidence gates per printable definition (watertight, 0.8 mm wall, 45 degree overhang, 220 x 220 x 250 mm bed) computed on the CPU, with wall-thickness ray casts (three-mesh-bvh) spread across the pool; gate split into agent-waivable (with a reason) and human-only; full five-state references using occt-wasm history ops plus fingerprints; Manifold "observed" fit tier before exact checks; `open3dj replay` over the provenance recorded since S1; export-gate hook in the plugin; structured errors with a suggested fix and `next` hints.
+- **Ships:** FDM evidence gates per printable definition (watertight, 0.8 mm wall, 45 degree overhang, 220 x 220 x 250 mm bed) computed on the CPU, with wall-thickness ray casts (own BVH; three-mesh-bvh (MIT) if measured faster) spread across the pool; gate split into agent-waivable (with a reason) and human-only; full five-state references using occt-wasm history ops plus fingerprints; Manifold "observed" fit tier before exact checks; `open3dj replay` over the provenance recorded since S1; export-gate hook in the plugin; structured errors with a suggested fix and `next` hints.
 - **Kaizen metric:** error recovery: share of failures fixed within 2 further calls.
 - **Exit:** recovery at least 80%; zero false passes on the seeded gate corpus; zero silent mis-resolutions in a 1,000-edit sweep. Human-only waivers stay blocked until S5.
 

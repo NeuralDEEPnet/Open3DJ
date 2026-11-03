@@ -83,13 +83,43 @@ export interface GateFailure {
   gate: string;
   value?: number;
   limit?: number;
+  /** Element address, for example face:7. */
   at?: string;
   waivable?: "agent" | "human";
+  confidence?: Confidence;
+  /** The value lies inside the guard band around the limit: it cannot pass, so it fails until waived. */
+  marginal?: true;
+  /** What failed, in one sentence. */
+  note?: string;
 }
 
 export interface PartGates {
   pass?: string[];
   fail?: GateFailure[];
+}
+
+/** Gate profile ids. fdm.v1: watertight, 0.8 mm wall, 45 degree overhang, 220 x 220 x 250 mm bed (S3). */
+export type GateProfile = "fdm.v1";
+
+/** One definition's print checks, in the definition's own frame. */
+export interface PartGateRun {
+  def: string;
+  pass: string[];
+  fail: GateFailure[];
+  /** How min_wall sampled the part: the thinnest wall found, the rays cast and the sample spacing. */
+  wall: { min_mm?: number; rays: number; spacing_mm: number };
+}
+
+/** inspect fields=[gates]: rule checks per part definition, never a print simulation. */
+export interface GateRun {
+  profile: GateProfile;
+  /** Unit build direction (default +Z). */
+  build: Vec3;
+  /** Printer build volume used: along the two bed axes, then the height. */
+  bed_mm: Vec3;
+  parts: PartGateRun[];
+  /** What the checks are and are not, the sampling and the guard bands. */
+  notes: string[];
 }
 
 export interface PartReport {
@@ -326,7 +356,7 @@ export interface RunOutput {
   compute: ComputeBlock;
 }
 
-export type InspectField = "tree" | "refs" | "fits" | "measure" | "devices" | "job" | "selection";
+export type InspectField = "tree" | "refs" | "fits" | "measure" | "devices" | "job" | "selection" | "gates";
 
 export interface InspectInput {
   project?: string;
@@ -335,6 +365,10 @@ export interface InspectInput {
   targets?: string[];
   job_id?: string;
   detail?: "concise" | "detailed";
+  /** With fields [gates]: the gate profile (default fdm.v1), build direction (default +Z) and bed size in mm. */
+  gates?: GateProfile;
+  build?: Vec3;
+  bed?: Vec3;
   compute?: ComputeMode;
 }
 
@@ -374,6 +408,8 @@ export interface InspectOutput {
   job?: JobStatus;
   /** With fields [selection]: what the person selected in open3dj view. */
   selection?: ViewerSelection;
+  /** With fields [gates]: print checks per part definition. */
+  gates?: GateRun;
   error?: ScriptError;
   compute: ComputeBlock;
 }

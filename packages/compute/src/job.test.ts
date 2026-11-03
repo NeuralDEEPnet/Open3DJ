@@ -34,6 +34,18 @@ test("run: script and params give a schema-valid report and assembly", async () 
   assert.ok(r.stats.memoryBytes > 0);
 });
 
+// Regression (review, findings 5 and 20): a gate job ran the exact fit check, which inspect
+// throws away; on plate-145 that was about 90% of the job and close to the 30 s limit.
+test("run with fits: false skips the fit check; gates come back either way", async () => {
+  const full = await runJobInline(job({ script: TWO_PARTS, gates: {} }));
+  const lean = await runJobInline(job({ script: TWO_PARTS, gates: {}, fits: false }));
+  assert.ok(full.ok && lean.ok, JSON.stringify([!full.ok && full.error, !lean.ok && lean.error]));
+  if (!full.ok || !lean.ok) return;
+  assert.ok(full.report.fits.length > 0, "the pin stands on the base");
+  assert.deepEqual(lean.report.fits, []);
+  assert.deepEqual(lean.gates, full.gates);
+});
+
 test("run: a two-part script becomes a two-occurrence assembly with fits", async () => {
   const r = await runJobInline(job({ script: TWO_PARTS }));
   assert.ok(r.ok);

@@ -15,7 +15,7 @@ Units are millimetres. Z is up. Angles are degrees.
 | Tool | Use it to | Key inputs |
 |---|---|---|
 | `run` | Run a script (or change a parameter) and get the report | `project` (a folder ending in `.o3j`), `script`, `params`, `base_rev`, `ops: [{op: "set_param", name, value}]`, `save_params`, `detail` |
-| `inspect` | Read without changing anything | `fields`: `tree`, `refs`, `fits`, `measure` (with `targets`), `devices`, `job` (with `job_id`), `selection` (what the person clicked in `open3dj view`) |
+| `inspect` | Read without changing anything | `fields`: `tree`, `refs`, `fits`, `measure` (with `targets`), `devices`, `job` (with `job_id`), `selection` (what the person clicked in `open3dj view`), `gates` (3D printing checks; `build`, `bed`, `targets`) |
 | `render` | See it: a four-view hidden-line drawing, or point the person's viewer at parts | `view: "multiview"`, `targets`, `format: "png"` or `"svg"`; `view: "highlight"` with `targets` and an optional `note` |
 | `export` | Write files under `out/<rev>/` with one evidence sidecar per revision | `format`: `step`, `stl`, `gltf` or `3mf`; `scope` for one sub-assembly or occurrence |
 | `docs` | Look up a DSL entry, a `lib` part, an error code or an example | `query`, for example `"fillet"`, `"lib.bolt"`, `"DSL_BAD_ARGUMENT"` |
@@ -85,6 +85,10 @@ Name faces before you move or turn the whole part: names given before `translate
 - `matchTo` records a fastened mate. Contact between mated parts is expected and not listed; other gaps of that pair (a lid's lip 0.25 mm from the wall) are still listed as clearances.
 - A `clash` with `volume_mm3` is real interference: fix it before exporting. A `contact` is touching. A `clearance` gives the gap in `distance_mm`. Each distinct gap of a pair is its own line: the closest relation first, further gaps marked `extra: true`.
 - The concise report stays near 300 tokens. When it says entries were left out, ask for them: `inspect {fields: ["fits"]}`, `inspect {fields: ["refs"]}`, or `run` with `detail: "detailed"`.
+
+## 3D printing checks
+
+`inspect {project, fields: ["gates"]}` runs the `fdm.v1` checks on each part as designed: `watertight`, `min_wall` (0.8 mm), `overhang` (45 degrees past vertical, faces on the bed excluded) and `bed` (220 x 220 x 250 mm). Pass `build: [0, 0, -1]` to check a part printed upside down (default `[0, 0, 1]`), `bed: [x, y, height]` in mm for another printer (default `[220, 220, 250]`), and `targets` to leave out parts that are bought, not printed. These are rule checks, not a print simulation. Fix a failure in the script and check again. `waivable: "agent"` means you may accept it if you tell the user why (supports for an overhang); `"human"` (watertight, bed) means only a person may. `marginal: true` means the value is too close to the limit to call: treat it as a failure, and design walls of 0.9 mm or more (curved walls can read up to 0.04 mm thin) and overhangs under 44 degrees. Edges of 60 degrees or sharper read as thin. The tip of a narrow pointed (conical) pocket close to an opposite face is not measured: check it by hand.
 
 ## When something fails
 

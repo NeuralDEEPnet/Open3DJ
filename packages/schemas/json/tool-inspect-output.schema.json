@@ -36,7 +36,7 @@
       "items": {
         "$ref": "urn:open3dj:v0:geometry-report#/$defs/part"
       },
-      "description": "Per definition, in the definition's own coordinates (detailed by default; detail concise rounds to 3 digits and leaves out area, centre of mass and counts). placements gives where each targeted occurrence sits."
+      "description": "Per definition, in the definition's own coordinates, as detail asks. placements gives where each targeted occurrence sits."
     },
     "placements": {
       "description": "With measure and targets: each targeted part occurrence and its world bounding box (exact for moved parts, an enclosing box for rotated ones).",
@@ -72,6 +72,9 @@
     },
     "job": {
       "$ref": "#/$defs/job"
+    },
+    "gates": {
+      "$ref": "urn:open3dj:v0:geometry-report#/$defs/gateRun"
     },
     "error": {
       "$ref": "urn:open3dj:v0:script-error"
