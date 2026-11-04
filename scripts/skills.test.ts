@@ -3,6 +3,7 @@
 // plugin's .mcp.json must start a server that lists the five tools.
 import { test } from "node:test";
 import assert from "node:assert/strict";
+import { spawnSync } from "node:child_process";
 import { existsSync, mkdtempSync, readFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
@@ -10,6 +11,7 @@ import { Client } from "@modelcontextprotocol/client";
 import { StdioClientTransport } from "@modelcontextprotocol/client/stdio";
 import { runJobInline } from "@open3dj/compute";
 import { TOOL_DEFINITIONS } from "@open3dj/mcp";
+import { exportGateContext } from "../skills/claude-code-plugin/hooks/export-gate.ts";
 import { ROOT } from "./lib.ts";
 
 const SKILL = join(ROOT, "skills", "open3dj", "SKILL.md");
@@ -52,6 +54,13 @@ test("the plugin carries the same skill, a manifest and an MCP config that start
   assert.ok(existsSync(args[0]!), `${args[0]} exists`);
   assert.equal(args[1], "mcp");
 
+  // The export-gate hook matches the export tool of this plugin's server: mcp__plugin_<plugin>_<server>__export.
+  const hooks = JSON.parse(readFileSync(join(PLUGIN, "hooks", "hooks.json"), "utf8")) as { hooks: { PostToolUse: Array<{ matcher: string; hooks: Array<{ type: string; command: string }> }> } };
+  const entry = hooks.hooks.PostToolUse[0]!;
+  assert.equal(entry.matcher, `mcp__plugin_${String(manifest["name"])}_${Object.keys(mcp.mcpServers)[0]}__export`);
+  const hookFile = /"\$\{CLAUDE_PLUGIN_ROOT\}\/([^"]+)"/.exec(entry.hooks[0]!.command)?.[1];
+  assert.ok(hookFile && existsSync(join(PLUGIN, hookFile)), `${entry.hooks[0]!.command} names a file in the plugin`);
+
   const root = mkdtempSync(join(tmpdir(), "o3j-plugin-"));
   const client = new Client({ name: "plugin-check", version: "0" });
   await client.connect(new StdioClientTransport({ command: process.execPath, args, cwd: root, stderr: "ignore" }));
@@ -62,4 +71,29 @@ test("the plugin carries the same skill, a manifest and an MCP config that start
     await client.close();
     rmSync(root, { recursive: true, force: true });
   }
+});
+
+test("the export-gate hook tells the agent about open or unchecked gates, and stays quiet on a pass", () => {
+  const result = (gates: unknown) => ({ status: "ok", rev: "r_0003", files: [], gates, compute: { backend: "cpu.wasm", device: "cpu x1", placement_reason: "x" } });
+  const fail = result({ profile: "fdm.v1", status: "fail", open: 2, waived: 1 });
+  // The shape Claude Code passes for an MCP result is not documented, so every likely one is read.
+  for (const response of [fail, { structuredContent: fail, content: [] }, [{ type: "text", text: JSON.stringify(fail) }], { content: [{ type: "text", text: JSON.stringify(fail) }] }, JSON.stringify(fail)]) {
+    const context = exportGateContext({ hook_event_name: "PostToolUse", tool_response: response });
+    assert.match(context ?? "", /r_0003 has 2 open fdm\.v1 gate failures and 1 waived/, JSON.stringify(response));
+    assert.match(context!, /not print-checked/);
+  }
+  assert.match(exportGateContext({ tool_response: result({ profile: "fdm.v1", status: "unchecked", error: { code: "JOB_TIMEOUT", message: "slow" } }) }) ?? "", /did not run \(JOB_TIMEOUT: slow\)/);
+  assert.equal(exportGateContext({ tool_response: result({ profile: "fdm.v1", status: "pass", open: 0, waived: 1 }) }), undefined);
+  assert.equal(exportGateContext({ tool_response: { status: "error", error: { code: "UNKNOWN_REV", message: "x" } } }), undefined);
+  assert.equal(exportGateContext("not json"), undefined);
+
+  // As Claude Code runs it: hook input on stdin, hook output as JSON on stdout, exit 0.
+  const run = (input: unknown) => spawnSync(process.execPath, [join(PLUGIN, "hooks", "export-gate.ts")], { input: JSON.stringify(input), encoding: "utf8" });
+  const out = run({ hook_event_name: "PostToolUse", tool_name: "mcp__plugin_open3dj_open3dj__export", tool_response: fail });
+  assert.equal(out.status, 0, out.stderr);
+  const parsed = JSON.parse(out.stdout) as { hookSpecificOutput: { hookEventName: string; additionalContext: string } };
+  assert.equal(parsed.hookSpecificOutput.hookEventName, "PostToolUse");
+  assert.match(parsed.hookSpecificOutput.additionalContext, /2 open fdm\.v1 gate failures/);
+  const quiet = run({ hook_event_name: "PostToolUse", tool_response: result({ profile: "fdm.v1", status: "pass", open: 0, waived: 0 }) });
+  assert.deepEqual([quiet.status, quiet.stdout], [0, ""]);
 });

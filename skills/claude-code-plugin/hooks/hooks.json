@@ -1,0 +1,17 @@
+{
+  "description": "Open3DJ export gate: after each export, tell Claude when exported parts have open or unchecked 3D printing gates. It never blocks the export.",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "mcp__plugin_open3dj_open3dj__export",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/export-gate.ts\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
