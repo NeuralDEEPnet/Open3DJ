@@ -85,9 +85,6 @@ irm https://raw.githubusercontent.com/NeuralDEEPnet/Open3DJ/main/scripts/install
 curl -fsSL https://raw.githubusercontent.com/NeuralDEEPnet/Open3DJ/main/scripts/install/install.sh | sh
 ```
 
-<!-- REMOVE AFTER PULL REQUEST #3 MERGES -->
-Until pull request #3 merges, the installers are only on its branch: use the commands in [Before pull request #3 merges](docs/TESTING.md#before-pull-request-3-merges).
-
 Then file a [hardware report](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=hardware_report.yml) with the output of `open3dj doctor --report`. A report that says "everything worked" helps too, and every tester is credited.
 
 ## Join us
