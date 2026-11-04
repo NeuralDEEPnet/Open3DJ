@@ -3,8 +3,9 @@
 // checks on the kernel's geometry, never a print simulation: no slicing, supports, bridging,
 // warping or strength. Each runs in a worker on the CPU (COMPUTE.md section 2): the B-rep
 // validity and solid count from the kernel, then one tessellation at CHORD_MM for the rest.
-import type { GateFailure, GateProfile, GateRun, PartGateRun, Vec3 } from "@open3dj/schemas";
-import type { KernelAdapter, ShapeHandle } from "@open3dj/kernel";
+import { createHash } from "node:crypto";
+import type { FaceValue, GateFailure, GateProfile, GateRun, PartGateRun, Vec3 } from "@open3dj/schemas";
+import type { KernelAdapter, ShapeHandle, ShapeMeasure } from "@open3dj/kernel";
 import type { Assembly } from "./types.ts";
 import { AssemblyError } from "./errors.ts";
 import { openEdgeCount, weld } from "./export/mesh.ts";
@@ -25,6 +26,10 @@ export const MAX_RAYS = 100_000;
  * rays: along such an edge the web or neck it bounds is out of reach of rays along the normals.
  */
 export const INSIDE_EDGE_DOT = 0.5;
+/** shape_hash rounds face areas, centres and normals to this grid (mm2, mm, unit vector components). */
+export const SHAPE_GRID = 1e-6;
+/** A min_wall or overhang failure lists at most this many failing faces, worst first; the note gives the total. */
+export const FACES_LISTED = 8;
 
 export interface GateOptions {
   profile?: GateProfile;
@@ -84,6 +89,7 @@ export function partGates(kernel: KernelAdapter, shape: ShapeHandle, opts: Resol
   const I = mesh.indices;
   const tris = I.length / 3;
   const faceOf = triangleFaces(I, P.length / 3, m.counts.faces);
+  const shape_hash = shapeHash(kernel, shape, m, mesh.positions);
   const at = (t: number) => (faceOf && t >= 0 ? { at: `face:${faceOf[t]}` } : {});
   const pass: string[] = [];
   const fail: GateFailure[] = [];
@@ -125,12 +131,16 @@ export function partGates(kernel: KernelAdapter, shape: ShapeHandle, opts: Resol
   let rays = 0;
   let thin = Infinity;
   let thinAt = -1;
+  // The thinnest wall measured from each face that fails: every thin wall, not only the thinnest.
+  const thinByFace = new Map<number, number>();
+  const failsAt = opts.minWallMm + WALL_BAND_MM;
   const o = new Float64Array(3);
   const dir = new Float64Array(3);
   const cast = (t: number, anyExit: boolean) => {
     rays++;
     const hit = castRay(bvh, P, I, o, dir, t, anyExit);
     if (hit < thin) [thin, thinAt] = [hit, t];
+    if (faceOf && hit <= failsAt && !(thinByFace.get(faceOf[t]!)! <= hit)) thinByFace.set(faceOf[t]!, hit);
   };
   for (let t = 0; t < tris; t++) {
     // Rows parallel to the longest edge AB, spaced across the altitude towards the far corner C,
@@ -168,7 +178,7 @@ export function partGates(kernel: KernelAdapter, shape: ShapeHandle, opts: Resol
   }
   const wall: PartGateRun["wall"] = { rays, spacing_mm: r3(spacing) };
   if (Number.isFinite(thin)) wall.min_mm = r3(thin);
-  if (thin > opts.minWallMm + WALL_BAND_MM && Number.isFinite(thin)) pass.push("min_wall");
+  if (thin > failsAt && Number.isFinite(thin)) pass.push("min_wall");
   else if (!Number.isFinite(thin)) {
     fail.push({
       gate: "min_wall", limit: opts.minWallMm, waivable: "agent",
@@ -176,9 +186,11 @@ export function partGates(kernel: KernelAdapter, shape: ShapeHandle, opts: Resol
     });
   } else {
     const marginal = thin >= opts.minWallMm - WALL_BAND_MM;
+    const faces = faceList(thinByFace, r3, (x, y) => x - y);
     fail.push({
       gate: "min_wall", value: r3(thin), limit: opts.minWallMm, ...at(thinAt), waivable: "agent", confidence: "measured", ...(marginal ? { marginal: true as const } : {}),
-      note: `${marginal ? "Within" : "Thinner than"} the ${opts.minWallMm} mm limit${marginal ? ` plus or minus ${WALL_BAND_MM} mm` : ""}: thinnest wall ${r3(thin)} mm from ${rays} rays.`,
+      ...(faces.list.length > 0 ? { faces: faces.list } : {}),
+      note: `${marginal ? "Within" : "Thinner than"} the ${opts.minWallMm} mm limit${marginal ? ` plus or minus ${WALL_BAND_MM} mm` : ""}: thinnest wall ${r3(thin)} mm from ${rays} rays${faces.where("walls")}.`,
     });
   }
 
@@ -193,6 +205,8 @@ export function partGates(kernel: KernelAdapter, shape: ShapeHandle, opts: Resol
   // Overhanging area per face, past the band and inside it.
   const byFace = new Map<number, number>();
   const marginByFace = new Map<number, number>();
+  // The steepest angle on each face that fails, past the band or inside it.
+  const steepByFace = new Map<number, number>();
   const add = (faces: Map<number, number>, t: number) => faceOf && faces.set(faceOf[t]!, (faces.get(faceOf[t]!) ?? 0) + area[t]!);
   for (let t = 0; t < tris; t++) {
     const vs = [I[t * 3]!, I[t * 3 + 1]!, I[t * 3 + 2]!];
@@ -201,6 +215,7 @@ export function partGates(kernel: KernelAdapter, shape: ShapeHandle, opts: Resol
     const a = Math.max(...angles);
     if (a <= opts.overhangDeg - ANGLE_BAND_DEG || area[t] === 0) continue;
     steepest = Math.max(steepest, a);
+    if (faceOf && !(steepByFace.get(faceOf[t]!)! >= a)) steepByFace.set(faceOf[t]!, a);
     if (a <= opts.overhangDeg + ANGLE_BAND_DEG) {
       marginalArea += area[t]!;
       add(marginByFace, t);
@@ -215,11 +230,14 @@ export function partGates(kernel: KernelAdapter, shape: ShapeHandle, opts: Resol
     const faces = marginal ? marginByFace : byFace;
     const top = [...faces].sort((x, y) => y[1] - x[1])[0];
     const where = top ? ` on ${faces.size} face${faces.size === 1 ? "" : "s"}; the largest is face:${top[0]} (${Math.round(top[1])} mm2)` : "";
+    const steep = faceList(steepByFace, (x) => Number(x.toFixed(1)), (x, y) => y - x);
+    const more = steepByFace.size > FACES_LISTED ? `; faces lists the ${FACES_LISTED} steepest of ${steepByFace.size} failing faces` : "";
     fail.push({
       gate: "overhang", value: Number(steepest.toFixed(1)), limit: opts.overhangDeg, ...(top ? { at: `face:${top[0]}` } : {}), waivable: "agent", confidence: "measured", ...(marginal ? { marginal: true as const } : {}),
+      ...(steep.list.length > 0 ? { faces: steep.list } : {}),
       note: marginal
-        ? `${Math.round(marginalArea)} mm2 leans within ${ANGLE_BAND_DEG} degree of the ${opts.overhangDeg} degree limit${where}.`
-        : `${Math.round(over)} mm2 leans more than ${opts.overhangDeg} degrees past vertical${where}. Support it, bridge it if the span is short, or turn the part.`,
+        ? `${Math.round(marginalArea)} mm2 leans within ${ANGLE_BAND_DEG} degree of the ${opts.overhangDeg} degree limit${where}${more}.`
+        : `${Math.round(over)} mm2 leans more than ${opts.overhangDeg} degrees past vertical${where}${more}. Support it, bridge it if the span is short, or turn the part.`,
     });
   }
 
@@ -238,7 +256,43 @@ export function partGates(kernel: KernelAdapter, shape: ShapeHandle, opts: Resol
       note: `The part is ${size.map(r3).join(" x ")} mm (footprint, then height along the build direction); the bed is ${bx} x ${by} x ${bz} mm, also tried turned 90 degrees.`,
     });
   }
-  return { pass, fail, wall };
+  return { pass, fail, wall, shape_hash };
+}
+
+/**
+ * Failing faces with their own worst value (rounded by round), worst first by order, then by
+ * face number; at most FACES_LISTED. where(what) is the note's clause: how many faces fail, and
+ * that only the worst are listed when there are more.
+ */
+function faceList(byFace: Map<number, number>, round: (x: number) => number, order: (x: number, y: number) => number): { list: FaceValue[]; where: (what: string) => string } {
+  const all = [...byFace].map(([face, v]) => [face, round(v)] as const).sort((x, y) => order(x[1], y[1]) || x[0] - y[0]);
+  const list = all.slice(0, FACES_LISTED).map(([face, value]) => ({ at: `face:${face}`, value }));
+  const where = (what: string) => (all.length === 0 ? "" : ` on ${all.length} face${all.length === 1 ? "" : "s"}${all.length > FACES_LISTED ? ` (faces lists the ${FACES_LISTED} thinnest ${what})` : ""}`);
+  return { list, where };
+}
+
+/**
+ * A fingerprint of the part's shape: each B-rep face in order, with its surface type, area,
+ * centre and normal, the centres taken from the part's centre of mass and everything rounded
+ * to SHAPE_GRID (mm, mm2). It changes when material moves, as when a hole moves inside a plate,
+ * where the geometry hash (a hash of the measures) does not. Every fdm.v1 check ignores where
+ * the part sits in its frame, and so does this hash: it comes from the B-rep in double
+ * precision, so moving the whole part shifts each centre by the same amount, far below the grid.
+ * The gate mesh is single precision and its triangles change with such a move, so it is used
+ * only when the kernel cannot measure a face: its exact points still change when material moves.
+ * Waivers are bound to this hash.
+ */
+function shapeHash(kernel: KernelAdapter, shape: ShapeHandle, m: ShapeMeasure, mesh: Float32Array): string {
+  const q = (x: number) => String(Math.round(x / SHAPE_GRID) + 0);
+  const c = m.centerOfMass;
+  const h = createHash("sha256");
+  try {
+    const faces = kernel.faces(shape).map((f) => [f.surface, q(f.area), ...f.center.map((x, i) => q(x - c[i]!)), ...f.normal.map(q)].join(","));
+    h.update(`faces;${q(m.volume)};${faces.join(";")}`);
+  } catch {
+    h.update("mesh;").update(new Uint8Array(mesh.buffer, mesh.byteOffset, mesh.byteLength));
+  }
+  return `s1:${h.digest("hex").slice(0, 16)}`;
 }
 
 /** Rows of face rays on a triangle with this area and longest edge, at most s apart across it. */

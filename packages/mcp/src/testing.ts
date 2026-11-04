@@ -1,8 +1,11 @@
 // A fake compute pool for handler, server and CLI tests. It answers like the real pool
 // without a kernel: parts are named after `name: "..."` in the script, `throw` gives a
 // SCRIPT_RUNTIME error at its line, `clash` gives a warning with a clash, and `slow` makes the
-// job wait (and honour cancellation). Not exported from the package index.
-import type { DeviceInventory, ComputeBlock, ComputeMode, AssemblyFile, GeometryReport, PartReport, FitReport } from "@open3dj/schemas";
+// job wait (and honour cancellation). Gate jobs fail every part on `leaky` (watertight),
+// `thin` (min_wall, value from the param wall_<part>, default 0.6) and `overhang`; the param
+// size_<part> changes that part's geometry hash and shape hash, and shape_<part> only its shape
+// hash (a hole moved inside a plate). Not exported from the package index.
+import type { DeviceInventory, ComputeBlock, ComputeMode, AssemblyFile, GateFailure, GeometryReport, ParamValue, PartReport, FitReport } from "@open3dj/schemas";
 import type { JobKind, JobRequest, JobResult, Pool, PoolStats, RenderImage, ExportArtifact } from "@open3dj/compute";
 
 export const FAKE_INVENTORY: DeviceInventory = {
@@ -76,14 +79,19 @@ export function fakeResult(job: JobRequest): JobResult {
   }
   const names = [...job.script.matchAll(/name:\s*"([a-z][a-z0-9_]*)"/g)].map((m) => m[1]!);
   if (names.length === 0) names.push("part");
-  const assembly = fakeAssembly(names, job.previous);
+  const params = job.params ?? {};
+  const assembly = fakeAssembly(names, job.previous, params);
   const report = fakeReport(job, names);
-  const result: Extract<JobResult, { ok: true }> = { ok: true, kind: job.kind, report, assembly, params: job.params ?? {}, logs: [], stats, compute };
+  const result: Extract<JobResult, { ok: true }> = { ok: true, kind: job.kind, report, assembly, params, logs: [], stats, compute };
   if (job.gates) {
     const parts = names.filter((n) => !job.gates!.defs || job.gates!.defs.includes(n));
     result.gates = {
       profile: job.gates.profile ?? "fdm.v1", build: job.gates.build ?? [0, 0, 1], bed_mm: job.gates.bed ?? [220, 220, 250], notes: ["fake gates"],
-      parts: parts.map((def) => ({ def, pass: ["watertight", "min_wall", "overhang", "bed"], fail: [], wall: { min_mm: 10, rays: 100, spacing_mm: 0.5 } })),
+      parts: parts.map((def) => {
+        const fail = fakeGateFailures(job.script, def, params);
+        const shape_hash = `fake:${def}:${String(params[`size_${def}`] ?? 0)}:${String(params[`shape_${def}`] ?? 0)}`;
+        return { def, pass: ["watertight", "min_wall", "overhang", "bed"].filter((g) => !fail.some((f) => f.gate === g)), fail, wall: { min_mm: 10, rays: 100, spacing_mm: 0.5 }, shape_hash };
+      }),
     };
   }
   if (job.kind === "render") {
@@ -112,7 +120,7 @@ export function fakeResult(job: JobRequest): JobResult {
   return result;
 }
 
-function fakeAssembly(names: string[], previous: AssemblyFile | undefined): AssemblyFile {
+function fakeAssembly(names: string[], previous: AssemblyFile | undefined, params: Record<string, ParamValue>): AssemblyFile {
   const old = new Map((previous?.definitions[previous.root]?.occurrences ?? []).map((o) => [o.name, o.id]));
   const definitions: AssemblyFile["definitions"] = {
     root: {
@@ -120,8 +128,16 @@ function fakeAssembly(names: string[], previous: AssemblyFile | undefined): Asse
       occurrences: names.map((n, i) => ({ id: old.get(n) ?? `occ-${n}-${i}`, name: n, def: n, transform: { t: [i * 10, 0, 0], q: [0, 0, 0, 1] } })),
     },
   };
-  for (const n of names) definitions[n] = { kind: "script", name: n };
+  for (const n of names) definitions[n] = { kind: "script", name: n, geometry_hash: `fake:${n}:${String(params[`size_${n}`] ?? 0)}` };
   return { o3j: "0", root: "root", definitions };
+}
+
+function fakeGateFailures(script: string, def: string, params: Record<string, ParamValue>): GateFailure[] {
+  const fail: GateFailure[] = [];
+  if (/\bleaky\b/.test(script)) fail.push({ gate: "watertight", value: 2, limit: 0, waivable: "human", confidence: "measured", note: "Not a closed solid (fake)." });
+  if (/\bthin\b/.test(script)) fail.push({ gate: "min_wall", value: Number(params[`wall_${def}`] ?? 0.6), limit: 0.8, at: "face:3", waivable: "agent", confidence: "measured", note: "Thinner than the limit (fake)." });
+  if (/\boverhang\b/.test(script)) fail.push({ gate: "overhang", value: 60, limit: 45, at: "face:5", waivable: "agent", confidence: "measured", note: "Leans past 45 degrees (fake)." });
+  return fail;
 }
 
 function fakeReport(job: JobRequest, names: string[]): GeometryReport {

@@ -6,6 +6,7 @@
 //     params.o3j.json      parameter values of the working copy
 //     assembly.o3j.json    assembly graph derived by the last accepted run
 //     evidence.json        GeometryReport of the head revision
+//     waivers.o3j.json     agent waivers of gate failures, each bound to a part's geometry (S3)
 //     provenance.jsonl     append-only: tool, args hash, result hash, engine pins, device
 //     revisions/r_0001.json  one immutable record per revision (script, params, graph, report)
 //     out/r_0001/          renders and exports of a revision (git-ignored)
@@ -18,12 +19,15 @@
 import { lstatSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { validate } from "@open3dj/schemas";
-import type { AssemblyFile, GeometryReport, ParamValue, ProjectManifest, ProvenanceLine, Rev } from "@open3dj/schemas";
+import type { AssemblyFile, GeometryReport, ParamValue, ProjectManifest, ProvenanceLine, Rev, Waiver, WaiverFile } from "@open3dj/schemas";
 import { ToolError } from "./errors.ts";
 import { hashJson } from "./hash.ts";
 import { checkGraphSize } from "./tree.ts";
 import { LOCK_FILE, appendProjectLine, ensureProjectRoot, readProjectFile, writeProjectFile } from "./paths.ts";
 import type { ProjectDir } from "./paths.ts";
+
+/** The most waivers a waivers file holds (maxItems in waivers.schema.json). */
+export const MAX_WAIVERS = 1000;
 
 export const FILES = Object.freeze({
   manifest: "project.o3j.json",
@@ -31,6 +35,7 @@ export const FILES = Object.freeze({
   params: "params.o3j.json",
   assembly: "assembly.o3j.json",
   evidence: "evidence.json",
+  waivers: "waivers.o3j.json",
   provenance: "provenance.jsonl",
   revisions: "revisions",
   out: "out",
@@ -116,6 +121,30 @@ export class ProjectStore {
       if (!["number", "string", "boolean"].includes(typeof v)) throw new ToolError("PROJECT_CORRUPT", `${this.project.label}/${FILES.params}: ${k} must be a number, string or boolean`);
     }
     return p as Record<string, ParamValue>;
+  }
+
+  /** The agent waivers (waivers.o3j.json), checked against their schema: a cloned project is untrusted. */
+  waivers(): Waiver[] {
+    const text = readProjectFile(this.project, FILES.waivers);
+    if (text === undefined) return [];
+    const file = parseJson<WaiverFile>(text, FILES.waivers, this.project.label);
+    const r = validate("waivers", file);
+    if (!r.valid) throw new ToolError("PROJECT_CORRUPT", `${this.project.label}/${FILES.waivers} is not a valid waivers file: ${r.errors[0]?.path || "/"} ${r.errors[0]?.message}`, "Fix the file by hand, or restore it from git. Watertight and bed waivers need a person (S5) and never belong in it.");
+    return file.waivers;
+  }
+
+  /**
+   * Replace the waivers file. Call it under the project lock. The file is checked against the
+   * schema waivers() reads it with first, so the store never writes a file it would refuse.
+   */
+  saveWaivers(waivers: Waiver[]): void {
+    if (waivers.length > MAX_WAIVERS) {
+      throw new ToolError("BAD_INPUT", `the project would hold ${waivers.length} waivers; a waivers file holds at most ${MAX_WAIVERS}`, "Fix parts instead of waiving them, or remove waivers you no longer need from waivers.o3j.json.");
+    }
+    const file: WaiverFile = { o3j: "0", waivers };
+    const r = validate("waivers", file);
+    if (!r.valid) throw new ToolError("INTERNAL_ERROR", `refusing to write an invalid waivers file: ${r.errors[0]?.path || "/"} ${r.errors[0]?.message}`, "This is a bug in Open3DJ. Please report it with the project.");
+    writeProjectFile(this.project, FILES.waivers, json(file));
   }
 
   /** Revision ids on disk, in order. */

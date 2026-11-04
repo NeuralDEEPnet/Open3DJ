@@ -21,7 +21,7 @@ Every design is an assembly: a single part is an assembly with one occurrence. P
 1. `docs {query: "fillet"}` to look up an entry; `docs {query: "entries"}` lists them all.
 2. `run {project: "bracket.o3j", script}` returns a GeometryReport: validity, volume, bbox and counts per definition, clashes and contacts between parts, and next steps. Keep the `rev` it returns.
 3. `render {project, view: "multiview"}` returns a four-view drawing (PNG, or SVG with format svg).
-4. `export {project, format: "step"}` writes STEP, STL, glTF (.glb) or 3MF under out/<rev>/ with an evidence sidecar.
+4. `export {project, format: "step"}` writes STEP, STL, glTF (.glb) or 3MF under out/<rev>/ with an evidence sidecar, which also records the 3D printing gate status.
 5. Change the script and `run` again with `base_rev` set to the last rev. A stale base_rev returns REV_CONFLICT.
 
 The CLI does the same: `open3dj run part.o3j.js`, `open3dj render part.o3j`, `open3dj export part.o3j --format step`.
@@ -1282,7 +1282,7 @@ Fix: Pass project; devices and job work without one.
 
 ### OP_NOT_IMPLEMENTED
 
-The run op arrives in a later step: add_occurrence, remove, set_transform and replace_definition come in S2. S1 supports set_param and cancel_job.
+The run op arrives in a later step: add_occurrence, remove, set_transform and replace_definition come in S2. Runs support set_param, cancel_job and waive.
 
 Fix: Change the script so it returns the parts with their placements, and run it again.
 
@@ -1339,6 +1339,18 @@ Fix: Run again if needed.
 No job with that id in this daemon. Jobs are kept in memory only.
 
 Fix: Run again; a restarted daemon forgets its jobs.
+
+### WAIVER_NEEDS_PERSON
+
+run ops=[{op: "waive"}] named a human-only gate (watertight or bed in fdm.v1). Only a person may waive it, with an approval on the local approval page, which arrives in S5. Nothing was recorded.
+
+Fix: Fix the part: close the solid (watertight), or make it fit the bed or split it (bed). Agents may waive min_wall and overhang, with a reason.
+
+### NOTHING_TO_WAIVE
+
+The waive op named a gate that passes on that part in the head revision, for the build direction given. Nothing was recorded.
+
+Fix: inspect {fields: ["gates"]} lists the failures; waive only those, with the build you checked.
 
 ### WORKER_CRASHED
 

@@ -44,13 +44,13 @@ export const TOOL_DEFINITIONS: Readonly<Record<ToolName, ToolDefinition>> = Obje
   run: def(
     "run",
     "Run a design script",
-    "Run a DSL script (3dj dialect, units mm, Z up) or apply assembly ops in a project, and get a concise GeometryReport: validity, volume, bbox and counts per part, clashes and contacts between parts, and next steps. Every design is an assembly; return [{ name, shape }] for several parts. Errors come back as results with line, code, faulty elements and a hint. Pass base_rev from the last result to build on it; a stale base_rev returns REV_CONFLICT. params set Param values and are saved to the project's working copy (params.o3j.json): later runs of the same script, and set_param, use them until changed; pass save_params: false to try values without saving them. A script that differs from the project's stored one starts from its own defaults plus the params passed, and the report warns which stored values it did not use. S1 ops: set_param (re-runs the stored script), and cancel_job for a run that returned status queued with a job_id.",
+    "Run a DSL script (3dj dialect, units mm, Z up) or apply ops in a project, and get a concise GeometryReport: validity, volume, bbox and counts per part, clashes and contacts between parts, and next steps. Every design is an assembly; return [{ name, shape }] for several parts. Errors come back as results with line, code, faulty elements and a hint. Pass base_rev from the last result to build on it; a stale base_rev returns REV_CONFLICT. Ops: set_param (re-runs the stored script); cancel_job (a run that returned status queued with a job_id); waive {gate, target, reason, build?} accepts a failing min_wall or overhang gate of one part, with a reason, for that shape (sent alone; no revision; watertight and bed need a person, from S5).",
     writes(false),
   ),
   inspect: def(
     "inspect",
     "Inspect a design or this machine",
-    "Read details without changing anything. fields: tree, refs, fits, measure (of targets), devices (this machine; no project), job (job_id of a queued run), selection (what the person clicked in open3dj view), gates (3D printing checks per part; build default [0,0,1]; bed [x,y,height] mm, default [220,220,250]).",
+    "Read details without changing anything. fields: tree, refs, fits, measure (of targets), devices (this machine; no project), job (job_id of a queued run), selection (what the person clicked in open3dj view), gates (3D printing checks per part, each failure open or waived; build default [0,0,1]; bed [x,y,height] mm, default [220,220,250]).",
     reads,
   ),
   render: def(

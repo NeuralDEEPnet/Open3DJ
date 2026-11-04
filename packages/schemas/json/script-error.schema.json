@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "urn:open3dj:v0:script-error",
   "title": "ScriptError",
-  "description": "A structured error from a script run or a kernel operation. Errors are tool results, not protocol errors.",
+  "description": "A structured error with a hint. Errors are tool results, not protocol errors.",
   "type": "object",
   "properties": {
     "code": { "$ref": "urn:open3dj:v0:common#/$defs/errorCode" },
