@@ -19,7 +19,7 @@ Each case is one DSL script, `<id>.o3j.js`, and one entry in [cases.json](cases.
 | miss caught | A known miss now fails: update the case and the docs that describe the miss | yes |
 | error | The run failed where it should not, or with another error code | yes |
 
-The number compared with `value` is the failure's value, or for a `min_wall` pass the thinnest wall found (`wall.min_mm`). A control with a thin wall, such as the 0.9 mm tray, gives a range, so it cannot pass without its wall being measured. Overhang values come from the surface normals at the mesh points, so a hole's top, which faces straight down, reads 86 degrees here.
+The number compared with `value` is the failure's value, or for a `min_wall` pass the thinnest wall found (`wall.min_mm`). A control with a thin wall, such as the 0.9 mm tray, gives a range, so it cannot pass without its wall being measured. Overhang values come from the surface normals at the mesh points, so a hole's top, which faces straight down, reads 86 degrees here. At a cone's apex, where the tessellator's normals are not the surface's, the triangles' own normals stand in.
 
 ## Commands
 
@@ -31,7 +31,7 @@ node scripts/gate-corpus.ts --json           # the results as JSON
 npm run gate-corpus                          # the same as the first line
 ```
 
-Measured on 2026-11-04 on a shared Linux container (4 vCPUs, Node 24.22.1): 49 cases in 5.3 s on a pool of 4 workers, 6.2 s in `scripts/gate-corpus.test.ts` on a pool of 2, and 74 s with `--cli`. The slowest case is `wall-ellipse-tube-0.7` at about 3.4 s (the exact elliptical offset is a dense B-spline). Results: 0 false passes, 0 false failures, 1 known miss.
+Measured on 2026-11-04 on a shared Linux container (4 vCPUs, Node 24.22.1): 57 cases in 6.6 s on a pool of 4 workers, 6.5 s in `scripts/gate-corpus.test.ts` on a pool of 2, and 89 s with `--cli`. The slowest case is `wall-ellipse-tube-0.7` at about 3.4 s (the exact elliptical offset is a dense B-spline). Results: 0 false passes, 0 false failures, 1 known miss.
 
 ## The cases
 
@@ -42,6 +42,8 @@ Measured on 2026-11-04 on a shared Linux container (4 vCPUs, Node 24.22.1): 49 c
 | `watertight-loose-blocks` | Two 10 mm cubes 10 mm apart in one part: two solids | `watertight` fails |
 | `watertight-edge-contact` | Two 10 mm cubes touching along one vertical edge: two solids and a non-manifold mesh edge | `watertight` fails |
 | `watertight-point-contact` | One solid whose block and post touch at a single point: a non-manifold vertex, the only defect | `watertight` fails |
+| `watertight-corner-on-face` | One solid: an 8 mm cube balanced on a corner that touches the middle of a plate's top face, inside one of its mesh triangles | `watertight` fails |
+| `watertight-tip-on-face` | One solid: the tip of a cone pointing down (80 degree tip) touches the middle of a plate's top face | `watertight` fails |
 | `watertight-self-crossing` | A self-crossing (bow-tie) outline extruded: not a valid solid | the run refuses it (`KERNEL_INVALID_RESULT`) |
 
 The DSL returns only solids that pass the kernel's validity check, so an open shell never reaches the gates: `watertight-self-crossing` shows the run refusing an invalid solid, which counts as a false pass if the run ever accepts it.
@@ -68,11 +70,14 @@ The DSL returns only solids that pass the kernel's validity check, so an open sh
 | `wedge-doorstop-tip-0.5` | A 120 x 40 mm doorstop, 25 mm at the back and 0.5 mm at the tip: a long wedge tip | fails, 0.48 to 0.62 mm |
 | `wedge-knife-edge` | A 100 mm knife edge of 22.6 degrees standing on its back (built along -X) | fails, 0 to 0.2 mm |
 | `wall-arrow-tip-0.4` | A 90 degree arrow pocket through a 60 x 60 mm plate, its tip 0.4 mm from the back face | fails, 0.35 to 0.45 mm |
-| `pocket-cone-45deg-0.5` | A conical pocket 45 degrees from its axis, its tip 0.5 mm above the bottom | fails, 0.5 to 0.7 mm |
+| `pocket-cone-45deg-0.5` | A conical pocket 45 degrees from its axis, its tip 0.5 mm above the bottom | fails, 0.48 to 0.52 mm |
+| `pocket-cone-10deg-0.5` | A narrow conical pocket 10 degrees from its axis, its tip 0.5 mm above the bottom | fails, 0.48 to 0.52 mm |
+| `pockets-tip-to-tip-30deg-0.5` | Two conical pockets 30 degrees from their axis, from the top and the bottom of a 10 mm block, 0.5 mm between their tips | fails, 0.48 to 0.52 mm |
+| `web-under-drill-point-0.5` | A 6 mm blind hole with a 118 degree drill point, its tip 0.5 mm above the bottom | fails, 0.48 to 0.52 mm |
 | `unmeasured-tetrahedron` | A regular tetrahedron: no two faces come close to facing each other, so no wall is measured | fails unmeasured, without a value |
-| `known-miss-pocket-cone-10deg` | A narrow conical pocket 10 degrees from its axis, its tip 0.5 mm above the bottom | should fail; passes today (known miss) |
+| `known-miss-leaning-pocket-tip-0.7` | A narrow conical pocket whose axis leans 35 degrees from vertical, its tip 0.7 mm above the bottom | should fail; passes today at 0.85 mm (known miss) |
 
-The known miss is the documented limit of the wall rays: the web under the tip of a narrow pointed pocket is a single point that no ray which counts reaches. It reads about 1.17 mm and passes. The cone 45 degrees from its axis is caught at 0.62 mm. Between about 20 and 26 degrees the result depends on where the rays fall: in this corpus's placement 20 and 25 degrees read 0.82 mm (marginal, so they fail), while in the placement of `gates.test.ts` they pass at 0.86 and 0.84 mm and 22 degrees reads 0.82 mm. So the corpus keeps the clear miss at 10 degrees and the clear catch at 45.
+No face ray reaches the web under a pointed pocket: the face rays leave along the pocket's wall normals, which point away from the web. Rays from pocket tips and inside corners measure it, along the pocket's axis, so every pocket tip above reads its web to 0.01 mm whatever the cone's angle. The known miss is what is left: under a tip that leans towards the face it nears, the axis is longer than the web by 1 / cos of the lean. A 0.5 mm web under a tip leaning 40 degrees reads 0.65 mm and still fails; a 0.7 mm web under a tip leaning 35 degrees reads 0.85 mm and passes.
 
 ### overhang
 
@@ -81,6 +86,7 @@ The known miss is the documented limit of the wall rays: the web under the tip o
 | `overhang-tee-shelf` | A 30 mm shelf on a 10 mm column: 200 mm2 facing straight down | fails, 89.9 to 90 degrees |
 | `overhang-ledge-50deg` | A ledge held up by a chamfer leaning 50 degrees past vertical | fails, 49.9 to 50.1 degrees |
 | `overhang-ledge-45deg-marginal` | The ledge with a chamfer at exactly 45 degrees, inside the 1 degree band | fails as marginal, 44.9 to 45.1 degrees |
+| `overhang-cone-pocket-from-below-45deg-marginal` | A conical pocket cut up from below, 45 degrees from its axis: its wall leans exactly 45 degrees past vertical | fails as marginal, 44.8 to 45.1 degrees |
 | `overhang-horizontal-hole` | An 8 mm hole straight through a 20 mm block along X: the top of the hole faces down | fails, 84 to 90 degrees |
 | `overhang-ball` | A 20 mm ball resting on one point: its lower half overhangs | fails, 85 to 90 degrees |
 
@@ -105,6 +111,8 @@ The known miss is the documented limit of the wall rays: the web under the tip o
 | `control-filleted-boss` | A drafted boss with a 1 mm fillet round its top |
 | `control-filleted-block` | A block with 5 mm vertical and 2 mm top fillets |
 | `control-cone-on-post` | A cone with an 80 degree tip on a post |
+| `control-cone-pocket-from-below-40deg` | A conical pocket cut up from below, 40 degrees from its axis: its wall leans 40 degrees past vertical at its tip too, and the 4 mm over the tip is its thinnest wall (3.99 to 4.01 mm) |
+| `control-corner-above-face-0.3` | The cube of `watertight-corner-on-face` 0.3 mm higher: a gap is not a contact (thinnest wall 1.99 to 2.01 mm) |
 | `control-truncated-tetrahedron` | The tetrahedron with its apex cut off 2 mm below the tip |
 | `control-tee-upside-down` | The tee of `overhang-tee-shelf` built along -Z: the shelf top rests on the bed |
 | `control-ledge-43deg` | The ledge with a 43 degree chamfer, under the limit and its band |
@@ -115,7 +123,11 @@ The known miss is the documented limit of the wall rays: the web under the tip o
 
 ## What the corpus found
 
-- **A false pass, fixed.** `watertight-point-contact` passed all four gates: one solid whose block and post touch at a single point has a closed mesh in which every edge has two faces, so the watertight check, which counted open and non-manifold edges, saw nothing. The mesh is not a manifold at that vertex, where two fans of triangles meet. The watertight check now also counts non-manifold vertices (`nonManifoldVertices` in `packages/assembly/src/gates.ts`, regression test in `gates.test.ts`). Across the 1,176 parts of the examples, the bench references, the H-det corpus, the 1,025-part reference grid and this corpus, it fires only on this case. It sees a point contact where the mesh has one vertex for both pieces, as at the corner in this case; a contact inside a mesh triangle is not checked.
+- **A false pass, fixed.** `watertight-point-contact` passed all four gates: one solid whose block and post touch at a single point has a closed mesh in which every edge has two faces, so the watertight check, which counted open and non-manifold edges, saw nothing. The mesh is not a manifold at that vertex, where two fans of triangles meet. The watertight check now also counts non-manifold vertices (`nonManifoldVertices` in `packages/assembly/src/gates.ts`, regression test in `gates.test.ts`). Across the 1,176 parts of the examples, the bench references, the H-det corpus, the 1,025-part reference grid and this corpus, it fires only on this case. It sees a point contact where the mesh has one vertex for both pieces, as at the corner in this case.
+- **A contact inside a face, fixed.** A review found two more false passes of `watertight`: a cube balanced on its corner and a cone pointing down, each touching the middle of a plate's top face (`watertight-corner-on-face`, `watertight-tip-on-face`). The corner or the tip is not a vertex of the plate's mesh, so no vertex has two fans. The check now also counts mesh points that lie on a triangle they are not part of, within the weld tolerance plus the rounding of 32-bit coordinates (`touchingVertices`); triangles that use the point or one of its neighbours do not count, so a sliver beside the point is not a contact. Raised 0.3 mm, the cube passes (`control-corner-above-face-0.3`). What is left: a curved face that touches another face between its mesh points (a ball resting on a plate away from its pole) still passes, pinned by a known-limit test in `gates.test.ts`.
+- **Pocket tips, fixed.** The review also found that the web under a pointed pocket was measured only where face rays happened to reach it: every pocket up to about 20 degrees from its axis passed over a 0.5 mm web (narrower ones read the full 5 mm), between about 20 and 26 degrees the result depended on where the rays fell, two pockets tip to tip passed up to about 55 degrees, and drill points read 0.2 to 0.3 mm long. Rays from pocket tips and inside corners now read all of them to 0.01 mm (`pocket-cone-10deg-0.5`, the former known miss, `pockets-tip-to-tip-30deg-0.5`, `web-under-drill-point-0.5`). The new known miss is the leaning tip above.
+- **Cone apex normals, fixed.** At a cone's apex the tessellator writes one point per side of the seam, each with a normal that is not the surface's: a pocket cut up from below at 40 degrees read 52.7 degrees and failed `overhang`, and at 45 degrees it read 58.1 instead of a marginal 45. Where copies of one point on one face carry different normals, the overhang check now uses the triangles' own normals (`control-cone-pocket-from-below-40deg`, `overhang-cone-pocket-from-below-45deg-marginal`).
+- **No other part moved.** Across the 197 part definitions of every script in `examples/`, `bench/` and `corpora/`, these three changes alter only the cases above; the gate time grows by about 5% (48.8 s to 51.3 s in one process).
 - **Wide cones read as thin.** A cone standing on its base with a tip wider than 60 degrees has a base rim of 60 degrees or sharper, which reads as thin (a 90 degree cone reads 0.01 mm). So the cone control stands on a post (`control-cone-on-post`), and the frustum's base edge is 69 degrees.
 - **Bottom fillets overhang.** A fillet on a bottom edge faces down above the bed, so the filleted controls round only vertical and top edges.
 

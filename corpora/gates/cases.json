@@ -35,6 +35,28 @@
       }
     },
     {
+      "id": "watertight-corner-on-face",
+      "kind": "defect",
+      "seeds": "One solid: an 8 mm cube balanced on a corner that touches the middle of the plate's top face, inside one of its mesh triangles.",
+      "expect": {
+        "watertight": "fail",
+        "min_wall": { "verdict": "pass", "value": [1.99, 2.01] },
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "watertight-tip-on-face",
+      "kind": "defect",
+      "seeds": "One solid: the tip of a cone pointing down touches the middle of the plate's top face.",
+      "expect": {
+        "watertight": "fail",
+        "min_wall": { "verdict": "pass", "value": [1.99, 2.01] },
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
       "id": "watertight-self-crossing",
       "kind": "defect",
       "seeds": "A self-crossing (bow-tie) outline extruded: not a valid solid, refused by the run before any gate.",
@@ -249,7 +271,40 @@
       "seeds": "A conical pocket 45 degrees from its axis with its tip 0.5 mm above the bottom.",
       "expect": {
         "watertight": "pass",
-        "min_wall": { "verdict": "fail", "value": [0.5, 0.7] },
+        "min_wall": { "verdict": "fail", "value": [0.48, 0.52] },
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "pocket-cone-10deg-0.5",
+      "kind": "defect",
+      "seeds": "A narrow conical pocket 10 degrees from its axis with its tip 0.5 mm above the bottom: no face ray reaches the web under the tip.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": { "verdict": "fail", "value": [0.48, 0.52] },
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "pockets-tip-to-tip-30deg-0.5",
+      "kind": "defect",
+      "seeds": "Two conical pockets 30 degrees from their axis, from the top and the bottom, with 0.5 mm between their tips.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": { "verdict": "fail", "value": [0.48, 0.52] },
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "web-under-drill-point-0.5",
+      "kind": "defect",
+      "seeds": "A 6 mm blind hole with a 118 degree drill point whose tip stops 0.5 mm above the bottom face.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": { "verdict": "fail", "value": [0.48, 0.52] },
         "overhang": "pass",
         "bed": "pass"
       }
@@ -266,12 +321,12 @@
       }
     },
     {
-      "id": "known-miss-pocket-cone-10deg",
+      "id": "known-miss-leaning-pocket-tip-0.7",
       "kind": "known-miss",
-      "seeds": "A narrow conical pocket 10 degrees from its axis, tip 0.5 mm above the bottom: the documented known miss.",
+      "seeds": "A narrow conical pocket whose axis leans 35 degrees, its tip 0.7 mm above the bottom: the documented known miss.",
       "expect": {
         "watertight": "pass",
-        "min_wall": { "verdict": "fail", "known_miss": "the tip of a narrow pointed (conical) pocket close to an opposite face (gates.ts notes, ARCHITECTURE.md section 10)", "value": [0.85, 2] },
+        "min_wall": { "verdict": "fail", "known_miss": "the ray from a pocket tip runs along the pocket's axis, so the web under a leaning tip reads long by 1 / cos of the lean (gates.ts notes, ARCHITECTURE.md section 10)", "value": [0.84, 0.87] },
         "overhang": "pass",
         "bed": "pass"
       }
@@ -306,6 +361,17 @@
         "watertight": "pass",
         "min_wall": "pass",
         "overhang": { "verdict": "fail", "value": [44.9, 45.1], "marginal": true },
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "overhang-cone-pocket-from-below-45deg-marginal",
+      "kind": "defect",
+      "seeds": "A conical pocket cut up from below, 45 degrees from its axis: its wall leans exactly 45 degrees past vertical, a marginal failure.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": { "verdict": "pass", "value": [3.99, 4.01] },
+        "overhang": { "verdict": "fail", "value": [44.8, 45.1], "marginal": true },
         "bed": "pass"
       }
     },
@@ -459,6 +525,28 @@
       "expect": {
         "watertight": "pass",
         "min_wall": "pass",
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "control-cone-pocket-from-below-40deg",
+      "kind": "control",
+      "seeds": "A conical pocket cut up from below, 40 degrees from its axis: its wall leans 40 degrees past vertical, and its tip 4 mm under the top is not thin.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": { "verdict": "pass", "value": [3.99, 4.01] },
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "control-corner-above-face-0.3",
+      "kind": "control",
+      "seeds": "The cube balanced on a corner, 0.3 mm above the plate: a closed solid that is a manifold everywhere.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": { "verdict": "pass", "value": [1.99, 2.01] },
         "overhang": "pass",
         "bed": "pass"
       }

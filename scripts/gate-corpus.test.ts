@@ -17,7 +17,7 @@ test("corpora/gates/cases.json is well formed and covers every script", () => {
   assert.deepEqual(checkCorpus(corpus), []);
   const kinds = (k: string) => corpus.cases.filter((c) => c.kind === k).length;
   assert.ok(kinds("defect") >= 25 && kinds("control") >= 10, `${kinds("defect")} defects, ${kinds("control")} controls`);
-  assert.equal(kinds("known-miss"), 1, "the documented narrow-pocket miss, and nothing else");
+  assert.equal(kinds("known-miss"), 1, "the documented leaning-tip miss, and nothing else");
 });
 
 test("the manifest check catches mistakes in a case", () => {
@@ -87,5 +87,5 @@ test("the seeded gate corpus: zero false passes, zero false failures, every valu
   assert.deepEqual(problems, [], `\n${table(r)}\n\n${problems.map((p) => `${p.outcome} ${p.id} ${p.gate}: got ${p.got}; ${p.detail ?? ""}`).join("\n")}`);
   assert.equal(countOf(r, "false_pass"), 0);
   assert.equal(countOf(r, "false_fail"), 0);
-  assert.deepEqual(r.filter((x) => x.findings.some((f) => f.outcome === "known_miss")).map((x) => x.id), ["known-miss-pocket-cone-10deg"]);
+  assert.deepEqual(r.filter((x) => x.findings.some((f) => f.outcome === "known_miss")).map((x) => x.id), ["known-miss-leaning-pocket-tip-0.7"]);
 });
