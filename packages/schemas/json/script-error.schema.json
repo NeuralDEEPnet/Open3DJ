@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:open3dj:v0:script-error",
+  "title": "ScriptError",
+  "description": "A structured error from a script run or a kernel operation. Errors are tool results, not protocol errors.",
+  "type": "object",
+  "properties": {
+    "code": { "$ref": "urn:open3dj:v0:common#/$defs/errorCode" },
+    "message": { "type": "string", "minLength": 1 },
+    "line": { "type": "integer", "minimum": 1 },
+    "column": { "type": "integer", "minimum": 1 },
+    "op": { "description": "DSL or kernel operation that failed, for example fillet.", "type": "string" },
+    "elements": {
+      "description": "Faulty sub-shapes as element addresses, for example edge:7 or face:3, optionally prefixed by an occurrence path.",
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "hint": { "description": "A suggested fix.", "type": "string" }
+  },
+  "required": ["code", "message"],
+  "additionalProperties": false
+}

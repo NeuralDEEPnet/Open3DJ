@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:open3dj:v0:viewer-selection",
+  "title": "The selection a person shared from the viewer",
+  "description": "Stored in .o3j-view/selection.json by open3dj view; agents read it with inspect fields=[selection]. Element addresses hold for rev only: when stale is true the head moved on, and face numbers may name other faces (follow ref, when present, instead).",
+  "type": "object",
+  "properties": {
+    "rev": { "description": "The revision the person was looking at.", "$ref": "urn:open3dj:v0:common#/$defs/rev" },
+    "ts": { "description": "When the selection was shared (server clock, ISO 8601).", "type": "string", "minLength": 1, "maxLength": 40 },
+    "source": { "const": "viewer" },
+    "items": {
+      "type": "array",
+      "maxItems": 64,
+      "items": { "$ref": "#/$defs/item" }
+    },
+    "head": { "description": "inspect only: the project's head revision now.", "$ref": "urn:open3dj:v0:common#/$defs/rev" },
+    "stale": { "description": "inspect only: true when rev is not the head, so face numbers may have moved.", "type": "boolean" },
+    "note": { "description": "inspect only: what the selection means for the next call.", "type": "string", "maxLength": 400 }
+  },
+  "required": ["items"],
+  "additionalProperties": false,
+  "$defs": {
+    "item": {
+      "type": "object",
+      "properties": {
+        "path": { "description": "Occurrence path.", "type": "string", "minLength": 1, "maxLength": 1024 },
+        "def": { "description": "Definition id of the occurrence.", "type": "string", "minLength": 1, "maxLength": 1024 },
+        "kind": { "enum": ["occurrence", "face", "edge"] },
+        "address": { "description": "What to pass as a target: the occurrence path, or <path>@elem:face:<n> for a face. Edges have none yet.", "type": "string", "minLength": 1, "maxLength": 1100 },
+        "element": { "description": "A face: its element address in the definition, face:<n>.", "type": "string", "pattern": "^face:[1-9][0-9]{0,6}$" },
+        "faces": {
+          "description": "An edge: the faces it bounds, as face:<n>.",
+          "type": "array",
+          "items": { "type": "string", "pattern": "^face:[1-9][0-9]{0,6}$" },
+          "minItems": 1,
+          "maxItems": 2
+        },
+        "ref": { "description": "A named reference of the definition that resolves to this face (<definition>.<name>), from the revision's reference resolver.", "type": "string", "minLength": 1, "maxLength": 300 },
+        "fingerprint": { "description": "The kernel's fingerprint of ref (measured, in the definition's naming frame).", "$ref": "urn:open3dj:v0:geometry-report#/$defs/fingerprint" },
+        "observed": { "$ref": "#/$defs/observed" }
+      },
+      "required": ["path", "def", "kind"],
+      "additionalProperties": false
+    },
+    "observed": {
+      "description": "Numbers read off the display mesh in the browser, in the definition's frame (mm). Observed, not measured: within the export chord of the true surface.",
+      "type": "object",
+      "properties": {
+        "area_mm2": { "type": "number", "minimum": 0, "maximum": 1e12 },
+        "length_mm": { "type": "number", "minimum": 0, "maximum": 1e9 },
+        "centroid": { "$ref": "#/$defs/vec3" },
+        "normal": { "$ref": "#/$defs/vec3" }
+      },
+      "additionalProperties": false
+    },
+    "vec3": {
+      "type": "array",
+      "prefixItems": [
+        { "type": "number", "minimum": -1e9, "maximum": 1e9 },
+        { "type": "number", "minimum": -1e9, "maximum": 1e9 },
+        { "type": "number", "minimum": -1e9, "maximum": 1e9 }
+      ],
+      "minItems": 3,
+      "maxItems": 3
+    }
+  }
+}

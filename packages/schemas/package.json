@@ -1,0 +1,17 @@
+{
+  "name": "@open3dj/schemas",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Versioned JSON Schemas (C1, C4, C5) and TypeScript types for reports, tools, projects and compute.",
+  "license": "MIT",
+  "author": "Neural Deep Network LTD and the Open3DJ contributors",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./json/*": "./json/*"
+  },
+  "dependencies": {}
+}

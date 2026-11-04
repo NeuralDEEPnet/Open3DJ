@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:open3dj:v0:project",
+  "title": "project.o3j.json (C4)",
+  "description": "The project manifest at the root of a .o3j folder.",
+  "type": "object",
+  "properties": {
+    "o3j": { "const": "0", "description": "Project format major version." },
+    "name": { "type": "string", "minLength": 1 },
+    "units": { "const": "mm" },
+    "up": { "const": "Z" },
+    "rev": { "$ref": "urn:open3dj:v0:common#/$defs/rev" },
+    "author": { "type": "string", "maxLength": 256, "description": "Written as the author in exported STEP headers. Optional." },
+    "organization": { "type": "string", "maxLength": 256, "description": "Written as the organisation in exported STEP headers. Optional." },
+    "engine": {
+      "description": "Engine pins the project was last built with.",
+      "type": "object",
+      "properties": {
+        "open3dj": { "type": "string" },
+        "occt_wasm": { "type": "string" },
+        "brepjs": { "type": "string" }
+      },
+      "required": ["open3dj", "occt_wasm"],
+      "additionalProperties": false
+    }
+  },
+  "required": ["o3j", "name", "units", "up", "engine"],
+  "additionalProperties": false
+}

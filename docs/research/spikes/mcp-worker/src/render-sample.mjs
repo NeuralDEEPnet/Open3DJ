@@ -1,0 +1,22 @@
+// Save the render tool's PNG and SVG exactly as an MCP client receives them. Usage: node render-sample.mjs <deps> <outdir>
+import { pathToFileURL } from "node:url";
+import { join } from "node:path";
+import { writeFileSync, mkdirSync } from "node:fs";
+const [DEPS, OUT] = process.argv.slice(2);
+const imp = (p) => import(pathToFileURL(join(DEPS, "node_modules", p)).href);
+const { Client } = await imp("@modelcontextprotocol/sdk/dist/esm/client/index.js");
+const { StdioClientTransport } = await imp("@modelcontextprotocol/sdk/dist/esm/client/stdio.js");
+mkdirSync(join(OUT, "render-exports"), { recursive: true });
+const t = new StdioClientTransport({ command: process.execPath, args: [new URL("./server.mjs", import.meta.url).pathname, "--deps", DEPS, "--backend", "child", "--export-dir", join(OUT, "render-exports")], stderr: "ignore" });
+const c = new Client({ name: "render-sample", version: "0" }); await c.connect(t);
+const js = `const w = Param.number("w", 60);
+  const base = box(w, 40, 6);
+  const upright = box(w, 6, 40).translate(0, 17, 0);
+  const holes = linearPattern(cylinder(20, 3).translate(-w / 2 + 10, 0, -5), 3, (w - 20) / 2, 0, 0);
+  return fillet(union(base, upright).subtract(holes), 2, { atZ: 40 });`;
+const r = await c.callTool({ name: "render", arguments: { script: { js } } });
+const img = r.content.find((x) => x.type === "image"), svg = r.content.find((x) => x.type === "resource");
+writeFileSync(join(OUT, "render-bracket.png"), Buffer.from(img.data, "base64"));
+writeFileSync(join(OUT, "render-bracket.svg"), svg.resource.text);
+console.log(JSON.stringify({ structured: r.structuredContent, imageMime: img.mimeType, svgUri: svg.resource.uri, svgMime: svg.resource.mimeType }));
+await c.close();

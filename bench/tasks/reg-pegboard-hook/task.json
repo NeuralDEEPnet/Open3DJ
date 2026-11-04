@@ -1,0 +1,95 @@
+{
+  "$schema": "../../../packages/schemas/json/bench-task.schema.json",
+  "id": "reg-pegboard-hook",
+  "version": 1,
+  "split": "regression",
+  "title": "Pegboard hook",
+  "brief": "A pegboard hook for 1/4 inch pegboard: a 20 x 50 x 5 mm back plate with two 5.8 mm pegs 8 mm long on a 25.4 mm pitch, an 8 x 6 mm arm reaching 60 mm out from the plate 10 mm above its base, a 15 mm upturned tip, and 1 mm fillets on the long arm edges. One part.",
+  "params": {},
+  "assertions": [
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "size-x",
+      "kind": "measure",
+      "quantity": "size_x",
+      "target": "assembly",
+      "expect": {
+        "eq": 20,
+        "tol": {
+          "abs": 0.0001
+        }
+      }
+    },
+    {
+      "id": "size-y",
+      "kind": "measure",
+      "quantity": "size_y",
+      "target": "assembly",
+      "expect": {
+        "eq": 73,
+        "tol": {
+          "abs": 0.0001
+        }
+      }
+    },
+    {
+      "id": "size-z",
+      "kind": "measure",
+      "quantity": "size_z",
+      "target": "assembly",
+      "expect": {
+        "eq": 50,
+        "tol": {
+          "abs": 0.0001
+        }
+      }
+    },
+    {
+      "id": "volume",
+      "kind": "measure",
+      "quantity": "volume_mm3",
+      "target": "hook",
+      "expect": {
+        "eq": 8685.803451,
+        "tol": {
+          "rel": 0.0001
+        }
+      }
+    },
+    {
+      "id": "faces",
+      "kind": "count",
+      "quantity": "faces",
+      "target": "hook",
+      "expect": {
+        "eq": 31
+      }
+    }
+  ],
+  "reference": "reference.o3j.js",
+  "mutant": "mutant.o3j.js",
+  "mutant_defect": "The arm reaches 50 mm instead of 60 mm.",
+  "mutant_fails": [
+    "volume",
+    "size-y"
+  ],
+  "tags": [
+    "single-part",
+    "fillet"
+  ],
+  "source": "original",
+  "licence": "MIT",
+  "authors": [
+    "neuraldeep.net design agents"
+  ]
+}

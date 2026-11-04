@@ -1,0 +1,94 @@
+{
+  "example": "lid-interference",
+  "script": "lid-interference.o3j.js",
+  "note": "Written by node scripts/examples.ts --write from a detailed open3dj run. scripts/examples.test.ts compares status, counts and fits exactly, and volume, area, bbox and fit measures within the tolerance (relative).",
+  "engine": {
+    "occt_wasm": "5.8.1",
+    "brepjs": "20.11.1"
+  },
+  "tolerance": 0.000001,
+  "status": "warning",
+  "assembly": {
+    "occurrences": 2,
+    "definitions": 2,
+    "bbox": {
+      "min": [
+        -35,
+        -25,
+        0
+      ],
+      "max": [
+        35,
+        25,
+        33
+      ]
+    }
+  },
+  "parts": [
+    {
+      "def": "base",
+      "occurrences": 1,
+      "valid": true,
+      "volume_mm3": 19676.106097,
+      "area_mm2": 20142.371579,
+      "bbox": {
+        "min": [
+          -35,
+          -25,
+          0
+        ],
+        "max": [
+          35,
+          25,
+          30
+        ]
+      },
+      "counts": {
+        "solids": 1,
+        "faces": 19,
+        "edges": 48
+      }
+    },
+    {
+      "def": "lid",
+      "occurrences": 1,
+      "valid": true,
+      "volume_mm3": 11850.315026,
+      "area_mm2": 9411.327412,
+      "bbox": {
+        "min": [
+          -35,
+          -25,
+          26
+        ],
+        "max": [
+          35,
+          25,
+          33
+        ]
+      },
+      "counts": {
+        "solids": 1,
+        "faces": 28,
+        "edges": 72
+      }
+    }
+  ],
+  "fits": [
+    {
+      "a": "base",
+      "b": "lid",
+      "kind": "clash",
+      "volume_mm3": 265.810618
+    }
+  ],
+  "exports": [
+    "lid-interference-base.stl",
+    "lid-interference-lid.stl",
+    "lid-interference.3mf",
+    "lid-interference.evidence.json",
+    "lid-interference.glb",
+    "lid-interference.step",
+    "lid-interference.stl"
+  ]
+}

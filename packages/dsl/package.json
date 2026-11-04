@@ -1,0 +1,21 @@
+{
+  "name": "@open3dj/dsl",
+  "version": "0.0.0",
+  "private": true,
+  "description": "3dj-compatible DSL facade (C2) on brepjs and the kernel adapter.",
+  "license": "MIT",
+  "author": "Neural Deep Network LTD and the Open3DJ contributors",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@open3dj/kernel": "0.0.0",
+    "@open3dj/sandbox": "0.0.0",
+    "@open3dj/schemas": "0.0.0",
+    "brepjs": "20.11.1"
+  }
+}

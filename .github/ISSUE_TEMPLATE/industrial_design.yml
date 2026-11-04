@@ -1,0 +1,145 @@
+name: Industrial design pipeline
+description: Tell us what you need from Open3DJ at a stage of product design, from brief and concept to design for manufacture and supplier handoff.
+title: "[Industrial design]: "
+labels: ["industrial-design", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Open3DJ aims to support the whole industrial design pipeline: brief, research, concept, detailed CAD, prototyping, design for manufacture and handoff to suppliers. The pipeline is described in [docs/INDUSTRIAL-DESIGN.md](https://github.com/NeuralDEEPnet/Open3DJ/blob/main/docs/INDUSTRIAL-DESIGN.md).
+
+        Designers, engineers, makers and suppliers know best what the pipeline needs. Tell us what slows you down, what you need from an agent, and what a good result looks like.
+
+        **Please do not share confidential client work.** Describe the problem in general terms, or use a made-up example.
+
+  - type: dropdown
+    id: stage
+    attributes:
+      label: Pipeline stage
+      description: Which stage is this about? Select all that apply.
+      multiple: true
+      options:
+        - Brief and requirements
+        - Research and user insight
+        - Concept ideation and sketching
+        - Concept selection and review
+        - Detailed design (parametric CAD)
+        - Prototyping and testing
+        - Design for manufacture and assembly (DFM and DFA)
+        - Supplier handoff (drawings, STEP files, bill of materials, quotes)
+        - Across several stages
+    validations:
+      required: true
+
+  - type: input
+    id: product-type
+    attributes:
+      label: Product type
+      description: What kind of product? A general description is enough.
+      placeholder: "Handheld electronics enclosure, desk lamp, kitchen utensil, mounting bracket"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: process
+    attributes:
+      label: Manufacturing process
+      description: How will the product be made? Select all that apply.
+      multiple: true
+      options:
+        - 3D printing (FDM)
+        - 3D printing (resin, SLA or DLP)
+        - 3D printing (powder, SLS or MJF)
+        - CNC machining
+        - Injection molding
+        - Sheet metal
+        - Casting
+        - Laser or waterjet cutting
+        - Not decided yet
+        - Something else
+    validations:
+      required: false
+
+  - type: textarea
+    id: need
+    attributes:
+      label: What do you need?
+      description: Describe the task, what gets in your way today, and what you would like Open3DJ or an agent to do.
+      placeholder: I want an agent to check my enclosure for wall thickness, draft angles and undercuts for injection molding, and tell me where the problems are before I send it to a supplier.
+    validations:
+      required: true
+
+  - type: textarea
+    id: inputs-outputs
+    attributes:
+      label: Inputs and outputs
+      description: What would you start from (a brief, sketches, reference photos, existing CAD) and what should come out (STEP files, drawings, a bill of materials, a DFM report, a quote)?
+    validations:
+      required: false
+
+  - type: textarea
+    id: success
+    attributes:
+      label: What does a good result look like?
+      description: How would you judge that the result is right? Measurable criteria help agents check their own work.
+      placeholder: "Every wall is between 1.5 and 3 mm, every vertical face has at least 1 degree of draft, and there are no undercuts in the pull direction."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: role
+    attributes:
+      label: Your role
+      options:
+        - Industrial or product designer
+        - Mechanical or manufacturing engineer
+        - Maker or hobbyist
+        - Supplier, print service or manufacturer
+        - Developer building tools or agents
+        - Teacher, student or researcher
+        - Something else
+    validations:
+      required: false
+
+  - type: dropdown
+    id: ai-assistance
+    attributes:
+      label: Did AI tools help you write this?
+      description: AI help is welcome. Telling us helps reviewers. Whatever you choose, a person must read and check this issue before it is submitted.
+      options:
+        - "No, I wrote it without AI tools"
+        - "Yes, AI tools helped me write or research it"
+        - "Yes, an AI agent drafted or filed it for me, and I checked it"
+    validations:
+      required: true
+
+  - type: input
+    id: ai-tools
+    attributes:
+      label: Which AI tools, agents or models?
+      description: Only if AI helped. Name the tool and the model, if you know it.
+      placeholder: "Claude Code with Claude Opus, Codex, Cursor, a custom MCP agent"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: help
+    attributes:
+      label: Can you help?
+      description: Entirely optional. Domain knowledge is as valuable as code.
+      options:
+        - label: I can share expertise or review results for this stage.
+        - label: I can provide example files or test data that may be shared publicly.
+        - label: I can work on it, alone or with my agent.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before you submit
+      options:
+        - label: I searched the existing issues and this is not a duplicate.
+          required: true
+        - label: This issue contains no confidential client information.
+          required: true
+        - label: I agree to follow the [Code of Conduct](https://github.com/NeuralDEEPnet/Open3DJ/blob/main/CODE_OF_CONDUCT.md).
+          required: true

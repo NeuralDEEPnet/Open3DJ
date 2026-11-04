@@ -1,0 +1,61 @@
+{
+  "example": "knob",
+  "script": "knob.o3j.js",
+  "note": "Written by node scripts/examples.ts --write from a detailed open3dj run. scripts/examples.test.ts compares status, counts and fits exactly, and volume, area, bbox and fit measures within the tolerance (relative).",
+  "engine": {
+    "occt_wasm": "5.8.1",
+    "brepjs": "20.11.1"
+  },
+  "tolerance": 0.000001,
+  "status": "ok",
+  "assembly": {
+    "occurrences": 1,
+    "definitions": 1,
+    "bbox": {
+      "min": [
+        -16,
+        -16,
+        0
+      ],
+      "max": [
+        16,
+        16,
+        18
+      ]
+    }
+  },
+  "parts": [
+    {
+      "def": "knob",
+      "occurrences": 1,
+      "valid": true,
+      "volume_mm3": 12498.481721,
+      "area_mm2": 3392.953229,
+      "bbox": {
+        "min": [
+          -16,
+          -16,
+          0
+        ],
+        "max": [
+          16,
+          16,
+          18
+        ]
+      },
+      "counts": {
+        "solids": 1,
+        "faces": 46,
+        "edges": 106
+      }
+    }
+  ],
+  "fits": [],
+  "exports": [
+    "knob.3mf",
+    "knob.evidence.json",
+    "knob.glb",
+    "knob.step",
+    "knob.stl"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:open3dj:v0:viewer-selection-input",
+  "title": "What the viewer page sends to share its selection (POST api/selection)",
+  "description": "The page names occurrences and kernel face numbers only. The server checks every path and face number against the revision, and adds the definition, element address and reference fingerprint itself. items [] clears the shared selection.",
+  "type": "object",
+  "properties": {
+    "rev": { "$ref": "urn:open3dj:v0:common#/$defs/rev" },
+    "items": {
+      "type": "array",
+      "maxItems": 64,
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": { "description": "Occurrence path of a part, for example lid or pcb_assy/standoff#2.", "type": "string", "minLength": 1, "maxLength": 1024 },
+          "face": { "description": "A picked face: the kernel's face number n of face:<n> (1-based).", "type": "integer", "minimum": 1, "maximum": 1000000 },
+          "edge_faces": {
+            "description": "A picked edge: the face numbers of the one or two faces it bounds. The mesh does not carry the kernel's edge numbers.",
+            "type": "array",
+            "items": { "type": "integer", "minimum": 1, "maximum": 1000000 },
+            "minItems": 1,
+            "maxItems": 2
+          },
+          "observed": { "$ref": "urn:open3dj:v0:viewer-selection#/$defs/observed" }
+        },
+        "required": ["path"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["items"],
+  "additionalProperties": false
+}

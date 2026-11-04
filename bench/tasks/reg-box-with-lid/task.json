@@ -1,0 +1,113 @@
+{
+  "$schema": "../../../packages/schemas/json/bench-task.schema.json",
+  "id": "reg-box-with-lid",
+  "version": 2,
+  "split": "regression",
+  "title": "Box with locating lid",
+  "brief": "A two-part box 70 x 50 mm: a base 30 mm tall shelled to 2 mm walls, and a 3 mm lid with a locating lip 1.6 mm wide and 4 mm deep that clears the inner wall by 0.25 mm. Seat the lid on the rim with connectors. The lid must not clash with the base.",
+  "params": {},
+  "assertions": [
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "occurrences",
+      "kind": "count",
+      "quantity": "occurrences",
+      "expect": {
+        "eq": 2
+      }
+    },
+    {
+      "id": "definitions",
+      "kind": "count",
+      "quantity": "definitions",
+      "expect": {
+        "eq": 2
+      }
+    },
+    {
+      "id": "named",
+      "kind": "occurrences",
+      "name": "lid",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "no-clash",
+      "kind": "fits",
+      "fit": "clash",
+      "expect": {
+        "eq": 0
+      }
+    },
+    {
+      "id": "lip-gap",
+      "kind": "fits",
+      "fit": "clearance",
+      "a": "lid",
+      "b": "base",
+      "gap": {
+        "min": 0.249,
+        "max": 0.251
+      },
+      "expect": {
+        "eq": 1
+      },
+      "note": "The lip's gap to the inner wall. The lid is mated, so its seat contact is not listed and this gap is the pair's only (extra) line."
+    },
+    {
+      "id": "lid-volume",
+      "kind": "measure",
+      "quantity": "volume_mm3",
+      "target": "lid",
+      "expect": {
+        "eq": 11828.670338,
+        "tol": {
+          "rel": 1e-06
+        }
+      }
+    },
+    {
+      "id": "base-volume",
+      "kind": "measure",
+      "quantity": "volume_mm3",
+      "target": "base",
+      "expect": {
+        "eq": 19676.106097,
+        "tol": {
+          "rel": 1e-06
+        }
+      }
+    }
+  ],
+  "reference": "reference.o3j.js",
+  "mutant": "mutant.o3j.js",
+  "mutant_defect": "The lip is 0.3 mm wider than the cavity on each side, so lid and base clash.",
+  "mutant_fails": [
+    "status",
+    "no-clash",
+    "lid-volume",
+    "lip-gap"
+  ],
+  "tags": [
+    "multi-part",
+    "shell",
+    "connectors",
+    "fits"
+  ],
+  "source": "examples/box-with-lid",
+  "licence": "MIT",
+  "authors": [
+    "neuraldeep.net design agents"
+  ]
+}

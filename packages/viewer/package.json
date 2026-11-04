@@ -1,0 +1,22 @@
+{
+  "name": "@open3dj/viewer",
+  "version": "0.0.0",
+  "private": true,
+  "description": "The read-only browser viewer: plain ES modules on three.js, served by open3dj view.",
+  "license": "MIT",
+  "author": "Neural Deep Network LTD and the Open3DJ contributors",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@open3dj/schemas": "0.0.0",
+    "three": "0.186.1"
+  },
+  "devDependencies": {
+    "@open3dj/kernel": "0.0.0"
+  }
+}

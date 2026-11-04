@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:open3dj:v0:tool-render-output",
+  "title": "render tool output (S1)",
+  "description": "MCP clients also get the PNG as image content and the SVG as an embedded resource.",
+  "type": "object",
+  "properties": {
+    "status": { "enum": ["ok", "error"] },
+    "rev": { "$ref": "urn:open3dj:v0:common#/$defs/rev" },
+    "view": { "enum": ["multiview", "highlight"] },
+    "targets": { "type": "array", "items": { "type": "string" } },
+    "files": { "type": "array", "items": { "$ref": "urn:open3dj:v0:common#/$defs/fileRef" } },
+    "error": { "$ref": "urn:open3dj:v0:script-error" },
+    "compute": { "$ref": "urn:open3dj:v0:compute" }
+  },
+  "required": ["status", "compute"],
+  "additionalProperties": false
+}

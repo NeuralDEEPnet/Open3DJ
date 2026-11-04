@@ -1,0 +1,225 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:open3dj:v0:bench-task",
+  "title": "o3dj-bench task (C7)",
+  "description": "One o3dj-bench task: a brief, executable assertions on the GeometryReport and assembly tree, a reference solution that must pass every assertion and a seeded mutant that must fail at least one (ARCHITECTURE.md sections 2 and 16). Units are mm, Z is up. Patterns are case-insensitive globs where * matches any run of characters; they match occurrence paths (screw#3, pcb_assy/standoff#1) or definition ids (screw).",
+  "type": "object",
+  "properties": {
+    "$schema": { "type": "string", "description": "Optional path to this schema, for editors." },
+    "id": {
+      "description": "Task id, equal to the folder name under bench/tasks/.",
+      "type": "string",
+      "pattern": "^(reg|cap)-[a-z0-9]+(-[a-z0-9]+)*$",
+      "maxLength": 64
+    },
+    "version": { "description": "Task version; bump it when the brief or an assertion changes.", "type": "integer", "minimum": 1 },
+    "split": {
+      "description": "regression: deterministic replay of the reference, no LLM, must stay at 100%. capability: agent runs of the brief, reported as pass^3.",
+      "enum": ["regression", "capability"]
+    },
+    "title": { "type": "string", "minLength": 3, "maxLength": 80 },
+    "brief": {
+      "description": "The request as a client would write it. Agents get only this text (and params) in a capability run.",
+      "type": "string",
+      "minLength": 40,
+      "maxLength": 4000
+    },
+    "params": {
+      "description": "Parameter values passed to the script (the run tool's params). Empty means the script's defaults.",
+      "type": "object",
+      "additionalProperties": { "type": ["number", "string", "boolean"] }
+    },
+    "assertions": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 40,
+      "items": { "$ref": "#/$defs/assertion" }
+    },
+    "reference": {
+      "description": "Reference solution, relative to the task folder. It must pass every assertion.",
+      "type": "string",
+      "pattern": "^[a-z0-9-]+\\.o3j\\.js$"
+    },
+    "mutant": {
+      "description": "Seeded mutant, relative to the task folder. It must run and fail at least one assertion.",
+      "type": "string",
+      "pattern": "^[a-z0-9-]+\\.o3j\\.js$"
+    },
+    "mutant_defect": { "description": "The defect seeded in the mutant, in one sentence.", "type": "string", "minLength": 10, "maxLength": 300 },
+    "mutant_fails": {
+      "description": "Assertion ids the mutant must fail. task-lint checks that it fails each of them.",
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string" }
+    },
+    "more_mutants": {
+      "description": "Further seeded mutants, each with its own defect. Each must run and fail every assertion id in its fails list.",
+      "type": "array",
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "properties": {
+          "file": { "description": "Mutant script, relative to the task folder.", "type": "string", "pattern": "^[a-z0-9-]+\\.o3j\\.js$" },
+          "defect": { "description": "The defect seeded in this mutant, in one sentence.", "type": "string", "minLength": 10, "maxLength": 300 },
+          "fails": { "description": "Assertion ids this mutant must fail.", "type": "array", "minItems": 1, "items": { "type": "string" } }
+        },
+        "required": ["file", "defect", "fails"],
+        "additionalProperties": false
+      }
+    },
+    "tags": { "type": "array", "items": { "type": "string", "pattern": "^[a-z0-9-]+$" }, "maxItems": 12 },
+    "source": { "description": "Where the task comes from: original, or the repository path it was built from (for example examples/flange).", "type": "string", "minLength": 3 },
+    "licence": { "description": "SPDX licence of the task files.", "enum": ["MIT"] },
+    "authors": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 2 } }
+  },
+  "required": ["id", "version", "split", "title", "brief", "params", "assertions", "reference", "mutant", "mutant_defect", "mutant_fails", "tags", "source", "licence", "authors"],
+  "additionalProperties": false,
+  "$defs": {
+    "pattern": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z0-9_#*/.-]+$"
+    },
+    "tol": {
+      "description": "Slack for a number comparison: max(abs, rel x |expected|). Protected by the bench tolerance hook.",
+      "type": "object",
+      "properties": {
+        "abs": { "type": "number", "minimum": 0 },
+        "rel": { "type": "number", "minimum": 0, "maximum": 0.5 }
+      },
+      "minProperties": 1,
+      "additionalProperties": false
+    },
+    "expect": {
+      "description": "eq, or a range given by min and/or max (inclusive). tol widens eq, min and max.",
+      "type": "object",
+      "properties": {
+        "eq": { "type": "number" },
+        "min": { "type": "number" },
+        "max": { "type": "number" },
+        "tol": { "$ref": "#/$defs/tol" }
+      },
+      "additionalProperties": false,
+      "oneOf": [
+        { "required": ["eq"], "not": { "anyOf": [{ "required": ["min"] }, { "required": ["max"] }] } },
+        { "anyOf": [{ "required": ["min"] }, { "required": ["max"] }], "not": { "required": ["eq"] } }
+      ]
+    },
+    "countExpect": {
+      "description": "Like expect, for whole counts: no tolerance.",
+      "type": "object",
+      "properties": {
+        "eq": { "type": "integer", "minimum": 0 },
+        "min": { "type": "integer", "minimum": 0 },
+        "max": { "type": "integer", "minimum": 0 }
+      },
+      "additionalProperties": false,
+      "oneOf": [
+        { "required": ["eq"], "not": { "anyOf": [{ "required": ["min"] }, { "required": ["max"] }] } },
+        { "anyOf": [{ "required": ["min"] }, { "required": ["max"] }], "not": { "required": ["eq"] } }
+      ]
+    },
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$", "maxLength": 48 },
+    "note": { "type": "string", "maxLength": 300 },
+    "assertion": {
+      "oneOf": [
+        {
+          "description": "The report status is one of the listed values.",
+          "type": "object",
+          "properties": {
+            "id": { "$ref": "#/$defs/id" },
+            "note": { "$ref": "#/$defs/note" },
+            "kind": { "const": "status" },
+            "in": { "type": "array", "minItems": 1, "items": { "enum": ["ok", "warning", "error"] } }
+          },
+          "required": ["id", "kind", "in"],
+          "additionalProperties": false
+        },
+        {
+          "description": "Every definition matching target (default *) is a valid solid; at least one must match.",
+          "type": "object",
+          "properties": {
+            "id": { "$ref": "#/$defs/id" },
+            "note": { "$ref": "#/$defs/note" },
+            "kind": { "const": "valid" },
+            "target": { "$ref": "#/$defs/pattern" }
+          },
+          "required": ["id", "kind"],
+          "additionalProperties": false
+        },
+        {
+          "description": "A measure of the whole assembly (target assembly) or of the definitions matching target, summed over their occurrences for volume, area and mass. Sizes and corners come from the bounding box, which for several definitions is their union in definition coordinates.",
+          "type": "object",
+          "properties": {
+            "id": { "$ref": "#/$defs/id" },
+            "note": { "$ref": "#/$defs/note" },
+            "kind": { "const": "measure" },
+            "quantity": { "description": "size_max, size_mid and size_min are the bounding box's extents sorted from largest to smallest: they do not depend on which axis a design runs along. Prefer them to size_x and size_y for lengths and widths, since a brief fixes only that Z is up.", "enum": ["volume_mm3", "area_mm2", "mass_g", "size_x", "size_y", "size_z", "size_max", "size_mid", "size_min", "min_x", "min_y", "min_z", "max_x", "max_y", "max_z"] },
+            "target": { "$ref": "#/$defs/pattern" },
+            "expect": { "$ref": "#/$defs/expect" }
+          },
+          "required": ["id", "kind", "quantity", "target", "expect"],
+          "additionalProperties": false
+        },
+        {
+          "description": "A count: occurrences and definitions of the assembly, or solids, faces and edges summed over the definitions matching target (per definition, not per occurrence).",
+          "type": "object",
+          "properties": {
+            "id": { "$ref": "#/$defs/id" },
+            "note": { "$ref": "#/$defs/note" },
+            "kind": { "const": "count" },
+            "quantity": { "enum": ["occurrences", "definitions", "solids", "faces", "edges"] },
+            "target": { "$ref": "#/$defs/pattern" },
+            "expect": { "$ref": "#/$defs/countExpect" }
+          },
+          "required": ["id", "kind", "quantity", "expect"],
+          "additionalProperties": false
+        },
+        {
+          "description": "The number of fit results of a kind (any for all) between occurrences matching a and b (either order; default * for both), counted by each pair's closest relation. With distance, every gap of a counted pair must also meet it. With gap, the clearance lines in that range are counted instead, extra lines included.",
+          "type": "object",
+          "properties": {
+            "id": { "$ref": "#/$defs/id" },
+            "note": { "$ref": "#/$defs/note" },
+            "kind": { "const": "fits" },
+            "fit": { "enum": ["clash", "contact", "clearance", "any"] },
+            "a": { "$ref": "#/$defs/pattern" },
+            "b": { "$ref": "#/$defs/pattern" },
+            "expect": { "$ref": "#/$defs/countExpect" },
+            "distance": { "$ref": "#/$defs/expect" },
+            "gap": { "description": "With fit clearance: count the clearance lines of the matching pairs whose distance meets this range, a pair's further gaps (extra lines) included, instead of counting pairs. Asserts one gap of a pair (a lid's lip, a flange behind a panel), also of a mated pair whose contact is exempt.", "$ref": "#/$defs/expect" }
+          },
+          "required": ["id", "kind", "fit", "expect"],
+          "additionalProperties": false
+        },
+        {
+          "description": "The number of occurrences whose path matches name (and whose definition matches def, when given).",
+          "type": "object",
+          "properties": {
+            "id": { "$ref": "#/$defs/id" },
+            "note": { "$ref": "#/$defs/note" },
+            "kind": { "const": "occurrences" },
+            "name": { "$ref": "#/$defs/pattern" },
+            "def": { "$ref": "#/$defs/pattern" },
+            "expect": { "$ref": "#/$defs/countExpect" }
+          },
+          "required": ["id", "kind", "name", "expect"],
+          "additionalProperties": false
+        },
+        {
+          "description": "Two or more occurrences match name and all of them share one definition (clones).",
+          "type": "object",
+          "properties": {
+            "id": { "$ref": "#/$defs/id" },
+            "note": { "$ref": "#/$defs/note" },
+            "kind": { "const": "same_definition" },
+            "name": { "$ref": "#/$defs/pattern" }
+          },
+          "required": ["id", "kind", "name"],
+          "additionalProperties": false
+        }
+      ]
+    }
+  }
+}

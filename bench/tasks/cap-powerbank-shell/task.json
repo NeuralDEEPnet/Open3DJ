@@ -1,0 +1,158 @@
+{
+  "$schema": "../../../packages/schemas/json/bench-task.schema.json",
+  "id": "cap-powerbank-shell",
+  "version": 2,
+  "split": "capability",
+  "title": "Small power bank shell",
+  "brief": "A shell for a small power bank built around one 18650 cell (18.5 mm across and 65 mm long; model it as a cylinder named Cell) and a 60 x 22 x 1.6 mm charging board (named Board) above the cell. The shell is two halves, Top and Bottom, meeting on a flat parting line, with a USB-C opening of about 9.5 x 3.5 mm in one end. The finished size must be no bigger than 80 x 30 x 32 mm. Keep at least 1 mm between the cell and the board. The cell rests in the bottom half, the board is held by the shell, the halves touch each other, and nothing may interfere.",
+  "params": {},
+  "assertions": [
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "top",
+      "kind": "occurrences",
+      "name": "top",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "bottom",
+      "kind": "occurrences",
+      "name": "bottom",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "cell",
+      "kind": "occurrences",
+      "name": "cell",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "board",
+      "kind": "occurrences",
+      "name": "board",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "no-clash",
+      "kind": "fits",
+      "fit": "clash",
+      "expect": {
+        "eq": 0
+      }
+    },
+    {
+      "id": "halves-meet",
+      "kind": "fits",
+      "fit": "contact",
+      "a": "top",
+      "b": "bottom",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "cell-in-bottom",
+      "kind": "fits",
+      "fit": "contact",
+      "a": "cell",
+      "b": "bottom",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "cell-clear-of-board",
+      "kind": "fits",
+      "fit": "any",
+      "a": "cell",
+      "b": "board",
+      "expect": {
+        "eq": 0
+      }
+    },
+    {
+      "id": "board-held",
+      "kind": "fits",
+      "fit": "any",
+      "a": "board",
+      "b": "*",
+      "expect": {
+        "min": 1
+      }
+    },
+    {
+      "id": "cell-length",
+      "kind": "measure",
+      "quantity": "size_max",
+      "target": "cell",
+      "expect": {
+        "min": 64.99,
+        "max": 65.01
+      }
+    },
+    {
+      "id": "max-length",
+      "kind": "measure",
+      "quantity": "size_max",
+      "target": "assembly",
+      "expect": {
+        "max": 80
+      }
+    },
+    {
+      "id": "max-width",
+      "kind": "measure",
+      "quantity": "size_min",
+      "target": "assembly",
+      "expect": {
+        "max": 30
+      },
+      "note": "80 x 30 x 32 mm in any orientation: the smallest extent is at most 30."
+    },
+    {
+      "id": "max-height",
+      "kind": "measure",
+      "quantity": "size_mid",
+      "target": "assembly",
+      "expect": {
+        "max": 32
+      },
+      "note": "The middle extent is at most 32."
+    }
+  ],
+  "reference": "reference.o3j.js",
+  "mutant": "mutant.o3j.js",
+  "mutant_defect": "The shell is 82 mm long, over the 80 mm limit.",
+  "mutant_fails": [
+    "max-length"
+  ],
+  "tags": [
+    "enclosure",
+    "multi-part",
+    "battery",
+    "pcb"
+  ],
+  "source": "original",
+  "licence": "MIT",
+  "authors": [
+    "neuraldeep.net design agents"
+  ]
+}

@@ -1,0 +1,213 @@
+name: Hardware report
+description: Tell us how Open3DJ ran on your machine. Every report helps, including "everything worked". Testers are credited.
+title: "[Hardware]: "
+labels: ["hardware-report", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for testing Open3DJ on your machine. The tester guide, [docs/TESTING.md](https://github.com/NeuralDEEPnet/Open3DJ/blob/main/docs/TESTING.md), shows how to install it with one command and walks you through a 15-minute checklist.
+
+        The most useful part of this report is the output of:
+
+        ```sh
+        open3dj doctor --report
+        ```
+
+        Close other heavy programs first, because it times a few operations (about a minute). From a git clone, type `npx open3dj doctor --report` inside the folder. It holds no user names, host names or file paths, but please read it before you paste it.
+
+        If something was broken, please also file a [failure report](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=failure_report.yml) with the exact command and error.
+
+  - type: input
+    id: os
+    attributes:
+      label: Operating system and version
+      description: Include the distribution for Linux, and say if it is WSL2, a Chromebook or a virtual machine.
+      placeholder: "Windows 11 Pro 24H2; macOS 15.6; Fedora 42; Ubuntu 24.04 in WSL2"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: arch
+    attributes:
+      label: Architecture
+      options:
+        - "x64 (Intel or AMD)"
+        - "arm64 (Apple Silicon, Snapdragon, Raspberry Pi and other ARM boards)"
+        - "Something else"
+        - "Not sure"
+    validations:
+      required: true
+
+  - type: input
+    id: cpu
+    attributes:
+      label: CPU
+      placeholder: "AMD Ryzen 7 7840U; Apple M2; Snapdragon X Elite; Raspberry Pi 5 (Cortex-A76)"
+    validations:
+      required: true
+
+  - type: input
+    id: ram
+    attributes:
+      label: Memory (RAM)
+      placeholder: "16 GB"
+    validations:
+      required: true
+
+  - type: input
+    id: gpu
+    attributes:
+      label: GPU and driver version
+      description: The doctor report lists the GPU names your system gives, but not the driver. The viewer depends on both.
+      placeholder: "NVIDIA GeForce RTX 4060 with its driver version; Intel Iris Xe with its driver version; Apple M2 (built in); none"
+    validations:
+      required: false
+
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and version used for the viewer
+      placeholder: "Chrome, Edge, Firefox or Safari, with the version from its About page"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: machine
+    attributes:
+      label: What kind of machine is this?
+      options:
+        - Desktop
+        - Laptop on mains power
+        - Laptop on battery
+        - Single-board computer
+        - Virtual machine or WSL2
+        - Cloud or CI runner
+        - Something else
+    validations:
+      required: true
+
+  - type: dropdown
+    id: install
+    attributes:
+      label: How did you install Open3DJ?
+      options:
+        - "One-line installer on Windows (install.ps1)"
+        - "One-line installer on macOS or Linux (install.sh)"
+        - "Downloaded the installer, read it, then ran it"
+        - "From a git clone with npm ci"
+        - "Something else (say how below)"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Which checklist steps worked?
+      description: Tick the steps from docs/TESTING.md that worked as described. Leave a box empty if a step failed or you skipped it, and say which below.
+      options:
+        - label: "Install: the installer finished and `open3dj --version` works in a new terminal"
+        - label: "1. `open3dj doctor --report` ran"
+        - label: "2. All three examples printed `ok` (bracket, flange, enclosure)"
+        - label: "3a. The viewer opened in the browser and showed the enclosure in 3D"
+        - label: "3b. Orbit, pan and zoom worked"
+        - label: "3c. Clicking a screw selected it and showed its measures"
+        - label: "3d. `T` switched the theme"
+        - label: "3e. Live reload: saving a changed width updated the view"
+        - label: "4. STEP export worked and the file opened in another CAD tool"
+        - label: "5. I printed the bracket and measured it (optional)"
+        - label: "6. I connected an AI agent and it made a part (optional)"
+        - label: "Uninstall worked (optional)"
+
+  - type: textarea
+    id: doctor
+    attributes:
+      label: open3dj doctor --report output
+      description: Paste the whole output. It is Markdown, so it shows as tables once you submit. If your version does not know `--report`, paste the output of `open3dj doctor --bench --json` instead.
+    validations:
+      required: true
+
+  - type: input
+    id: commit
+    attributes:
+      label: Commit
+      description: The doctor report already includes it. Fill this in only if yours says "unknown".
+      placeholder: "Commit hash such as e0f16a5, or the branch you installed"
+    validations:
+      required: false
+
+  - type: textarea
+    id: details
+    attributes:
+      label: What failed, was slow or was confusing?
+      description: Which step, what you expected and what happened. For the STEP file, name the tool you opened it in. For a print, give the printer, slicer, material and what you measured. For an agent, name it and say how it went.
+      placeholder: "Step 3: the page opened but stayed grey on Firefox. Pressing D showed the drawing."
+    validations:
+      required: false
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots or photos
+      description: Drag images here. The viewer, an error, the STEP file in another tool, or a printed part. Crop out anything private first.
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything unusual?
+      placeholder: Antivirus or company proxy, thermal throttling, other programs running, a virtual machine, a non-English system language.
+    validations:
+      required: false
+
+  - type: textarea
+    id: developer
+    attributes:
+      label: For developers (optional)
+      description: "From a clone: the time `npm run check` took and its summary line, and the output of `node scripts/hdet.ts --runs 5`."
+      render: text
+    validations:
+      required: false
+
+  - type: dropdown
+    id: credit
+    attributes:
+      label: Would you like to be credited?
+      description: Testers are credited in CONTRIBUTORS.md and in the release notes.
+      options:
+        - "Yes, with my GitHub username"
+        - "Yes, with the name I give below"
+        - "No, thank you"
+    validations:
+      required: true
+
+  - type: input
+    id: credit-name
+    attributes:
+      label: Name for the credit (optional)
+      placeholder: "Ada Lovelace"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: ai-assistance
+    attributes:
+      label: Did AI tools help you write this report?
+      description: A person must check the report before it is submitted (AI_POLICY.md).
+      options:
+        - "No, I wrote it without AI tools"
+        - "Yes, AI tools helped me write or research it"
+        - "Yes, an AI agent drafted or filed it for me, and I checked it"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before you submit
+      options:
+        - label: I read the doctor report, the error text and the screenshots, and they hold nothing I do not want to share.
+          required: true
+        - label: I agree to follow the [Code of Conduct](https://github.com/NeuralDEEPnet/Open3DJ/blob/main/CODE_OF_CONDUCT.md).
+          required: true

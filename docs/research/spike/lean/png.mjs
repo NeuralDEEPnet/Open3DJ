@@ -1,0 +1,12 @@
+import { createHash } from "node:crypto"; import { writeFileSync } from "node:fs"; import { performance } from "node:perf_hooks";
+const DEPS = process.argv[2], OUT = process.argv[3];
+const { OcctKernel } = await import(`file://${DEPS}/node_modules/occt-wasm/dist/index.js`);
+const { renderMultiviewPNG } = await import(`file://${DEPS}/node_modules/occt-wasm/dist/png.js`);
+const k = await OcctKernel.init();
+let s = k.makeBox(60,40,20); const holes=[]; for (const x of [10,50]) for (const y of [10,30]) holes.push(k.translate(k.makeCylinder(3,30),x,y,-5));
+s = k.getSubShapes(k.cutAll(s, holes),"solid")[0]; s = k.fillet(s, k.getSubShapes(s,"edge").slice(0,4), 2);
+const t=performance.now(); const png = await renderMultiviewPNG(k, s); const ms=performance.now()-t;
+const png2 = await renderMultiviewPNG(k, s);
+writeFileSync(OUT, png);
+const h = b => createHash("sha256").update(b).digest("hex").slice(0,16);
+console.log(JSON.stringify({ms:+ms.toFixed(0), bytes:png.length, h1:h(png), h2:h(png2)}));

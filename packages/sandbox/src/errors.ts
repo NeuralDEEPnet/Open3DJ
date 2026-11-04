@@ -1,0 +1,152 @@
+// Turning whatever ended a run into a ScriptError with the user's line and column.
+import type { ScriptError } from "@open3dj/schemas";
+import { WRAP_LINE_OFFSET } from "./guest.ts";
+
+/** Longest message we copy out of the guest (the spike saw 1 MB error messages). */
+export const MAX_MESSAGE = 2000;
+
+const CODE = /^[A-Z][A-Z0-9_]*$/;
+
+/** A failure raised on the host side that the guest must not be able to swallow. */
+export class StickyFault extends Error {
+  readonly code: string;
+  readonly hint: string | undefined;
+  constructor(code: string, message: string, hint?: string) {
+    super(message);
+    this.name = "StickyFault";
+    this.code = code;
+    this.hint = hint;
+  }
+}
+
+export interface Site {
+  line: number;
+  column?: number;
+}
+
+/**
+ * Find the first stack frame in the user's file. QuickJS frames look like
+ * "    at main (part.o3j.js:3:7)" or, for syntax errors, "    at part.o3j.js:4:1".
+ *
+ * With the source, the column is moved to the first character of the call that failed. The
+ * frame just above the user's frame is the sandbox function the user called (for example
+ * "at fillet (open3dj:prelude.js:81:39)"). QuickJS reports the column of that call's
+ * parenthesis, or of the whole statement when the call sits in a return (column 1), so the
+ * name is looked up on the user's line instead.
+ */
+export function userSite(stack: unknown, filename: string, source?: string): Site | undefined {
+  if (typeof stack !== "string") return undefined;
+  let callee: string | undefined;
+  for (const raw of stack.split("\n")) {
+    const frame = raw.trim();
+    const at = frame.lastIndexOf(`${filename}:`);
+    if (at < 0) {
+      // A sandbox frame ("open3dj:..."), named: remember it as the entry the user called.
+      const m = /^at ([A-Za-z_$][\w$]*) \(open3dj:[\w.-]+:\d+(?::\d+)?\)$/.exec(frame);
+      callee = m ? m[1] : undefined;
+      continue;
+    }
+    const m = /^(\d+)(?::(\d+))?/.exec(frame.slice(at + filename.length + 1));
+    if (!m) continue;
+    const line = Number(m[1]) - WRAP_LINE_OFFSET;
+    if (line < 1) continue;
+    const site: Site = { line };
+    if (m[2] !== undefined) site.column = Math.max(1, Number(m[2]));
+    if (callee && source !== undefined) {
+      const text = source.split("\n")[line - 1];
+      if (text !== undefined) site.column = callColumn(text, callee, site.column ?? 1);
+    }
+    return site;
+  }
+  return undefined;
+}
+
+/** Sandbox function names that are not entries a user calls by name. */
+const NOT_ENTRIES = new Set(["call", "value", "fail", "constructor"]);
+
+/**
+ * The 1-based column where a call of name starts on a line of user code. QuickJS's column
+ * (reported) picks the call when several on the line share the name: the call whose name
+ * through parenthesis span holds it, else the first call after it, else the last one before.
+ * Returns reported when the name is not called on the line.
+ */
+export function callColumn(text: string, name: string, reported: number): number {
+  if (NOT_ENTRIES.has(name)) return reported;
+  const calls: Array<{ start: number; paren: number }> = [];
+  const re = new RegExp(`(?<![\\w$])${name.replace(/\$/g, "\\$")}\\s*\\(`, "g");
+  for (const m of text.matchAll(re)) calls.push({ start: m.index + 1, paren: m.index + m[0].length });
+  if (calls.length === 0) return reported;
+  const hit = calls.find((c) => reported >= c.start && reported <= c.paren) ?? calls.find((c) => c.start >= reported) ?? calls[calls.length - 1]!;
+  return hit.start;
+}
+
+export function cap(text: unknown, max = MAX_MESSAGE): string {
+  const s = typeof text === "string" ? text : String(text);
+  return s.length > max ? `${s.slice(0, max)}... (${s.length} chars)` : s;
+}
+
+/** What we could read from a thrown guest value (already dumped to host data). */
+export interface DumpedError {
+  name?: unknown;
+  message?: unknown;
+  stack?: unknown;
+  lineNumber?: unknown;
+  code?: unknown;
+  op?: unknown;
+  elements?: unknown;
+  hint?: unknown;
+}
+
+/** Classify a guest exception. interrupted/cancelled come from the host's interrupt handler. */
+export function scriptErrorFromGuest(dumped: unknown, filename: string, state: { interrupted: boolean; cancelled: boolean; lines: number; source?: string }): ScriptError {
+  const e: DumpedError = typeof dumped === "object" && dumped !== null ? (dumped as DumpedError) : { message: dumped };
+  const name = typeof e.name === "string" ? e.name : "";
+  const message = cap(e.message ?? "");
+  let code: string;
+  // Once the interrupt handler fired, the run ended because of it, whatever was thrown last
+  // (a getter on a thrown object can be the code that got interrupted, and a script that
+  // swallowed the interrupt must not choose its own error code).
+  if (state.cancelled) code = "SCRIPT_CANCELLED";
+  else if (state.interrupted) code = "SCRIPT_TIMEOUT";
+  else if (typeof e.code === "string" && CODE.test(e.code)) code = e.code;
+  else if (/out of memory/i.test(message)) code = "SCRIPT_MEMORY";
+  else if (/stack overflow|call stack size/i.test(message)) code = "SCRIPT_STACK";
+  else if (name === "SyntaxError") code = "SCRIPT_SYNTAX";
+  else code = "SCRIPT_RUNTIME";
+
+  const out: ScriptError = { code, message: describe(name, message, code) };
+  const site = userSite(e.stack, filename, state.source) ?? lineOnly(e.lineNumber);
+  if (site) {
+    // A syntax error at the end of input is reported on the wrapper's closing line.
+    out.line = Math.min(site.line, Math.max(1, state.lines));
+    if (site.column !== undefined) out.column = site.column;
+  }
+  if (typeof e.op === "string") out.op = cap(e.op, 100);
+  if (Array.isArray(e.elements)) out.elements = e.elements.filter((x): x is string => typeof x === "string" && x.length > 0).slice(0, 50).map((x) => cap(x, 100));
+  if (typeof e.hint === "string" && e.hint.length > 0) out.hint = cap(e.hint, 500);
+  else if (code === "SCRIPT_TIMEOUT") out.hint = "The script ran past its time limit. Look for an endless loop, or build fewer shapes.";
+  else if (code === "SCRIPT_SYNTAX") out.hint = "Fix the syntax at this line and column (a missing bracket, comma or quote is the usual cause). Scripts are plain JavaScript without import or require.";
+  else if (code === "SCRIPT_MEMORY") out.hint = "The script ran out of memory. Avoid huge arrays and strings.";
+  else if (code === "SCRIPT_STACK") out.hint = "The script recursed too deeply. Use a loop instead of recursion.";
+  return out;
+}
+
+function lineOnly(lineNumber: unknown): Site | undefined {
+  if (typeof lineNumber !== "number" || !Number.isInteger(lineNumber)) return undefined;
+  const line = lineNumber - WRAP_LINE_OFFSET;
+  return line >= 1 ? { line } : undefined;
+}
+
+function describe(name: string, message: string, code: string): string {
+  if (code === "SCRIPT_TIMEOUT") return "The script was interrupted: it ran past its CPU time limit";
+  if (code === "SCRIPT_CANCELLED") return "The script was cancelled";
+  const text = message.length > 0 ? message : "(no message)";
+  return name && name !== "Error" && !code.startsWith("KERNEL_") && !code.startsWith("DSL_") ? `${name}: ${text}` : text;
+}
+
+/** An error the sandbox raises itself, without a guest location. */
+export function hostError(code: string, message: string, hint?: string): ScriptError {
+  const e: ScriptError = { code, message: cap(message) };
+  if (hint) e.hint = hint;
+  return e;
+}

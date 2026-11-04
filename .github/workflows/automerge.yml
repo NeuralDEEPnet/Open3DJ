@@ -1,0 +1,97 @@
+name: Automerge
+
+# Gated auto-merge. After every check, review or label change, this workflow evaluates the
+# pull request again with the default branch's policy and code (never the pull request's),
+# then:
+# - sets the "merge-policy" commit status on the head commit, which the branch ruleset
+#   requires: success only when the policy is met (auto lane: every required check and the
+#   AI review pass; maintainer lane: every required check and one maintainer approval);
+# - labels the lane, and "needs-maintainer" when a person must act;
+# - turns on GitHub auto-merge (squash), pinned to the evaluated head commit.
+# It never merges directly: GitHub merges when branch protection is satisfied.
+#
+# It never checks out or runs pull request code, so pull_request_target and workflow_run
+# are safe here. See scripts/automerge/README.md.
+#
+# Runs never overlap (concurrency below): each run re-reads everything, and re-reads the
+# pull request and its reviews just before it writes a success. GitHub keeps at most one
+# waiting run and drops older waiting ones; the half-hourly sweep picks up anything missed.
+on:
+  workflow_run:
+    workflows: [CI, Evaluate, DCO, AI review, Review relay]
+    types: [completed]
+  pull_request_target:
+    types: [labeled, unlabeled, ready_for_review, converted_to_draft, reopened, closed]
+  check_suite:
+    types: [completed]
+  schedule:
+    - cron: "11,41 * * * *"
+  workflow_dispatch:
+    inputs:
+      pr:
+        description: Pull request number (empty evaluates every open pull request)
+        required: false
+        type: string
+
+permissions: {}
+
+jobs:
+  automerge:
+    name: merge policy
+    if: github.event_name != 'pull_request_target' || github.event.action != 'closed'
+    concurrency:
+      group: automerge
+      cancel-in-progress: false
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      statuses: write
+      checks: read
+    steps:
+      - name: Check out the default branch (never the pull request)
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: false
+          sparse-checkout: |
+            /scripts/automerge/
+            /.github/merge-policy.json
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+        with:
+          node-version: 24
+      - name: Evaluate and enable auto-merge
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/automerge/cli.ts automerge
+
+  main-ci:
+    # A merge made by auto-merge for this workflow's token does not start push workflows,
+    # so CI would not run on the merged commit. Start it when the default branch has no run.
+    name: ci on the default branch
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || (github.event_name == 'pull_request_target' && github.event.action == 'closed' && github.event.pull_request.merged)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      actions: write
+    steps:
+      - name: Check out the default branch
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: false
+          sparse-checkout: |
+            /scripts/automerge/
+            /.github/merge-policy.json
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+        with:
+          node-version: 24
+      - name: Start CI if the default branch's head has no run
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/automerge/cli.ts main-ci

@@ -1,0 +1,61 @@
+{
+  "example": "tapered-cup",
+  "script": "tapered-cup.o3j.js",
+  "note": "Written by node scripts/examples.ts --write from a detailed open3dj run. scripts/examples.test.ts compares status, counts and fits exactly, and volume, area, bbox and fit measures within the tolerance (relative).",
+  "engine": {
+    "occt_wasm": "5.8.1",
+    "brepjs": "20.11.1"
+  },
+  "tolerance": 0.0001,
+  "status": "ok",
+  "assembly": {
+    "occurrences": 1,
+    "definitions": 1,
+    "bbox": {
+      "min": [
+        -38,
+        -38,
+        0
+      ],
+      "max": [
+        38,
+        38,
+        70
+      ]
+    }
+  },
+  "parts": [
+    {
+      "def": "cup",
+      "occurrences": 1,
+      "valid": true,
+      "volume_mm3": 41739.084724,
+      "area_mm2": 34200.449862,
+      "bbox": {
+        "min": [
+          -38,
+          -38,
+          0
+        ],
+        "max": [
+          38,
+          38,
+          70
+        ]
+      },
+      "counts": {
+        "solids": 1,
+        "faces": 9,
+        "edges": 16
+      }
+    }
+  ],
+  "fits": [],
+  "exports": [
+    "tapered-cup.3mf",
+    "tapered-cup.evidence.json",
+    "tapered-cup.glb",
+    "tapered-cup.step",
+    "tapered-cup.stl"
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "$schema": "../../../packages/schemas/json/bench-task.schema.json",
+  "id": "cap-cable-organiser",
+  "version": 2,
+  "split": "capability",
+  "title": "Desk cable organiser",
+  "brief": "A desk cable organiser: a heavy block about 100 mm long that holds five cables up to 6 mm thick in open-top slots, so you can lift a cable out without unplugging it. Space the slots at least 8 mm apart. Under the block goes a 2 mm anti-slip pad with the same footprint, as a separate part. Please add five 6 mm cables to the model as straight 120 mm cylinders, named Cable, lying in the slots, so we can check the fit; name the other parts Block and Pad. The cables must not interfere with the block, each one should sit close in its slot (within half a millimetre), and the block should rest on the pad. Keep it lower than 40 mm.",
+  "params": {},
+  "assertions": [
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "block",
+      "kind": "occurrences",
+      "name": "block",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "pad",
+      "kind": "occurrences",
+      "name": "pad",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "cables",
+      "kind": "occurrences",
+      "name": "cable*",
+      "expect": {
+        "eq": 5
+      }
+    },
+    {
+      "id": "cable-clones",
+      "kind": "same_definition",
+      "name": "cable*"
+    },
+    {
+      "id": "no-clash",
+      "kind": "fits",
+      "fit": "clash",
+      "expect": {
+        "eq": 0
+      }
+    },
+    {
+      "id": "cables-seated",
+      "kind": "fits",
+      "fit": "any",
+      "a": "cable*",
+      "b": "block",
+      "expect": {
+        "eq": 5
+      }
+    },
+    {
+      "id": "block-on-pad",
+      "kind": "fits",
+      "fit": "contact",
+      "a": "block",
+      "b": "pad",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "block-length",
+      "kind": "measure",
+      "quantity": "size_max",
+      "target": "block",
+      "expect": {
+        "min": 90,
+        "max": 130
+      }
+    },
+    {
+      "id": "height",
+      "kind": "measure",
+      "quantity": "size_z",
+      "target": "assembly",
+      "expect": {
+        "max": 40
+      }
+    }
+  ],
+  "reference": "reference.o3j.js",
+  "mutant": "mutant.o3j.js",
+  "mutant_defect": "The slots are 5.6 mm wide, narrower than the 6 mm cables.",
+  "mutant_fails": [
+    "status",
+    "no-clash"
+  ],
+  "tags": [
+    "multi-part",
+    "slots",
+    "fits"
+  ],
+  "source": "original",
+  "licence": "MIT",
+  "authors": [
+    "neuraldeep.net design agents"
+  ]
+}

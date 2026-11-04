@@ -1,0 +1,123 @@
+{
+  "$schema": "../../../packages/schemas/json/bench-task.schema.json",
+  "id": "cap-sensor-pod",
+  "version": 1,
+  "split": "capability",
+  "title": "Sensor pod with snap lid",
+  "brief": "A round sensor pod: a cup-shaped base about 50 mm across and 20 to 35 mm tall, and a lid that snaps on. The snap is a small bead around the lid's inner skirt that sits in a groove inside the base rim. Show it closed, with enough clearance at the bead that the model has no interference. Inside, a round sensor board 40 mm across and 1.6 mm thick sits on ribs or a ledge in the base. Name the parts Base, Lid and Board. The board must rest on the base, the lid must rest on the base rim, and nothing may interfere.",
+  "params": {},
+  "assertions": [
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "base",
+      "kind": "occurrences",
+      "name": "base",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "lid",
+      "kind": "occurrences",
+      "name": "lid",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "board",
+      "kind": "occurrences",
+      "name": "board",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "no-clash",
+      "kind": "fits",
+      "fit": "clash",
+      "expect": {
+        "eq": 0
+      }
+    },
+    {
+      "id": "lid-on-rim",
+      "kind": "fits",
+      "fit": "contact",
+      "a": "lid",
+      "b": "base",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "board-supported",
+      "kind": "fits",
+      "fit": "contact",
+      "a": "board",
+      "b": "base",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "board-diameter",
+      "kind": "measure",
+      "quantity": "size_x",
+      "target": "board",
+      "expect": {
+        "min": 39.99,
+        "max": 40.01
+      }
+    },
+    {
+      "id": "diameter",
+      "kind": "measure",
+      "quantity": "size_x",
+      "target": "assembly",
+      "expect": {
+        "min": 45,
+        "max": 60
+      }
+    },
+    {
+      "id": "height",
+      "kind": "measure",
+      "quantity": "size_z",
+      "target": "assembly",
+      "expect": {
+        "min": 20,
+        "max": 40
+      }
+    }
+  ],
+  "reference": "reference.o3j.js",
+  "mutant": "mutant.o3j.js",
+  "mutant_defect": "The snap bead is larger than the groove, so the lid clashes with the base.",
+  "mutant_fails": [
+    "status",
+    "no-clash",
+    "lid-on-rim"
+  ],
+  "tags": [
+    "enclosure",
+    "multi-part",
+    "snap-fit",
+    "revolve"
+  ],
+  "source": "original",
+  "licence": "MIT",
+  "authors": [
+    "neuraldeep.net design agents"
+  ]
+}

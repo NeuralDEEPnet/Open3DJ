@@ -1,0 +1,116 @@
+{
+  "$schema": "../../../packages/schemas/json/bench-task.schema.json",
+  "id": "reg-enclosure",
+  "version": 2,
+  "split": "regression",
+  "title": "Enclosure with four screws",
+  "brief": "An electronics enclosure 100 x 70 mm: a base 32 mm tall with corner bosses, M3 heat-set pockets and a cable hole, a 4 mm lid with counterbored holes seated on the rim, and four M3 x 6 socket head screws whose heads sit on the counterbore floors and whose tips stay clear of the pocket bottoms. The screws are one part used four times.",
+  "params": {},
+  "assertions": [
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "occurrences",
+      "kind": "count",
+      "quantity": "occurrences",
+      "expect": {
+        "eq": 6
+      }
+    },
+    {
+      "id": "definitions",
+      "kind": "count",
+      "quantity": "definitions",
+      "expect": {
+        "eq": 3
+      }
+    },
+    {
+      "id": "screws",
+      "kind": "occurrences",
+      "name": "screw*",
+      "expect": {
+        "eq": 4
+      }
+    },
+    {
+      "id": "screw-clones",
+      "kind": "same_definition",
+      "name": "screw*"
+    },
+    {
+      "id": "no-clash",
+      "kind": "fits",
+      "fit": "clash",
+      "expect": {
+        "eq": 0
+      }
+    },
+    {
+      "id": "heads-seated",
+      "kind": "fits",
+      "fit": "contact",
+      "a": "lid",
+      "b": "screw*",
+      "expect": {
+        "eq": 4
+      }
+    },
+    {
+      "id": "shank-in-pocket",
+      "kind": "fits",
+      "fit": "clearance",
+      "a": "base",
+      "b": "screw*",
+      "expect": {
+        "eq": 4
+      },
+      "distance": {
+        "eq": 0.5,
+        "tol": {
+          "abs": 0.000001
+        }
+      }
+    },
+    {
+      "id": "base-volume",
+      "kind": "measure",
+      "quantity": "volume_mm3",
+      "target": "base",
+      "expect": {
+        "eq": 46644.478472,
+        "tol": {
+          "rel": 0.000001
+        }
+      }
+    }
+  ],
+  "reference": "reference.o3j.js",
+  "mutant": "mutant.o3j.js",
+  "mutant_defect": "The screws are M3 x 8, so their tips cut into the pocket bottoms.",
+  "mutant_fails": [
+    "status",
+    "no-clash",
+    "shank-in-pocket"
+  ],
+  "tags": [
+    "multi-part",
+    "fasteners",
+    "clones",
+    "fits"
+  ],
+  "source": "examples/enclosure",
+  "licence": "MIT",
+  "authors": [
+    "neuraldeep.net design agents"
+  ]
+}

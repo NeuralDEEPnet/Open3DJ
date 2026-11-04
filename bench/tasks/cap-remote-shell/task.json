@@ -1,0 +1,157 @@
+{
+  "$schema": "../../../packages/schemas/json/bench-task.schema.json",
+  "id": "cap-remote-shell",
+  "version": 2,
+  "split": "capability",
+  "title": "Remote control shell with battery door",
+  "brief": "We need a plastic shell for a small TV-style remote, about 150 x 45 mm and no thicker than 22 mm. It comes apart in two halves, a top and a bottom, that meet on a flat parting line. It runs on two AAA cells lying side by side; please put them in the model as plain cylinders 10.5 mm across and 44.5 mm long so we can check they fit. On the underside there is a separate battery door that sits in its opening with a small gap all round (0.2 to 0.4 mm; we will add the catch later) and does not touch the cells. The cells should rest on the bottom half. A few button holes in the top would be nice. Name the parts Top, Bottom, Door and Cell. Nothing may interfere.",
+  "params": {},
+  "assertions": [
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "top",
+      "kind": "occurrences",
+      "name": "top",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "bottom",
+      "kind": "occurrences",
+      "name": "bottom",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "door",
+      "kind": "occurrences",
+      "name": "door",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "cells",
+      "kind": "occurrences",
+      "name": "cell*",
+      "expect": {
+        "eq": 2
+      }
+    },
+    {
+      "id": "length",
+      "kind": "measure",
+      "quantity": "size_max",
+      "target": "assembly",
+      "expect": {
+        "min": 140,
+        "max": 160
+      }
+    },
+    {
+      "id": "width",
+      "kind": "measure",
+      "quantity": "size_mid",
+      "target": "assembly",
+      "expect": {
+        "min": 40,
+        "max": 50
+      }
+    },
+    {
+      "id": "thickness",
+      "kind": "measure",
+      "quantity": "size_min",
+      "target": "assembly",
+      "expect": {
+        "max": 22
+      }
+    },
+    {
+      "id": "no-clash",
+      "kind": "fits",
+      "fit": "clash",
+      "expect": {
+        "eq": 0
+      }
+    },
+    {
+      "id": "halves-meet",
+      "kind": "fits",
+      "fit": "contact",
+      "a": "top",
+      "b": "bottom",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "door-gap",
+      "kind": "fits",
+      "fit": "clearance",
+      "a": "door",
+      "b": "bottom",
+      "expect": {
+        "eq": 1
+      },
+      "distance": {
+        "min": 0.2,
+        "max": 0.4,
+        "tol": {
+          "abs": 1e-06
+        }
+      }
+    },
+    {
+      "id": "door-clear-of-cells",
+      "kind": "fits",
+      "fit": "contact",
+      "a": "door",
+      "b": "cell*",
+      "expect": {
+        "eq": 0
+      }
+    },
+    {
+      "id": "cells-held",
+      "kind": "fits",
+      "fit": "any",
+      "a": "cell*",
+      "b": "bottom",
+      "expect": {
+        "eq": 2
+      }
+    }
+  ],
+  "reference": "reference.o3j.js",
+  "mutant": "mutant.o3j.js",
+  "mutant_defect": "The door is 0.1 mm wider than its opening on each side.",
+  "mutant_fails": [
+    "status",
+    "no-clash",
+    "door-gap"
+  ],
+  "tags": [
+    "enclosure",
+    "multi-part",
+    "battery",
+    "fits"
+  ],
+  "source": "original",
+  "licence": "MIT",
+  "authors": [
+    "neuraldeep.net design agents"
+  ]
+}

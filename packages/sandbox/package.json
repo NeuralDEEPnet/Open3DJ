@@ -1,0 +1,20 @@
+{
+  "name": "@open3dj/sandbox",
+  "version": "0.0.0",
+  "private": true,
+  "description": "QuickJS-WASM sandbox for agent-written DSL scripts, with memory, deadline and op limits.",
+  "license": "MIT",
+  "author": "Neural Deep Network LTD and the Open3DJ contributors",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@jitl/quickjs-wasmfile-release-sync": "0.32.0",
+    "@open3dj/schemas": "0.0.0",
+    "quickjs-emscripten-core": "0.32.0"
+  }
+}

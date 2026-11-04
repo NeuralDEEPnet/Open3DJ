@@ -1,0 +1,20 @@
+{
+  "name": "@open3dj/render",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Deterministic CPU renders: HLR multiview PNG and SVG of an assembly or its parts.",
+  "license": "MIT",
+  "author": "Neural Deep Network LTD and the Open3DJ contributors",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@open3dj/assembly": "0.0.0",
+    "@open3dj/kernel": "0.0.0",
+    "@open3dj/schemas": "0.0.0"
+  }
+}

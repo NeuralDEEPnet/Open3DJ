@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:open3dj:v0:viewer-highlight",
+  "title": "What an agent points a running viewer at",
+  "description": "Written to .o3j-view/highlight.json by render view=highlight; open3dj view checks it against this schema and the revision, and sends it to the page, which highlights the targets and frames them.",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string", "pattern": "^[0-9a-f]{16}$" },
+    "rev": { "$ref": "urn:open3dj:v0:common#/$defs/rev" },
+    "ts": { "type": "string", "minLength": 1, "maxLength": 40 },
+    "source": { "const": "render" },
+    "targets": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 200,
+      "items": {
+        "type": "object",
+        "properties": {
+          "target": { "description": "The target as the agent gave it.", "type": "string", "minLength": 1, "maxLength": 1100 },
+          "paths": { "description": "The part occurrences it names.", "type": "array", "items": { "type": "string", "minLength": 1, "maxLength": 1024 }, "minItems": 1, "maxItems": 2000 },
+          "element": { "description": "A face target: face:<n> on each of paths.", "type": "string", "pattern": "^face:[1-9][0-9]{0,6}$" }
+        },
+        "required": ["target", "paths"],
+        "additionalProperties": false
+      }
+    },
+    "note": { "description": "A short message from the agent, shown as text next to the highlight.", "type": "string", "maxLength": 200 },
+    "truncated": { "description": "True when the targets named more than 2000 occurrences and the rest were left out.", "type": "boolean" }
+  },
+  "required": ["id", "rev", "ts", "source", "targets"],
+  "additionalProperties": false
+}

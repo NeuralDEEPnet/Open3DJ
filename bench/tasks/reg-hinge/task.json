@@ -1,0 +1,102 @@
+{
+  "$schema": "../../../packages/schemas/json/bench-task.schema.json",
+  "id": "reg-hinge",
+  "version": 1,
+  "split": "regression",
+  "title": "Butt hinge with pin",
+  "brief": "A butt hinge 60 mm long with five alternating knuckles of 4 mm radius, leaves 20 mm wide and 2.5 mm thick with two countersunk M3 holes each, and a 3 mm pin. The knuckles clear each other by 0.4 mm and the pin clears its holes by 0.2 mm.",
+  "params": {},
+  "assertions": [
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "occurrences",
+      "kind": "count",
+      "quantity": "occurrences",
+      "expect": {
+        "eq": 3
+      }
+    },
+    {
+      "id": "no-clash",
+      "kind": "fits",
+      "fit": "clash",
+      "expect": {
+        "eq": 0
+      }
+    },
+    {
+      "id": "leaf-gap",
+      "kind": "fits",
+      "fit": "clearance",
+      "a": "leaf_a",
+      "b": "leaf_b",
+      "expect": {
+        "eq": 1
+      },
+      "distance": {
+        "eq": 0.4,
+        "tol": {
+          "abs": 0.000001
+        }
+      }
+    },
+    {
+      "id": "pin-clearance",
+      "kind": "fits",
+      "fit": "clearance",
+      "a": "pin",
+      "b": "leaf*",
+      "expect": {
+        "eq": 2
+      },
+      "distance": {
+        "eq": 0.2,
+        "tol": {
+          "abs": 0.000001
+        }
+      }
+    },
+    {
+      "id": "pin-volume",
+      "kind": "measure",
+      "quantity": "volume_mm3",
+      "target": "pin",
+      "note": "Hand value: pi x 1.5^2 x 60.",
+      "expect": {
+        "eq": 424.115008,
+        "tol": {
+          "rel": 0.000001
+        }
+      }
+    }
+  ],
+  "reference": "reference.o3j.js",
+  "mutant": "mutant.o3j.js",
+  "mutant_defect": "The pin is 3.6 mm across, larger than its 3.4 mm holes.",
+  "mutant_fails": [
+    "status",
+    "no-clash",
+    "pin-clearance",
+    "pin-volume"
+  ],
+  "tags": [
+    "multi-part",
+    "fits",
+    "clearance"
+  ],
+  "source": "examples/hinge",
+  "licence": "MIT",
+  "authors": [
+    "neuraldeep.net design agents"
+  ]
+}

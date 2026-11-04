@@ -1,0 +1,17 @@
+import { performance } from "node:perf_hooks";
+import { writeFileSync } from "node:fs";
+const [DEPS, OUT] = process.argv.slice(2);
+const { OcctKernel } = await import(`file://${DEPS}/node_modules/occt-wasm/dist/index.js`);
+const k = await OcctKernel.init();
+const ms = (s) => +(performance.now() - s).toFixed(1);
+const box = k.makeBox(80, 60, 32);
+let part = k.fillet(box, k.getSubShapes(box, "edge"), 3);
+const holes = [[8, 8], [72, 8], [8, 52], [72, 52]].map(([x, y]) => k.translate(k.makeCylinder(1.7, 40), x, y, -4));
+let s = performance.now(); part = k.cutAll(part, holes); const cutAll = ms(s);
+part = k.fuse(part, k.translate(k.makeCylinder(10, 10), 40, 30, 32));
+const boxes = Array.from({ length: 200 }, (_, i) => k.translate(k.makeBox(1, 1, 1), i * 0.9, 0, 0));
+s = performance.now(); const many = k.fuseAll(boxes); const fuseAll200 = ms(s);
+s = performance.now(); const svg = k.toMultiviewSVG(part); const svgMs = ms(s);
+s = performance.now(); const png = await k.toMultiviewPNG(part); const pngMs = ms(s);
+writeFileSync(`${OUT}/part-multiview.png`, png); writeFileSync(`${OUT}/part-multiview.svg`, svg);
+console.log(JSON.stringify({ cutAll_4_ms: cutAll, fuseAll_200_ms: fuseAll200, fuseAll_valid: k.isValid(many), part_valid: k.isValid(part), svg_ms: svgMs, svg_bytes: svg.length, png_ms: pngMs, png_bytes: png.length }));

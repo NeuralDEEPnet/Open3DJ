@@ -1,0 +1,72 @@
+{
+ "fit": {
+  "pin_0p15_clearance": {
+   "distance_mm": 0.15,
+   "overlap_mm3": 0,
+   "kind": "clearance",
+   "distance_ms": 15.62,
+   "common_ms": 9.66
+  },
+  "pin_oversize": {
+   "distance_mm": 0,
+   "overlap_mm3": 23.8918,
+   "kind": "clash",
+   "distance_ms": 0.58,
+   "common_ms": 10.72
+  },
+  "box_resting_on_plate": {
+   "distance_mm": 0,
+   "overlap_mm3": 0,
+   "kind": "contact",
+   "distance_ms": 18.53,
+   "common_ms": 13.09
+  }
+ },
+ "broadphase": {
+  "instances": 145,
+  "all_pairs": 10440,
+  "aabb_candidates": 144,
+  "plate_build_ms": 795.08,
+  "bbox_ms": 12.22,
+  "pair_filter_ms": 5.51,
+  "exact_common_ms": 2802.23,
+  "clashes": []
+ },
+ "euler": {
+  "location_3x4": [
+   0,
+   0,
+   1,
+   0,
+   1,
+   0,
+   0,
+   0,
+   0,
+   1,
+   0,
+   0
+  ],
+  "matches_RzRx": true,
+  "matches_RxRz": false
+ },
+ "brepjs_conflict": {
+  "ok": true,
+  "converged": true,
+  "dof": 0,
+  "B": [
+   10,
+   0,
+   0
+  ],
+  "C": [
+   0,
+   0,
+   10
+  ]
+ },
+ "brepjs_fourbar": {
+  "mechanismDOF_reported": 4,
+  "true_mobility_grubler": 1
+ }
+}

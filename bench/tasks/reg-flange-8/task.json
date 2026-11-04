@@ -1,0 +1,96 @@
+{
+  "$schema": "../../../packages/schemas/json/bench-task.schema.json",
+  "id": "reg-flange-8",
+  "version": 1,
+  "split": "regression",
+  "title": "Bolt flange with eight holes",
+  "brief": "A bolt flange: an 80 mm disc 8 mm thick with a raised hub 32 mm across and 12 mm tall, a 20 mm bore, eight M6 clearance holes on a circle, and 1 mm chamfers on the top edges of the hub and the bore. One part. The number of holes is a parameter; this task sets it to 8.",
+  "params": {
+    "Bolt holes": 8
+  },
+  "assertions": [
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "size-x",
+      "kind": "measure",
+      "quantity": "size_x",
+      "target": "assembly",
+      "expect": {
+        "eq": 80,
+        "tol": {
+          "abs": 0.0001
+        }
+      }
+    },
+    {
+      "id": "size-z",
+      "kind": "measure",
+      "quantity": "size_z",
+      "target": "assembly",
+      "expect": {
+        "eq": 20,
+        "tol": {
+          "abs": 0.0001
+        }
+      }
+    },
+    {
+      "id": "volume",
+      "kind": "measure",
+      "quantity": "volume_mm3",
+      "target": "flange",
+      "expect": {
+        "eq": 41308.927466,
+        "tol": {
+          "rel": 0.000001
+        }
+      }
+    },
+    {
+      "id": "faces",
+      "kind": "count",
+      "quantity": "faces",
+      "target": "flange",
+      "expect": {
+        "eq": 17
+      }
+    },
+    {
+      "id": "edges",
+      "kind": "count",
+      "quantity": "edges",
+      "target": "flange",
+      "expect": {
+        "eq": 38
+      }
+    }
+  ],
+  "reference": "reference.o3j.js",
+  "mutant": "mutant.o3j.js",
+  "mutant_defect": "The script ignores the Bolt holes parameter and always cuts six holes.",
+  "mutant_fails": [
+    "volume",
+    "faces"
+  ],
+  "tags": [
+    "single-part",
+    "pattern",
+    "chamfer",
+    "params"
+  ],
+  "source": "examples/flange",
+  "licence": "MIT",
+  "authors": [
+    "neuraldeep.net design agents"
+  ]
+}

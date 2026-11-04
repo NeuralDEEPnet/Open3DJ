@@ -1,0 +1,12 @@
+node_modules/
+.o3j-cache/
+out/
+dist/
+*.tsbuildinfo
+.env
+.env.*
+
+# Projects that example, bench and corpus runs create next to their scripts
+examples/**/*.o3j/
+bench/**/*.o3j/
+corpora/**/*.o3j/

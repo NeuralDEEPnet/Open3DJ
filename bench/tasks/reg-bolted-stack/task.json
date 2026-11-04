@@ -1,0 +1,114 @@
+{
+  "$schema": "../../../packages/schemas/json/bench-task.schema.json",
+  "id": "reg-bolted-stack",
+  "version": 1,
+  "split": "regression",
+  "title": "Bolted plate stack",
+  "brief": "Two square plates 40 mm across, 5 mm and 6 mm thick, stacked and clamped by an M5 x 20 socket head screw through M5 clearance holes, with an ISO 7089 washer under the head and an ISO 4032 nut under the lower plate. Every part rests on the next one and nothing clashes.",
+  "params": {},
+  "assertions": [
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "occurrences",
+      "kind": "count",
+      "quantity": "occurrences",
+      "expect": {
+        "eq": 5
+      }
+    },
+    {
+      "id": "definitions",
+      "kind": "count",
+      "quantity": "definitions",
+      "expect": {
+        "eq": 5
+      }
+    },
+    {
+      "id": "no-clash",
+      "kind": "fits",
+      "fit": "clash",
+      "expect": {
+        "eq": 0
+      }
+    },
+    {
+      "id": "contacts",
+      "kind": "fits",
+      "fit": "contact",
+      "expect": {
+        "eq": 5
+      }
+    },
+    {
+      "id": "bolt-clearance",
+      "kind": "fits",
+      "fit": "clearance",
+      "a": "bolt",
+      "b": "plate*",
+      "expect": {
+        "eq": 2
+      },
+      "distance": {
+        "eq": 0.25,
+        "tol": {
+          "abs": 0.000001
+        }
+      }
+    },
+    {
+      "id": "size-z",
+      "kind": "measure",
+      "quantity": "size_z",
+      "target": "assembly",
+      "expect": {
+        "eq": 25,
+        "tol": {
+          "abs": 0.0001
+        }
+      }
+    },
+    {
+      "id": "plate-b-volume",
+      "kind": "measure",
+      "quantity": "volume_mm3",
+      "target": "plate_b",
+      "expect": {
+        "eq": 9457.450233,
+        "tol": {
+          "rel": 0.000001
+        }
+      }
+    }
+  ],
+  "reference": "reference.o3j.js",
+  "mutant": "mutant.o3j.js",
+  "mutant_defect": "The lower plate has a 4.5 mm hole, smaller than the M5 shank.",
+  "mutant_fails": [
+    "status",
+    "no-clash",
+    "bolt-clearance",
+    "plate-b-volume"
+  ],
+  "tags": [
+    "multi-part",
+    "fasteners",
+    "fits",
+    "lib"
+  ],
+  "source": "original",
+  "licence": "MIT",
+  "authors": [
+    "neuraldeep.net design agents"
+  ]
+}

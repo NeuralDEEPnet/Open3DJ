@@ -1,0 +1,184 @@
+{
+  "$schema": "../../../packages/schemas/json/bench-task.schema.json",
+  "id": "cap-pi5-case",
+  "version": 2,
+  "split": "capability",
+  "title": "Raspberry Pi 5 case with standoffs",
+  "brief": "Please design a two-part case, Base and Lid, for a Raspberry Pi 5. From our drawing the board is 85 x 56 x 1.6 mm with four 2.7 mm mounting holes on a 58 x 49 mm rectangle, 3.5 mm in from the short edge and both long edges. Put the board in the model as a plain plate with its four holes, named PCB. It sits on four separate M2.5 standoffs 6 mm tall, named Standoff, all the same part, standing on the floor of the base; the board must rest on all four. Keep the board well away from the walls (we want at least 2 mm), leave about 20 mm above the board for the connectors, and put ventilation slots in the lid. The lid sits on the base. Overall it should stay under 120 x 90 x 45 mm. Nothing may interfere.",
+  "params": {},
+  "assertions": [
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "base",
+      "kind": "occurrences",
+      "name": "base",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "lid",
+      "kind": "occurrences",
+      "name": "lid",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "pcb",
+      "kind": "occurrences",
+      "name": "pcb",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "standoffs",
+      "kind": "occurrences",
+      "name": "standoff*",
+      "expect": {
+        "eq": 4
+      }
+    },
+    {
+      "id": "standoff-clones",
+      "kind": "same_definition",
+      "name": "standoff*"
+    },
+    {
+      "id": "no-clash",
+      "kind": "fits",
+      "fit": "clash",
+      "expect": {
+        "eq": 0
+      }
+    },
+    {
+      "id": "board-on-standoffs",
+      "kind": "fits",
+      "fit": "contact",
+      "a": "pcb",
+      "b": "standoff*",
+      "expect": {
+        "eq": 4
+      }
+    },
+    {
+      "id": "standoffs-on-floor",
+      "kind": "fits",
+      "fit": "contact",
+      "a": "base",
+      "b": "standoff*",
+      "expect": {
+        "eq": 4
+      }
+    },
+    {
+      "id": "lid-on-base",
+      "kind": "fits",
+      "fit": "contact",
+      "a": "lid",
+      "b": "base",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "board-clear-of-walls",
+      "kind": "fits",
+      "fit": "any",
+      "a": "pcb",
+      "b": "base",
+      "expect": {
+        "eq": 0
+      }
+    },
+    {
+      "id": "board-length",
+      "kind": "measure",
+      "quantity": "size_max",
+      "target": "pcb",
+      "expect": {
+        "min": 84.99,
+        "max": 85.01
+      }
+    },
+    {
+      "id": "board-width",
+      "kind": "measure",
+      "quantity": "size_mid",
+      "target": "pcb",
+      "expect": {
+        "min": 55.99,
+        "max": 56.01
+      }
+    },
+    {
+      "id": "lid-vents",
+      "kind": "count",
+      "quantity": "faces",
+      "target": "lid",
+      "note": "A plain lid has about 10 faces; vent slots add many more.",
+      "expect": {
+        "min": 20
+      }
+    },
+    {
+      "id": "max-length",
+      "kind": "measure",
+      "quantity": "size_max",
+      "target": "assembly",
+      "expect": {
+        "max": 120
+      }
+    },
+    {
+      "id": "max-width",
+      "kind": "measure",
+      "quantity": "size_mid",
+      "target": "assembly",
+      "expect": {
+        "max": 90
+      }
+    },
+    {
+      "id": "max-height",
+      "kind": "measure",
+      "quantity": "size_z",
+      "target": "assembly",
+      "expect": {
+        "max": 45
+      }
+    }
+  ],
+  "reference": "reference.o3j.js",
+  "mutant": "mutant.o3j.js",
+  "mutant_defect": "One of the four standoffs is missing.",
+  "mutant_fails": [
+    "standoffs",
+    "board-on-standoffs",
+    "standoffs-on-floor"
+  ],
+  "tags": [
+    "enclosure",
+    "multi-part",
+    "pcb",
+    "standoffs",
+    "vents"
+  ],
+  "source": "original",
+  "licence": "MIT",
+  "authors": [
+    "neuraldeep.net design agents"
+  ]
+}

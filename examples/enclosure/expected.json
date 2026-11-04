@@ -1,0 +1,161 @@
+{
+  "example": "enclosure",
+  "script": "enclosure.o3j.js",
+  "note": "Written by node scripts/examples.ts --write from a detailed open3dj run. scripts/examples.test.ts compares status, counts and fits exactly, and volume, area, bbox and fit measures within the tolerance (relative).",
+  "engine": {
+    "occt_wasm": "5.8.1",
+    "brepjs": "20.11.1"
+  },
+  "tolerance": 0.000001,
+  "status": "ok",
+  "assembly": {
+    "occurrences": 6,
+    "definitions": 3,
+    "bbox": {
+      "min": [
+        -50,
+        -35,
+        0
+      ],
+      "max": [
+        50,
+        35,
+        36
+      ]
+    }
+  },
+  "parts": [
+    {
+      "def": "base",
+      "occurrences": 1,
+      "valid": true,
+      "volume_mm3": 46644.478472,
+      "area_mm2": 35696.707009,
+      "bbox": {
+        "min": [
+          -50,
+          -35,
+          0
+        ],
+        "max": [
+          50,
+          35,
+          32
+        ]
+      },
+      "counts": {
+        "solids": 1,
+        "faces": 54,
+        "edges": 119
+      }
+    },
+    {
+      "def": "lid",
+      "occurrences": 1,
+      "valid": true,
+      "volume_mm3": 27479.645585,
+      "area_mm2": 15497.879604,
+      "bbox": {
+        "min": [
+          -50,
+          -35,
+          32
+        ],
+        "max": [
+          50,
+          35,
+          36
+        ]
+      },
+      "counts": {
+        "solids": 1,
+        "faces": 22,
+        "edges": 48
+      }
+    },
+    {
+      "def": "screw",
+      "occurrences": 4,
+      "valid": true,
+      "volume_mm3": 106.649928,
+      "area_mm2": 167.159866,
+      "bbox": {
+        "min": [
+          -2.75,
+          -2.75,
+          -6
+        ],
+        "max": [
+          2.75,
+          2.75,
+          3
+        ]
+      },
+      "counts": {
+        "solids": 1,
+        "faces": 12,
+        "edges": 24
+      }
+    }
+  ],
+  "fits": [
+    {
+      "a": "base",
+      "b": "screw#1",
+      "kind": "clearance",
+      "distance_mm": 0.5
+    },
+    {
+      "a": "base",
+      "b": "screw#2",
+      "kind": "clearance",
+      "distance_mm": 0.5
+    },
+    {
+      "a": "base",
+      "b": "screw#3",
+      "kind": "clearance",
+      "distance_mm": 0.5
+    },
+    {
+      "a": "base",
+      "b": "screw#4",
+      "kind": "clearance",
+      "distance_mm": 0.5
+    },
+    {
+      "a": "lid",
+      "b": "screw#1",
+      "kind": "contact",
+      "distance_mm": 0
+    },
+    {
+      "a": "lid",
+      "b": "screw#2",
+      "kind": "contact",
+      "distance_mm": 0
+    },
+    {
+      "a": "lid",
+      "b": "screw#3",
+      "kind": "contact",
+      "distance_mm": 0
+    },
+    {
+      "a": "lid",
+      "b": "screw#4",
+      "kind": "contact",
+      "distance_mm": 0
+    }
+  ],
+  "exports": [
+    "enclosure-base.stl",
+    "enclosure-lid.stl",
+    "enclosure-screw.stl",
+    "enclosure.3mf",
+    "enclosure.evidence.json",
+    "enclosure.glb",
+    "enclosure.step",
+    "enclosure.stl"
+  ]
+}
