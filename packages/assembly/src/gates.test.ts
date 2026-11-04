@@ -7,6 +7,7 @@ import type { Kernel, ShapeHandle } from "@open3dj/kernel";
 import { validate } from "@open3dj/schemas";
 import type { GateFailure, Vec3 } from "@open3dj/schemas";
 import { FDM_V1, MAX_RAYS, WALL_BAND_MM, WALL_SPACING_MM, buildAssembly, partGates, printGates, wallSampling } from "./index.ts";
+import { nonManifoldVertices } from "./gates.ts";
 
 let k: Kernel;
 before(async () => {
@@ -242,6 +243,30 @@ test("watertight: an open face and two loose solids fail, and only a person may 
   // Closed meshes: no open-edge count to compare, so no "0 against 0".
   assert.equal(two?.value, undefined);
   assert.equal(two?.limit, undefined);
+});
+
+// Regression (seeded gate corpus, case watertight-point-contact): one solid whose two lobes
+// touch at a single point has a closed, edge-manifold mesh, so it passed every check. The mesh
+// is not a manifold at that vertex: two fans of triangles meet there.
+test("watertight: lobes of one solid that touch at a single point fail; nothing else does", () => {
+  const lean = Math.tan((25 * Math.PI) / 180);
+  const plate = k.translate(k.box(40, 30, 2), [-22, -15, 0]);
+  // A block whose front leans back 25 degrees below its top edge (x = 0, z = 12).
+  const block = k.translate(prism([[-15, 0, 1], [-11 * lean, 0, 1], [0, 0, 12], [-15, 0, 12]], [0, 20, 0]), [0, -10, 0]);
+  // A square post turned 45 degrees, whose vertical edge at x = 0 touches that top edge at z = 12.
+  const post = k.translate(k.rotate(k.box(10, 10, 20), 45, { origin: [0, 0, 0], dir: [0, 0, 1] }), [5 * Math.SQRT2, -5 * Math.SQRT2, 1]);
+  const r = check(k.fuse(k.fuse(plate, block), post));
+  const f = failed(r, "watertight");
+  assert.ok(f, JSON.stringify(r));
+  assert.match(f.note ?? "", /1 non-manifold vertex \(pieces that touch at a single point\)/);
+  assert.equal(f.value, undefined, "the value stays the open-edge count");
+  assert.deepEqual(r.pass, ["min_wall", "overhang", "bed"], "the point contact is the only defect");
+  // The same post 0.5 mm away is a closed, manifold solid.
+  const apart = check(k.fuse(k.fuse(plate, block), k.translate(post, [0.5, 0, 0])));
+  assert.ok(apart.pass.includes("watertight"), JSON.stringify(apart));
+  // The count itself: two triangles that share only vertex 0 (a bow tie) against a closed fan.
+  assert.equal(nonManifoldVertices([0, 1, 2, 0, 3, 4]), 1);
+  assert.equal(nonManifoldVertices([0, 1, 2, 0, 2, 3, 0, 3, 1, 1, 3, 2]), 0, "a tetrahedron");
 });
 
 test("printGates checks each definition once, in its own frame, and labels the run as rule checks", () => {

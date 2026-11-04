@@ -88,14 +88,17 @@ export function partGates(kernel: KernelAdapter, shape: ShapeHandle, opts: Resol
   const pass: string[] = [];
   const fail: GateFailure[] = [];
 
-  // watertight: the kernel's validity check, one solid, and a closed, edge-manifold mesh.
+  // watertight: the kernel's validity check, one solid, and a closed mesh that is a manifold at
+  // every edge and every vertex.
   const welded = weld({ positions: mesh.positions, normals: mesh.normals, indices: mesh.indices });
   const open = openEdgeCount(welded);
+  const pinched = nonManifoldVertices(welded.triangles);
   const why = [
     !m.valid && "the kernel's validity check fails",
     m.counts.solids === 0 && "it holds no solid",
     m.counts.solids > 1 && `it holds ${m.counts.solids} solids (fuse them, or return them as separate parts)`,
     open > 0 && `the mesh has ${open} open or non-manifold edges`,
+    pinched > 0 && `the mesh has ${pinched} non-manifold ${pinched === 1 ? "vertex" : "vertices"} (pieces that touch at a single point)`,
     m.counts.solids > 0 && m.volume <= 0 && "its volume is not positive",
   ].filter((x): x is string => typeof x === "string");
   if (why.length === 0) pass.push("watertight");
@@ -328,6 +331,48 @@ function insideEdges(P: Float64Array, I: Uint32Array, remap: Uint32Array): Array
     out.push({ t: t1, a, c, dir: [d[0] / l, d[1] / l, d[2] / l], length: dist(P, a, c) });
   }
   return out;
+}
+
+/**
+ * Welded vertices where the mesh is not a manifold: the triangles around the vertex form more
+ * than one fan (groups joined through the edges they share at the vertex), as where two lobes
+ * of one solid touch at a single point. An edge-manifold mesh can still have them.
+ */
+export function nonManifoldVertices(triangles: ArrayLike<number>): number {
+  const around = new Map<number, number[]>();
+  for (let t = 0; t < triangles.length / 3; t++) {
+    for (let k = 0; k < 3; k++) {
+      const v = triangles[t * 3 + k]!;
+      const list = around.get(v);
+      if (list) list.push(t);
+      else around.set(v, [t]);
+    }
+  }
+  let count = 0;
+  for (const [v, fan] of around) {
+    const parent = fan.map((_, i) => i);
+    const find = (x: number): number => {
+      while (parent[x] !== x) x = parent[x] = parent[parent[x]!]!;
+      return x;
+    };
+    // Two triangles at v are joined when they share their other end of an edge from v.
+    const seen = new Map<number, number>();
+    let groups = fan.length;
+    fan.forEach((t, i) => {
+      for (let k = 0; k < 3; k++) {
+        const u = triangles[t * 3 + k]!;
+        if (u === v) continue;
+        const j = seen.get(u);
+        if (j === undefined) seen.set(u, i);
+        else if (find(i) !== find(j)) {
+          parent[find(i)] = find(j);
+          groups--;
+        }
+      }
+    });
+    if (groups > 1) count++;
+  }
+  return count;
 }
 
 /** Footprint (two axes across the build direction) and height. Exact for axis builds; otherwise from mesh points plus two chords. */
