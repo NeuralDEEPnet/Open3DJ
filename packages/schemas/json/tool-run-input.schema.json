@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "urn:open3dj:v0:tool-run-input",
   "title": "run tool input",
-  "description": "Run a DSL script or apply ops, and get a GeometryReport. Give script, ops, or both.",
+  "description": "Run a DSL script or apply ops. Give script, ops, or both; cancel_job and waive go alone.",
   "type": "object",
   "properties": {
     "project": {

@@ -3,7 +3,8 @@
 // SCRIPT_RUNTIME error at its line, `clash` gives a warning with a clash, and `slow` makes the
 // job wait (and honour cancellation). Gate jobs fail every part on `leaky` (watertight),
 // `thin` (min_wall, value from the param wall_<part>, default 0.6) and `overhang`; the param
-// size_<part> changes that part's geometry hash. Not exported from the package index.
+// size_<part> changes that part's geometry hash and shape hash, and shape_<part> only its shape
+// hash (a hole moved inside a plate). Not exported from the package index.
 import type { DeviceInventory, ComputeBlock, ComputeMode, AssemblyFile, GateFailure, GeometryReport, ParamValue, PartReport, FitReport } from "@open3dj/schemas";
 import type { JobKind, JobRequest, JobResult, Pool, PoolStats, RenderImage, ExportArtifact } from "@open3dj/compute";
 
@@ -88,7 +89,8 @@ export function fakeResult(job: JobRequest): JobResult {
       profile: job.gates.profile ?? "fdm.v1", build: job.gates.build ?? [0, 0, 1], bed_mm: job.gates.bed ?? [220, 220, 250], notes: ["fake gates"],
       parts: parts.map((def) => {
         const fail = fakeGateFailures(job.script, def, params);
-        return { def, pass: ["watertight", "min_wall", "overhang", "bed"].filter((g) => !fail.some((f) => f.gate === g)), fail, wall: { min_mm: 10, rays: 100, spacing_mm: 0.5 } };
+        const shape_hash = `fake:${def}:${String(params[`size_${def}`] ?? 0)}:${String(params[`shape_${def}`] ?? 0)}`;
+        return { def, pass: ["watertight", "min_wall", "overhang", "bed"].filter((g) => !fail.some((f) => f.gate === g)), fail, wall: { min_mm: 10, rays: 100, spacing_mm: 0.5 }, shape_hash };
       }),
     };
   }

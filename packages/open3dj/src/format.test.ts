@@ -33,7 +33,7 @@ test("inspect --fields gates prints value against limit only where they apply", 
     status: "ok", compute,
     gates: {
       profile: "fdm.v1", build: [0, 0, 1], bed_mm: [220, 220, 250], notes: [],
-      parts: [{ def: "pair", pass: ["bed"], wall: { rays: 10, spacing_mm: 0.5 }, fail: [
+      parts: [{ def: "pair", pass: ["bed"], wall: { rays: 10, spacing_mm: 0.5 }, shape_hash: "s1:0", fail: [
         { gate: "watertight", waivable: "human", note: "Not a closed solid: it holds 2 solids." },
         { gate: "min_wall", limit: 0.8, waivable: "agent", note: "No wall was measured." },
         { gate: "overhang", value: 45.5, limit: 45, at: "face:3", waivable: "agent", marginal: true },
@@ -51,20 +51,22 @@ test("inspect --fields gates says the overall status and marks waived failures w
     status: "ok", compute,
     gates: {
       profile: "fdm.v1", build: [0, 0, 1], bed_mm: [220, 220, 250], notes: [], status: "fail", open: 1, waived: 1,
-      parts: [{ def: "tray", pass: ["watertight", "bed"], wall: { rays: 10, spacing_mm: 0.5 }, fail: [
+      parts: [{ def: "tray", pass: ["watertight", "bed"], wall: { rays: 10, spacing_mm: 0.5 }, shape_hash: "s1:0", fail: [
         { gate: "min_wall", value: 0.6, limit: 0.8, at: "face:3", waivable: "agent", waiver: { by: "agent", reason: "a drain tray", rev: "r_0002", ts: "2026-11-04T12:00:00.000Z" } },
-        { gate: "overhang", value: 60, limit: 45, at: "face:5", waivable: "agent" },
+        { gate: "overhang", value: 60, limit: 45, at: "face:5", waivable: "agent", faces: [{ at: "face:5", value: 60 }, { at: "face:9", value: 48.2 }] },
       ] }],
     },
   });
   assert.match(text, /^gates fdm\.v1 \(build 0, 0, 1; bed 220 x 220 x 250 mm\): fail, 1 open, 1 waived$/m);
   assert.match(text, /^ {4}WAIVED min_wall {2}0\.6 against 0\.8 at face:3 {2}by an agent on r_0002: a drain tray$/m);
   assert.match(text, /^ {4}FAIL overhang {2}60 against 45 at face:5 {2}waivable by an agent/m);
+  // Every failing face, not only the worst: a waiver covers them all.
+  assert.match(text, /^ {6}faces: face:5 60, face:9 48\.2$/m);
 });
 
 test("run prints the waivers it recorded, and export the gate status", () => {
   const run = formatRun({ status: "ok", rev: "r_0002", compute, waivers: [
-    { def: "tray", gate: "min_wall", profile: "fdm.v1", geometry_hash: "m1:x", value: 0.6, limit: 0.8, at: "face:3", reason: "a drain tray", by: "agent", rev: "r_0002", ts: "2026-11-04T12:00:00.000Z" },
+    { def: "tray", gate: "min_wall", profile: "fdm.v1", geometry_hash: "m1:x", shape_hash: "s1:x", value: 0.6, limit: 0.8, at: "face:3", reason: "a drain tray", by: "agent", rev: "r_0002", ts: "2026-11-04T12:00:00.000Z" },
   ] });
   assert.equal(run, "ok  r_0002  waived min_wall on tray (0.6 against 0.8 at face:3): a drain tray\n");
   const exp = formatExport({ status: "ok", rev: "r_0002", compute, files: [], gates: { profile: "fdm.v1", status: "fail", open: 2, waived: 1 } }, "tray.o3j");

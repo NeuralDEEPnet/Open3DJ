@@ -1,14 +1,28 @@
 // Agent waivers (S3, PLAN.md): an agent accepts an agent-waivable gate failure with a reason,
 // and inspect fields=[gates] and every export's evidence then count it as waived, not open.
 //
-// A waiver is bound to the part definition's geometry hash, not to the revision, so an edit to
-// another part keeps it. The hash (m1, packages/assembly/src/build.ts) is a measure hash:
-// volume, area, counts and bounding-box size. It does not change when a hole moves inside a
-// plate, which can thin a wall, so a waiver also records the failure it was made for (value,
-// limit and face, plus the build direction for overhang) and covers only that same failure.
-// Anything else reopens it. Human-only gates (watertight, bed) are never waived here: a
-// person waives them through an approval, which arrives in S5.
-import type { AssemblyFile, FdmGate, GateFailure, GateRun, GateStatus, Waiver } from "@open3dj/schemas";
+// A waiver is bound to the part's shape, not to the revision, so an edit to another part keeps
+// it. The geometry hash (m1, packages/assembly/src/build.ts) is a hash of the measures (volume,
+// area, counts and bounding-box size): it does not change when a hole moves inside a plate,
+// which can thin a wall. So the gate run gives each part a shape_hash from its B-rep faces
+// (packages/assembly/src/gates.ts), and a waiver covers a failure only on that same shape, and
+// only the failure it was made for (value, limit and face, plus the build direction for
+// overhang). Anything else reopens it. Human-only gates (watertight, bed) are never waived
+// here: a person waives them through an approval, which arrives in S5.
+import { cleanName } from "@open3dj/schemas";
+import type { AssemblyFile, FdmGate, GateFailure, GateRun, GateStatus, PartGateRun, Waiver } from "@open3dj/schemas";
+
+/** Control, C1 and bidirectional-override characters: a reason reaches terminals and agents. */
+const UNSAFE_REASON = /[\u0000-\u001f\u007f-\u009f‎‏‪-‮⁦-⁩]+/g;
+
+/**
+ * The reason as a waiver stores it: unsafe characters become spaces, runs of white space one
+ * space, trimmed, at most 500 characters. Empty when nothing visible is left. waivers.schema.json
+ * holds a hand-written file to the same rule.
+ */
+export function cleanReason(reason: string): string {
+  return cleanName(reason.replace(UNSAFE_REASON, " ").replace(/\s+/g, " "), 500);
+}
 
 /** fdm.v1 gates only a person may waive. */
 export const HUMAN_GATES: ReadonlySet<FdmGate> = new Set<FdmGate>(["watertight", "bed"]);
@@ -27,11 +41,12 @@ export function waiverKey(w: Pick<Waiver, "def" | "gate" | "profile" | "build">)
   return JSON.stringify([w.def, w.gate, w.profile, DIRECTIONAL.has(w.gate) ? w.build ?? null : null]);
 }
 
-/** Whether waiver w covers failure f of definition def, in a gate run on a revision whose graph is asm. */
-export function covers(w: Waiver, f: GateFailure, def: string, run: Pick<GateRun, "profile" | "build">, asm: AssemblyFile): boolean {
-  const hash = asm.definitions[def]?.geometry_hash;
-  return f.waivable === "agent" && w.def === def && w.gate === f.gate && w.profile === run.profile
+/** Whether waiver w covers failure f of part p, in a gate run on a revision whose graph is asm. */
+export function covers(w: Waiver, f: GateFailure, p: Pick<PartGateRun, "def" | "shape_hash">, run: Pick<GateRun, "profile" | "build">, asm: AssemblyFile): boolean {
+  const hash = asm.definitions[p.def]?.geometry_hash;
+  return f.waivable === "agent" && w.def === p.def && w.gate === f.gate && w.profile === run.profile
     && hash !== undefined && w.geometry_hash === hash
+    && typeof p.shape_hash === "string" && w.shape_hash === p.shape_hash
     && w.value === f.value && w.limit === f.limit && w.at === f.at
     && (!DIRECTIONAL.has(f.gate) || (w.build !== undefined && w.build.every((x, i) => x === run.build[i])));
 }
@@ -48,7 +63,7 @@ export function applyWaivers(run: GateRun, waivers: Waiver[], asm: AssemblyFile)
   const parts = run.parts.map((p) => ({
     ...p,
     fail: p.fail.map((f) => {
-      const w = waivers.find((x) => covers(x, f, p.def, run, asm));
+      const w = waivers.find((x) => covers(x, f, p, run, asm));
       if (!w) {
         open++;
         return f;
@@ -62,7 +77,7 @@ export function applyWaivers(run: GateRun, waivers: Waiver[], asm: AssemblyFile)
   const notes = [...run.notes];
   if (stale.length > 0) {
     const list = stale.slice(0, 8).map((w) => `${w.def} ${w.gate} (made on ${w.rev})`).join(", ") + (stale.length > 8 ? ", ..." : "");
-    notes.unshift(`${stale.length} waiver${stale.length === 1 ? " does" : "s do"} not cover the current failure (the part, the measured value or face, or the build direction changed since): ${list}. Fix the part, or waive the failure again with a reason.`);
+    notes.unshift(`${stale.length} waiver${stale.length === 1 ? " does" : "s do"} not cover the current failure (the part's shape, the measured value or face, or the build direction changed since): ${list}. Fix the part, or waive the failure again with a reason.`);
   }
   return { ...run, parts, notes, status: open > 0 ? "fail" : "pass", open, waived };
 }

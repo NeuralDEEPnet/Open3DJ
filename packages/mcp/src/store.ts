@@ -26,6 +26,9 @@ import { checkGraphSize } from "./tree.ts";
 import { LOCK_FILE, appendProjectLine, ensureProjectRoot, readProjectFile, writeProjectFile } from "./paths.ts";
 import type { ProjectDir } from "./paths.ts";
 
+/** The most waivers a waivers file holds (maxItems in waivers.schema.json). */
+export const MAX_WAIVERS = 1000;
+
 export const FILES = Object.freeze({
   manifest: "project.o3j.json",
   script: "main.o3j.js",
@@ -130,9 +133,17 @@ export class ProjectStore {
     return file.waivers;
   }
 
-  /** Replace the waivers file. Call it under the project lock. */
+  /**
+   * Replace the waivers file. Call it under the project lock. The file is checked against the
+   * schema waivers() reads it with first, so the store never writes a file it would refuse.
+   */
   saveWaivers(waivers: Waiver[]): void {
+    if (waivers.length > MAX_WAIVERS) {
+      throw new ToolError("BAD_INPUT", `the project would hold ${waivers.length} waivers; a waivers file holds at most ${MAX_WAIVERS}`, "Fix parts instead of waiving them, or remove waivers you no longer need from waivers.o3j.json.");
+    }
     const file: WaiverFile = { o3j: "0", waivers };
+    const r = validate("waivers", file);
+    if (!r.valid) throw new ToolError("INTERNAL_ERROR", `refusing to write an invalid waivers file: ${r.errors[0]?.path || "/"} ${r.errors[0]?.message}`, "This is a bug in Open3DJ. Please report it with the project.");
     writeProjectFile(this.project, FILES.waivers, json(file));
   }
 

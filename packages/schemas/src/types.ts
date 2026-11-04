@@ -91,8 +91,16 @@ export interface GateFailure {
   marginal?: true;
   /** What failed, in one sentence. */
   note?: string;
+  /** min_wall and overhang: each failing face with its own worst value, worst first (at most 8; the note gives the total). */
+  faces?: FaceValue[];
   /** Set when an agent waived this failure with a reason; a failure without it is open. */
   waiver?: WaiverMark;
+}
+
+/** A face and its value: the thinnest wall measured from it, or its steepest overhang. */
+export interface FaceValue {
+  at: string;
+  value: number;
 }
 
 /** Who waived a failure, why, and on which revision. Agents only: a person's waiver is an approval (S5). */
@@ -108,14 +116,17 @@ export type AgentGate = "min_wall" | "overhang";
 export type FdmGate = AgentGate | "watertight" | "bed";
 
 /**
- * One entry of waivers.o3j.json: one gate of one part definition, bound to the definition's
- * geometry hash and to the failure it was made for (value, limit, face, and build for overhang).
+ * One entry of waivers.o3j.json: one gate of one part definition, bound to the part's shape
+ * (shape_hash from the gate mesh, and the geometry hash) and to the failure it was made for
+ * (value, limit, face, and build for overhang).
  */
 export interface Waiver {
   def: string;
   gate: AgentGate;
   profile: GateProfile;
   geometry_hash: string;
+  /** The part's shape_hash in the gate run the waiver was checked on. */
+  shape_hash: string;
   value?: number;
   limit?: number;
   at?: string;
@@ -148,6 +159,11 @@ export interface PartGateRun {
   fail: GateFailure[];
   /** How min_wall sampled the part: the thinnest wall found, the rays cast and the sample spacing. */
   wall: { min_mm?: number; rays: number; spacing_mm: number };
+  /**
+   * A fingerprint of the part's shape from the gate mesh: it changes when material moves, even
+   * where geometry_hash (a hash of the measures) does not, and not when the whole part moves.
+   */
+  shape_hash: string;
 }
 
 /** inspect fields=[gates]: rule checks per part definition, never a print simulation. */

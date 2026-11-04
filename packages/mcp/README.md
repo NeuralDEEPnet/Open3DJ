@@ -22,7 +22,7 @@ A project is a folder whose name ends in `.o3j` (ARCHITECTURE.md section 8, S1 s
 | `params.o3j.json` | Parameter values of the working copy: `run` saves its params and set_param values here unless `save_params` is false |
 | `assembly.o3j.json` | The assembly graph from the head revision |
 | `evidence.json` | The GeometryReport of the head revision |
-| `waivers.o3j.json` | Agent waivers of gate failures (S3), written by `run ops=[{op: "waive"}]` under the project lock. Each is bound to a part definition's geometry hash and to the failure it covers; schema `waivers`, checked on every read (`src/waivers.ts`) |
+| `waivers.o3j.json` | Agent waivers of gate failures (S3), written by `run ops=[{op: "waive"}]` under the project lock. Each is bound to a part's shape (its `shape_hash` from the gate run, and the definition's geometry hash) and to the failure it covers; at most 1,000; schema `waivers`, checked on every read and before every write (`src/waivers.ts`) |
 | `provenance.jsonl` | One line per run, render and export call: tool, args hash, result hash, engine pins, DeviceInventory hash, compute block, revs |
 | `revisions/r_0001.json` | One record per revision: script, params, inputs hash, engine, graph and report |
 | `out/<rev>/` | Renders and exports (git-ignored), with one `<name>.evidence.json` that lists every export of the revision in that folder. An earlier entry stays only while its file is on disk with the recorded hash. `gates` holds the fdm.v1 gate run of the latest export, with waivers applied |
@@ -68,7 +68,7 @@ A test fails when the file is stale, and another runs every example through the 
 ## Tests
 
 - `handlers.test.ts`: the store, revisions, `REV_CONFLICT` (also for two racing runs), provenance, `set_param`, the job model and cancel, inspect, render, export, the path policy and docs, on a fake compute pool (`src/testing.ts`).
-- `waivers.test.ts`: the waive op, human-only refusals, the binding to geometry hash and finding, waived and open failures in `inspect fields=[gates]`, and the gate status of every export, on the fake pool.
+- `waivers.test.ts`: the waive op, human-only refusals, the binding to shape and finding, the 1,000 cap and pruning, clean reasons, waived and open failures in `inspect fields=[gates]`, and the gate status of every export, on the fake pool.
 - `server.test.ts`: the real server code on the fake pool, driven by a raw 2025-06-18 session, the v1 SDK client (1.32.2) and the v2 client (2.4.0) in legacy mode and pinned to 2026-07-28. `tools/list` must equal `TOOL_DEFINITIONS`, and errors must be tool results.
 - `dsl-docs.test.ts`: docs/DSL.md is current and its examples run.
 - The stdout-leak gate (`scripts/leak-gate.ts`) drives the real `open3dj mcp` with the real pool through a run, two STEP exports, a render and an inspect.

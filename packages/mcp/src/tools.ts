@@ -44,7 +44,7 @@ export const TOOL_DEFINITIONS: Readonly<Record<ToolName, ToolDefinition>> = Obje
   run: def(
     "run",
     "Run a design script",
-    "Run a DSL script (3dj dialect, units mm, Z up) or apply ops in a project, and get a concise GeometryReport: validity, volume, bbox and counts per part, clashes and contacts between parts, and next steps. Every design is an assembly; return [{ name, shape }] for several parts. Errors come back as results with line, code, faulty elements and a hint. Pass base_rev from the last result to build on it; a stale base_rev returns REV_CONFLICT. Ops: set_param (re-runs the stored script); cancel_job (a run that returned status queued with a job_id); waive {gate, target, reason, build?} accepts a failing min_wall or overhang gate of one part, with a reason, for that geometry (no revision; watertight and bed need a person, from S5).",
+    "Run a DSL script (3dj dialect, units mm, Z up) or apply ops in a project, and get a concise GeometryReport: validity, volume, bbox and counts per part, clashes and contacts between parts, and next steps. Every design is an assembly; return [{ name, shape }] for several parts. Errors come back as results with line, code, faulty elements and a hint. Pass base_rev from the last result to build on it; a stale base_rev returns REV_CONFLICT. Ops: set_param (re-runs the stored script); cancel_job (a run that returned status queued with a job_id); waive {gate, target, reason, build?} accepts a failing min_wall or overhang gate of one part, with a reason, for that shape (sent alone; no revision; watertight and bed need a person, from S5).",
     writes(false),
   ),
   inspect: def(

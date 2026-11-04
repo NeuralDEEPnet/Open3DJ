@@ -5,13 +5,15 @@
 // the param size_<part> changes that part's geometry hash.
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { existsSync, mkdtempSync, readFileSync, readdirSync, rmSync } from "node:fs";
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { validate } from "@open3dj/schemas";
 import type { GateRun, ToolName } from "@open3dj/schemas";
 import type { JobRequest, RunOptions } from "@open3dj/compute";
 import { createHandlers } from "./handlers.ts";
+import { resolveProject } from "./paths.ts";
+import { MAX_WAIVERS, ProjectStore } from "./store.ts";
 import { FAKE_INVENTORY, fakePlace, fakePool } from "./testing.ts";
 import type { FakePool } from "./testing.ts";
 import type { ToolHandlers } from "./types.ts";
@@ -61,7 +63,7 @@ test("an agent waives an agent-waivable failure with a reason; inspect shows it 
     assert.equal(out.status, "ok", JSON.stringify(out.error));
     assert.equal(out.rev, "r_0001", "a waiver creates no revision");
     assert.deepEqual(out.waivers, [{
-      def: "plate", gate: "min_wall", profile: "fdm.v1", geometry_hash: "fake:plate:0", value: 0.6, limit: 0.8, at: "face:3",
+      def: "plate", gate: "min_wall", profile: "fdm.v1", geometry_hash: "fake:plate:0", shape_hash: "fake:plate:0:0", value: 0.6, limit: 0.8, at: "face:3",
       reason: "a breakaway shim, snapped off after printing", by: "agent", rev: "r_0001", ts: "2026-11-04T12:00:00.000Z",
     }]);
     // The waiver is checked against a fresh gate run of the targeted part, on the batch lane.
@@ -166,7 +168,7 @@ test("a waiver needs a reason, one part, a failing gate and the head revision", 
   }
 });
 
-test("a waiver is bound to the part's geometry hash and its finding: a change to either reopens it", async () => {
+test("a waiver is bound to the part's shape and its finding: a change to either reopens it", async () => {
   const c = setup();
   try {
     await c.h.run({ project: "p.o3j", script: `${TWO_PARTS}\n// thin` });
@@ -187,7 +189,16 @@ test("a waiver is bound to the part's geometry hash and its finding: a change to
     const back = await c.h.inspect({ project: "p.o3j", fields: ["gates"] });
     assert.equal(back.rev, "r_0003");
     assert.deepEqual(verdicts(back.gates), { plate: { min_wall: "a shim" }, pin: { min_wall: "a pin" } });
-    // The same geometry hash with a thinner wall: the measure hash missed the change, the finding did not.
+    // Regression (review of the waivers, finding 1): a hole moved inside the plate keeps the
+    // geometry hash and the worst finding (value and face), but not the shape: the waiver reopens.
+    await c.h.run({ project: "p.o3j", ops: [{ op: "set_param", name: "shape_plate", value: 1 }] });
+    const moved = await c.h.inspect({ project: "p.o3j", fields: ["gates"] });
+    valid("inspect", moved);
+    assert.deepEqual(verdicts(moved.gates), { plate: { min_wall: "open" }, pin: { min_wall: "a pin" } });
+    assert.match(moved.gates!.notes[0]!, /^1 waiver does not cover the current failure \(the part's shape, .*\): plate min_wall \(made on r_0001\)/);
+    await c.h.run({ project: "p.o3j", ops: [{ op: "set_param", name: "shape_plate", value: 0 }] });
+    assert.deepEqual(verdicts((await c.h.inspect({ project: "p.o3j", fields: ["gates"] })).gates), { plate: { min_wall: "a shim" }, pin: { min_wall: "a pin" } });
+    // The same shape with a thinner wall (a new version of the check could find one): the finding reopens it.
     await c.h.run({ project: "p.o3j", ops: [{ op: "set_param", name: "wall_plate", value: 0.5 }] });
     const thinner = await c.h.inspect({ project: "p.o3j", fields: ["gates"] });
     assert.deepEqual(verdicts(thinner.gates), { plate: { min_wall: "open" }, pin: { min_wall: "a pin" } });
@@ -259,6 +270,107 @@ test("a failed gate job leaves the export done and says the gates are unchecked"
     assert.deepEqual(ev.gates, out.gates);
   } finally {
     c.done();
+  }
+});
+
+// Regression (review of the waivers, findings 2 and 5): waive wrote more than the 1,000
+// waivers the schema allows, and then every read refused the file: inspect gates and waive
+// failed with PROJECT_CORRUPT and every export said unchecked. Waivers of removed parts were
+// never dropped, so they counted toward the cap.
+test("a waivers file never grows past 1,000: the waiver past the cap is refused, and the file stays readable", async () => {
+  const c = setup();
+  try {
+    await c.h.run({ project: "p.o3j", script: `${TWO_PARTS}\n// thin overhang` });
+    // 999 overhang waivers of plate, each for its own build direction.
+    const base = { def: "plate", gate: "overhang", profile: "fdm.v1", geometry_hash: "fake:plate:0", shape_hash: "fake:plate:0:0", value: 60, limit: 45, at: "face:5", reason: "printed on a raft", by: "agent", rev: "r_0001", ts: "2026-11-04T12:00:00.000Z" };
+    const planted = Array.from({ length: 999 }, (_, i) => ({ ...base, build: [1, i / 1000, 0] }));
+    const file = join(c.root, "p.o3j", "waivers.o3j.json");
+    writeFileSync(file, JSON.stringify({ o3j: "0", waivers: planted }));
+    const count = () => (readJson(file).waivers as unknown[]).length;
+
+    const at1000 = await c.h.run({ project: "p.o3j", ops: [{ op: "waive", gate: "min_wall", target: "plate", reason: "a shim" }] });
+    assert.equal(at1000.status, "ok", JSON.stringify(at1000.error));
+    assert.equal(count(), 1000);
+    const over = await c.h.run({ project: "p.o3j", ops: [{ op: "waive", gate: "min_wall", target: "pin", reason: "a pin" }] });
+    valid("run", over);
+    assert.equal(over.error?.code, "BAD_INPUT");
+    assert.match(over.error!.message, /1001 waivers.*at most 1000/);
+    assert.match(over.error!.hint!, /Fix parts/);
+    assert.equal(count(), 1000, "nothing written");
+    assert.ok(validate("waivers", readJson(file)).valid);
+    const gates = await c.h.inspect({ project: "p.o3j", fields: ["gates"] });
+    assert.equal(gates.status, "ok", JSON.stringify(gates.error));
+    assert.deepEqual(verdicts(gates.gates)["plate"], { min_wall: "a shim", overhang: "open" });
+    // Replacing a waiver at the cap is fine: the count stays the same.
+    const again = await c.h.run({ project: "p.o3j", ops: [{ op: "waive", gate: "min_wall", target: "plate", reason: "a thinner shim" }] });
+    assert.equal(again.status, "ok", JSON.stringify(again.error));
+    assert.equal(count(), 1000);
+  } finally {
+    c.done();
+  }
+});
+
+// Regression (review of the waivers, finding 4): the op refused a blank reason but a
+// hand-written file with one passed, and the op stored control characters, which the CLI then
+// printed raw (a reason with "\n    WAIVED ..." forged a line of inspect output).
+test("a reason has visible text and no control characters, in the op and in the file", async () => {
+  const c = setup();
+  try {
+    await c.h.run({ project: "p.o3j", script: `${TWO_PARTS}\n// thin` });
+    const out = await c.h.run({ project: "p.o3j", ops: [{ op: "waive", gate: "min_wall", target: "plate", reason: " a shim\u0000\u001b[2J\n    WAIVED fake line‮  " }] });
+    valid("run", out);
+    assert.equal(out.status, "ok", JSON.stringify(out.error));
+    assert.equal(out.waivers?.[0]?.reason, "a shim [2J WAIVED fake line");
+    const file = join(c.root, "p.o3j", "waivers.o3j.json");
+    assert.ok(validate("waivers", readJson(file)).valid);
+    const blank = await c.h.run({ project: "p.o3j", ops: [{ op: "waive", gate: "min_wall", target: "pin", reason: "\u0000\u001b‮ \n" }] });
+    assert.equal(blank.error?.code, "BAD_INPUT");
+    assert.match(blank.error!.message, /reason/);
+
+    // A hand-written waiver with a blank reason is not a waiver.
+    const w = (readJson(file).waivers as Array<Record<string, unknown>>)[0]!;
+    writeFileSync(file, JSON.stringify({ o3j: "0", waivers: [{ ...w, reason: " " }] }));
+    const gates = await c.h.inspect({ project: "p.o3j", fields: ["gates"] });
+    assert.equal(gates.error?.code, "PROJECT_CORRUPT");
+    assert.match(gates.error!.message, /\/waivers\/0\/reason/);
+    const exp = await c.h.export({ project: "p.o3j", format: "stl" });
+    assert.equal(exp.gates?.status, "unchecked");
+  } finally {
+    c.done();
+  }
+});
+
+test("a waive drops the waivers of part definitions the head revision no longer has", async () => {
+  const c = setup();
+  try {
+    await c.h.run({ project: "p.o3j", script: `${TWO_PARTS}\n// thin` });
+    await c.h.run({ project: "p.o3j", ops: [{ op: "waive", gate: "min_wall", target: "plate", reason: "a shim" }, { op: "waive", gate: "min_wall", target: "pin", reason: "a pin" }] });
+    // plate is renamed base: its waiver can no longer cover anything.
+    await c.h.run({ project: "p.o3j", script: `${TWO_PARTS.replace("\"plate\"", "\"base\"")}\n// thin` });
+    const out = await c.h.run({ project: "p.o3j", ops: [{ op: "waive", gate: "min_wall", target: "base", reason: "a base shim" }] });
+    assert.equal(out.status, "ok", JSON.stringify(out.error));
+    const file = readJson(join(c.root, "p.o3j", "waivers.o3j.json")) as { waivers: Array<{ def: string; reason: string }> };
+    assert.deepEqual(file.waivers.map((w) => [w.def, w.reason]), [["pin", "a pin"], ["base", "a base shim"]]);
+  } finally {
+    c.done();
+  }
+});
+
+test("the store refuses to write a waivers file it could not read back", () => {
+  const root = mkdtempSync(join(tmpdir(), "o3j-waivers-store-"));
+  try {
+    mkdirSync(join(root, "p.o3j"));
+    const store = new ProjectStore(resolveProject(root, "p.o3j"));
+    const w = { def: "plate", gate: "min_wall" as const, profile: "fdm.v1" as const, geometry_hash: "m1:0", shape_hash: "s1:0", reason: "r", by: "agent" as const, rev: "r_0001", ts: "t" };
+    const schema = JSON.parse(readFileSync(new URL("../../schemas/json/waivers.schema.json", import.meta.url), "utf8")) as { properties: { waivers: { maxItems: number } } };
+    assert.equal(MAX_WAIVERS, schema.properties.waivers.maxItems);
+    assert.throws(() => store.saveWaivers(Array.from({ length: 1001 }, () => w)), (e: Error & { code?: string }) => e.code === "BAD_INPUT" && /at most 1000/.test(e.message));
+    assert.throws(() => store.saveWaivers([{ ...w, reason: "" }]), (e: Error & { code?: string }) => e.code === "INTERNAL_ERROR");
+    assert.equal(existsSync(join(root, "p.o3j", "waivers.o3j.json")), false);
+    store.saveWaivers([w]);
+    assert.deepEqual(store.waivers(), [w]);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
   }
 });
 

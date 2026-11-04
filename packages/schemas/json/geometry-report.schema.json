@@ -91,6 +91,17 @@
         "confidence": { "$ref": "urn:open3dj:v0:common#/$defs/confidence" },
         "marginal": { "description": "The value lies inside the guard band around the limit: it cannot pass, so it fails until waived.", "const": true },
         "note": { "type": "string" },
+        "faces": {
+          "description": "min_wall and overhang: each failing face with its own worst value (thinnest wall, steepest angle), worst first. At most 8; the note gives the total.",
+          "type": "array",
+          "maxItems": 8,
+          "items": {
+            "type": "object",
+            "properties": { "at": { "type": "string" }, "value": { "type": "number" } },
+            "required": ["at", "value"],
+            "additionalProperties": false
+          }
+        },
         "waiver": {
           "description": "Set when an agent waived this failure with a reason (run ops=[{op: \"waive\"}]); a failure without it is open.",
           "type": "object",
@@ -144,9 +155,10 @@
                 },
                 "required": ["rays", "spacing_mm"],
                 "additionalProperties": false
-              }
+              },
+              "shape_hash": { "description": "A fingerprint of the part's shape from the gate mesh. It changes when material moves, even where the geometry hash (a hash of the measures) does not, and not when the whole part moves. Waivers are bound to it.", "type": "string", "minLength": 1, "maxLength": 200 }
             },
-            "required": ["def", "pass", "fail", "wall"],
+            "required": ["def", "pass", "fail", "wall", "shape_hash"],
             "additionalProperties": false
           }
         },

@@ -134,6 +134,7 @@ export function formatInspect(out: InspectOutput): string {
         const what = `${f.gate}${f.marginal ? " (marginal)" : ""}${finding(f)}`;
         if (f.waiver) lines.push(`    WAIVED ${what}  by an agent on ${f.waiver.rev}: ${f.waiver.reason}`);
         else lines.push(`    FAIL ${what}  waivable by ${f.waivable === "human" ? "a person only" : "an agent, with a reason"}${f.note ? `: ${f.note}` : ""}`);
+        if (f.faces?.length) lines.push(`      faces: ${f.faces.map((x) => `${x.at} ${x.value}`).join(", ")}`);
       }
     }
     for (const x of g.notes) lines.push(`  note: ${x}`);

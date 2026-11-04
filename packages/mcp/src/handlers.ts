@@ -21,7 +21,7 @@ import { placements, resolveTargets, tree } from "./tree.ts";
 import type { HandlerDeps, RenderResult, ToolHandlers } from "./types.ts";
 import { describeIssues } from "./validator.ts";
 import { HIGHLIGHT_FILE, buildHighlight, faceCounts, selectionForAgent, writeHighlight } from "./viewstate.ts";
-import { HUMAN_GATES, HUMAN_GATE_FIX, applyWaivers, gateStatus, waiverKey } from "./waivers.ts";
+import { HUMAN_GATES, HUMAN_GATE_FIX, applyWaivers, cleanReason, gateStatus, waiverKey } from "./waivers.ts";
 
 export const DEFAULT_INTERACTIVE_MS = 20_000;
 
@@ -476,15 +476,17 @@ export function createHandlers(deps: HandlerDeps): ToolHandlers {
   /**
    * run ops=[{op: "waive"}]: record agent waivers for agent-waivable gate failures of the head
    * revision. Each op is checked against a fresh gate run of its part (no waiver for a failure
-   * that is not there), bound to the part's geometry hash and to the failure it covers, and
-   * written to waivers.o3j.json under the project lock. No revision is created.
+   * that is not there), bound to the part's shape (shape_hash and geometry hash) and to the
+   * failure it covers, and written to waivers.o3j.json under the project lock, which drops the
+   * waivers of definitions the head no longer has and holds at most MAX_WAIVERS. No revision is
+   * created.
    */
   async function waive(input: RunInput, ops: WaiveOp[]): Promise<RunOutput> {
     for (const op of ops) {
       if (HUMAN_GATES.has(op.gate)) {
         throw new ToolError("WAIVER_NEEDS_PERSON", `${op.gate} is a human-only gate: only a person may waive it, with an approval on the local approval page, which arrives in S5`, `Until then fix the part: ${HUMAN_GATE_FIX[op.gate]}. Agents may waive min_wall and overhang, with a reason.`);
       }
-      if (op.reason.trim() === "") throw new ToolError("BAD_INPUT", "a waiver needs a reason", "Say why the failure is acceptable for this part, for example \"a breakaway tab, removed after printing\".");
+      if (cleanReason(op.reason) === "") throw new ToolError("BAD_INPUT", "a waiver needs a reason", "Say why the failure is acceptable for this part, for example \"a breakaway tab, removed after printing\".");
     }
     const store = new ProjectStore(resolveProject(root, input.project));
     const rec = store.resolve();
@@ -514,19 +516,21 @@ export function createHandlers(deps: HandlerDeps): ToolHandlers {
       ops.forEach((op, i) => {
         const def = defs[i]!;
         const run = runs.get(buildKey(op))!;
-        const failure = run.parts.find((p) => p.def === def)?.fail.find((f) => f.gate === op.gate);
-        if (!failure) throw new ToolError("NOTHING_TO_WAIVE", `${op.gate} passes on ${def} in ${rec.rev} (build ${run.build.join(", ")})`, "Only a failing gate can be waived. inspect {fields: [\"gates\"]} lists the failures, with the build direction you print in.");
+        const part = run.parts.find((p) => p.def === def);
+        const failure = part?.fail.find((f) => f.gate === op.gate);
+        if (!part || !failure) throw new ToolError("NOTHING_TO_WAIVE", `${op.gate} passes on ${def} in ${rec.rev} (build ${run.build.join(", ")})`, "Only a failing gate can be waived. inspect {fields: [\"gates\"]} lists the failures, with the build direction you print in.");
         if (failure.waivable !== "agent") throw new ToolError("WAIVER_NEEDS_PERSON", `${op.gate} on ${def} needs a person to waive it, with an approval, which arrives in S5`, "Fix the part instead.");
         const geometryHash = rec.assembly.definitions[def]?.geometry_hash;
         if (!geometryHash) throw new ToolError("PROJECT_CORRUPT", `${def} in ${rec.rev} has no geometry hash, so a waiver cannot be tied to its geometry`, "Run the script again to rebuild the revision.");
-        // The failure it covers: the same value, limit and face, and for overhang the same build direction.
+        if (typeof part.shape_hash !== "string" || part.shape_hash === "") throw new ToolError("INTERNAL_ERROR", `the gate run of ${def} has no shape hash, so a waiver cannot be tied to its shape`, "This is a bug in Open3DJ. Please report it with the project.");
+        // The shape and the failure it covers: the same value, limit and face, and for overhang the same build direction.
         const w: Waiver = {
-          def, gate: op.gate as Waiver["gate"], profile: run.profile, geometry_hash: geometryHash,
+          def, gate: op.gate as Waiver["gate"], profile: run.profile, geometry_hash: geometryHash, shape_hash: part.shape_hash,
           ...(failure.value !== undefined ? { value: failure.value } : {}),
           ...(failure.limit !== undefined ? { limit: failure.limit } : {}),
           ...(failure.at !== undefined ? { at: failure.at } : {}),
           ...(op.gate === "overhang" ? { build: run.build } : {}),
-          reason: op.reason.trim(), by: "agent", rev: rec.rev, ts,
+          reason: cleanReason(op.reason), by: "agent", rev: rec.rev, ts,
         };
         recorded.set(waiverKey(w), w);
       });
@@ -534,7 +538,11 @@ export function createHandlers(deps: HandlerDeps): ToolHandlers {
       await withLock(store, () => {
         const head = store.head();
         if (input.base_rev !== undefined && head !== input.base_rev) throw conflict(store, input.base_rev, head, store.project.label);
-        store.saveWaivers([...store.waivers().filter((w) => !recorded.has(waiverKey(w))), ...added]);
+        // A waiver of a part definition the head revision no longer has (removed or renamed)
+        // can cover nothing, so it is dropped rather than counted toward the file's cap.
+        const defsNow = head === rec.rev ? rec.assembly.definitions : store.resolve(head).assembly.definitions;
+        const kept = store.waivers().filter((w) => !recorded.has(waiverKey(w)) && Object.hasOwn(defsNow, w.def));
+        store.saveWaivers([...kept, ...added]);
       });
       output = { status: "ok", rev: rec.rev, waivers: added, compute };
     } catch (e) {

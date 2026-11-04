@@ -269,3 +269,49 @@ test("printGates checks each definition once, in its own frame, and labels the r
   assert.deepEqual(huge.parts[0]!.fail, printGates(k, asm, { build: [1, 1, 1], defs: ["tray"] }).parts[0]!.fail);
   assert.throws(() => check(k.box(5, 5, 5), { build: [0, 0, 0] }), /finite, non-zero/);
 });
+
+// Regression (review of the waivers, finding 1): a hole moved inside a plate keeps the volume,
+// area, counts and bounding box, so the geometry hash (m1) stayed the same and gates showed only
+// the thinnest wall: a waiver for one thin wall hid a new one. shape_hash follows the material,
+// and min_wall and overhang list each failing face with its own value.
+test("shape_hash follows the material, not the measures; failures list every failing face", () => {
+  // A 40 x 20 x 5 plate with two 3 mm holes: hole A leaves a 0.6 mm wall at the end, hole B is in the middle or 0.7 mm from a side.
+  const plate = (holeBY: number) => k.cutAll(k.box(40, 20, 5), [k.translate(k.cylinder(3, 5), [3.6, 10, 0]), k.translate(k.cylinder(3, 5), [28, 10 + holeBY, 0])]);
+  const a = check(plate(0));
+  assert.match(a.shape_hash, /^s1:[0-9a-f]{16}$/);
+  assert.equal(check(plate(0)).shape_hash, a.shape_hash, "the same shape built again");
+  // Every fdm.v1 check ignores where the part sits in its frame, and so does the hash.
+  assert.equal(check(k.translate(plate(0), [12.5, -3, 1])).shape_hash, a.shape_hash, "the same shape moved");
+  const b = check(plate(6.3));
+  const [ma, mb] = [k.measure(plate(0)), k.measure(plate(6.3))];
+  assert.ok(Math.abs(ma.volume - mb.volume) < 1e-6 && Math.abs(ma.area - mb.area) < 1e-6 && ma.counts.faces === mb.counts.faces, "the measures do not see the move");
+  assert.notEqual(b.shape_hash, a.shape_hash);
+  assert.notEqual(check(k.rotate(plate(0), 90, { origin: [0, 0, 0], dir: [1, 0, 0] })).shape_hash, a.shape_hash, "a turned part is another shape for the checks");
+
+  // Hole A alone: its own face and the plate's end face, both about 0.6 mm.
+  const wa = failed(a, "min_wall")!;
+  assert.equal(wa.faces?.length, 2, JSON.stringify(wa));
+  assert.ok(wa.faces!.every((f) => /^face:\d+$/.test(f.at) && Math.abs(f.value - 0.6) < 0.02), JSON.stringify(wa.faces));
+  assert.equal(wa.at, wa.faces![0]!.at, "the worst face comes first and is the failure's face");
+  assert.match(wa.note ?? "", /on 2 faces/);
+  // With hole B 0.7 mm from the side, the thinnest wall is the same, but two more faces fail.
+  const wb = failed(b, "min_wall")!;
+  assert.equal(wb.value, wa.value);
+  assert.equal(wb.faces?.length, 4, JSON.stringify(wb));
+  assert.deepEqual(wb.faces!.map((f) => f.value).sort((x, y) => x - y), wb.faces!.map((f) => f.value), "worst first");
+  assert.ok(wb.faces!.slice(2).every((f) => Math.abs(f.value - 0.7) < 0.02), JSON.stringify(wb.faces));
+
+  // overhang: a 90 degree shelf and a 60 degree chamfer under another ledge both fail; the steeper comes first.
+  const two = k.fuseAll([
+    k.box(10, 10, 30),
+    k.translate(k.box(30, 10, 3), [-10, 0, 27]),
+    k.extrude(k.face(k.polygon([[10, 0, 20], [10 + 5 / Math.tan(Math.PI / 6), 0, 25], [10, 0, 25]])), [0, 10, 0]),
+  ]);
+  const o = failed(check(two), "overhang")!;
+  assert.ok(o, "fails overhang");
+  assert.deepEqual(o.faces?.map((f) => Math.round(f.value)), [90, 90, 60], JSON.stringify(o.faces));
+  assert.ok(o.faces!.every((f) => /^face:\d+$/.test(f.at)));
+  assert.equal(o.faces!.length, new Set(o.faces!.map((f) => f.at)).size, "one entry per face");
+  const v = validate("tool-inspect-output", { status: "ok", compute: { backend: "cpu.wasm", device: "cpu x1", placement_reason: "test" }, gates: { profile: "fdm.v1", build: [0, 0, 1], bed_mm: [220, 220, 250], notes: [], parts: [{ def: "plate", ...b }] } });
+  assert.ok(v.valid, JSON.stringify(v.errors));
+});

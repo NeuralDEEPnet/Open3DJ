@@ -41,21 +41,32 @@ function findExport(v: unknown, depth = 0): { rev?: unknown; gates: Gates } | un
   return findExport(o["structuredContent"], depth + 1) ?? findExport(o["content"], depth + 1) ?? (o["type"] === "text" ? findExport(o["text"], depth + 1) : undefined);
 }
 
-/** The text for Claude's context, or undefined when the exported parts pass their gates. */
+/** value when it matches pattern (a whole string), else undefined. */
+const shaped = (value: unknown, pattern: RegExp): string | undefined => (typeof value === "string" && pattern.test(value) ? value : undefined);
+/** A count, or undefined when it is not a whole number from 0 to 1e9. */
+const count = (value: unknown): number | undefined => (typeof value === "number" && Number.isInteger(value) && value >= 0 && value <= 1e9 ? value : undefined);
+
+/**
+ * The text for Claude's context, or undefined when the exported parts pass their gates. Only
+ * fields of a known shape get through: the error message, for one, can quote a cloned
+ * project's files (an unknown key in waivers.o3j.json), and those are untrusted data. The
+ * export result itself, which Claude also sees, keeps the full message.
+ */
 export function exportGateContext(input: unknown): string | undefined {
   const found = findExport((input as { tool_response?: unknown } | undefined)?.tool_response);
   if (!found) return undefined;
   const { gates } = found;
-  const rev = typeof found.rev === "string" ? found.rev : "the exported revision";
-  const profile = typeof gates.profile === "string" ? gates.profile : "fdm.v1";
+  const rev = shaped(found.rev, /^r_[0-9a-z]{1,32}$/) ?? "the exported revision";
+  const profile = shaped(gates.profile, /^[a-z][a-z0-9]{0,15}\.v[0-9]{1,3}$/) ?? "fdm.v1";
   if (gates.status === "unchecked") {
-    const why = gates.error ? ` (${String(gates.error.code)}: ${String(gates.error.message)})` : "";
+    const code = shaped(gates.error?.code, /^[A-Z][A-Z0-9_]{0,63}$/);
+    const why = code ? ` (${code}; the export result has the details)` : "";
     return `Open3DJ export gate: the ${profile} gate check of ${rev} did not run${why}. These files are not print-checked; inspect fields=[gates] runs the check again.`;
   }
   if (gates.status !== "fail") return undefined;
-  const open = Number(gates.open ?? 0);
-  const waived = Number(gates.waived ?? 0);
-  return `Open3DJ export gate: ${rev} has ${open} open ${profile} gate failure${open === 1 ? "" : "s"} and ${waived} waived; the evidence sidecar lists them. These files are not print-checked until each open failure is fixed, waived by the agent with a reason (min_wall, overhang), or approved by a person (watertight, bed; approvals arrive in S5).`;
+  const open = count(gates.open);
+  const waived = count(gates.waived);
+  return `Open3DJ export gate: ${rev} has ${open ?? "some"} open ${profile} gate failure${open === 1 ? "" : "s"} and ${waived ?? "some"} waived; the evidence sidecar lists them. These files are not print-checked until each open failure is fixed, waived by the agent with a reason (min_wall, overhang), or approved by a person (watertight, bed; approvals arrive in S5).`;
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {

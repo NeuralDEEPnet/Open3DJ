@@ -363,3 +363,68 @@ test("waivers on the real pool: a waived min_wall passes inspect and the export 
     rmSync(dir, { recursive: true, force: true });
   }
 });
+
+// Regression (review of the waivers, finding 1): moving a hole inside a plate keeps the
+// geometry hash (a hash of the measures), and gates reported only the thinnest wall, so a
+// waiver made for the wall at hole A also hid a new 0.7 mm wall at hole B, and the export
+// evidence said pass. A waiver is now bound to the part's shape (shape_hash, from the gate
+// mesh), and min_wall lists every failing face.
+test("waivers on the real pool: a moved hole that thins a new wall reopens the waiver, though the geometry hash is the same", async () => {
+  const dir = tmp("o3j-waive-moved-");
+  try {
+    const script = join(dir, "plate.o3j.js");
+    writeFileSync(script, [
+      "const BY = Param.number(\"HoleB_Y\", 0, { min: -6.4, max: 6.4, unit: \"mm\" });",
+      "const holeA = cylinder(5, 3).translate(-16.4, 0, 0);",
+      "const holeB = cylinder(5, 3).translate(8, BY, 0);",
+      "return [{ name: \"plate\", shape: box(40, 20, 5).subtract(holeA, holeB) }];",
+      "",
+    ].join("\n"));
+    const project = join(dir, "plate.o3j");
+    type Gates = { status: string; open: number; waived: number; notes: string[]; parts: Array<{ shape_hash: string; fail: Array<{ gate: string; value: number; at: string; faces?: Array<{ at: string; value: number }>; waiver?: unknown }> }> };
+    const gates = async () => {
+      const c = capture();
+      assert.equal(await main(["inspect", project, "--fields", "gates", "--json"], c.io), 0, c.errText());
+      const out = JSON.parse(c.text()) as { rev: string; gates: Gates };
+      assert.ok(validate("tool-inspect-output", out).valid, JSON.stringify(validate("tool-inspect-output", out).errors));
+      return out;
+    };
+    const hash = () => (JSON.parse(readFileSync(join(project, "assembly.o3j.json"), "utf8")) as { definitions: Record<string, { geometry_hash: string }> }).definitions["plate"]!.geometry_hash;
+
+    assert.equal(await main(["run", script], capture().io), 0);
+    const first = await gates();
+    const wall = first.gates.parts[0]!.fail.find((f) => f.gate === "min_wall")!;
+    assert.ok(Math.abs(wall.value - 0.6) < 0.02, JSON.stringify(wall));
+    // Only hole A is thin: its own face and the plate's end face.
+    assert.deepEqual(wall.faces?.map((f) => f.value < 0.62), [true, true], JSON.stringify(wall.faces));
+    const waive = capture();
+    assert.equal(await main(["run", project, "--waive", "min_wall", "--target", "plate", "--reason", "breakaway lug at hole A, cut off after printing"], waive.io), 0, waive.errText() + waive.text());
+    const waived = await gates();
+    assert.deepEqual([waived.gates.status, waived.gates.open, waived.gates.waived], ["pass", 0, 1]);
+    const hashBefore = hash();
+    const shapeBefore = waived.gates.parts[0]!.shape_hash;
+    assert.equal(shapeBefore, first.gates.parts[0]!.shape_hash, "the same shape gives the same shape_hash in another gate job");
+
+    // Hole B moves to 0.7 mm from the side: the measures, and so the geometry hash, stay the same.
+    assert.equal(await main(["run", script, "--param", "HoleB_Y=6.3"], capture().io), 0);
+    assert.equal(hash(), hashBefore, "the geometry hash misses a hole moved inside the plate");
+    const moved = await gates();
+    assert.equal(moved.rev, "r_0002");
+    assert.notEqual(moved.gates.parts[0]!.shape_hash, shapeBefore);
+    assert.deepEqual([moved.gates.status, moved.gates.open, moved.gates.waived], ["fail", 1, 0]);
+    const now = moved.gates.parts[0]!.fail.find((f) => f.gate === "min_wall")!;
+    assert.ok(now.faces!.some((f) => f.value > 0.65 && f.value < 0.75), `the 0.7 mm wall at hole B is listed: ${JSON.stringify(now.faces)}`);
+    assert.match(moved.gates.notes[0]!, /^1 waiver does not cover the current failure .*plate min_wall \(made on r_0001\)/);
+    const exp = capture();
+    assert.equal(await main(["export", project, "--format", "3mf"], exp.io), 0, exp.errText());
+    assert.match(exp.text(), /gates fdm\.v1: fail, 1 open, 0 waived/);
+
+    // Back to the waived shape, rebuilt from the script: the waiver holds again.
+    assert.equal(await main(["run", script, "--param", "HoleB_Y=0"], capture().io), 0);
+    const back = await gates();
+    assert.equal(back.rev, "r_0003");
+    assert.deepEqual([back.gates.status, back.gates.open, back.gates.waived], ["pass", 0, 1]);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
