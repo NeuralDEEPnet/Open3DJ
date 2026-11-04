@@ -135,7 +135,7 @@ Code rules: erasable TypeScript only (no enums, namespaces, parameter properties
 
 ## Claude Code hooks
 
-`.claude/settings.json` runs two Node scripts from `scripts/hooks/` (rules and tests in `scripts/hooks/lib.ts` and `hooks.test.ts`):
+`.claude/settings.json` turns on Claude Code agent teams (`CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`, an experimental feature) and runs two Node scripts from `scripts/hooks/` (rules and tests in `scripts/hooks/lib.ts` and `hooks.test.ts`):
 
 - **Stop:** before you stop, `npm run check` runs if source files changed (tracked files that differ from HEAD, plus new files under `packages/`, `scripts/`, `bench/`, `corpora/` and `examples/`). Docs-only changes skip it. A failure keeps you working. Each state is checked once and remembered in `.git/open3dj-check-stamp.json`.
 - **PreToolUse:** blocks edits to `examples/*/expected.json`, any change to a `tol` in `bench/tasks/*/task.json`, changes to the licence allowlist in `scripts/license-gate.ts`, `.env` files, and text that looks like a credential. Bash writes to those files are caught on a best-effort basis.
