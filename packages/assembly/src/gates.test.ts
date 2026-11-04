@@ -7,6 +7,7 @@ import type { Kernel, ShapeHandle } from "@open3dj/kernel";
 import { validate } from "@open3dj/schemas";
 import type { GateFailure, Vec3 } from "@open3dj/schemas";
 import { FDM_V1, MAX_RAYS, WALL_BAND_MM, WALL_SPACING_MM, buildAssembly, partGates, printGates, wallSampling } from "./index.ts";
+import { nonManifoldVertices, touchingVertices } from "./gates.ts";
 
 let k: Kernel;
 before(async () => {
@@ -44,6 +45,16 @@ const pyramid = (base: Vec3[], apex: Vec3) => {
   }
   return s;
 };
+const rad = (deg: number) => (deg * Math.PI) / 180;
+/** Two conical pockets a degrees from their axis, from the top and the bottom of an L x L x h block, on one axis, their tips 0.5 mm apart. */
+const tipToTip = (a: number, L: number, h: number) => {
+  const d = h / 2 + 0.75; // each cone runs from its tip to 0.5 mm past its face
+  const top = k.translate(k.cone(0, d * Math.tan(rad(a)), d), [L / 2, L / 2, h / 2 + 0.25]);
+  const bottom = k.translate(k.rotate(k.cone(0, d * Math.tan(rad(a)), d), 180, { origin: [0, 0, 0], dir: [1, 0, 0] }), [L / 2, L / 2, h / 2 - 0.25]);
+  return k.cut(k.cut(k.box(L, L, h), top), bottom);
+};
+/** A conical pocket a degrees from its axis, cut up into a 30 x 30 x 10 block from below, its tip 4 mm under the top. */
+const coneFromBelow = (a: number) => k.cut(k.translate(k.box(30, 30, 10), [-15, -15, 0]), k.translate(k.cone(7 * Math.tan(rad(a)), 0, 7), [0, 0, -1]));
 
 test("a solid block passes every fdm.v1 check", () => {
   const r = check(k.box(20, 20, 10));
@@ -117,13 +128,28 @@ test("min_wall: webs under sharp grooves and necks between inside edges are meas
   assert.ok(check(k.fillet(cone, rims, 0.1)).pass.includes("min_wall"), "a filleted frustum");
 });
 
-test("min_wall: the tip of a narrow pointed pocket close to the opposite face is still missed (a known limit)", () => {
-  // A cone 10 degrees from its axis, its tip 0.5 mm above the bottom. The web is a single point
-  // under the tip, and no face ray reaches it at 60 degrees or less. Sharper pockets (29 degrees
-  // and more) are caught at about 0.62 mm.
-  const pocket = k.cut(k.box(20, 20, 5), k.translate(k.cone(0, 5 * Math.tan((10 * Math.PI) / 180), 5), [10, 10, 0.5]));
-  const r = check(pocket);
-  assert.ok(r.pass.includes("min_wall") && r.wall.min_mm! > 0.84, `if this now fails min_wall, the limit is fixed: update the notes and docs. ${JSON.stringify(r)}`);
+// Regression (gate corpus review, findings 2 and 6): no face ray reached the web under the tip of
+// a pointed pocket. A cone up to about 20 degrees from its axis passed over a 0.5 mm web, two
+// pockets tip to tip passed up to about 55 degrees, and drill points read 0.2 to 0.3 mm long.
+test("min_wall: the web under a pointed pocket tip is measured by a ray from the tip", () => {
+  // A cone a degrees from its axis in a 20 x 20 x 5 block, its tip `web` above the bottom.
+  const pocket = (a: number, web: number) => k.cut(k.box(20, 20, 5), k.translate(k.cone(0, 5 * Math.tan(rad(a)), 5), [10, 10, web]));
+  for (const a of [5, 10, 20, 25, 45, 59]) near(thinFail(check(pocket(a, 0.5)), `${a} degree pocket`), 0.5, 0.01, `${a} degree pocket`);
+  // Over a 1 mm web the same pocket passes, and the web under its tip is the thinnest wall found.
+  const deep = check(pocket(10, 1));
+  assert.ok(deep.pass.includes("min_wall"), JSON.stringify(deep));
+  near(deep.wall.min_mm!, 1, 0.01, "10 degree pocket over 1 mm");
+  for (const a of [10, 45]) near(thinFail(check(tipToTip(a, 20, 5)), `${a} degree pockets tip to tip`), 0.5, 0.01, `${a} degree pockets tip to tip`);
+  near(thinFail(check(tipToTip(30, 30, 10)), "30 degree pockets tip to tip"), 0.5, 0.01, "30 degree pockets tip to tip in a 10 mm block");
+  // Two 6 mm holes from opposite faces with 118 degree drill points, the points 0.5 mm apart.
+  const drill = (r: number, depth: number) => k.fuse(k.cylinder(r, depth), k.translate(k.cone(r, 0, r / Math.tan(rad(59))), [0, 0, depth]));
+  const depth = 5 - 0.25 - 3 / Math.tan(rad(59)) + 1;
+  const drilled = k.cut(k.cut(k.box(20, 20, 10), k.translate(drill(3, depth), [10, 10, -1])), k.translate(k.rotate(drill(3, depth), 180, { origin: [0, 0, 0], dir: [1, 0, 0] }), [10, 10, 11]));
+  near(thinFail(check(drilled), "drill points"), 0.5, 0.01, "drill points");
+  // A tip that points up under a 4 mm roof is not thin.
+  const roof = check(coneFromBelow(40));
+  assert.ok(roof.pass.includes("min_wall"), JSON.stringify(roof));
+  near(roof.wall.min_mm!, 4, 0.01, "a 40 degree pocket cut up from below");
 });
 
 // Regression (second review, finding 4): with no two faces close to facing each other, every exit
@@ -213,6 +239,21 @@ test("overhang: a shelf over thin air fails, printed upside down it passes, and 
   assert.match(band?.at ?? "", /^face:\d+$/);
 });
 
+// Regression (gate corpus review, finding 3): at a cone's tip the tessellator's normals are not
+// the surface's, so a pocket cut up from below at 40 degrees read 52.7 and failed.
+test("overhang: a cone pocket cut up from below reads its own angle at the tip", () => {
+  const r40 = check(coneFromBelow(40));
+  assert.ok(r40.pass.includes("overhang"), JSON.stringify(r40));
+  const r45 = failed(check(coneFromBelow(45)), "overhang");
+  assert.equal(r45?.marginal, true, JSON.stringify(r45));
+  near(r45.value!, 45, 0.2, "45 degrees");
+  const r50 = failed(check(coneFromBelow(50)), "overhang");
+  assert.ok(r50 && !r50.marginal, JSON.stringify(r50));
+  near(r50.value!, 50, 0.2, "50 degrees");
+  // A cone on a post points up: its tip never overhangs.
+  assert.ok(check(k.fuse(k.cylinder(8, 10), k.translate(k.cone(8, 0, 8 / Math.tan(rad(40))), [0, 0, 10]))).pass.includes("overhang"), "a cone on a post");
+});
+
 test("bed: a part longer than the 220 mm bed fails, a bigger bed or a 90 degree turn fits", () => {
   const long = check(k.box(300, 20, 10));
   const f = failed(long, "bed");
@@ -242,6 +283,65 @@ test("watertight: an open face and two loose solids fail, and only a person may 
   // Closed meshes: no open-edge count to compare, so no "0 against 0".
   assert.equal(two?.value, undefined);
   assert.equal(two?.limit, undefined);
+});
+
+// Regression (seeded gate corpus, case watertight-point-contact): one solid whose two lobes
+// touch at a single point has a closed, edge-manifold mesh, so it passed every check. The mesh
+// is not a manifold at that vertex: two fans of triangles meet there.
+test("watertight: lobes of one solid that touch at a shared corner fail; nothing else does", () => {
+  const lean = Math.tan((25 * Math.PI) / 180);
+  const plate = k.translate(k.box(40, 30, 2), [-22, -15, 0]);
+  // A block whose front leans back 25 degrees below its top edge (x = 0, z = 12).
+  const block = k.translate(prism([[-15, 0, 1], [-11 * lean, 0, 1], [0, 0, 12], [-15, 0, 12]], [0, 20, 0]), [0, -10, 0]);
+  // A square post turned 45 degrees, whose vertical edge at x = 0 touches that top edge at z = 12.
+  const post = k.translate(k.rotate(k.box(10, 10, 20), 45, { origin: [0, 0, 0], dir: [0, 0, 1] }), [5 * Math.SQRT2, -5 * Math.SQRT2, 1]);
+  const r = check(k.fuse(k.fuse(plate, block), post));
+  const f = failed(r, "watertight");
+  assert.ok(f, JSON.stringify(r));
+  assert.match(f.note ?? "", /1 non-manifold vertex \(pieces that touch at a single point\)/);
+  assert.equal(f.value, undefined, "the value stays the open-edge count");
+  assert.deepEqual(r.pass, ["min_wall", "overhang", "bed"], "the point contact is the only defect");
+  // The same post 0.5 mm away is a closed, manifold solid.
+  const apart = check(k.fuse(k.fuse(plate, block), k.translate(post, [0.5, 0, 0])));
+  assert.ok(apart.pass.includes("watertight"), JSON.stringify(apart));
+  // The count itself: two triangles that share only vertex 0 (a bow tie) against a closed fan.
+  assert.equal(nonManifoldVertices([0, 1, 2, 0, 3, 4]), 1);
+  assert.equal(nonManifoldVertices([0, 1, 2, 0, 2, 3, 0, 3, 1, 1, 3, 2]), 0, "a tetrahedron");
+});
+
+// Regression (gate corpus review, finding 1): a corner or a pole that touches the inside of
+// another face is not a vertex of that face's mesh, so the vertex count above missed it.
+test("watertight: a cube corner or a ball's pole that touches the inside of a face fails; 0.3 mm away it passes", () => {
+  const plate = k.translate(k.box(60, 40, 2), [-30, -20, 0]);
+  const post = k.translate(k.box(6, 6, 12), [5, -3, 1]);
+  // An 8 mm cube balanced on one corner (its body diagonal vertical), that corner at (0, 0, 2 + gap).
+  const tilt = (Math.atan(1 / Math.SQRT2) * 180) / Math.PI;
+  const cube = (gap: number) => k.translate(k.rotate(k.rotate(k.translate(k.box(8, 8, 8), [-4, -4, -4]), 45, { origin: [0, 0, 0], dir: [1, 0, 0] }), tilt, { origin: [0, 0, 0], dir: [0, 1, 0] }), [0, 0, 2 + 4 * Math.sqrt(3) + gap]);
+  const r = check(k.fuse(k.fuse(plate, cube(0)), post));
+  const f = failed(r, "watertight");
+  assert.ok(f, JSON.stringify(r));
+  assert.match(f.note ?? "", /1 mesh point lies on a face it is not part of \(pieces that touch at a single point\)/);
+  assert.equal(f.value, undefined, "the value stays the open-edge count");
+  assert.deepEqual(r.pass, ["min_wall", "overhang", "bed"], "the point contact is the only defect");
+  assert.deepEqual(check(k.fuse(k.fuse(plate, cube(0.3)), post)).pass, ["watertight", "min_wall", "overhang", "bed"], "the cube 0.3 mm up");
+  // A ball hung from an arm, its lowest point (a pole of the sphere) on the plate.
+  const hung = (ball: ShapeHandle) => k.fuseAll([k.translate(k.box(40, 30, 2), [-20, -15, 0]), ball, k.translate(k.box(4, 4, 14), [13, -2, 1]), k.translate(k.box(16, 2, 2), [0, -1, 11]), k.translate(k.box(2, 2, 2), [-1, -1, 11])]);
+  assert.match(failed(check(hung(k.translate(k.sphere(5), [0, 0, 7]))), "watertight")?.note ?? "", /lies on a face it is not part of/);
+  assert.ok(check(hung(k.translate(k.sphere(5), [0, 0, 7.3]))).pass.includes("watertight"), "the ball 0.3 mm up");
+  // The count itself: a small tetrahedron whose corner lies on the bottom face of a large one.
+  const P = new Float64Array([0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0, 10, 2, 2, 0, 1, 1, -3, 4, 1, -3, 1, 4, -3]);
+  const I = new Uint32Array([0, 2, 1, 0, 1, 3, 0, 3, 2, 1, 2, 3, 4, 5, 6, 4, 6, 7, 4, 7, 5, 5, 7, 6]);
+  const identity = Uint32Array.from({ length: 8 }, (_, i) => i);
+  assert.equal(touchingVertices(P, I, identity), 1);
+  const below = P.map((x, i) => (i >= 12 && i % 3 === 2 ? x - 1e-3 : x));
+  assert.equal(touchingVertices(below, I, identity), 0, "1 micrometre apart");
+});
+
+test("watertight: a ball that touches a face between the mesh points of its surface is still missed (a known limit)", () => {
+  // The ball of the test above turned 30 degrees, so no mesh point of the sphere is at the contact.
+  const ball = k.translate(k.rotate(k.sphere(5), 30, { origin: [0, 0, 0], dir: [1, 0, 0] }), [0, 0, 7]);
+  const r = check(k.fuseAll([k.translate(k.box(40, 30, 2), [-20, -15, 0]), ball, k.translate(k.box(4, 4, 14), [13, -2, 1]), k.translate(k.box(16, 2, 2), [0, -1, 11]), k.translate(k.box(2, 2, 2), [-1, -1, 11])]));
+  assert.ok(r.pass.includes("watertight"), `if this now fails watertight, the limit is fixed: update the notes and docs. ${JSON.stringify(r)}`);
 });
 
 test("printGates checks each definition once, in its own frame, and labels the run as rule checks", () => {
