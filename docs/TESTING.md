@@ -4,10 +4,6 @@ This guide is for anyone with a computer and 15 minutes. You do not need to know
 
 Open3DJ is open-source, agent-first CAD created by [Neural Deep Network LTD](https://www.neuraldeep.net). It is early: there is a command line, an MCP server for AI agents and a 3D viewer in your browser, but no desktop app yet. See [What works today](../README.md#what-works-today).
 
-<!-- REMOVE AFTER PULL REQUEST #3 MERGES: this callout, and the "Before pull request #3 merges" commands below. -->
-> [!IMPORTANT]
-> **Before pull request #3 merges, use the branch.** The installers and this guide are in [pull request #3](https://github.com/NeuralDEEPnet/Open3DJ/pull/3) and are not on `main` yet. Until it merges, download the installer from the branch `ccr-1e979422-dguyci` and pass `-Ref ccr-1e979422-dguyci` (Windows) or `--ref ccr-1e979422-dguyci` (macOS and Linux), exactly as the commands under [Before pull request #3 merges](#before-pull-request-3-merges) show. This note goes away once the branch is merged.
-
 ## Contents
 
 - [Why your machine matters](#why-your-machine-matters)
@@ -90,23 +86,6 @@ curl -fsSL https://raw.githubusercontent.com/NeuralDEEPnet/Open3DJ/main/scripts/
 
 This also works in WSL2 and in the Linux terminal on a Chromebook. Nothing needs `sudo`.
 
-### Before pull request #3 merges
-
-<!-- REMOVE AFTER PULL REQUEST #3 MERGES: this whole subsection. -->
-Until [pull request #3](https://github.com/NeuralDEEPnet/Open3DJ/pull/3) merges, the installers exist only on the branch `ccr-1e979422-dguyci`. Use these commands instead of the ones above.
-
-Windows (PowerShell):
-
-```powershell
-& ([scriptblock]::Create((irm https://raw.githubusercontent.com/NeuralDEEPnet/Open3DJ/ccr-1e979422-dguyci/scripts/install/install.ps1))) -Ref ccr-1e979422-dguyci
-```
-
-macOS and Linux (Terminal):
-
-```sh
-curl -fsSL https://raw.githubusercontent.com/NeuralDEEPnet/Open3DJ/ccr-1e979422-dguyci/scripts/install/install.sh | sh -s -- --ref ccr-1e979422-dguyci
-```
-
 ### Read the installer first, if you prefer
 
 Piping a script from the internet into your shell runs it without showing it to you. If you would rather read it first (a good habit), download it, open it in a text editor, then run it. The scripts are [scripts/install/install.ps1](../scripts/install/install.ps1) and [scripts/install/install.sh](../scripts/install/install.sh), and each one explains at the top what it does.
@@ -131,7 +110,7 @@ Add options after the script name, for example `sh install-open3dj.sh --yes`. Wi
 
 | Windows | macOS and Linux | What it does |
 |---|---|---|
-| `-Ref <name>` | `--ref <name>` | The branch, tag or commit to install. The default is `main`. Testers only need it before pull request #3 merges. |
+| `-Ref <name>` | `--ref <name>` | The branch, tag or commit to install. The default is `main`. Use it to test a pull request's branch before it merges. |
 | `-Source <folder>` | `--source <folder>` | Install from an Open3DJ folder already on your computer instead of downloading one. Testers do not need it. |
 | `-InstallDir <folder>` | `--prefix <folder>` | The folder to install into. On Windows the default is `%LOCALAPPDATA%\Open3DJ`, on macOS and Linux `~/.local/share/open3dj`. The program itself goes in its `app` subfolder. |
 | `-NoPath` | `--no-path` | Do not add the `open3dj` command to your PATH. The installer then prints the full path to run it by. |

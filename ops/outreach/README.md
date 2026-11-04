@@ -19,10 +19,10 @@ Work through this in order. Each step depends on the ones before it.
 
 **Before anything is posted**
 
-- [ ] Pull request #3 is merged into `main`.
+- [x] Pull request #3 is merged into `main`.
 - [ ] The two example goldens (`box-with-lid` and `enclosure`) are regenerated, and `npm run check` is green on all five CI runners on `main`.
 - [ ] The one-line installers from `main` work on a clean Windows machine and a clean macOS or Linux machine. Run each command exactly as [docs/TESTING.md](../../docs/TESTING.md#install) prints it.
-- [ ] The `-Ref` callout and the "Before pull request #3 merges" subsection are removed from docs/TESTING.md, and the matching line is removed from the README's "Help test Open3DJ on your machine" section. Search both files for `REMOVE AFTER PULL REQUEST #3 MERGES`.
+- [x] The `-Ref` callout and the "Before pull request #3 merges" subsection are removed from docs/TESTING.md, and the matching line is removed from the README's "Help test Open3DJ on your machine" section. Search both files for `REMOVE AFTER PULL REQUEST #3 MERGES`.
 - [ ] The README's "Not yet" paragraph and the platform tables in docs/TESTING.md match what is true on the day you post (CI results, the golden failures, what has been tested by a person).
 - [ ] The labels exist: `help wanted`, `good first issue`, `hardware-report`, `failure-report` and `needs-triage` ([REPO-SETTINGS.md section 5](../../docs/REPO-SETTINGS.md#5-labels)). The hardware report form cannot apply a label that does not exist.
 - [ ] Discussions are enabled, with the Announcements, Q&A and Show and tell categories ([REPO-SETTINGS.md section 3](../../docs/REPO-SETTINGS.md#3-discussions)). The guide and several posts link there.
