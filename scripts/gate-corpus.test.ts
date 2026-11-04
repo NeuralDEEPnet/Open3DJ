@@ -36,8 +36,8 @@ test("the manifest check catches mistakes in a case", () => {
   assert.ok(bad((c) => { (c.expect as Record<string, unknown>).min_wall = { verdict: "fail", marginl: true }; }).some((p) => p.includes("unknown field marginl")), "a misspelt flag");
 });
 
-// A part's gate result, as the gate job returns it.
-const part = (pass: string[], fail: PartGateRun["fail"], min?: number): CaseRun => ({ ok: true, ms: 1, part: { def: "part", pass, fail, wall: { rays: 100, spacing_mm: 0.5, ...(min === undefined ? {} : { min_mm: min }) } } });
+// A part's gate result, as the gate job returns it: only the fields the judge reads.
+const part = (pass: string[], fail: PartGateRun["fail"], min?: number): CaseRun => ({ ok: true, ms: 1, part: { def: "part", pass, fail, wall: { rays: 100, spacing_mm: 0.5, ...(min === undefined ? {} : { min_mm: min }) } } as PartGateRun });
 const all = ["watertight", "min_wall", "overhang", "bed"];
 const thinCase: GateCase = { id: "t", kind: "defect", seeds: "a thin test wall", expect: { watertight: "pass", min_wall: { verdict: "fail", value: [0.55, 0.65] }, overhang: "pass", bed: "pass" } };
 
