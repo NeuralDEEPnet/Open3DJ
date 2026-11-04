@@ -327,7 +327,7 @@ npm run hdet              # determinism: 20 fresh and 20 warm runs per corpus ca
 npm run corpus            # time the 145 and 1,025 occurrence reference assemblies
 ```
 
-`npm run check` must pass before a pull request. It takes about 2 minutes on a 4-core Linux machine, within its 10 minute budget. It includes the examples regression test, so a change that moves a measured volume fails until you explain it and regenerate the expected files with `node scripts/examples.ts --write`. It also runs task-lint on all 22 bench tasks (inside `npm test`) and the 12-task regression split three times, which must give identical numbers. The package map and the data flow are in [packages/README.md](../packages/README.md).
+`npm run check` must pass before a pull request. It takes about 2 minutes on a 4-core Linux machine, within its 10 minute budget. It includes the examples regression test, so a change that moves a measured volume fails until you explain it and regenerate the expected files with `node scripts/examples.ts --write`. It also runs task-lint on all 22 bench tasks and the seeded gate corpus (inside `npm test`), and the 12-task regression split three times, which must give identical numbers. The package map and the data flow are in [packages/README.md](../packages/README.md).
 
 When you open a pull request, CI runs the same `npm run check` on Linux x64 and ARM64, macOS, and Windows x64 and ARM64, together with a sign-off check, an evaluation that picks the merge lane and an advisory AI review. Documentation, examples, new bench tasks and similar data merge automatically when everything passes (the auto lane); code merges after one maintainer approves (the maintainer lane). [CONTRIBUTING.md](../CONTRIBUTING.md#how-your-pull-request-is-evaluated-and-merged) explains the lanes and how to see why a pull request is not merging yet.
 
@@ -335,7 +335,7 @@ Other places to know:
 
 - [ROADMAP.md](../ROADMAP.md): where the project is going, step by step, with concrete ways to help in each step.
 - [bench/README.md](../bench/README.md): o3dj-bench, its task format and how capability runs are graded.
-- [corpora/](../corpora/): the reference assemblies and the determinism corpus.
+- [corpora/](../corpora/): the reference assemblies, the determinism corpus and the [seeded gate corpus](../corpora/gates/README.md) for the 3D printing checks.
 - [ops/](../ops/): the scorecard and A3 templates, the value-stream log and the build log.
 - [AI_POLICY.md](../AI_POLICY.md): the rules for AI-assisted contributions. Claude Code users also get the project hooks in `.claude/settings.json` (see [AGENTS.md](../AGENTS.md#claude-code-hooks)).
 - [skills/](../skills/README.md): the Open3DJ skill and Claude Code plugin for agents.

@@ -40,7 +40,7 @@ Do not add a language, framework, build tool or runtime dependency without an ac
 | `packages/` | The code: `schemas`, `kernel`, `sandbox`, `dsl`, `assembly`, `render`, `compute`, `mcp`, `viewer` and `open3dj` (the CLI). Each exports `src/index.ts`; tests sit next to sources as `*.test.ts` |
 | `scripts/` | `check`, the test runner, the stdout-leak gate, the licence gate, the examples runner, `hdet.ts` (determinism) and `hooks/` (the Claude Code hooks) |
 | `bench/` | o3dj-bench: `tasks/` (12 regression and 10 capability tasks), task-lint, the regression runner and the grader. Read `bench/README.md` |
-| `corpora/` | Seeded and timing corpora: `reference-assemblies/` (145 and 1,025 occurrences) and `hdet/` |
+| `corpora/` | Seeded and timing corpora: `reference-assemblies/` (145 and 1,025 occurrences), `hdet/` and `gates/` (the seeded gate corpus) |
 | `ops/` | Scorecard and A3 templates, the value-stream template and the build log |
 | `skills/` | `open3dj/SKILL.md` (how agents use Open3DJ) and `claude-code-plugin/` (the same skill plus the MCP server as a Claude Code plugin). Read `skills/README.md` |
 | `.claude/settings.json` | Claude Code hooks for contributors (see [Claude Code hooks](#claude-code-hooks)) |
@@ -59,7 +59,7 @@ Use Node 24 (`.nvmrc`). From the repository root:
 | Command | What it does |
 |---|---|
 | `npm ci` | Install the pinned dependencies |
-| `npm run check` | Typecheck, every test (task-lint of all bench tasks included), the bench regression split with 3 replays, the leak gate and the licence gate; must pass before a pull request (budget: 10 minutes) |
+| `npm run check` | Typecheck, every test (task-lint of all bench tasks and the seeded gate corpus included), the bench regression split with 3 replays, the leak gate and the licence gate; must pass before a pull request (budget: 10 minutes) |
 | `npm run typecheck` | `tsc` with no emit |
 | `npm test` | Every `*.test.ts` with `node:test`; `npm test -- kernel` runs only matching paths |
 | `npm run leak` | Starts the MCP server and fails if any stdout line is not JSON-RPC |
@@ -71,6 +71,7 @@ Use Node 24 (`.nvmrc`). From the repository root:
 | `npm run bench:grade -- --runs <dir>` | Grades capability runs and computes pass^3 (`bench/grade.ts`, see `bench/run-capability.md`) |
 | `npm run hdet` | H-det (`scripts/hdet.ts`): 20 fresh processes and 20 warm reuses per corpus case; compares measure bits and STEP (about 4 minutes) |
 | `npm run corpus` | Times the reference assemblies in `corpora/reference-assemblies/` (`scripts/reference-assemblies.ts`) |
+| `npm run gate-corpus [-- id --cli]` | Runs the seeded gate corpus in `corpora/gates/` (`scripts/gate-corpus.ts`): every print-check verdict against the expected one; exits 1 on a false pass or a false failure |
 | `npm run viewer:bench` | The viewer frame-time benchmark (`scripts/viewer-bench.ts`): enclosure, `plate-145` and `grid-1025` in headless Chromium at a fixed pixel ratio; needs Playwright and skips without it. The S2 gate needs a real GPU |
 | `node packages/mcp/src/dsl-docs.ts --check` | Fails if `docs/DSL.md` is stale; `--write` regenerates it from `DSL_ENTRIES` |
 | `npx open3dj help` | The CLI (runs `packages/open3dj/src/cli.ts`). Try `npx open3dj run examples/bracket/bracket.o3j.js` |

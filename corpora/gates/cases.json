@@ -1,0 +1,547 @@
+{
+  "profile": "fdm.v1",
+  "cases": [
+    {
+      "id": "watertight-loose-blocks",
+      "kind": "defect",
+      "seeds": "Two 10 mm cubes 10 mm apart in one part: two solids, so not one closed solid.",
+      "expect": {
+        "watertight": "fail",
+        "min_wall": { "verdict": "pass", "value": [9.99, 10.01] },
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "watertight-edge-contact",
+      "kind": "defect",
+      "seeds": "Two 10 mm cubes touching along one vertical edge: two solids and a non-manifold mesh edge.",
+      "expect": {
+        "watertight": { "verdict": "fail", "value": [1, 1000] },
+        "min_wall": { "verdict": "pass", "value": [9.99, 10.01] },
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "watertight-point-contact",
+      "kind": "defect",
+      "seeds": "One solid whose block and post touch at a single point: a non-manifold vertex, the only defect.",
+      "expect": {
+        "watertight": "fail",
+        "min_wall": { "verdict": "pass", "value": [1.99, 2.01] },
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "watertight-self-crossing",
+      "kind": "defect",
+      "seeds": "A self-crossing (bow-tie) outline extruded: not a valid solid, refused by the run before any gate.",
+      "expect": {
+        "error": "KERNEL_INVALID_RESULT"
+      }
+    },
+    {
+      "id": "wall-tray-0.6",
+      "kind": "defect",
+      "seeds": "A 30 x 20 x 15 mm open tray with 0.6 mm flat walls and floor.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": { "verdict": "fail", "value": [0.59, 0.61] },
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "wall-tray-0.8-marginal",
+      "kind": "defect",
+      "seeds": "The same tray with 0.8 mm walls: inside the 0.04 mm guard band, so a marginal failure.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": { "verdict": "fail", "value": [0.79, 0.81], "marginal": true },
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "wall-rib-0.3",
+      "kind": "defect",
+      "seeds": "A 0.3 mm rib, 30 mm long and 8 mm tall, standing on a 3 mm plate.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": { "verdict": "fail", "value": [0.29, 0.31] },
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "wall-tube-0.5",
+      "kind": "defect",
+      "seeds": "A 20 mm tube with a 0.5 mm wall (curved faces).",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": { "verdict": "fail", "value": [0.47, 0.53] },
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "wall-ellipse-tube-0.7",
+      "kind": "defect",
+      "seeds": "An elliptical tube, 30 x 16 mm, with a 0.7 mm wall: the curvature changes along the wall.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": { "verdict": "fail", "value": [0.67, 0.73] },
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "wall-drafted-cup-0.4",
+      "kind": "defect",
+      "seeds": "A cup with an 8 degree draft and a 0.4 mm side wall (curved and slanted faces) on a 2 mm floor.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": { "verdict": "fail", "value": [0.37, 0.43] },
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "wall-slanted-fin-0.5",
+      "kind": "defect",
+      "seeds": "A 0.5 mm fin leaning 30 degrees from vertical on a 4 mm plate (slanted faces).",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": { "verdict": "fail", "value": [0.48, 0.52] },
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "wall-tilted-tray-0.7",
+      "kind": "defect",
+      "seeds": "The tray with 0.7 mm walls, tilted 25 degrees about [1, 2, 0] and built along its own tilted axis.",
+      "build": [0.378001265, -0.189000632, 0.906307787],
+      "expect": {
+        "watertight": "pass",
+        "min_wall": { "verdict": "fail", "value": [0.68, 0.72] },
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "web-groove-50deg-0.3",
+      "kind": "defect",
+      "seeds": "A 50 degree V-groove under a 2 mm plate leaving a 0.3 mm web.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": { "verdict": "fail", "value": [0.28, 0.32] },
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "web-scoring-25deg-0.3",
+      "kind": "defect",
+      "seeds": "A 25 degree scoring line under a 2 mm plate leaving a 0.3 mm web.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": { "verdict": "fail", "value": [0.28, 0.32] },
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "neck-double-notch-0.5",
+      "kind": "defect",
+      "seeds": "Two 70 degree V-notches, top and bottom, leaving a 0.5 mm neck in a 10 mm block.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": { "verdict": "fail", "value": [0.48, 0.52] },
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "neck-fused-rods-0.63",
+      "kind": "defect",
+      "seeds": "Two 10 mm rods fused 9.98 mm apart: a 0.63 mm neck between curved faces.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": { "verdict": "fail", "value": [0.6, 0.66] },
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "web-between-holes-0.5",
+      "kind": "defect",
+      "seeds": "Two 6 mm holes through a 5 mm plate with a 0.5 mm web between them.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": { "verdict": "fail", "value": [0.49, 0.56] },
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "bridge-0.5-large-faces",
+      "kind": "defect",
+      "seeds": "Two 100 mm blocks joined only by a 0.5 mm bridge whose faces are parts of large faces; built on its side.",
+      "build": [0, 1, 0],
+      "expect": {
+        "watertight": "pass",
+        "min_wall": { "verdict": "fail", "value": [0.49, 0.51] },
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "shim-tip-0.65",
+      "kind": "defect",
+      "seeds": "A 100 x 30 mm shim tapering from 12 mm to a 0.65 mm end.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": { "verdict": "fail", "value": [0.62, 0.72] },
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "wedge-doorstop-tip-0.5",
+      "kind": "defect",
+      "seeds": "A 120 x 40 mm doorstop, 25 mm at the back and 0.5 mm at the tip: a long wedge tip.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": { "verdict": "fail", "value": [0.48, 0.62] },
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "wedge-knife-edge",
+      "kind": "defect",
+      "seeds": "A 100 mm knife edge of 22.6 degrees standing on its back: the edge has no thickness.",
+      "build": [-1, 0, 0],
+      "expect": {
+        "watertight": "pass",
+        "min_wall": { "verdict": "fail", "value": [0, 0.2] },
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "wall-arrow-tip-0.4",
+      "kind": "defect",
+      "seeds": "A 90 degree arrow pocket through a 60 x 60 mm plate, its tip 0.4 mm from the back face.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": { "verdict": "fail", "value": [0.35, 0.45] },
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "pocket-cone-45deg-0.5",
+      "kind": "defect",
+      "seeds": "A conical pocket 45 degrees from its axis with its tip 0.5 mm above the bottom.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": { "verdict": "fail", "value": [0.5, 0.7] },
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "unmeasured-tetrahedron",
+      "kind": "defect",
+      "seeds": "A regular tetrahedron: no two faces come close to facing each other, so no wall is measured; it must fail unmeasured, never pass.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": { "verdict": "fail", "unmeasured": true },
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "known-miss-pocket-cone-10deg",
+      "kind": "known-miss",
+      "seeds": "A narrow conical pocket 10 degrees from its axis, tip 0.5 mm above the bottom: the documented known miss.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": { "verdict": "fail", "known_miss": "the tip of a narrow pointed (conical) pocket close to an opposite face (gates.ts notes, ARCHITECTURE.md section 10)", "value": [0.85, 2] },
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "overhang-tee-shelf",
+      "kind": "defect",
+      "seeds": "A 30 mm shelf on a 10 mm column: 200 mm2 facing straight down over thin air.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": { "verdict": "pass", "value": [2.99, 3.01] },
+        "overhang": { "verdict": "fail", "value": [89.9, 90] },
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "overhang-ledge-50deg",
+      "kind": "defect",
+      "seeds": "A ledge held up by a chamfer leaning 50 degrees past vertical.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": "pass",
+        "overhang": { "verdict": "fail", "value": [49.9, 50.1] },
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "overhang-ledge-45deg-marginal",
+      "kind": "defect",
+      "seeds": "The ledge with a chamfer at exactly 45 degrees: inside the 1 degree band, a marginal failure.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": "pass",
+        "overhang": { "verdict": "fail", "value": [44.9, 45.1], "marginal": true },
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "overhang-horizontal-hole",
+      "kind": "defect",
+      "seeds": "An 8 mm hole straight through a 20 mm block along X: the top of the hole faces down.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": "pass",
+        "overhang": { "verdict": "fail", "value": [84, 90] },
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "overhang-ball",
+      "kind": "defect",
+      "seeds": "A 20 mm ball resting on one point: its lower half overhangs.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": "pass",
+        "overhang": { "verdict": "fail", "value": [85, 90] },
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "bed-long-300",
+      "kind": "defect",
+      "seeds": "A 300 mm bar: longer than the 220 mm bed either way round.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": "pass",
+        "overhang": "pass",
+        "bed": { "verdict": "fail", "value": [299.99, 300.01] }
+      }
+    },
+    {
+      "id": "bed-tall-260",
+      "kind": "defect",
+      "seeds": "A 260 mm post: taller than the 250 mm build height.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": "pass",
+        "overhang": "pass",
+        "bed": { "verdict": "fail", "value": [259.99, 260.01] }
+      }
+    },
+    {
+      "id": "bed-only-turned-230",
+      "kind": "defect",
+      "seeds": "A 230 mm bar: it fits only turned on the diagonal or stood on end, and the gate checks the part as designed.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": "pass",
+        "overhang": "pass",
+        "bed": { "verdict": "fail", "value": [229.99, 230.01] }
+      }
+    },
+    {
+      "id": "control-block",
+      "kind": "control",
+      "seeds": "A 20 x 20 x 10 mm block.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": { "verdict": "pass", "value": [9.99, 10.01] },
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "control-tray-0.9",
+      "kind": "control",
+      "seeds": "The tray with 0.9 mm walls: thin, but above the limit and its band.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": { "verdict": "pass", "value": [0.89, 0.91] },
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "control-tube-0.9",
+      "kind": "control",
+      "seeds": "The tube with a 0.9 mm wall (curved faces).",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": { "verdict": "pass", "value": [0.86, 0.92] },
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "control-twisted-bar",
+      "kind": "control",
+      "seeds": "A 20 x 4 mm bar twisted 90 degrees over 40 mm (B-spline faces).",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": { "verdict": "pass", "value": [3.5, 4.01] },
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "control-drafted-puck",
+      "kind": "control",
+      "seeds": "A 20 mm puck with a 2.9 degree draft: grazing exits beside its rim are not walls.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": "pass",
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "control-frustum-69deg",
+      "kind": "control",
+      "seeds": "A small frustum whose base edge is 69 degrees: blunter than 60, so not thin.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": "pass",
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "control-filleted-boss",
+      "kind": "control",
+      "seeds": "A drafted boss with a 1 mm fillet round its top.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": "pass",
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "control-filleted-block",
+      "kind": "control",
+      "seeds": "A block with 5 mm vertical and 2 mm top fillets.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": "pass",
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "control-cone-on-post",
+      "kind": "control",
+      "seeds": "A cone with an 80 degree tip on a 16 mm post.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": "pass",
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "control-truncated-tetrahedron",
+      "kind": "control",
+      "seeds": "The tetrahedron with its apex cut off 2 mm below the tip: the flat top gives every ray a wall.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": "pass",
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "control-tee-upside-down",
+      "kind": "control",
+      "seeds": "The tee of overhang-tee-shelf built along -Z: the shelf top rests on the bed.",
+      "build": [0, 0, -1],
+      "expect": {
+        "watertight": "pass",
+        "min_wall": { "verdict": "pass", "value": [2.99, 3.01] },
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "control-ledge-43deg",
+      "kind": "control",
+      "seeds": "The ledge with a 43 degree chamfer: under the limit and its band.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": "pass",
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "control-flare-40deg",
+      "kind": "control",
+      "seeds": "A solid flare leaning 40 degrees past vertical between two cylinders (a curved overhang under the limit).",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": "pass",
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "control-bed-turned-90",
+      "kind": "control",
+      "seeds": "A 240 x 200 mm plate on a 220 x 250 mm bed: it fits only turned 90 degrees, which the gate tries.",
+      "bed": [220, 250, 250],
+      "expect": {
+        "watertight": "pass",
+        "min_wall": { "verdict": "pass", "value": [9.99, 10.01] },
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "control-bed-standing-230",
+      "kind": "control",
+      "seeds": "The 230 mm bar built along +X: stood on end it is 230 mm tall, under the 250 mm height.",
+      "build": [1, 0, 0],
+      "expect": {
+        "watertight": "pass",
+        "min_wall": "pass",
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    },
+    {
+      "id": "control-bed-diagonal-300",
+      "kind": "control",
+      "seeds": "A 300 mm bar designed on the diagonal: its box is 219.2 x 219.2 mm, so it fits as designed.",
+      "expect": {
+        "watertight": "pass",
+        "min_wall": "pass",
+        "overhang": "pass",
+        "bed": "pass"
+      }
+    }
+  ]
+}
