@@ -27,7 +27,8 @@ test("five tools with self-contained object schemas", () => {
 test("tools/list stays small, and the slim output schemas accept every valid result", async () => {
   const size = JSON.stringify(toolList()).length;
   // 12,000 through S2, when the list was exactly that size. S3's inspect fields=[gates] with its
-  // gates, build and bed inputs costs about 200 characters after trimming, hence 12,250.
+  // gates, build and bed inputs costs about 200 characters after trimming, hence 12,250. The
+  // S3 waive op and the export's gate status (about 700) fit after trimming repeated wording.
   assert.ok(size <= 12_250, `tools/list is ${size} characters`);
   // The schema fixtures are test data of @open3dj/schemas, not part of its public exports.
   const { VALID } = await import("../../schemas/src/fixtures.ts");

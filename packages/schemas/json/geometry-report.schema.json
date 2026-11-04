@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "urn:open3dj:v0:geometry-report",
   "title": "GeometryReport (concise)",
-  "description": "The feedback an agent gets after every change. Concise by default (300 tokens or fewer): no area, centre of mass or face and edge counts per part, and identical fits collapsed into one line with n. Detailed on request. Numbers are mm, mm2, mm3 and g. Inside a run result, status, rev and compute are given once next to the report and left out of it.",
+  "description": "The feedback an agent gets after every change. Concise by default (300 tokens or fewer): no area, centre of mass or face and edge counts per part, and identical fits share one line with n. Detailed on request. Numbers are mm, mm2, mm3 and g. In a run result, status, rev and compute sit once next to the report.",
   "type": "object",
   "properties": {
     "status": { "enum": ["ok", "warning", "error"] },
@@ -90,9 +90,34 @@
         "waivable": { "enum": ["agent", "human"] },
         "confidence": { "$ref": "urn:open3dj:v0:common#/$defs/confidence" },
         "marginal": { "description": "The value lies inside the guard band around the limit: it cannot pass, so it fails until waived.", "const": true },
-        "note": { "type": "string" }
+        "note": { "type": "string" },
+        "waiver": {
+          "description": "Set when an agent waived this failure with a reason (run ops=[{op: \"waive\"}]); a failure without it is open.",
+          "type": "object",
+          "properties": {
+            "by": { "const": "agent" },
+            "reason": { "type": "string", "minLength": 1 },
+            "rev": { "$ref": "urn:open3dj:v0:common#/$defs/rev" },
+            "ts": { "type": "string" }
+          },
+          "required": ["by", "reason", "rev"],
+          "additionalProperties": false
+        }
       },
       "required": ["gate"],
+      "additionalProperties": false
+    },
+    "gateStatus": {
+      "description": "fdm.v1 gates of the exported parts at build +Z: pass (no open failure), fail, or unchecked (see error). The evidence sidecar lists each failure; export is not blocked.",
+      "type": "object",
+      "properties": {
+        "profile": { "enum": ["fdm.v1"] },
+        "status": { "enum": ["pass", "fail", "unchecked"] },
+        "open": { "type": "integer", "minimum": 0 },
+        "waived": { "type": "integer", "minimum": 0 },
+        "error": { "$ref": "urn:open3dj:v0:script-error" }
+      },
+      "required": ["profile", "status"],
       "additionalProperties": false
     },
     "gateRun": {
@@ -125,7 +150,10 @@
             "additionalProperties": false
           }
         },
-        "notes": { "description": "inspect fields=[gates] (S3): print checks per part definition in its own frame. Rule checks on the CPU kernel's geometry, not a print simulation; the notes say how each check samples.", "type": "array", "items": { "type": "string" } }
+        "notes": { "description": "inspect fields=[gates] (S3): print checks per part definition in its own frame. Rule checks on the CPU kernel's geometry, not a print simulation; the notes say how each check samples.", "type": "array", "items": { "type": "string" } },
+        "status": { "description": "pass when no failure is open; a waived failure does not count.", "enum": ["pass", "fail"] },
+        "open": { "description": "Failures without a waiver.", "type": "integer", "minimum": 0 },
+        "waived": { "type": "integer", "minimum": 0 }
       },
       "required": ["profile", "build", "bed_mm", "parts", "notes"],
       "additionalProperties": false

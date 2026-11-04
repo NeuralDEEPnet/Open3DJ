@@ -2,7 +2,7 @@
 // Parsing is pure: no file is read here, so every case is testable without a disk.
 import { parseArgs } from "node:util";
 import type { ParseArgsOptionsConfig } from "node:util";
-import type { DocsInput, ExportFormat, ExportInput, GateProfile, InspectField, InspectInput, ParamValue, RenderFormat, RenderInput, RunInput, Vec3 } from "@open3dj/schemas";
+import type { DocsInput, ExportFormat, ExportInput, GateProfile, InspectField, InspectInput, ParamValue, RenderFormat, RenderInput, RunInput, Vec3, WaiveOp } from "@open3dj/schemas";
 
 /**
  * Where a command's design comes from: a script file (its project is created or updated
@@ -53,9 +53,25 @@ export function parseCommand(argv: string[]): Parsed {
   if (cmd === "--version" || cmd === "-v" || cmd === "version") return { command: { cmd: "version" }, json: false };
   switch (cmd) {
     case "run": {
-      const { values, positionals } = parse(rest, { ...COMMON, ...PARAMS, "base-rev": { type: "string" }, detailed: { type: "boolean", default: false }, compute: { type: "string" } });
+      const { values, positionals } = parse(rest, {
+        ...COMMON, ...PARAMS, "base-rev": { type: "string" }, detailed: { type: "boolean", default: false }, compute: { type: "string" },
+        waive: { type: "string" }, target: { type: "string" }, reason: { type: "string" }, build: { type: "string" },
+      });
       if (values.help) return help("run");
       const source = sourceOf(positionals, values.project, "run needs a script or project, for example: open3dj run bracket.o3j.js");
+      // --waive: the run op {op: "waive", gate, target, reason, build?}, on its own.
+      if (values.waive !== undefined) {
+        if (!values.target) throw new UsageError("--waive needs --target, the part to waive it on, for example --target lid");
+        if (values.reason === undefined) throw new UsageError("--waive needs --reason, why the failure is acceptable for this part");
+        if (values.param?.length) throw new UsageError("--waive takes no --param: run the change first, then waive");
+        const op: WaiveOp = { op: "waive", gate: values.waive as WaiveOp["gate"], target: values.target, reason: values.reason };
+        if (values.build) op.build = vec3(values.build, "--build", "0,0,1");
+        const input: RunInput = { project: source.project, ops: [op] };
+        if (values["base-rev"]) input.base_rev = values["base-rev"];
+        if (values.compute) input.compute = values.compute as RunInput["compute"];
+        return { command: { cmd: "run", input, source }, json: values.json };
+      }
+      if (values.target !== undefined || values.reason !== undefined || values.build !== undefined) throw new UsageError("--target, --reason and --build go with --waive");
       const input: RunInput = { project: source.project, params: parseParams(values.param ?? []) };
       if (values["base-rev"]) input.base_rev = values["base-rev"];
       if (values.detailed) input.detail = "detailed";

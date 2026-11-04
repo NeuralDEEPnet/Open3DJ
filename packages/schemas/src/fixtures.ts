@@ -3,7 +3,7 @@
 import type {
   AssemblyFile, ComputeBlock, DeviceInventory, DocsInput, DocsOutput, ExportInput, ExportOutput,
   GeometryReport, InspectInput, InspectOutput, ProjectManifest, ProvenanceLine, RenderInput,
-  RenderOutput, RunInput, RunOutput, ScriptError, ViewerHighlight, ViewerSelection, ViewerSelectionInput,
+  RenderOutput, RunInput, RunOutput, ScriptError, ViewerHighlight, ViewerSelection, ViewerSelectionInput, WaiverFile,
 } from "./types.ts";
 import type { SchemaName } from "./index.ts";
 
@@ -88,8 +88,24 @@ export const runInOps: RunInput = {
   ops: [
     { op: "set_param", name: "width", value: 12 },
     { op: "cancel_job", job_id: "j_01" },
+    { op: "waive", gate: "min_wall", target: "base", reason: "a breakaway tab, removed after printing" },
+    { op: "waive", gate: "overhang", target: "base#1", reason: "printed on its side", build: [1, 0, 0] },
   ],
 };
+export const waivers: WaiverFile = {
+  o3j: "0",
+  waivers: [
+    {
+      def: "base", gate: "min_wall", profile: "fdm.v1", geometry_hash: "m1:0123456789abcdef", value: 0.6, limit: 0.8, at: "face:5",
+      reason: "a breakaway tab, removed after printing", by: "agent", rev: "r_2", ts: "2026-11-04T12:00:00.000Z",
+    },
+    {
+      def: "base", gate: "overhang", profile: "fdm.v1", geometry_hash: "m1:0123456789abcdef", value: 60, limit: 45, at: "face:9", build: [0, 0, 1],
+      reason: "supports under the lip", by: "agent", rev: "r_2", ts: "2026-11-04T12:00:00.000Z",
+    },
+  ],
+};
+export const runOutWaive: RunOutput = { status: "ok", rev: "r_2", waivers: waivers.waivers, compute };
 export const runOut: RunOutput = { status: "ok", rev: "r_2", report, compute };
 export const runOutError: RunOutput = { status: "error", error: scriptError, compute };
 export const inspectIn: InspectInput = { project: "bracket.o3j", fields: ["tree", "fits", "devices"] };
@@ -111,6 +127,7 @@ export const renderOut: RenderOutput = {
 export const exportIn: ExportInput = { project: "bracket.o3j", format: "step", scope: "root" };
 export const exportOut: ExportOutput = {
   status: "ok", rev: "r_2", files: [{ path: "out/r_2/bracket.step", format: "step", bytes: 29199, sha256: HASH }], warnings: [], compute,
+  gates: { profile: "fdm.v1", status: "fail", open: 1, waived: 1 },
 };
 export const docsIn: DocsInput = { query: "fillet", page: 1 };
 export const docsOut: DocsOutput = { query: "fillet", page: 1, pages: 1, hits: [{ title: "fillet(shape, r, query)", kind: "dsl", text: "Round edges." }] };
@@ -136,6 +153,8 @@ export const VALID: Array<[SchemaName, unknown]> = [
   ["compute", compute], ["geometry-report", report], ["script-error", scriptError], ["device-inventory", devices],
   ["provenance", provenance], ["project", project], ["assembly", assembly],
   ["tool-run-input", runIn], ["tool-run-input", runInOps], ["tool-run-output", runOut], ["tool-run-output", runOutError],
+  ["waivers", waivers], ["waivers", { o3j: "0", waivers: [] }], ["tool-run-output", runOutWaive],
+  ["tool-export-output", { status: "ok", rev: "r_2", files: [], compute, gates: { profile: "fdm.v1", status: "unchecked", error: { code: "JOB_TIMEOUT", message: "the job ran past its deadline" } } }],
   ["tool-inspect-input", inspectIn], ["tool-inspect-input", { fields: ["job"], job_id: "j_01" }], ["tool-inspect-output", inspectOut], ["tool-inspect-output", inspectJob],
   ["tool-render-input", renderIn], ["tool-render-output", renderOut],
   ["tool-export-input", exportIn], ["tool-export-output", exportOut],
@@ -144,9 +163,10 @@ export const VALID: Array<[SchemaName, unknown]> = [
   ["tool-inspect-output", { status: "ok", selection: { items: [] }, compute }],
   ["tool-inspect-input", { project: "bracket.o3j", fields: ["gates"], gates: "fdm.v1", build: [0, 0, -1], bed: [250, 210, 220], targets: ["base"] }],
   ["tool-inspect-output", { status: "ok", rev: "r_2", compute, gates: {
-    profile: "fdm.v1", build: [0, 0, 1], bed_mm: [220, 220, 250], notes: ["Rule checks, not a print simulation."],
+    profile: "fdm.v1", build: [0, 0, 1], bed_mm: [220, 220, 250], notes: ["Rule checks, not a print simulation."], status: "fail", open: 1, waived: 1,
     parts: [{ def: "base", pass: ["watertight", "bed"], wall: { min_mm: 0.6, rays: 14000, spacing_mm: 0.5 }, fail: [
-      { gate: "min_wall", value: 0.6, limit: 0.8, at: "face:5", waivable: "agent", confidence: "measured", note: "Thinner than the 0.8 mm limit." },
+      { gate: "min_wall", value: 0.6, limit: 0.8, at: "face:5", waivable: "agent", confidence: "measured", note: "Thinner than the 0.8 mm limit.",
+        waiver: { by: "agent", reason: "a breakaway tab, removed after printing", rev: "r_2", ts: "2026-11-04T12:00:00.000Z" } },
       { gate: "overhang", value: 45.5, limit: 45, waivable: "agent", confidence: "measured", marginal: true },
     ] }],
   } }],
@@ -193,6 +213,13 @@ export const INVALID: Array<[SchemaName, unknown, string, string]> = [
   ["tool-inspect-input", { fields: ["gates"], bed: [220, 0, 250] }, "/bed/1", "a bed has a size"],
   ["tool-inspect-output", with_(inspectJob, (o) => { (o.job as unknown as Record<string, unknown>).state = "paused"; }), "/job/state", "unknown job state"],
   ["tool-run-input", { project: "p.o3j", ops: [{ op: "cancel_job" }] }, "/ops/0", "cancel_job without job_id"],
+  ["tool-run-input", { project: "p.o3j", ops: [{ op: "waive", gate: "min_wall", target: "base" }] }, "/ops/0", "a waiver needs a reason"],
+  ["tool-run-input", { project: "p.o3j", ops: [{ op: "waive", gate: "min_wall", target: "base", reason: "" }] }, "/ops/0/reason", "an empty reason"],
+  ["tool-run-input", { project: "p.o3j", ops: [{ op: "waive", gate: "draft", target: "base", reason: "r" }] }, "/ops/0/gate", "draft is not an fdm.v1 gate"],
+  ["waivers", with_(waivers, (w) => { (w.waivers[0] as unknown as Record<string, unknown>).gate = "watertight"; }), "/waivers/0/gate", "the file holds agent waivers only: watertight and bed need a person"],
+  ["waivers", with_(waivers, (w) => { (w.waivers[0] as unknown as Record<string, unknown>).by = "human"; }), "/waivers/0/by", "a person's waiver is an approval (S5), not a file entry"],
+  ["waivers", with_(waivers, (w) => { delete (w.waivers[0] as Partial<WaiverFile["waivers"][number]>).geometry_hash; }), "/waivers/0", "a waiver is bound to the part's geometry"],
+  ["tool-export-output", with_(exportOut, (o) => { (o.gates as unknown as Record<string, unknown>).status = "maybe"; }), "/gates/status", "gate status is pass, fail or unchecked"],
   ["tool-render-input", { project: "p.o3j", view: "exploded" }, "/view", "exploded is an S4 view"],
   ["tool-export-input", { project: "p.o3j", format: "urdf" }, "/format", "urdf is an S6 format"],
   ["tool-export-output", with_(exportOut, (o) => { o.files![0]!.sha256 = "zz"; }), "/files/0/sha256", "sha256 format"],

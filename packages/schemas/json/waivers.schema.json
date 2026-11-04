@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:open3dj:v0:waivers",
+  "title": "Agent waivers (waivers.o3j.json)",
+  "description": "Gate failures an agent accepted with a reason, written by run ops=[{op: \"waive\"}] (S3). A waiver covers one gate of one part definition. It is bound to the definition's geometry hash and to the failure it was made for (value, limit and face, and the build direction for overhang), so a change to the part or to the finding reopens the failure. Only agent-waivable gates appear here: watertight and bed need a person, through an approval (S5).",
+  "type": "object",
+  "properties": {
+    "o3j": { "const": "0" },
+    "waivers": { "type": "array", "items": { "$ref": "#/$defs/waiver" }, "maxItems": 1000 }
+  },
+  "required": ["o3j", "waivers"],
+  "additionalProperties": false,
+  "$defs": {
+    "waiver": {
+      "type": "object",
+      "properties": {
+        "def": { "description": "Part definition id.", "type": "string", "minLength": 1, "maxLength": 1024 },
+        "gate": { "enum": ["min_wall", "overhang"] },
+        "profile": { "enum": ["fdm.v1"] },
+        "geometry_hash": { "description": "The definition's geometry_hash when the waiver was made.", "type": "string", "minLength": 1, "maxLength": 200 },
+        "value": { "type": "number" },
+        "limit": { "type": "number" },
+        "at": { "description": "Element address of the failure, for example face:7.", "type": "string", "maxLength": 200 },
+        "build": { "description": "overhang only: the unit build direction the failure was found for.", "$ref": "urn:open3dj:v0:common#/$defs/vec3" },
+        "reason": { "type": "string", "minLength": 1, "maxLength": 500 },
+        "by": { "const": "agent" },
+        "rev": { "description": "The revision the waiver was checked on.", "$ref": "urn:open3dj:v0:common#/$defs/rev" },
+        "ts": { "type": "string", "minLength": 1, "maxLength": 64 }
+      },
+      "required": ["def", "gate", "profile", "geometry_hash", "reason", "by", "rev", "ts"],
+      "additionalProperties": false
+    }
+  }
+}

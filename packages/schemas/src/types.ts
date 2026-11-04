@@ -91,6 +91,46 @@ export interface GateFailure {
   marginal?: true;
   /** What failed, in one sentence. */
   note?: string;
+  /** Set when an agent waived this failure with a reason; a failure without it is open. */
+  waiver?: WaiverMark;
+}
+
+/** Who waived a failure, why, and on which revision. Agents only: a person's waiver is an approval (S5). */
+export interface WaiverMark {
+  by: "agent";
+  reason: string;
+  rev: Rev;
+  ts?: string;
+}
+
+/** The gates an agent may waive with a reason. watertight and bed need a person (S5). */
+export type AgentGate = "min_wall" | "overhang";
+export type FdmGate = AgentGate | "watertight" | "bed";
+
+/**
+ * One entry of waivers.o3j.json: one gate of one part definition, bound to the definition's
+ * geometry hash and to the failure it was made for (value, limit, face, and build for overhang).
+ */
+export interface Waiver {
+  def: string;
+  gate: AgentGate;
+  profile: GateProfile;
+  geometry_hash: string;
+  value?: number;
+  limit?: number;
+  at?: string;
+  /** overhang only: the unit build direction of the failure. */
+  build?: Vec3;
+  reason: string;
+  by: "agent";
+  rev: Rev;
+  ts: string;
+}
+
+/** waivers.o3j.json in the project folder. */
+export interface WaiverFile {
+  o3j: "0";
+  waivers: Waiver[];
 }
 
 export interface PartGates {
@@ -120,6 +160,20 @@ export interface GateRun {
   parts: PartGateRun[];
   /** What the checks are and are not, the sampling and the guard bands. */
   notes: string[];
+  /** Set by the daemon from the project's waivers: pass when no failure is open. */
+  status?: "pass" | "fail";
+  /** Failures without a waiver. */
+  open?: number;
+  waived?: number;
+}
+
+/** export: the gate status of the exported parts. unchecked: the gate job failed, and error says why. */
+export interface GateStatus {
+  profile: GateProfile;
+  status: "pass" | "fail" | "unchecked";
+  open?: number;
+  waived?: number;
+  error?: ScriptError;
 }
 
 export interface PartReport {
@@ -327,10 +381,20 @@ export interface ProvenanceLine {
 export type ToolName = "run" | "inspect" | "render" | "export" | "docs";
 export type ParamValue = number | string | boolean;
 
-/** The S1 ops. add_occurrence, remove, set_transform and replace_definition arrive in S2. */
+/** The S1 ops and S3's waive. add_occurrence, remove, set_transform and replace_definition arrive in S2. */
 export type RunOp =
   | { op: "set_param"; name: string; value: ParamValue }
-  | { op: "cancel_job"; job_id: string };
+  | { op: "cancel_job"; job_id: string }
+  | WaiveOp;
+
+/** Waive an agent-waivable gate failure of one part definition, with a reason. build: the direction checked (default +Z). */
+export interface WaiveOp {
+  op: "waive";
+  gate: FdmGate;
+  target: string;
+  reason: string;
+  build?: Vec3;
+}
 
 export interface RunInput {
   project: string;
@@ -353,6 +417,8 @@ export interface RunOutput {
   report?: RunReport;
   error?: ScriptError;
   job_id?: string;
+  /** run ops=[{op: "waive"}]: the waivers recorded. */
+  waivers?: Waiver[];
   compute: ComputeBlock;
 }
 
@@ -457,6 +523,8 @@ export interface ExportOutput {
   rev?: Rev;
   files?: FileRef[];
   warnings?: string[];
+  /** The gate status of the exported parts; the evidence sidecar holds every failure. */
+  gates?: GateStatus;
   error?: ScriptError;
   compute: ComputeBlock;
 }

@@ -8,6 +8,7 @@
     "rev": { "$ref": "urn:open3dj:v0:common#/$defs/rev" },
     "files": { "type": "array", "items": { "$ref": "urn:open3dj:v0:common#/$defs/fileRef" } },
     "warnings": { "type": "array", "items": { "type": "string" } },
+    "gates": { "$ref": "urn:open3dj:v0:geometry-report#/$defs/gateStatus" },
     "error": { "$ref": "urn:open3dj:v0:script-error" },
     "compute": { "$ref": "urn:open3dj:v0:compute" }
   },
