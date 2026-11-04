@@ -38,6 +38,9 @@ export const USAGE = `open3dj ${VERSION}: agent-first CAD. Every design is an as
 
 Usage:
   open3dj run <script.o3j.js|project.o3j> [--param name=value ...] [--no-save-params] [--base-rev r_0001] [--detailed] [--json]
+  open3dj run <script|project> --waive min_wall|overhang --target <part> --reason <text> [--build 0,0,1]
+                                                   accept a failing 3D printing check of one part, with a
+                                                   reason (watertight and bed need a person, from S5)
   open3dj render <script|project> [--targets lid,screw#2] [--format png|svg|both] [--out file.png] [--rev r_0001]
   open3dj render <script|project> --view highlight --targets lid@elem:face:5,screw#2 [--note text]
                                                    point a running open3dj view at parts or faces
@@ -164,6 +167,7 @@ async function design(command: DesignCommand, json: boolean, io: Io): Promise<nu
     // and a project source too when --param asks for other values (never ignore a flag).
     const hasParams = command.cmd !== "run" && Object.keys(command.params).length > 0;
     if (hasParams && !source) throw new UsageError("--param needs a script or project to run");
+    if (command.cmd === "run" && command.input.ops?.some((o) => o.op === "waive")) return waive(h, command, projectAbs!, json, io);
     if (source && projectAbs && (command.cmd === "run" || source.kind === "script" || hasParams)) {
       const input: RunInput = command.cmd === "run"
         ? { ...command.input, project: projectAbs, script: readScript(source, projectAbs) }
@@ -226,6 +230,28 @@ async function design(command: DesignCommand, json: boolean, io: Io): Promise<nu
     }
     return EXIT.usage;
   });
+}
+
+/**
+ * open3dj run <source> --waive gate --target part --reason text: a script source runs first, so
+ * the waiver is checked on its current revision; a project source is waived as it stands.
+ */
+async function waive(h: ToolHandlers, command: Extract<Command, { cmd: "run" }>, projectAbs: string, json: boolean, io: Io): Promise<number> {
+  const { source } = command;
+  const input: RunInput = { ...command.input, project: projectAbs };
+  if (source.kind === "script") {
+    const first: RunInput = { project: projectAbs, script: readScript(source, projectAbs) };
+    if (command.input.base_rev) first.base_rev = command.input.base_rev;
+    const out = await h.run(first);
+    if (out.status === "error" || !out.rev) {
+      io.err(out.error ? formatError(out.error, source.path) : formatRun(out));
+      return runExit(out);
+    }
+    input.base_rev = out.rev;
+  }
+  const out = await h.run(input);
+  io.out(json ? `${JSON.stringify(out, null, 2)}\n` : formatRun(out));
+  return runExit(out);
 }
 
 /** The project's working-copy params, or undefined when there is none (or it is unreadable). */

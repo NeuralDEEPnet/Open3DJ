@@ -23,6 +23,8 @@ export type DaemonErrorCode =
   | "UNKNOWN_TARGET"
   | "OP_NOT_IMPLEMENTED"
   | "JOB_NOT_FOUND"
+  | "WAIVER_NEEDS_PERSON"
+  | "NOTHING_TO_WAIVE"
   | "NO_BACKEND"
   | "JOB_CANCELLED"
   | "INTERNAL_ERROR";

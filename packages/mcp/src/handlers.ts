@@ -5,8 +5,8 @@ import { inventoryHash } from "@open3dj/compute";
 import type { ArtifactFormat, JobKind, JobRequest, JobResult } from "@open3dj/compute";
 import { ANALYSIS_VERSION, validate } from "@open3dj/schemas";
 import type {
-  AssemblyFile, ComputeBlock, ComputeMode, DocsInput, DocsOutput, ExportOutput, GeometryReport, InspectInput, InspectOutput,
-  ParamValue, PartReport, ProvenanceLine, RefReport, RenderInput, RenderOutput, RunInput, RunOutput, ScriptError, ToolName,
+  AssemblyFile, ComputeBlock, ComputeMode, DocsInput, DocsOutput, ExportInput, ExportOutput, GateRun, GateStatus, GeometryReport, InspectInput,
+  InspectOutput, ParamValue, PartReport, ProvenanceLine, RefReport, RenderInput, RenderOutput, RunInput, RunOutput, ScriptError, ToolName, WaiveOp, Waiver,
 } from "@open3dj/schemas";
 import { loadDocs, searchDocs } from "./docs.ts";
 import type { DocSection } from "./docs.ts";
@@ -21,6 +21,7 @@ import { placements, resolveTargets, tree } from "./tree.ts";
 import type { HandlerDeps, RenderResult, ToolHandlers } from "./types.ts";
 import { describeIssues } from "./validator.ts";
 import { HIGHLIGHT_FILE, buildHighlight, faceCounts, selectionForAgent, writeHighlight } from "./viewstate.ts";
+import { HUMAN_GATES, HUMAN_GATE_FIX, applyWaivers, cleanReason, gateStatus, waiverKey } from "./waivers.ts";
 
 export const DEFAULT_INTERACTIVE_MS = 20_000;
 
@@ -185,6 +186,13 @@ export function createHandlers(deps: HandlerDeps): ToolHandlers {
           }
           return { status: "ok", job_id: cancels[0]!.job_id, compute: noJob("cancel_job: no revision is created") };
         }
+        const waives = ops.filter((o): o is WaiveOp => o.op === "waive");
+        if (waives.length > 0) {
+          if (waives.length !== ops.length || input.script !== undefined || input.params !== undefined) {
+            throw new ToolError("BAD_INPUT", "waive cannot be combined with a script, params or other ops", "Run the change first, then send run {project, ops: [{op: \"waive\", gate, target, reason}]} on its own.");
+          }
+          return await waive(input, waives);
+        }
         const project = resolveProject(root, input.project);
         const store = new ProjectStore(project);
         const manifest = store.manifest();
@@ -268,12 +276,11 @@ export function createHandlers(deps: HandlerDeps): ToolHandlers {
           }
         }
         if (fields.has("gates")) {
-          const job = gateJob(rec, input, targets?.defs);
+          const job = gateJob(rec, input, targets?.defs, "inspect");
           // Said before the job runs, so a failed or timed-out job still names where it ran.
           out.compute = job.compute!;
-          const r = await runPool(job, input.compute, "batch");
-          if (!r.gates) throw new ToolError("INTERNAL_ERROR", "the gate job returned no gates", "This is a bug in Open3DJ. Please report it with the project.");
-          out.gates = r.gates;
+          // Each failure shows as waived (with who and why) or open; the status counts open ones.
+          out.gates = applyWaivers(await gateRun(job, input.compute), store.waivers(), rec.assembly);
         }
         return out;
       } catch (e) {
@@ -341,14 +348,17 @@ export function createHandlers(deps: HandlerDeps): ToolHandlers {
         // revision again gives the same bytes. A record without a usable time keeps the clock.
         if (typeof rec.ts === "string" && REVISION_TIME.test(rec.ts)) exp.timestamp = rec.ts;
         job.export = exp;
+        // Started first, so it runs beside the export on a pool with two or more workers.
+        const gates = exportGates(store, rec, input);
         let output: ExportOutput;
         try {
           const r = await runPool(job, input.compute, "batch");
           const artifacts = r.artifacts ?? [];
-          // One sidecar per revision and folder lists every export made into it.
-          const outputs = mergeEvidence(store.project, outDir, artifacts.map((a) => ({ name: a.name, format: a.format, bytes: a.bytes })));
+          const checked = await gates;
+          // One sidecar per revision and folder lists every export made into it, and the gate status of the latest.
+          const outputs = mergeEvidence(store.project, outDir, artifacts.map((a) => ({ name: a.name, format: a.format, bytes: a.bytes })), { gates: checked.evidence });
           const files = writeOutputs(store.project, outDir, outputs);
-          output = { status: "ok", rev: rec.rev, files, compute };
+          output = { status: "ok", rev: rec.rev, files, gates: checked.status, compute };
           const warnings = [...new Set(artifacts.flatMap((a) => a.warnings ?? []))];
           if (warnings.length) output.warnings = warnings;
         } catch (e) {
@@ -420,24 +430,128 @@ export function createHandlers(deps: HandlerDeps): ToolHandlers {
   }
 
   /**
-   * The job for print checks (fields [gates]), run on the batch lane: the worker rebuilds the
-   * revision and runs the profile on each targeted part definition, without the fit check.
-   * Never cached, so the result is this call's.
+   * The job for print checks (inspect fields [gates], a waive op, an export), run on the batch
+   * lane: the worker rebuilds the revision and runs the profile on each targeted part
+   * definition, without the fit check. Never cached, so the result is this call's: every
+   * verdict of record is computed on the CPU for the request (ARCHITECTURE.md section 6).
    */
-  function gateJob(rec: RevisionRecord, input: InspectInput, defs: string[] | undefined): JobRequest {
+  function gateJob(rec: RevisionRecord, input: Pick<InspectInput, "gates" | "build" | "bed" | "compute">, defs: string[] | undefined, tool: "inspect" | "run" | "export"): JobRequest {
     const build = input.build ?? [0, 0, 1];
     if (!build.every(Number.isFinite) || !(Math.max(...build.map(Math.abs)) > 0)) {
       throw new ToolError("BAD_INPUT", "build must be a finite, non-zero direction", "Leave build out to print with +Z up, or pass a direction such as [0, 0, -1] for upside down.");
     }
     const profile = input.gates ?? "fdm.v1";
     const placed = place(input.compute, "run");
-    const compute = { ...placed, placement_reason: `inspect (${profile} gates of ${rec.rev}); ${placed.placement_reason.replace(/\brun runs\b/, "it runs")}` };
+    const compute = { ...placed, placement_reason: `${tool} (${tool === "run" ? "waive: " : ""}${profile} gates of ${rec.rev}); ${placed.placement_reason.replace(/\brun runs\b/, "it runs")}` };
     const job = jobFor("run", rec, compute);
     job.gates = { profile, build };
     if (input.bed) job.gates.bed = input.bed;
     if (defs) job.gates.defs = defs;
     job.fits = false;
     return job;
+  }
+
+  async function gateRun(job: JobRequest, mode: ComputeMode | undefined): Promise<GateRun> {
+    const r = await runPool(job, mode, "batch");
+    if (!r.gates) throw new ToolError("INTERNAL_ERROR", "the gate job returned no gates", "This is a bug in Open3DJ. Please report it with the project.");
+    return r.gates;
+  }
+
+  /**
+   * The fdm.v1 gate status of the parts an export writes (build +Z, the default bed), with the
+   * project's waivers applied: the summary for the result and the full run for the evidence
+   * sidecar. It never fails the export: a failed check says "unchecked" and why.
+   */
+  async function exportGates(store: ProjectStore, rec: RevisionRecord, input: ExportInput): Promise<{ status: GateStatus; evidence: GateRun | GateStatus }> {
+    try {
+      const defs = input.scope ? resolveTargets(rec.assembly, [input.scope]).defs : undefined;
+      const run = applyWaivers(await gateRun(gateJob(rec, { compute: input.compute }, defs, "export"), input.compute), store.waivers(), rec.assembly);
+      return { status: gateStatus(run), evidence: run };
+    } catch (e) {
+      const status: GateStatus = { profile: "fdm.v1", status: "unchecked", error: e instanceof JobFailure ? e.error : toScriptError(e) };
+      return { status, evidence: status };
+    }
+  }
+
+  /**
+   * run ops=[{op: "waive"}]: record agent waivers for agent-waivable gate failures of the head
+   * revision. Each op is checked against a fresh gate run of its part (no waiver for a failure
+   * that is not there), bound to the part's shape (shape_hash and geometry hash) and to the
+   * failure it covers, and written to waivers.o3j.json under the project lock, which drops the
+   * waivers of definitions the head no longer has and holds at most MAX_WAIVERS. No revision is
+   * created.
+   */
+  async function waive(input: RunInput, ops: WaiveOp[]): Promise<RunOutput> {
+    for (const op of ops) {
+      if (HUMAN_GATES.has(op.gate)) {
+        throw new ToolError("WAIVER_NEEDS_PERSON", `${op.gate} is a human-only gate: only a person may waive it, with an approval on the local approval page, which arrives in S5`, `Until then fix the part: ${HUMAN_GATE_FIX[op.gate]}. Agents may waive min_wall and overhang, with a reason.`);
+      }
+      if (cleanReason(op.reason) === "") throw new ToolError("BAD_INPUT", "a waiver needs a reason", "Say why the failure is acceptable for this part, for example \"a breakaway tab, removed after printing\".");
+    }
+    const store = new ProjectStore(resolveProject(root, input.project));
+    const rec = store.resolve();
+    if (input.base_rev !== undefined && input.base_rev !== rec.rev) throw conflict(store, input.base_rev, rec.rev, store.project.label);
+    const defs = ops.map((op) => {
+      const found = resolveTargets(rec.assembly, [op.target]).defs;
+      if (found.length !== 1) {
+        throw new ToolError("BAD_INPUT", `target ${op.target} names ${found.length} part definitions (${found.slice(0, 6).join(", ")}${found.length > 6 ? ", ..." : ""}); a waiver covers one`, "Name one part definition or occurrence, for example \"lid\" or \"screw#2\", and send one waive op per part.");
+      }
+      return found[0]!;
+    });
+    let compute = noJob("refused before placement");
+    let output: RunOutput;
+    try {
+      // One gate job per build direction, on the targeted definitions only.
+      const runs = new Map<string, GateRun>();
+      const buildKey = (op: WaiveOp) => JSON.stringify(op.build ?? [0, 0, 1]);
+      for (const op of ops) {
+        const key = buildKey(op);
+        if (runs.has(key)) continue;
+        const job = gateJob(rec, { compute: input.compute, ...(op.build ? { build: op.build } : {}) }, [...new Set(defs.filter((_, i) => buildKey(ops[i]!) === key))], "run");
+        compute = job.compute!;
+        runs.set(key, await gateRun(job, input.compute));
+      }
+      const ts = now().toISOString();
+      const recorded = new Map<string, Waiver>();
+      ops.forEach((op, i) => {
+        const def = defs[i]!;
+        const run = runs.get(buildKey(op))!;
+        const part = run.parts.find((p) => p.def === def);
+        const failure = part?.fail.find((f) => f.gate === op.gate);
+        if (!part || !failure) throw new ToolError("NOTHING_TO_WAIVE", `${op.gate} passes on ${def} in ${rec.rev} (build ${run.build.join(", ")})`, "Only a failing gate can be waived. inspect {fields: [\"gates\"]} lists the failures, with the build direction you print in.");
+        if (failure.waivable !== "agent") throw new ToolError("WAIVER_NEEDS_PERSON", `${op.gate} on ${def} needs a person to waive it, with an approval, which arrives in S5`, "Fix the part instead.");
+        const geometryHash = rec.assembly.definitions[def]?.geometry_hash;
+        if (!geometryHash) throw new ToolError("PROJECT_CORRUPT", `${def} in ${rec.rev} has no geometry hash, so a waiver cannot be tied to its geometry`, "Run the script again to rebuild the revision.");
+        if (typeof part.shape_hash !== "string" || part.shape_hash === "") throw new ToolError("INTERNAL_ERROR", `the gate run of ${def} has no shape hash, so a waiver cannot be tied to its shape`, "This is a bug in Open3DJ. Please report it with the project.");
+        // The shape and the failure it covers: the same value, limit and face, and for overhang the same build direction.
+        const w: Waiver = {
+          def, gate: op.gate as Waiver["gate"], profile: run.profile, geometry_hash: geometryHash, shape_hash: part.shape_hash,
+          ...(failure.value !== undefined ? { value: failure.value } : {}),
+          ...(failure.limit !== undefined ? { limit: failure.limit } : {}),
+          ...(failure.at !== undefined ? { at: failure.at } : {}),
+          ...(op.gate === "overhang" ? { build: run.build } : {}),
+          reason: cleanReason(op.reason), by: "agent", rev: rec.rev, ts,
+        };
+        recorded.set(waiverKey(w), w);
+      });
+      const added = [...recorded.values()];
+      await withLock(store, () => {
+        const head = store.head();
+        if (input.base_rev !== undefined && head !== input.base_rev) throw conflict(store, input.base_rev, head, store.project.label);
+        // A waiver of a part definition the head revision no longer has (removed or renamed)
+        // can cover nothing, so it is dropped rather than counted toward the file's cap.
+        const defsNow = head === rec.rev ? rec.assembly.definitions : store.resolve(head).assembly.definitions;
+        const kept = store.waivers().filter((w) => !recorded.has(waiverKey(w)) && Object.hasOwn(defsNow, w.def));
+        store.saveWaivers([...kept, ...added]);
+      });
+      output = { status: "ok", rev: rec.rev, waivers: added, compute };
+    } catch (e) {
+      output = { status: "error", error: e instanceof JobFailure ? e.error : toScriptError(e), compute };
+    }
+    const revs: { base_rev?: string; rev?: string } = { rev: rec.rev };
+    if (input.base_rev) revs.base_rev = input.base_rev;
+    provenance(store, "run", input, output, compute, revs);
+    return output;
   }
 
   return handlers;
@@ -515,7 +629,7 @@ function checkInput(tool: ToolName, input: unknown): void {
   const ops = tool === "run" && input && typeof input === "object" ? (input as { ops?: unknown }).ops : undefined;
   const later = Array.isArray(ops) ? ops.find((o): o is { op: string } => !!o && typeof o === "object" && LATER_OPS.has((o as { op?: unknown }).op as string)) : undefined;
   if (later) {
-    throw new ToolError("OP_NOT_IMPLEMENTED", `op ${later.op} arrives in S2; S1 runs support set_param and cancel_job`, "Change the script instead: return the parts with their placements, then run it.");
+    throw new ToolError("OP_NOT_IMPLEMENTED", `op ${later.op} arrives in S2; runs support set_param, cancel_job and waive`, "Change the script instead: return the parts with their placements, then run it.");
   }
   if (tool === "run" && input && typeof input === "object" && !("script" in input) && !("ops" in input)) {
     // The schema's anyOf message ("must match at least one of the anyOf schemas") says nothing useful.

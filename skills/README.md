@@ -5,7 +5,13 @@ What agents read to use Open3DJ well (ARCHITECTURE.md section 17, PLAN.md S1).
 | Path | What it is |
 |---|---|
 | `open3dj/SKILL.md` | The skill for any agent: the five tools, the DSL essentials with three examples, the error-fix loop, the assembly rules, units and Z-up, and what never to do. Under 5k tokens. |
-| `claude-code-plugin/` | A Claude Code plugin: `.claude-plugin/plugin.json`, the same skill under `skills/open3dj/SKILL.md`, and `.mcp.json`, which starts `node <repo>/packages/open3dj/src/cli.ts mcp`. |
+| `claude-code-plugin/` | A Claude Code plugin: `.claude-plugin/plugin.json`, the same skill under `skills/open3dj/SKILL.md`, `.mcp.json`, which starts `node <repo>/packages/open3dj/src/cli.ts mcp`, and the export-gate hook (`hooks/hooks.json`, `hooks/export-gate.ts`). |
+
+## The export-gate hook
+
+Every `export` result carries `gates`: the `fdm.v1` status of the exported parts (`pass`, `fail` or `unchecked`). The plugin's PostToolUse hook runs after each call of `mcp__plugin_open3dj_open3dj__export`. When the status is `fail` or `unchecked`, it adds a short factual note to Claude's context next to the result: how many failures are open and waived, and that the files are not print-checked until each open failure is fixed, waived by the agent with a reason, or approved by a person (S5). For `unchecked` it names only the error code, never the error message, which can quote a cloned project's files; the export result keeps the full message. On `pass` it prints nothing. It never blocks the export and never changes the result. It needs only Node 24 and no dependencies.
+
+Checked against the [hooks reference](https://code.claude.com/docs/en/hooks) on 4 Nov 2026: plugin MCP tools are named `mcp__plugin_<plugin>_<server>__<tool>`, plugin hooks live in `hooks/hooks.json`, and a PostToolUse hook may return `hookSpecificOutput.additionalContext`. The page does not document the shape of `tool_response` for MCP tools, so the hook looks for the export result in the object itself, in `structuredContent` and in JSON text content. Not yet tried in a live Claude Code session; `claude plugin validate` with Claude Code 2.1.318 passes.
 
 `open3dj/SKILL.md` is the source. The plugin holds a copy, because a plugin may not point outside its own folder. `scripts/skills.test.ts` fails when the two differ, runs every example in the skill, and checks the plugin files. Edit the source, then copy it: `cp skills/open3dj/SKILL.md skills/claude-code-plugin/skills/open3dj/SKILL.md`.
 

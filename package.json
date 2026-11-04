@@ -24,6 +24,7 @@
     "bench:grade": "node bench/grade.ts",
     "hdet": "node scripts/hdet.ts",
     "corpus": "node scripts/reference-assemblies.ts",
+    "gate-corpus": "node scripts/gate-corpus.ts",
     "viewer:bench": "node scripts/viewer-bench.ts"
   },
   "devDependencies": {

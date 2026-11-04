@@ -302,3 +302,129 @@ test("open3dj run prints every collapsed fit line to a person, contacts first", 
     rmSync(dir, { recursive: true, force: true });
   }
 });
+
+test("run --waive becomes a waive op (CLI parity) and checks its flags", () => {
+  const w = parseCommand(["run", "tray.o3j", "--waive", "overhang", "--target", "tray", "--reason", "printed on its side", "--build", "1,0,0", "--base-rev", "r_0002"]).command;
+  assert.equal(w.cmd, "run");
+  if (w.cmd === "run") {
+    assert.deepEqual(w.input, { project: "tray.o3j", base_rev: "r_0002", ops: [{ op: "waive", gate: "overhang", target: "tray", reason: "printed on its side", build: [1, 0, 0] }] });
+    assert.ok(validate("tool-run-input", w.input).valid, JSON.stringify(validate("tool-run-input", w.input).errors));
+  }
+  const cases: Array<[string[], RegExp]> = [
+    [["run", "t.o3j", "--waive", "min_wall", "--reason", "r"], /--waive needs --target/],
+    [["run", "t.o3j", "--waive", "min_wall", "--target", "t"], /--waive needs --reason/],
+    [["run", "t.o3j", "--target", "t"], /--target, --reason and --build go with --waive/],
+    [["run", "t.o3j", "--waive", "min_wall", "--target", "t", "--reason", "r", "--param", "a=1"], /--waive takes no --param/],
+  ];
+  for (const [argv, msg] of cases) assert.throws(() => parseCommand(argv), msg, argv.join(" "));
+});
+
+test("waivers on the real pool: a waived min_wall passes inspect and the export evidence until the part changes", async () => {
+  const dir = tmp("o3j-waive-");
+  try {
+    const script = join(dir, "tray.o3j.js");
+    writeFileSync(script, "const F = Param.number(\"Floor\", 0.6, { min: 0.2, max: 3 });\nreturn [{ name: \"tray\", shape: box(30, 20, 15).subtract(box(28.8, 18.8, 15).translateZ(F)) }];\n");
+    const project = join(dir, "tray.o3j");
+    assert.equal(await main(["run", script], capture().io), 0);
+
+    const person = capture();
+    assert.equal(await main(["run", project, "--waive", "watertight", "--target", "tray", "--reason", "it is fine"], person.io), EXIT.error);
+    assert.match(person.text(), /error WAIVER_NEEDS_PERSON: .*person/);
+
+    const waive = capture();
+    assert.equal(await main(["run", project, "--waive", "min_wall", "--target", "tray", "--reason", "a drain tray: 0.6 mm walls print as two perimeters"], waive.io), 0, waive.errText() + waive.text());
+    assert.match(waive.text(), /^ok {2}r_0001 {2}waived min_wall on tray \(0\.6 against 0\.8 at face:\d+\): a drain tray/);
+
+    const ins = capture();
+    assert.equal(await main(["inspect", project, "--fields", "gates", "--json"], ins.io), 0, ins.errText());
+    const out = JSON.parse(ins.text()) as { gates: { status: string; open: number; waived: number; parts: Array<{ fail: Array<{ gate: string; waiver?: { by: string; reason: string } }> }> } };
+    assert.ok(validate("tool-inspect-output", out).valid, JSON.stringify(validate("tool-inspect-output", out).errors));
+    assert.deepEqual([out.gates.status, out.gates.open, out.gates.waived], ["pass", 0, 1]);
+    assert.equal(out.gates.parts[0]!.fail[0]!.waiver?.by, "agent");
+    const text = capture();
+    assert.equal(await main(["inspect", project, "--fields", "gates"], text.io), 0);
+    assert.match(text.text(), /gates fdm\.v1 \(build 0, 0, 1; bed 220 x 220 x 250 mm\): pass, 0 open, 1 waived/);
+    assert.match(text.text(), /WAIVED min_wall {2}0\.6 against 0\.8 at face:\d+ {2}by an agent on r_0001: a drain tray/);
+
+    const exp = capture();
+    assert.equal(await main(["export", project, "--format", "stl", "--json"], exp.io), 0, exp.errText());
+    const exported = JSON.parse(exp.text()) as { gates: { status: string; waived: number } };
+    assert.deepEqual([exported.gates.status, exported.gates.waived], ["pass", 1]);
+    const evidence = JSON.parse(readFileSync(join(project, "out", "r_0001", "tray.evidence.json"), "utf8")) as { gates: { status: string; parts: Array<{ fail: Array<{ waiver?: { reason: string } }> }> } };
+    assert.equal(evidence.gates.status, "pass");
+    assert.match(evidence.gates.parts[0]!.fail[0]!.waiver!.reason, /drain tray/);
+
+    // A thicker floor changes the part's geometry hash: the waiver no longer covers it.
+    assert.equal(await main(["run", script, "--param", "Floor=1"], capture().io), 0);
+    const again = capture();
+    assert.equal(await main(["export", project, "--format", "3mf"], again.io), 0, again.errText());
+    assert.match(again.text(), /gates fdm\.v1: fail, 1 open, 0 waived/);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+// Regression (review of the waivers, finding 1): moving a hole inside a plate keeps the
+// geometry hash (a hash of the measures), and gates reported only the thinnest wall, so a
+// waiver made for the wall at hole A also hid a new 0.7 mm wall at hole B, and the export
+// evidence said pass. A waiver is now bound to the part's shape (shape_hash, from the gate
+// mesh), and min_wall lists every failing face.
+test("waivers on the real pool: a moved hole that thins a new wall reopens the waiver, though the geometry hash is the same", async () => {
+  const dir = tmp("o3j-waive-moved-");
+  try {
+    const script = join(dir, "plate.o3j.js");
+    writeFileSync(script, [
+      "const BY = Param.number(\"HoleB_Y\", 0, { min: -6.4, max: 6.4, unit: \"mm\" });",
+      "const holeA = cylinder(5, 3).translate(-16.4, 0, 0);",
+      "const holeB = cylinder(5, 3).translate(8, BY, 0);",
+      "return [{ name: \"plate\", shape: box(40, 20, 5).subtract(holeA, holeB) }];",
+      "",
+    ].join("\n"));
+    const project = join(dir, "plate.o3j");
+    type Gates = { status: string; open: number; waived: number; notes: string[]; parts: Array<{ shape_hash: string; fail: Array<{ gate: string; value: number; at: string; faces?: Array<{ at: string; value: number }>; waiver?: unknown }> }> };
+    const gates = async () => {
+      const c = capture();
+      assert.equal(await main(["inspect", project, "--fields", "gates", "--json"], c.io), 0, c.errText());
+      const out = JSON.parse(c.text()) as { rev: string; gates: Gates };
+      assert.ok(validate("tool-inspect-output", out).valid, JSON.stringify(validate("tool-inspect-output", out).errors));
+      return out;
+    };
+    const hash = () => (JSON.parse(readFileSync(join(project, "assembly.o3j.json"), "utf8")) as { definitions: Record<string, { geometry_hash: string }> }).definitions["plate"]!.geometry_hash;
+
+    assert.equal(await main(["run", script], capture().io), 0);
+    const first = await gates();
+    const wall = first.gates.parts[0]!.fail.find((f) => f.gate === "min_wall")!;
+    assert.ok(Math.abs(wall.value - 0.6) < 0.02, JSON.stringify(wall));
+    // Only hole A is thin: its own face and the plate's end face.
+    assert.deepEqual(wall.faces?.map((f) => f.value < 0.62), [true, true], JSON.stringify(wall.faces));
+    const waive = capture();
+    assert.equal(await main(["run", project, "--waive", "min_wall", "--target", "plate", "--reason", "breakaway lug at hole A, cut off after printing"], waive.io), 0, waive.errText() + waive.text());
+    const waived = await gates();
+    assert.deepEqual([waived.gates.status, waived.gates.open, waived.gates.waived], ["pass", 0, 1]);
+    const hashBefore = hash();
+    const shapeBefore = waived.gates.parts[0]!.shape_hash;
+    assert.equal(shapeBefore, first.gates.parts[0]!.shape_hash, "the same shape gives the same shape_hash in another gate job");
+
+    // Hole B moves to 0.7 mm from the side: the measures, and so the geometry hash, stay the same.
+    assert.equal(await main(["run", script, "--param", "HoleB_Y=6.3"], capture().io), 0);
+    assert.equal(hash(), hashBefore, "the geometry hash misses a hole moved inside the plate");
+    const moved = await gates();
+    assert.equal(moved.rev, "r_0002");
+    assert.notEqual(moved.gates.parts[0]!.shape_hash, shapeBefore);
+    assert.deepEqual([moved.gates.status, moved.gates.open, moved.gates.waived], ["fail", 1, 0]);
+    const now = moved.gates.parts[0]!.fail.find((f) => f.gate === "min_wall")!;
+    assert.ok(now.faces!.some((f) => f.value > 0.65 && f.value < 0.75), `the 0.7 mm wall at hole B is listed: ${JSON.stringify(now.faces)}`);
+    assert.match(moved.gates.notes[0]!, /^1 waiver does not cover the current failure .*plate min_wall \(made on r_0001\)/);
+    const exp = capture();
+    assert.equal(await main(["export", project, "--format", "3mf"], exp.io), 0, exp.errText());
+    assert.match(exp.text(), /gates fdm\.v1: fail, 1 open, 0 waived/);
+
+    // Back to the waived shape, rebuilt from the script: the waiver holds again.
+    assert.equal(await main(["run", script, "--param", "HoleB_Y=0"], capture().io), 0);
+    const back = await gates();
+    assert.equal(back.rev, "r_0003");
+    assert.deepEqual([back.gates.status, back.gates.open, back.gates.waived], ["pass", 0, 1]);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});

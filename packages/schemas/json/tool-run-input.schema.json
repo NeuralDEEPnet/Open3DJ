@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "urn:open3dj:v0:tool-run-input",
-  "title": "run tool input (S1)",
-  "description": "Run a DSL script or apply ops, and get a GeometryReport. Give script, ops, or both. To change a parameter of the stored script, send ops [{op: \"set_param\", name, value}].",
+  "title": "run tool input",
+  "description": "Run a DSL script or apply ops. Give script, ops, or both; cancel_job and waive go alone.",
   "type": "object",
   "properties": {
     "project": {
@@ -22,7 +22,7 @@
       "maxLength": 262144
     },
     "params": {
-      "description": "Values for Param.* entries, by name. They are saved to the project's working copy (params.o3j.json, after clamping to each Param's min and max): later runs of the same script, and set_param, use them until changed. Pass save_params: false to try values without saving them. A script that differs from the project's stored script starts from its own defaults plus these values, and the report warns which stored values it did not use.",
+      "description": "Values for Param.* entries, by name, saved to the project's params.o3j.json (clamped to each Param's min and max) unless save_params is false: later runs of the same script, and set_param, use them. A script that differs from the stored one starts from its own defaults plus these values, and the report names the stored values it did not use.",
       "type": "object",
       "maxProperties": 200,
       "propertyNames": {
@@ -39,11 +39,11 @@
       }
     },
     "save_params": {
-      "description": "Default true: params and set_param values are saved to the project's working copy (params.o3j.json). false runs with them and records them in the new revision, but keeps params.o3j.json as it was.",
+      "description": "false runs with params and set_param values and records them in the new revision, but keeps params.o3j.json as it was. Default true.",
       "type": "boolean"
     },
     "ops": {
-      "description": "S1 ops: set_param (re-run the stored script with a new value) and cancel_job (stop a queued run). Assembly edits such as add_occurrence arrive in S2; change the script instead.",
+      "description": "set_param, cancel_job and waive. Assembly edits such as add_occurrence arrive in S2; change the script instead.",
       "type": "array",
       "items": {
         "$ref": "#/$defs/op"
@@ -121,6 +121,47 @@
           "required": [
             "op",
             "job_id"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "op": {
+              "const": "waive"
+            },
+            "gate": {
+              "enum": [
+                "min_wall",
+                "overhang",
+                "watertight",
+                "bed"
+              ]
+            },
+            "target": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1024
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 500
+            },
+            "build": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 3,
+              "maxItems": 3
+            }
+          },
+          "required": [
+            "op",
+            "gate",
+            "target",
+            "reason"
           ],
           "additionalProperties": false
         }

@@ -22,9 +22,11 @@ export interface EvidenceEntry {
 
 /**
  * The files to write, with the job's evidence sidecar (format "evidence") replaced by the
- * merged one. Files without a sidecar pass through unchanged.
+ * merged one. Files without a sidecar pass through unchanged. extra adds or replaces top-level
+ * fields the daemon knows and the worker does not, such as the gate status with the project's
+ * waivers: those describe this export, so they never come from the earlier sidecar.
  */
-export function mergeEvidence(project: ProjectDir, relDir: string, files: OutputFile[]): OutputFile[] {
+export function mergeEvidence(project: ProjectDir, relDir: string, files: OutputFile[], extra: Record<string, unknown> = {}): OutputFile[] {
   const sidecar = files.find((f) => f.format === "evidence");
   if (!sidecar) return files;
   let doc: Record<string, unknown>;
@@ -48,7 +50,7 @@ export function mergeEvidence(project: ProjectDir, relDir: string, files: Output
     }
     if (kept.length > 0 && Array.isArray(previous["warnings"])) for (const w of previous["warnings"] as unknown[]) if (typeof w === "string") warnings.add(w);
   }
-  const merged: Record<string, unknown> = { ...doc, files: [...kept, ...current] };
+  const merged: Record<string, unknown> = { ...doc, files: [...kept, ...current], ...extra };
   if ("warnings" in doc || warnings.size > 0) merged["warnings"] = [...warnings];
   const bytes = new TextEncoder().encode(`${JSON.stringify(merged, null, 2)}\n`);
   return files.map((f) => (f === sidecar ? { ...f, bytes } : f));

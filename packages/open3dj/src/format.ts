@@ -60,9 +60,18 @@ export function formatRef(r: RefReport): string {
   return `  ${r.name}  ${r.state}${where}${r.reason ? `: ${r.reason}` : ""}`;
 }
 
+/** "  0.6 against 0.8 at face:3": the measured value against the limit, and the face, where they apply. */
+function finding(f: { value?: number; limit?: number; at?: string }): string {
+  const measured = f.value !== undefined ? `  ${f.value} against ${f.limit}` : f.limit !== undefined ? `  limit ${f.limit}` : "";
+  return `${measured}${f.at ? ` at ${f.at}` : ""}`;
+}
+
 export function formatRun(out: RunOutput, file?: string): string {
   if (out.error) return formatError(out.error, file);
   if (out.status === "queued") return `queued  job ${out.job_id}\n`;
+  if (out.waivers) {
+    return out.waivers.map((w) => `${out.status}  ${out.rev ?? ""}  waived ${w.gate} on ${w.def} (${finding(w).trim()}${w.build ? `, build ${w.build.join(", ")}` : ""}): ${w.reason}\n`).join("");
+  }
   return out.report && out.status !== "error" ? formatReport({ ...out.report, status: out.status, rev: out.rev ?? "", compute: out.compute }) : `${out.status} ${out.rev ?? ""}\n`;
 }
 
@@ -79,6 +88,9 @@ export function formatRender(out: RenderOutput, base: string, notes: string[] = 
 export function formatExport(out: ExportOutput, base: string): string {
   if (out.error) return formatError(out.error);
   const lines = [`ok  ${out.rev}`, formatFiles(out.files, base), ...(out.warnings ?? []).map((w) => `warning: ${w}`)];
+  const g = out.gates;
+  if (g?.status === "unchecked") lines.push(`gates ${g.profile}: unchecked${g.error ? ` (${g.error.code}: ${g.error.message})` : ""}`);
+  else if (g) lines.push(`gates ${g.profile}: ${g.status}, ${g.open ?? 0} open, ${g.waived ?? 0} waived${(g.open ?? 0) + (g.waived ?? 0) > 0 ? "; the evidence sidecar lists them" : ""}`);
   return `${lines.filter(Boolean).join("\n")}\n`;
 }
 
@@ -114,12 +126,15 @@ export function formatInspect(out: InspectOutput): string {
   }
   if (out.gates) {
     const g = out.gates;
-    lines.push(`gates ${g.profile} (build ${g.build.join(", ")}; bed ${g.bed_mm.join(" x ")} mm):`);
+    const status = g.status ? `: ${g.status}, ${g.open ?? 0} open, ${g.waived ?? 0} waived` : ":";
+    lines.push(`gates ${g.profile} (build ${g.build.join(", ")}; bed ${g.bed_mm.join(" x ")} mm)${status}`);
     for (const p of g.parts) {
       lines.push(`  ${p.def}  pass ${p.pass.join(", ") || "none"}${p.wall.min_mm !== undefined ? `  (thinnest wall ${n(p.wall.min_mm)} mm, ${p.wall.rays} rays)` : ""}`);
       for (const f of p.fail) {
-        const measured = f.value !== undefined ? `  ${f.value} against ${f.limit}` : f.limit !== undefined ? `  limit ${f.limit}` : "";
-        lines.push(`    FAIL ${f.gate}${f.marginal ? " (marginal)" : ""}${measured}${f.at ? ` at ${f.at}` : ""}  waivable by ${f.waivable === "human" ? "a person only" : "an agent, with a reason"}${f.note ? `: ${f.note}` : ""}`);
+        const what = `${f.gate}${f.marginal ? " (marginal)" : ""}${finding(f)}`;
+        if (f.waiver) lines.push(`    WAIVED ${what}  by an agent on ${f.waiver.rev}: ${f.waiver.reason}`);
+        else lines.push(`    FAIL ${what}  waivable by ${f.waivable === "human" ? "a person only" : "an agent, with a reason"}${f.note ? `: ${f.note}` : ""}`);
+        if (f.faces?.length) lines.push(`      faces: ${f.faces.map((x) => `${x.at} ${x.value}`).join(", ")}`);
       }
     }
     for (const x of g.notes) lines.push(`  note: ${x}`);

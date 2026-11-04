@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "urn:open3dj:v0:tool-run-output",
-  "title": "run tool output (S1)",
+  "title": "run tool output",
   "type": "object",
   "properties": {
     "status": { "enum": ["ok", "warning", "error", "queued"] },
@@ -9,6 +9,7 @@
     "report": { "$ref": "urn:open3dj:v0:geometry-report" },
     "error": { "$ref": "urn:open3dj:v0:script-error" },
     "job_id": { "type": "string" },
+    "waivers": { "type": "array", "items": { "$ref": "urn:open3dj:v0:waivers#/$defs/waiver" } },
     "compute": { "$ref": "urn:open3dj:v0:compute" }
   },
   "required": ["status", "compute"],
