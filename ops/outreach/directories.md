@@ -29,7 +29,7 @@ Set these on github.com: the gear next to **About** on the repository page. Topi
 **Description** (it leads with what is different and makes no "first" claim):
 
 ```text
-Local-first parametric B-rep CAD that AI agents drive over MCP. Every run returns evidence (validity, measures, fits, drawings); STEP, STL, GLB and 3MF exports come with an evidence file of hashes; o3dj-bench grades agents on multi-part briefs.
+Local-first parametric B-rep CAD that AI agents drive over MCP. Every run returns evidence (validity, measures, fits between parts) and render returns a four-view drawing; STEP, STL, GLB and 3MF exports come with an evidence file of hashes; o3dj-bench grades agents on multi-part briefs.
 ```
 
 **Website:** leave it empty until there is a project site, or use `https://github.com/NeuralDEEPnet/Open3DJ/blob/main/docs/GETTING-STARTED.md`.
@@ -81,7 +81,7 @@ The largest MCP list that still takes entries. Stars on the GitHub pages on 2026
 **The entry line** (badge format from the workflow's bot comment; copy the badge from the Glama page if it differs):
 
 ```markdown
-- [NeuralDEEPnet/Open3DJ](https://github.com/NeuralDEEPnet/Open3DJ) [![NeuralDEEPnet/Open3DJ MCP server](https://glama.ai/mcp/servers/NeuralDEEPnet/Open3DJ/badges/score.svg)](https://glama.ai/mcp/servers/NeuralDEEPnet/Open3DJ) 📇 🏠 🍎 🪟 🐧 - Local-first parametric B-rep CAD over MCP (OCCT as WebAssembly). Every run returns validity, measures, fits and a four-view drawing; STEP, STL, GLB and 3MF exports carry an evidence file of hashes and measures.
+- [NeuralDEEPnet/Open3DJ](https://github.com/NeuralDEEPnet/Open3DJ) [![NeuralDEEPnet/Open3DJ MCP server](https://glama.ai/mcp/servers/NeuralDEEPnet/Open3DJ/badges/score.svg)](https://glama.ai/mcp/servers/NeuralDEEPnet/Open3DJ) 📇 🏠 🍎 🪟 🐧 - Local-first parametric B-rep CAD over MCP (OCCT as WebAssembly). Every run returns validity, measures and fits between parts; render returns a four-view drawing; STEP, STL, GLB and 3MF exports carry an evidence file of hashes and measures.
 ```
 
 The five symbols are the list's legend: the index card is TypeScript, the house is a local service, then macOS, Windows and Linux.
