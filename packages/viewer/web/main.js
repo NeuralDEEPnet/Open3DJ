@@ -1,9 +1,10 @@
 // The Open3DJ viewer page. It fetches the model JSON and the revision's GLB from open3dj view,
 // listens for new revisions on a server-sent-events stream, and shows the assembly. It never
-// changes the design. Its one write shares the person's selection with agents (POST
-// api/selection, when "Share with agents" is on), and it shows what an agent points at
-// (render view=highlight, a "highlight" event). Every URL is relative, because the page lives
-// under its session nonce.
+// changes the design. Its writes share the person's selection with agents (POST
+// api/selection, when "Share with agents" is on) and make a one-time link for another browser
+// (POST api/link), and it shows what an agent points at (render view=highlight, a "highlight"
+// event). Every URL is relative to the page, which lives at the server's root path once a
+// one-time link has set the session cookie.
 //
 // Rendering is on demand: a frame is drawn only when the camera, the scene, the selection or
 // an overlay changes (and while a view animation or damping runs), never in an idle loop.
@@ -120,6 +121,7 @@ async function start() {
   $("projection-button").textContent = view && !view.isOrtho ? "Persp" : "Ortho";
   bindUi();
   bindShare();
+  bindAnotherBrowser();
   tools.bind();
   connect();
   await load();
@@ -1121,6 +1123,32 @@ function bindShare() {
   $("agent-frame").addEventListener("click", () => frameAgent());
   $("agent-dismiss").addEventListener("click", () => dismissAgent());
   fetch("api/selection", { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).then((sel) => sel && showShare(sel), () => {});
+}
+
+/**
+ * "Open in another browser" (in the help): the server makes a new one-time link (POST
+ * api/link) and the page shows it as text to copy. This browser keeps its own cookie.
+ */
+function bindAnotherBrowser() {
+  const out = $("link-url");
+  const note = $("link-state");
+  out.addEventListener("focus", () => out.select());
+  $("link-new").addEventListener("click", async () => {
+    note.textContent = "";
+    try {
+      const res = await fetch("api/link", { method: "POST", headers: { "Content-Type": "application/json" }, body: "{}", cache: "no-store" });
+      const data = res.ok ? await res.json() : null;
+      if (!data?.url) throw new Error(res.status === 429 ? "too many links; try again in a few seconds" : `the server answered ${res.status}`);
+      out.value = data.url;
+      out.hidden = false;
+      out.focus();
+      note.textContent = `works once, until ${new Date(data.expires_at).toLocaleTimeString()}`;
+    } catch (e) {
+      out.value = "";
+      out.hidden = true;
+      note.textContent = `no link: ${e.message}`;
+    }
+  });
 }
 
 /** The selection as the server wants it: occurrence paths and kernel face numbers (1-based). */

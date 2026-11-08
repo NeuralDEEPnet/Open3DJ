@@ -263,6 +263,9 @@ h2 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: 
 .overlay table { border-collapse: collapse; width: 100%; }
 .overlay td { padding: 4px 6px; vertical-align: top; }
 .overlay td:first-child { white-space: nowrap; width: 1%; }
+.another-browser { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin: 0 0 14px; }
+.another-browser input { flex: 1 1 22em; min-width: 0; font: 12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--text); background: var(--panel-2); border: 1px solid var(--border); border-radius: 6px; padding: 3px 6px; }
+.another-browser input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 
 .tools .tool { display: grid; grid-template-columns: 1fr auto; gap: 4px 8px; align-items: center; margin-bottom: 12px; }
 .tools .tool > .label, .tools .tool > .seg, .tools .tool > .check, .tools .tool > select, .tools .tool > div, .tools .tool > .legend, .tools .tool > .note { grid-column: 1 / -1; }

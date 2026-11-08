@@ -1,5 +1,6 @@
-// open3dj view server: the nonce, Host and Origin checks, path traversal, the GLB route and the
-// revision stream, on the real compute pool and handlers (no browser needed).
+// open3dj view server: the one-time link and the session cookie, the Host and Origin checks,
+// path traversal, the GLB route and the revision stream, on the real compute pool and handlers
+// (no browser needed).
 import { after, before, test } from "node:test";
 import assert from "node:assert/strict";
 import { existsSync, mkdtempSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
@@ -13,6 +14,8 @@ import type { ToolHandlers } from "@open3dj/mcp";
 import { parseCommand } from "./args.ts";
 import { openBrowser, startViewServer } from "./view.ts";
 import type { ViewServer } from "./view.ts";
+import { NAVIGATE, login, send, sessionCookie } from "./view-login.testing.ts";
+import type { Answer } from "./view-login.testing.ts";
 
 const NONCE = "test-nonce-0123456789abcdef";
 const script = (h: number) => `return [
@@ -26,6 +29,8 @@ let pool: Pool;
 let handlers: ToolHandlers;
 let server: ViewServer;
 let scriptFile: string;
+/** The session cookie from the printed link, as a Cookie header. */
+let cookie: string;
 
 before(async () => {
   dir = mkdtempSync(join(tmpdir(), "o3j-view-"));
@@ -36,6 +41,7 @@ before(async () => {
   handlers = createHandlers({ pool, inventory: deviceInventory({ pool: options }), root: dir, version: "0.0.0", interactiveMs: 120_000 });
   server = await startViewServer({ handlers, root: dir, project: join(dir, "part.o3j"), script: scriptFile, nonce: NONCE, debounceMs: 50, pollMs: 100, log: () => {} });
   await server.ready;
+  cookie = await login(server);
 });
 
 after(async () => {
@@ -45,110 +51,198 @@ after(async () => {
   rmSync(dir, { recursive: true, force: true });
 });
 
-interface Answer { status: number; headers: Record<string, string | string[] | undefined>; body: Buffer }
+/** A request with the session cookie (unless headers name another cookie). */
+const get = (path: string, headers: Record<string, string> = {}, method = "GET"): Promise<Answer> => send(server, path, method, { cookie, ...headers });
+/** A request without a cookie. */
+const anon = (path: string, headers: Record<string, string> = {}, method = "GET"): Promise<Answer> => send(server, path, method, headers);
+const linkPath = (url: string) => new URL(url).pathname;
 
-/** A raw request: the path goes out exactly as given (no URL normalisation). */
-function get(path: string, headers: Record<string, string> = {}, method = "GET"): Promise<Answer> {
-  return new Promise((resolve, reject) => {
-    const req = request({ host: "127.0.0.1", port: server.port, path, method, headers: { host: `127.0.0.1:${server.port}`, ...headers } }, (res) => {
-      const chunks: Buffer[] = [];
-      res.on("data", (c: Buffer) => chunks.push(c));
-      res.on("end", () => resolve({ status: res.statusCode ?? 0, headers: res.headers, body: Buffer.concat(chunks) }));
-    });
-    req.on("error", reject);
-    req.end();
-  });
-}
-
-test("the URL carries the nonce and the server listens on 127.0.0.1 only", () => {
+test("the printed URL is a one-time link, the server listens on 127.0.0.1 only, and the cookie is named after the port", () => {
   assert.equal(server.url, `http://127.0.0.1:${server.port}/${NONCE}/`);
   assert.equal(server.nonce, NONCE);
+  assert.equal(server.origin, `http://127.0.0.1:${server.port}`);
+  assert.equal(server.cookieName, `o3j_${server.port}`);
 });
 
-test("every route needs the nonce", async () => {
-  for (const path of ["/", "/api/model", "/app/main.js", `/${NONCE.slice(0, -1)}x/`, `/${NONCE}x/api/model`, "/vendor/three.module.js"]) {
-    const r = await get(path);
+test("a one-time link answers a page that sets a host-only HttpOnly, SameSite=Strict cookie and moves to / without a redirect", async () => {
+  const r = await anon(linkPath(server.newLink()), NAVIGATE);
+  assert.equal(r.status, 200, r.body.toString());
+  const set = r.headers["set-cookie"];
+  assert.ok(Array.isArray(set) && set.length === 1, String(set));
+  assert.match(set[0]!, new RegExp(`^o3j_${server.port}=[A-Za-z0-9_-]{43}; HttpOnly; SameSite=Strict; Path=/$`), "32 random bytes; no Domain (host-only), no Max-Age (ends with the browser session), no Secure on plain HTTP");
+  assert.equal(r.headers.location, undefined, "no 30x: a Strict cookie set during a cross-site navigation is not sent on its redirect");
+  assert.match(String(r.headers["content-type"]), /^text\/html/);
+  const html = r.body.toString();
+  assert.match(html, /<meta http-equiv="refresh" content="0;url=\/">/);
+  assert.doesNotMatch(html, /<script|test-nonce/i, "no script, and the page does not repeat a nonce");
+  assert.match(String(r.headers["content-security-policy"]), /^default-src 'none'/);
+  assert.equal(r.headers["referrer-policy"], "no-referrer", "the move to / does not send the link as a Referer");
+  assert.equal(r.headers["cache-control"], "no-store");
+  // The cookie it set opens the page at the root path.
+  const page = await anon("/", { cookie: sessionCookie(server, r)! });
+  assert.equal(page.status, 200);
+  assert.match(page.body.toString(), /<script type="importmap">/);
+  // A safe query (a renderer or quality switch) moves along; anything else is dropped.
+  const q = await anon(`${linkPath(server.newLink())}?renderer=webgl&dpr=1.5`, NAVIGATE);
+  assert.match(q.body.toString(), /content="0;url=\/\?renderer=webgl&amp;dpr=1\.5"/);
+  const bad = await anon(`${linkPath(server.newLink())}?x="><script>alert(1)</script>`, NAVIGATE);
+  assert.equal(bad.status, 200);
+  assert.match(bad.body.toString(), /content="0;url=\/"/);
+  assert.doesNotMatch(bad.body.toString(), /alert/);
+  // Without the last slash it is the same link.
+  const bare = await anon(linkPath(server.newLink()).slice(0, -1), NAVIGATE);
+  assert.equal(bare.status, 200);
+  assert.ok(sessionCookie(server, bare));
+});
+
+test("a one-time link works once: reuse answers 410, an unknown link 404, and the browser that used it goes back to /", async () => {
+  const link = linkPath(server.newLink());
+  const mine = await login(server, `${server.origin}${link}`);
+  const again = await anon(link, NAVIGATE);
+  assert.equal(again.status, 410);
+  assert.equal(again.body.toString().trim(), "this one-time link was already used; run open3dj view again or use 'Open in another browser' on the page");
+  assert.equal(again.headers["set-cookie"], undefined);
+  // The printed link, used in before(), is spent too.
+  assert.equal((await anon(`/${NONCE}/`, NAVIGATE)).status, 410);
+  // The same browser (it sends its cookie) is sent back to the page, with no new cookie.
+  const back = await anon(link, { ...NAVIGATE, cookie: mine });
+  assert.equal(back.status, 200);
+  assert.equal(back.headers["set-cookie"], undefined);
+  assert.match(back.body.toString(), /content="0;url=\/"/);
+  // A link the server never made is a plain 404, as is a near miss of a real one.
+  for (const path of [`/${NONCE.slice(0, -1)}x/`, "/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/", `/${link.slice(1, -2)}/`]) {
+    const r = await anon(path, NAVIGATE);
     assert.equal(r.status, 404, path);
-    assert.doesNotMatch(r.body.toString(), /enclosure|block|three/i, path);
+    assert.equal(r.body.toString().trim(), "not found", path);
   }
-  const page = await get(`/${NONCE}/`);
+});
+
+test("the link takes a navigation only: cross-site or none need Sec-Fetch-Mode navigate, and a refusal does not use it up", async () => {
+  const link = linkPath(server.newLink());
+  const refused: Array<[string, Record<string, string>, string, number]> = [
+    ["a cross-site fetch", { "sec-fetch-site": "cross-site", "sec-fetch-mode": "cors", "sec-fetch-dest": "empty" }, "GET", 403],
+    ["a cross-site image", { "sec-fetch-site": "cross-site", "sec-fetch-mode": "no-cors", "sec-fetch-dest": "image" }, "GET", 403],
+    ["a fetch with Sec-Fetch-Site none", { "sec-fetch-site": "none", "sec-fetch-mode": "cors" }, "GET", 403],
+    ["a frame", { "sec-fetch-site": "cross-site", "sec-fetch-mode": "navigate", "sec-fetch-dest": "iframe" }, "GET", 403],
+    ["a same-site page (another port on 127.0.0.1)", { "sec-fetch-site": "same-site", "sec-fetch-mode": "navigate", "sec-fetch-dest": "document" }, "GET", 403],
+    ["an unknown Sec-Fetch-Site", { "sec-fetch-site": "elsewhere", "sec-fetch-mode": "navigate" }, "GET", 403],
+    ["a foreign Origin", { ...NAVIGATE, origin: "http://evil.example" }, "GET", 403],
+    ["a foreign Host", { ...NAVIGATE, host: "evil.example" }, "GET", 403],
+    ["a rebinding Host", { ...NAVIGATE, host: `127.0.0.1.nip.io:${server.port}` }, "GET", 403],
+    ["HEAD", NAVIGATE, "HEAD", 405],
+    ["POST", NAVIGATE, "POST", 405],
+    ["PUT", NAVIGATE, "PUT", 405],
+  ];
+  for (const [why, headers, method, status] of refused) {
+    const r = await anon(link, headers, method);
+    assert.equal(r.status, status, `${why}: ${r.status} ${r.body.toString().trim()}`);
+    assert.equal(r.headers["set-cookie"], undefined, why);
+  }
+  // The same link still works as a cross-site navigation: the redirect file openBrowser writes is a file:// page.
+  const ok = await anon(link, { "sec-fetch-site": "cross-site", "sec-fetch-mode": "navigate", "sec-fetch-dest": "document" });
+  assert.equal(ok.status, 200, ok.body.toString());
+  assert.ok(sessionCookie(server, ok));
+  // A client that sends no Sec-Fetch headers (an older browser) logs in too.
+  assert.equal((await anon(linkPath(server.newLink()))).status, 200);
+});
+
+test("every route needs the cookie: without it, with another value or under another port's name the answer is a plain 404", async () => {
+  const value = cookie.slice(cookie.indexOf("=") + 1);
+  const wrong: Array<Record<string, string>> = [
+    {},
+    { cookie: `${server.cookieName}=${"A".repeat(43)}` },
+    { cookie: `o3j_${server.port + 1}=${value}` },
+    { cookie: `${server.cookieName}x=${value}` },
+    { cookie: `${server.cookieName}=${value}x` },
+  ];
+  for (const headers of wrong) {
+    for (const path of ["/", "/api/model", "/api/events", "/api/selection", "/app/main.js", "/vendor/three.module.js", `/${NONCE}/api/model`, "/api/rev/r_0001/model.glb"]) {
+      const r = await anon(path, headers);
+      assert.equal(r.status, 404, `${path} ${JSON.stringify(headers)}`);
+      assert.equal(r.body.toString().trim(), "not found", path);
+    }
+  }
+  // Other cookies around it (another viewer's, another site's) do not get in the way.
+  const page = await anon("/", { cookie: `o3j_${server.port + 1}=other; ${cookie}; theme=dark` });
   assert.equal(page.status, 200);
   assert.match(String(page.headers["content-type"]), /text\/html/);
   assert.match(String(page.headers["content-security-policy"]), /default-src 'none'/);
   assert.equal(page.headers["access-control-allow-origin"], undefined);
   assert.equal(page.headers["referrer-policy"], "no-referrer");
   assert.match(page.body.toString(), /<script type="importmap">/);
-  const bare = await get(`/${NONCE}`);
-  assert.equal(bare.status, 308);
-  assert.equal(bare.headers.location, `/${NONCE}/`);
 });
 
 test("a wrong Host, a foreign Origin, a cross-site fetch and writes are refused", async () => {
   for (const host of ["evil.example", `evil.example:${server.port}`, `127.0.0.1:${server.port + 1}`, `127.0.0.1.nip.io:${server.port}`]) {
-    const r = await get(`/${NONCE}/api/model`, { host });
+    const r = await get("/api/model", { host });
     assert.equal(r.status, 403, `host ${host}`);
   }
-  assert.equal((await get(`/${NONCE}/api/model`, { host: `localhost:${server.port}` })).status, 200);
+  assert.equal((await get("/api/model", { host: `localhost:${server.port}` })).status, 200);
   for (const origin of ["http://evil.example", `http://127.0.0.1:${server.port + 1}`, "null", `https://127.0.0.1:${server.port}`]) {
-    const r = await get(`/${NONCE}/api/model`, { origin });
+    const r = await get("/api/model", { origin });
     assert.equal(r.status, 403, `origin ${origin}`);
     assert.equal(r.headers["access-control-allow-origin"], undefined);
   }
-  assert.equal((await get(`/${NONCE}/api/model`, { origin: `http://127.0.0.1:${server.port}` })).status, 200);
-  assert.equal((await get(`/${NONCE}/api/model`, { "sec-fetch-site": "cross-site" })).status, 403);
-  assert.equal((await get(`/${NONCE}/api/model`, { "sec-fetch-site": "same-site" })).status, 403);
-  assert.equal((await get(`/${NONCE}/api/model`, { "sec-fetch-site": "same-origin" })).status, 200);
+  assert.equal((await get("/api/model", { origin: `http://127.0.0.1:${server.port}` })).status, 200);
+  assert.equal((await get("/api/model", { "sec-fetch-site": "cross-site" })).status, 403);
+  assert.equal((await get("/api/model", { "sec-fetch-site": "same-site" })).status, 403);
+  assert.equal((await get("/api/model", { "sec-fetch-site": "same-origin" })).status, 200);
+  // Only the one-time link takes a cross-site navigation; the page itself does not.
+  assert.equal((await get("/", { "sec-fetch-site": "cross-site", "sec-fetch-mode": "navigate", "sec-fetch-dest": "document" })).status, 403);
+  assert.equal((await get("/", NAVIGATE)).status, 200, "a typed or bookmarked URL (Sec-Fetch-Site none) with the cookie");
   for (const method of ["POST", "PUT", "DELETE", "OPTIONS"]) {
-    const r = await get(`/${NONCE}/api/model`, {}, method);
+    const r = await get("/api/model", {}, method);
     assert.equal(r.status, 405, method);
   }
 });
 
 test("path traversal never reaches a file outside the viewer assets", async () => {
   const attempts = [
+    "/../package.json",
+    "/app/../../package.json",
+    "/app/..%2f..%2fpackage.json",
+    "/app/%2e%2e/%2e%2e/package.json",
+    "/vendor/..%2F..%2F..%2Fpackage.json",
+    "/vendor/three.module.js%00.css",
+    "/app/..\\..\\package.json",
+    "/app/index.html",
+    "/part.o3j.js",
+    "/part.o3j/project.o3j.json",
+    "/api/rev/..%2f..%2fpart.o3j.js/model.glb",
+    "/api/rev/r_0001%2f..%2f..%2fpart.o3j.js/model.glb",
+    "/%E0%A4%A",
     `/${NONCE}/../package.json`,
-    `/${NONCE}/app/../../package.json`,
-    `/${NONCE}/app/..%2f..%2fpackage.json`,
-    `/${NONCE}/app/%2e%2e/%2e%2e/package.json`,
-    `/${NONCE}/vendor/..%2F..%2F..%2Fpackage.json`,
-    `/${NONCE}/vendor/three.module.js%00.css`,
-    `/${NONCE}/app/..\\..\\package.json`,
-    `/${NONCE}/app/index.html`,
-    `/${NONCE}/part.o3j.js`,
-    `/${NONCE}/part.o3j/project.o3j.json`,
-    `/${NONCE}/api/rev/..%2f..%2fpart.o3j.js/model.glb`,
-    `/${NONCE}/api/rev/r_0001%2f..%2f..%2fpart.o3j.js/model.glb`,
-    `/${NONCE}/%E0%A4%A`,
+    "//etc/passwd",
   ];
   for (const path of attempts) {
     const r = await get(path);
     assert.ok([400, 404].includes(r.status), `${path} answered ${r.status}`);
     assert.doesNotMatch(r.body.toString(), /"name"|box\(|"o3j"/, path);
   }
-  const css = await get(`/${NONCE}/app/viewer.css`);
+  const css = await get("/app/viewer.css");
   assert.equal(css.status, 200);
   assert.match(String(css.headers["content-type"]), /text\/css/);
-  const three = await get(`/${NONCE}/vendor/three.module.js`);
+  const three = await get("/vendor/three.module.js");
   assert.equal(three.status, 200);
   assert.match(String(three.headers["content-type"]), /javascript/);
 });
 
-test("the three.js add-ons are served at their nested paths, with the nonce, and cannot climb out", async () => {
+test("the three.js add-ons are served at their nested paths, with the cookie, and cannot climb out", async () => {
   for (const path of ["vendor/addons/lines/LineSegments2.js", "vendor/addons/lines/webgpu/LineSegments2.js", "vendor/addons/lines/LineSegmentsGeometry.js", "vendor/addons/lines/LineMaterial.js", "vendor/addons/environments/RoomEnvironment.js", "app/faces.js", "app/tools.js"]) {
-    const ok = await get(`/${NONCE}/${path}`);
+    const ok = await get(`/${path}`);
     assert.equal(ok.status, 200, path);
     assert.match(String(ok.headers["content-type"]), /javascript/, path);
-    assert.equal((await get(`/${path}`)).status, 404, `${path} without the nonce`);
-    assert.equal((await get(`/${NONCE}/${path}`, { host: "evil.example" })).status, 403, `${path} with a foreign Host`);
-    assert.equal((await get(`/${NONCE}/${path}`, { origin: "http://evil.example" })).status, 403, `${path} with a foreign Origin`);
+    assert.equal((await anon(`/${path}`)).status, 404, `${path} without the cookie`);
+    assert.equal((await get(`/${path}`, { host: "evil.example" })).status, 403, `${path} with a foreign Host`);
+    assert.equal((await get(`/${path}`, { origin: "http://evil.example" })).status, 403, `${path} with a foreign Origin`);
   }
   for (const path of [
-    `/${NONCE}/vendor/addons/lines/../../../package.json`,
-    `/${NONCE}/vendor/addons/lines/..%2f..%2f..%2fpackage.json`,
-    `/${NONCE}/vendor/addons/lines/webgpu/%2e%2e/%2e%2e/%2e%2e/build/three.cjs`,
-    `/${NONCE}/vendor/addons/lines/Wireframe.js`,
-    `/${NONCE}/vendor/addons/controls/TransformControls.js`,
-    `/${NONCE}/vendor/addons/lines/LineSegments2.js%00.css`,
+    "/vendor/addons/lines/../../../package.json",
+    "/vendor/addons/lines/..%2f..%2f..%2fpackage.json",
+    "/vendor/addons/lines/webgpu/%2e%2e/%2e%2e/%2e%2e/build/three.cjs",
+    "/vendor/addons/lines/Wireframe.js",
+    "/vendor/addons/controls/TransformControls.js",
+    "/vendor/addons/lines/LineSegments2.js%00.css",
   ]) {
     const r = await get(path);
     assert.ok([400, 404].includes(r.status), `${path} answered ${r.status}`);
@@ -156,13 +250,13 @@ test("the three.js add-ons are served at their nested paths, with the nonce, and
 });
 
 test("the model JSON carries the kernel's face count per definition, which face addresses depend on", async () => {
-  const m = JSON.parse((await get(`/${NONCE}/api/model`)).body.toString()) as { parts: Array<{ def: string; counts?: { faces?: number } }> };
+  const m = JSON.parse((await get("/api/model")).body.toString()) as { parts: Array<{ def: string; counts?: { faces?: number } }> };
   assert.ok(m.parts.length > 0);
   for (const p of m.parts) assert.equal(typeof p.counts?.faces, "number", `${p.def} has a face count`);
 });
 
 test("the model JSON lists the tree and the report, and the GLB route returns binary glTF", async () => {
-  const m = await get(`/${NONCE}/api/model`);
+  const m = await get("/api/model");
   assert.equal(m.status, 200);
   const model = JSON.parse(m.body.toString()) as { rev: string; head: string; tree: Array<{ path: string }>; parts: unknown[]; glb: string; run: { state: string } };
   assert.equal(model.rev, "r_0001");
@@ -172,16 +266,16 @@ test("the model JSON lists the tree and the report, and the GLB route returns bi
   assert.equal(model.run.state, "done");
   assert.equal(model.glb, "api/rev/r_0001/model.glb");
 
-  const glb = await get(`/${NONCE}/${model.glb}`);
+  const glb = await get(`/${model.glb}`);
   assert.equal(glb.status, 200);
   assert.equal(glb.headers["content-type"], "model/gltf-binary");
   assert.equal(glb.body.subarray(0, 4).toString("latin1"), "glTF");
   assert.equal(glb.body.readUInt32LE(4), 2);
   assert.equal(glb.body.readUInt32LE(8), glb.body.length);
 
-  assert.equal((await get(`/${NONCE}/api/rev/r_0099/model.glb`)).status, 404);
-  assert.equal((await get(`/${NONCE}/api/rev/latest/model.glb`)).status, 404);
-  const head = await get(`/${NONCE}/api/rev/r_0001/model.glb`, {}, "HEAD");
+  assert.equal((await get("/api/rev/r_0099/model.glb")).status, 404);
+  assert.equal((await get("/api/rev/latest/model.glb")).status, 404);
+  const head = await get("/api/rev/r_0001/model.glb", {}, "HEAD");
   assert.equal(head.status, 200);
   assert.equal(head.body.length, 0);
 });
@@ -190,7 +284,7 @@ test("the event stream announces a new revision after the script is saved", asyn
   const events: string[] = [];
   let resolveRev: (rev: string) => void;
   const announced = new Promise<string>((r) => (resolveRev = r));
-  const req = request({ host: "127.0.0.1", port: server.port, path: `/${NONCE}/api/events`, headers: { host: `127.0.0.1:${server.port}` } }, (res) => {
+  const req = request({ host: "127.0.0.1", port: server.port, path: "/api/events", headers: { host: `127.0.0.1:${server.port}`, cookie } }, (res) => {
     assert.equal(res.statusCode, 200);
     assert.match(String(res.headers["content-type"]), /text\/event-stream/);
     let buf = "";
@@ -222,7 +316,7 @@ test("the event stream announces a new revision after the script is saved", asyn
     req.destroy();
   }
   assert.ok(events.indexOf("run") > events.indexOf("hello"), events.join(", "));
-  const model = JSON.parse((await get(`/${NONCE}/api/model`)).body.toString()) as { rev: string; parts: Array<{ def: string; bbox: { max: number[] } }> };
+  const model = JSON.parse((await get("/api/model")).body.toString()) as { rev: string; parts: Array<{ def: string; bbox: { max: number[] } }> };
   assert.equal(model.rev, "r_0002");
   assert.equal(model.parts.find((p) => p.def === "block")?.bbox.max[2], 9);
 });
@@ -230,7 +324,7 @@ test("the event stream announces a new revision after the script is saved", asyn
 test("a script error keeps the last revision and is reported on the stream", async () => {
   writeFileSync(scriptFile, "const a = box(1, 1, 1);\nthrow new Error('broken on purpose');\n");
   await server.rerun();
-  const model = JSON.parse((await get(`/${NONCE}/api/model`)).body.toString()) as { rev: string; run: { state: string; error?: { code: string; line?: number } } };
+  const model = JSON.parse((await get("/api/model")).body.toString()) as { rev: string; run: { state: string; error?: { code: string; line?: number } } };
   assert.equal(model.rev, "r_0002");
   assert.equal(model.run.state, "error");
   assert.equal(model.run.error?.code, "SCRIPT_RUNTIME");
@@ -285,18 +379,10 @@ test("an agent's parameter values survive a comment-only save, and a save that d
   const s = await startViewServer({ handlers: h, root: d, project: join(d, "box.o3j"), script: file, nonce: NONCE, debounceMs: 50, pollMs: 100, log: () => {}, onRun: (run) => runs.push(run as { status?: string; warnings?: string[] }) });
   try {
     await s.ready;
+    const session = await login(s);
     const fetchModel = async () => {
-      const raw = await new Promise<string>((resolve, reject) => {
-        const req = request({ host: "127.0.0.1", port: s.port, path: `/${NONCE}/api/model`, headers: { host: `127.0.0.1:${s.port}` } }, (res) => {
-          let body = "";
-          res.setEncoding("utf8");
-          res.on("data", (c: string) => (body += c));
-          res.on("end", () => resolve(body));
-        });
-        req.on("error", reject);
-        req.end();
-      });
-      return JSON.parse(raw) as { rev: string; report: { status: string; warnings?: string[] }; parts: Array<{ bbox: { min: number[]; max: number[] } }>; run: { status?: string; warnings?: string[] } };
+      const r = await send(s, "/api/model", "GET", { cookie: session });
+      return JSON.parse(r.body.toString()) as { rev: string; report: { status: string; warnings?: string[] }; parts: Array<{ bbox: { min: number[]; max: number[] } }>; run: { status?: string; warnings?: string[] } };
     };
     // An agent sets Depth over MCP, in the same project.
     const agent = await h.run({ project: join(d, "box.o3j"), ops: [{ op: "set_param", name: "Depth", value: 110 }] });

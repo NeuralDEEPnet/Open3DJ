@@ -23,6 +23,7 @@ import type { PoolOptions } from "@open3dj/compute";
 import { createHandlers } from "@open3dj/mcp";
 import type { ViewerSelection } from "@open3dj/schemas";
 import { startViewServer } from "./view.ts";
+import { openPage } from "./view-login.testing.ts";
 
 const CLI = fileURLToPath(new URL("./cli.ts", import.meta.url));
 const ENCLOSURE = fileURLToPath(new URL("../../../examples/enclosure/enclosure.o3j.js", import.meta.url));
@@ -31,6 +32,7 @@ const ENCLOSURE = fileURLToPath(new URL("../../../examples/enclosure/enclosure.o
 // functions run in the browser, so they name globalThis themselves (no helpers from here).
 interface Page {
   goto(url: string): Promise<unknown>;
+  waitForURL(url: string, options?: { timeout: number }): Promise<void>;
   waitForFunction<A>(fn: (arg: A) => boolean, arg?: A, options?: { timeout: number }): Promise<unknown>;
   evaluate<T, A = undefined>(fn: (arg: A) => T, arg?: A): Promise<T>;
   click(selector: string): Promise<void>;
@@ -104,7 +106,7 @@ test("a face clicked in the viewer reaches the agent over MCP, and the agent's h
     const page = await browser.newPage({ viewport: { width: 1280, height: 800 } });
     const errors: string[] = [];
     page.on("pageerror", (e) => errors.push(e.message ?? String(e)));
-    await page.goto(server.url);
+    await openPage(page, server);
     await page.waitForFunction(() => (globalThis as unknown as ViewerWindow).document.documentElement.dataset.viewer === "ready", undefined, { timeout: 120_000 });
 
     // Click the lid's top face.

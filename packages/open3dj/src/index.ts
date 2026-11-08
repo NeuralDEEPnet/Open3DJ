@@ -394,7 +394,7 @@ async function view(command: Extract<Command, { cmd: "view" }>, io: Io): Promise
     await pool.close();
     throw new UsageError((e as Error).message);
   }
-  io.out(`open3dj view: ${server.url}\nwatching ${shown}; save it to update the view. Press Ctrl+C to stop.\n`);
+  io.out(`open3dj view: ${server.url}\nthis link works once; the browser that opens it keeps a session cookie and moves to ${server.origin}/\nwatching ${shown}; save it to update the view. Press Ctrl+C to stop.\n`);
   const opened = command.open ? openBrowser(server.url, (line) => io.err(`${line}\n`)) : undefined;
   await new Promise<void>((done) => {
     process.once("SIGINT", done);

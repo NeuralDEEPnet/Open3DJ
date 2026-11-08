@@ -53,7 +53,7 @@ const VENDOR: Record<string, string> = {
   "addons/lines/webgpu/LineSegments2.js": "examples/jsm/lines/webgpu/LineSegments2.js",
 };
 
-/** The import map the page uses. Paths are relative to the page, which lives at /<nonce>/. */
+/** The import map the page uses. Paths are relative to the page, which lives at the server's root path. */
 export const IMPORT_MAP = Object.freeze({
   imports: {
     three: "./vendor/three.module.js",
