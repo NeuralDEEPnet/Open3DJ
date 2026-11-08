@@ -5,12 +5,10 @@
 import { Console } from "node:console";
 import { McpServer, fromJsonSchema } from "@modelcontextprotocol/server";
 import { StdioServerTransport, serveStdio as sdkServeStdio } from "@modelcontextprotocol/server/stdio";
-import type { RenderImage } from "@open3dj/compute";
+import { callTool } from "./call.ts";
 import { TOOL_DEFINITIONS, TOOL_NAMES } from "./tools.ts";
 import type { ServeOptions, ToolHandlers } from "./types.ts";
 import { schemaValidator } from "./validator.ts";
-import { toScriptError } from "./errors.ts";
-import { noJob } from "./handlers.ts";
 
 export const SERVER_NAME = "open3dj";
 
@@ -19,42 +17,6 @@ export const INSTRUCTIONS = [
   "Loop: docs {query} for the DSL (docs {query: \"entries\"} lists them all), run {project: \"name.o3j\", script} for a GeometryReport, render {project, view: \"multiview\"} to see it, export {project, format: \"step\"} for STEP (or stl, gltf, 3mf).",
   "Pass base_rev from the last result to build on it. Errors are results with code, line, faulty elements and a hint.",
 ].join(" ");
-
-type Content =
-  | { type: "text"; text: string }
-  | { type: "image"; data: string; mimeType: string }
-  | { type: "resource"; resource: { uri: string; mimeType: string; text: string } };
-
-interface CallResult {
-  structuredContent: Record<string, unknown>;
-  content: Content[];
-  isError?: boolean;
-  [key: string]: unknown;
-}
-
-/** A tool result: structuredContent plus a JSON text mirror for clients that ignore it. */
-export function toolResult(structured: object, extra: Content[] = []): CallResult {
-  const sc = structured as Record<string, unknown>;
-  const result: CallResult = { structuredContent: sc, content: [{ type: "text", text: JSON.stringify(sc) }, ...extra] };
-  // docs has no status: a docs result with an error is an error result too.
-  if (sc.status === "error" || (sc.status === undefined && sc.error !== undefined)) result.isError = true;
-  return result;
-}
-
-/**
- * PNG renders as image content, SVG renders as an embedded text resource. The resource URI
- * names the project by its folder name only, never by the path the caller passed, which can
- * be absolute and hold the server's local paths.
- */
-export function imageContent(images: RenderImage[], projectArg: string, rev: string | undefined): Content[] {
-  const project = projectArg.split(/[\\/]/).filter((s) => s !== "").pop() ?? "";
-  const out: Content[] = [];
-  for (const img of images) {
-    if (img.format === "png") out.push({ type: "image", data: Buffer.from(img.bytes).toString("base64"), mimeType: "image/png" });
-    else out.push({ type: "resource", resource: { uri: `open3dj://${encodeURIComponent(project)}/${rev ?? "head"}/${encodeURIComponent(img.name)}`, mimeType: "image/svg+xml", text: Buffer.from(img.bytes).toString("utf8") } });
-  }
-  return out;
-}
 
 /** Build one McpServer with the five tools. serveStdio calls this once per connection era. */
 export function createServer(handlers: ToolHandlers, options: ServeOptions = {}): McpServer {
@@ -67,7 +29,6 @@ export function createServer(handlers: ToolHandlers, options: ServeOptions = {})
   // published schema, so a bad input becomes a structured BAD_INPUT result with a hint
   // instead of the SDK's plain-text validation error.
   const objectsOnly = permissiveValidator();
-  const failed = (e: unknown) => toolResult({ status: "error", error: toScriptError(e), compute: noJob("the handler failed") });
   for (const name of TOOL_NAMES) {
     const def = TOOL_DEFINITIONS[name];
     const config = {
@@ -77,22 +38,7 @@ export function createServer(handlers: ToolHandlers, options: ServeOptions = {})
       outputSchema: fromJsonSchema<Record<string, unknown>>(def.outputSchema as never, validator),
       annotations: def.annotations,
     };
-    server.registerTool(name, config, async (args: Record<string, unknown>) => {
-      try {
-        switch (name) {
-          case "run": return toolResult(await handlers.run(args as never));
-          case "inspect": return toolResult(await handlers.inspect(args as never));
-          case "export": return toolResult(await handlers.export(args as never));
-          case "docs": return toolResult(await handlers.docs(args as never));
-          case "render": {
-            const r = await handlers.render(args as never);
-            return toolResult(r.output, imageContent(r.images, String(args.project ?? ""), r.output.rev));
-          }
-        }
-      } catch (e) {
-        return failed(e);
-      }
-    });
+    server.registerTool(name, config, (args: Record<string, unknown>) => callTool(handlers, name, args));
   }
   return server;
 }
