@@ -26,6 +26,7 @@ Do not add a language, framework, build tool or runtime dependency without an ac
 | `AGENTS.md` | This file |
 | `CLAUDE.md` | Claude Code entry point; imports this file |
 | `CONTRIBUTORS.md` | Credits |
+| `LEADERBOARD.md` | The o3dj-bench leaderboard: what it measures, how to submit a capability result, the two tiers, the rules and the limits of every score |
 | `docs/PLAN.md` | The lean plan, the Kaizen loop and the roadmap of small releases (S0 to S12) |
 | `docs/ARCHITECTURE.md` | Technical architecture: contracts, process model, agent tools (section 9 is the canonical tool list), repo layout |
 | `docs/ASSEMBLIES.md` | Assembly-first document model, mates, fits, BOM and exports |
