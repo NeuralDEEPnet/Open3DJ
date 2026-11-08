@@ -68,7 +68,7 @@ What the agent got wrong, and what helped it recover:
 
 - The founder adds one entry to the [build log](../build-log.md): how many runs, how many passed every check, and the most common failure.
 - Every failure that shows a product problem (an unclear error, a missing DSL entry, a misleading report) becomes a [failure report](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=failure_report.yml), filed by a person.
-- **The brief becomes a capability task** when someone writes a reference solution and a seeded mutant and task-lint passes ([bench/README.md](../../bench/README.md#adding-a-task)). Today `scripts/bench.test.ts` asserts exactly 12 regression and 10 capability tasks, so a new task needs a maintainer-lane change to that test.
+- **The brief becomes a capability task** when someone writes a reference solution and a seeded mutant and task-lint passes ([bench/README.md](../../bench/README.md#adding-a-task)). A new task is only new files under `bench/tasks/<id>/`, so it merges in the auto lane and needs no test change: `scripts/bench.test.ts` requires at least 10 capability tasks, not exactly 10.
 
 ## In person
 

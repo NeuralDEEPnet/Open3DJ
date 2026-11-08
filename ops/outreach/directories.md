@@ -18,7 +18,7 @@ Unless a line says otherwise, every fact below was checked on 2026-11-05 at the 
 | Skip | [Smithery](#skip-smithery), [PulseMCP](#skip-pulsemcp) | Closed or paused | |
 | Later | [Docker MCP Catalog, Cline MCP Marketplace](#later) | After the name is cleared, if wanted | Free |
 
-Plan decision 3 applies: listings you can edit or remove later go ahead under the working name; permanent ones wait for the cleared name.
+[PLAN.md](../../docs/PLAN.md) section 11, decision 11 applies: listings you can edit or remove later go ahead under the working name; permanent ones, and the npm publish, wait for the cleared name (decision 1).
 
 ## 0. Repository description and topics
 
@@ -58,7 +58,7 @@ Repositories per topic on 2026-11-05, for scale: `ai-agents` 136,571, `mcp` 113,
 
 **Steps:**
 
-1. **A Dockerfile lands first.** It is code, so it is a maintainer-lane pull request ([.github/merge-policy.json](../../.github/merge-policy.json), rule `code`). Shape: a Node 24 image, `npm ci`, and `npx open3dj mcp --root /work` as the command. Glama's bot says "we only need the server to start and respond to introspection requests" (from the awesome list's [check-glama.yml](https://github.com/punkpeye/awesome-mcp-servers/blob/main/.github/workflows/check-glama.yml)).
+1. **A Dockerfile lands first.** It is code, so it is a maintainer-lane pull request ([.github/merge-policy.json](../../.github/merge-policy.json), rule `code`). It is in the repository since #41: a pinned Node 24 image, runtime dependencies only with no install scripts, and `node /app/packages/open3dj/src/cli.ts mcp --root /work` as the entry point, run as the non-root `node` user ([Dockerfile](../../Dockerfile)). Glama's bot says "we only need the server to start and respond to introspection requests" (from the awesome list's [check-glama.yml](https://github.com/punkpeye/awesome-mcp-servers/blob/main/.github/workflows/check-glama.yml)).
 2. **Optional: `glama.json`** at the repository root, `{"$schema": "https://glama.ai/mcp/schemas/server.json", "maintainers": ["NeuralDEEPnet"]}`. The schema requires only `maintainers` ([schema](https://glama.ai/mcp/schemas/server.json)). It is mandatory only for repositories owned by an organization; a personal repository like this one can be claimed by signing in ([what is glama.json](https://glama.ai/blog/2025-07-08-what-is-glamajson)). It keeps the claim if the repository later moves to an organization. No merge rule names it, so it is maintainer lane by default.
 3. **Sign in** at glama.ai with GitHub as `NeuralDEEPnet`. Glama checks that the submitter has write or admin access to the repository.
 4. **Add MCP Server.** Repository: `https://github.com/NeuralDEEPnet/Open3DJ`. Display name: `Open3DJ`. Description: the text under [Short description](#short-description).

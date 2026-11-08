@@ -59,5 +59,4 @@ What `cap-print-in-place-hinge` would need, beyond a reference solution, a seede
 
 - **The second pose.** A task grades one set of parameter values, and a project's saved values win over the task's (`solutionOf` in [bench/lib.ts](../../bench/lib.ts)). So `open-90` needs a grader change, a code change in the maintainer lane, or it stays a manual check.
 - **The print checks.** No bench assertion reads the `fdm.v1` gates yet ([bench/README.md](../../bench/README.md#not-yet)). A `gates` assertion kind would be a schema and grader change, in the maintainer lane.
-- **The task count.** `scripts/bench.test.ts` asserts exactly 10 capability tasks today, so adding one changes that test too.
 - **Pattern names.** Use `leaf_a` and `leaf_b` as the assertion patterns, as `reg-hinge` does.
