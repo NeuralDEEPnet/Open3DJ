@@ -160,7 +160,12 @@ test("a face clicked in the viewer reaches the agent over MCP, and the agent's h
     // A target in the banner is a button: it selects that part and frames it.
     await page.click(`#agent-targets button[data-target="${screw}"]`);
     await page.waitForFunction((want) => (globalThis as unknown as ViewerWindow).open3dj.state().selected.join() === want, screw, { timeout: 5_000 });
-    assert.notDeepEqual(await page.evaluate(() => (globalThis as unknown as ViewerWindow).open3dj.camera()), camera, "the target button frames it");
+    // Framing is a 240 ms camera animation (camera.js frame()), so the camera may not have
+    // moved yet when the selection lands: wait for it to move instead of reading it once.
+    const moved = await page
+      .waitForFunction((was) => JSON.stringify((globalThis as unknown as ViewerWindow).open3dj.camera()) !== was, JSON.stringify(camera), { timeout: 5_000 })
+      .then(() => true, () => false);
+    assert.ok(moved, "the target button frames it (the camera moves within 5 s)");
 
     // The person dismisses it.
     await page.click("#agent-dismiss");
