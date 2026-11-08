@@ -100,7 +100,7 @@ Testers are credited in the repository. Transcripts of where Claude went wrong a
 ```text
 I'm the founder of Neural Deep Network LTD. Open3DJ is our open-source (MIT) CAD MCP server. It runs locally over stdio, with five tools: run, inspect, render, export and docs. The agent writes a short JavaScript script; run returns a compact report (validity, volume, size, clashes and clearances between named parts), render returns a four-view drawing the agent can look at, and inspect gives 3D printing checks and element addresses. The server speaks MCP protocol versions 2025-06-18, 2025-11-25 and 2026-07-28.
 
-There is also a small benchmark, o3dj-bench: multi-part briefs graded by deterministic assertions, each with a seeded mutant that must fail. No agent has run its capability split yet.
+There is also a small benchmark, o3dj-bench: multi-part briefs graded by deterministic assertions, each with a seeded mutant that must fail. No agent has run its capability split yet; the first result sets the baseline: https://github.com/NeuralDEEPnet/Open3DJ/blob/main/LEADERBOARD.md
 
 The ask: connect your client (Claude Code, Codex, Cursor, VS Code, Gemini CLI and Claude Desktop use the same server command), ask for a small part, and tell us whether the handshake and the tools worked.
 

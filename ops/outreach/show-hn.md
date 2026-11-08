@@ -56,7 +56,7 @@ Or the one-line installers in [docs/TESTING.md](../../docs/TESTING.md#install), 
 | Tests | about 690, in `npm run check` | README |
 | CI | Linux x64 and ARM64, macOS on Apple Silicon, Windows x64 and ARM64 | README |
 | Examples | 10, with drawings | [examples/README.md](../../examples/README.md) |
-| Benchmark | o3dj-bench v0: 12 regression tasks (replayed in every check) and 10 multi-part capability briefs graded as pass^3 | [bench/README.md](../../bench/README.md) |
+| Benchmark | o3dj-bench v0: 12 regression tasks (replayed in every check) and 10 multi-part capability briefs graded as pass^3; results go on the leaderboard, with a first-pass challenge per task and no results yet | [bench/README.md](../../bench/README.md), [LEADERBOARD.md](../../LEADERBOARD.md) |
 | Large assemblies | reference assemblies of 145 and 1,025 occurrences; the viewer draws the 1,025 in 7 draw calls | ROADMAP S2 |
 
 **Screenshot:** [docs/images/viewer-enclosure.png](../../docs/images/viewer-enclosure.png), the viewer with the enclosure example. It is the first image in the README, so linking the repository shows it.
