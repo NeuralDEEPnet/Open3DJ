@@ -6,15 +6,20 @@
 //   add --cli to run through fresh CLI processes, --json for machine-readable output
 //
 // A run folder holds <task-id>/run-1, run-2 and run-3, each with the agent's project
-// solution.o3j. A project is graded as the agent left it: main.o3j.js with the values saved
-// in params.o3j.json (set_param, run params) over the task's params. The summary gives pass@1 per task (passing runs
-// out of 3) and pass^3 (tasks whose 3 runs all pass). It writes <folder>/grades.json.
-// Exit 0 when everything graded passes, 1 when anything fails, 3 on a usage error.
+// solution.o3j and the session's saved transcript (a file named transcript*). A project is
+// graded as the agent left it: main.o3j.js with the values saved in params.o3j.json
+// (set_param, run params) over the task's params. A run whose transcript mentions bench/tasks,
+// a reference or mutant script or the canary, or whose solution holds the canary, is suspect:
+// it never counts as a pass until a person has read its transcript. The summary gives the
+// passing runs per task (out of 3) and pass^3 (tasks whose 3 runs all pass, none suspect).
+// It writes <folder>/grades.json.
+// Exit 0 when everything graded passes cleanly, 1 when anything fails or is suspect, 3 on a
+// usage error.
 import { existsSync, readdirSync, statSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { createPool } from "@open3dj/compute";
-import { cliRunner, evaluateAll, loadTasks, poolRunner, solutionOf } from "./lib.ts";
-import type { AssertionResult, LoadedTask, Runner } from "./lib.ts";
+import { checkRun, cliRunner, evaluateAll, loadTasks, poolRunner, solutionOf, summarizeRuns } from "./lib.ts";
+import type { LoadedTask, RunGrade, Runner } from "./lib.ts";
 
 const args = process.argv.slice(2);
 const useCli = args.includes("--cli");
@@ -27,9 +32,7 @@ function usage(msg: string): never {
   process.exit(3);
 }
 
-interface Grade { task: string; run: string; pass: boolean; error?: string; results: AssertionResult[]; ms: number }
-
-async function grade(t: LoadedTask, path: string, label: string, run: Runner): Promise<Grade> {
+async function grade(t: LoadedTask, path: string, label: string, run: Runner): Promise<RunGrade> {
   let solution;
   try {
     solution = solutionOf(path, t.task.params);
@@ -43,20 +46,28 @@ async function grade(t: LoadedTask, path: string, label: string, run: Runner): P
   return { task: t.task.id, run: label, pass: results.every((x) => x.pass), results, ms: r.ms };
 }
 
+/** One run of a run folder: the project graded, then its transcripts and solution checked. */
+async function gradeRun(t: LoadedTask, runDir: string, label: string, run: Runner): Promise<RunGrade> {
+  const project = join(runDir, "solution.o3j");
+  const g = await grade(t, project, label, run);
+  const check = checkRun(runDir, join(project, "main.o3j.js"));
+  return { ...g, transcripts: check.transcripts.length, ...(check.suspect ? { suspect: check.suspect } : {}) };
+}
+
 const tasks = new Map(loadTasks().map((t) => [t.task.id, t]));
 const pool = useCli ? undefined : createPool({ size: 2, log: () => {} });
 const run = pool ? poolRunner(pool) : cliRunner;
-let grades: Grade[] = [];
+let grades: RunGrade[] = [];
 let folder: string | undefined;
 try {
   if (runsAt >= 0) {
     folder = resolve(args[runsAt + 1] ?? usage("--runs needs a folder"));
     if (!existsSync(folder)) usage(`${folder} does not exist`);
-    const jobs: Array<Promise<Grade>> = [];
+    const jobs: Array<Promise<RunGrade>> = [];
     for (const id of readdirSync(folder).sort()) {
       const t = tasks.get(id);
       if (!t || !statSync(join(folder, id)).isDirectory()) continue;
-      for (const k of [1, 2, 3]) jobs.push(grade(t, join(folder, id, `run-${k}`, "solution.o3j"), `run-${k}`, run));
+      for (const k of [1, 2, 3]) jobs.push(gradeRun(t, join(folder, id, `run-${k}`), `run-${k}`, run));
     }
     if (jobs.length === 0) usage(`no task folders in ${folder}`);
     grades = await Promise.all(jobs);
@@ -71,22 +82,22 @@ try {
   await pool?.close();
 }
 
-const byTask = new Map<string, Grade[]>();
-for (const g of grades) byTask.set(g.task, [...(byTask.get(g.task) ?? []), g]);
-const summary = [...byTask].map(([task, gs]) => ({ task, passed: gs.filter((g) => g.pass).length, runs: gs.length, pass3: gs.length === 3 && gs.every((g) => g.pass) }));
-const pass3 = summary.filter((s) => s.pass3).length;
-const out = { graded_at: new Date().toISOString(), tasks: summary.length, pass3_tasks: pass3, pass3: summary.length ? Math.round((pass3 / summary.length) * 1000) / 10 : 0, summary, grades };
+const sum = summarizeRuns(grades);
+const out = { graded_at: new Date().toISOString(), ...sum, grades };
 if (folder) writeFileSync(join(folder, "grades.json"), `${JSON.stringify(out, null, 2)}\n`);
 if (json) process.stdout.write(`${JSON.stringify(out, null, 2)}\n`);
 else {
   for (const g of grades) {
-    process.stdout.write(`${g.pass ? "PASS" : "FAIL"}  ${g.task} ${g.run}${g.error ? `  ${g.error}` : ""}\n`);
+    process.stdout.write(`${g.pass ? "PASS" : "FAIL"}  ${g.task} ${g.run}${g.error ? `  ${g.error}` : ""}${g.suspect ? `  SUSPECT: ${g.suspect}` : ""}\n`);
     for (const r of g.results) if (!r.pass) process.stdout.write(`      ${r.id}: ${r.detail}\n`);
   }
   if (folder) {
-    process.stdout.write("\n| Task | Runs passed | pass^3 |\n|---|---|---|\n");
-    for (const s of summary) process.stdout.write(`| ${s.task} | ${s.passed}/${s.runs} | ${s.pass3 ? "yes" : "no"} |\n`);
-    process.stdout.write(`\npass^3: ${pass3} of ${summary.length} tasks (${out.pass3}%). Wrote ${join(folder, "grades.json")}\n`);
+    process.stdout.write("\n| Task | Runs passed | Suspect runs | Runs without transcript | pass^3 |\n|---|---|---|---|---|\n");
+    for (const s of sum.summary) process.stdout.write(`| ${s.task} | ${s.passed}/${s.runs} | ${s.suspect} | ${s.without_transcript} | ${s.suspect > 0 ? "suspect" : s.pass3 ? "yes" : "no"} |\n`);
+    const suspect = sum.suspect_tasks.length > 0 ? ` Suspect, not counted until a person reads the transcripts: ${sum.suspect_tasks.join(", ")}.` : "";
+    const n = sum.runs_without_transcript;
+    const unchecked = n > 0 ? ` ${n} ${n === 1 ? "run has" : "runs have"} no transcript, so ${n === 1 ? "it was" : "they were"} not checked.` : "";
+    process.stdout.write(`\npass^3: ${sum.pass3_tasks} of ${sum.tasks} tasks (${sum.pass3}%).${suspect}${unchecked} Wrote ${join(folder, "grades.json")}\n`);
   }
 }
-process.exit(grades.every((g) => g.pass) ? 0 : 1);
+process.exit(grades.every((g) => g.pass && !g.suspect) ? 0 : 1);

@@ -1,13 +1,13 @@
 // o3dj-bench library: load tasks (C7, packages/schemas/json/bench-task.schema.json), run a
 // solution script through the real compute pool or the real CLI, and evaluate the task's
 // executable assertions on the detailed GeometryReport and the occurrence tree. Also the
-// canary of every task script.
+// canary of every task script and the checks that make a capability run suspect.
 // Used by bench/lint.ts (task-lint), bench/run-regression.ts, bench/grade.ts and
 // scripts/bench.test.ts. No LLM and no network anywhere in here.
 import { spawnSync } from "node:child_process";
 import { copyFileSync, existsSync, mkdtempSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
-import { join } from "node:path";
+import { join, relative, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 import { SchemaRegistry } from "@open3dj/schemas";
 import type { AssemblyFile, FitReport, GeometryReport, ParamValue, RunOutput, SchemaObject, ScriptError } from "@open3dj/schemas";
@@ -432,6 +432,117 @@ export function solutionOf(path: string, taskParams: Record<string, ParamValue>)
     && Object.values(saved).every((v) => ["number", "string", "boolean"].includes(typeof v));
   if (!ok) throw new Error(`${file}: params.o3j.json must be an object of name: value`);
   return { script, params: { ...taskParams, ...(saved as Record<string, ParamValue>) } };
+}
+
+// ---- Integrity of capability runs (bench/run-capability.md) -------------------------------
+
+/** What a run's transcript must never show: the task folder, a reference or mutant script, or the canary. */
+const LEAKS: Array<[string, RegExp]> = [
+  ["bench/tasks", /bench[\\/]+tasks/i],
+  ["a reference script", /reference\.o3j\.js/i],
+  ["a mutant script", /mutant[\w.-]*\.o3j\.js/i],
+  ["the o3dj-bench canary", new RegExp(CANARY_GUID, "i")],
+];
+
+/**
+ * Where a text first touches the task files, as "<what> on line <n>", or undefined. A match is
+ * a reason for a person to read the transcript, not proof that the agent cheated.
+ */
+export function leakIn(text: string): string | undefined {
+  let first: { what: string; index: number } | undefined;
+  for (const [what, re] of LEAKS) {
+    const m = re.exec(text);
+    if (m && (!first || m.index < first.index)) first = { what, index: m.index };
+  }
+  return first ? `${first.what} on line ${text.slice(0, first.index).split("\n").length}` : undefined;
+}
+
+/** A run folder's check: its transcript files (names that start with "transcript") and why the run is suspect, if it is. */
+export interface RunCheck {
+  transcripts: string[];
+  suspect?: string;
+}
+
+/**
+ * Checks one capability run folder: every saved transcript for a mention of the task files,
+ * and the solution script for the canary, which a script copied from a task carries along.
+ */
+export function checkRun(runDir: string, solutionScript?: string): RunCheck {
+  const transcripts = existsSync(runDir)
+    ? readdirSync(runDir, { withFileTypes: true }).filter((e) => e.isFile() && /^transcript/i.test(e.name)).map((e) => e.name).sort()
+    : [];
+  const reasons: string[] = [];
+  for (const name of transcripts) {
+    const leak = leakIn(readFileSync(join(runDir, name), "utf8"));
+    if (leak) reasons.push(`${name} mentions ${leak}`);
+  }
+  if (solutionScript && existsSync(solutionScript) && readFileSync(solutionScript, "utf8").includes(CANARY_GUID)) {
+    reasons.push(`${relative(runDir, solutionScript).split(sep).join("/")} holds the o3dj-bench canary`);
+  }
+  return { transcripts, ...(reasons.length > 0 ? { suspect: reasons.join("; ") } : {}) };
+}
+
+/** One graded run. transcripts and suspect are set for the runs of a run folder (checkRun). */
+export interface RunGrade {
+  task: string;
+  run: string;
+  pass: boolean;
+  error?: string;
+  results: AssertionResult[];
+  ms: number;
+  transcripts?: number;
+  suspect?: string;
+}
+
+export interface TaskRuns {
+  task: string;
+  /** Runs that pass and are not suspect. */
+  passed: number;
+  runs: number;
+  suspect: number;
+  without_transcript: number;
+  pass3: boolean;
+}
+
+export interface RunsSummary {
+  tasks: number;
+  pass3_tasks: number;
+  /** pass^3 in percent, one decimal. */
+  pass3: number;
+  runs: number;
+  passed_runs: number;
+  suspect_tasks: string[];
+  runs_without_transcript: number;
+  summary: TaskRuns[];
+}
+
+/**
+ * pass^3 and the passing runs, counting clean runs only: a suspect run is never a pass, so a
+ * task with one is not a pass^3 task until a person has read its transcripts.
+ */
+export function summarizeRuns(grades: RunGrade[]): RunsSummary {
+  const byTask = new Map<string, RunGrade[]>();
+  for (const g of grades) byTask.set(g.task, [...(byTask.get(g.task) ?? []), g]);
+  const clean = (g: RunGrade) => g.pass && !g.suspect;
+  const summary = [...byTask].map(([task, gs]) => ({
+    task,
+    passed: gs.filter(clean).length,
+    runs: gs.length,
+    suspect: gs.filter((g) => g.suspect).length,
+    without_transcript: gs.filter((g) => g.transcripts === 0).length,
+    pass3: gs.length === 3 && gs.every(clean),
+  }));
+  const pass3Tasks = summary.filter((s) => s.pass3).length;
+  return {
+    tasks: summary.length,
+    pass3_tasks: pass3Tasks,
+    pass3: summary.length ? Math.round((pass3Tasks / summary.length) * 1000) / 10 : 0,
+    runs: grades.length,
+    passed_runs: grades.filter(clean).length,
+    suspect_tasks: summary.filter((s) => s.suspect > 0).map((s) => s.task),
+    runs_without_transcript: summary.reduce((n, s) => n + s.without_transcript, 0),
+    summary,
+  };
 }
 
 /**
