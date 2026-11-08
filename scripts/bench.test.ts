@@ -10,15 +10,40 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { createPool } from "@open3dj/compute";
 import type { GeometryReport } from "@open3dj/schemas";
-import { evaluate, evaluateAll, glob, lintTask, loadTasks, meets, poolRunner, runOnPool, solutionOf, turnedScript, validateTask } from "../bench/lib.ts";
-import type { Assertion, Outcome } from "../bench/lib.ts";
+import { ROOT, evaluate, evaluateAll, glob, lintTask, loadTasks, meets, poolRunner, runOnPool, solutionOf, turnedScript, validateTask } from "../bench/lib.ts";
+import type { Assertion, LoadedTask, Outcome } from "../bench/lib.ts";
+import { evaluate as evaluateLanes, validatePolicy } from "./automerge/policy.ts";
+import type { ChangedFile } from "./automerge/policy.ts";
 
 const tasks = loadTasks();
 
-test("bench/tasks holds 12 regression and 10 capability tasks, all well formed", () => {
-  assert.equal(tasks.filter((t) => t.task.split === "regression").length, 12);
-  assert.equal(tasks.filter((t) => t.task.split === "capability").length, 10);
+// The files a task declares: task.json and its scripts. Not a listing of the task folder:
+// `npx open3dj run <script>` leaves a <name>.o3j/ project folder next to the script
+// (bench/README.md, Adding a task), which .gitignore leaves out and which is not part of the task.
+const taskFiles = (t: LoadedTask): string[] => ["task.json", t.task.reference, t.task.mutant, ...(t.task.more_mutants ?? []).map((m) => m.file)];
+
+// The counts are floors, not exact numbers: a new task is then only new files in bench/tasks,
+// which the merge policy puts in the auto lane, and no task can go missing unnoticed.
+test("bench/tasks holds at least 12 regression and 10 capability tasks, all well formed", () => {
+  const count = (split: string) => tasks.filter((t) => t.task.split === split).length;
+  assert.ok(count("regression") >= 12, `${count("regression")} regression tasks, expected at least 12`);
+  assert.ok(count("capability") >= 10, `${count("capability")} capability tasks, expected at least 10`);
   for (const t of tasks) assert.deepEqual(t.problems, [], `${t.task.id}: ${t.problems.join("; ")}`);
+});
+
+// A new task is a new folder. Every kind of file a task declares today, added under a new id,
+// must be in the auto lane of .github/merge-policy.json, so a task pull request needs no
+// maintainer; changing an existing task.json still does.
+test("a new task folder is only added files, all in the auto lane", () => {
+  const policy = validatePolicy(JSON.parse(readFileSync(join(ROOT, ".github", "merge-policy.json"), "utf8")));
+  const change = (filename: string, status: string): ChangedFile => ({ filename, status, additions: 40, deletions: 0, hasPatch: true, size: 2000, mode: "100644" });
+  const names = [...new Set(tasks.flatMap(taskFiles))].sort();
+  for (const f of ["task.json", "reference.o3j.js", "mutant.o3j.js"]) assert.ok(names.includes(f), `${f} in ${names.join(", ")}`);
+  for (const id of ["reg-new-part", "cap-new-brief"]) {
+    const ev = evaluateLanes(names.map((n) => change(`bench/tasks/${id}/${n}`, "added")), policy);
+    assert.equal(ev.lane, "auto", JSON.stringify(ev.files.filter((f) => f.lane !== "auto")));
+  }
+  assert.equal(evaluateLanes([change("bench/tasks/reg-bracket/task.json", "modified")], policy).lane, "maintainer");
 });
 
 test("the schema rejects malformed tasks", () => {

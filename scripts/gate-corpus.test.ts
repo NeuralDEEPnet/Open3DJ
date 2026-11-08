@@ -6,15 +6,22 @@
 // node scripts/gate-corpus.ts runs the same corpus by hand and prints the table.
 import { after, test } from "node:test";
 import assert from "node:assert/strict";
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { createPool } from "@open3dj/compute";
 import type { PartGateRun } from "@open3dj/schemas";
+import { evaluate as evaluateLanes, validatePolicy } from "./automerge/policy.ts";
+import type { ChangedFile } from "./automerge/policy.ts";
 import { checkCorpus, countOf, judgeCase, loadCorpus, problemsOf, runOnPool, table } from "./gate-corpus-lib.ts";
 import type { CaseRun, GateCase } from "./gate-corpus-lib.ts";
+import { ROOT } from "./lib.ts";
 
 const corpus = loadCorpus();
 
-test("corpora/gates/cases.json is well formed and covers every script", () => {
+test("the corpus (cases.json and cases/*.json) is well formed and covers every script", () => {
   assert.deepEqual(checkCorpus(corpus), []);
+  assert.equal(corpus.sources?.length, corpus.cases.length);
   const kinds = (k: string) => corpus.cases.filter((c) => c.kind === k).length;
   assert.ok(kinds("defect") >= 25 && kinds("control") >= 10, `${kinds("defect")} defects, ${kinds("control")} controls`);
   assert.equal(kinds("known-miss"), 1, "the documented leaning-tip miss, and nothing else");
@@ -34,6 +41,55 @@ test("the manifest check catches mistakes in a case", () => {
   assert.ok(bad((c) => { c.build = [0, 0, 0]; }).some((p) => p.includes("build")), "a zero build direction");
   assert.ok(bad((c) => { (c as unknown as Record<string, unknown>).bulid = [0, 0, 1]; }).some((p) => p.includes("unknown field bulid")), "a misspelt field");
   assert.ok(bad((c) => { (c.expect as Record<string, unknown>).min_wall = { verdict: "fail", marginl: true }; }).some((p) => p.includes("unknown field marginl")), "a misspelt flag");
+});
+
+// A new case can be one file of its own, corpora/gates/cases/<id>.json, next to its script, so
+// adding a case changes no existing file. cases.json keeps the first 57 cases.
+test("a case can be its own file in cases/, with ids unique across cases.json and cases/", () => {
+  const dir = mkdtempSync(join(tmpdir(), "o3dj-corpus-"));
+  try {
+    const base = corpus.cases.find((c) => c.id === "control-block")!;
+    const one = (id: string) => ({ ...structuredClone(base), id });
+    writeFileSync(join(dir, "cases.json"), JSON.stringify({ profile: "fdm.v1", cases: [one("listed")] }));
+    mkdirSync(join(dir, "cases"));
+    for (const id of ["listed", "own-file"]) writeFileSync(join(dir, `${id}.o3j.js`), "return box(20, 20, 10);\n");
+    writeFileSync(join(dir, "cases", "own-file.json"), JSON.stringify(one("own-file")));
+    const loaded = loadCorpus(dir);
+    assert.deepEqual(loaded.cases.map((c) => c.id), ["listed", "own-file"]);
+    assert.deepEqual(loaded.sources, ["cases.json", "cases/own-file.json"]);
+    assert.deepEqual(checkCorpus(loaded, dir), []);
+    // Each bad file fails the check with its own name in the message.
+    const problemsWith = (name: string, text: string) => {
+      writeFileSync(join(dir, "cases", name), text);
+      try {
+        return checkCorpus(loadCorpus(dir), dir);
+      } finally {
+        rmSync(join(dir, "cases", name));
+      }
+    };
+    const has = (problems: string[], ...parts: string[]) => assert.ok(problems.some((p) => parts.every((x) => p.includes(x))), `${parts.join(" + ")} in:\n  ${problems.join("\n  ")}`);
+    has(problemsWith("listed.json", JSON.stringify(one("listed"))), "case listed", "duplicate id", "cases.json", "cases/listed.json");
+    has(problemsWith("broken.json", "{ \"id\": \"broken\", "), "cases/broken.json", "not valid JSON");
+    has(problemsWith("two.json", JSON.stringify([one("two")])), "cases/two.json", "one case object");
+    has(problemsWith("renamed.json", JSON.stringify(one("own-file-2"))), "cases/renamed.json", "file name must be the case id");
+    has(problemsWith("notes.md", "# notes\n"), "cases/notes.md", "<id>.json");
+    has(problemsWith("bad-kind.json", JSON.stringify({ ...one("bad-kind"), kind: "control-ish" })), "case bad-kind (cases/bad-kind.json)", "kind must be");
+    // A script with no case anywhere is still reported.
+    writeFileSync(join(dir, "stray.o3j.js"), "return box(1, 1, 1);\n");
+    has(checkCorpus(loadCorpus(dir), dir), "stray.o3j.js has no case");
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+// The merge policy puts added corpus files in the auto lane and changed ones in the
+// maintainer lane, so a case of its own (and a row in the README) needs no maintainer.
+test("a new case, its own case file plus its script, is in the auto lane", () => {
+  const policy = validatePolicy(JSON.parse(readFileSync(join(ROOT, ".github", "merge-policy.json"), "utf8")));
+  const change = (filename: string, status: string): ChangedFile => ({ filename, status, additions: 20, deletions: 0, hasPatch: true, size: 800, mode: "100644" });
+  const ev = evaluateLanes([change("corpora/gates/cases/wall-new-0.5.json", "added"), change("corpora/gates/wall-new-0.5.o3j.js", "added"), change("corpora/gates/README.md", "modified")], policy);
+  assert.equal(ev.lane, "auto", JSON.stringify(ev.files));
+  assert.equal(evaluateLanes([change("corpora/gates/cases.json", "modified")], policy).lane, "maintainer", "an entry in the shared manifest changes an existing file");
 });
 
 // A part's gate result, as the gate job returns it: only the fields the judge reads.
