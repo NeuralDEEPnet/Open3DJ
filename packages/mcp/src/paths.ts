@@ -125,15 +125,16 @@ export function ensureProjectRoot(project: ProjectDir): void {
 /**
  * Write a file inside the project atomically. relPath is relative to the project folder.
  * With exclusive, an existing file is never replaced: the write fails with code EEXIST.
+ * mode is the new file's permission bits (default 0o644; 0o600 for this user only).
  */
-export function writeProjectFile(project: ProjectDir, relPath: string, data: string | Uint8Array, options: { exclusive?: boolean } = {}): string {
+export function writeProjectFile(project: ProjectDir, relPath: string, data: string | Uint8Array, options: { exclusive?: boolean; mode?: number } = {}): string {
   const segs = safeSegments(relPath);
   const name = segs.pop()!;
   const dir = segs.length ? ensureDir(project, segs.join("/")) : (ensureProjectRoot(project), project.dir);
   const target = join(dir, name);
   if (isSymlink(target)) throw new ToolError("PATH_REFUSED", `${relLabel(project, target)} is a symlink; refusing to replace it`);
   const tmp = join(dir, `.${name}.${randomBytes(6).toString("hex")}.tmp`);
-  const fd = openSync(tmp, constants.O_WRONLY | constants.O_CREAT | constants.O_EXCL | NOFOLLOW, 0o644);
+  const fd = openSync(tmp, constants.O_WRONLY | constants.O_CREAT | constants.O_EXCL | NOFOLLOW, options.mode ?? 0o644);
   try {
     const buf = typeof data === "string" ? Buffer.from(data, "utf8") : data;
     let off = 0;
