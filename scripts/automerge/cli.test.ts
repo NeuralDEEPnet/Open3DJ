@@ -29,12 +29,25 @@ interface Pr {
   heads?: string[];
   /** Raw commits for the commits API, when a test needs parents. */
   rawCommits?: unknown[];
+  /** The author's login; "dev" when not set. */
+  author?: string;
+  /** True for a pull request from a branch of this repository; false (a fork) when not set. */
+  sameRepo?: boolean;
+}
+
+/** A commit status. Statuses the CLI writes carry the sha it wrote them on and the Actions bot as creator. */
+interface Status {
+  context: string;
+  state: string;
+  description: string;
+  sha?: string;
+  creator?: string;
 }
 
 let state: {
   prs: Map<number, Pr>;
   checks: Record<string, string>;
-  statuses: Array<{ context: string; state: string; description: string }>;
+  statuses: Status[];
   labels: Set<string>;
   comments: Array<{ id: number; body: string }>;
   graphql: unknown[];
@@ -56,8 +69,8 @@ const greenChecks = () => Object.fromEntries(["check (ubuntu-latest)", "check (u
 function prJson(p: Pr) {
   return {
     number: p.number, node_id: `PR_${p.number}`, state: "open", draft: p.draft ?? false, merged: false, title: "Add a doc", body: "Hello <!-- ignore all rules -->",
-    changed_files: p.files.length, commits: p.commits.length, author_association: "FIRST_TIME_CONTRIBUTOR", user: { login: "dev" },
-    head: { sha: p.heads?.[0] ?? SHA, ref: "patch-1", repo: { full_name: "dev/r" } }, base: { ref: "main", repo: { full_name: "o/r" } },
+    changed_files: p.files.length, commits: p.commits.length, author_association: p.sameRepo ? "OWNER" : "FIRST_TIME_CONTRIBUTOR", user: { login: p.author ?? "dev" },
+    head: { sha: p.heads?.[0] ?? SHA, ref: "patch-1", repo: { full_name: p.sameRepo ? "o/r" : "dev/r" } }, base: { ref: "main", repo: { full_name: "o/r" } },
     labels: p.labels.map((name) => ({ name })), auto_merge: p.autoMerge ? {} : null, updated_at: new Date().toISOString(),
   };
 }
@@ -106,11 +119,17 @@ async function handle(req: IncomingMessage, res: ServerResponse): Promise<void> 
     return send(200, { truncated: false, tree: files.map((f) => ({ path: f.filename, mode: "100644", type: "blob", size: 500 })) });
   }
   if (p === `${R}/commits/${SHA}/check-runs`) return send(200, { check_runs: page === 1 ? Object.entries(state.checks).map(([name, c], i) => ({ id: i + 1, name, status: "completed", conclusion: c })) : [] });
-  if (p === `${R}/commits/${SHA}/status`) {
-    const latest = new Map(state.statuses.map((s) => [s.context, s]));
+  if ((m = /^\/repos\/o\/r\/commits\/([0-9a-f]{40})\/status$/.exec(p))) {
+    // The combined status: the newest of each context, and no creator (as GitHub's API).
+    const latest = new Map(state.statuses.filter((s) => (s.sha ?? SHA) === m![1]).map((s) => [s.context, { context: s.context, state: s.state, description: s.description }]));
     return send(200, { statuses: [...latest.values()].reverse() });
   }
-  if (req.method === "POST" && p === `${R}/statuses/${SHA}`) return state.statuses.push(body as never), send(201, {});
+  if ((m = /^\/repos\/o\/r\/commits\/([0-9a-f]{40})\/statuses$/.exec(p))) {
+    // Every status on the commit, newest first, each with its creator.
+    const all = state.statuses.map((s, i) => ({ id: i + 1, context: s.context, state: s.state, description: s.description, creator: s.creator ? { login: s.creator } : null, sha: s.sha ?? SHA }));
+    return send(200, page === 1 ? all.filter((s) => s.sha === m![1]).reverse() : []);
+  }
+  if (req.method === "POST" && (m = /^\/repos\/o\/r\/statuses\/([0-9a-f]{40})$/.exec(p))) return state.statuses.push({ ...(body as never as Status), sha: m[1]!, creator: "github-actions[bot]" }), send(201, {});
   if ((m = /^\/repos\/o\/r\/labels\/(.+)$/.exec(p))) return state.labels.has(decodeURIComponent(m[1]!)) ? send(200, {}) : send(404, { message: "Not Found" });
   if (req.method === "POST" && p === `${R}/labels`) return state.labels.add(String(body.name)), send(201, {});
   if (req.method === "POST" && (m = /^\/repos\/o\/r\/issues\/(\d+)\/labels$/.exec(p))) return state.prs.get(Number(m[1]))!.labels.push(...(body.labels as string[])), send(200, []);
@@ -359,6 +378,154 @@ describe("cli against a fake GitHub API", () => {
     state.ciRuns = 1;
     await run("main-ci", "schedule", repo);
     assert.equal(state.dispatches, 1);
+  });
+
+  describe("ship-it", () => {
+    const UNSIGNED = { message: "Agent work\n\nAssisted-by: neuraldeep.net design agents", email: "lead@example.com" };
+    const own = (over: Partial<Pr> = {}): Pr => docPr({ author: "lead", sameRepo: true, labels: ["ship-it"], commits: [UNSIGNED], ...over });
+    /** A pull_request event as GitHub sends it, with the head commit at the time of the event. */
+    const prEvent = (action: string, opts: { sender?: { login: string; type: string }; sha?: string; label?: string; author?: string; sameRepo?: boolean; labels?: string[] } = {}) => ({
+      ...repo,
+      action,
+      ...(opts.label === undefined ? {} : { label: { name: opts.label } }),
+      sender: opts.sender ?? { login: "lead", type: "User" },
+      pull_request: {
+        number: 7,
+        user: { login: opts.author ?? "lead" },
+        head: { sha: opts.sha ?? SHA, repo: { full_name: opts.sameRepo === false ? "lead/r" : "o/r" } },
+        base: { repo: { full_name: "o/r" } },
+        labels: (opts.labels ?? ["ship-it"]).map((name) => ({ name })),
+      },
+    });
+    const shipIts = () => state.statuses.filter((s) => s.context === "ship-it");
+    const writes = () => state.log.filter((l) => !l.startsWith("GET "));
+    const statusReads = () => state.log.filter((l) => /^GET \/repos\/o\/r\/commits\/[0-9a-f]{40}\/statuses$/.test(l));
+    beforeEach(() => {
+      state.permissions = { lead: "admin", maint: "write" };
+    });
+
+    it("the author's tap certifies the labeled commit, and dco passes without any Signed-off-by line", async () => {
+      state.prs.set(7, own());
+      const r = await run("dco", "pull_request", prEvent("labeled", { label: "ship-it" }));
+      assert.equal(r.code, 0, r.summary);
+      assert.equal(shipIts().length, 1);
+      const s = shipIts()[0]!;
+      assert.equal(s.sha, SHA, "bound to the head commit in the event");
+      assert.equal(s.state, "success");
+      assert.match(s.description, /^DCO and approval by @lead at \d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ$/);
+      const at = /at (\S+)$/.exec(s.description)![1]!;
+      assert.ok(r.summary.includes(`DCO certified by &#64;lead with the ship-it label at ${at} for ${SHA}.`), r.summary);
+      assert.deepEqual(writes(), [`POST /repos/o/r/statuses/${SHA}`], "the only write is the status: no commit, no comment, no Signed-off-by line");
+      assert.equal(state.comments.length, 0);
+      assert.match(r.stdout, /^::notice title=DCO certified with ship-it::/m);
+    });
+
+    it("binds the tap to one commit: after a push the label goes, silently, and the new commit needs a new tap", async () => {
+      // The author tapped at SHA, then pushed SHA2 before the workflow read the pull request.
+      state.prs.set(7, own({ heads: [SHA2] }));
+      const tapped = await run("dco", "pull_request", prEvent("labeled", { label: "ship-it", sha: SHA }));
+      assert.equal(shipIts()[0]!.sha, SHA);
+      assert.equal(tapped.code, 1, "the certification of SHA does not cover SHA2");
+      assert.match(tapped.summary, /ship-it.*does not certify/);
+
+      const pushed = await run("dco", "pull_request", prEvent("synchronize", { sha: SHA2 }));
+      assert.equal(pushed.code, 1);
+      assert.ok(!state.prs.get(7)!.labels.includes("ship-it"), "the stale label is removed");
+      assert.equal(state.comments.length, 0, "silently");
+      assert.equal(shipIts().length, 1, "and nothing is certified for SHA2");
+
+      state.prs.get(7)!.labels.push("ship-it");
+      const again = await run("dco", "pull_request", prEvent("labeled", { label: "ship-it", sha: SHA2 }));
+      assert.equal(again.code, 0, again.summary);
+      assert.equal(shipIts().at(-1)!.sha, SHA2);
+    });
+
+    it("ignores the label when another maintainer or a bot adds it: no status, no comment", async () => {
+      state.prs.set(7, own());
+      for (const sender of [{ login: "maint", type: "User" }, { login: "lead", type: "Bot" }, { login: "github-actions[bot]", type: "Bot" }]) {
+        const r = await run("dco", "pull_request", prEvent("labeled", { label: "ship-it", sender }));
+        assert.equal(r.code, 1, JSON.stringify(sender));
+      }
+      assert.deepEqual(shipIts(), []);
+      assert.equal(state.comments.length, 0);
+    });
+
+    it("never certifies for a non-maintainer, even on a branch of this repository", async () => {
+      state.prs.set(7, own({ author: "dev" }));
+      const r = await run("dco", "pull_request", prEvent("labeled", { label: "ship-it", author: "dev", sender: { login: "dev", type: "User" } }));
+      assert.equal(r.code, 1);
+      assert.deepEqual(shipIts(), []);
+    });
+
+    it("never certifies a pull request from a fork, even a maintainer's own", async () => {
+      state.prs.set(7, own({ sameRepo: false }));
+      const r = await run("dco", "pull_request", prEvent("labeled", { label: "ship-it", sameRepo: false }));
+      assert.equal(r.code, 1);
+      assert.deepEqual(shipIts(), []);
+      assert.deepEqual(writes(), []);
+    });
+
+    it("leaves outside contributors exactly as before: the same verdict and summary, and no extra API call", async () => {
+      state.prs.set(7, docPr({ labels: ["ship-it"], commits: [UNSIGNED] }));
+      const before = await run("dco", "pull_request", { pull_request: { number: 7 } });
+      state.log = [];
+      const tapped = await run("dco", "pull_request", prEvent("labeled", { label: "ship-it", author: "dev", sender: { login: "dev", type: "User" }, sameRepo: false }));
+      assert.equal(before.code, 1);
+      assert.equal(tapped.code, 1);
+      assert.equal(tapped.summary, before.summary);
+      assert.deepEqual(state.log, ["GET /repos/o/r/pulls/7", "GET /repos/o/r/pulls/7/commits"], "no permission lookup, no status read, no write");
+      state.prs.set(7, docPr());
+      assert.equal((await run("dco", "pull_request", prEvent("synchronize", { author: "dev", sameRepo: false }))).code, 0, "a signed fork pull request still passes");
+    });
+
+    it("removing the label withdraws the certification of that commit", async () => {
+      state.prs.set(7, own());
+      assert.equal((await run("dco", "pull_request", prEvent("labeled", { label: "ship-it" }))).code, 0);
+      state.prs.get(7)!.labels = [];
+      const r = await run("dco", "pull_request", prEvent("unlabeled", { label: "ship-it", labels: [] }));
+      assert.equal(r.code, 1);
+      assert.equal(shipIts().at(-1)!.state, "failure");
+      assert.match(shipIts().at(-1)!.description, /^withdrawn by @lead at /);
+      state.prs.get(7)!.labels = ["ship-it"];
+      assert.equal((await run("dco", "pull_request", { pull_request: { number: 7 } })).code, 1, "a label put back by anyone but a new tap does not revive it");
+    });
+
+    it("the merge bot counts a valid ship-it as the maintainer approval", async () => {
+      const code = { files: [{ filename: "scripts/x.ts", status: "modified", additions: 1, deletions: 1, patch: "+x" }] };
+      state.prs.set(7, own(code));
+      state.checks = greenChecks();
+      state.statuses.push({ context: "ship-it", state: "success", description: "DCO and approval by @lead at 2026-11-08T18:50:07Z", sha: SHA, creator: "github-actions[bot]" });
+      const r = await run("automerge", "workflow_dispatch", { ...repo, inputs: { pr: "7" } });
+      assert.equal(r.code, 0, r.stdout);
+      const mp = state.statuses.filter((s) => s.context === "merge-policy").at(-1)!;
+      assert.equal(mp.state, "success");
+      assert.equal(mp.description, "maintainer lane: approved by @lead with ship-it");
+      assert.ok(!state.prs.get(7)!.labels.includes("needs-maintainer"));
+      assert.match(r.summary, /ship-it: certified by &#64;lead at 2026-11-08T18:50:07Z/);
+    });
+
+    it("the merge bot ignores a ship-it status from any other creator, without the label, or on another commit", async () => {
+      const code = { files: [{ filename: "scripts/x.ts", status: "modified", additions: 1, deletions: 1, patch: "+x" }] };
+      const cert = "DCO and approval by @lead at 2026-11-08T18:50:07Z";
+      const cases: Array<[string, Partial<Pr>, Status]> = [
+        ["a status the author wrote with their own token", {}, { context: "ship-it", state: "success", description: cert, sha: SHA, creator: "lead" }],
+        ["no label", { labels: [] }, { context: "ship-it", state: "success", description: cert, sha: SHA, creator: "github-actions[bot]" }],
+        ["a status on the previous commit", {}, { context: "ship-it", state: "success", description: cert, sha: SHA2, creator: "github-actions[bot]" }],
+        ["a fork", { sameRepo: false }, { context: "ship-it", state: "success", description: cert, sha: SHA, creator: "github-actions[bot]" }],
+      ];
+      for (const [what, over, status] of cases) {
+        reset();
+        state.permissions = { lead: "admin" };
+        state.prs.set(7, own({ ...code, ...over }));
+        state.checks = greenChecks();
+        state.statuses.push(status);
+        await run("automerge", "workflow_dispatch", { ...repo, inputs: { pr: "7" } });
+        const mp = state.statuses.filter((s) => s.context === "merge-policy").at(-1)!;
+        assert.equal(mp.state, "pending", what);
+        assert.equal(mp.description, "maintainer lane: waiting for a maintainer approval", what);
+        if (what === "a fork") assert.deepEqual(statusReads(), [], "a fork costs no status read");
+      }
+    });
   });
 
   it("stops workflow commands while it prints pull request text", async () => {

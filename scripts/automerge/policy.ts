@@ -30,10 +30,11 @@ export interface Policy {
   };
   requiredChecks: string[];
   approvals: { required: number; permissions: string[]; mustMatchHeadCommit: boolean };
-  labels: { laneAuto: string; laneMaintainer: string; needsMaintainer: string; aiPass: string; aiChanges: string; hold: string[] };
+  /** shipIt: the label a maintainer adds to approve and certify their own pull request (shipit.ts). */
+  labels: { laneAuto: string; laneMaintainer: string; needsMaintainer: string; aiPass: string; aiChanges: string; hold: string[]; shipIt: string };
   /** Budget for the AI review, so that pushes cannot run up the cost of the AI secret. */
   aiReview: { maxReviewsPerPullRequestPerDay: number; maxNewPullRequestsPerAuthorPerDay: number };
-  statusContexts: { mergePolicy: string; aiReview: string };
+  statusContexts: { mergePolicy: string; aiReview: string; shipIt: string };
   mergeMethod: "SQUASH" | "REBASE" | "MERGE";
 }
 
@@ -258,6 +259,8 @@ export interface MergeInput {
   /** State of every check and status on the head commit, by name. */
   checks: Record<string, CheckState>;
   reviews: ReviewSummary;
+  /** A valid ship-it on the head commit (shipit.ts, verifyShipIt): the author's own approval as a maintainer. */
+  shipIt?: { by: string; at: string };
 }
 
 export interface MergeDecision {
@@ -290,7 +293,11 @@ export function decideMerge(input: MergeInput): MergeDecision {
   want(L.laneAuto, lane === "auto");
   want(L.laneMaintainer, lane === "maintainer");
 
-  const approved = reviews.approvedBy.length >= policy.approvals.required;
+  // A valid ship-it is the author's approval as a maintainer. The author's own review never
+  // counts (summarizeReviews), so one person is never counted twice.
+  const approvals = reviews.approvedBy.length + (input.shipIt ? 1 : 0);
+  const approved = approvals >= policy.approvals.required;
+  const approvedBy = reviews.approvedBy.length === 0 && input.shipIt ? `approved by @${input.shipIt.by} with ship-it` : "approved by a maintainer";
   const aiPass = input.aiStatus === "pass" && has(L.aiPass);
   const hold = L.hold.find((h) => has(h));
 
@@ -314,7 +321,7 @@ export function decideMerge(input: MergeInput): MergeDecision {
   else if (waiting.length > 0) description = `waiting for: ${waiting.join(", ")}`;
   else {
     state = "success";
-    description = lane === "auto" ? (approved ? "auto lane: approved by a maintainer" : "auto lane: all checks and the AI review passed") : "maintainer lane: approved by a maintainer";
+    description = lane === "auto" ? (approved ? `auto lane: ${approvedBy}` : "auto lane: all checks and the AI review passed") : `maintainer lane: ${approvedBy}`;
   }
   if (lane === "maintainer") notes.push(...evaluation.reasons);
   const enableAutoMerge = !pr.draft && !hold && !pr.autoMergeEnabled;
@@ -366,6 +373,9 @@ export function validatePolicy(p: unknown): Policy {
   if (!Array.isArray(o.requiredChecks)) fail("requiredChecks must be a list");
   if (!o.approvals || !Number.isInteger(o.approvals.required) || o.approvals.required < 1) fail("approvals.required must be 1 or more");
   if (!o.labels || !o.statusContexts) fail("labels and statusContexts are required");
+  for (const [key, value] of [["labels.shipIt", o.labels?.shipIt], ["statusContexts.shipIt", o.statusContexts?.shipIt]] as const) {
+    if (typeof value !== "string" || value.trim() === "") fail(`${key} must be a non-empty string`);
+  }
   const ai = o.aiReview;
   if (!ai || !(Number.isInteger(ai.maxReviewsPerPullRequestPerDay) && ai.maxReviewsPerPullRequestPerDay >= 1) || !(Number.isInteger(ai.maxNewPullRequestsPerAuthorPerDay) && ai.maxNewPullRequestsPerAuthorPerDay >= 1)) {
     fail("aiReview.maxReviewsPerPullRequestPerDay and aiReview.maxNewPullRequestsPerAuthorPerDay must be integers of 1 or more");

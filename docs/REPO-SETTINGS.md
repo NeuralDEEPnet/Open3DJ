@@ -165,6 +165,7 @@ The issue forms apply some of these labels automatically. A label must exist bef
 | `ai-review: pass` | `#0e8a16` | The advisory AI review found no problems |
 | `ai-review: changes-suggested` | `#d93f0b` | The advisory AI review suggested changes |
 | `hold` | `#b60205` | Do not merge automatically until a maintainer removes this label |
+| `ship-it` | `#1a7f37` | Maintainer's one-tap approval and DCO sign-off for their own pull request |
 
 ```sh
 R=NeuralDEEPnet/Open3DJ
@@ -192,11 +193,14 @@ gh label create needs-maintainer   -R $R --force --color fbca04 --description "W
 gh label create "ai-review: pass"  -R $R --force --color 0e8a16 --description "The advisory AI review found no problems"
 gh label create "ai-review: changes-suggested" -R $R --force --color d93f0b --description "The advisory AI review suggested changes"
 gh label create hold               -R $R --force --color b60205 --description "Do not merge automatically until a maintainer removes this label"
+gh label create ship-it            -R $R --force --color 1a7f37 --description "Maintainer's one-tap approval and DCO sign-off for their own pull request"
 ```
 
 **Why `good first issue` and `help wanted` keep their spaces.** They are GitHub's default labels, and [GitHub's documentation](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels) says that applying the exact `good first issue` label makes it more likely that GitHub surfaces the issue to new contributors. The workflow labels support the Kaizen practices in [CONTRIBUTING.md](../CONTRIBUTING.md#the-kaizen-rhythm): `agent-ready` is the definition of ready for agent work, `needs-human` keeps a lane for people, `experiment` is the exploration lane, and `andon` stops the line.
 
-The `bench`, `failure-report` and `hardware-report` labels are applied by the Bench task proposal, Failure report and Hardware report forms, so create them too. The last six labels are the ones the merge automation reads and writes; their names are set in `.github/merge-policy.json` (under `labels`), so if you rename one there, rename it here too. A `hold` or `andon` label on a pull request stops it from merging automatically.
+The `bench`, `failure-report` and `hardware-report` labels are applied by the Bench task proposal, Failure report and Hardware report forms, so create them too. The last seven labels are the ones the merge automation reads or writes; their names are set in `.github/merge-policy.json` (under `labels`), so if you rename one there, rename it here too. A `hold` or `andon` label on a pull request stops it from merging automatically.
+
+**`ship-it`** is your one tap for your own pull requests, for example the ones your agents open under your account. On a pull request from a branch of this repository whose author is you (or another maintainer), adding it yourself is your DCO sign-off for every commit and your approval: the `dco` check records it as a `ship-it` commit status on that exact commit and passes, and the merge bot counts it as the maintainer approval. A push removes the label, so each new commit needs a new tap, and removing it withdraws the tap. It does nothing on a fork's pull request, on anyone else's pull request, or when someone else or a bot adds it. Create it by hand: the bot reads it but never creates or adds it. Agents must never add it ([AI_POLICY.md](../AI_POLICY.md) rule 3). Details: [scripts/automerge/README.md](../scripts/automerge/README.md#ship-it-a-maintainers-one-tap-for-their-own-pull-request).
 
 **What makes an issue `agent-ready`:** a clear goal, links to the relevant files, under about one day of agent work, and acceptance criteria that a test can check (for example "the M4 x 12 screw has a bounding box of 7.0 x 7.0 x 16.0 mm within 0.05 mm"). Agents and their operators can then pick it up, and reviewers can verify the result quickly.
 
@@ -206,7 +210,7 @@ Every commit in a pull request must carry a `Signed-off-by` line from a person. 
 
 If you prefer the DCO app instead (published by `dcoapp`, built on Probot), install it from https://github.com/apps/dco for this repository only. It adds a check named **DCO**, with capital letters. Require one of the two checks, not both, and make sure the required name matches exactly; a required check that never reports blocks every merge.
 
-Your own commits need the sign-off too. Contributors who forget can fix it with `git commit --amend -s --no-edit` for the last commit, or `git rebase --signoff main` for several, then `git push --force-with-lease` (see [CONTRIBUTING.md](../CONTRIBUTING.md#sign-your-work-the-developer-certificate-of-origin)). Contributors who edit in the browser are covered by the web sign-off setting in [section 2](#2-features). [docs/LICENSING.md](LICENSING.md) explains the DCO in plain language, including how to sign off with GitHub's private `noreply` email address.
+Your own commits need the sign-off too, unless you certify your own pull request from this repository with the `ship-it` label ([section 5](#5-labels)). Contributors who forget can fix it with `git commit --amend -s --no-edit` for the last commit, or `git rebase --signoff main` for several, then `git push --force-with-lease` (see [CONTRIBUTING.md](../CONTRIBUTING.md#sign-your-work-the-developer-certificate-of-origin)). Contributors who edit in the browser are covered by the web sign-off setting in [section 2](#2-features). [docs/LICENSING.md](LICENSING.md) explains the DCO in plain language, including how to sign off with GitHub's private `noreply` email address.
 
 ## 7. Branch rules for `main`
 
@@ -231,13 +235,18 @@ Use a ruleset: **Settings > Rules > Rulesets > New ruleset > New branch ruleset*
   - `evaluate`
   - `merge-policy`
 
-  `merge-policy` is a commit status, not a check run: the merge workflow (`.github/workflows/automerge.yml`) sets it on the head commit of every pull request, and it is the gate that makes the two lanes work. It turns success only when every other required check is green and, in the auto lane, the AI review passed on that exact commit, or, in either lane, a maintainer approved that exact commit. It stays pending while a `hold` or `andon` label is set or a maintainer has requested changes. The merge workflow turns on auto-merge for every ready pull request, so **without `merge-policy` in this list, an auto-lane pull request would merge with no AI review and a changed golden would merge with no person**. When you add it, pick **GitHub Actions** as its source if the box offers a choice, so that only the workflow can satisfy it.
+  `merge-policy` is a commit status, not a check run: the merge workflow (`.github/workflows/automerge.yml`) sets it on the head commit of every pull request, and it is the gate that makes the two lanes work. It turns success only when every other required check is green and, in the auto lane, the AI review passed on that exact commit, or, in either lane, a maintainer approved that exact commit (a maintainer's own `ship-it` tap on their own pull request counts, [section 5](#5-labels)). It stays pending while a `hold` or `andon` label is set or a maintainer has requested changes. The merge workflow turns on auto-merge for every ready pull request, so **without `merge-policy` in this list, an auto-lane pull request would merge with no AI review and a changed golden would merge with no person**. When you add it, pick **GitHub Actions** as its source if the box offers a choice, so that only the workflow can satisfy it.
 
   Leave **Require branches to be up to date before merging** off for now. With it on, every merge makes the other open pull requests out of date, and auto-merge waits until someone updates them. Turn it on, or use a merge queue, if two pull requests that passed alone ever break `main` together.
 - **Require linear history:** on, matching the merge settings in [section 2](#2-features).
 - **Merge queue:** off. The CI, `evaluate` and `dco` workflows listen to `merge_group`, but the merge workflow sets `merge-policy` on pull request commits, not on merge-group commits, so a queue would wait for that status forever.
 
 **Bypass list.** While you are the only maintainer, nobody else can approve your own maintainer-lane pull requests (GitHub does not let an author approve their own pull request). Add yourself (the Repository admin role) to the bypass list, set to "For pull requests only", so you can still merge your own reviewed work through a pull request. Remove the bypass as soon as a second maintainer joins. Do not add any app, bot or workflow to the bypass list.
+
+**`ship-it` needs no new rule or required check.** The `ship-it` status is not a required check; the required `dco` check and `merge-policy` status read it. One setting still applies to it: **Require review from Code Owners** asks for a code owner's review on every pull request that touches a path with an owner, and GitHub does not let the author give it ([GitHub docs: approving a pull request with required reviews](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/approving-a-pull-request-with-required-reviews), checked 2026-11-08: "Pull request authors cannot approve their own pull requests"). While you are the only code owner, this means:
+
+- **Auto-lane pull requests** (docs and data, no code owner) merge by themselves after your tap, once every check is green.
+- **Maintainer-lane pull requests** (code, workflows, governance) show every check green after your tap, but GitHub still waits for a code owner's review. Merge them with your bypass (the merge box offers to bypass the rules), or turn **Require review from Code Owners** off while you are the only maintainer. Turning it off leaves the required `merge-policy` status as the only approval gate, so turn it back on when a second maintainer joins. This is your decision; this page does not make it for you.
 
 ```sh
 # After saving the ruleset in the web interface, check it:
@@ -304,6 +313,7 @@ The `evaluate`, `dco`, AI review and merge workflows always run the scripts and 
 - **CI on `main`.** A merge that auto-merge makes for the workflow's own `GITHUB_TOKEN` does not start push workflows, so CI may not run on the merged commit by itself. The `main-ci` job in `automerge.yml` covers this: after a merge it sees, and every 30 minutes, it starts `ci.yml` on the default branch when the head of `main` has no CI run. On the first automatic merge, open **Actions > CI** and check that a run for the merged commit appears within about 30 minutes.
 - **The two lanes.** Open two test pull requests: one that changes only a file in `docs/`, and one that changes a file in `packages/`. The first should show no review requirement and merge by itself once the checks and the AI review pass. The second should ask for your review as code owner. If the docs-only one asks for a review, check the required approvals (0) and the `CODEOWNERS` file.
 - **A required check that never reports.** If a required check name in the ruleset does not match the job name exactly, every pull request waits forever. Compare the names in [section 7](#7-branch-rules-for-main) with the checks on the test pull request.
+- **A `ship-it` tap.** On a small docs pull request from a branch of this repository, wait for the checks, then add the `ship-it` label yourself. Within a minute a `ship-it` status ("DCO and approval by @you at ...") appears on the head commit, `dco` turns green, `merge-policy` turns success, and GitHub merges it. Then add the label to a second test pull request while its checks still run, and push a commit to it: the label should disappear and `merge-policy` should wait for a new tap.
 - **Pausing.** To hold one pull request, add the `hold` label (an `andon` label on the pull request does the same). To stop automatic merging everywhere for a while, for example while `main` is broken, disable the merge workflow in **Actions**, or set required approvals in the ruleset to 1 for that time.
 
 ## 9. Social preview image
@@ -359,7 +369,7 @@ Then, to welcome the first contributors, and before you announce the project any
 - [ ] `dco` check required (or the DCO app installed and its `DCO` check required)
 - [ ] Ruleset for `main`: 0 required approvals, code owner review, the eight required checks (including `merge-policy`), linear history
 - [ ] `.github/CODEOWNERS` in place (it is in the repository), and the automation merged to `main` first ([setup order](#first-time-setup-order))
-- [ ] Merge labels created: `lane: auto`, `lane: maintainer`, `needs-maintainer`, `ai-review: pass`, `ai-review: changes-suggested`, `hold`
+- [ ] Merge labels created: `lane: auto`, `lane: maintainer`, `needs-maintainer`, `ai-review: pass`, `ai-review: changes-suggested`, `hold`, `ship-it`
 - [ ] Actions: first-time contributor approval (or approval for all outside contributors), read-only default token, Actions may not approve pull requests
 - [ ] `ANTHROPIC_API_KEY` or `CLAUDE_CODE_OAUTH_TOKEN` secret added for the AI review
 - [ ] Two example goldens regenerated, so that `npm run check` is green

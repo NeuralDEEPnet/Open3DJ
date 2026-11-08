@@ -334,6 +334,35 @@ describe("merge decision", () => {
     assert.ok(d.removeLabels.includes(policy.labels.laneAuto));
     assert.ok(d.addLabels.includes(policy.labels.laneMaintainer));
   });
+  it("counts a valid ship-it on the head commit as the maintainer approval, in either lane", () => {
+    const shipIt = { by: "lead", at: "2026-11-08T18:50:07Z" };
+    const maint = decideMerge(base({ evaluation: { lane: "maintainer", reasons: [] }, labels: [policy.labels.needsMaintainer], aiStatus: "none", shipIt }));
+    assert.equal(maint.status.state, "success");
+    assert.equal(maint.status.description, "maintainer lane: approved by @lead with ship-it");
+    assert.deepEqual(maint.removeLabels, [policy.labels.needsMaintainer]);
+    const auto = decideMerge(base({ labels: [], aiStatus: "none", shipIt }));
+    assert.equal(auto.status.state, "success", "like any maintainer approval, it stands in for the AI review");
+    assert.equal(auto.status.description, "auto lane: approved by @lead with ship-it");
+    const reviewed = decideMerge(base({ evaluation: { lane: "maintainer", reasons: [] }, shipIt, reviews: { approvedBy: ["maint"], changesRequestedBy: [] } }));
+    assert.equal(reviewed.status.description, "maintainer lane: approved by a maintainer");
+  });
+  it("still holds a ship-it pull request on hold, andon, requested changes, a failed or a missing check, and a draft", () => {
+    const shipIt = { by: "lead", at: "2026-11-08T18:50:07Z" };
+    const m = (over: Partial<MergeInput>) => decideMerge(base({ evaluation: { lane: "maintainer", reasons: [] }, shipIt, ...over }));
+    assert.match(m({ labels: ["hold"] }).status.description, /on hold/);
+    assert.equal(m({ labels: ["andon"] }).enableAutoMerge, false);
+    assert.match(m({ reviews: { approvedBy: [], changesRequestedBy: ["maint"] } }).status.description, /requested changes/);
+    assert.match(m({ checks: { ...green, "check (macos-latest)": "failure" } }).status.description, /failed: check \(macos-latest\)/);
+    const { ["dco"]: _, ...noDco } = green;
+    assert.match(m({ checks: noDco }).status.description, /waiting for: dco/);
+    assert.equal(m({ pr: { open: true, draft: true, baseIsDefault: true, autoMergeEnabled: false } }).status.state, "pending");
+    for (const d of [m({ labels: ["hold"] }), m({ reviews: { approvedBy: [], changesRequestedBy: ["maint"] } }), m({ checks: noDco })]) assert.equal(d.status.state, "pending");
+  });
+  it("decides exactly as before when there is no ship-it", () => {
+    for (const over of [{}, { evaluation: { lane: "maintainer" as const, reasons: [] } }, { aiStatus: "none" as const, labels: [] }, { labels: ["hold"] }]) {
+      assert.deepEqual(decideMerge(base({ ...over, shipIt: undefined })), decideMerge(base(over)));
+    }
+  });
   it("does not enable auto-merge twice and keeps descriptions within 140 characters", () => {
     assert.equal(decideMerge(base({ pr: { open: true, draft: false, baseIsDefault: true, autoMergeEnabled: true } })).enableAutoMerge, false);
     const many = Object.fromEntries(policy.requiredChecks.map((c) => [c, "failure" as const]));

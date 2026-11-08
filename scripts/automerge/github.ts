@@ -2,6 +2,7 @@
 // dependencies. It reads GITHUB_TOKEN, GITHUB_REPOSITORY and GITHUB_API_URL from the
 // environment that GitHub Actions provides, and never prints the token.
 import type { ChangedFile } from "./policy.ts";
+import type { StatusRecord } from "./shipit.ts";
 
 export interface Gh {
   token: string;
@@ -184,6 +185,16 @@ export async function checkStates(gh: Gh, sha: string): Promise<{ checks: Record
     if (!(s.context in checks)) checks[s.context] = s.state === "success" ? "success" : s.state === "pending" ? "pending" : "failure";
   }
   return { checks, statuses };
+}
+
+/**
+ * The newest 100 commit statuses on a commit, newest first, each with the login that created it.
+ * Unlike the combined status, this list names each status's creator, which ship-it needs.
+ */
+export async function listStatuses(gh: Gh, sha: string): Promise<StatusRecord[]> {
+  if (!/^[0-9a-f]{40}$/.test(sha)) throw new Error("listStatuses needs a full commit id");
+  const raw = await request<Array<{ id: number; context: string; state: string; description: string | null; creator: { login: string } | null }>>(gh, "GET", `${repoPath(gh)}/commits/${sha}/statuses?per_page=100`);
+  return raw.map((s) => ({ id: s.id, context: s.context, state: s.state, description: s.description ?? "", creator: s.creator?.login ?? "" }));
 }
 
 export async function setStatus(gh: Gh, sha: string, context: string, state: "success" | "pending" | "failure" | "error", description: string, targetUrl?: string): Promise<void> {

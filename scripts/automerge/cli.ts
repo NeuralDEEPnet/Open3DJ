@@ -12,10 +12,11 @@ import { randomUUID } from "node:crypto";
 import { appendFileSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { checkDco, mergeAddsNothing, renderDco, signOffEmails, type DcoCommit } from "./dco.ts";
+import { certifiedByShipIt, checkDco, mergeAddsNothing, renderDco, signOffEmails, type DcoCommit } from "./dco.ts";
 import * as gh from "./github.ts";
 import { decideMerge, escapeHtml, evaluate, renderEvaluation, summarizeReviews, validatePolicy, type AiVerdict, type Evaluation, type Policy, type Review } from "./policy.ts";
 import { buildDiff, COMMENT_MARKER, filesFingerprint, fingerprintInStatus, parseReviewOutput, renderComment, revealInvisible, reviewLog, truncateBytes } from "./review.ts";
+import { certificationText, hasLabel, latestShipIt, shipItAction, shipItCandidate, verifyShipIt, withdrawalText, type ShipItNames, type ShipItPr, type ShipItVerdict } from "./shipit.ts";
 
 type Json = Record<string, unknown>;
 
@@ -97,6 +98,83 @@ async function cmdEvaluate(): Promise<number> {
   return 0;
 }
 
+// --- maintainers and ship-it ---------------------------------------------------------------
+
+/** The merge policy's maintainer rule: a repository permission or role in approvals.permissions. Cached by lowercase login. */
+async function isMaintainer(g: gh.Gh, policy: Policy, user: string, cache: Map<string, boolean>): Promise<boolean> {
+  const key = user.toLowerCase();
+  if (!cache.has(key)) {
+    const allowed = new Set(policy.approvals.permissions);
+    cache.set(key, (await gh.permissionOf(g, user)).some((p) => allowed.has(p)));
+  }
+  return cache.get(key) === true;
+}
+
+const shipItNames = (policy: Policy): ShipItNames => ({ label: policy.labels.shipIt, context: policy.statusContexts.shipIt });
+
+function shipItFacts(pr: gh.PullRequest, sha: string): ShipItPr {
+  const head = pr.head.repo?.full_name ?? "";
+  return { author: pr.user.login, sameRepo: head !== "" && head.toLowerCase() === pr.base.repo.full_name.toLowerCase(), headSha: sha, labels: pr.labels.map((l) => l.name) };
+}
+
+/**
+ * Whether `sha`, the pull request's head commit, carries a valid ship-it now. A fork or a pull
+ * request without the label costs no API call, so outside contributors see no change at all.
+ */
+async function readShipIt(g: gh.Gh, policy: Policy, pr: gh.PullRequest, sha: string, cache: Map<string, boolean>): Promise<ShipItVerdict> {
+  const names = shipItNames(policy);
+  const facts = shipItFacts(pr, sha);
+  const pre = shipItCandidate(facts, names);
+  if (pre) return { ok: false, reason: pre };
+  if (!(await isMaintainer(g, policy, facts.author, cache))) return verifyShipIt(facts, { names, authorIsMaintainer: false, status: undefined });
+  const status = latestShipIt(await gh.listStatuses(g, sha), names.context);
+  return verifyShipIt(facts, { names, authorIsMaintainer: true, status });
+}
+
+/**
+ * The ship-it side of a pull_request event, before the commits are checked: record the
+ * author's tap as a status on the event's head commit, record a withdrawal when the label
+ * comes off, or remove the stale label after a push. Everything comes from the event
+ * payload, so the certification is bound to the commit GitHub reported with the tap.
+ */
+async function shipItEvent(g: gh.Gh, policy: Policy, ev: Json, n: number, cache: Map<string, boolean>): Promise<void> {
+  const names = shipItNames(policy);
+  const raw = obj(ev.pull_request);
+  const headRepo = str(obj(obj(raw.head).repo).full_name);
+  const facts: ShipItPr = {
+    author: str(obj(raw.user).login),
+    sameRepo: headRepo !== "" && headRepo.toLowerCase() === str(obj(obj(raw.base).repo).full_name).toLowerCase(),
+    headSha: str(obj(raw.head).sha),
+    labels: (Array.isArray(raw.labels) ? raw.labels : []).map((l) => str(obj(l).name)),
+  };
+  const sender = obj(ev.sender);
+  const label = str(obj(ev.label).name);
+  const plan = shipItAction({ action: str(ev.action), ...(label ? { label } : {}), sender: { login: str(sender.login), type: str(sender.type) } }, facts, names);
+  if (plan.kind === "none") {
+    if (label && label.toLowerCase() === names.label.toLowerCase()) log("ship-it: nothing recorded:", plan.reason);
+    return;
+  }
+  try {
+    if (plan.kind === "remove-label") {
+      // Silently: the missing label tells the author that the new commit needs a new tap.
+      await gh.removeLabel(g, n, names.label);
+      log("ship-it: removed the label after a push; the new commit needs a new tap");
+    } else if (plan.kind === "certify") {
+      if (!(await isMaintainer(g, policy, facts.author, cache))) return log("ship-it: nothing recorded: the author is not a maintainer");
+      await gh.setStatus(g, plan.sha, names.context, "success", certificationText(facts.author, new Date()), runUrl());
+      log(`ship-it: recorded for ${plan.sha.slice(0, 12)}`);
+    } else {
+      const current = latestShipIt(await gh.listStatuses(g, plan.sha), names.context);
+      if (current?.state !== "success") return;
+      await gh.setStatus(g, plan.sha, names.context, "failure", withdrawalText(str(sender.login), new Date()), runUrl());
+      log(`ship-it: withdrawn for ${plan.sha.slice(0, 12)}`);
+    }
+  } catch (e) {
+    log("ship-it: could not update:", (e as Error).message);
+    annotate("warning", "ship-it not updated", "The ship-it label could not be recorded or removed. See the job log.");
+  }
+}
+
 // --- dco -----------------------------------------------------------------------------------
 
 async function cmdDco(): Promise<number> {
@@ -108,6 +186,10 @@ async function cmdDco(): Promise<number> {
   const n = Number(obj(ev.pull_request).number);
   if (!Number.isInteger(n) || n <= 0) throw new Error("no pull request number in the event");
   const g = gh.fromEnv();
+  const policy = loadPolicy();
+  const maintainers = new Map<string, boolean>();
+  // In the same process and before the commits are read, so the check sees what it recorded.
+  await shipItEvent(g, policy, ev, n, maintainers);
   const pr = await gh.getPr(g, n);
   const raw = await gh.paginate<Json>(g, `${gh.repoPath(g)}/pulls/${n}/commits`, 3);
   const subjects = new Map<string, string>();
@@ -132,9 +214,19 @@ async function cmdDco(): Promise<number> {
     }
     commits.push(d);
   }
-  const out = checkDco(commits, pr.commits);
-  summary(renderDco(out, subjects, escapeHtml));
+  let out = checkDco(commits, pr.commits);
+  let note = "";
+  if (!out.ok) {
+    // The author's ship-it certifies every commit of their own pull request from this repository.
+    const cert = await readShipIt(g, policy, pr, pr.head.sha, maintainers);
+    if (cert.ok) out = certifiedByShipIt(out, cert);
+    else if (shipItFacts(pr, pr.head.sha).sameRepo && hasLabel(pr.labels.map((l) => l.name), policy.labels.shipIt)) {
+      note = `The \`${policy.labels.shipIt}\` label is set, but it does not certify this commit: ${escapeHtml(cert.reason)}.\n`;
+    }
+  }
+  summary(renderDco(out, subjects, escapeHtml) + note);
   for (const r of out.results) log(`${r.sha.slice(0, 12)} ${r.ok ? "ok" : "MISSING"}:`, r.reason);
+  if (out.shipIt) annotate("notice", "DCO certified with ship-it", "The pull request's author certified every commit with the ship-it label. See the job summary.");
   if (!out.ok) {
     annotate("error", "DCO sign-off missing", "Every commit needs a Signed-off-by line that matches its author. See the job summary, or CONTRIBUTING.md section 'Sign your work'.");
     return 1;
@@ -281,9 +373,8 @@ async function cmdAiPublish(): Promise<number> {
 async function readReviews(g: gh.Gh, policy: Policy, pr: gh.PullRequest, sha: string, maintainerCache: Map<string, boolean>) {
   const raw = await gh.paginate<Json>(g, `${gh.repoPath(g)}/pulls/${pr.number}/reviews`, 5);
   const reviews: Review[] = raw.map((r) => ({ user: str(obj(r.user).login), state: str(r.state), commitId: str(r.commit_id), submittedAt: str(r.submitted_at) }));
-  const allowed = new Set(policy.approvals.permissions);
   for (const user of new Set(reviews.filter((r) => r.state === "APPROVED" || r.state === "CHANGES_REQUESTED").map((r) => r.user.toLowerCase()))) {
-    if (!maintainerCache.has(user)) maintainerCache.set(user, (await gh.permissionOf(g, user)).some((p) => allowed.has(p)));
+    await isMaintainer(g, policy, user, maintainerCache);
   }
   return summarizeReviews(reviews, { headSha: sha, author: pr.user.login, isMaintainer: (u) => maintainerCache.get(u.toLowerCase()) === true, mustMatchHeadCommit: policy.approvals.mustMatchHeadCommit });
 }
@@ -312,6 +403,9 @@ async function decideAndWrite(g: gh.Gh, policy: Policy, first: gh.PullRequest, s
   const ai = aiFresh ? aiRaw.state : undefined;
   const aiStatus: AiVerdict = ai === "success" ? "pass" : ai === "failure" ? "changes-suggested" : ai === "error" ? "error" : "none";
   const cache = new Map<string, boolean>();
+  // The ship-it certification of this exact commit. The label must still be on the pull request
+  // when it is read again below: taking it off stops the merge.
+  const shipIt = await readShipIt(g, policy, first, sha, cache);
 
   const decide = (pr: gh.PullRequest, reviews: Awaited<ReturnType<typeof readReviews>>) => ({
     reviews,
@@ -323,6 +417,7 @@ async function decideAndWrite(g: gh.Gh, policy: Policy, first: gh.PullRequest, s
       aiStatus,
       checks,
       reviews,
+      ...(shipIt.ok && hasLabel(pr.labels.map((l) => l.name), policy.labels.shipIt) ? { shipIt: { by: shipIt.by, at: shipIt.at } } : {}),
     }),
   });
   let { d, reviews: reviewSummary } = decide(first, await readReviews(g, policy, first, sha, cache));
@@ -359,6 +454,8 @@ async function decideAndWrite(g: gh.Gh, policy: Policy, first: gh.PullRequest, s
     "",
     `- merge-policy: **${d.status.state}**, ${escapeHtml(d.status.description)}`,
     `- AI review on this commit: ${aiStatus}${aiRaw && !aiFresh ? " (a review exists for another file list, so it does not count)" : ""}; maintainer approvals: ${reviewSummary.approvedBy.length}; changes requested: ${reviewSummary.changesRequestedBy.length}`,
+    // Only for a labeled pull request from this repository: other pull requests read as before.
+    ...(shipIt.ok ? [`- ship-it: certified by ${escapeHtml(`@${shipIt.by}`)} at ${escapeHtml(shipIt.at)}`] : shipItCandidate(shipItFacts(first, sha), shipItNames(policy)) ? [] : [`- ship-it: ${escapeHtml(shipIt.reason)}`]),
     `- auto-merge: ${escapeHtml(autoMerge)}`,
     ...(d.addLabels.length + d.removeLabels.length > 0 ? [`- labels added: ${escapeHtml(d.addLabels.join(", ") || "none")}; removed: ${escapeHtml(d.removeLabels.join(", ") || "none")}`] : []),
     ...d.notes.map((x) => `- ${escapeHtml(x)}`),
