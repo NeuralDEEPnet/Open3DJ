@@ -16,6 +16,8 @@ name: Install smoke
 #
 # viewer-browser: runs packages/open3dj/src/view-browser.test.ts in real Chromium (Playwright,
 # installed only for this job and never saved to package.json) on Windows, macOS and Linux.
+# The macOS leg runs on pull requests and by hand (workflow_dispatch), not on pushes to main:
+# see the note above that job.
 on:
   pull_request:
     paths:
@@ -221,6 +223,26 @@ jobs:
           if-no-files-found: warn
           retention-days: 14
 
+  # The macOS leg runs on pull requests and on workflow_dispatch, not on pushes to main, because
+  # a macOS job that never got a runner failed this workflow on main. What the GitHub API shows
+  # (read 2026-11-08):
+  # - Run 41904215750 (push of 3c9e8fc, 2026-11-04,
+  #   https://github.com/NeuralDEEPnet/Open3DJ/actions/runs/41904215750): job 126834416538,
+  #   "viewer-browser (macos-latest)", was queued at 20:11:31Z and cancelled at 20:26:32Z with no
+  #   runner. Every other job passed. The two other macOS jobs queued in the same second,
+  #   "install (macos-latest, private node)" here and "check (macos-latest)" in CI run
+  #   41904215473, started at 20:16:34Z.
+  # - Run 41875599850 (push of 9c56cf8, the same day): job 126734015416, "install (macos-latest,
+  #   private node)", was queued at 17:14:17Z and cancelled at 17:29:18Z with no runner. In that
+  #   run "viewer-browser (macos-latest)" got a runner at once, and its "Viewer browser test" step
+  #   failed on its own.
+  # So the job left without a runner is not always this one. Why GitHub gave no runner, and why
+  # the cancel came after about 15 minutes, is unverified: no newer run replaced these runs, and
+  # the 25-minute job timeout counts only once a job runs.
+  # "install (macos-latest, private node)" still runs on every push to main, so the same queue
+  # cancel can still fail this workflow there. Whether that leg should skip pushes too is the
+  # founder's decision. Every pull request that starts this workflow (the paths at the top) still
+  # runs this leg on macOS.
   viewer-browser:
     name: viewer-browser (${{ matrix.os }})
     runs-on: ${{ matrix.os }}
@@ -228,7 +250,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [windows-latest, macos-latest, ubuntu-latest]
+        os: ${{ fromJSON(github.event_name == 'push' && '["windows-latest", "ubuntu-latest"]' || '["windows-latest", "macos-latest", "ubuntu-latest"]') }}
     env:
       # Playwright (Apache-2.0) is installed for this job only, with --no-save, so it never
       # enters package.json, the lockfile or the licence gate.

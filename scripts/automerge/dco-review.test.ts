@@ -1,7 +1,7 @@
 // Tests for the DCO check and the AI review helpers.
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { checkCommit, checkDco, mergeAddsNothing, renderDco, signOffEmails, type DcoCommit } from "./dco.ts";
+import { certifiedByShipIt, checkCommit, checkDco, mergeAddsNothing, renderDco, signOffEmails, type DcoCommit } from "./dco.ts";
 import { escapeHtml } from "./policy.ts";
 import { ATTRIBUTION, buildDiff, COMMENT_MARKER, filesFingerprint, fingerprintInStatus, looksLikeCredential, parseReviewOutput, renderComment, revealInvisible, reviewLog, safeText, truncateBytes } from "./review.ts";
 
@@ -39,6 +39,22 @@ describe("dco", () => {
     const md = renderDco(out, new Map([["d".repeat(40), "<b>bad</b> @team"]]), escapeHtml);
     assert.match(md, /CONTRIBUTING\.md#sign-your-work/);
     assert.ok(!md.includes("<b>") && !md.includes("@team"));
+  });
+  it("passes every commit when the author certified the pull request with ship-it, and says so", () => {
+    const failing = checkDco([commit("ok\n\nSigned-off-by: Ada <ada@example.com>"), commit("no sign-off", { sha: "d".repeat(40) })]);
+    assert.equal(failing.ok, false);
+    const cert = { by: "lead", at: "2026-11-08T18:50:07Z", sha: "e".repeat(40) };
+    const out = certifiedByShipIt(failing, cert);
+    assert.equal(out.ok, true);
+    assert.ok(out.results.every((r) => r.ok));
+    assert.match(out.results[1]!.reason, /no Signed-off-by line; certified with the ship-it label/);
+    assert.equal(out.results[0]!.reason, "signed off");
+    const md = renderDco(out, new Map(), escapeHtml);
+    assert.match(md, /^## DCO: certified with the ship-it label/);
+    assert.ok(md.includes(`DCO certified by &#64;lead with the ship-it label at 2026-11-08T18:50:07Z for ${"e".repeat(40)}.`), md);
+    assert.ok(!/Signed-off-by: /.test(md), "no sign-off line is written anywhere");
+    assert.ok(!md.includes("--amend"), "no instructions to sign off");
+    assert.equal(certifiedByShipIt(checkDco([commit("x")], 300), cert).ok, true, "the label certifies every commit, listed or not");
   });
   it("fails when GitHub could not list every commit", () => {
     const out = checkDco([commit("ok\n\nSigned-off-by: Ada <ada@example.com>")], 300);

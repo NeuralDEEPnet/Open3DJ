@@ -4,18 +4,39 @@ run-name: "DCO #${{ github.event.pull_request.number }}"
 # The "dco" check: every commit in a pull request needs a Signed-off-by line whose email
 # matches the commit author or committer (Developer Certificate of Origin, CONTRIBUTING.md).
 # It reads the commits through the GitHub API and never runs the pull request's code.
+#
+# ship-it: on a pull request from this repository, when its author (a maintainer, with a user
+# account) adds the `ship-it` label, the same step first records a `ship-it` commit status on
+# the head commit named in the labeled event, then checks the commits. That status is the
+# author's DCO certification for every commit and their approval, so dco passes without
+# Signed-off-by lines. It counts only while the newest ship-it label event on the pull request
+# is the author's own tap and the status is not older than it. After a push it removes the
+# stale label and marks the old commit's tap as superseded (the new commit needs a new tap);
+# when the label comes off it records a withdrawal. Any other person's or a bot's label is
+# ignored. Fork pull requests are checked exactly as before. No bot ever writes a
+# Signed-off-by line. See scripts/automerge/README.md.
 on:
   pull_request:
-    types: [opened, synchronize, reopened]
+    types: [opened, synchronize, reopened, labeled, unlabeled]
   merge_group:
 
+# pull-requests: write removes a stale ship-it label after a push; statuses: write records a
+# ship-it certification, withdrawal or supersession on a commit. They are used only on pull
+# requests from this repository: GitHub gives fork pull requests a read-only token whatever
+# this asks for. issues: read lets dco read who added the ship-it label (the pull request's
+# issue events); GitHub lists that endpoint under both the Issues and the Pull requests
+# permission, and which one suffices for this token was not checked, so both are granted.
 permissions:
   contents: read
-  pull-requests: read
+  issues: read
+  pull-requests: write
+  statuses: write
 
+# A push cancels the run for the older commit. A label change never cancels a run: it waits
+# its turn, so a ship-it tap is recorded before the next run checks the commits.
 concurrency:
   group: dco-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event.action != 'labeled' && github.event.action != 'unlabeled' }}
 
 jobs:
   dco:
@@ -24,7 +45,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Check out the default branch's checker
-        uses: actions/checkout@v5
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
         with:
           ref: ${{ github.event.repository.default_branch }}
           persist-credentials: false
@@ -32,10 +53,10 @@ jobs:
             /scripts/automerge/
             /.github/merge-policy.json
           sparse-checkout-cone-mode: false
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
         with:
           node-version: 24
-      - name: Check every commit for a sign-off
+      - name: Record a ship-it tap, then check every commit for a sign-off
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: node scripts/automerge/cli.ts dco

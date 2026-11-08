@@ -13,6 +13,8 @@ const policy = validatePolicy(JSON.parse(readFileSync(new URL("../../.github/mer
 
 const UNTRUSTED = /github\.head_ref|github\.event\.(?:pull_request\.(?:title|body|head\.ref|head\.label)|issue\.(?:title|body)|comment\.body|review\.body|review_comment\.body|head_commit\.(?:message|author)|commits|pages|workflow_run\.(?:head_branch|display_title|head_commit|pull_requests))/;
 const PRIVILEGED = /^\s*(pull_request_target|workflow_run|check_suite|schedule|pull_request_review):/m;
+/** A write permission line, with or without a comment after it. */
+const WRITE = /^\s+([a-z-]+):\s*write\s*(?:#.*)?$/m;
 /** Workflows that build and run the repository's code (CI and the install smoke). */
 const BUILDS = ["ci.yml", "install-smoke.yml"];
 
@@ -66,7 +68,7 @@ describe("workflows", () => {
           assert.ok(!PRIVILEGED.test(w.text), "a privileged trigger");
           assert.ok(!/pull_request_target/.test(w.text));
           assert.match(w.text, /^permissions:\n  contents: read\n/m);
-          assert.ok(!/^\s+[a-z-]+: write$/m.test(w.text), "a write permission");
+          assert.ok(!WRITE.test(w.text), "a write permission");
         });
       } else {
         it("never installs or runs the repository's packages", () => {
@@ -86,11 +88,13 @@ describe("workflows", () => {
   }
 
   it("gives write permissions only to the jobs that need them", () => {
-    const writes = (name: string) => [...(workflows.find((w) => w.name === name)?.text ?? "").matchAll(/^\s+([a-z-]+): write$/gm)].map((m) => m[1]).sort();
+    const writes = (name: string) => [...(workflows.find((w) => w.name === name)?.text ?? "").matchAll(new RegExp(WRITE.source, "gm"))].map((m) => m[1]).sort();
+    assert.ok(WRITE.test("    statuses: write # with a comment"), "a comment after the permission does not hide it");
     assert.deepEqual(writes("ci.yml"), []);
     assert.deepEqual(writes("install-smoke.yml"), []);
     assert.deepEqual(writes("evaluate.yml"), []);
-    assert.deepEqual(writes("dco.yml"), []);
+    // dco records a ship-it certification (a commit status) and removes a stale ship-it label.
+    assert.deepEqual(writes("dco.yml"), ["pull-requests", "statuses"]);
     assert.deepEqual(writes("review-relay.yml"), []);
     assert.deepEqual(writes("ai-review.yml"), ["issues", "pull-requests", "statuses"]);
     assert.deepEqual(writes("automerge.yml"), ["actions", "contents", "issues", "pull-requests", "statuses"]);
@@ -139,13 +143,48 @@ describe("workflows", () => {
         assert.match(m[2]!, /^[0-9a-f]{40}$/, `${w.name}: ${m[1]} must be pinned to a 40-character commit id`);
       }
     }
-    for (const name of ["ai-review.yml", "automerge.yml"]) {
+    for (const name of ["ai-review.yml", "automerge.yml", "dco.yml"]) {
       for (const m of workflows.find((w) => w.name === name)!.text.matchAll(/uses: ([^@\s]+)@(\S+)/g)) assert.match(m[2]!, /^[0-9a-f]{40}$/, `${name} has write tokens: pin ${m[1]}`);
     }
   });
 
   it("never runs two automerge evaluations at once", () => {
     assert.match(workflows.find((w) => w.name === "automerge.yml")!.text, /concurrency:\n\s+group: automerge\n\s+cancel-in-progress: false/);
+  });
+
+  it("re-checks dco on every label change, records ship-it before it checks, and never cancels a label run", () => {
+    const dco = workflows.find((w) => w.name === "dco.yml")!.text;
+    assert.match(dco, /^ {4}types: \[opened, synchronize, reopened, labeled, unlabeled\]$/m);
+    // A push cancels the run for the older commit; a label event waits its turn, so a ship-it
+    // tap is never cancelled by another label change before it is recorded.
+    assert.match(dco, /^ {2}cancel-in-progress: \$\{\{ github\.event\.action != 'labeled' && github\.event\.action != 'unlabeled' \}\}$/m);
+    // One step, one process: the label handler runs before the commits are checked, so the
+    // check always sees the certification it just recorded.
+    assert.equal(runScripts(dco).filter((s) => /scripts\/automerge\/cli\.ts/.test(s)).join("\n"), "node scripts/automerge/cli.ts dco");
+    assert.ok(!/^\s+if:/m.test(dco), "no job or step is skipped: a skipped dco job would count as passed");
+    // ship-it reads who added the label (issues/{n}/events), and reading needs no more than read access.
+    assert.match(dco, /^permissions:\n(?: {2}[a-z-]+: (?:read|write)(?: #.*)?\n)*? {2}issues: read\n/m);
+  });
+
+  it("runs the macOS viewer-browser leg on pull requests and by hand, not on every push to main", () => {
+    const smoke = workflows.find((w) => w.name === "install-smoke.yml")!.text;
+    assert.match(smoke, /^ {2}pull_request:$/m);
+    assert.match(smoke, /^ {2}push:\n {4}branches: \[main\]$/m);
+    assert.match(smoke, /^ {2}workflow_dispatch:$/m);
+    const [, note, viewer] = /\n((?: {2}#.*\n)+) {2}viewer-browser:\n([\s\S]*)$/.exec(smoke)!;
+    const m = /^ {8}os: \$\{\{ fromJSON\(github\.event_name == 'push' && '(\[[^']*\])' \|\| '(\[[^']*\])'\) \}\}$/m.exec(viewer!);
+    assert.ok(m, "the viewer-browser matrix depends on the event");
+    assert.deepEqual(JSON.parse(m[1]!), ["windows-latest", "ubuntu-latest"], "pushes to main");
+    assert.deepEqual(JSON.parse(m[2]!), ["windows-latest", "macos-latest", "ubuntu-latest"], "pull requests and workflow_dispatch");
+    assert.match(note!, /run 41904215750/i, "the note above the job names the run that showed the problem");
+    assert.match(note!, /not on pushes to main/);
+    assert.match(note!, /is unverified/, "the note states what was observed and does not claim a cause");
+    assert.match(note!, /"install \(macos-latest, private node\)" still runs on every push to main/, "the note names the leg that stays exposed, by its full job name");
+    // Every other job keeps its runners on every event.
+    const install = /\n {2}install:\n([\s\S]*?)\n {2}viewer-browser:/.exec(smoke)![1]!;
+    const oses = [...install.matchAll(/- \{ os: ([a-z0-9.-]+), node: (?:system|private) \}/g)].map((x) => x[1]);
+    assert.deepEqual(oses, ["ubuntu-latest", "ubuntu-24.04-arm", "macos-latest", "windows-latest", "windows-11-arm"]);
+    assert.ok(!/github\.event_name/.test(install.replace(/github\.event_name != 'pull_request' \|\| github\.event\.pull_request\.head\.repo\.full_name == github\.repository/, "")), "the install job does not depend on the event, apart from the existing irm step");
   });
 });
 
@@ -160,6 +199,17 @@ describe("docs and CODEOWNERS match the merge policy", () => {
     assert.match(doc, new RegExp(`the ${count} required checks`), `the checklist should say "the ${count} required checks"`);
     const readme = readFileSync(new URL("./README.md", import.meta.url), "utf8");
     for (const c of [...policy.requiredChecks, policy.statusContexts.mergePolicy]) assert.ok(readme.includes(`\`${c}\``), `scripts/automerge/README.md does not name ${c}`);
+  });
+
+  it("REPO-SETTINGS.md creates the ship-it label, which the bot reads but never creates", () => {
+    const doc = readFileSync(new URL("../../docs/REPO-SETTINGS.md", import.meta.url), "utf8");
+    const label = policy.labels.shipIt;
+    const description = "Maintainer's one-tap approval and DCO sign-off for their own pull request";
+    assert.ok(doc.includes(`| \`${label}\` | \`#1a7f37\` | ${description} |`), "the label table lists ship-it");
+    assert.ok(new RegExp(`^gh label create ${label} +-R \\$R --force --color 1a7f37 --description "${description}"$`, "m").test(doc), "the gh command creates it");
+    for (const f of ["../../AI_POLICY.md", "../../CONTRIBUTING.md", "./README.md"]) {
+      assert.ok(readFileSync(new URL(f, import.meta.url), "utf8").includes(`\`${label}\``), `${f} explains the ${label} label`);
+    }
   });
 
   // A small CODEOWNERS matcher: gitignore-style patterns, the last matching line wins.

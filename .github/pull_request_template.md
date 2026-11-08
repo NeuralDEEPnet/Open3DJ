@@ -68,6 +68,7 @@ Write "No geometry change" if this does not apply.
 AI help is welcome here. Disclosure helps reviewers and gives credit where it is due.
 The human operator is responsible for every line. Agents commit without a Signed-off-by line and never write one.
 The operator reviews the full diff, then adds their own sign-off: git commit --amend -s --no-edit for one commit, or git rebase --signoff <base> for several.
+On a maintainer's own pull request from a branch of this repository, the maintainer may instead add the ship-it label themself after reading the whole change (AI_POLICY.md rule 3). Agents never add that label.
 -->
 
 - [ ] No AI tools were used for this pull request.
@@ -89,7 +90,7 @@ A first-time contributor's checks start after a maintainer approves the workflow
 
 ## Before you request review
 
-- [ ] Every commit is signed off by a person under the [Developer Certificate of Origin](https://github.com/NeuralDEEPnet/Open3DJ/blob/main/docs/LICENSING.md#3-contributing-developer-certificate-of-origin-no-cla) (`git commit -s`; in the browser editor, add the `Signed-off-by` line yourself until the automatic web sign-off is turned on).
+- [ ] Every commit is signed off by a person under the [Developer Certificate of Origin](https://github.com/NeuralDEEPnet/Open3DJ/blob/main/docs/LICENSING.md#3-contributing-developer-certificate-of-origin-no-cla) (`git commit -s`; in the browser editor, add the `Signed-off-by` line yourself until the automatic web sign-off is turned on), or this is a maintainer's own pull request from a branch of this repository that the author will certify with the `ship-it` label after reading the whole change.
 - [ ] No code was copied from GPL, AGPL or other copyleft sources, or from sources with an unknown license. Any new dependency and its license are listed above.
 - [ ] Documentation is updated, or no documentation change is needed.
 - [ ] Tests are added or updated for the change, including a regression test for any bug fixed.

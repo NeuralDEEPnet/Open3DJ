@@ -55,7 +55,23 @@ export function mergeAddsNothing(changedFromParent: Array<{ files: string[]; tru
   return { clean: false, reason: `changes ${own.length === 1 ? "a file" : `${own.length} files`} beyond its parents (${own.slice(0, 3).join(", ")}${own.length > 3 ? ", ..." : ""})` };
 }
 
-export function checkDco(commits: DcoCommit[], totalCommits: number = commits.length): { ok: boolean; results: DcoResult[]; problem?: string } {
+/** A maintainer's ship-it certification of their own pull request's head commit (shipit.ts). */
+export interface ShipItCertification {
+  by: string;
+  /** ISO time of the tap, to the second. */
+  at: string;
+  sha: string;
+}
+
+export interface DcoOutcome {
+  ok: boolean;
+  results: DcoResult[];
+  problem?: string;
+  /** Set when the pull request passes because its author certified every commit with the ship-it label. */
+  shipIt?: ShipItCertification;
+}
+
+export function checkDco(commits: DcoCommit[], totalCommits: number = commits.length): DcoOutcome {
   if (totalCommits > commits.length) {
     return { ok: false, results: [], problem: `GitHub listed ${commits.length} of ${totalCommits} commits; please squash the branch into fewer commits` };
   }
@@ -63,9 +79,28 @@ export function checkDco(commits: DcoCommit[], totalCommits: number = commits.le
   return { ok: results.every((r) => r.ok), results };
 }
 
+/**
+ * The outcome when the author, a maintainer, certified the pull request with the ship-it label.
+ * The label is their certificate for every commit in the pull request, listed or not, so every
+ * commit passes, and each reason says how. Nothing writes a Signed-off-by line.
+ */
+export function certifiedByShipIt(out: DcoOutcome, cert: ShipItCertification): DcoOutcome {
+  const results = out.results.map((r) => (r.ok ? r : { sha: r.sha, ok: true, reason: `${r.reason}; certified with the ship-it label` }));
+  return { ok: true, results, ...(out.problem ? { problem: out.problem } : {}), shipIt: cert };
+}
+
 /** The job summary for the dco check. Commit subjects are escaped: they come from the pull request. */
-export function renderDco(out: ReturnType<typeof checkDco>, subjects: Map<string, string>, esc: (s: string) => string): string {
-  const lines = [out.ok ? "## DCO: every commit is signed off" : "## DCO: sign-off missing", ""];
+export function renderDco(out: DcoOutcome, subjects: Map<string, string>, esc: (s: string) => string): string {
+  const lines = [out.shipIt ? "## DCO: certified with the ship-it label" : out.ok ? "## DCO: every commit is signed off" : "## DCO: sign-off missing", ""];
+  if (out.shipIt) {
+    const c = out.shipIt;
+    lines.push(
+      `DCO certified by ${esc(`@${c.by}`)} with the ship-it label at ${esc(c.at)} for ${esc(c.sha)}.`,
+      "",
+      "The pull request's author, a maintainer, added the `ship-it` label to this commit of their own pull request from this repository. The label is their Developer Certificate of Origin for every commit in it, and their approval. No sign-off line was written.",
+      "",
+    );
+  }
   if (out.problem) lines.push(esc(out.problem), "");
   if (out.results.length > 0) {
     lines.push("| Commit | Subject | Result |", "|---|---|---|");

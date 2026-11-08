@@ -2,6 +2,7 @@
 // dependencies. It reads GITHUB_TOKEN, GITHUB_REPOSITORY and GITHUB_API_URL from the
 // environment that GitHub Actions provides, and never prints the token.
 import type { ChangedFile } from "./policy.ts";
+import type { LabelEvent, StatusRecord } from "./shipit.ts";
 
 export interface Gh {
   token: string;
@@ -184,6 +185,33 @@ export async function checkStates(gh: Gh, sha: string): Promise<{ checks: Record
     if (!(s.context in checks)) checks[s.context] = s.state === "success" ? "success" : s.state === "pending" ? "pending" : "failure";
   }
   return { checks, statuses };
+}
+
+/**
+ * The newest 100 commit statuses on a commit, newest first, each with the login that created it.
+ * Unlike the combined status, this list names each status's creator, which ship-it needs.
+ */
+export async function listStatuses(gh: Gh, sha: string): Promise<StatusRecord[]> {
+  if (!/^[0-9a-f]{40}$/.test(sha)) throw new Error("listStatuses needs a full commit id");
+  const raw = await request<Array<{ id: number; context: string; state: string; description: string | null; creator: { login: string } | null; created_at: string }>>(gh, "GET", `${repoPath(gh)}/commits/${sha}/statuses?per_page=100`);
+  return raw.map((s) => ({ id: s.id, context: s.context, state: s.state, description: s.description ?? "", creator: s.creator?.login ?? "", createdAt: s.created_at ?? "" }));
+}
+
+/** The issue events API pages this function reads; a list that fills them may miss the newest events. */
+const LABEL_EVENT_PAGES = 10;
+
+/**
+ * The labeled and unlabeled events of a pull request (issues/{n}/events), with who did each and
+ * when. `complete` is false when the list filled every page read, so newer events may be missing.
+ */
+export async function labelEvents(gh: Gh, n: number): Promise<{ events: LabelEvent[]; complete: boolean }> {
+  const raw = await paginate<{ id: number; event: string; created_at: string; actor: { login: string; type: string } | null; label?: { name: string } }>(gh, `${repoPath(gh)}/issues/${n}/events`, LABEL_EVENT_PAGES);
+  const events: LabelEvent[] = [];
+  for (const e of raw) {
+    if ((e.event !== "labeled" && e.event !== "unlabeled") || !e.label) continue;
+    events.push({ id: e.id, event: e.event, label: e.label.name, actor: { login: e.actor?.login ?? "", type: e.actor?.type ?? "" }, createdAt: e.created_at });
+  }
+  return { events, complete: raw.length < LABEL_EVENT_PAGES * 100 };
 }
 
 export async function setStatus(gh: Gh, sha: string, context: string, state: "success" | "pending" | "failure" | "error", description: string, targetUrl?: string): Promise<void> {

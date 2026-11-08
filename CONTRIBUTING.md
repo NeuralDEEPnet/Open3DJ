@@ -314,7 +314,7 @@ Open3DJ has a very small team, so every pull request is evaluated automatically,
 | Check | What it does |
 |---|---|
 | `check (ubuntu-latest)`, `check (ubuntu-24.04-arm)`, `check (macos-latest)`, `check (windows-latest)`, `check (windows-11-arm)` | `npm run check` on Linux x64 and ARM64, macOS, Windows x64 and Windows ARM64: the typecheck, every test (task-lint of all bench tasks included), the bench regression split with 3 replays, the stdout-leak gate and the license gate. |
-| `dco` | Every commit carries a `Signed-off-by` line from a person ([below](#sign-your-work-the-developer-certificate-of-origin)). |
+| `dco` | Every commit carries a `Signed-off-by` line from a person ([below](#sign-your-work-the-developer-certificate-of-origin)). On a maintainer's own pull request from this repository, the author's `ship-it` label can certify every commit instead ([below](#a-maintainers-own-pull-request-the-ship-it-label)). |
 | `evaluate` | Sorts the pull request into a lane from the files it changes, and writes a table of every file, its lane and the rule that decided it. |
 | AI review (`ai-review`) | An AI model reads the diff and posts an advisory comment, plus a label with its verdict: `ai-review: pass` or `ai-review: changes-suggested`. |
 | `merge-policy` | A status that combines all of the above with the reviews and says, in one line, whether the pull request can merge and what it is waiting for. |
@@ -326,7 +326,7 @@ The lane depends only on the files the pull request changes. The rules live in o
 | | Auto lane | Maintainer lane |
 |---|---|---|
 | **Covers** | Documentation, and data that only ever runs inside the sandbox: Markdown files such as `CONTRIBUTORS.md`, `rfcs/` and most of `docs/`; new doc images up to 200 KB; example and bench task scripts (`*.o3j.js`); new examples' `expected.json` and new bench tasks' `task.json`; new example drawings up to 200 KB; new corpus files; standard parts under `lib/` | Everything else, including: code (`packages/`, `scripts/`, any `.ts`, `.js`, `.sh` or `.py` file other than `*.o3j.js`), dependencies and build settings (`package.json`, `package-lock.json`, `tsconfig*.json`), workflows and everything in `.github/`, hooks and `.claude/`, dotfiles, agent instructions (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `CONVENTIONS.md`, `skills/` and similar files), the front page and plan (`README.md`, `ROADMAP.md`, `docs/PLAN.md`, `docs/ARCHITECTURE.md`, `docs/GETTING-STARTED.md`, `docs/BLENDER.md`, `docs/REPO-SETTINGS.md`, `docs/research/README.md`, `bench/README.md`), licenses, and governance and policy files (`AI_POLICY.md`, `CONTRIBUTING.md`, `GOVERNANCE.md`, `SECURITY.md`, `CODE_OF_CONDUCT.md`, `docs/LICENSING.md`). Also changes to an existing example's `expected.json`, an existing bench task's `task.json`, an existing corpus file or an existing image. |
-| **Needs** | Every required check green, and a passing AI review (or a maintainer's approval instead) | Every required check green, and one approving review from a maintainer on the latest commit. The AI review still runs and advises. |
+| **Needs** | Every required check green, and a passing AI review (or a maintainer's approval instead) | Every required check green, and one approving review from a maintainer on the latest commit (on a maintainer's own pull request from this repository, their `ship-it` label counts as that approval). The AI review still runs and advises. |
 | **Then** | Merges automatically (squash) | Merges automatically (squash) after the approval |
 
 A pull request also goes to the maintainer lane when it is large (more than 50 files or 1,500 changed lines, or more than 1 MB of binary files), when a file is executable or a symlink, or when a path has unusual characters. Any path that no rule names is in the maintainer lane.
@@ -351,7 +351,19 @@ For a contributor's first pull request, GitHub does not run workflows until a ma
 
 ### Sign-off
 
-Every commit needs a `Signed-off-by` line from a person, or the `dco` check fails and nothing merges. Agents never sign off; the operator adds the sign-off after reading the diff ([Sign your work](#sign-your-work-the-developer-certificate-of-origin)).
+Every commit needs a `Signed-off-by` line from a person, or the `dco` check fails and nothing merges. Agents never sign off; the operator adds the sign-off after reading the diff ([Sign your work](#sign-your-work-the-developer-certificate-of-origin)). The one exception is a maintainer's own pull request from this repository, described next.
+
+### A maintainer's own pull request: the `ship-it` label
+
+GitHub does not let anyone approve their own pull request. So when a maintainer's agent opens a pull request under the maintainer's account, the maintainer approves and certifies it with one tap instead: they read the whole change, then add the `ship-it` label to it themselves.
+
+- **What the tap means.** The label is the maintainer's Developer Certificate of Origin for every commit in the pull request, and their approval of it. The `dco` check passes without `Signed-off-by` lines, and its summary records "DCO certified by @login with the ship-it label at <time> for <commit>". The merge bot counts the tap as the maintainer approval in either lane. No bot ever writes a `Signed-off-by` line.
+- **When it counts.** Only on a pull request from a branch of this repository (not a fork), only when its author is a maintainer, and only when the author adds the label with their own user account. A label added by anyone else, even another maintainer, or by a bot, is ignored, and it never brings back an earlier tap.
+- **One tap per commit.** The tap is bound to the exact commit it was added to. A push makes a new commit, and the bot removes the label without a comment, so the new commit needs a new tap, even when a later push goes back to the old commit. Removing the label withdraws the tap.
+- **What still stops a merge.** A `hold` or `andon` label, a maintainer's request for changes, a failed or missing required check, and a draft. CI, `evaluate` and the AI review keep their roles.
+- **Agents never add `ship-it`,** even when asked. GitHub cannot tell the maintainer's tap from an agent that holds the maintainer's token, so the tap must always be the maintainer's own ([AI_POLICY.md](AI_POLICY.md) rule 3).
+
+Nothing changes for anyone else: pull requests from forks, from contributors without write access and from bots are checked and merged exactly as described above. The details are in [scripts/automerge/README.md](scripts/automerge/README.md#ship-it-a-maintainers-one-tap-for-their-own-pull-request).
 
 ### Why is my pull request not merging?
 
@@ -365,6 +377,7 @@ Look at the `merge-policy` status at the bottom of the pull request: its one lin
 - **Auto lane: the AI review suggested changes.** Fix it and push, or reply with your reasons and ask a maintainer to look.
 - **A maintainer requested changes.** Address the review; the request blocks the merge until the maintainer approves.
 - **On hold.** A `hold` or `andon` label is set. Maintainers use these to pause automatic merging, for example while `main` is broken.
+- **A maintainer's own pull request lost its `ship-it` label.** A push removes it. The new commit needs a new tap by the author.
 - **Checks never started.** Your first pull request is waiting for a maintainer's click.
 - **The pull request is a draft.** Mark it ready for review.
 
@@ -399,7 +412,7 @@ Signed-off-by: Ada Lovelace <ada@example.com>
 
 **Name and privacy.** Use your real name or the name you are publicly known by. Anonymous sign-offs cannot be accepted. To keep your personal email private, use your GitHub noreply address (it looks like `ID+username@users.noreply.github.com`), which you can find in your GitHub email settings.
 
-**Agents never sign off.** An agent commits without `-s`. You review the full diff, then add your own sign-off with `git commit --amend -s --no-edit` (one commit) or `git rebase --signoff main` (several). The `Signed-off-by` line always names the accountable human operator.
+**Agents never sign off.** An agent commits without `-s`. You review the full diff, then add your own sign-off with `git commit --amend -s --no-edit` (one commit) or `git rebase --signoff main` (several). The `Signed-off-by` line always names the accountable human operator. A maintainer whose agent opened a pull request from this repository under the maintainer's account may add the `ship-it` label instead ([details](#a-maintainers-own-pull-request-the-ship-it-label)).
 
 ## Disclosing AI assistance
 
