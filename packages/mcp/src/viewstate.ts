@@ -4,6 +4,9 @@
 //   .o3j-view/selection.json   what the person selected in the viewer (occurrences, faces,
 //                              edges); agents read it with inspect fields=[selection]
 //   .o3j-view/highlight.json   what an agent points the viewer at (render view=highlight)
+//   .o3j-view/unrun.o3j.js     the last save of main.o3j.js that the viewer did not run,
+//                              because an agent's commit rewrote main.o3j.js while it ran;
+//                              written for the person (mode 0600), never read back
 //
 // Both files cross a trust boundary, on write and again on read: any process of this user, or
 // a project cloned from someone else, can put a file there. So both are checked the same way
@@ -25,6 +28,7 @@ import { describeIssues } from "./validator.ts";
 
 export const SELECTION_FILE = `${FILES.view}/selection.json`;
 export const HIGHLIGHT_FILE = `${FILES.view}/highlight.json`;
+export const UNRUN_FILE = `${FILES.view}/unrun.o3j.js`;
 /** Largest selection body the viewer may send, and largest state file read back. */
 export const MAX_VIEW_STATE_BYTES = 16 * 1024;
 /** Most occurrences one highlight names; the rest are dropped and the file says truncated. */
@@ -120,6 +124,11 @@ export function buildSelection(rec: RevisionRecord, input: unknown, faceCount: F
 
 export function writeSelection(store: ProjectStore, sel: ViewerSelection): void {
   writeProjectFile(store.project, SELECTION_FILE, `${JSON.stringify(sel, null, 2)}\n`);
+}
+
+/** Keep a save that did not run (see UNRUN_FILE), readable by this user only. */
+export function writeUnrunScript(store: ProjectStore, script: string): void {
+  writeProjectFile(store.project, UNRUN_FILE, script, { mode: 0o600 });
 }
 
 /** A state file, checked against its schema; undefined when missing, too large or invalid. */
