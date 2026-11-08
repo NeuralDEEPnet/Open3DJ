@@ -12,7 +12,7 @@ export { ToolError, toScriptError, redactPaths } from "./errors.ts";
 export type { DaemonErrorCode } from "./errors.ts";
 export { ProjectStore, FILES, formatRev, revNumber } from "./store.ts";
 export type { RevisionRecord, Engine } from "./store.ts";
-export { resolveProject, safeSegments } from "./paths.ts";
+export { renameWithRetry, resolveProject, safeSegments } from "./paths.ts";
 export type { ProjectDir } from "./paths.ts";
 export { DEFAULT_DOCS_FILE, PAGE_SIZE, parseDocs, searchDocs, loadDocs } from "./docs.ts";
 export { schemaValidator } from "./validator.ts";
