@@ -9,9 +9,11 @@ run-name: "DCO #${{ github.event.pull_request.number }}"
 # account) adds the `ship-it` label, the same step first records a `ship-it` commit status on
 # the head commit named in the labeled event, then checks the commits. That status is the
 # author's DCO certification for every commit and their approval, so dco passes without
-# Signed-off-by lines. After a push it removes the stale label (the new commit needs a new
-# tap); when the label comes off it records a withdrawal. Any other person's or a bot's
-# label is ignored. Fork pull requests are checked exactly as before. No bot ever writes a
+# Signed-off-by lines. It counts only while the newest ship-it label event on the pull request
+# is the author's own tap and the status is not older than it. After a push it removes the
+# stale label and marks the old commit's tap as superseded (the new commit needs a new tap);
+# when the label comes off it records a withdrawal. Any other person's or a bot's label is
+# ignored. Fork pull requests are checked exactly as before. No bot ever writes a
 # Signed-off-by line. See scripts/automerge/README.md.
 on:
   pull_request:
@@ -19,11 +21,14 @@ on:
   merge_group:
 
 # pull-requests: write removes a stale ship-it label after a push; statuses: write records a
-# ship-it certification or withdrawal on the labeled commit. They are used only on pull
+# ship-it certification, withdrawal or supersession on a commit. They are used only on pull
 # requests from this repository: GitHub gives fork pull requests a read-only token whatever
-# this asks for.
+# this asks for. issues: read lets dco read who added the ship-it label (the pull request's
+# issue events); GitHub lists that endpoint under both the Issues and the Pull requests
+# permission, and which one suffices for this token was not checked, so both are granted.
 permissions:
   contents: read
+  issues: read
   pull-requests: write
   statuses: write
 

@@ -16,7 +16,7 @@ import { certifiedByShipIt, checkDco, mergeAddsNothing, renderDco, signOffEmails
 import * as gh from "./github.ts";
 import { decideMerge, escapeHtml, evaluate, renderEvaluation, summarizeReviews, validatePolicy, type AiVerdict, type Evaluation, type Policy, type Review } from "./policy.ts";
 import { buildDiff, COMMENT_MARKER, filesFingerprint, fingerprintInStatus, parseReviewOutput, renderComment, revealInvisible, reviewLog, truncateBytes } from "./review.ts";
-import { certificationText, hasLabel, latestShipIt, shipItAction, shipItCandidate, verifyShipIt, withdrawalText, type ShipItNames, type ShipItPr, type ShipItVerdict } from "./shipit.ts";
+import { certificationText, hasLabel, latestShipIt, shipItAction, shipItCandidate, supersededText, verifyShipIt, withdrawalText, type ShipItNames, type ShipItPr, type ShipItVerdict } from "./shipit.ts";
 
 type Json = Record<string, unknown>;
 
@@ -114,34 +114,44 @@ const shipItNames = (policy: Policy): ShipItNames => ({ label: policy.labels.shi
 
 function shipItFacts(pr: gh.PullRequest, sha: string): ShipItPr {
   const head = pr.head.repo?.full_name ?? "";
-  return { author: pr.user.login, sameRepo: head !== "" && head.toLowerCase() === pr.base.repo.full_name.toLowerCase(), headSha: sha, labels: pr.labels.map((l) => l.name) };
+  return { number: pr.number, author: pr.user.login, sameRepo: head !== "" && head.toLowerCase() === pr.base.repo.full_name.toLowerCase(), headSha: sha, labels: pr.labels.map((l) => l.name) };
 }
 
 /**
- * Whether `sha`, the pull request's head commit, carries a valid ship-it now. A fork or a pull
- * request without the label costs no API call, so outside contributors see no change at all.
+ * Whether `sha`, the pull request's head commit, carries a valid ship-it now: the author's own
+ * tap put the label on (the pull request's label events say who), and the status recorded for
+ * that tap is on this commit. A fork or a pull request without the label costs no API call, so
+ * outside contributors see no change at all.
  */
 async function readShipIt(g: gh.Gh, policy: Policy, pr: gh.PullRequest, sha: string, cache: Map<string, boolean>): Promise<ShipItVerdict> {
   const names = shipItNames(policy);
   const facts = shipItFacts(pr, sha);
   const pre = shipItCandidate(facts, names);
   if (pre) return { ok: false, reason: pre };
-  if (!(await isMaintainer(g, policy, facts.author, cache))) return verifyShipIt(facts, { names, authorIsMaintainer: false, status: undefined });
-  const status = latestShipIt(await gh.listStatuses(g, sha), names.context);
-  return verifyShipIt(facts, { names, authorIsMaintainer: true, status });
+  if (!(await isMaintainer(g, policy, facts.author, cache))) return verifyShipIt(facts, { names, authorIsMaintainer: false, status: undefined, events: [], eventsComplete: true });
+  try {
+    const status = latestShipIt(await gh.listStatuses(g, sha), names.context, facts.number);
+    const { events, complete } = await gh.labelEvents(g, facts.number);
+    return verifyShipIt(facts, { names, authorIsMaintainer: true, status, events, eventsComplete: complete });
+  } catch (e) {
+    // Fail closed, with the reason in the summary: no record read means no ship-it.
+    return { ok: false, reason: `the ship-it record could not be read (${(e as Error).message.slice(0, 160)})` };
+  }
 }
 
 /**
  * The ship-it side of a pull_request event, before the commits are checked: record the
  * author's tap as a status on the event's head commit, record a withdrawal when the label
- * comes off, or remove the stale label after a push. Everything comes from the event
- * payload, so the certification is bound to the commit GitHub reported with the tap.
+ * comes off, or remove the stale label after a push and mark the old commit's tap as
+ * superseded. Everything comes from the event payload, so the certification is bound to the
+ * commit GitHub reported with the tap.
  */
 async function shipItEvent(g: gh.Gh, policy: Policy, ev: Json, n: number, cache: Map<string, boolean>): Promise<void> {
   const names = shipItNames(policy);
   const raw = obj(ev.pull_request);
   const headRepo = str(obj(obj(raw.head).repo).full_name);
   const facts: ShipItPr = {
+    number: n,
     author: str(obj(raw.user).login),
     sameRepo: headRepo !== "" && headRepo.toLowerCase() === str(obj(obj(raw.base).repo).full_name).toLowerCase(),
     headSha: str(obj(raw.head).sha),
@@ -149,7 +159,8 @@ async function shipItEvent(g: gh.Gh, policy: Policy, ev: Json, n: number, cache:
   };
   const sender = obj(ev.sender);
   const label = str(obj(ev.label).name);
-  const plan = shipItAction({ action: str(ev.action), ...(label ? { label } : {}), sender: { login: str(sender.login), type: str(sender.type) } }, facts, names);
+  const before = str(ev.before);
+  const plan = shipItAction({ action: str(ev.action), ...(label ? { label } : {}), ...(before ? { before } : {}), sender: { login: str(sender.login), type: str(sender.type) } }, facts, names);
   if (plan.kind === "none") {
     if (label && label.toLowerCase() === names.label.toLowerCase()) log("ship-it: nothing recorded:", plan.reason);
     return;
@@ -159,14 +170,19 @@ async function shipItEvent(g: gh.Gh, policy: Policy, ev: Json, n: number, cache:
       // Silently: the missing label tells the author that the new commit needs a new tap.
       await gh.removeLabel(g, n, names.label);
       log("ship-it: removed the label after a push; the new commit needs a new tap");
+      // The commit before the push may come back (a force-push); its tap must not.
+      if (plan.supersede && latestShipIt(await gh.listStatuses(g, plan.supersede), names.context, n)?.state === "success") {
+        await gh.setStatus(g, plan.supersede, names.context, "failure", supersededText(new Date(), n), runUrl());
+        log(`ship-it: superseded for ${plan.supersede.slice(0, 12)}`);
+      }
     } else if (plan.kind === "certify") {
       if (!(await isMaintainer(g, policy, facts.author, cache))) return log("ship-it: nothing recorded: the author is not a maintainer");
-      await gh.setStatus(g, plan.sha, names.context, "success", certificationText(facts.author, new Date()), runUrl());
+      await gh.setStatus(g, plan.sha, names.context, "success", certificationText(facts.author, new Date(), n), runUrl());
       log(`ship-it: recorded for ${plan.sha.slice(0, 12)}`);
     } else {
-      const current = latestShipIt(await gh.listStatuses(g, plan.sha), names.context);
+      const current = latestShipIt(await gh.listStatuses(g, plan.sha), names.context, n);
       if (current?.state !== "success") return;
-      await gh.setStatus(g, plan.sha, names.context, "failure", withdrawalText(str(sender.login), new Date()), runUrl());
+      await gh.setStatus(g, plan.sha, names.context, "failure", withdrawalText(str(sender.login), new Date(), n), runUrl());
       log(`ship-it: withdrawn for ${plan.sha.slice(0, 12)}`);
     }
   } catch (e) {

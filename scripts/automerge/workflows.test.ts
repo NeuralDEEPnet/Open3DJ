@@ -162,6 +162,8 @@ describe("workflows", () => {
     // check always sees the certification it just recorded.
     assert.equal(runScripts(dco).filter((s) => /scripts\/automerge\/cli\.ts/.test(s)).join("\n"), "node scripts/automerge/cli.ts dco");
     assert.ok(!/^\s+if:/m.test(dco), "no job or step is skipped: a skipped dco job would count as passed");
+    // ship-it reads who added the label (issues/{n}/events), and reading needs no more than read access.
+    assert.match(dco, /^permissions:\n(?: {2}[a-z-]+: (?:read|write)(?: #.*)?\n)*? {2}issues: read\n/m);
   });
 
   it("runs the macOS viewer-browser leg on pull requests and by hand, not on every push to main", () => {
