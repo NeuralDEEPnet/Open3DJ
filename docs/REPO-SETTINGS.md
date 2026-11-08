@@ -267,7 +267,7 @@ The lanes are decided by `.github/merge-policy.json`, and the required `merge-po
 1. `*` owns everything.
 2. The auto-lane folders and `*.md` lose their owner: `/docs/`, `/examples/`, `/bench/tasks/`, `/corpora/`, `/lib/`.
 3. Code, scripts, binaries and build files get an owner again in every folder: `*.ts`, `*.js`, `*.sh`, `*.py`, `*.wasm`, `package.json`, `Dockerfile` and the other names in the policy's `code` rule.
-4. The DSL scripts of examples and bench tasks (`*.o3j.js`) lose it again, because they run only inside the sandbox.
+4. The DSL scripts of examples, bench tasks and corpora (`*.o3j.js`) lose it again, because they run only inside the sandbox. A changed corpus script still needs a maintainer: the `corpora` rule of the policy accepts only added files.
 5. Code folders, `.github/`, `.claude/`, dotfiles, agent instruction files, the front page and plan, and governance files get an owner last, so nothing above can un-own them.
 
 `scripts/automerge/workflows.test.ts` checks on every `npm run check` that every maintainer-lane path of the policy has an owner here and that the auto-lane paths have none.
