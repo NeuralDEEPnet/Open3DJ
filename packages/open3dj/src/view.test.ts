@@ -239,9 +239,11 @@ test("a script error keeps the last revision and is reported on the stream", asy
 
 test("open3dj view parses its flags", () => {
   const c = parseCommand(["view", "part.o3j.js", "--port", "8123", "--no-open", "--param", "w=3"]).command;
-  assert.deepEqual(c, { cmd: "view", source: { kind: "script", path: "part.o3j.js", project: "part.o3j" }, params: { w: 3 }, saveParams: true, open: false, port: 8123 });
+  assert.deepEqual(c, { cmd: "view", source: { kind: "script", path: "part.o3j.js", project: "part.o3j" }, params: { w: 3 }, saveParams: true, syncScript: true, open: false, port: 8123 });
   const d = parseCommand(["view", "part.o3j", "--no-save-params"]).command;
-  assert.deepEqual(d, { cmd: "view", source: { kind: "project", project: "part.o3j" }, params: {}, saveParams: false, open: true });
+  assert.deepEqual(d, { cmd: "view", source: { kind: "project", project: "part.o3j" }, params: {}, saveParams: false, syncScript: true, open: true });
+  const e = parseCommand(["view", "part.o3j.js", "--no-sync-script"]).command;
+  assert.ok(e.cmd === "view" && e.syncScript === false);
   assert.throws(() => parseCommand(["view", "part.o3j", "--port", "70000"]), /0 to 65535/);
   assert.throws(() => parseCommand(["view"]), /view needs a script or project/);
 });

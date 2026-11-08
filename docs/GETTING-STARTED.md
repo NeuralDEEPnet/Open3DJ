@@ -167,7 +167,13 @@ watching examples/enclosure/enclosure.o3j.js; save it to update the view. Press 
 - **Tools.** Click a face or an edge to select it; `C` copies its address (for example `lid@elem:face:5`) for an agent. There are section planes (`S`), an exploded view, a measure tool (`R`), X-ray (`X`) and overhang and draft overlays (`O`) for a quick look before the checks of later steps. Measures taken here are labeled observed; the report's numbers are the ones of record.
 - **No GPU.** The page uses WebGPU when the browser has it and WebGL2 otherwise. Without either, it shows the hidden-line drawing of the same revision instead. `D` shows that drawing at any time.
 
-The server listens on 127.0.0.1 only, and the URL carries a random key for this session. Other pages and other machines cannot read it. The page never changes the design. It shares what you select with agents working on the same project (**Share with agents**, on by default), and shows the parts an agent points at. Add `--port 8123` to choose the port and `--no-open` to skip opening the browser.
+When you and an agent work on the same project, neither of you silently undoes the other's work:
+
+- `view` never runs an agent's revision again. `--param` values are start-up values: once an agent makes a revision, they are no longer sent, and the terminal says so once.
+- When you watch a script outside the project (`examples/enclosure/enclosure.o3j.js`), an agent's revision is written into it, so your next save builds on the agent's version. The terminal prints `wrote r_0004 (made by an agent) to enclosure.o3j.js`, and your editor may offer to reload the file. This happens only while the script holds what last ran. Add `--no-sync-script` to leave the script alone.
+- A save that is based on an older revision is not run, so it cannot replace the agent's revision. The page and the terminal say, for example, `enclosure.o3j.js is based on r_0003; r_0004 was made by an agent`, with how to take the agent's version (copy `enclosure.o3j/main.o3j.js` over your script) or keep yours (`open3dj run enclosure.o3j.js` once).
+
+The server listens on 127.0.0.1 only, and the URL carries a random key for this session. Other pages and other machines cannot read it. The page never changes the design. It shares what you select with agents working on the same project (**Share with agents**, on by default), and shows the parts an agent points at. Add `--port 8123` to choose the port, `--no-open` to skip opening the browser and `--no-sync-script` to never write an agent's revision into your script.
 
 ### Change a parameter
 

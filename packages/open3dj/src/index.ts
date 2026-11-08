@@ -48,8 +48,10 @@ Usage:
   open3dj inspect [<script|project>] [--fields tree,refs,fits,measure,devices,job,selection,gates] [--targets a,b] [--job id]
                   [--gates fdm.v1] [--build 0,0,1] [--bed 220,220,250]   gates: 3D printing checks per part
   open3dj docs <query> [--page n]
-  open3dj view <script|project> [--port n] [--no-open] [--param name=value ...]
+  open3dj view <script|project> [--port n] [--no-open] [--param name=value ...] [--no-sync-script]
                                                    browser viewer on 127.0.0.1; re-runs the script on save
+                                                   and writes an agent's revisions to a watched script
+                                                   file (--no-sync-script: never)
   open3dj new <name> [--template part|assembly]   scaffold name.o3j with a starter script
   open3dj mcp [--root dir] [--workers n]           stdio MCP server for agents
   open3dj doctor [--bench] [--json | --report]     what this machine can run; --report prints a
@@ -377,7 +379,7 @@ async function view(command: Extract<Command, { cmd: "view" }>, io: Io): Promise
   let server;
   try {
     server = await startViewServer({
-      handlers, root: dirname(projectAbs), project: projectAbs, script, params: command.params, saveParams: command.saveParams,
+      handlers, root: dirname(projectAbs), project: projectAbs, script, params: command.params, saveParams: command.saveParams, syncScript: command.syncScript,
       ...(command.port !== undefined ? { port: command.port } : {}),
       log: (line) => io.err(`${line}\n`),
       onRun: (run, out) => {
