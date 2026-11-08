@@ -143,7 +143,7 @@ describe("workflows", () => {
         assert.match(m[2]!, /^[0-9a-f]{40}$/, `${w.name}: ${m[1]} must be pinned to a 40-character commit id`);
       }
     }
-    for (const name of ["ai-review.yml", "automerge.yml"]) {
+    for (const name of ["ai-review.yml", "automerge.yml", "dco.yml"]) {
       for (const m of workflows.find((w) => w.name === name)!.text.matchAll(/uses: ([^@\s]+)@(\S+)/g)) assert.match(m[2]!, /^[0-9a-f]{40}$/, `${name} has write tokens: pin ${m[1]}`);
     }
   });
