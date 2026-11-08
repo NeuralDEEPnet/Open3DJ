@@ -1,17 +1,24 @@
 # Outreach: the call for testers
 
-Ready-to-post texts that ask people to test Open3DJ on their own machines. They were drafted by neuraldeep.net design agents for the founder. **The founder reviews and posts every one of them by hand.** No agent posts, comments or replies on any of these sites ([AI_POLICY.md](../../AI_POLICY.md)).
+Texts and notes that ask people to test Open3DJ on their own machines. They were drafted by neuraldeep.net design agents for the founder. **The founder reviews and posts every one of them by hand.** No agent posts, comments or replies on any of these sites ([AI_POLICY.md](../../AI_POLICY.md)). Hacker News forbids text written or edited by a language model, so for Show HN there is a fact sheet, and the founder writes the post and every reply in their own words.
 
-Every text links to the repository and to the tester guide, [docs/TESTING.md](../../docs/TESTING.md), names Neural Deep Network LTD as the creator, and says that testers are credited.
+Every ready-to-post text (the issue, the announcement, and the social, Reddit and chat texts) links to the repository and to the tester guide, [docs/TESTING.md](../../docs/TESTING.md), names Neural Deep Network LTD as the creator, and says that testers are credited.
 
 | File | Where it goes |
 |---|---|
 | [call-for-testers-issue.md](call-for-testers-issue.md) | A pinned GitHub issue, labeled `help wanted` and `good first issue` |
 | [discussions-announcement.md](discussions-announcement.md) | GitHub Discussions, Announcements category, pinned |
-| [show-hn.md](show-hn.md) | Hacker News: a Show HN title and the first comment |
-| [social.md](social.md) | Two posts for X and one for LinkedIn |
-| [reddit.md](reddit.md) | r/cad, r/3Dprinting, r/FreeCAD, r/ClaudeAI and, only if it applies, r/LocalLLaMA |
+| [show-hn.md](show-hn.md) | Hacker News: a fact sheet and the rules. The founder writes the post |
+| [social.md](social.md) | Three posts for X and one for LinkedIn |
+| [reddit.md](reddit.md) | Notes and a text per subreddit: r/3Dprinting, r/cad, r/ClaudeAI, r/mcp, r/LocalLLaMA (only with a local-model demo), and r/FreeCAD and r/openscad only after asking the moderators |
 | [chat.md](chat.md) | A short message for Discord or Slack communities |
+| [directories.md](directories.md) | The repository description and topics, then Glama, awesome-mcp-servers, mcpservers.org and mcp.so; what waits for the cleared name and what to skip |
+| [communities.md](communities.md) | CadQuery and build123d, the OpenSCAD list, the FreeCAD forum, the MCP spaces, and the clean-room rule for code contributors |
+| [techxpo.md](techxpo.md) | The TechXPO stand: a 3-minute demo, what to say, and the QR code target |
+
+Related: [ops/programs.md](../programs.md) (mentoring programs, grants and the University of Malta), [docs/IDEAS.md](../../docs/IDEAS.md) (project ideas for students and new contributors) and [ops/build-night/](../build-night/README.md) (the monthly Agent Build Night).
+
+The issue, the announcement, the social posts, the chat message, the TechXPO pitch and the Build Night page carry the same line for people who work with agents: "Bring your Claude Code, Codex or Cursor agent. It does the work, you press the button."
 
 ## Posting checklist
 
@@ -24,7 +31,7 @@ Work through this in order. Each step depends on the ones before it.
 - [ ] The one-line installers from `main` work on a clean Windows machine and a clean macOS or Linux machine. Run each command exactly as [docs/TESTING.md](../../docs/TESTING.md#install) prints it.
 - [x] The `-Ref` callout and the "Before pull request #3 merges" subsection are removed from docs/TESTING.md, and the matching line is removed from the README's "Help test Open3DJ on your machine" section. Search both files for `REMOVE AFTER PULL REQUEST #3 MERGES`.
 - [ ] The README's "Not yet" paragraph and the platform tables in docs/TESTING.md match what is true on the day you post (CI results, the golden failures, what has been tested by a person).
-- [ ] The labels exist: `help wanted`, `good first issue`, `hardware-report`, `failure-report` and `needs-triage` ([REPO-SETTINGS.md section 5](../../docs/REPO-SETTINGS.md#5-labels)). The hardware report form cannot apply a label that does not exist.
+- [x] The labels exist: `help wanted`, `good first issue`, `hardware-report`, `failure-report` and `needs-triage` ([REPO-SETTINGS.md section 5](../../docs/REPO-SETTINGS.md#5-labels)). The hardware report form cannot apply a label that does not exist.
 - [ ] Discussions are enabled, with the Announcements, Q&A and Show and tell categories ([REPO-SETTINGS.md section 3](../../docs/REPO-SETTINGS.md#3-discussions)). The guide and several posts link there.
 - [ ] Open the [hardware report form](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=hardware_report.yml) once yourself and check that it renders. Then close the tab without submitting, or file your own machine's report as the first one.
 
@@ -35,13 +42,29 @@ Work through this in order. Each step depends on the ones before it.
 
 **Day 1 or 2: outside GitHub**
 
-- [ ] Post Show HN when you can stay for the next few hours to answer comments. Post it once; do not repost if it gets little attention.
+- [ ] Write your Show HN from the fact sheet in [show-hn.md](show-hn.md), in your own words, and post it from your own account when you can stay for the next few hours to answer comments. Post it once; do not repost if it gets little attention, and never ask anyone to upvote.
 - [ ] Post on X and LinkedIn.
+
+**After CI is green: directories** (in order, from [directories.md](directories.md))
+
+- [ ] Set the repository description and topics.
+- [ ] Submit to Glama, after the Dockerfile pull request is merged, and check that the build passes.
+- [ ] Open one pull request to punkpeye/awesome-mcp-servers with the Glama badge, from your own account, without the agent fast-track tag.
+- [ ] Submit to mcpservers.org and mcp.so on their free review tiers.
+- [ ] Leave the official MCP Registry and the Claude plugin directory until the name is cleared. Skip Smithery and PulseMCP.
 
 **Over the next week: communities**
 
-- [ ] Reddit: one subreddit per day at most, each with its own text from [reddit.md](reddit.md). Read the subreddit's rules on the day you post.
+- [ ] Reddit: one subreddit per day at most, each with its own text from [reddit.md](reddit.md). Read the subreddit's rules on the day you post; they could not be read when the notes were written.
 - [ ] Discord and Slack: only in communities you already take part in, and only in channels meant for projects or announcements.
+
+**After that: the open CAD and MCP communities** (from [communities.md](communities.md), one at a time)
+
+- [ ] Subscribe to the OpenSCAD mailing list a few days before you want to write; an administrator approves each subscription.
+- [ ] CadQuery and build123d: join the shared Discord, read its rules, and offer o3dj-bench as a neutral evaluation, not a launch post.
+- [ ] FreeCAD forum: read its rules in a browser, then post only an interoperability question in the open discussion area, or skip it.
+- [ ] MCP: no product posts in the MCP Contributors Discord or the specification's Discussions.
+- [ ] TechXPO: print the QR code to docs/TESTING.md and rehearse the demo in [techxpo.md](techxpo.md).
 
 **After posting**
 
