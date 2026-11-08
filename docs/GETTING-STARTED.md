@@ -153,6 +153,7 @@ npx open3dj view examples/enclosure/enclosure.o3j.js
 
 ```text
 open3dj view: http://127.0.0.1:52817/Xq3...nonce.../
+this link works once; the browser that opens it keeps a session cookie and moves to http://127.0.0.1:52817/
 watching examples/enclosure/enclosure.o3j.js; save it to update the view. Press Ctrl+C to stop.
 [10:42:07] r_0001 ok: 3 of 3 definitions valid, 16 fit lines
 ```
@@ -167,7 +168,7 @@ watching examples/enclosure/enclosure.o3j.js; save it to update the view. Press 
 - **Tools.** Click a face or an edge to select it; `C` copies its address (for example `lid@elem:face:5`) for an agent. There are section planes (`S`), an exploded view, a measure tool (`R`), X-ray (`X`) and overhang and draft overlays (`O`) for a quick look before the checks of later steps. Measures taken here are labeled observed; the report's numbers are the ones of record.
 - **No GPU.** The page uses WebGPU when the browser has it and WebGL2 otherwise. Without either, it shows the hidden-line drawing of the same revision instead. `D` shows that drawing at any time.
 
-The server listens on 127.0.0.1 only, and the URL carries a random key for this session. Other pages and other machines cannot read it. The page never changes the design. It shares what you select with agents working on the same project (**Share with agents**, on by default), and shows the parts an agent points at. Add `--port 8123` to choose the port and `--no-open` to skip opening the browser.
+The server listens on 127.0.0.1 only. The printed link holds a random key and works once: the browser that opens it gets a session cookie and moves to `http://127.0.0.1:<port>/`, where you can reload or bookmark the page. Opening the same link again in that browser takes you back to the page; anywhere else it answers "this one-time link was already used". To use a second browser, press `?` in the page and click **Open in another browser**: it shows a new link that works once, within 10 minutes. A browser without the cookie gets a 404 on every page, and other web pages and other machines cannot read the viewer. The page never changes the design. It shares what you select with agents working on the same project (**Share with agents**, on by default), and shows the parts an agent points at. Add `--port 8123` to choose the port and `--no-open` to skip opening the browser.
 
 ### Change a parameter
 

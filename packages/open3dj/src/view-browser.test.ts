@@ -6,21 +6,33 @@
 // Set OPEN3DJ_VIEWER_SHOTS to a folder to keep the screenshot.
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { copyFileSync, mkdirSync, mkdtempSync, rmSync } from "node:fs";
+import { copyFileSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } from "node:fs";
 import { createRequire } from "node:module";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 import { createPool, deviceInventory } from "@open3dj/compute";
 import type { PoolOptions } from "@open3dj/compute";
 import { createHandlers } from "@open3dj/mcp";
-import { startViewServer } from "./view.ts";
+import type { ToolHandlers } from "@open3dj/mcp";
+import { openBrowser, startViewServer } from "./view.ts";
+import { openPage } from "./view-login.testing.ts";
 
 const ENCLOSURE = fileURLToPath(new URL("../../../examples/enclosure/enclosure.o3j.js", import.meta.url));
 
 // Playwright's types are not installed here; the few calls below are typed by hand.
+interface Response { url(): string; status(): number; text(): Promise<string>; request(): { allHeaders(): Promise<Record<string, string>> } }
+interface Cookie { name: string; value: string; domain: string; path: string; httpOnly: boolean; secure: boolean; sameSite: string; expires: number }
 interface Page {
   goto(url: string): Promise<unknown>;
+  url(): string;
+  title(): Promise<string>;
+  waitForResponse(fn: (r: Response) => boolean, options?: { timeout: number }): Promise<Response>;
+  waitForURL(url: string, options?: { timeout: number }): Promise<void>;
+  context(): { cookies(): Promise<Cookie[]> };
+  click(selector: string): Promise<void>;
+  inputValue(selector: string): Promise<string>;
+  close(): Promise<void>;
   waitForFunction(fn: () => boolean, arg?: unknown, options?: { timeout: number }): Promise<unknown>;
   evaluate<T, A = undefined>(fn: (arg: A) => T, arg?: A): Promise<T>;
   locator(selector: string): { count(): Promise<number>; getAttribute(name: string): Promise<string | null> };
@@ -62,6 +74,62 @@ function loadPlaywright(): Playwright | string {
   }
 }
 
+/** Handlers with no kernel: every run fails at once, so the project has no revision. Enough to serve the page. */
+function noKernel(): ToolHandlers {
+  const failed = async () => ({ status: "error", error: { code: "INTERNAL_ERROR", message: "no kernel in this test" }, compute: { backend: "none", device: "daemon", placement_reason: "test" } });
+  return { run: failed, inspect: failed, export: failed, render: failed, docs: failed, shutdown: () => {} } as unknown as ToolHandlers;
+}
+
+// Regression (RFC 0001, plan step B1): openBrowser opens a private file:// page that redirects
+// to the one-time link. Chromium sends that navigation with Sec-Fetch-Site: cross-site (a file
+// page has an opaque origin), and the server refused every cross-site request with 403, so the
+// automatic open showed "refused: cross-site request" instead of the viewer. Seen on 2026-11-08
+// with Chromium 153 (headless) through Playwright 1.63.
+test("the automatic browser open reaches the page: the redirect file's cross-site navigation trades the one-time link for a cookie", { timeout: 60_000 }, async (t) => {
+  const pw = loadPlaywright();
+  if (typeof pw === "string") return t.skip(pw);
+  let browser: Browser;
+  try {
+    browser = await pw.chromium.launch({ args: [] });
+  } catch (e) {
+    return t.skip(`playwright is installed but Chromium did not start (${(e as Error).message.split("\n")[0]}); skipped`);
+  }
+  const dir = mkdtempSync(join(tmpdir(), "o3j-view-open-"));
+  const script = join(dir, "open.o3j.js");
+  writeFileSync(script, "return { name: \"b\", shape: box(1, 1, 1) };\n");
+  const server = await startViewServer({ handlers: noKernel(), root: dir, project: join(dir, "open.o3j"), script, log: () => {} });
+  // The launcher is faked: it only records the file it was given, as xdg-open, open or rundll32 would get it.
+  let target = "";
+  const opened = openBrowser(server.url, () => {}, (_cmd, args) => {
+    target = args.at(-1)!;
+    return { on: () => {}, unref: () => {} };
+  });
+  try {
+    await server.ready;
+    const origin = `http://127.0.0.1:${server.port}`;
+    const page = await browser.newPage({});
+    const exchange = page.waitForResponse((r) => r.url().startsWith(origin), { timeout: 20_000 });
+    await page.goto(target.startsWith("file:") ? target : pathToFileURL(target).href);
+    const first = await exchange;
+    const sent = await first.request().allHeaders();
+    assert.equal(first.url(), server.url);
+    // The bounce page is navigated away from at once, so its body is read only on a failure.
+    if (first.status() !== 200) assert.fail(`the one-time link answered ${first.status()} (${(await first.text().catch(() => "")).trim()}) to a navigation with Sec-Fetch-Site: ${sent["sec-fetch-site"]}, Sec-Fetch-Mode: ${sent["sec-fetch-mode"]}`);
+    // The bounce page moves to the root path, without the nonce, and the viewer loads there.
+    await page.waitForURL(`${origin}/`, { timeout: 20_000 });
+    assert.equal(await page.title(), "open - Open3DJ viewer");
+    const cookies = (await page.context().cookies()).filter((c) => c.name === `o3j_${server.port}`);
+    assert.equal(cookies.length, 1, "one session cookie for this port");
+    assert.deepEqual({ domain: cookies[0]!.domain, path: cookies[0]!.path, httpOnly: cookies[0]!.httpOnly, sameSite: cookies[0]!.sameSite }, { domain: "127.0.0.1", path: "/", httpOnly: true, sameSite: "Strict" });
+    assert.match(cookies[0]!.value, /^[A-Za-z0-9_-]{43}$/, "32 random bytes, base64url");
+  } finally {
+    opened.cleanup();
+    await browser.close();
+    await server.close();
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
 test("the viewer shows examples/enclosure: 6 occurrences, a click selects a screw, and a click on a face gives its element address", { timeout: 180_000 }, async (t) => {
   const pw = loadPlaywright();
   if (typeof pw === "string") return t.skip(pw);
@@ -83,7 +151,7 @@ test("the viewer shows examples/enclosure: 6 occurrences, a click selects a scre
     const page = await browser.newPage({ viewport: { width: 1280, height: 800 } });
     const errors: string[] = [];
     page.on("pageerror", (e) => errors.push(e.message ?? String(e)));
-    await page.goto(server.url);
+    await openPage(page, server);
     await page.waitForFunction(() => (globalThis as unknown as ViewerWindow).document.documentElement.dataset.viewer === "ready", null, { timeout: 120_000 });
     assert.deepEqual(errors, []);
 
@@ -168,6 +236,19 @@ test("the viewer shows examples/enclosure: 6 occurrences, a click selects a scre
       return { hidden: d.getElementById("help")?.hidden, top: d.getElementById("help")?.querySelector(".card")?.scrollTop, focus: d.activeElement?.id };
     });
     assert.deepEqual(help, { hidden: false, top: 0, focus: "help-title" });
+    // "Open in another browser", in the help, shows a new one-time link that logs a second browser in.
+    await page.click("#link-new");
+    await page.waitForFunction(() => /^http:\/\/127\.0\.0\.1:\d+\/[A-Za-z0-9_-]{32}\/$/.test((globalThis as unknown as { document: { getElementById(id: string): { value: string } | null } }).document.getElementById("link-url")?.value ?? ""), undefined, { timeout: 10_000 });
+    const link = await page.inputValue("#link-url");
+    const other = await browser.newPage({});
+    try {
+      await other.goto(link);
+      await other.waitForURL(`${server.origin}/`, { timeout: 20_000 });
+      assert.equal(await other.title(), "enclosure - Open3DJ viewer");
+    } finally {
+      await other.close();
+    }
+    await page.focus("#help-title");
     await page.keyboard.press("Escape");
     assert.deepEqual(errors, []);
 

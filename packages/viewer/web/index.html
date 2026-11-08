@@ -206,6 +206,13 @@
     <p class="muted">A left click selects the part and the face or edge under the cursor in every preset; <kbd>Shift</kbd>+click or <kbd>Ctrl</kbd>+click adds to the selection. On a part that is small on screen a click keeps the face; zoom in to pick its edges. Double-click a tree row to fit that part.</p>
     <p class="muted">With "Share with agents" on, what you select (parts, and faces as element addresses) is saved in the project, where an agent reads it with <code>inspect fields=[selection]</code>. An agent can point at parts and faces with <code>render view=highlight</code>; they show in magenta <span class="swatch agent-swatch" aria-hidden="true"></span> with a note, without moving your view, until you dismiss them.</p>
     <p class="muted">Labels: <span class="tier measured">measured</span> numbers come from the CPU kernel (the report); <span class="tier observed">observed</span> numbers are read off the display mesh; <span class="tier preview">preview</span> overlays show where to look, and the kernel decides.</p>
+    <h3>Open in another browser</h3>
+    <p class="muted">The link <code>open3dj view</code> printed works once: this browser now keeps a session cookie. For another browser on this computer, make a new one-time link and paste it there. It works once, within 10 minutes.</p>
+    <div class="another-browser">
+      <button type="button" id="link-new">Open in another browser</button>
+      <input type="text" id="link-url" readonly spellcheck="false" aria-label="One-time link for another browser" hidden>
+      <span class="muted" id="link-state" role="status"></span>
+    </div>
     <button type="button" data-action="help">Close</button>
   </div>
 </div>

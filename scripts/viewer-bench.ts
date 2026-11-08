@@ -55,6 +55,7 @@ const GATE = { case: "plate-145", WebGPU: 33, WebGL2: 50 } as const;
 
 interface Page {
   goto(url: string): Promise<unknown>;
+  waitForURL(url: string, options?: { timeout: number }): Promise<void>;
   reload(): Promise<unknown>;
   addInitScript(fn: () => void): Promise<void>;
   waitForFunction(fn: () => boolean, arg?: unknown, options?: { timeout: number }): Promise<unknown>;
@@ -231,7 +232,10 @@ async function benchCase(browser: Browser, c: Case): Promise<Row[]> {
       try {
         const query = new URLSearchParams({ dpr: String(dpr), adaptive: resolution === "full" ? "0" : "1" });
         if (asked === "webgl2") query.set("renderer", "webgl");
-        await page.goto(`${server.url}?${query}`);
+        // Each page is a new browser context, so each needs its own one-time link; the link's page
+        // sets the session cookie and moves to the root path, keeping the query.
+        await page.goto(`${server.newLink()}?${query}`);
+        await page.waitForURL(`${server.origin}/?${query}`, { timeout: 60_000 });
         let cold: number | null = await waitReady(page);
         // A WebGPU device that fails after start-up makes the page reload itself on WebGL2.
         await page.waitForTimeout(1500);
