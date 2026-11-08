@@ -251,7 +251,7 @@ describe("docs and CODEOWNERS match the merge policy", () => {
   });
 
   it("leaves auto-lane paths without an owner, so they need no approval", () => {
-    for (const path of ["docs/guide.md", "docs/research/gap-9.md", "CONTRIBUTORS.md", "examples/nut/nut.o3j.js", "examples/nut/expected.json", "examples/nut/drawing.png", "bench/tasks/t1/ref.o3j.js", "bench/tasks/t1/task.json", "lib/iso-4032/m4.json", "corpora/hdet/case.json", "docs/images/shot.png"]) {
+    for (const path of ["docs/guide.md", "docs/research/gap-9.md", "CONTRIBUTORS.md", "examples/nut/nut.o3j.js", "examples/nut/expected.json", "examples/nut/drawing.png", "bench/tasks/t1/ref.o3j.js", "bench/tasks/t1/task.json", "lib/iso-4032/m4.json", "corpora/hdet/case.json", "corpora/gates/cases/wall-new-0.5.json", "corpora/gates/wall-new-0.5.o3j.js", "docs/images/shot.png"]) {
       assert.equal(classifyPath(path, "added", policy).lane, "auto", path);
       assert.equal(owned(path), false, `${path} is in the auto lane but has a code owner`);
     }

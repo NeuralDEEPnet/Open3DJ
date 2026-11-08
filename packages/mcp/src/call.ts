@@ -1,5 +1,6 @@
-// One tool call as an MCP CallResult. The stdio server (server.ts) and the agent panel
-// (@open3dj/agent) both call callTool(), so a tool behaves the same whichever way it is reached.
+// One tool call as an MCP CallResult. The stdio server (server.ts) calls callTool(), and the
+// planned agent panel (@open3dj/agent, RFC 0001) will call it too, so a tool behaves the same
+// whichever way it is reached.
 import type { RenderImage } from "@open3dj/compute";
 import type { ToolName } from "@open3dj/schemas";
 import { toScriptError } from "./errors.ts";

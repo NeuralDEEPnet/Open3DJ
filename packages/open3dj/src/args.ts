@@ -16,7 +16,7 @@ export type Command =
   | { cmd: "render"; input: RenderInput; source: Source; params: Record<string, ParamValue>; saveParams: boolean; out?: string }
   | { cmd: "export"; input: ExportInput; source: Source; params: Record<string, ParamValue>; saveParams: boolean; out?: string }
   | { cmd: "docs"; input: DocsInput }
-  | { cmd: "view"; source: Source; params: Record<string, ParamValue>; saveParams: boolean; port?: number; open: boolean }
+  | { cmd: "view"; source: Source; params: Record<string, ParamValue>; saveParams: boolean; syncScript: boolean; port?: number; open: boolean }
   | { cmd: "mcp"; root?: string; workers?: number }
   | { cmd: "doctor"; bench: boolean; report: boolean }
   | { cmd: "new"; name: string; template: "part" | "assembly" }
@@ -133,10 +133,11 @@ export function parseCommand(argv: string[]): Parsed {
       return { command: { cmd: "docs", input }, json: values.json };
     }
     case "view": {
-      const { values, positionals } = parse(rest, { ...COMMON, ...PARAMS, port: { type: "string" }, "no-open": { type: "boolean", default: false } });
+      const { values, positionals } = parse(rest, { ...COMMON, ...PARAMS, port: { type: "string" }, "no-open": { type: "boolean", default: false }, "no-sync-script": { type: "boolean", default: false } });
       if (values.help) return help("view");
       const source = sourceOf(positionals, values.project, "view needs a script or project, for example: open3dj view bracket.o3j.js");
-      const command: Command = { cmd: "view", source, params: parseParams(values.param ?? []), saveParams: !values["no-save-params"], open: !values["no-open"] };
+      // --no-sync-script: never write an agent's revision to the watched script file.
+      const command: Command = { cmd: "view", source, params: parseParams(values.param ?? []), saveParams: !values["no-save-params"], syncScript: !values["no-sync-script"], open: !values["no-open"] };
       if (values.port !== undefined) {
         command.port = int(values.port, "--port");
         if (command.port < 0 || command.port > 65535) throw new UsageError(`--port is 0 to 65535, got ${command.port}`);
@@ -223,6 +224,12 @@ function sourceOf(positionals: string[], project: string | undefined, message: s
   if (/\.o3j$/.test(p)) return { kind: "project", project: project ?? p };
   if (/\.js$/.test(p)) return { kind: "script", path: p, project: project ?? defaultProject(p) };
   throw new UsageError(`"${arg}" is neither a script (.js) nor a project folder (.o3j)`);
+}
+
+/** What follows `open3dj run` to run source into the same project, for hints to a person. */
+export function runArgsOf(source: Source): string {
+  if (source.kind === "project") return source.project;
+  return source.project === defaultProject(source.path) ? source.path : `${source.path} --project ${source.project}`;
 }
 
 function trimSlash(p: string): string {

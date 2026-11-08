@@ -14,13 +14,13 @@ export { ToolError, toScriptError, redactPaths } from "./errors.ts";
 export type { DaemonErrorCode } from "./errors.ts";
 export { ProjectStore, FILES, formatRev, revNumber } from "./store.ts";
 export type { RevisionRecord, Engine } from "./store.ts";
-export { resolveProject, safeSegments } from "./paths.ts";
+export { renameWithRetry, resolveProject, safeSegments } from "./paths.ts";
 export type { ProjectDir } from "./paths.ts";
 export { DEFAULT_DOCS_FILE, PAGE_SIZE, parseDocs, searchDocs, loadDocs } from "./docs.ts";
 export { schemaValidator } from "./validator.ts";
 export {
-  SELECTION_FILE, HIGHLIGHT_FILE, MAX_VIEW_STATE_BYTES, MAX_HIGHLIGHT_PATHS, MAX_HIGHLIGHT_BYTES,
-  buildSelection, writeSelection, readSelection, selectionForAgent, buildHighlight, writeHighlight, readHighlight, faceCounts,
+  SELECTION_FILE, HIGHLIGHT_FILE, UNRUN_FILE, MAX_VIEW_STATE_BYTES, MAX_HIGHLIGHT_PATHS, MAX_HIGHLIGHT_BYTES,
+  buildSelection, writeSelection, writeUnrunScript, readSelection, selectionForAgent, buildHighlight, writeHighlight, readHighlight, faceCounts,
 } from "./viewstate.ts";
 export type { FaceCount } from "./viewstate.ts";
 export { canonicalJson, hashJson, sha256Hex } from "./hash.ts";
