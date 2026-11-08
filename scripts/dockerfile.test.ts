@@ -74,4 +74,9 @@ test(".dockerignore lets in only what the server needs, including the docs tool'
     assert.ok(rules.includes(`!${needed}`), `.dockerignore lets in ${needed}`);
   }
   assert.ok(rules.includes("packages/**/node_modules"), "local node_modules stay out");
+  // Docker applies the last matching line, so .env rules before "!packages/" would be undone by it.
+  const lastInclude = rules.lastIndexOf("!packages/");
+  for (const secret of ["**/.env", "**/.env.*"]) {
+    assert.ok(rules.lastIndexOf(secret) > lastInclude, `${secret} stays out, after every line that lets files back in`);
+  }
 });
