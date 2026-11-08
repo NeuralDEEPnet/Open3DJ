@@ -2,7 +2,7 @@
 
 ## X
 
-Three variants. Each is under 280 characters as written, links included (X counts every link as 23 characters, so they are shorter there). Post one, and keep another for a reminder a week later. Variant 3 is for people who already work with coding agents.
+Three variants. Each is under 280 characters as written, links included (X counts every link as 23 characters, so they are shorter there). To stay under the limit, each links only the tester guide, which is a page in the repository, and not the repository's front page. Post one, and keep another for a reminder a week later. Variant 3 is for people who already work with coding agents.
 
 **Variant 1** (271 characters as written, 228 on X):
 
@@ -18,10 +18,10 @@ Got a Windows PC, an Intel Mac, a Raspberry Pi or a real GPU? Help test Open3DJ,
 Guide: https://github.com/NeuralDEEPnet/Open3DJ/blob/main/docs/TESTING.md
 ```
 
-**Variant 3** (277 characters as written, 234 on X):
+**Variant 3** (278 characters as written, 235 on X):
 
 ```text
-Bring your Claude Code, Codex or Cursor agent. It does the work, you press the button. Help test Open3DJ, open-source CAD over MCP by Neural Deep Network LTD: your agent runs the checklist, you file the report.
+Bring your Claude Code, Codex or Cursor agent. It does the work, you press the button. Test Open3DJ, open-source CAD over MCP by Neural Deep Network LTD. Your agent runs the checklist, you report and get credit.
 https://github.com/NeuralDEEPnet/Open3DJ/blob/main/docs/TESTING.md
 ```
 

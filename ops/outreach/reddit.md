@@ -30,12 +30,16 @@ Notes and a starting text for each subreddit. The founder posts by hand, from a 
 
 **Approach:** a print you made, with numbers. The bracket example is 40 x 35 x 35 mm with 4 mm flanges and four 4.5 mm holes that an M4 screw should pass through ([docs/TESTING.md](../../docs/TESTING.md#5-optional-print-the-bracket-and-measure-it)).
 
+**Expect one failed print check.** Exporting the bracket prints `gates fdm.v1: fail, 1 open, 0 waived`, and `open3dj inspect examples/bracket/bracket.o3j --fields gates` shows `FAIL overhang 90 against 45 at face:3`, with the advice "Support it, bridge it if the span is short, or turn the part" (checked 2026-11-08). The text below says so up front, so readers do not take it for a broken file. [techxpo.md](techxpo.md) shows the same failure on purpose.
+
 **Title:** `Free, open-source CAD that's checked before you print: looking for people to print one test bracket and measure it`
 
 ```text
 I'm the founder of Neural Deep Network LTD. Our open-source CAD project, Open3DJ, makes parts from short scripts (written by you or an AI agent) and checks them before export: valid solid, volume, size, clearances between parts, and 3D printing checks for wall thickness, overhangs and bed size. It exports 3MF and STL and runs on your own computer.
 
 It's early, and we want to know how its parts come out on real printers. The ask: install it with one command, export the bracket example as 3MF, print it in whatever you have loaded, and measure it with calipers. It should be 40 x 35 x 35 mm with 4 mm flanges and 4.5 mm holes that an M4 screw passes through. Tell us the printer, slicer, material and your numbers.
+
+One thing you will see: the export reports one failed check on the bracket, an overhang, with faces that lean up to 90 degrees against a 45 degree limit. That is the check doing its job, not a broken file. Print it the way you would print any bracket (supports, bridging or another orientation) and tell us what you chose.
 
 Tester guide (about 15 minutes plus the print): https://github.com/NeuralDEEPnet/Open3DJ/blob/main/docs/TESTING.md
 Repository: https://github.com/NeuralDEEPnet/Open3DJ
@@ -100,8 +104,11 @@ There is also a small benchmark, o3dj-bench: multi-part briefs graded by determi
 
 The ask: connect your client (Claude Code, Codex, Cursor, VS Code, Gemini CLI and Claude Desktop use the same server command), ask for a small part, and tell us whether the handshake and the tools worked.
 
-Getting started: https://github.com/NeuralDEEPnet/Open3DJ/blob/main/docs/GETTING-STARTED.md
+Tester guide: https://github.com/NeuralDEEPnet/Open3DJ/blob/main/docs/TESTING.md
+Client setup: https://github.com/NeuralDEEPnet/Open3DJ/blob/main/docs/GETTING-STARTED.md#connect-a-client
 Repository: https://github.com/NeuralDEEPnet/Open3DJ
+
+Testers are credited in the repository, if they want to be.
 ```
 
 ## r/LocalLLaMA (only with a local-model demo)
@@ -121,6 +128,8 @@ The ask: install it with one command, run the 15-minute checklist, then point yo
 
 Tester guide: https://github.com/NeuralDEEPnet/Open3DJ/blob/main/docs/TESTING.md
 Repository: https://github.com/NeuralDEEPnet/Open3DJ
+
+Testers are credited in the repository, if they want to be.
 ```
 
 ## r/FreeCAD and r/openscad (ask the moderators first)
@@ -144,6 +153,8 @@ We'd value FreeCAD users' eyes on one thing: our STEP files. Install Open3DJ wit
 
 Tester guide: https://github.com/NeuralDEEPnet/Open3DJ/blob/main/docs/TESTING.md
 Repository: https://github.com/NeuralDEEPnet/Open3DJ
+
+Testers are credited in the repository, if they want to be.
 ```
 
 ## Sources for the unverified notes

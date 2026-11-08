@@ -2,7 +2,7 @@
 
 Texts and notes that ask people to test Open3DJ on their own machines. They were drafted by neuraldeep.net design agents for the founder. **The founder reviews and posts every one of them by hand.** No agent posts, comments or replies on any of these sites ([AI_POLICY.md](../../AI_POLICY.md)). Hacker News forbids text written or edited by a language model, so for Show HN there is a fact sheet, and the founder writes the post and every reply in their own words.
 
-Every ready-to-post text (the issue, the announcement, and the social, Reddit and chat texts) links to the repository and to the tester guide, [docs/TESTING.md](../../docs/TESTING.md), names Neural Deep Network LTD as the creator, and says that testers are credited.
+Every ready-to-post text (the issue, the announcement, and the social, Reddit and chat texts) links to the tester guide, [docs/TESTING.md](../../docs/TESTING.md), names Neural Deep Network LTD as the creator, and says that testers are credited. The texts for LinkedIn, Reddit and chat also link to the repository's front page. The X posts link only the tester guide, to stay under the length limit. The r/mcp text also links the client setup in [docs/GETTING-STARTED.md](../../docs/GETTING-STARTED.md#connect-a-client). The messages to moderators are questions, not posts, and carry none of this.
 
 | File | Where it goes |
 |---|---|
