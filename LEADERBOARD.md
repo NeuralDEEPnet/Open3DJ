@@ -52,14 +52,15 @@ Submit every result as self-reported. Only a maintainer changes a row to verifie
 1. **The stated commit must be on `main`.** In your own clone of this repository, run `git fetch origin main` and `git merge-base --is-ancestor <commit> origin/main`. If it exits with anything but 0, reject the submission. Never fetch the commit from a fork or a pull request (such as `refs/pull/<n>/head`): its code is not reviewed, `npm ci` and the grader would run it on your machine, and a changed task or grader can pass anything.
 2. **Check out that commit in your clone,** for example in a separate worktree (`git worktree add --detach <path> <commit>`), and run `npm ci --ignore-scripts` there.
 3. **Download the archive** into a new, empty folder outside the clone, check its sha256 against the entry, and extract it there.
-4. **Grade it** from the root of the checkout: `node bench/grade.ts --runs <dir>`. Compare the pass or fail of every run with the submitted `grades.json`. The grader runs the agent's scripts only inside the project sandbox.
+4. **Grade it** from the root of the checkout: `node bench/grade.ts --runs <dir>`. Compare the pass or fail of every run, and its suspect and unchecked marks, with the submitted `grades.json`. The grader runs the agent's scripts only inside the project sandbox.
 
 ## Rules that keep the numbers honest
 
 The full procedure is [bench/run-capability.md](bench/run-capability.md). These rules apply to every submission:
 
 - **The agent sees only the brief,** inside the unmodified prompt from run-capability.md. No hints, no reference solution and no follow-up help. If the agent asks a question, the only answer is the one run-capability.md gives.
-- **The agent never reads the tasks.** `bench/tasks/` holds the assertions, the reference solutions and the mutants, so an agent that can read it can copy an answer. Root the MCP server in an empty project folder outside the Open3DJ clone, and give the agent no file or shell access to the clone. A transcript that shows the agent reading `bench/tasks/`, or any other part of the clone, makes that run suspect.
+- **The agent never reads the tasks.** `bench/tasks/` holds the assertions, the reference solutions and the mutants, so an agent that can read it can copy an answer. Root the MCP server in an empty project folder outside the Open3DJ clone, and give the agent no file or shell access to the clone. A transcript that shows the agent reading `bench/tasks/`, or any other part of the clone, makes that run suspect. The grader marks a run suspect by itself when its transcript mentions `bench/tasks`, a reference or mutant script or [the canary](bench/README.md#the-canary), or when its solution holds the canary.
+- **Every run keeps its full transcript.** A run folder without one is unchecked, and the grader never counts it as a pass, even when its design passes.
 - **Fresh sessions.** Each of the 3 runs per task is a new session with no memory of other runs or tasks.
 - **The same limits for every run:** 60 minutes or 100 tool calls, whichever comes first. A run that hits a limit is graded as it stands.
 - **Report every run you made.** Do not run a task more than 3 times and keep the best 3.
@@ -70,7 +71,7 @@ The full procedure is [bench/run-capability.md](bench/run-capability.md). These 
 
 1. Run all 10 capability tasks 3 times each, as [bench/run-capability.md](bench/run-capability.md) describes, at one Open3DJ commit on `main`. A result measured at a commit from a fork or an open pull request is not accepted.
 2. Grade the folder from the repository root, at that commit: `node bench/grade.ts --runs <dir>`. Keep its console output and the `grades.json` it writes.
-3. Put the run folders (`<dir>/<task>/run-1` to `run-3`, each with the agent's `solution.o3j` project), `grades.json` and one full transcript per run (every message and tool call) into one archive. Read the transcripts before you publish them. Host the archive where a maintainer can download it, such as a release asset or a dataset in your own account, and note its sha256. Do not commit run folders or transcripts to this repository.
+3. Put the run folders (`<dir>/<task>/run-1` to `run-3`, each with the agent's `solution.o3j` project and its full transcript, every message and tool call, saved as `transcript.jsonl` or another name that starts with `transcript`) and `grades.json` into one archive. Read the transcripts before you publish them. Host the archive where a maintainer can download it, such as a release asset or a dataset in your own account, and note its sha256. Do not commit run folders or transcripts to this repository.
 4. Open a pull request that changes only this file: add one row to the results table with the tier "self-reported", and one entry under [Submissions](#submissions) from the template below. As [AI_POLICY.md](AI_POLICY.md) says, your agent may draft it, but you read it and open the pull request yourself.
 
 Type the model id and provider yourself, in the row and in the entry, exactly as your client or API names them. The project does not check or normalize them. If an agent drafts the pull request, it leaves `<model id>` and `<provider>` as placeholders: some agents, the project's own among them, must not write model names into files ([AGENTS.md](AGENTS.md#git-and-pull-requests)). Here the model is what is being measured, so a person types it as result data.
@@ -86,9 +87,10 @@ Tasks: cap-<id> v<version>, ... (the version field of each task.json at that com
 Runs: 3 fresh sessions per task
 Prompt and limits: unmodified from bench/run-capability.md (60 minutes, 100 tool calls)
 Archive: <URL>, sha256 <hash>
-Archive contents: run folders, grades.json, one transcript per run
+Archive contents: run folders, each with its transcript, and grades.json
 Grader output: <the console output of node bench/grade.ts --runs <dir>, pasted below the entry>
 pass^3: <k> of 10 (<interval from the table above>), pass@1: <n> of 30
+Suspect runs: <n, with one line each on what its transcript shows>; runs without a transcript: 0
 Per run, if known: minutes, tool calls, tokens, cost
 Run dates: <first date> to <last date>
 Notes: <anything a maintainer should know, such as a task you left out>
