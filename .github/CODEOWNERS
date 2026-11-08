@@ -48,9 +48,11 @@ package-lock.json         @NeuralDEEPnet
 npm-shrinkwrap.json       @NeuralDEEPnet
 tsconfig*.json            @NeuralDEEPnet
 
-# 4. DSL scripts of examples and bench tasks run only inside the sandbox: auto lane again.
+# 4. DSL scripts of examples, bench tasks and corpora run only inside the sandbox: auto lane
+#    again (a changed corpus script stays in the maintainer lane through merge-policy).
 /examples/*/*.o3j.js
 /bench/tasks/*/*.o3j.js
+/corpora/**/*.o3j.js
 
 # 5. Always the maintainer lane: code folders, configuration, agent instructions, the front
 #    page and plan, and governance. These come last so that nothing above can un-own them.
