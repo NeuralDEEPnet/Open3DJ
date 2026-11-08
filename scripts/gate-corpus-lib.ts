@@ -1,5 +1,6 @@
 // The seeded gate corpus (PLAN.md S3 exit: zero false passes on the seeded gate corpus). Loads
-// corpora/gates/cases.json, runs every case through the gate job that inspect fields=[gates]
+// corpora/gates/cases.json and the one-case files in corpora/gates/cases/, runs every case
+// through the gate job that inspect fields=[gates]
 // uses (a run job with gates, without the fit check) on the compute pool or the real CLI, and
 // compares each gate's verdict and value with the expected ones. scripts/gate-corpus.ts prints
 // the table; scripts/gate-corpus.test.ts runs it in npm test.
@@ -56,8 +57,15 @@ export interface GateCase {
 export interface Corpus {
   profile: GateProfile;
   cases: GateCase[];
+  /** Where each case came from, by index, relative to the corpus folder: cases.json or cases/<id>.json. */
+  sources?: string[];
+  /** Files in cases/ that could not be read as one case. */
+  problems?: string[];
 }
 
+/** The folder of one-case files, inside the corpus folder: cases/<id>.json, each one entry of cases.json. */
+export const CASE_FILES = "cases";
+const MANIFEST = "cases.json";
 const CASE_FIELDS = ["id", "kind", "seeds", "build", "bed", "params", "expect"];
 const EXPECT_FIELDS = ["verdict", "value", "marginal", "unmeasured", "known_miss"];
 
@@ -65,22 +73,59 @@ export const scriptOf = (c: GateCase, dir = CORPUS_DIR) => join(dir, `${c.id}.o3
 const expectsError = (e: CaseExpect): e is { error: string } => "error" in e;
 export const gateExpect = (e: Verdict | GateExpect): GateExpect => (typeof e === "string" ? { verdict: e } : e);
 
+/**
+ * The corpus: the profile and cases of cases.json, then one case from each cases/<id>.json in
+ * name order. A new case goes in a file of its own, so adding one changes no existing file.
+ * A file that is not one case object is reported by checkCorpus, not thrown.
+ */
 export function loadCorpus(dir = CORPUS_DIR): Corpus {
-  return JSON.parse(readFileSync(join(dir, "cases.json"), "utf8")) as Corpus;
+  const manifest = JSON.parse(readFileSync(join(dir, MANIFEST), "utf8")) as Partial<Corpus>;
+  const problems: string[] = [];
+  if (!Array.isArray(manifest.cases)) problems.push(`${MANIFEST}: cases must be a list`);
+  const cases = Array.isArray(manifest.cases) ? [...manifest.cases] : [];
+  const sources = cases.map(() => MANIFEST);
+  const folder = join(dir, CASE_FILES);
+  const entries = existsSync(folder) ? readdirSync(folder, { withFileTypes: true }).sort((a, b) => (a.name < b.name ? -1 : 1)) : [];
+  for (const e of entries) {
+    const at = `${CASE_FILES}/${e.name}`;
+    if (!e.isFile() || !e.name.endsWith(".json")) {
+      problems.push(`${at}: only case files, <id>.json, belong in ${CASE_FILES}/`);
+      continue;
+    }
+    let value: unknown;
+    try {
+      value = JSON.parse(readFileSync(join(folder, e.name), "utf8"));
+    } catch (err) {
+      problems.push(`${at}: not valid JSON: ${(err as Error).message}`);
+      continue;
+    }
+    if (value === null || typeof value !== "object" || Array.isArray(value)) {
+      problems.push(`${at}: must hold one case object, with the fields of one entry in ${MANIFEST}`);
+      continue;
+    }
+    const c = value as GateCase;
+    if (c.id !== e.name.slice(0, -".json".length)) problems.push(`${at}: the file name must be the case id plus .json, but the id is ${JSON.stringify(c.id)}`);
+    cases.push(c);
+    sources.push(at);
+  }
+  return { profile: manifest.profile as GateProfile, cases, sources, problems };
 }
 
-/** Problems with the manifest: shape, files, and kinds that agree with the verdicts. */
+/** Problems with the corpus: case files, shape, scripts, and kinds that agree with the verdicts. */
 export function checkCorpus(corpus: Corpus, dir = CORPUS_DIR): string[] {
-  const problems: string[] = [];
+  const problems: string[] = [...(corpus.problems ?? [])];
   if (corpus.profile !== "fdm.v1") problems.push(`profile must be fdm.v1, got ${String(corpus.profile)}`);
   if (!Array.isArray(corpus.cases) || corpus.cases.length === 0) return [...problems, "cases must be a non-empty list"];
-  const seen = new Set<string>();
+  const seen = new Map<string, string>();
   const vec = (v: unknown, positive: boolean) => Array.isArray(v) && v.length === 3 && v.every((x) => typeof x === "number" && Number.isFinite(x) && (!positive || x > 0)) && (positive || v.some((x) => x !== 0));
-  for (const c of corpus.cases) {
-    const at = `case ${String(c.id)}`;
+  for (const [i, c] of corpus.cases.entries()) {
+    const from = corpus.sources?.[i] ?? MANIFEST;
+    // Cases of cases.json keep their short name; a case of its own names its file too.
+    const at = from === MANIFEST ? `case ${String(c.id)}` : `case ${String(c.id)} (${from})`;
     if (typeof c.id !== "string" || !/^[a-z0-9][a-z0-9.-]*$/.test(c.id)) problems.push(`${at}: id must be lower case letters, digits, dots and dashes`);
-    if (seen.has(c.id)) problems.push(`${at}: duplicate id`);
-    seen.add(c.id);
+    const first = seen.get(c.id);
+    if (first !== undefined) problems.push(`${at}: duplicate id, also in ${first}`);
+    else seen.set(c.id, from);
     if (!existsSync(scriptOf(c, dir))) problems.push(`${at}: ${c.id}.o3j.js is missing`);
     if (!["defect", "control", "known-miss"].includes(c.kind)) problems.push(`${at}: kind must be defect, control or known-miss`);
     if (typeof c.seeds !== "string" || c.seeds.trim().length < 10) problems.push(`${at}: seeds must say what the case seeds`);
@@ -120,7 +165,7 @@ export function checkCorpus(corpus: Corpus, dir = CORPUS_DIR): string[] {
   }
   try {
     const files = readdirSync(dir).filter((f) => f.endsWith(".o3j.js"));
-    for (const f of files) if (!seen.has(f.slice(0, -".o3j.js".length))) problems.push(`${f} has no case in cases.json`);
+    for (const f of files) if (!seen.has(f.slice(0, -".o3j.js".length))) problems.push(`${f} has no case in ${MANIFEST} or ${CASE_FILES}/`);
   } catch (e) {
     problems.push(`cannot list ${dir}: ${(e as Error).message}`);
   }

@@ -1,6 +1,7 @@
-// The seeded gate corpus by hand: runs every case in corpora/gates (or the ids given) and prints
-// each gate's result against the expected one. Exits 1 on a false pass, a false failure, a value
-// out of its range, a known miss that is now caught, or a run that fails where it should not.
+// The seeded gate corpus by hand: runs every case in corpora/gates (cases.json and the one-case
+// files in cases/), or the ids given, and prints each gate's result against the expected one.
+// Exits 1 on a bad case file, a false pass, a false failure, a value out of its range, a known
+// miss that is now caught, or a run that fails where it should not.
 //   node scripts/gate-corpus.ts                 every case on the compute pool
 //   node scripts/gate-corpus.ts wall-tray-0.6   one case
 //   node scripts/gate-corpus.ts --cli           through the real CLI, one fresh process per case
@@ -19,12 +20,12 @@ const ids = args.filter((a) => !a.startsWith("--"));
 const corpus = loadCorpus();
 const problems = checkCorpus(corpus);
 if (problems.length > 0) {
-  process.stderr.write(`corpora/gates/cases.json:\n  ${problems.join("\n  ")}\n`);
+  process.stderr.write(`corpora/gates:\n  ${problems.join("\n  ")}\n`);
   process.exit(1);
 }
 const unknown = ids.filter((id) => !corpus.cases.some((c) => c.id === id));
 if (unknown.length > 0) {
-  process.stderr.write(`no case ${unknown.join(", ")} in corpora/gates/cases.json\n`);
+  process.stderr.write(`no case ${unknown.join(", ")} in corpora/gates (cases.json or cases/)\n`);
   process.exit(1);
 }
 const cases = ids.length > 0 ? corpus.cases.filter((c) => ids.includes(c.id)) : corpus.cases;
