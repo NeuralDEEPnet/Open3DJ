@@ -12,7 +12,8 @@
 //     out/r_0001/          renders and exports of a revision (git-ignored)
 //     .o3j-cache/          derived data such as detailed reports (git-ignored)
 //     .o3j-view/           what open3dj view shares with agents: the person's selection and
-//                          the agent's highlight (git-ignored, never part of a revision)
+//                          the agent's highlight; also a save the viewer could not run
+//                          (git-ignored, never part of a revision)
 //
 // Revisions are r_0001, r_0002, ... and only grow. Each record holds everything needed to
 // rebuild that revision, so render and export of an old revision re-run its own script.
