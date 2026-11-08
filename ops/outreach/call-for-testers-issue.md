@@ -19,6 +19,10 @@ Open3DJ is open-source, agent-first CAD created by [Neural Deep Network LTD](htt
 2. Run the [15-minute checklist](https://github.com/NeuralDEEPnet/Open3DJ/blob/main/docs/TESTING.md#the-15-minute-checklist): describe your machine with `open3dj doctor --report`, run three examples, look at an enclosure in the browser viewer, and open an exported STEP file in another CAD tool. Printing a part and connecting an AI agent are optional extras.
 3. File a [hardware report](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=hardware_report.yml). A report that says "everything worked" is just as useful as one that found a problem. For anything broken, also file a [failure report](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=failure_report.yml).
 
+## Bring your agent
+
+Bring your Claude Code, Codex or Cursor agent. It does the work, you press the button. Your agent can run the checklist commands, read what they print and draft the hardware report. You read the draft, compare it with your screen, and file it yourself: our [AI policy](https://github.com/NeuralDEEPnet/Open3DJ/blob/main/AI_POLICY.md) asks that a person presses every button on GitHub.
+
 ## Platforms we want first
 
 We tick a box and link the report when the first one arrives.
