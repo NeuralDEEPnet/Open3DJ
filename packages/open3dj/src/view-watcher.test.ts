@@ -49,13 +49,28 @@ interface Bench {
   inputs: RunInput[];
   /** Pool jobs of the watcher's own runs (not the agent's, not the page's detailed measures). */
   watcherJobs(): number;
+  /** The project's head, or undefined when the project or its head is missing. */
   head(): string | undefined;
   rev(r: string): RevisionRecord;
   revs(): number;
+  /** Stop the viewer, so a test can work while it is closed. */
+  stop(): Promise<void>;
+  /** Start the viewer again on the same script, as a person who runs open3dj view again. */
+  start(o?: { params?: Record<string, ParamValue>; syncScript?: boolean }): Promise<void>;
   close(): Promise<void>;
 }
 
-async function bench(o: { mode: "script" | "project"; params?: Record<string, ParamValue>; syncScript?: boolean; slowMs?: number }): Promise<Bench> {
+interface BenchOptions {
+  mode: "script" | "project";
+  params?: Record<string, ParamValue>;
+  syncScript?: boolean;
+  slowMs?: number;
+  /** Script mode: part.o3j.js is a symlink to real.o3j.js. */
+  link?: boolean;
+  names?: { script: string; project: string; run: string };
+}
+
+async function bench(o: BenchOptions): Promise<Bench> {
   const root = mkdtempSync(join(tmpdir(), "o3j-view-watch-"));
   const projectDir = join(root, "part.o3j");
   const pool = fakePool(o.slowMs === undefined ? {} : { slowMs: o.slowMs });
@@ -67,7 +82,12 @@ async function bench(o: { mode: "script" | "project"; params?: Record<string, Pa
   let file: string;
   if (o.mode === "script") {
     file = join(root, "part.o3j.js");
-    writeFileSync(file, S1);
+    if (o.link) {
+      writeFileSync(join(root, "real.o3j.js"), S1);
+      symlinkSync(join(root, "real.o3j.js"), file);
+    } else {
+      writeFileSync(file, S1);
+    }
   } else {
     // The project exists before the viewer starts, as open3dj view <project> needs.
     const first = await agent.run({ project: "part.o3j", script: S1 });
@@ -76,20 +96,31 @@ async function bench(o: { mode: "script" | "project"; params?: Record<string, Pa
   }
   const runs: RunState[] = [];
   const logs: string[] = [];
-  const options: Parameters<typeof startViewServer>[0] = {
-    handlers: watched, root, project: projectDir, nonce: NONCE, debounceMs: DEBOUNCE_MS, pollMs: POLL_MS,
-    log: (line) => logs.push(line), onRun: (run) => runs.push(structuredClone(run)),
+  const serve = async (s: { params?: Record<string, ParamValue>; syncScript?: boolean }) => {
+    const options: Parameters<typeof startViewServer>[0] = {
+      handlers: watched, root, project: projectDir, nonce: NONCE, debounceMs: DEBOUNCE_MS, pollMs: POLL_MS,
+      log: (line) => logs.push(line), onRun: (run) => runs.push(structuredClone(run)),
+    };
+    if (o.mode === "script") options.script = file;
+    if (s.params) options.params = s.params;
+    if (s.syncScript !== undefined) options.syncScript = s.syncScript;
+    if (o.names) options.names = o.names;
+    const started = await startViewServer(options);
+    await started.ready;
+    return started;
   };
-  if (o.mode === "script") options.script = file;
-  if (o.params) options.params = o.params;
-  if (o.syncScript !== undefined) options.syncScript = o.syncScript;
-  const server = await startViewServer(options);
-  await server.ready;
   const rev = (r: string) => JSON.parse(readFileSync(join(projectDir, "revisions", `${r}.json`), "utf8")) as RevisionRecord;
-  return {
-    root, projectDir, file, pool, agent, server, runs, logs, inputs,
+  const b: Bench = {
+    root, projectDir, file, pool, agent, runs, logs, inputs,
+    server: await serve(o),
     watcherJobs: () => pool.calls.filter((c) => c.kind === "run" && c.detail === "detailed" && !c.compute?.placement_reason.startsWith("inspect")).length,
-    head: () => (JSON.parse(readFileSync(join(projectDir, "project.o3j.json"), "utf8")) as { rev?: string }).rev,
+    head: () => {
+      try {
+        return (JSON.parse(readFileSync(join(projectDir, "project.o3j.json"), "utf8")) as { rev?: string }).rev;
+      } catch {
+        return undefined;
+      }
+    },
     rev,
     revs: () => {
       let n = 0;
@@ -102,13 +133,18 @@ async function bench(o: { mode: "script" | "project"; params?: Record<string, Pa
         n++;
       }
     },
+    stop: () => b.server.close(),
+    async start(s = {}) {
+      b.server = await serve(s);
+    },
     async close() {
-      await server.close();
+      await b.server.close();
       viewer.shutdown();
       agent.shutdown();
       rmSync(root, { recursive: true, force: true });
     },
   };
+  return b;
 }
 
 const conflicts = (b: Bench) => b.runs.filter((r) => r.error?.code === "REV_CONFLICT");
@@ -274,7 +310,7 @@ test("script mode: an agent's parameter change keeps the script, so the person's
   }
 });
 
-test("project mode: an agent's commit while a save runs wins, and the person is told the save did not run", async () => {
+test("project mode: an agent's commit while a save runs wins, the person is told the save did not run, and the save's text is kept", async () => {
   const b = await bench({ mode: "project", slowMs: 600 });
   try {
     const slow = `${S1.replace("box(40, 20, 4)", "box(40, 20, 5)")}// slow to build\n`;
@@ -290,6 +326,13 @@ test("project mode: an agent's commit while a save runs wins, and the person is 
     const notice = conflicts(b)[0]!;
     assert.deepEqual(notice.conflict, { file: "part.o3j/main.o3j.js", base: "r_0001", head: "r_0002" });
     assert.match(notice.error!.hint ?? "", /r_0002 was made while it ran, and it rewrote part\.o3j\/main\.o3j\.js/);
+    // The agent's commit rewrote main.o3j.js, and an editor may reload it: the save's text
+    // must still be on disk, in a file the notice names, readable by this user only.
+    assert.equal(readFileSync(b.file, "utf8"), S2);
+    const kept = join(b.projectDir, ".o3j-view", "unrun.o3j.js");
+    assert.equal(readFileSync(kept, "utf8"), slow, "the save that did not run is kept");
+    assert.match(notice.error!.hint ?? "", /Your version is in part\.o3j\/\.o3j-view\/unrun\.o3j\.js/);
+    if (process.platform !== "win32") assert.equal(statSync(kept).mode & 0o777, 0o600);
     // Saving it again runs it on the agent's revision.
     writeFileSync(b.file, slow);
     await until("the second save to run", () => b.head() === "r_0003");
@@ -339,6 +382,170 @@ test("script mode: an agent's parameter change while a save runs is no conflict:
     await until("the run state to settle", () => b.runs.at(-1)?.rev === "r_0003");
     assert.equal(b.runs.at(-1)?.state, "done");
     assert.deepEqual(conflicts(b), []);
+  } finally {
+    await b.close();
+  }
+});
+
+test("script mode: after the project folder is deleted, the next save makes a new first revision", async () => {
+  const b = await bench({ mode: "script" });
+  try {
+    const S1b = S1.replace("box(40, 20, 4)", "box(40, 20, 5)");
+    writeFileSync(b.file, S1b);
+    await until("the save to run", () => b.head() === "r_0002");
+    // The person starts over: the project goes, the script stays.
+    rmSync(b.projectDir, { recursive: true, force: true });
+    await sleep(SETTLE_MS);
+    const S1c = S1.replace("box(40, 20, 4)", "box(40, 20, 3)");
+    writeFileSync(b.file, S1c);
+    await until("the save to make r_0001", () => b.head() === "r_0001");
+    assert.equal(b.rev("r_0001").script, S1c);
+    assert.equal(b.inputs.at(-1)?.base_rev, undefined, "no base_rev of a revision that is gone");
+    await until("the run state to settle", () => b.runs.at(-1)?.rev === "r_0001");
+    assert.equal(b.runs.at(-1)?.state, "done");
+    // The next save builds on the new first revision.
+    writeFileSync(b.file, S1);
+    await until("the next save to run", () => b.head() === "r_0002");
+    assert.equal(b.inputs.at(-1)?.base_rev, "r_0001");
+    assert.deepEqual(b.runs.filter((r) => r.error), []);
+  } finally {
+    await b.close();
+  }
+});
+
+test("script mode: a project made again by an agent never has its script written over a script whose revision is gone", async () => {
+  const b = await bench({ mode: "script" });
+  try {
+    const S1b = S1.replace("box(40, 20, 4)", "box(40, 20, 5)");
+    writeFileSync(b.file, S1b);
+    await until("the save to run", () => b.head() === "r_0002");
+    rmSync(b.projectDir, { recursive: true, force: true });
+    // The agent starts a new project at once.
+    assert.equal((await b.agent.run({ project: "part.o3j", script: S2 })).rev, "r_0001");
+    await until("a conflict notice", () => conflicts(b).length === 1);
+    await sleep(SETTLE_MS);
+    assert.equal(readFileSync(b.file, "utf8"), S1b, "the person's script, whose revision is gone, is not overwritten");
+    assert.equal(b.head(), "r_0001");
+    assert.equal(conflicts(b)[0]!.conflict?.base, null);
+    assert.equal(conflicts(b).length, 1);
+    // A save of it is refused too, instead of replacing the agent's new project.
+    writeFileSync(b.file, S1);
+    await until("a second notice", () => conflicts(b).length === 2);
+    assert.equal(b.head(), "r_0001");
+  } finally {
+    await b.close();
+  }
+});
+
+test("script mode: started again after an agent's revision, the viewer writes it to the script instead of running the old script over it", async () => {
+  const b = await bench({ mode: "script" });
+  try {
+    await b.stop();
+    // The agent works through open3dj mcp while the viewer is closed.
+    const r2 = await b.agent.run({ project: "part.o3j", script: S2, base_rev: "r_0001" });
+    assert.equal(r2.rev, "r_0002", JSON.stringify(r2.error));
+    const jobs = b.watcherJobs();
+    await b.start();
+    assert.equal(readFileSync(b.file, "utf8"), S2, "the agent's script is written to part.o3j.js");
+    assert.equal(b.head(), "r_0002");
+    assert.equal(b.revs(), 2, "the old script was not committed over the agent's revision");
+    assert.equal(b.watcherJobs(), jobs, "nothing to run");
+    assert.ok(b.logs.some((l) => /wrote r_0002 .*to part\.o3j\.js/.test(l)), b.logs.join("\n"));
+    assert.equal(b.runs.at(-1)?.state, "done");
+    assert.equal(b.runs.at(-1)?.rev, "r_0002");
+    // The agent's next base_rev holds.
+    const r3 = await b.agent.run({ project: "part.o3j", ops: [{ op: "set_param", name: "w", value: 7 }], base_rev: "r_0002" });
+    assert.equal(r3.rev, "r_0003", JSON.stringify(r3.error));
+    assert.deepEqual(conflicts(b), []);
+  } finally {
+    await b.close();
+  }
+});
+
+test("script mode: started again with --no-sync-script after an agent's revision, the old script is not run and the person is told", async () => {
+  const b = await bench({ mode: "script" });
+  try {
+    await b.stop();
+    assert.equal((await b.agent.run({ project: "part.o3j", script: S2, base_rev: "r_0001" })).rev, "r_0002");
+    await b.start({ syncScript: false });
+    await sleep(SETTLE_MS);
+    assert.equal(readFileSync(b.file, "utf8"), S1, "nothing is written to the script");
+    assert.equal(b.head(), "r_0002");
+    assert.equal(b.revs(), 2);
+    assert.equal(conflicts(b).length, 1, "one notice, at start-up");
+    assert.deepEqual(conflicts(b)[0]!.conflict, { file: "part.o3j.js", base: "r_0001", head: "r_0002" });
+    assert.match(conflicts(b)[0]!.error!.hint ?? "", /^part\.o3j\.js holds the script of r_0001, so it was not run\./);
+  } finally {
+    await b.close();
+  }
+});
+
+test("script mode: started again with --param after an agent's revision, the values apply on top of the agent's script", async () => {
+  const b = await bench({ mode: "script" });
+  try {
+    await b.stop();
+    assert.equal((await b.agent.run({ project: "part.o3j", script: S2, base_rev: "r_0001" })).rev, "r_0002");
+    await b.start({ params: { w: 3 } });
+    assert.equal(readFileSync(b.file, "utf8"), S2);
+    assert.equal(b.head(), "r_0003");
+    assert.equal(b.rev("r_0003").script, S2);
+    assert.equal(b.rev("r_0003").base_rev, "r_0002");
+    assert.equal(b.rev("r_0003").params.w, 3);
+    assert.deepEqual(b.logs.filter((l) => /--param/.test(l)), [], "the start-up values are not dropped at start-up");
+  } finally {
+    await b.close();
+  }
+});
+
+test("script mode: a symlinked script that cannot be written gets one terminal line and one notice, not one per poll", { skip: process.platform === "win32" ? "symlinks need other rights on Windows" : false }, async () => {
+  const b = await bench({ mode: "script", link: true });
+  try {
+    assert.equal((await b.agent.run({ project: "part.o3j", script: S2 })).rev, "r_0002");
+    await until("a conflict notice", () => conflicts(b).length === 1);
+    await sleep(SETTLE_MS); // more than ten polls
+    const lines = b.logs.filter((l) => /could not write/.test(l));
+    assert.equal(lines.length, 1, b.logs.join("\n"));
+    assert.match(lines[0]!, /could not write r_0002 to part\.o3j\.js: part\.o3j\.js is not a regular file/);
+    assert.equal(conflicts(b).length, 1);
+    const notice = conflicts(b)[0]!;
+    assert.doesNotMatch(notice.error!.hint ?? "", /changes that did not run/, "the script has none");
+    assert.match(notice.error!.hint ?? "", /^r_0002 could not be written to part\.o3j\.js/);
+    assert.ok(lstatSync(b.file).isSymbolicLink(), "the link is left as it is");
+    assert.equal(readFileSync(b.file, "utf8"), S1);
+  } finally {
+    await b.close();
+  }
+});
+
+test("script mode: one save refused before the poll sees the agent's revision gives one notice", async () => {
+  for (let i = 0; i < 3; i++) {
+    const b = await bench({ mode: "script" });
+    try {
+      assert.equal((await b.agent.run({ project: "part.o3j", script: S2 })).rev, "r_0002");
+      writeFileSync(b.file, S1.replace("box(40, 20, 4)", "box(40, 20, 5)"));
+      await until("a conflict notice", () => conflicts(b).length >= 1);
+      await sleep(SETTLE_MS);
+      assert.equal(conflicts(b).length, 1, b.runs.map((r) => r.error?.hint).join("\n"));
+      assert.equal(b.head(), "r_0002");
+    } finally {
+      await b.close();
+    }
+  }
+});
+
+test("the conflict hint names the script and the project as the person typed them", async () => {
+  const names = { script: "examples/part/part.o3j.js", project: "examples/part/part.o3j", run: "examples/part/part.o3j.js" };
+  const b = await bench({ mode: "script", names });
+  try {
+    writeFileSync(b.file, `${S1}throw new Error("half done");\n`);
+    await until("the broken save to fail", () => b.runs.at(-1)?.error?.code === "SCRIPT_RUNTIME");
+    assert.equal((await b.agent.run({ project: "part.o3j", script: S2 })).rev, "r_0002");
+    await until("a conflict notice", () => conflicts(b).length === 1);
+    const notice = conflicts(b)[0]!;
+    assert.equal(notice.conflict?.file, "examples/part/part.o3j.js");
+    assert.match(notice.error!.message, /^examples\/part\/part\.o3j\.js is based on r_0001/);
+    assert.match(notice.error!.hint ?? "", /copy examples\/part\/part\.o3j\/main\.o3j\.js over examples\/part\/part\.o3j\.js/);
+    assert.match(notice.error!.hint ?? "", /run "open3dj run examples\/part\/part\.o3j\.js" once/);
   } finally {
     await b.close();
   }

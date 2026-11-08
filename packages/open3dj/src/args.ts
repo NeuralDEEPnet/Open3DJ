@@ -226,6 +226,12 @@ function sourceOf(positionals: string[], project: string | undefined, message: s
   throw new UsageError(`"${arg}" is neither a script (.js) nor a project folder (.o3j)`);
 }
 
+/** What follows `open3dj run` to run source into the same project, for hints to a person. */
+export function runArgsOf(source: Source): string {
+  if (source.kind === "project") return source.project;
+  return source.project === defaultProject(source.path) ? source.path : `${source.path} --project ${source.project}`;
+}
+
 function trimSlash(p: string): string {
   return p.replace(/[\\/]+$/, "");
 }

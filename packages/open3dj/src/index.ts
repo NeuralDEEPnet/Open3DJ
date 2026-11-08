@@ -11,14 +11,14 @@ import { FILES, ProjectStore, createHandlers, guardStdout, resolveProject, serve
 import type { ToolHandlers } from "@open3dj/mcp";
 import { collapseFits, rankFits, validate } from "@open3dj/schemas";
 import type { PackageStatus, ParamValue, RunInput, RunOutput, ScriptError } from "@open3dj/schemas";
-import { UsageError, parseCommand } from "./args.ts";
+import { UsageError, parseCommand, runArgsOf } from "./args.ts";
 import type { Command, Source } from "./args.ts";
 import { formatDocs, formatDoctor, formatError, formatExport, formatInspect, formatRender, formatRun } from "./format.ts";
 import { formatHardwareReport, gpuNames, installContext } from "./report.ts";
 import { TEMPLATES } from "./templates.ts";
 import { openBrowser, startViewServer } from "./view.ts";
 
-export { parseCommand, parseParams, defaultProject, UsageError } from "./args.ts";
+export { parseCommand, parseParams, defaultProject, runArgsOf, UsageError } from "./args.ts";
 export type { Command, Parsed, Source } from "./args.ts";
 export { TEMPLATES } from "./templates.ts";
 export { HARDWARE_REPORT_URL, formatHardwareReport, gpuNames, installContext } from "./report.ts";
@@ -380,6 +380,8 @@ async function view(command: Extract<Command, { cmd: "view" }>, io: Io): Promise
   try {
     server = await startViewServer({
       handlers, root: dirname(projectAbs), project: projectAbs, script, params: command.params, saveParams: command.saveParams, syncScript: command.syncScript,
+      // Hints name the paths as the person typed them, so their commands work from this folder.
+      names: { script: shown, project: source.project, run: runArgsOf(source) },
       ...(command.port !== undefined ? { port: command.port } : {}),
       log: (line) => io.err(`${line}\n`),
       onRun: (run, out) => {

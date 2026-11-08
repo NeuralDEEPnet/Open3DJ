@@ -20,8 +20,10 @@
 // It watches the script and runs it again on save (debounced), and polls the project head,
 // so a revision made by an agent through open3dj mcp shows up too. A save never replaces an
 // agent's revision without saying so: a script equal to the head's is not run again, every
-// watcher run passes base_rev, and in script mode an agent's revision is written back to the
-// script while the script has no changes that did not run (see "the watched script").
+// watcher run passes base_rev, and in script mode an agent's revision (also one made while the
+// viewer was closed) is written back to the script while the script has no changes that did
+// not run (see "the watched script"). A save that an agent's commit rewrote in main.o3j.js
+// while it ran is kept in .o3j-view/unrun.o3j.js.
 // It also polls .o3j-view/highlight.json, which render view=highlight writes from any process, and checks it
 // (schema, time and revision) before the page sees it. Both .o3j-view files are rebuilt from the
 // revision on every read, because any local process can write them. New revisions, runs, shared selections and
@@ -37,8 +39,8 @@ import { tmpdir } from "node:os";
 import { basename, dirname, join, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 import {
-  FILES, HIGHLIGHT_FILE, MAX_HIGHLIGHT_BYTES, MAX_VIEW_STATE_BYTES, ProjectStore, ToolError, buildSelection, faceCounts, readHighlight, readSelection, renameWithRetry, resolveProject,
-  toScriptError, writeSelection,
+  FILES, HIGHLIGHT_FILE, MAX_HIGHLIGHT_BYTES, MAX_VIEW_STATE_BYTES, ProjectStore, ToolError, UNRUN_FILE, buildSelection, faceCounts, readHighlight, readSelection, renameWithRetry,
+  resolveProject, revNumber, toScriptError, writeSelection, writeUnrunScript,
 } from "@open3dj/mcp";
 import type { ToolHandlers } from "@open3dj/mcp";
 import type { FitReport, ParamValue, PartReport, RunOutput, ScriptError, TreeNode, ViewerHighlight, ViewerSelection } from "@open3dj/schemas";
@@ -65,6 +67,12 @@ export interface ViewServerOptions {
    * (--no-sync-script); a save that is behind the head is then refused as a conflict. Default true.
    */
   syncScript?: boolean;
+  /**
+   * How the person named things on the command line, for messages and hints: the script
+   * (examples/part/part.o3j.js), the project (examples/part/part.o3j), and what follows
+   * `open3dj run` to run that script into that project. Default: the file and folder names.
+   */
+  names?: { script: string; project: string; run: string };
   /** Port on 127.0.0.1. Default 0: the system picks a free one. */
   port?: number;
   /** The session nonce. Default: 24 random bytes, base64url. Tests pass their own. */
@@ -138,6 +146,8 @@ const SECURITY_HEADERS: Record<string, string> = {
 
 const REV = /^r_\d{1,7}$/;
 const CACHE_REVS = 8;
+/** At start-up, how many revisions before the head are searched for the script's text. */
+const START_SCAN = 100;
 /** A highlight older than this is not sent to a page that connects later. */
 const HIGHLIGHT_FRESH_MS = 15 * 60 * 1000;
 
@@ -273,7 +283,7 @@ export async function startViewServer(o: ViewServerOptions): Promise<ViewServer>
   // ---- the watched script and the head ----------------------------------------------------
   //
   // The watched script is based on one revision (fileRev): the one its text last ran as, or a
-  // head it was found equal to; fileScript is that revision's script. Three rules keep the
+  // head it was found equal to; fileScript is that revision's script. Five rules keep the
   // person and an agent from undoing each other's work (RFC 0001):
   // - Echo: a script equal to the head's is adopted, never run again. An agent's run writes the
   //   project's main.o3j.js, and the write-back below writes the script.
@@ -283,23 +293,41 @@ export async function startViewServer(o: ViewServerOptions): Promise<ViewServer>
   //   values stop being sent. If that revision kept fileScript (a parameter change), the
   //   script is based on it. In script mode its script is written to the watched file, but
   //   only while the file still holds fileScript, so a change that did not run is never lost.
-  //   Otherwise the person sees a conflict.
+  //   Otherwise the person sees a conflict, once per head and script text.
+  // - Start-up: in script mode, a script that is not the head's but equals an older revision's
+  //   is based on that revision, so an agent's work done while the viewer was closed is
+  //   followed as above, not run over.
+  // - Lost base: when fileRev no longer holds fileScript (the project was deleted, or made
+  //   again), the script is based on nothing: a save makes the first revision, or is a conflict
+  //   with the new head, and the new head is never written over the script.
 
   const inProject = basename(scriptFile) === FILES.script && realDir(dirname(scriptFile)) === dir;
-  /** The script's name in messages: part.o3j.js, or part.o3j/main.o3j.js. */
-  const shown = inProject ? `${store.project.label}/${FILES.script}` : basename(scriptFile);
+  /** The project's name in messages: as typed (examples/part/part.o3j), or part.o3j. */
+  const projectShown = o.names?.project ?? store.project.label;
+  /** The script's name in messages: as typed, or part.o3j.js, or part.o3j/main.o3j.js. */
+  const shown = o.names?.script ?? (inProject ? `${projectShown}/${FILES.script}` : basename(scriptFile));
+  /** What follows `open3dj run` in hints. */
+  const runArgs = o.names?.run ?? (inProject ? projectShown : shown);
   const writeBack = !inProject && o.syncScript !== false;
   let lastScript: string | undefined;
   let cachedRecord: { rev: string; script: string; status: RunOutput["status"] } | undefined;
   let fileRev = safeHead();
   let fileScript = fileRev === undefined ? undefined : recordOf(fileRev)?.script;
   let paramsOn = o.params !== undefined && Object.keys(o.params).length > 0;
-  /** The head a poll already reported a conflict (or a skipped write-back) for. */
+  /** The head a conflict (or a skipped write-back) was reported for, and the script text it was about. */
   let noticed: string | undefined;
+  let noticedText: string | undefined;
+  /** The head followHead last checked the base against (undefined: no head; null: none yet). */
+  let checkedHead: string | undefined | null = null;
+  /** Why the last write-back failed, for the terminal. */
+  let writeError = "";
+  /** True until the first run ends. */
+  let starting = true;
   let running: Promise<void> | undefined;
   let again = false;
   let force = false;
   let pending = false;
+  startBase();
 
   function readScript(): string | undefined {
     try {
@@ -309,7 +337,7 @@ export async function startViewServer(o: ViewServerOptions): Promise<ViewServer>
     }
   }
 
-  /** The script and status of a revision; records never change, so the last one is kept. */
+  /** The script and status of a revision. Records never change, so the last one is kept (checkBase drops it). */
   function recordOf(rev: string): { rev: string; script: string; status: RunOutput["status"] } | undefined {
     if (cachedRecord?.rev === rev) return cachedRecord;
     try {
@@ -319,6 +347,57 @@ export async function startViewServer(o: ViewServerOptions): Promise<ViewServer>
     } catch {
       return undefined;
     }
+  }
+
+  /**
+   * Script mode, at start-up: base the script on the newest revision before the head whose
+   * script it holds (searching START_SCAN of them), when it does not hold the head's. A script
+   * that holds no revision's script keeps the head as its base and runs as before.
+   */
+  function startBase(): void {
+    if (inProject || fileRev === undefined) return;
+    const text = readScript();
+    if (text === undefined || text === fileScript) return;
+    let older: string[];
+    try {
+      const head = revNumber(fileRev);
+      older = store.revisions().filter((r) => revNumber(r) < head).slice(-START_SCAN).reverse();
+    } catch {
+      return;
+    }
+    for (const rev of older) {
+      if (recordOf(rev)?.script !== text) continue;
+      fileRev = rev;
+      fileScript = text;
+      return;
+    }
+  }
+
+  /**
+   * Forget a base that no longer holds fileScript: the project, or that revision, is gone or
+   * was made again. Revision names then mean other revisions, so the caches go too.
+   */
+  function checkBase(head: string | undefined): void {
+    if (fileRev === undefined) return;
+    if (head !== undefined) {
+      try {
+        // Read again, not from cachedRecord: a project made again reuses the names.
+        if (store.revision(fileRev).script === fileScript) return;
+      } catch {
+        // Gone or unreadable: forget it.
+      }
+    }
+    log(head === undefined
+      ? `open3dj view: ${projectShown} has no head revision now, so the next save of ${shown} runs without base_rev`
+      : `open3dj view: ${fileRev} of ${projectShown} is gone or was made again, so ${shown} is no longer based on a revision`);
+    fileRev = undefined;
+    fileScript = undefined;
+    noticed = undefined;
+    cachedRecord = undefined;
+    models.clear();
+    glbs.clear();
+    drawings.clear();
+    announced = undefined;
   }
 
   /** The run state of a script that holds rev's script: nothing to run, rev is shown. */
@@ -335,14 +414,14 @@ export async function startViewServer(o: ViewServerOptions): Promise<ViewServer>
     if (run.state === "error") showRev(rev);
   }
 
-  type Follow = "same" | "adopted" | "rebased" | "written" | "behind" | "conflict";
+  type Follow = "same" | "adopted" | "rebased" | "written" | "behind" | "conflict" | "unwritable";
 
   /** Bring fileRev up to a head that the watcher did not make, by the rules above. */
   function follow(head: string, text: string): Follow {
     if (head === fileRev) return "same";
     const rec = recordOf(head);
     if (!rec) return "same"; // An unreadable record: the run's base_rev check decides.
-    if (paramsOn) {
+    if (paramsOn && !starting) {
       paramsOn = false;
       log(`open3dj view: ${head} was made by an agent, so the start-up --param values (${Object.keys(o.params ?? {}).join(", ")}) are no longer sent; later saves use the project's stored values`);
     }
@@ -360,30 +439,53 @@ export async function startViewServer(o: ViewServerOptions): Promise<ViewServer>
     try {
       if (!replaceFile(scriptFile, rec.script, text)) return "conflict";
     } catch (e) {
-      log(`open3dj view: could not write ${head} to ${shown}: ${(e as Error).message}`);
-      return "conflict";
+      writeError = (e as Error).message;
+      return "unwritable";
     }
     adopt(head, rec.script);
     log(`open3dj view: wrote ${head} (made by an agent) to ${shown}`);
     return "written";
   }
 
+  /** Keep a save that an agent's commit rewrote in main.o3j.js. False when it could not be kept. */
+  function keepUnrun(script: string): boolean {
+    try {
+      writeUnrunScript(store, script);
+      return true;
+    } catch (e) {
+      log(`open3dj view: could not keep the save that did not run in ${projectShown}/${UNRUN_FILE}: ${(e as Error).message}`);
+      return false;
+    }
+  }
+
   /**
-   * Say on the run state and in the terminal that a save was not run because the script was
-   * behind head. why: "saved" (a save was refused), "found" (a poll found changes that did not
-   * run), or "replaced" (head was made while the save ran, and its commit rewrote main.o3j.js).
+   * Say on the run state and in the terminal that a script was not run because it was behind
+   * head, once per head and script text. why: "saved" (a save was refused), "found" (a poll
+   * found changes that did not run), "start" (at start-up, the script held an older revision's
+   * script), "unwritable" (head could not be written to the script), or "kept" and "replaced"
+   * (head was made while the save ran, and its commit rewrote main.o3j.js; "kept": the save's
+   * text is in UNRUN_FILE).
    */
-  function reportConflict(head: string, why: "saved" | "found" | "replaced", base: string | null = fileRev ?? null): void {
-    const label = store.project.label;
-    const keep = `run "open3dj run ${inProject ? label : shown}" once; it builds on ${head}`;
+  function reportConflict(head: string, why: "saved" | "found" | "start" | "unwritable" | "kept" | "replaced", text: string, base: string | null = fileRev ?? null): void {
+    noticed = head;
+    noticedText = text;
+    if (why === "unwritable") log(`open3dj view: could not write ${head} to ${shown}: ${writeError}`);
+    const keep = `run "open3dj run ${runArgs}" once; it builds on ${head}`;
     let hint: string;
-    if (why === "replaced") {
-      hint = `Your save was not run: ${head} was made while it ran, and it rewrote ${shown}. To keep your version, save it again; it then builds on ${head}.`;
+    if (why === "kept" || why === "replaced") {
+      const lost = `Your save was not run: ${head} was made while it ran, and it rewrote ${shown}.`;
+      hint = why === "kept"
+        ? `${lost} Your version is in ${projectShown}/${UNRUN_FILE}. To keep it, copy it over ${shown}; it then builds on ${head}.`
+        : `${lost} To keep your version, save it again; it then builds on ${head}.`;
     } else {
       const what = why === "saved"
         ? "Your save was not run."
-        : inProject ? `${shown} changed after ${head} was made.` : `${shown} has changes that did not run, so ${head} was not written to it.`;
-      const take = inProject ? `undo your change (its script is in ${label}/${FILES.revisions}/${head}.json)` : `copy ${label}/${FILES.script} over ${shown}`;
+        : why === "start"
+          ? `${shown} holds the script of ${base}, so it was not run.`
+          : why === "unwritable"
+            ? `${head} could not be written to ${shown} (the terminal says why).`
+            : inProject ? `${shown} changed after ${head} was made.` : `${shown} has changes that did not run, so ${head} was not written to it.`;
+      const take = inProject ? `undo your change (its script is in ${projectShown}/${FILES.revisions}/${head}.json)` : `copy ${projectShown}/${FILES.script} over ${shown}`;
       hint = `${what} To take ${head}, ${take}. To keep your version, ${keep}.`;
     }
     setRun({
@@ -397,28 +499,51 @@ export async function startViewServer(o: ViewServerOptions): Promise<ViewServer>
   function followHead(): void {
     if (running || pending) return;
     const head = safeHead();
-    if (head === undefined || head === fileRev) return;
+    if (head === fileRev) return;
+    if (head !== checkedHead) {
+      checkedHead = head;
+      checkBase(head);
+    }
+    if (head === undefined) return;
     const text = readScript();
     if (text === undefined) return;
     const f = follow(head, text);
-    if ((f !== "behind" && f !== "conflict") || noticed === head) return;
+    if ((f !== "behind" && f !== "conflict" && f !== "unwritable") || noticed === head) return;
+    if (f !== "behind") return reportConflict(head, f === "unwritable" ? "unwritable" : "found", text);
     noticed = head;
-    if (f === "conflict") return reportConflict(head, "found");
-    log(`open3dj view: ${head} was made by an agent; ${shown} was not updated (--no-sync-script), so a save of it is refused until it holds ${head}'s script (in ${store.project.label}/${FILES.script})`);
+    noticedText = undefined;
+    log(`open3dj view: ${head} was made by an agent; ${shown} was not updated (--no-sync-script), so a save of it is refused until it holds ${head}'s script (in ${projectShown}/${FILES.script})`);
   }
 
   async function runOnce(): Promise<void> {
-    const script = readScript();
+    try {
+      await runScript();
+    } finally {
+      starting = false;
+    }
+  }
+
+  async function runScript(): Promise<void> {
+    let script = readScript();
     if (script === undefined) return;
     if (!force && script === lastScript) return;
     const forced = force;
     force = false;
     lastScript = script;
     const head = safeHead();
+    checkBase(head);
     if (head !== undefined && head !== fileRev) {
       const f = follow(head, script);
-      if (f === "written") return;
-      if (f === "behind" || f === "conflict") return reportConflict(head, "saved");
+      if (f === "behind" || f === "conflict" || f === "unwritable") {
+        // The poll may have reported this script against this head already.
+        if (noticed === head && noticedText === script) return;
+        return reportConflict(head, f === "unwritable" ? "unwritable" : starting && f === "behind" ? "start" : "saved", script);
+      }
+      if (f === "written") {
+        // At start-up the --param values still apply, on top of the written revision.
+        if (!(starting && paramsOn)) return showRev(head);
+        script = fileScript!;
+      }
     }
     // The file holds the script of the revision it is based on: nothing new to run.
     if (!forced && fileRev !== undefined && script === fileScript) return;
@@ -451,10 +576,11 @@ export async function startViewServer(o: ViewServerOptions): Promise<ViewServer>
         again = true;
         return;
       }
-      // In project mode the agent's commit rewrote main.o3j.js over the save that was running.
-      if (f === "adopted" && inProject && text !== script) return reportConflict(now!, "replaced", base);
+      // In project mode the agent's commit rewrote main.o3j.js over the save that was running:
+      // keep the save's text, because the file no longer holds it.
+      if (f === "adopted" && inProject && text !== script) return reportConflict(now!, keepUnrun(script) ? "kept" : "replaced", script, base);
       if (f === "adopted" || f === "written") return showRev(now!);
-      if (f === "behind" || f === "conflict") return reportConflict(now!, "saved");
+      if (f === "behind" || f === "conflict" || f === "unwritable") return reportConflict(now!, f === "unwritable" ? "unwritable" : "saved", script);
     }
     const next: RunState = { state: out.error ? "error" : "done", at: new Date().toISOString(), status: out.status };
     if (out.rev) next.rev = out.rev;
