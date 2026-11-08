@@ -38,16 +38,18 @@ Part names become ids in the report: `Leaf A` is `leaf_a` and `Leaf B` is `leaf_
 
 ## Collect the evidence
 
-From your run folder, after the agent finishes (use `node /path/to/Open3DJ/packages/open3dj/src/cli.ts` in place of `open3dj` if you work from a clone):
+From your run folder, after the agent finishes (use `node /path/to/Open3DJ/packages/open3dj/src/cli.ts` in place of `open3dj` if you work from a clone). Run the commands in this order:
 
 ```sh
-open3dj run solution.o3j --detailed                                   # status, parts, size, fits
-open3dj run solution.o3j --param "Open angle=90" --no-save-params     # fits at 90 degrees
+open3dj run solution.o3j --detailed                                   # status, parts, size, fits (flat pose)
 open3dj inspect solution.o3j --fields measure --json                  # bbox.min of each leaf for on-bed
 open3dj inspect solution.o3j --fields gates                           # the print checks
 open3dj render solution.o3j --out hinge.png                           # the drawing
 open3dj export solution.o3j --format 3mf                              # the file to print, with its evidence
+open3dj run solution.o3j --param "Open angle=90" --no-save-params     # fits at 90 degrees: always last
 ```
+
+**Why the order matters.** Every `run` makes a new revision, and that revision becomes the one `inspect`, `render` and `export` read next. `--no-save-params` only keeps `params.o3j.json` as it was; the 90 degree run still becomes the latest revision. So the 90 degree run comes last, after the print checks, the drawing and the 3MF have been taken from the flat pose. The first `run` uses the values saved in `params.o3j.json`: check that `Open angle` is 180 there, or add `--param "Open angle=180"` to it. To go back to the flat pose afterwards, run `open3dj run solution.o3j` again.
 
 If you print it: say whether it came off the bed in one piece, whether it moved without force, and the printer, slicer, material and layer height. A photo is welcome.
 
