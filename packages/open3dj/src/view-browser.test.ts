@@ -33,7 +33,7 @@ interface Page {
   click(selector: string): Promise<void>;
   inputValue(selector: string): Promise<string>;
   close(): Promise<void>;
-  waitForFunction(fn: () => boolean, arg?: unknown, options?: { timeout: number }): Promise<unknown>;
+  waitForFunction<A = undefined>(fn: (arg: A) => boolean, arg?: A, options?: { timeout: number }): Promise<unknown>;
   evaluate<T, A = undefined>(fn: (arg: A) => T, arg?: A): Promise<T>;
   locator(selector: string): { count(): Promise<number>; getAttribute(name: string): Promise<string | null> };
   mouse: { click(x: number, y: number): Promise<void> };
@@ -58,6 +58,7 @@ interface ViewerWindow {
   open3dj: {
     state(): { rev: string; renderer: string; parts: number; selected: string[]; elements: Array<{ address: string | null; text: string }> };
     projectPath(path: string): { x: number; y: number } | null;
+    camera(): { position: number[]; target: number[] } | null;
     faces(path: string): FaceFacts[];
     pointOnFace(path: string, face: number): { x: number; y: number } | null;
     tools(options: object): { section: { axis: string } | null; explode: number; overlay: Record<string, number> | null };
@@ -65,6 +66,18 @@ interface ViewerWindow {
   };
 }
 interface Playwright { chromium: { launch(options: { args: string[] }): Promise<Browser> } }
+
+/** Waits until the camera has stopped moving: two reads 100 ms apart give the same pose (at most 5 s). */
+async function cameraSettled(page: Page): Promise<void> {
+  let last = "";
+  for (let i = 0; i < 50; i++) {
+    const pose = JSON.stringify(await page.evaluate(() => (globalThis as unknown as ViewerWindow).open3dj.camera()));
+    if (pose === last) return;
+    last = pose;
+    await page.waitForTimeout(100);
+  }
+  throw new Error("the camera did not settle within 5 s");
+}
 
 function loadPlaywright(): Playwright | string {
   try {
@@ -199,14 +212,24 @@ test("the viewer shows examples/enclosure: 6 occurrences, a click selects a scre
     assert.deepEqual(errors, []);
 
     // A click on a section cap selects the part that was cut, not a face hidden behind the cap.
+    // The test waits for conditions, not for fixed times: the camera has stopped moving before the
+    // cap is projected, and the selection is awaited after the click. With a fixed 1,200 ms and
+    // 150 ms, the macOS runner sometimes found nothing selected (Install smoke runs 41875599850 and
+    // 42519398180). Why the macOS run was late is not known; the view-top camera is orthographic, so
+    // the aim point itself does not move with the section height (measured 0.0 px).
     await page.evaluate(() => (globalThis as unknown as ViewerWindow).open3dj.tools({ section: { axis: "z", at: 30 }, explode: 0, overlay: null }));
     await page.keyboard.press("2");
-    await page.waitForTimeout(1200);
+    await cameraSettled(page);
     for (const screw of ["screw#1", "screw#3"]) {
       const cap = await page.evaluate((path) => (globalThis as unknown as ViewerWindow).open3dj.projectPath(path), screw);
       assert.ok(cap, `${screw} is in the scene`);
       await page.mouse.click(cap.x, cap.y);
-      await page.waitForTimeout(150);
+      await page
+        .waitForFunction((path) => {
+          const selected = (globalThis as unknown as ViewerWindow).open3dj.state().selected;
+          return selected.length === 1 && selected[0] === path;
+        }, screw, { timeout: 5_000 })
+        .catch(() => {}); // the assertion below reports what was selected instead
       const s = await page.evaluate(() => (globalThis as unknown as ViewerWindow).open3dj.state());
       assert.deepEqual(s.selected, [screw], `a click on the cap of ${screw} selected ${JSON.stringify(s.selected)} ${JSON.stringify(s.elements)}`);
       assert.deepEqual(s.elements.map((e) => e.address), [], "a cap has no face address");

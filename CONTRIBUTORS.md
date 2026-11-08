@@ -20,7 +20,7 @@ The tables below are almost empty. That is not a sign that nobody is welcome; it
 - Install Open3DJ on your own machine with [docs/TESTING.md](docs/TESTING.md) (no person outside the project has tested it yet), run `open3dj doctor --report` and paste its output into a [hardware report](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=hardware_report.yml).
 - Add an example, send test geometry that breaks other tools, check a research claim, or write a design brief.
 
-Documentation, examples, new bench tasks and similar data merge automatically once every check and the AI review pass, so your first contribution can land quickly ([how merging works](CONTRIBUTING.md#how-your-pull-request-is-evaluated-and-merged)). Then add your row below. (One caveat today: `npm run check` is red until two example goldens are regenerated, so nothing merges until then. See the README.)
+Documentation, examples, new bench tasks (a new folder in `bench/tasks/`), new print-check cases (a case file in `corpora/gates/cases/` and its script) and similar data merge automatically once every check and the AI review pass, so your first contribution can land quickly ([how merging works](CONTRIBUTING.md#how-your-pull-request-is-evaluated-and-merged)). Then add your row below. (One caveat today: `npm run check` is red until two example goldens are regenerated, so nothing merges until then. See the README.)
 
 ## Maintainers
 

@@ -2,7 +2,7 @@
 
 Small parts with known answers for the `fdm.v1` print checks (`watertight`, `min_wall`, `overhang` and `bed`; [ARCHITECTURE.md](../../docs/ARCHITECTURE.md) section 10). The S3 exit in [PLAN.md](../../docs/PLAN.md) asks for zero false passes on this corpus: no seeded defect may pass the gate that should catch it. Controls guard the other direction, so a fix that makes a gate fail everything shows up at once. All cases are original and MIT licensed.
 
-Each case is one DSL script, `<id>.o3j.js`, and one entry in [cases.json](cases.json) with the expected verdict of every gate, the value range where it matters, and the build direction or bed when the case needs one.
+Each case is one DSL script, `<id>.o3j.js`, and one entry with the expected verdict of every gate, the value range where it matters, and the build direction or bed when the case needs one. The first 57 cases are entries in [cases.json](cases.json). A new case goes in a file of its own, `cases/<id>.json`, which holds one entry with the same fields. Adding a case then changes no existing file, so its pull request can merge in the auto lane ([CONTRIBUTING.md](../../CONTRIBUTING.md#two-lanes)); an edit to `cases.json` needs a maintainer. Ids must be unique across `cases.json` and `cases/`.
 
 ## How a case is checked
 
@@ -134,7 +134,26 @@ No face ray reaches the web under a pointed pocket: the face rays leave along th
 ## Adding a case
 
 1. Write `<id>.o3j.js` with a header comment that says what it seeds. Use one part, keep it small (a case should run in well under a second), and seed one defect, so the case says which gate must catch it. The id is lower case, with digits, dots and dashes.
-2. Run it alone: `node scripts/gate-corpus.ts <id>` fails with "has no case in cases.json" until step 3. `npx open3dj inspect <id>.o3j.js --fields gates` shows what the gates say today.
-3. Add the entry to `cases.json`: `id`, `kind` (`defect`, `control` or `known-miss`), `seeds` (one sentence), `build` or `bed` if the case needs them, and `expect` with all four gates. A verdict is `"pass"`, `"fail"`, or an object `{ "verdict": "fail", "value": [min, max], "marginal": true, "unmeasured": true, "known_miss": "<why>" }` with the fields that matter. Set `expect` to `{ "error": "<code>" }` for a part the run must refuse.
+2. Run it alone: `node scripts/gate-corpus.ts <id>` fails with "has no case in cases.json or cases/" until step 3. `npx open3dj inspect <id>.o3j.js --fields gates` shows what the gates say today.
+3. Write the case in a new file, `cases/<id>.json`, named after its id. It holds one object, not a list: `id`, `kind` (`defect`, `control` or `known-miss`), `seeds` (one sentence), `build` or `bed` if the case needs them, and `expect` with all four gates. A verdict is `"pass"`, `"fail"`, or an object `{ "verdict": "fail", "value": [min, max], "marginal": true, "unmeasured": true, "known_miss": "<why>" }` with the fields that matter. Set `expect` to `{ "error": "<code>" }` for a part the run must refuse. For example, the case `wall-tray-0.6` of `cases.json`, written as a file of its own, would be `cases/wall-tray-0.6.json`:
+
+   ```json
+   {
+     "id": "wall-tray-0.6",
+     "kind": "defect",
+     "seeds": "A 30 x 20 x 15 mm open tray with 0.6 mm flat walls and floor.",
+     "expect": {
+       "watertight": "pass",
+       "min_wall": { "verdict": "fail", "value": [0.59, 0.61] },
+       "overhang": "pass",
+       "bed": "pass"
+     }
+   }
+   ```
+
+   A case file that is not valid JSON, holds a list instead of one object, has a field the runner does not know, or is not named after its id fails the run, and the message names the file.
 4. Write the expected verdict from the truth, not from what the gate says today. If the gate disagrees, that is a false pass or a false failure: open an issue, or fix the gate test first (a regression test in `packages/assembly/src/gates.test.ts`, then the fix). Mark a case `known-miss` only for a limit the docs already describe.
 5. Run `node scripts/gate-corpus.ts` until it passes, and paste its summary into the pull request. Never loosen a range or flip a verdict to make the run pass without saying why in the pull request.
+6. Add a row for the case to the table of its gate above.
+
+A `known-miss` case also needs a maintainer: `scripts/gate-corpus.test.ts` pins the one known miss there is today, so a second one changes that test.

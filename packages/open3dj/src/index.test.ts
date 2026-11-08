@@ -8,7 +8,7 @@ import { Client } from "@modelcontextprotocol/client";
 import { StdioClientTransport } from "@modelcontextprotocol/client/stdio";
 import { validate } from "@open3dj/schemas";
 import type { FitReport } from "@open3dj/schemas";
-import { EXIT, PACKAGE_STATUS, defaultProject, main, parseCommand, parseParams } from "./index.ts";
+import { EXIT, PACKAGE_STATUS, defaultProject, main, parseCommand, parseParams, runArgsOf } from "./index.ts";
 
 const capture = () => {
   const out: string[] = [];
@@ -67,6 +67,21 @@ test("arguments become valid tool inputs (CLI parity)", () => {
   assert.deepEqual(parseCommand(["new", "box", "-t", "assembly"]).command, { cmd: "new", name: "box", template: "assembly" });
   assert.deepEqual(parseParams(["n=1e3", "s=", "neg=-2"]), { n: 1000, s: "", neg: -2 });
   assert.equal(defaultProject("C:\\work\\lid.o3j.js"), "C:/work/lid.o3j");
+});
+
+test("runArgsOf gives the open3dj run arguments that run a source into the same project", () => {
+  const source = (argv: string[]) => {
+    const c = parseCommand(argv).command;
+    assert.ok(c.cmd === "view");
+    return c.source;
+  };
+  assert.equal(runArgsOf(source(["view", "examples/enclosure/enclosure.o3j.js"])), "examples/enclosure/enclosure.o3j.js");
+  assert.equal(runArgsOf(source(["view", "examples/enclosure/enclosure.o3j/"])), "examples/enclosure/enclosure.o3j");
+  assert.equal(runArgsOf(source(["view", "lid.js", "--project", "box.o3j"])), "lid.js --project box.o3j");
+  for (const argv of [["view", "examples/enclosure/enclosure.o3j.js"], ["view", "lid.js", "--project", "box.o3j"]]) {
+    const s = source(argv);
+    assert.deepEqual(source(["view", ...runArgsOf(s).split(" ")]), s, argv.join(" "));
+  }
 });
 
 test("the CLI tool schema dump equals tools/list of the MCP server", async () => {

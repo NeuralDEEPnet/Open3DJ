@@ -11,14 +11,14 @@ import { FILES, ProjectStore, createHandlers, guardStdout, resolveProject, serve
 import type { ToolHandlers } from "@open3dj/mcp";
 import { collapseFits, rankFits, validate } from "@open3dj/schemas";
 import type { PackageStatus, ParamValue, RunInput, RunOutput, ScriptError } from "@open3dj/schemas";
-import { UsageError, parseCommand } from "./args.ts";
+import { UsageError, parseCommand, runArgsOf } from "./args.ts";
 import type { Command, Source } from "./args.ts";
 import { formatDocs, formatDoctor, formatError, formatExport, formatInspect, formatRender, formatRun } from "./format.ts";
 import { formatHardwareReport, gpuNames, installContext } from "./report.ts";
 import { TEMPLATES } from "./templates.ts";
 import { openBrowser, startViewServer } from "./view.ts";
 
-export { parseCommand, parseParams, defaultProject, UsageError } from "./args.ts";
+export { parseCommand, parseParams, defaultProject, runArgsOf, UsageError } from "./args.ts";
 export type { Command, Parsed, Source } from "./args.ts";
 export { TEMPLATES } from "./templates.ts";
 export { HARDWARE_REPORT_URL, formatHardwareReport, gpuNames, installContext } from "./report.ts";
@@ -48,8 +48,10 @@ Usage:
   open3dj inspect [<script|project>] [--fields tree,refs,fits,measure,devices,job,selection,gates] [--targets a,b] [--job id]
                   [--gates fdm.v1] [--build 0,0,1] [--bed 220,220,250]   gates: 3D printing checks per part
   open3dj docs <query> [--page n]
-  open3dj view <script|project> [--port n] [--no-open] [--param name=value ...]
+  open3dj view <script|project> [--port n] [--no-open] [--param name=value ...] [--no-sync-script]
                                                    browser viewer on 127.0.0.1; re-runs the script on save
+                                                   and writes an agent's revisions to a watched script
+                                                   file (--no-sync-script: never)
   open3dj new <name> [--template part|assembly]   scaffold name.o3j with a starter script
   open3dj mcp [--root dir] [--workers n]           stdio MCP server for agents
   open3dj doctor [--bench] [--json | --report]     what this machine can run; --report prints a
@@ -377,7 +379,9 @@ async function view(command: Extract<Command, { cmd: "view" }>, io: Io): Promise
   let server;
   try {
     server = await startViewServer({
-      handlers, root: dirname(projectAbs), project: projectAbs, script, params: command.params, saveParams: command.saveParams,
+      handlers, root: dirname(projectAbs), project: projectAbs, script, params: command.params, saveParams: command.saveParams, syncScript: command.syncScript,
+      // Hints name the paths as the person typed them, so their commands work from this folder.
+      names: { script: shown, project: source.project, run: runArgsOf(source) },
       ...(command.port !== undefined ? { port: command.port } : {}),
       log: (line) => io.err(`${line}\n`),
       onRun: (run, out) => {
