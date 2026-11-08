@@ -99,8 +99,9 @@ const TRAIL = String.raw`[\\/]+(?=$|[\s'"\x60:,;)\]}])`;
 // as redactPaths reads it).
 const END_AT = String.raw`(?=$|[\r\n'"\x60:,;)\]}]|[ \t](?!${SEG}(?: ${SEG})*[\\/]))`;
 const END = String.raw`(?:${TRAIL}|${END_AT})`;
-// A drive (C:) or a file URL (file:///home, file:///C:/Users) before the first separator.
-const PREFIX = String.raw`(?:file:\/\/\/?)?(?:[A-Za-z]:)?`;
+// A drive (C:) or a file URL (file:///home, file:///C:/Users) before the first separator, or
+// the /mnt/<drive> that WSL puts before a Windows home folder (/mnt/c/Users/<name>).
+const PREFIX = String.raw`(?:file:\/\/\/?)?(?:[A-Za-z]:)?(?:[\\/]mnt[\\/][A-Za-z])?`;
 // A bare /home/<name>, /Users/<name> or C:\Users\<name>, in any letter case (Windows and macOS
 // paths ignore case). Unquoted, the name ends at a space, as in redactPaths, unless a separator
 // ends it: "/home/Jane Doe/" is one name, as redactPaths reads it. Quoted paths are below.
@@ -117,7 +118,10 @@ const QUOTED_HOME_ROOT = new RegExp(String.raw`(['"\x60])${PREFIX}[\\/](?:home|U
 export function redactText(text: string): string {
   let out = text.replace(/sk-ant-[A-Za-z0-9_-]{8,}/g, "[redacted key]");
   const home = homedir();
-  if (home.length > 1) out = out.replace(new RegExp(escapeRegExp(home) + END, "gi"), "~");
+  // A name with a quote in it (O'Brien) would end a quoted path early and leave the rest of the
+  // name behind, so such a home folder is removed wherever it appears, not only when bare.
+  const quoteInName = /['"\x60]/.test(home);
+  if (home.length > 1) out = out.replace(new RegExp(escapeRegExp(home) + (quoteInName ? String.raw`(?!\w)` : END), "gi"), "~");
   out = out.replace(QUOTED_HOME_ROOT, "$1~$1").replace(HOME_ROOT, "~");
   return redactPaths(out, (last) => `…/${last}`);
 }

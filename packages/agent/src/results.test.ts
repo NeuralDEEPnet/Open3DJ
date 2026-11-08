@@ -130,6 +130,9 @@ test("key-like strings and home folder paths are removed from text", () => {
   assert.equal(redactText("missing: /Users/jane, then C:\\Users\\Jane"), "missing: ~, then ~");
   assert.equal(redactText("(see /home/jane)"), "(see ~)");
   assert.equal(redactText("open \"/Users/Jane Doe\" and 'C:\\Users\\Jane Doe\\' failed"), "open \"~\" and '~' failed");
+  // A Windows home folder seen from WSL (review).
+  assert.equal(redactText("EACCES: permission denied, mkdir '/mnt/c/Users/jane'"), "EACCES: permission denied, mkdir '~'");
+  assert.equal(redactText("cannot create /mnt/c/Users/jane/ (read-only file system)"), "cannot create ~ (read-only file system)");
   // JSON text with nothing to redact keeps its exact bytes.
   const clean = toolResult({ status: "ok", rev: "r_0001", parts: [{ def: "lid", volume_mm3: 1000.5, note: "a\nb \"q\" é" }] });
   assert.equal(texts(toApiContent(clean))[0], (clean.content[0] as { text: string }).text);
@@ -182,4 +185,25 @@ test("empty and unknown content never leaves an empty result", () => {
   assert.match(texts(odd)[0]!, /A content item of type audio_x_ is not sent here\./);
   const other = toApiContent({ structuredContent: {}, content: [{ type: "resource", resource: { uri: "open3dj://p.o3j/r_0001/notes.txt", mimeType: "text/plain", text: "hello" } }] });
   assert.match(texts(other)[0]!, /The text\/plain resource notes\.txt is not sent here\./);
+});
+
+// Regression test (review): Windows allows an apostrophe in a profile name. The quoted-path rule
+// then ends the path at the apostrophe, and "mkdir 'C:\Users\O'Brien\designs'" kept "Brien".
+test("redactText removes the person's own home folder even when its name holds a quote", () => {
+  const win = process.platform === "win32";
+  const variable = win ? "USERPROFILE" : "HOME";
+  const saved = process.env[variable];
+  const home = win ? "C:\\Users\\O'Brien" : "/home/O'Brien";
+  process.env[variable] = home;
+  try {
+    assert.equal(homedir(), home, "the test home folder is in place");
+    const sep = win ? "\\" : "/";
+    for (const text of [`mkdir '${home}${sep}designs${sep}box.o3j'`, `mkdir "${home}${sep}designs${sep}box.o3j"`, `cwd is ${home}`, `in ${home}${sep}`]) {
+      const out = redactText(text);
+      assert.ok(!/Brien/.test(out), `${JSON.stringify(text)} became ${JSON.stringify(out)}`);
+    }
+  } finally {
+    if (saved === undefined) delete process.env[variable];
+    else process.env[variable] = saved;
+  }
 });

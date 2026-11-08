@@ -9,9 +9,10 @@ const SEG = String.raw`[^\\/\s'"\x60:]+`;
 const UNQUOTED = new RegExp(String.raw`(?<![\w#.-])(?:file:\/\/)?(?:[A-Za-z]:)?(?:[\\/](?:${SEG}(?: ${SEG})*(?=[\\/])|${SEG})){2,}`, "g");
 // Quoted: everything up to the matching quote, when it starts like an absolute path.
 const QUOTED = /(['"`])((?:file:\/\/)?(?:[A-Za-z]:)?[\\/][^'"`\n]*)\1/g;
-// A bare home folder (/home/<name>, /Users/<name>, C:\Users\<name>), in any letter case
-// because Windows and macOS paths ignore case. Its last segment is the user name.
-const HOME_ROOT = /^(?:file:\/\/\/?)?(?:[A-Za-z]:)?[\\/](?:home|Users)[\\/][^\\/]+[\\/]*$/i;
+// A bare home folder (/home/<name>, /Users/<name>, C:\Users\<name>, or /mnt/c/Users/<name> as
+// WSL shows a Windows one), in any letter case because Windows and macOS paths ignore case.
+// Its last segment is the user name.
+const HOME_ROOT = /^(?:file:\/\/\/?)?(?:[A-Za-z]:)?(?:[\\/]mnt[\\/][A-Za-z])?[\\/](?:home|Users)[\\/][^\\/]+[\\/]*$/i;
 
 /**
  * The message with every absolute path replaced. By default a path becomes "<path>"; pass

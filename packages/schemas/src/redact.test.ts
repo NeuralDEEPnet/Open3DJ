@@ -46,5 +46,8 @@ test("a bare home folder becomes ~, never its last segment", () => {
   ];
   for (const [input, want] of cases) assert.equal(redactPaths(input, keep), want, JSON.stringify(input));
   assert.equal(redactPaths("cwd is /home/jane"), "cwd is ~", "the default replacement too");
+  // A Windows home folder seen from WSL keeps the user name as its last segment too (review).
+  assert.equal(redactPaths("EACCES: permission denied, mkdir '/mnt/c/Users/jane'", keep), "EACCES: permission denied, mkdir '~'");
+  assert.equal(redactPaths("cannot create /mnt/c/Users/jane/ (read-only file system)", keep), "cannot create ~/ (read-only file system)");
   assert.equal(redactPaths("a/home/jane and x.home/jane stay"), "a/home/jane and x.home/jane stay");
 });

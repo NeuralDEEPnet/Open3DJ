@@ -52,7 +52,7 @@ A `run` that takes longer than the interactive deadline (20 s by default, `inter
 
 `serveStdio()` uses `@modelcontextprotocol/server` 2.4.0 with `legacy: "serve"`: one factory answers 2025-06-18 and 2025-11-25 `initialize` and 2026-07-28 `server/discover`. Tools are registered from `TOOL_DEFINITIONS` with `fromJsonSchema()` and a validator built on `@open3dj/schemas`, so `tools/list` publishes exactly the schemas in `packages/schemas` and the same rules check every input. Results carry `structuredContent` and a JSON text mirror. `render` adds the PNG as image content and the SVG as an embedded resource.
 
-Every tools/call goes through `callTool(handlers, name, args)` in `src/call.ts`, which returns that MCP result. A handler that throws becomes a `status: "error"` result, and an unknown tool name a `BAD_INPUT` result. The agent panel (`@open3dj/agent`) calls the same function, so a tool behaves the same over MCP and in `open3dj view`.
+Every tools/call goes through `callTool(handlers, name, args)` in `src/call.ts`, which returns that MCP result. A handler that throws becomes a `status: "error"` result, and an unknown tool name a `BAD_INPUT` result. The planned agent panel (`@open3dj/agent`, RFC 0001) will call the same function, so a tool will behave the same over MCP and in `open3dj view`.
 
 `guardStdout()` sends every console method to stderr. `open3dj mcp` calls it before anything else.
 
