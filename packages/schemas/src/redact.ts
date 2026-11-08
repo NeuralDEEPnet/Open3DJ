@@ -9,14 +9,17 @@ const SEG = String.raw`[^\\/\s'"\x60:]+`;
 const UNQUOTED = new RegExp(String.raw`(?<![\w#.-])(?:file:\/\/)?(?:[A-Za-z]:)?(?:[\\/](?:${SEG}(?: ${SEG})*(?=[\\/])|${SEG})){2,}`, "g");
 // Quoted: everything up to the matching quote, when it starts like an absolute path.
 const QUOTED = /(['"`])((?:file:\/\/)?(?:[A-Za-z]:)?[\\/][^'"`\n]*)\1/g;
+// A bare home folder (/home/<name>, /Users/<name>, C:\Users\<name>), in any letter case
+// because Windows and macOS paths ignore case. Its last segment is the user name.
+const HOME_ROOT = /^(?:file:\/\/\/?)?(?:[A-Za-z]:)?[\\/](?:home|Users)[\\/][^\\/]+[\\/]*$/i;
 
 /**
  * The message with every absolute path replaced. By default a path becomes "<path>"; pass
- * replace to keep a part of it, for example its last segment.
+ * replace to keep a part of it, for example its last segment. A bare home folder always
+ * becomes "~", so a replacement that keeps the last segment never keeps a user name.
  */
 export function redactPaths(message: string, replace: (lastSegment: string) => string = () => "<path>"): string {
   const last = (p: string) => p.split(/[\\/]/).filter((s) => s !== "").pop() ?? "";
-  return message
-    .replace(QUOTED, (_m, q: string, p: string) => `${q}${replace(last(p))}${q}`)
-    .replace(UNQUOTED, (p) => replace(last(p)));
+  const swap = (p: string) => (HOME_ROOT.test(p) ? "~" : replace(last(p)));
+  return message.replace(QUOTED, (_m, q: string, p: string) => `${q}${swap(p)}${q}`).replace(UNQUOTED, swap);
 }
