@@ -27,7 +27,7 @@ There are no results yet. The first submission sets the baseline.
    |---|---|---|---|---|---|---|---|---|---|---|---|
    | 95% interval (%) | 0-28 | 2-40 | 6-51 | 11-60 | 17-69 | 24-76 | 31-83 | 40-89 | 49-94 | 60-98 | 72-100 |
 
-   Two results whose intervals overlap may not differ at all. The project treats a change of 2 or more tasks as a real gap and one task as noise ([docs/PLAN.md](docs/PLAN.md) section 4.4).
+   Two rows whose intervals overlap may not differ at all. At n=10, the intervals of two rows stop overlapping only when the rows are 6 or 7 tasks apart. The project's weekly runs of one agent use a smaller step: a drop of 2 or more tasks is a yellow andon, a signal to look for a regression ([docs/PLAN.md](docs/PLAN.md) section 4.4). It does not show that two rows differ.
 2. **Contamination is possible.** Every task, reference and mutant is public on GitHub, so a model may have seen them in training. A held-out split that runs only in maintainer CI is planned, not built ([bench/README.md](bench/README.md#not-yet)).
 3. **Runs are done by hand** by each submitter, on their own machine and account.
 4. **Scores only measure an agent plus Open3DJ.** They cannot be compared with the scores of other CAD benchmarks, which use other tools, tasks and metrics.
@@ -43,9 +43,16 @@ Rows are sorted by pass^3, then pass@1, then date. Every row states the commit i
 ## Tiers
 
 - **Self-reported.** The submitter ran the tasks and graded them, and every required file below is linked. A maintainer checks that the fields are complete and the files are there, not that the numbers are right.
-- **Verified.** A maintainer re-graded the submitted run folders: downloaded the archive, checked its sha256, checked out the stated commit, ran `npm ci` and `node bench/grade.ts --runs <dir>`, and got the same pass or fail for every run. The maintainer also read the transcripts and found the prompt and limits unchanged, no task left out and no rule below broken. The re-grade is deterministic and takes minutes.
+- **Verified.** A maintainer re-graded the submitted run folders in their own clone, as below, and got the same pass or fail for every run. The maintainer also read the transcripts and found the prompt and limits unchanged, no task left out and no rule below broken. The re-grade is deterministic and takes minutes.
 
-Submit every result as self-reported. Only a maintainer changes a row to verified, in a pull request of their own. A run that breaks a rule below is marked suspect, and a result with a suspect run is not verified.
+Submit every result as self-reported. Only a maintainer changes a row to verified, in a pull request of their own. A run that breaks a rule below is marked suspect, and a result with a suspect run is not verified. This page is in the maintainer lane ([CONTRIBUTING.md](CONTRIBUTING.md#two-lanes)), so every change to it, a new row included, merges only after a maintainer approves it.
+
+### How a maintainer re-grades a result
+
+1. **The stated commit must be on `main`.** In your own clone of this repository, run `git fetch origin main` and `git merge-base --is-ancestor <commit> origin/main`. If it exits with anything but 0, reject the submission. Never fetch the commit from a fork or a pull request (such as `refs/pull/<n>/head`): its code is not reviewed, `npm ci` and the grader would run it on your machine, and a changed task or grader can pass anything.
+2. **Check out that commit in your clone,** for example in a separate worktree (`git worktree add --detach <path> <commit>`), and run `npm ci --ignore-scripts` there.
+3. **Download the archive** into a new, empty folder outside the clone, check its sha256 against the entry, and extract it there.
+4. **Grade it** from the root of the checkout: `node bench/grade.ts --runs <dir>`. Compare the pass or fail of every run with the submitted `grades.json`. The grader runs the agent's scripts only inside the project sandbox.
 
 ## Rules that keep the numbers honest
 
@@ -61,12 +68,12 @@ The full procedure is [bench/run-capability.md](bench/run-capability.md). These 
 
 ## How to submit
 
-1. Run all 10 capability tasks 3 times each, as [bench/run-capability.md](bench/run-capability.md) describes, at one Open3DJ commit.
+1. Run all 10 capability tasks 3 times each, as [bench/run-capability.md](bench/run-capability.md) describes, at one Open3DJ commit on `main`. A result measured at a commit from a fork or an open pull request is not accepted.
 2. Grade the folder from the repository root, at that commit: `node bench/grade.ts --runs <dir>`. Keep its console output and the `grades.json` it writes.
 3. Put the run folders (`<dir>/<task>/run-1` to `run-3`, each with the agent's `solution.o3j` project), `grades.json` and one full transcript per run (every message and tool call) into one archive. Read the transcripts before you publish them. Host the archive where a maintainer can download it, such as a release asset or a dataset in your own account, and note its sha256. Do not commit run folders or transcripts to this repository.
 4. Open a pull request that changes only this file: add one row to the results table with the tier "self-reported", and one entry under [Submissions](#submissions) from the template below. As [AI_POLICY.md](AI_POLICY.md) says, your agent may draft it, but you read it and open the pull request yourself.
 
-Write the model id and provider exactly as your client or API names them. The project does not check or normalize them.
+Type the model id and provider yourself, in the row and in the entry, exactly as your client or API names them. The project does not check or normalize them. If an agent drafts the pull request, it leaves `<model id>` and `<provider>` as placeholders: some agents, the project's own among them, must not write model names into files ([AGENTS.md](AGENTS.md#git-and-pull-requests)). Here the model is what is being measured, so a person types it as result data.
 
 ```text
 Agent: <agent name> <version>
@@ -74,7 +81,7 @@ Agent organization: <who builds the agent>
 Model: <model id>, provider <provider>, reasoning or effort setting <setting, or "default">
 MCP client: <client name> <version>
 Submitter: <your GitHub account>
-Open3DJ commit: <full commit hash>
+Open3DJ commit: <full commit hash, on main>
 Tasks: cap-<id> v<version>, ... (the version field of each task.json at that commit)
 Runs: 3 fresh sessions per task
 Prompt and limits: unmodified from bench/run-capability.md (60 minutes, 100 tool calls)
