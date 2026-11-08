@@ -89,24 +89,35 @@ function redactValue(v: unknown): unknown {
 
 // One path segment, as in redactPaths: no separators, whitespace, quotes or colon.
 const SEG = String.raw`[^\\/\s'"\x60:]+`;
-// Where a bare home folder ends: the end, a line break, a quote or punctuation, or a space
-// that does not continue the segment ("/home/Jane Doe/x" is one path, as redactPaths reads it).
-const END = String.raw`(?=$|[\r\n'"\x60:,;)\]}]|[ \t](?!${SEG}(?: ${SEG})*[\\/]))`;
-// A bare /home/<name>, /Users/<name> or C:\Users\<name>. Unquoted, the name ends at a space,
-// as in redactPaths; quoted paths with spaces are left to redactPaths, which keeps the last segment.
-const HOME_ROOT = new RegExp(String.raw`(?<![\w.-])(?:[A-Za-z]:)?[\\/](?:home|Users)[\\/][^\\/\s'"\x60:,;()\[\]{}]+${END}`, "g");
+// A user name in an unquoted home folder: a segment without punctuation.
+const NAME = String.raw`[^\\/\s'"\x60:,;()\[\]{}]+`;
+// Separators that end a path: the end, white space, a quote or punctuation follows them.
+// They are part of the match, so "/home/jane/" becomes "~", not "~/" or "…/jane/".
+const TRAIL = String.raw`[\\/]+(?=$|[\s'"\x60:,;)\]}])`;
+// Where a bare home folder ends without a separator: the end, a line break, a quote or
+// punctuation, or a space that does not continue the segment ("/home/Jane Doe/x" is one path,
+// as redactPaths reads it).
+const END_AT = String.raw`(?=$|[\r\n'"\x60:,;)\]}]|[ \t](?!${SEG}(?: ${SEG})*[\\/]))`;
+const END = String.raw`(?:${TRAIL}|${END_AT})`;
+// A drive (C:) or a file URL (file:///home, file:///C:/Users) before the first separator.
+const PREFIX = String.raw`(?:file:\/\/\/?)?(?:[A-Za-z]:)?`;
+// A bare /home/<name>, /Users/<name> or C:\Users\<name>, in any letter case (Windows and macOS
+// paths ignore case). Unquoted, the name ends at a space, as in redactPaths, unless a separator
+// ends it: "/home/Jane Doe/" is one name, as redactPaths reads it. Quoted paths are below.
+const HOME_ROOT = new RegExp(String.raw`(?<![\w.-])${PREFIX}[\\/](?:home|Users)[\\/](?:${NAME}(?: ${NAME})*${TRAIL}|${NAME}${END_AT})`, "gi");
 // The same in quotes, where the name may hold spaces: '/Users/Jane Doe'.
-const QUOTED_HOME_ROOT = /(['"`])(?:[A-Za-z]:)?[\\/](?:home|Users)[\\/][^\\/'"`\n]+[\\/]?\1/g;
+const QUOTED_HOME_ROOT = new RegExp(String.raw`(['"\x60])${PREFIX}[\\/](?:home|Users)[\\/][^\\/'"\x60\n]+[\\/]*\1`, "gi");
 
 /**
  * Text with secrets and home folder paths removed. Anything shaped like an Anthropic API key
- * becomes [redacted key]. A bare home folder (its last segment is a user name) becomes ~.
- * Other absolute paths keep only their last segment, as in the MCP errors (redactPaths).
+ * becomes [redacted key]. A bare home folder (its last segment is a user name) becomes ~, with
+ * or without a trailing separator and in any letter case. Other absolute paths keep only their
+ * last segment, as in the MCP errors (redactPaths).
  */
 export function redactText(text: string): string {
   let out = text.replace(/sk-ant-[A-Za-z0-9_-]{8,}/g, "[redacted key]");
   const home = homedir();
-  if (home.length > 1) out = out.replace(new RegExp(escapeRegExp(home) + END, "g"), "~");
+  if (home.length > 1) out = out.replace(new RegExp(escapeRegExp(home) + END, "gi"), "~");
   out = out.replace(QUOTED_HOME_ROOT, "$1~$1").replace(HOME_ROOT, "~");
   return redactPaths(out, (last) => `…/${last}`);
 }

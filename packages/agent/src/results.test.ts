@@ -3,7 +3,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { homedir } from "node:os";
-import { imageContent, toolResult } from "@open3dj/mcp";
+import { imageContent, toolResult, toScriptError } from "@open3dj/mcp";
 import type { CallResult } from "@open3dj/mcp";
 // A 1x1 PNG from the fake compute pool (test data of @open3dj/mcp).
 import { TINY_PNG } from "../../mcp/src/testing.ts";
@@ -136,6 +136,43 @@ test("key-like strings and home folder paths are removed from text", () => {
   // Notes are built from names the server made; text from other content is redacted too.
   const second = toApiContent({ structuredContent: {}, content: [{ type: "text", text: "{}" }, { type: "text", text: `key ${key}` }] });
   assert.ok(!texts(second).join("").includes(key));
+});
+
+test("a bare home folder with a trailing separator or in any letter case becomes ~", () => {
+  const home = homedir();
+  const cases: Array<[string, string]> = [
+    ["/home/jane/", "~"],
+    ["dir /home/jane/ is empty", "dir ~ is empty"],
+    ["the root is /home/jane/ and", "the root is ~ and"],
+    ["/Users/jane/\nnext", "~\nnext"],
+    ["cannot open /home/jane/: denied", "cannot open ~: denied"],
+    ["/home/jane// and C:\\Users\\jane\\\\", "~ and ~"],
+    ["C:\\Users\\jane\\", "~"],
+    ["C:/Users/jane/", "~"],
+    ["file:///home/jane/", "~"],
+    ["file:///C:/Users/jane", "~"],
+    ["c:\\users\\jane", "~"],
+    ["c:\\users\\jane\\", "~"],
+    ["C:\\USERS\\JANE", "~"],
+    ["/users/jane", "~"],
+    ["\"c:\\users\\Jane Doe\\\"", "\"~\""],
+    // Unquoted, a name with spaces counts as one when a separator ends it, as in redactPaths.
+    ["/home/Jane Doe/", "~"],
+    ["C:\\Users\\Jane Doe\\ is missing", "~ is missing"],
+    ["/home/jane/ /tmp/a/b", "~ …/b"],
+  ];
+  if (home.length > 1) cases.push([`in ${home}/ now`, "in ~ now"], [`in ${home.toUpperCase()} now`, "in ~ now"]);
+  for (const [input, want] of cases) assert.equal(redactText(input), want, JSON.stringify(input));
+  // Paths below the home folder still keep their last segment.
+  assert.equal(redactText("see /home/jane/designs/ and /home/jane/x.step"), "see …/designs/ and …/x.step");
+  assert.equal(redactText(`a ${home}/x/ b`), "a …/x/ b");
+  // End to end: a handler error that ends in a home folder and a separator.
+  const r = toApiContent(toolResult({ status: "error", error: { code: "INTERNAL_ERROR", message: "cannot create /home/jane/ (read-only file system)" } }));
+  assert.equal(JSON.parse(texts(r)[0]!).error.message, "cannot create ~ (read-only file system)");
+  // The same error thrown in a handler: the MCP error redaction runs first and must not leave
+  // "…/jane/" behind, which no later rule could still recognize as a home folder.
+  const thrown = toApiContent(toolResult({ status: "error", error: toScriptError(new Error("cannot create /home/jane/ (read-only file system)")) }));
+  assert.equal(JSON.parse(texts(thrown)[0]!).error.message, "cannot create ~/ (read-only file system)");
 });
 
 test("empty and unknown content never leaves an empty result", () => {
