@@ -457,6 +457,25 @@ export function leakIn(text: string): string | undefined {
   return first ? `${first.what} on line ${text.slice(0, first.index).split("\n").length}` : undefined;
 }
 
+/**
+ * The paths under dir, relative and with "/", that are neither a plain file nor a folder:
+ * symbolic links, sockets and the like. A run folder to grade must hold none. The grader reads
+ * it and writes grades.json into it outside the sandbox, and a link could point those reads and
+ * that write at any file the person grading can reach (LEADERBOARD.md, re-grading a result).
+ */
+export function specialEntries(dir: string): string[] {
+  const found: string[] = [];
+  const walk = (rel: string): void => {
+    for (const e of readdirSync(join(dir, rel), { withFileTypes: true })) {
+      const path = rel === "" ? e.name : `${rel}/${e.name}`;
+      if (e.isDirectory()) walk(path);
+      else if (!e.isFile()) found.push(path);
+    }
+  };
+  walk("");
+  return found.sort();
+}
+
 /** A run folder's check: its transcript files (names that start with "transcript") and why the run is suspect, if it is. */
 export interface RunCheck {
   transcripts: string[];

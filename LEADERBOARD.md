@@ -7,8 +7,8 @@ There are no results yet. The first submission sets the baseline.
 ## What it measures
 
 - **An agent and Open3DJ together.** The agent is a client (such as Claude Code, Codex or Cursor), a model and their settings. It works only through Open3DJ's five MCP tools (`docs`, `run`, `inspect`, `render` and `export`), from the brief alone.
-- **10 capability tasks** in [bench/tasks/](bench/tasks/) (`cap-*`). Each one is a multi-part assembly brief, such as a Raspberry Pi 5 case with standoffs or a remote control shell with a battery door. Its assertions check the report status, valid solids, measures, part and occurrence counts, clones, and fits and clearances between named parts. Each task has a reference solution that passes and a seeded mutant that must fail, and task-lint checks both on every pull request ([bench/README.md](bench/README.md)).
-- **pass^3:** the share of tasks that pass in all 3 fresh runs. **pass@1:** the passing runs out of 30. A user who asks three times should get a good design three times, so pass^3 is the headline number.
+- **The capability tasks** in [bench/tasks/](bench/tasks/) (`cap-*`), 10 today. Each one is a multi-part assembly brief, such as a Raspberry Pi 5 case with standoffs or a remote control shell with a battery door. Its assertions check the report status, valid solids, measures, part and occurrence counts, clones, and fits and clearances between named parts. Each task has a reference solution that passes and a seeded mutant that must fail, and task-lint checks both on every pull request ([bench/README.md](bench/README.md)).
+- **pass^3:** the share of tasks that pass in all 3 fresh runs. **pass@1:** the passing runs out of 3 per task (30 with 10 tasks). A user who asks three times should get a good design three times, so pass^3 is the headline number.
 - **A deterministic grade.** `node bench/grade.ts --runs <dir>` runs each agent's final project script through Open3DJ's compute pool and evaluates the task's assertions. It uses no model and no judgment: re-grading the same folder at the same commit should give the same pass or fail for every run, and a difference is treated as a bug.
 
 ## What it does not measure
@@ -21,7 +21,7 @@ There are no results yet. The first submission sets the baseline.
 
 ## Limits: read these next to every score
 
-1. **10 public tasks.** One task is 10 points of pass^3. With n=10, a 95% interval is wide: 5 of 10 is 24% to 76%. Our own calculation with the Wilson score interval, for k tasks passed of 10:
+1. **10 public tasks today.** One task is 10 points of pass^3. With n=10, a 95% interval is wide: 5 of 10 is 24% to 76%. Our own calculation with the Wilson score interval, for k tasks passed of 10:
 
    | Passed | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
    |---|---|---|---|---|---|---|---|---|---|---|---|
@@ -51,8 +51,9 @@ Submit every result as self-reported. Only a maintainer changes a row to verifie
 
 1. **The stated commit must be on `main`.** In your own clone of this repository, run `git fetch origin main` and `git merge-base --is-ancestor <commit> origin/main`. If it exits with anything but 0, reject the submission. Never fetch the commit from a fork or a pull request (such as `refs/pull/<n>/head`): its code is not reviewed, `npm ci` and the grader would run it on your machine, and a changed task or grader can pass anything.
 2. **Check out that commit in your clone,** for example in a separate worktree (`git worktree add --detach <path> <commit>`), and run `npm ci --ignore-scripts` there.
-3. **Download the archive** into a new, empty folder outside the clone, check its sha256 against the entry, and extract it there.
-4. **Grade it** from the root of the checkout: `node bench/grade.ts --runs <dir>`. Compare the pass or fail of every run, and its suspect and unchecked marks, with the submitted `grades.json`. The grader runs the agent's scripts only inside the project sandbox.
+3. **Download the archive** into a new, empty folder outside the clone and check its sha256 against the entry. The archive comes from a stranger, so look before you extract: `tar -tvzf <archive>` must list only plain files and folders (every line starts with `-` or `d`), and no name may start with `/` or contain `..`. Reject it otherwise: a symbolic link in it could make the grader read or overwrite a file outside the folder. Then extract it there and check again: `find <dir> ! -type f ! -type d` must print nothing.
+4. **Move the submitted `grades.json` aside,** for example `mv <dir>/grades.json <dir>/../submitted-grades.json`. The grader writes its own `grades.json` into the folder it grades, so otherwise you would compare the re-grade with itself.
+5. **Grade it** from the root of the checkout: `node bench/grade.ts --runs <dir>`. Compare the pass or fail of every run, and its suspect and unchecked marks, with `submitted-grades.json`. The grader runs the agent's scripts only inside the project sandbox. Its own reads and writes of the folder happen outside it, which is why step 3 checks the archive; graders from this page's commit on also refuse a folder that holds a symbolic link or special file.
 
 ## Rules that keep the numbers honest
 
@@ -64,14 +65,14 @@ The full procedure is [bench/run-capability.md](bench/run-capability.md). These 
 - **Fresh sessions.** Each of the 3 runs per task is a new session with no memory of other runs or tasks.
 - **The same limits for every run:** 60 minutes or 100 tool calls, whichever comes first. A run that hits a limit is graded as it stands.
 - **Report every run you made.** Do not run a task more than 3 times and keep the best 3.
-- **All 10 tasks.** A result with fewer tasks can be submitted. It names the tasks it covers and is listed after the full results.
+- **Every capability task at the stated commit** (10 today). A result with fewer tasks can be submitted. It names the tasks it covers and is listed after the full results.
 - **No edits to tasks.** Grade at the commit you ran, with its tasks unchanged.
 
 ## How to submit
 
-1. Run all 10 capability tasks 3 times each, as [bench/run-capability.md](bench/run-capability.md) describes, at one Open3DJ commit on `main`. A result measured at a commit from a fork or an open pull request is not accepted.
+1. Run every capability task (`bench/tasks/cap-*` at that commit, 10 today) 3 times each, as [bench/run-capability.md](bench/run-capability.md) describes, at one Open3DJ commit on `main`. A result measured at a commit from a fork or an open pull request is not accepted.
 2. Grade the folder from the repository root, at that commit: `node bench/grade.ts --runs <dir>`. Keep its console output and the `grades.json` it writes.
-3. Put the run folders (`<dir>/<task>/run-1` to `run-3`, each with the agent's `solution.o3j` project and its full transcript, every message and tool call, saved as `transcript.jsonl` or another name that starts with `transcript`) and `grades.json` into one archive. Read the transcripts before you publish them. Host the archive where a maintainer can download it, such as a release asset or a dataset in your own account, and note its sha256. Do not commit run folders or transcripts to this repository.
+3. Put the run folders (`<dir>/<task>/run-1` to `run-3`, each with the agent's `solution.o3j` project and its full transcript, every message and tool call, saved as `transcript.jsonl` or another name that starts with `transcript`) and `grades.json` into one `.tar.gz` archive with plain files and folders only, no symbolic links. Read the transcripts before you publish them. Host the archive where a maintainer can download it, such as a release asset or a dataset in your own account, and note its sha256. Do not commit run folders or transcripts to this repository.
 4. Open a pull request that changes only this file: add one row to the results table with the tier "self-reported", and one entry under [Submissions](#submissions) from the template below. As [AI_POLICY.md](AI_POLICY.md) says, your agent may draft it, but you read it and open the pull request yourself.
 
 Type the model id and provider yourself, in the row and in the entry, exactly as your client or API names them. The project does not check or normalize them. If an agent drafts the pull request, it leaves `<model id>` and `<provider>` as placeholders: some agents, the project's own among them, must not write model names into files ([AGENTS.md](AGENTS.md#git-and-pull-requests)). Here the model is what is being measured, so a person types it as result data.
@@ -89,7 +90,7 @@ Prompt and limits: unmodified from bench/run-capability.md (60 minutes, 100 tool
 Archive: <URL>, sha256 <hash>
 Archive contents: run folders, each with its transcript, and grades.json
 Grader output: <the console output of node bench/grade.ts --runs <dir>, pasted below the entry>
-pass^3: <k> of 10 (<interval from the table above>), pass@1: <n> of 30
+pass^3: <k> of <N tasks> (<interval from the table above, for N=10>), pass@1: <n> of <3N>
 Suspect runs: <n, with one line each on what its transcript shows>; runs without a transcript: 0
 Per run, if known: minutes, tool calls, tokens, cost
 Run dates: <first date> to <last date>
