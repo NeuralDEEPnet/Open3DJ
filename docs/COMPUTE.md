@@ -158,7 +158,7 @@ CI uses only the free hosted runners: the five tier-1 runners `ubuntu-latest`, `
 ## 8. Security and privacy for cloud GPUs
 
 - **Default.** Each project starts with egress policy `ask`: nothing leaves without a per-job approval. `never` removes cloud candidates. No telemetry.
-- **Approval payload.** Provider and endpoint host; region if declared; data class; each file with size and hash; prompt text; model with its licence manifest (licence, territory, commercial use, model hash); cost estimate and remaining budget. The approval stores a hash of this payload, and any change asks again. Approval happens only on the nonce-protected local page; an MCP elicitation `accept` is never consent.
+- **Approval payload.** Provider and endpoint host; region if declared; data class; each file with size and hash; prompt text; model with its licence manifest (licence, territory, commercial use, model hash); cost estimate and remaining budget. The approval stores a hash of this payload, and any change asks again. Approval happens only on the local page, behind its session cookie; an MCP elicitation `accept` is never consent.
 - **Budgets** live in the daemon config, per day and per project; tool arguments cannot raise them.
 - **Redaction.** `cloud-anonymous` sends geometry only, with names replaced by hashes; images lose EXIF and other metadata.
 - **Credentials** live in the user's config directory with owner-only permissions, never in tool arguments, the project or logs. OS keychain storage arrives with a desktop shell ([research/security-sandboxing.md](research/security-sandboxing.md)).

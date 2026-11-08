@@ -246,7 +246,7 @@ Library parts are ordinary definitions with a C6 manifest: the cited standard by
 
 - An explode state is an ordered list of steps. Each step moves a set of occurrences along a direction (a vector or `mate_axis`) by a distance.
 - Exploded transforms are display only. They never change mates, fits or exports.
-- `run ops=[{op: "explode", mode: "auto"}]` proposes steps from the mate graph: reverse mating order, each occurrence moving along its fastened connector's Z axis, fasteners first. In S4 the agent proposes and edits the steps, and a human asks it for changes. From S5 a human can also adjust them in the viewer's step editor, which writes through `run` with `base_rev` and the page nonce.
+- `run ops=[{op: "explode", mode: "auto"}]` proposes steps from the mate graph: reverse mating order, each occurrence moving along its fastened connector's Z axis, fasteners first. In S4 the agent proposes and edits the steps, and a human asks it for changes. From S5 a human can also adjust them in the viewer's step editor, which writes through `run` with `base_rev` and the page's session cookie.
 - `render view=exploded` gives a deterministic CPU HLR multiview with trail lines. The viewer animates the steps on the GPU.
 
 ## 10. Motion sampling and joint limits (S6)
@@ -327,9 +327,9 @@ Ops apply atomically against `base_rev`. `replace_definition` keeps mates whose 
 - **DOF:** free motions drawn as arrows on hover; conflicting mates in red with their residual.
 - **Picking:** picking gives an element address for the agent (S2: a CPU ray cast; `C` copies it).
 - **Shared selection and agent highlights** (S2): what the person selects is shared with agents (`inspect fields=[selection]`: occurrence, element address, a named reference and its fingerprint when one resolves to that face, observed numbers, revision); an agent points at parts and faces with `render view=highlight`, and the viewer tints and frames them with the agent's note until the person dismisses it ([ARCHITECTURE.md](ARCHITECTURE.md) sections 9 and 12).
-- **Exploded slider** (S4, read-only); **step editor** (S5, the first page write with the approval panel, through `run` with `base_rev` and the page nonce); motion scrubber (S6).
+- **Exploded slider** (S4, read-only); **step editor** (S5, the first page write with the approval panel, through `run` with `base_rev` and the page's session cookie); motion scrubber (S6).
 - **BOM table** with part numbers (S4).
-- **Approvals** (S5): design freeze shows the BOM, fit table, declared fits and waivers with their hashes. Approval is on the nonce page, never via MCP.
+- **Approvals** (S5): design freeze shows the BOM, fit table, declared fits and waivers with their hashes. Approval is on the local page, behind its session cookie, never via MCP.
 
 ## 15. Testing
 
