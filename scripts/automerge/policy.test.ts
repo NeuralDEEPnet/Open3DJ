@@ -89,6 +89,7 @@ describe("rules", () => {
     ["docs/REPO-SETTINGS.md", "modified", "maintainer", "front-page-and-plan"],
     ["docs/research/README.md", "modified", "maintainer", "front-page-and-plan"],
     ["bench/README.md", "modified", "maintainer", "front-page-and-plan"],
+    ["LEADERBOARD.md", "modified", "maintainer", "front-page-and-plan"],
     ["GEMINI.md", "added", "maintainer", "workflows-and-agent-config"],
     ["docs/AGENT.md", "added", "maintainer", "workflows-and-agent-config"],
     ["CLAUDE.local.md", "added", "maintainer", "workflows-and-agent-config"],
