@@ -8,7 +8,7 @@ Every task's reference solution and seeded mutants sit in `bench/tasks/` of this
 
 1. **The project folder is outside the clone.** The Open3DJ MCP server is rooted in an empty run folder (`mcp --root <empty dir>`). Its tools read and write only projects under that root (`packages/mcp/src/paths.ts`).
 2. **The agent has no file or shell tools.** The session offers only the Open3DJ MCP tools. If your client cannot turn off its own file and shell tools, the MCP server runs from a copy of the repository without `bench/tasks` and without its git history ([Other clients](#other-clients)).
-3. **The full transcript is kept** next to each run. The grader reads it and reports the run as suspect when it mentions `bench/tasks`, a `reference.o3j.js` or `mutant*.o3j.js` script, or the [canary](README.md#the-canary). A suspect run never counts as a pass until a person has read its transcript.
+3. **The full transcript is kept** next to each run. The grader reads it and reports the run as suspect when it mentions `bench/tasks`, a `reference.o3j.js` or `mutant*.o3j.js` script, or the [canary](README.md#the-canary). A suspect run never counts as a pass until a person has read its transcript. A run without a transcript is unchecked and never counts as a pass.
 
 ## What you need
 
@@ -64,7 +64,7 @@ Every task's reference solution and seeded mutants sit in `bench/tasks/` of this
    cp ~/.claude/projects/*/"$SID".jsonl "$RUNS/cap-pi5-case/run-1/transcript.jsonl"
    ```
 
-   The grader reads every file in the run folder whose name starts with `transcript`, so another client's export can be saved as `transcript.md` or `transcript.txt`. Save the whole session, every message and tool call, not a summary.
+   The grader reads every file in the run folder whose name starts with `transcript`, so another client's export can be saved as `transcript.md` or `transcript.txt`. Save the whole session, every message and tool call, not a summary. A run without a transcript file is unchecked: the grader does not count it as a pass, even when its design passes.
 
 6. **Record for each run**, in a scratch note: the client and its version, the run time in minutes, the number of tool calls, and the tokens if your client shows them. Do not record anything from the brief or the transcript that you would not publish.
 
@@ -74,7 +74,7 @@ Every task's reference solution and seeded mutants sit in `bench/tasks/` of this
    node bench/grade.ts --runs "$RUNS"
    ```
 
-   The grader runs each `run-k/solution.o3j/main.o3j.js` with the values saved in that project's `params.o3j.json` (by `run` params or `set_param`) over the task's params, which is what the project's next run would build, through the real compute pool (add `--cli` to use fresh CLI processes). A run with no `solution.o3j` fails. Then it checks each run: the run is **suspect** when a transcript mentions `bench/tasks`, a reference or mutant script or the canary, or when the solution script holds the canary. The grader prints every failed assertion and every suspect run with the file and line that made it suspect, a table of runs passed, suspect runs and runs without a transcript per task, and the pass^3 total, and writes `$RUNS/grades.json`. Suspect runs never count as passes, and a task with one is not a pass^3 task.
+   The grader runs each `run-k/solution.o3j/main.o3j.js` with the values saved in that project's `params.o3j.json` (by `run` params or `set_param`) over the task's params, which is what the project's next run would build, through the real compute pool (add `--cli` to use fresh CLI processes). A run with no `solution.o3j` fails. Then it checks each run: the run is **suspect** when a transcript mentions `bench/tasks`, a reference or mutant script or the canary, or when the solution script holds the canary, and **unchecked** when it has no transcript. The grader prints every failed assertion, every suspect run with the file and line that made it suspect and every unchecked run, a table of runs passed, suspect runs and runs without a transcript per task, and the pass^3 total, and writes `$RUNS/grades.json`. Suspect and unchecked runs never count as passes, a task with one is not a pass^3 task, and the grader exits 1. To grade one design without a transcript, for a check by hand, use `node bench/grade.ts <task-id> <solution>` instead; it prints that design's result and no pass^3 table.
 
 ## Other clients
 
@@ -97,8 +97,9 @@ Copy into the week's scorecard, under Product:
 | Commit | the hash you measured |
 | Client | for example Claude Code, with its version |
 | pass^3 | from the grader, for example 6 of 10 tasks (60%) |
-| pass@1 | passing runs out of 30 (suspect runs are not passes) |
+| pass@1 | passing runs out of 30 (suspect and unchecked runs are not passes) |
 | Suspect runs | from the grader, with one line per run on what its transcript shows |
+| Runs without transcript | from the grader; should be 0 |
 | Median minutes and tool calls per run | from your notes |
 | Tasks that changed since last week | each task that went from pass to fail or back, with one line on why |
 
@@ -107,7 +108,7 @@ A drop of 2 or more tasks across 3 runs is a yellow andon for the Friday A3 ([PL
 ## Rules that keep the numbers honest
 
 - The same prompt, the same limits and no help, every run.
-- The agent never gets file or shell tools on the clone, and every run keeps its full transcript.
+- The agent never gets file or shell tools on the clone, and every run keeps its full transcript. A run without one is not a pass.
 - A suspect run is read by a person. If the agent read a task file, the run fails and the report says so. If the mention is harmless (for example the agent named one of its own files `reference.o3j.js`), say so in the report and count the run by hand. Never edit a transcript.
 - Never edit a task's brief or assertions to make a run pass. Changing a task bumps its `version` and is a separate pull request with a reason.
 - Tasks are public, so agents may have seen them. A held-out split that runs only in maintainer CI is planned ([ARCHITECTURE.md](../docs/ARCHITECTURE.md) section 16).

@@ -482,7 +482,10 @@ export function checkRun(runDir: string, solutionScript?: string): RunCheck {
   return { transcripts, ...(reasons.length > 0 ? { suspect: reasons.join("; ") } : {}) };
 }
 
-/** One graded run. transcripts and suspect are set for the runs of a run folder (checkRun). */
+/**
+ * One graded run. transcripts and suspect are set for the runs of a run folder (checkRun); a
+ * run there with no transcript (transcripts 0) is unchecked.
+ */
 export interface RunGrade {
   task: string;
   run: string;
@@ -496,7 +499,7 @@ export interface RunGrade {
 
 export interface TaskRuns {
   task: string;
-  /** Runs that pass and are not suspect. */
+  /** Runs that pass, are not suspect and have a transcript. */
   passed: number;
   runs: number;
   suspect: number;
@@ -512,18 +515,21 @@ export interface RunsSummary {
   runs: number;
   passed_runs: number;
   suspect_tasks: string[];
+  /** Tasks with a run that has no transcript, so nobody can check how that run was made. */
+  unchecked_tasks: string[];
   runs_without_transcript: number;
   summary: TaskRuns[];
 }
 
 /**
- * pass^3 and the passing runs, counting clean runs only: a suspect run is never a pass, so a
- * task with one is not a pass^3 task until a person has read its transcripts.
+ * pass^3 and the passing runs, counting clean runs only. A suspect run is never a pass, so a
+ * task with one is not a pass^3 task until a person has read its transcripts. An unchecked run
+ * (a run of a run folder with no transcript) is never a pass either: nothing shows how it was made.
  */
 export function summarizeRuns(grades: RunGrade[]): RunsSummary {
   const byTask = new Map<string, RunGrade[]>();
   for (const g of grades) byTask.set(g.task, [...(byTask.get(g.task) ?? []), g]);
-  const clean = (g: RunGrade) => g.pass && !g.suspect;
+  const clean = (g: RunGrade) => g.pass && !g.suspect && g.transcripts !== 0;
   const summary = [...byTask].map(([task, gs]) => ({
     task,
     passed: gs.filter(clean).length,
@@ -540,6 +546,7 @@ export function summarizeRuns(grades: RunGrade[]): RunsSummary {
     runs: grades.length,
     passed_runs: grades.filter(clean).length,
     suspect_tasks: summary.filter((s) => s.suspect > 0).map((s) => s.task),
+    unchecked_tasks: summary.filter((s) => s.without_transcript > 0).map((s) => s.task),
     runs_without_transcript: summary.reduce((n, s) => n + s.without_transcript, 0),
     summary,
   };
