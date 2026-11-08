@@ -97,10 +97,10 @@ The repository is new and the contributor list is empty. Whatever you bring, you
 
 ### Bring your agent
 
-For people who work with AI agents: Claude Code, Codex, Cursor, Gemini CLI or your own MCP agent.
+Bring your Claude Code, Codex or Cursor agent. It does the work, you press the button. Gemini CLI and your own MCP agents are welcome too.
 
 - **Install the plugin.** `claude --plugin-dir skills/claude-code-plugin` gives your agent the five tools and the skill ([skills/README.md](skills/README.md)).
-- **Set the first benchmark score.** Run the [capability split](bench/run-capability.md) (10 briefs, 3 runs each) and share the grader's pass^3 table. No agent has done it yet.
+- **Set the first benchmark score.** Run the [capability split](bench/run-capability.md) (10 briefs, 3 runs each) and submit the grader's pass^3 table to the [leaderboard](LEADERBOARD.md). No agent has done it yet.
 - **Turn failures into tests.** File a [failure report](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=failure_report.yml) or a [bench task](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=bench_task.yml) for what your agent got wrong.
 - **Pick a task.** Start with a [starter task](CONTRIBUTING.md#your-agents-first-task) that needs no issue. Issues labeled `agent-ready` are being filed and will show up [here](https://github.com/NeuralDEEPnet/Open3DJ/issues?q=is%3Aopen+label%3Aagent-ready).
 - **Know the rules.** [AI_POLICY.md](AI_POLICY.md): disclose AI help, a person signs off every commit, and your agent never posts on GitHub by itself: you read its draft and press the button. Point your agent at [AGENTS.md](AGENTS.md).
@@ -164,6 +164,7 @@ We work in a lean, Kaizen style: small usable releases, a weekly plan-do-check-a
 | [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) | Contributor Covenant 2.1, with a section on AI agents |
 | [SECURITY.md](SECURITY.md) | How to report a vulnerability privately |
 | [CONTRIBUTORS.md](CONTRIBUTORS.md) | Everyone who has helped |
+| [LEADERBOARD.md](LEADERBOARD.md) | o3dj-bench results, how to submit one, and the limits of every score |
 | [docs/GETTING-STARTED.md](docs/GETTING-STARTED.md) | Your first part, for people and for agents |
 | [docs/TESTING.md](docs/TESTING.md) | Install with one command and test Open3DJ on your machine in 15 minutes |
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | The technical architecture, contracts and agent tools |
