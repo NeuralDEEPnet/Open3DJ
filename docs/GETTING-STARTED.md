@@ -291,6 +291,8 @@ VS Code (`.vscode/mcp.json`):
 }
 ```
 
+A [Dockerfile](../Dockerfile) in the repository runs the same server in a container, for MCP directories that build servers that way: build it with `docker build -t open3dj-mcp .` in the clone, then use `docker` as the command and `run -i --rm -v /path/to/designs:/work open3dj-mcp` as its arguments.
+
 The server speaks the 2025-06-18, 2025-11-25 and 2026-07-28 protocol versions. Automated tests drive it with the official MCP SDK clients (v1 1.32.2 and v2 2.4.0) in each version. The client configurations above follow each client's documentation; not all of them have been tried by hand yet. Please report what works for you in an issue.
 
 ### The loop
