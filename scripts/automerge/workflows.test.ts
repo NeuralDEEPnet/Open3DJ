@@ -147,6 +147,27 @@ describe("workflows", () => {
   it("never runs two automerge evaluations at once", () => {
     assert.match(workflows.find((w) => w.name === "automerge.yml")!.text, /concurrency:\n\s+group: automerge\n\s+cancel-in-progress: false/);
   });
+
+  it("runs the macOS viewer-browser leg on pull requests and by hand, not on every push to main", () => {
+    const smoke = workflows.find((w) => w.name === "install-smoke.yml")!.text;
+    assert.match(smoke, /^ {2}pull_request:$/m);
+    assert.match(smoke, /^ {2}push:\n {4}branches: \[main\]$/m);
+    assert.match(smoke, /^ {2}workflow_dispatch:$/m);
+    const [, note, viewer] = /\n((?: {2}#.*\n)+) {2}viewer-browser:\n([\s\S]*)$/.exec(smoke)!;
+    const m = /^ {8}os: \$\{\{ fromJSON\(github\.event_name == 'push' && '(\[[^']*\])' \|\| '(\[[^']*\])'\) \}\}$/m.exec(viewer!);
+    assert.ok(m, "the viewer-browser matrix depends on the event");
+    assert.deepEqual(JSON.parse(m[1]!), ["windows-latest", "ubuntu-latest"], "pushes to main");
+    assert.deepEqual(JSON.parse(m[2]!), ["windows-latest", "macos-latest", "ubuntu-latest"], "pull requests and workflow_dispatch");
+    assert.match(note!, /run 41904215750/i, "the note above the job names the run that showed the problem");
+    assert.match(note!, /not on pushes to main/);
+    assert.match(note!, /is unverified/, "the note states what was observed and does not claim a cause");
+    assert.match(note!, /"install \(macos-latest, private node\)" still runs on every push to main/, "the note names the leg that stays exposed, by its full job name");
+    // Every other job keeps its runners on every event.
+    const install = /\n {2}install:\n([\s\S]*?)\n {2}viewer-browser:/.exec(smoke)![1]!;
+    const oses = [...install.matchAll(/- \{ os: ([a-z0-9.-]+), node: (?:system|private) \}/g)].map((x) => x[1]);
+    assert.deepEqual(oses, ["ubuntu-latest", "ubuntu-24.04-arm", "macos-latest", "windows-latest", "windows-11-arm"]);
+    assert.ok(!/github\.event_name/.test(install.replace(/github\.event_name != 'pull_request' \|\| github\.event\.pull_request\.head\.repo\.full_name == github\.repository/, "")), "the install job does not depend on the event, apart from the existing irm step");
+  });
 });
 
 describe("docs and CODEOWNERS match the merge policy", () => {
