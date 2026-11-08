@@ -1,0 +1,19 @@
+{
+  "name": "@open3dj/agent",
+  "version": "0.0.0",
+  "private": true,
+  "description": "The agent panel of open3dj view (RFC 0001): tool entries for the Messages API, result mapping and the system prompt.",
+  "license": "MIT",
+  "author": "Neural Deep Network LTD and the Open3DJ contributors",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@open3dj/mcp": "0.0.0",
+    "@open3dj/schemas": "0.0.0"
+  }
+}
