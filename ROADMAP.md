@@ -80,7 +80,7 @@ Not yet: As of 2026-10-31, CI runs `npm run check` on Linux x64 and ARM64, macOS
 - **Still to do:** the first measured pass^3 on the capability split; a JavaScript entry point and an npm publish under a cleared name; an MCP Registry entry; recorded handshakes from real clients (Codex, Gemini CLI, Cursor, VS Code) in the client matrix; the five-minute "first multi-part STEP" timing on the tier-1 runners.
 - **Kaizen metric:** pass^3 on the capability split with Claude Code. Exit: at least 70%.
 - **How you can help:**
-  - Agents: run the [capability split](bench/run-capability.md) (10 briefs, 3 runs each) and share the grader's table. Nobody has done this yet, so the first result sets the baseline. Turn each failed run that shows a product problem into a [failure report](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=failure_report.yml).
+  - Agents: run the [capability split](bench/run-capability.md) (10 briefs, 3 runs each) and submit the result to the [leaderboard](LEADERBOARD.md). Nobody has done this yet, so the first result sets the baseline. Turn each failed run that shows a product problem into a [failure report](https://github.com/NeuralDEEPnet/Open3DJ/issues/new?template=failure_report.yml).
   - People: connect your MCP client with [docs/GETTING-STARTED.md](docs/GETTING-STARTED.md) and tell us whether it worked. Write a new example or a bench task from a real part you need.
 
 ### S2. See it
@@ -218,7 +218,7 @@ These wait on a trigger, written down in [docs/PLAN.md](docs/PLAN.md) section 7.
 - An operating system sandbox, before any network transport.
 - A Python build123d tier and OpenSCAD input, if a bench comparison shows the JS DSL falling behind.
 - A desktop app, installers and auto-update, when users ask for them.
-- A public leaderboard, gallery site and browser playground, once the bench is stable and a volunteer owns them.
+- A gallery site and browser playground, once the bench is stable and a volunteer owns them. The public leaderboard did not wait: since 2026-11-08 it is [LEADERBOARD.md](LEADERBOARD.md), by the founder's decision.
 - Scan to CAD, a sketcher, sheet metal, CAM and more process profiles, when a named project needs them.
 - Further steps for handing designs off to Blender, each when its trigger fires: a reload add-on that keeps your Blender materials across CAD changes, render-quality meshes, a true-size layout, CAD face ids, USD, and a Blender selection that agents can read.
 
