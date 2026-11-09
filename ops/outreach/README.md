@@ -16,6 +16,8 @@ Every ready-to-post text (the issue, the announcement, and the social, Reddit an
 | [communities.md](communities.md) | CadQuery and build123d, the OpenSCAD list, the FreeCAD forum, the MCP spaces, and the clean-room rule for code contributors |
 | [techxpo.md](techxpo.md) | The TechXPO stand: a 3-minute demo, what to say, and the QR code target |
 
+Related: [ops/programs.md](../programs.md) (mentoring programs, grants and the University of Malta), [docs/IDEAS.md](../../docs/IDEAS.md) (project ideas for students and new contributors) and [ops/build-night/](../build-night/README.md) (the monthly Agent Build Night).
+
 The issue, the announcement, the social posts, the chat message, the TechXPO pitch and the Build Night page carry the same line for people who work with agents: "Bring your Claude Code, Codex or Cursor agent. It does the work, you press the button."
 
 ## Posting checklist
