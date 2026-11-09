@@ -94,9 +94,9 @@ export function safeSegments(relPath: string): string[] {
 }
 
 /** Create (or check) a folder inside the project, refusing symlinked folders on the way. */
-export function ensureDir(project: ProjectDir, relDir: string): string {
+export function ensureDir(project: ProjectDir, relDir: string, mkdir: (dir: string) => void = mkdirSync): string {
   let p = project.dir;
-  ensureProjectRoot(project);
+  ensureProjectRoot(project, mkdir);
   for (const s of safeSegments(relDir)) {
     p = join(p, s);
     try {
@@ -105,20 +105,35 @@ export function ensureDir(project: ProjectDir, relDir: string): string {
       if (!st.isDirectory()) throw new ToolError("PATH_REFUSED", `${relLabel(project, p)} exists and is not a folder`);
     } catch (e) {
       if (e instanceof ToolError) throw e;
-      mkdirSync(p);
+      makeFolder(p, mkdir, () => new ToolError("PATH_REFUSED", `${relLabel(project, p)} exists and is not a folder`));
     }
   }
   return p;
 }
 
 /** The project folder itself: create it if missing. */
-export function ensureProjectRoot(project: ProjectDir): void {
+export function ensureProjectRoot(project: ProjectDir, mkdir: (dir: string) => void = mkdirSync): void {
   try {
     const st = lstatSync(project.dir);
     if (st.isSymbolicLink() || !st.isDirectory()) throw new ToolError("PATH_REFUSED", `${project.label} is not a real folder`);
   } catch (e) {
     if (e instanceof ToolError) throw e;
-    mkdirSync(project.dir);
+    makeFolder(project.dir, mkdir, () => new ToolError("PATH_REFUSED", `${project.label} is not a real folder`));
+  }
+}
+
+/**
+ * mkdir after a check found nothing there. Another process can create the same folder in
+ * between (two processes opening one new project), and that folder is accepted; a symlink or a
+ * file made in between is refused, as the check would have refused it.
+ */
+function makeFolder(dir: string, mkdir: (dir: string) => void, refused: () => ToolError): void {
+  try {
+    mkdir(dir);
+  } catch (e) {
+    if ((e as NodeJS.ErrnoException).code !== "EEXIST") throw e;
+    const st = lstatSync(dir);
+    if (st.isSymbolicLink() || !st.isDirectory()) throw refused();
   }
 }
 
