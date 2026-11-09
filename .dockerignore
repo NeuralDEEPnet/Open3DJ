@@ -1,0 +1,15 @@
+# The Docker build context for the MCP server image (Dockerfile): only what the server
+# needs at run time. Everything else stays out, including .git, node_modules, .env files
+# and local project folders.
+*
+!package.json
+!package-lock.json
+!.npmrc
+!LICENSE
+!docs/DSL.md
+!packages/
+packages/**/node_modules
+packages/**/*.o3j
+# Last match wins, so these come after !packages/: secrets never enter the image.
+**/.env
+**/.env.*
