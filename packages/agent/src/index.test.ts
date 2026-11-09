@@ -7,9 +7,12 @@ import * as agent from "./index.ts";
 
 const { PACKAGE_STATUS } = agent;
 
-test("a stub until Engine A runs a turn, with the first-slice helpers exported", () => {
+test("a stub until Engine A runs a turn, with the parts built so far exported", () => {
   assert.equal(PACKAGE_STATUS, "stub");
-  for (const name of ["apiTools", "withProject", "toApiContent", "redactText", "systemPrompt", "skillBody"]) {
+  for (const name of [
+    "apiTools", "withProject", "toApiContent", "redactText", "systemPrompt", "skillBody",
+    "SseParser", "readSse", "MessageAccumulator", "parseInput",
+  ]) {
     assert.equal(typeof (agent as Record<string, unknown>)[name], "function", name);
   }
   assert.deepEqual([...agent.API_TOOL_ORDER], ["run", "inspect", "render", "export", "docs"]);
