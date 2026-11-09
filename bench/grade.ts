@@ -13,13 +13,14 @@
 // it never counts as a pass until a person has read its transcript. A run without a transcript
 // is unchecked and never counts as a pass either. The summary gives the passing runs per task
 // (out of 3) and pass^3 (tasks whose 3 runs all pass, none suspect or unchecked). It writes
-// <folder>/grades.json.
+// <folder>/grades.json. A folder that holds a symbolic link or other special file anywhere is
+// refused (exit 3) before anything is read, because run folders can come from anyone.
 // Exit 0 when everything graded passes cleanly, 1 when anything fails, is suspect or is
 // unchecked, 3 on a usage error.
 import { existsSync, readdirSync, statSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { createPool } from "@open3dj/compute";
-import { checkRun, cliRunner, evaluateAll, loadTasks, poolRunner, solutionOf, summarizeRuns } from "./lib.ts";
+import { checkRun, cliRunner, evaluateAll, loadTasks, poolRunner, solutionOf, specialEntries, summarizeRuns } from "./lib.ts";
 import type { LoadedTask, RunGrade, Runner } from "./lib.ts";
 
 const args = process.argv.slice(2);
@@ -64,6 +65,12 @@ try {
   if (runsAt >= 0) {
     folder = resolve(args[runsAt + 1] ?? usage("--runs needs a folder"));
     if (!existsSync(folder)) usage(`${folder} does not exist`);
+    // Run folders can come from anyone (LEADERBOARD.md). Refuse links before reading or writing.
+    const special = specialEntries(folder);
+    if (special.length > 0) {
+      const shown = special.slice(0, 5).join(", ") + (special.length > 5 ? ", ..." : "");
+      usage(`${folder} holds ${special.length} symbolic link${special.length === 1 ? "" : "s"} or special file${special.length === 1 ? "" : "s"} (${shown}). A run folder must hold only plain files and folders`);
+    }
     const jobs: Array<Promise<RunGrade>> = [];
     for (const id of readdirSync(folder).sort()) {
       const t = tasks.get(id);
