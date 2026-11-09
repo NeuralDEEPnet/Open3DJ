@@ -1,0 +1,34 @@
+{
+  "brief": "o3dj-envelope-brief/spike-0",
+  "id": "phone-stand",
+  "script": "examples/phone-stand/phone-stand.o3j.js",
+  "duplicates": ["bench/tasks/reg-phone-stand/reference.o3j.js"],
+  "sources": [
+    "Header comment of examples/phone-stand/phone-stand.o3j.js: a side profile extruded to width, with a front lip, a leaning backrest, a cable slot through the base and rounded long edges. One part.",
+    "bench/tasks/reg-phone-stand/task.json: size_y 95 and size_z 80.522705 come from the fixed side profile; examples/phone-stand/expected.json gives 32 faces and 90 edges."
+  ],
+  "params": [
+    { "name": "Width", "type": "number", "default": 70, "min": 50, "max": 120, "unit": "mm" }
+  ],
+  "gates": [
+    { "targets": ["phone_stand"], "build": [0, 0, 1], "build_source": "assumed: printed on its base plate" }
+  ],
+  "assertions": [
+    { "id": "builds", "kind": "builds" },
+    { "id": "status", "kind": "status", "in": ["ok"] },
+    { "id": "valid", "kind": "valid" },
+    { "id": "one-solid", "kind": "count", "quantity": "solids", "target": "phone_stand", "expect": { "eq": 1 }, "from": "One part." },
+    { "id": "size-x", "kind": "measure", "quantity": "size_x", "target": "assembly", "expect": { "eq": "$Width", "tol": { "abs": 0.001 } } },
+    { "id": "size-y", "kind": "measure", "quantity": "size_y", "target": "assembly", "expect": { "eq": 95, "tol": { "abs": 0.001 } } },
+    { "id": "size-z", "kind": "measure", "quantity": "size_z", "target": "assembly", "expect": { "eq": 80.522705, "tol": { "abs": 0.001 } } },
+    { "id": "faces", "kind": "count", "quantity": "faces", "target": "phone_stand", "expect": { "eq": 32 } },
+    { "id": "edges", "kind": "count", "quantity": "edges", "target": "phone_stand", "expect": { "eq": 90 } },
+    { "id": "gate-watertight", "kind": "gate", "gate": "watertight", "target": "phone_stand" },
+    { "id": "gate-min-wall", "kind": "gate", "gate": "min_wall", "target": "phone_stand" },
+    { "id": "gate-overhang", "kind": "gate", "gate": "overhang", "target": "phone_stand" },
+    { "id": "gate-bed", "kind": "gate", "gate": "bed", "target": "phone_stand" }
+  ],
+  "predictions": [
+    { "assertions": [], "region": "none", "why": "the slot and the notch are centred and 12 mm wide, so every Width from 50 to 120 keeps the same features" }
+  ]
+}

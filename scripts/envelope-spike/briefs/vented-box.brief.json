@@ -1,0 +1,40 @@
+{
+  "brief": "o3dj-envelope-brief/spike-0",
+  "id": "vented-box",
+  "script": "examples/vented-box/vented-box.o3j.js",
+  "duplicates": ["bench/tasks/reg-vented-box/reference.o3j.js"],
+  "sources": [
+    "Header comment of examples/vented-box/vented-box.o3j.js: an open tray hollowed with shell(), rows of vent slots through both long walls and four M3 mounting holes in the floor. One part.",
+    "bench/tasks/reg-vented-box/task.json brief: three columns of four 18 x 3 mm vent slots through both long walls; holes 10 mm in from the corners.",
+    "Face and edge counts: examples/vented-box/expected.json (167 faces, 492 edges); no Param adds or removes a feature."
+  ],
+  "params": [
+    { "name": "Width", "type": "number", "default": 90, "min": 60, "max": 160, "unit": "mm" },
+    { "name": "Depth", "type": "number", "default": 60, "min": 40, "max": 120, "unit": "mm" },
+    { "name": "Height", "type": "number", "default": 40, "min": 25, "max": 80, "unit": "mm" }
+  ],
+  "gates": [
+    { "targets": ["vented_box"], "build": [0, 0, 1], "build_source": "assumed: open tray printed floor down" }
+  ],
+  "assertions": [
+    { "id": "builds", "kind": "builds" },
+    { "id": "status", "kind": "status", "in": ["ok"] },
+    { "id": "valid", "kind": "valid" },
+    { "id": "one-solid", "kind": "count", "quantity": "solids", "target": "vented_box", "expect": { "eq": 1 }, "from": "One part." },
+    { "id": "size-x", "kind": "measure", "quantity": "size_x", "target": "assembly", "expect": { "eq": "$Width", "tol": { "abs": 0.001 } } },
+    { "id": "size-y", "kind": "measure", "quantity": "size_y", "target": "assembly", "expect": { "eq": "$Depth", "tol": { "abs": 0.001 } } },
+    { "id": "size-z", "kind": "measure", "quantity": "size_z", "target": "assembly", "expect": { "eq": "$Height", "tol": { "abs": 0.001 } } },
+    { "id": "faces", "kind": "count", "quantity": "faces", "target": "vented_box", "expect": { "eq": 167 }, "from": "slots through both long walls, the same features at every size" },
+    { "id": "edges", "kind": "count", "quantity": "edges", "target": "vented_box", "expect": { "eq": 492 }, "from": "slots through both long walls, the same features at every size" },
+    { "id": "gate-watertight", "kind": "gate", "gate": "watertight", "target": "vented_box" },
+    { "id": "gate-min-wall", "kind": "gate", "gate": "min_wall", "target": "vented_box" },
+    { "id": "gate-overhang", "kind": "gate", "gate": "overhang", "target": "vented_box" },
+    { "id": "gate-bed", "kind": "gate", "gate": "bed", "target": "vented_box" }
+  ],
+  "predictions": [
+    { "assertions": ["gate-overhang"], "region": "everywhere (nominal failure)", "why": "the slots' flat tops face down in a vertical wall" },
+    { "assertions": ["gate-min-wall"], "region": "Height < 32.34", "why": "the top slot row ends at z = 31.5, so the web to the rim is H - 31.5" },
+    { "assertions": ["faces", "edges"], "region": "Height < 31.5", "why": "the top slot row cuts the rim open" },
+    { "assertions": ["faces", "edges", "gate-min-wall"], "region": "Width below about 78 (slots reach the rounded corners) or 70 (slots cut the short walls)", "why": "the outer slot columns reach x = 33" }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "brief": "o3dj-envelope-brief/spike-0",
+  "id": "hinge",
+  "script": "examples/hinge/hinge.o3j.js",
+  "duplicates": ["bench/tasks/reg-hinge/reference.o3j.js"],
+  "sources": [
+    "Header comment of examples/hinge/hinge.o3j.js: two leaves with alternating knuckles and a pin along X; knuckles clear each other by 0.4 mm and the pin clears its hole by 0.2 mm, so the fit check reports clearances only; two countersunk M3 holes per leaf.",
+    "bench/tasks/reg-hinge/task.json assertions: one 0.4 mm leaf gap, two 0.2 mm pin clearances, no clash."
+  ],
+  "params": [
+    { "name": "Length", "type": "number", "default": 60, "min": 30, "max": 120, "unit": "mm" },
+    { "name": "Knuckles", "type": "number", "integer": true, "default": 5, "min": 3, "max": 9 }
+  ],
+  "gates": [
+    { "targets": ["leaf_a", "leaf_b"], "build": [0, 0, 1], "build_source": "assumed: leaves printed flat" },
+    { "targets": ["pin"], "build": [1, 0, 0], "build_source": "assumed: pin printed standing on its end" }
+  ],
+  "assertions": [
+    { "id": "builds", "kind": "builds" },
+    { "id": "status", "kind": "status", "in": ["ok"] },
+    { "id": "valid", "kind": "valid" },
+    { "id": "occurrences", "kind": "count", "quantity": "occurrences", "expect": { "eq": 3 } },
+    { "id": "no-clash", "kind": "fits", "fit": "clash", "expect": { "eq": 0 } },
+    { "id": "no-contact", "kind": "fits", "fit": "contact", "expect": { "eq": 0 }, "from": "the fit check reports clearances only" },
+    { "id": "leaf-gap", "kind": "fits", "fit": "clearance", "a": "leaf_a", "b": "leaf_b", "expect": { "eq": 1 }, "distance": { "eq": 0.4, "tol": { "abs": 0.001 } } },
+    { "id": "pin-clearance", "kind": "fits", "fit": "clearance", "a": "pin", "b": "leaf*", "expect": { "eq": 2 }, "distance": { "eq": 0.2, "tol": { "abs": 0.001 } } },
+    { "id": "size-x", "kind": "measure", "quantity": "size_x", "target": "assembly", "expect": { "eq": "$Length", "tol": { "abs": 0.001 } } },
+    { "id": "gate-watertight-leaf", "kind": "gate", "gate": "watertight", "target": "leaf_*" },
+    { "id": "gate-min-wall-leaf", "kind": "gate", "gate": "min_wall", "target": "leaf_*" },
+    { "id": "gate-overhang-leaf", "kind": "gate", "gate": "overhang", "target": "leaf_*" },
+    { "id": "gate-bed-leaf", "kind": "gate", "gate": "bed", "target": "leaf_*" },
+    { "id": "gate-watertight-pin", "kind": "gate", "gate": "watertight", "target": "pin" },
+    { "id": "gate-min-wall-pin", "kind": "gate", "gate": "min_wall", "target": "pin" },
+    { "id": "gate-overhang-pin", "kind": "gate", "gate": "overhang", "target": "pin" },
+    { "id": "gate-bed-pin", "kind": "gate", "gate": "bed", "target": "pin" }
+  ],
+  "predictions": [
+    { "assertions": ["gate-overhang-leaf"], "region": "everywhere (nominal failure, likely)", "why": "the knuckles are horizontal cylinders when the leaves print flat" },
+    { "assertions": [], "region": "none beyond that", "why": "the gaps are constants and the countersunk holes sit in the plate, clear of the knuckles, at every Length and Knuckles" }
+  ]
+}

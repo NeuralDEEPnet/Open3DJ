@@ -1,0 +1,46 @@
+{
+  "brief": "o3dj-envelope-brief/spike-0",
+  "id": "enclosure",
+  "script": "examples/enclosure/enclosure.o3j.js",
+  "duplicates": ["bench/tasks/reg-enclosure/reference.o3j.js"],
+  "sources": [
+    "Header comment of examples/enclosure/enclosure.o3j.js: a base with corner bosses, M3 heat-set pockets and a cable hole; a lid with counterbored holes seated on the rim; four M3 x 6 socket head screws as clones of one screw; the screws end inside the pockets, so the fit check finds contacts and clearances but no clash.",
+    "bench/tasks/reg-enclosure/task.json brief and assertions: heads on the counterbore floors (4 contacts), shanks 0.5 mm clear of the pockets (4 clearances), no clash."
+  ],
+  "params": [
+    { "name": "Width", "type": "number", "default": 100, "min": 60, "max": 180, "unit": "mm" },
+    { "name": "Depth", "type": "number", "default": 70, "min": 50, "max": 140, "unit": "mm" },
+    { "name": "Height", "type": "number", "default": 32, "min": 20, "max": 80, "unit": "mm" }
+  ],
+  "gates": [
+    { "targets": ["base"], "build": [0, 0, 1], "build_source": "assumed: printed floor down" },
+    { "targets": ["lid"], "build": [0, 0, 1], "build_source": "assumed: printed flat, counterbores up" }
+  ],
+  "assertions": [
+    { "id": "builds", "kind": "builds" },
+    { "id": "status", "kind": "status", "in": ["ok"] },
+    { "id": "valid", "kind": "valid" },
+    { "id": "occurrences", "kind": "count", "quantity": "occurrences", "expect": { "eq": 6 } },
+    { "id": "definitions", "kind": "count", "quantity": "definitions", "expect": { "eq": 3 } },
+    { "id": "screws", "kind": "occurrences", "name": "screw*", "expect": { "eq": 4 } },
+    { "id": "screw-clones", "kind": "same_definition", "name": "screw*" },
+    { "id": "no-clash", "kind": "fits", "fit": "clash", "expect": { "eq": 0 } },
+    { "id": "heads-seated", "kind": "fits", "fit": "contact", "a": "lid", "b": "screw*", "expect": { "eq": 4 } },
+    { "id": "shank-in-pocket", "kind": "fits", "fit": "clearance", "a": "base", "b": "screw*", "expect": { "eq": 4 }, "distance": { "eq": 0.5, "tol": { "abs": 0.001 } } },
+    { "id": "size-x", "kind": "measure", "quantity": "size_x", "target": "assembly", "expect": { "eq": "$Width", "tol": { "abs": 0.001 } } },
+    { "id": "size-y", "kind": "measure", "quantity": "size_y", "target": "assembly", "expect": { "eq": "$Depth", "tol": { "abs": 0.001 } } },
+    { "id": "size-z", "kind": "measure", "quantity": "size_z", "target": "assembly", "expect": { "eq": "$Height + 4", "tol": { "abs": 0.001 } }, "from": "the 4 mm lid on the rim" },
+    { "id": "gate-watertight-base", "kind": "gate", "gate": "watertight", "target": "base" },
+    { "id": "gate-min-wall-base", "kind": "gate", "gate": "min_wall", "target": "base" },
+    { "id": "gate-overhang-base", "kind": "gate", "gate": "overhang", "target": "base" },
+    { "id": "gate-bed-base", "kind": "gate", "gate": "bed", "target": "base" },
+    { "id": "gate-watertight-lid", "kind": "gate", "gate": "watertight", "target": "lid" },
+    { "id": "gate-min-wall-lid", "kind": "gate", "gate": "min_wall", "target": "lid" },
+    { "id": "gate-overhang-lid", "kind": "gate", "gate": "overhang", "target": "lid" },
+    { "id": "gate-bed-lid", "kind": "gate", "gate": "bed", "target": "lid" }
+  ],
+  "predictions": [
+    { "assertions": ["gate-overhang-base"], "region": "everywhere (nominal failure)", "why": "the cable hole runs along X through a vertical wall" },
+    { "assertions": [], "region": "none beyond that", "why": "the bosses, pockets and counterbores keep their inset; the cable hole (z 10 to 18) stays 2 mm under the rim at Height 20" }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "note": "Pre-registered envelope briefs for the natural scripts of the Certified Envelopes spike. Written from each script's Param declarations and header comment (and the bench task brief where the script is a bench reference) before any envelope search, random sampling or nominal run. A brief that fails at its nominal values is reported as a nominal failure, never edited afterwards.",
+  "format": "o3dj-envelope-brief/spike-0: params (name, type, default, min, max, integer, options), gates (targets, build direction per target), assertions (bench kinds plus builds and gate; a number in expect, gap or distance may be a parameter expression such as \"$Thickness + 12\" or \"9 + ${Bolt holes}\"), predictions (informational, written before the search)",
+  "briefs": [
+    "box-with-lid", "bracket", "enclosure", "flange", "hinge", "knob", "lid-interference", "phone-stand", "tapered-cup", "vented-box",
+    "gear-blank", "pegboard-hook"
+  ],
+  "duplicates_counted_once": {
+    "bench/tasks/reg-box-with-lid/reference.o3j.js": "examples/box-with-lid/box-with-lid.o3j.js",
+    "bench/tasks/reg-bracket/reference.o3j.js": "examples/bracket/bracket.o3j.js",
+    "bench/tasks/reg-enclosure/reference.o3j.js": "examples/enclosure/enclosure.o3j.js",
+    "bench/tasks/reg-flange-8/reference.o3j.js": "examples/flange/flange.o3j.js",
+    "bench/tasks/reg-hinge/reference.o3j.js": "examples/hinge/hinge.o3j.js",
+    "bench/tasks/reg-knob/reference.o3j.js": "examples/knob/knob.o3j.js",
+    "bench/tasks/reg-phone-stand/reference.o3j.js": "examples/phone-stand/phone-stand.o3j.js",
+    "bench/tasks/reg-tapered-cup/reference.o3j.js": "examples/tapered-cup/tapered-cup.o3j.js",
+    "bench/tasks/reg-vented-box/reference.o3j.js": "examples/vented-box/vented-box.o3j.js"
+  },
+  "excluded": {
+    "bench/tasks/reg-bolted-stack/reference.o3j.js": "declares no Params, so it has no envelope",
+    "bench/tasks/cap-*/reference.o3j.js": "the capability references declare no Params"
+  }
+}

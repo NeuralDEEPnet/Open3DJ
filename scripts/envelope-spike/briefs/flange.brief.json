@@ -1,0 +1,38 @@
+{
+  "brief": "o3dj-envelope-brief/spike-0",
+  "id": "flange",
+  "script": "examples/flange/flange.o3j.js",
+  "duplicates": ["bench/tasks/reg-flange-8/reference.o3j.js"],
+  "sources": [
+    "Header comment of examples/flange/flange.o3j.js: a disc with a raised hub, a centre bore, a circular pattern of M6 clearance holes and chamfered hub edges. One part.",
+    "bench/tasks/reg-flange-8/task.json brief: a raised hub 32 mm across and 12 mm tall; the number of holes is a parameter.",
+    "Face and edge counts: examples/flange/expected.json (15 faces, 32 edges at 6 holes) and reg-flange-8 (17 faces, 38 edges at 8 holes), so each through hole adds 1 face and 3 edges."
+  ],
+  "params": [
+    { "name": "Diameter", "type": "number", "default": 80, "min": 50, "max": 160, "unit": "mm" },
+    { "name": "Thickness", "type": "number", "default": 8, "min": 4, "max": 20, "unit": "mm" },
+    { "name": "Bolt holes", "type": "number", "integer": true, "default": 6, "min": 3, "max": 12 }
+  ],
+  "gates": [
+    { "targets": ["flange"], "build": [0, 0, 1], "build_source": "assumed: printed disc down, hub up" }
+  ],
+  "assertions": [
+    { "id": "builds", "kind": "builds" },
+    { "id": "status", "kind": "status", "in": ["ok"] },
+    { "id": "valid", "kind": "valid" },
+    { "id": "one-solid", "kind": "count", "quantity": "solids", "target": "flange", "expect": { "eq": 1 }, "from": "One part." },
+    { "id": "size-x", "kind": "measure", "quantity": "size_x", "target": "assembly", "expect": { "eq": "$Diameter", "tol": { "abs": 0.001 } }, "from": "a disc of the given diameter" },
+    { "id": "size-y", "kind": "measure", "quantity": "size_y", "target": "assembly", "expect": { "eq": "$Diameter", "tol": { "abs": 0.001 } }, "from": "a disc of the given diameter" },
+    { "id": "size-z", "kind": "measure", "quantity": "size_z", "target": "assembly", "expect": { "eq": "$Thickness + 12", "tol": { "abs": 0.001 } }, "from": "hub 12 mm tall above the disc" },
+    { "id": "faces", "kind": "count", "quantity": "faces", "target": "flange", "expect": { "eq": "9 + ${Bolt holes}" }, "from": "each bolt hole is its own through hole" },
+    { "id": "edges", "kind": "count", "quantity": "edges", "target": "flange", "expect": { "eq": "14 + 3 * ${Bolt holes}" }, "from": "each bolt hole is its own through hole" },
+    { "id": "gate-watertight", "kind": "gate", "gate": "watertight", "target": "flange" },
+    { "id": "gate-min-wall", "kind": "gate", "gate": "min_wall", "target": "flange" },
+    { "id": "gate-overhang", "kind": "gate", "gate": "overhang", "target": "flange" },
+    { "id": "gate-bed", "kind": "gate", "gate": "bed", "target": "flange" }
+  ],
+  "predictions": [
+    { "assertions": ["gate-min-wall"], "region": "Diameter < 56.56", "why": "hole centre radius D/4 + 10, hole radius 3.3; rim wall D/4 - 13.3 reaches the 0.84 mm fail line (0.8 limit plus 0.04 band) at D = 56.56" },
+    { "assertions": ["faces", "edges", "size-x", "size-y"], "region": "Diameter < 53.2", "why": "the holes break through the rim" }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "brief": "o3dj-envelope-brief/spike-0",
+  "id": "box-with-lid",
+  "script": "examples/box-with-lid/box-with-lid.o3j.js",
+  "duplicates": ["bench/tasks/reg-box-with-lid/reference.o3j.js"],
+  "sources": [
+    "Header comment of examples/box-with-lid/box-with-lid.o3j.js: a shelled base and a lid with a locating lip, seated on the rim with matchTo; the lip clears the inner wall by the Clearance parameter.",
+    "bench/tasks/reg-box-with-lid/task.json brief: 2 mm walls, a 3 mm lid, a lip 1.6 mm wide and 4 mm deep; the lid must not clash with the base."
+  ],
+  "params": [
+    { "name": "Width", "type": "number", "default": 70, "min": 40, "max": 150, "unit": "mm" },
+    { "name": "Depth", "type": "number", "default": 50, "min": 30, "max": 120, "unit": "mm" },
+    { "name": "Height", "type": "number", "default": 30, "min": 15, "max": 80, "unit": "mm" },
+    { "name": "Clearance", "type": "number", "default": 0.25, "min": -1, "max": 1, "unit": "mm" }
+  ],
+  "gates": [
+    { "targets": ["base"], "build": [0, 0, 1], "build_source": "assumed: open tray printed floor down" },
+    { "targets": ["lid"], "build": [0, 0, -1], "build_source": "assumed: lid printed plate down, lip up (the lid is modelled lip down)" }
+  ],
+  "assertions": [
+    { "id": "builds", "kind": "builds" },
+    { "id": "status", "kind": "status", "in": ["ok"] },
+    { "id": "valid", "kind": "valid" },
+    { "id": "occurrences", "kind": "count", "quantity": "occurrences", "expect": { "eq": 2 } },
+    { "id": "definitions", "kind": "count", "quantity": "definitions", "expect": { "eq": 2 } },
+    { "id": "no-clash", "kind": "fits", "fit": "clash", "expect": { "eq": 0 }, "from": "the lid must not clash with the base" },
+    { "id": "lip-gap", "kind": "fits", "fit": "clearance", "a": "lid", "b": "base", "gap": { "eq": "$Clearance", "tol": { "abs": 0.001 } }, "expect": { "eq": 1 }, "from": "the lip clears the inner wall by the Clearance parameter" },
+    { "id": "size-x", "kind": "measure", "quantity": "size_x", "target": "assembly", "expect": { "eq": "$Width", "tol": { "abs": 0.001 } } },
+    { "id": "size-y", "kind": "measure", "quantity": "size_y", "target": "assembly", "expect": { "eq": "$Depth", "tol": { "abs": 0.001 } } },
+    { "id": "size-z", "kind": "measure", "quantity": "size_z", "target": "assembly", "expect": { "eq": "$Height + 3", "tol": { "abs": 0.001 } }, "from": "3 mm lid seated on the rim" },
+    { "id": "gate-watertight-base", "kind": "gate", "gate": "watertight", "target": "base" },
+    { "id": "gate-min-wall-base", "kind": "gate", "gate": "min_wall", "target": "base" },
+    { "id": "gate-overhang-base", "kind": "gate", "gate": "overhang", "target": "base" },
+    { "id": "gate-bed-base", "kind": "gate", "gate": "bed", "target": "base" },
+    { "id": "gate-watertight-lid", "kind": "gate", "gate": "watertight", "target": "lid" },
+    { "id": "gate-min-wall-lid", "kind": "gate", "gate": "min_wall", "target": "lid" },
+    { "id": "gate-overhang-lid", "kind": "gate", "gate": "overhang", "target": "lid" },
+    { "id": "gate-bed-lid", "kind": "gate", "gate": "bed", "target": "lid" }
+  ],
+  "predictions": [
+    { "assertions": ["no-clash", "status", "lip-gap"], "region": "Clearance < 0", "why": "the lip is wider than the cavity" },
+    { "assertions": ["lip-gap"], "region": "Clearance = 0", "why": "a zero gap is a contact, and the mated pair's contact is exempt, so no gap line is listed" },
+    { "assertions": ["lip-gap"], "region": "Clearance > 0.5 only when the fit watch distance stays at 0.5", "why": "no line is listed beyond the watch distance; the spike raises it to max(0.5, 2 x the largest gap bound) = 2" }
+  ]
+}

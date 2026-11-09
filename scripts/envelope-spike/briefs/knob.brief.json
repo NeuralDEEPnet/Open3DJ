@@ -1,0 +1,36 @@
+{
+  "brief": "o3dj-envelope-brief/spike-0",
+  "id": "knob",
+  "script": "examples/knob/knob.o3j.js",
+  "duplicates": ["bench/tasks/reg-knob/reference.o3j.js"],
+  "sources": [
+    "Header comment of examples/knob/knob.o3j.js: a revolved profile with a domed top, grip flutes and a D-shaped bore for a 6 mm shaft. One part.",
+    "bench/tasks/reg-knob/task.json brief: the D bore is 12 mm deep (blind)."
+  ],
+  "params": [
+    { "name": "Radius", "type": "number", "default": 16, "min": 10, "max": 30, "unit": "mm" },
+    { "name": "Height", "type": "number", "default": 18, "min": 10, "max": 40, "unit": "mm" },
+    { "name": "Flutes", "type": "number", "integer": true, "default": 12, "min": 0, "max": 24 }
+  ],
+  "gates": [
+    { "targets": ["knob"], "build": [0, 0, 1], "build_source": "assumed: printed base down" }
+  ],
+  "assertions": [
+    { "id": "builds", "kind": "builds" },
+    { "id": "status", "kind": "status", "in": ["ok"] },
+    { "id": "valid", "kind": "valid" },
+    { "id": "one-solid", "kind": "count", "quantity": "solids", "target": "knob", "expect": { "eq": 1 }, "from": "One part." },
+    { "id": "size-x", "kind": "measure", "quantity": "size_x", "target": "assembly", "expect": { "eq": "2 * $Radius", "tol": { "abs": 0.001 } }, "from": "the profile's radius; the flutes start above the uncut band at z 1 to 2" },
+    { "id": "size-y", "kind": "measure", "quantity": "size_y", "target": "assembly", "expect": { "eq": "2 * $Radius", "tol": { "abs": 0.001 } } },
+    { "id": "size-z", "kind": "measure", "quantity": "size_z", "target": "assembly", "expect": { "eq": "$Height", "tol": { "abs": 0.001 } } },
+    { "id": "gate-watertight", "kind": "gate", "gate": "watertight", "target": "knob" },
+    { "id": "gate-min-wall", "kind": "gate", "gate": "min_wall", "target": "knob" },
+    { "id": "gate-overhang", "kind": "gate", "gate": "overhang", "target": "knob" },
+    { "id": "gate-bed", "kind": "gate", "gate": "bed", "target": "knob" }
+  ],
+  "predictions": [
+    { "assertions": ["gate-min-wall"], "region": "Height < 12.84", "why": "the D bore is 12 mm deep from the base and the dome's top is at z = Height" },
+    { "assertions": ["gate-watertight", "gate-min-wall"], "region": "Height <= 12", "why": "the bore opens through the dome" },
+    { "assertions": ["gate-min-wall"], "region": "many Flutes on a small Radius, roughly Flutes >= 17 at Radius 10", "why": "the ridges between flutes (radius 1.6 at R + 0.6) narrow below 0.84 mm; no flutes merge at Radius 16 within 24" }
+  ]
+}

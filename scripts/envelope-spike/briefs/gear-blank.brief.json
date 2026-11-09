@@ -1,0 +1,32 @@
+{
+  "brief": "o3dj-envelope-brief/spike-0",
+  "id": "gear-blank",
+  "script": "bench/tasks/reg-gear-blank/reference.o3j.js",
+  "duplicates": [],
+  "sources": [
+    "Header comment of bench/tasks/reg-gear-blank/reference.o3j.js: a gear with straight-sided teeth on a root disc, a raised hub, an 8 mm bore with a 3 mm keyway and four lightening holes.",
+    "bench/tasks/reg-gear-blank/task.json brief: a 48 mm root disc, teeth 3 mm tall and 3 mm wide, a hub standing 4 mm proud of the 6 mm disc."
+  ],
+  "params": [
+    { "name": "Teeth", "type": "number", "integer": true, "default": 20, "min": 8, "max": 60 }
+  ],
+  "gates": [
+    { "targets": ["gear"], "build": [0, 0, 1], "build_source": "assumed: printed flat" }
+  ],
+  "assertions": [
+    { "id": "builds", "kind": "builds" },
+    { "id": "status", "kind": "status", "in": ["ok"] },
+    { "id": "valid", "kind": "valid" },
+    { "id": "one-solid", "kind": "count", "quantity": "solids", "target": "gear", "expect": { "eq": 1 }, "from": "One part." },
+    { "id": "size-x", "kind": "measure", "quantity": "size_x", "target": "assembly", "expect": { "eq": 54, "tol": { "abs": 0.001 } }, "from": "root disc 48 plus two 3 mm teeth, as the bench brief states it at 20 teeth; the first tooth lies on +X, and only an even count puts a tooth on -X" },
+    { "id": "size-z", "kind": "measure", "quantity": "size_z", "target": "assembly", "expect": { "eq": 10, "tol": { "abs": 0.001 } }, "from": "6 mm disc, hub 4 mm proud" },
+    { "id": "gate-watertight", "kind": "gate", "gate": "watertight", "target": "gear" },
+    { "id": "gate-min-wall", "kind": "gate", "gate": "min_wall", "target": "gear" },
+    { "id": "gate-overhang", "kind": "gate", "gate": "overhang", "target": "gear" },
+    { "id": "gate-bed", "kind": "gate", "gate": "bed", "target": "gear" }
+  ],
+  "predictions": [
+    { "assertions": [], "region": "Teeth >= 51 (not caught by any assertion)", "why": "3 mm teeth on a 24 mm root radius touch at the root above about 50.2 teeth; the brief pins no tooth count, so only the event guard can show it" },
+    { "assertions": ["size-x"], "region": "odd Teeth", "why": "with an odd count no tooth lies on -X, so size_x falls just short of 54 (about 53.92 at 21 teeth); this is a brief artifact (the bench states the size at 20 teeth), not a design defect" }
+  ]
+}

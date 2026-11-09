@@ -1,0 +1,34 @@
+{
+  "brief": "o3dj-envelope-brief/spike-0",
+  "id": "pegboard-hook",
+  "script": "bench/tasks/reg-pegboard-hook/reference.o3j.js",
+  "duplicates": [],
+  "sources": [
+    "Header comment of bench/tasks/reg-pegboard-hook/reference.o3j.js: a back plate with two pegs on a 25.4 mm pitch, a straight arm with an upturned tip, all one part with rounded arm edges.",
+    "bench/tasks/reg-pegboard-hook/task.json brief and assertions: 20 x 50 x 5 mm plate, 8 mm pegs, 31 faces; size_y is the reach plus the 5 mm plate plus the 8 mm pegs."
+  ],
+  "params": [
+    { "name": "Reach", "type": "number", "default": 60, "min": 30, "max": 120, "unit": "mm" }
+  ],
+  "gates": [
+    { "targets": ["hook"], "build": [0, 0, 1], "build_source": "assumed: printed upright as modelled" }
+  ],
+  "assertions": [
+    { "id": "builds", "kind": "builds" },
+    { "id": "status", "kind": "status", "in": ["ok"] },
+    { "id": "valid", "kind": "valid" },
+    { "id": "one-solid", "kind": "count", "quantity": "solids", "target": "hook", "expect": { "eq": 1 }, "from": "all one part" },
+    { "id": "size-x", "kind": "measure", "quantity": "size_x", "target": "assembly", "expect": { "eq": 20, "tol": { "abs": 0.001 } } },
+    { "id": "size-y", "kind": "measure", "quantity": "size_y", "target": "assembly", "expect": { "eq": "$Reach + 13", "tol": { "abs": 0.001 } } },
+    { "id": "size-z", "kind": "measure", "quantity": "size_z", "target": "assembly", "expect": { "eq": 50, "tol": { "abs": 0.001 } } },
+    { "id": "faces", "kind": "count", "quantity": "faces", "target": "hook", "expect": { "eq": 31 } },
+    { "id": "gate-watertight", "kind": "gate", "gate": "watertight", "target": "hook" },
+    { "id": "gate-min-wall", "kind": "gate", "gate": "min_wall", "target": "hook" },
+    { "id": "gate-overhang", "kind": "gate", "gate": "overhang", "target": "hook" },
+    { "id": "gate-bed", "kind": "gate", "gate": "bed", "target": "hook" }
+  ],
+  "predictions": [
+    { "assertions": ["gate-overhang"], "region": "everywhere (nominal failure)", "why": "the arm and the pegs stick out horizontally" },
+    { "assertions": [], "region": "none beyond that", "why": "the fillet query (edges along Y longer than Reach - 7) picks the same four arm edges at every Reach" }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "brief": "o3dj-envelope-brief/spike-0",
+  "id": "tapered-cup",
+  "script": "examples/tapered-cup/tapered-cup.o3j.js",
+  "duplicates": ["bench/tasks/reg-tapered-cup/reference.o3j.js"],
+  "sources": [
+    "Header comment of examples/tapered-cup/tapered-cup.o3j.js: a loft from a 60 mm circle at the base to a 76 mm circle at the rim; the cavity is one wall smaller at every height; the base edge is rounded.",
+    "Face and edge counts: examples/tapered-cup/expected.json (9 faces, 16 edges); no Param adds or removes a feature."
+  ],
+  "params": [
+    { "name": "Height", "type": "number", "default": 70, "min": 30, "max": 120, "unit": "mm" },
+    { "name": "Wall", "type": "number", "default": 2.5, "min": 1.2, "max": 5, "unit": "mm" }
+  ],
+  "gates": [
+    { "targets": ["cup"], "build": [0, 0, 1], "build_source": "assumed: printed base down" }
+  ],
+  "assertions": [
+    { "id": "builds", "kind": "builds" },
+    { "id": "status", "kind": "status", "in": ["ok"] },
+    { "id": "valid", "kind": "valid" },
+    { "id": "one-solid", "kind": "count", "quantity": "solids", "target": "cup", "expect": { "eq": 1 } },
+    { "id": "size-x", "kind": "measure", "quantity": "size_x", "target": "assembly", "expect": { "eq": 76, "tol": { "abs": 0.001 } }, "from": "76 mm circle at the rim" },
+    { "id": "size-y", "kind": "measure", "quantity": "size_y", "target": "assembly", "expect": { "eq": 76, "tol": { "abs": 0.001 } }, "from": "76 mm circle at the rim" },
+    { "id": "size-z", "kind": "measure", "quantity": "size_z", "target": "assembly", "expect": { "eq": "$Height", "tol": { "abs": 0.001 } } },
+    { "id": "faces", "kind": "count", "quantity": "faces", "target": "cup", "expect": { "eq": 9 } },
+    { "id": "edges", "kind": "count", "quantity": "edges", "target": "cup", "expect": { "eq": 16 } },
+    { "id": "gate-watertight", "kind": "gate", "gate": "watertight", "target": "cup" },
+    { "id": "gate-min-wall", "kind": "gate", "gate": "min_wall", "target": "cup" },
+    { "id": "gate-overhang", "kind": "gate", "gate": "overhang", "target": "cup" },
+    { "id": "gate-bed", "kind": "gate", "gate": "bed", "target": "cup" }
+  ],
+  "predictions": [
+    { "assertions": ["gate-overhang"], "region": "everywhere (nominal failure, likely)", "why": "the 3 mm base fillet faces down just above the bed" },
+    { "assertions": ["gate-min-wall"], "region": "Wall below about 1.47 (Height 120) to 1.72 (Height 30)", "why": "the cavity's bottom corner (r = 30 + 8w/H - w, z = w) comes within 3 - sqrt((3 - w + 8w/H)^2 + (3 - w)^2) of the 3 mm base fillet" }
+  ]
+}

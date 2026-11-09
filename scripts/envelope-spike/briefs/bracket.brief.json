@@ -1,0 +1,41 @@
+{
+  "brief": "o3dj-envelope-brief/spike-0",
+  "id": "bracket",
+  "script": "examples/bracket/bracket.o3j.js",
+  "duplicates": ["bench/tasks/reg-bracket/reference.o3j.js"],
+  "sources": [
+    "Header comment of examples/bracket/bracket.o3j.js: an L-angle with a centre gusset, two clearance holes in each flange and rounded outer edges. One part.",
+    "bench/tasks/reg-bracket/task.json brief: the L-angle is Width wide with Leg legs; 1 mm fillets on the long outer edges.",
+    "Face and edge counts: examples/bracket/expected.json (26 faces, 64 edges); no Param adds or removes a feature."
+  ],
+  "params": [
+    { "name": "Width", "type": "number", "default": 40, "min": 24, "max": 100, "unit": "mm" },
+    { "name": "Leg", "type": "number", "default": 35, "min": 20, "max": 80, "unit": "mm" },
+    { "name": "Thickness", "type": "number", "default": 4, "min": 2, "max": 10, "unit": "mm" },
+    { "name": "Screw", "type": "choice", "default": "M4", "options": ["M3", "M4", "M5"] }
+  ],
+  "gates": [
+    { "targets": ["bracket"], "build": [0, 0, 1], "build_source": "assumed: printed on the base flange" }
+  ],
+  "assertions": [
+    { "id": "builds", "kind": "builds" },
+    { "id": "status", "kind": "status", "in": ["ok"] },
+    { "id": "valid", "kind": "valid" },
+    { "id": "one-solid", "kind": "count", "quantity": "solids", "target": "bracket", "expect": { "eq": 1 }, "from": "One part." },
+    { "id": "size-x", "kind": "measure", "quantity": "size_x", "target": "assembly", "expect": { "eq": "$Width", "tol": { "abs": 0.001 } } },
+    { "id": "size-y", "kind": "measure", "quantity": "size_y", "target": "assembly", "expect": { "eq": "$Leg", "tol": { "abs": 0.001 } } },
+    { "id": "size-z", "kind": "measure", "quantity": "size_z", "target": "assembly", "expect": { "eq": "$Leg", "tol": { "abs": 0.001 } } },
+    { "id": "faces", "kind": "count", "quantity": "faces", "target": "bracket", "expect": { "eq": 26 }, "from": "the same features at every size" },
+    { "id": "edges", "kind": "count", "quantity": "edges", "target": "bracket", "expect": { "eq": 64 }, "from": "the same features at every size" },
+    { "id": "gate-watertight", "kind": "gate", "gate": "watertight", "target": "bracket" },
+    { "id": "gate-min-wall", "kind": "gate", "gate": "min_wall", "target": "bracket" },
+    { "id": "gate-overhang", "kind": "gate", "gate": "overhang", "target": "bracket" },
+    { "id": "gate-bed", "kind": "gate", "gate": "bed", "target": "bracket" }
+  ],
+  "predictions": [
+    { "assertions": ["gate-overhang"], "region": "everywhere (nominal failure)", "why": "the upright's holes run along Y, so their tops overhang at 90 degrees with build +Z" },
+    { "assertions": ["gate-min-wall"], "region": "Screw M5 and Width - Thickness <= 14.36 (Width near 24, Thickness near 10)", "why": "holes at x = W/4 + T/4 with radius 2.75 leave W/4 - T/4 - 2.75 to the flange side" },
+    { "assertions": ["faces", "edges"], "region": "Screw M5, Leg < 20.56, Thickness > 9.65", "why": "0.62 L - 2.75 < T: both holes run into the corner block" },
+    { "assertions": ["builds", "faces", "edges"], "region": "Thickness = 2 (possible)", "why": "two 1 mm fillets on the 2 mm end faces of a flange consume the face" }
+  ]
+}
