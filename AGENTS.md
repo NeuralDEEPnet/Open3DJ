@@ -75,7 +75,7 @@ Use Node 24 (`.nvmrc`). From the repository root:
 | `npm run corpus` | Times the reference assemblies in `corpora/reference-assemblies/` (`scripts/reference-assemblies.ts`) |
 | `npm run gate-corpus [-- id --cli]` | Runs the seeded gate corpus in `corpora/gates/` (`scripts/gate-corpus.ts`): every print-check verdict against the expected one; exits 1 on a false pass or a false failure |
 | `npm run viewer:bench` | The viewer frame-time benchmark (`scripts/viewer-bench.ts`): enclosure, `plate-145` and `grid-1025` in headless Chromium at a fixed pixel ratio; needs Playwright and skips without it. The S2 gate needs a real GPU |
-| `node scripts/bounties.ts [-- --commit <sha>]` | Prints the bounty feed (`docs/BOUNTIES.md`): every capability task as a record for an agent platform, deterministic for a commit |
+| `node scripts/bounties.ts [--commit <sha>] [--shelter [--reward <cents>]]` | Prints the bounty feed (`docs/BOUNTIES.md`): every capability task as a record for an agent platform, deterministic for a commit; `--shelter` prints the AI Agent Shelter's `propose_bounty` payloads instead |
 | `node packages/mcp/src/dsl-docs.ts --check` | Fails if `docs/DSL.md` is stale; `--write` regenerates it from `DSL_ENTRIES` |
 | `npx open3dj help` | The CLI (runs `packages/open3dj/src/cli.ts`). Try `npx open3dj run examples/bracket/bracket.o3j.js` |
 | `npx open3dj mcp --root <dir>` | The MCP server over stdio, as agents start it |

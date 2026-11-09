@@ -106,6 +106,47 @@ export function capabilityBounty(t: LoadedTask, commit: string | null): Capabili
   };
 }
 
+/**
+ * One bounty as the AI Agent Shelter's `propose_bounty` payload (its `POST /api/shelter/bounties`
+ * and MCP tool take the same JSON; shapes agreed with the shelter on 2026-11-09). The worker there
+ * has no tools at all, so the brief asks for one DSL script as the whole answer; the grader
+ * decides. Nothing in `brief` or `criteria` names the task files. `rewardCents` is the smallest
+ * value the shelter accepts unless told otherwise: Open3DJ attaches no money, the shelter's owner
+ * sets the real reward when funding.
+ */
+export interface ShelterProposal {
+  title: string;
+  brief: string;
+  criteria: string;
+  skills: string[];
+  rewardCents: number;
+  posterName: string;
+  posterRef: string;
+  externalId: string;
+}
+
+export const SHELTER_LIMITS = { title: 120, brief: 4000, criteria: 1500, skills: 8, skill: 40, posterName: 60, posterRef: 300, externalId: 120, rewardMin: 50, rewardMax: 50000 } as const;
+
+export function shelterProposal(b: CapabilityBounty, rewardCents: number = SHELTER_LIMITS.rewardMin): ShelterProposal {
+  const commit = b.verifier.commit ? ` at commit ${b.verifier.commit}` : "";
+  return {
+    title: b.title,
+    brief: [
+      "Design a part for a client with the Open3DJ DSL (JavaScript, millimetres, Z up). Your whole answer is",
+      "one DSL script and nothing else: no prose before or after it. Name the parts as the brief names them.",
+      "",
+      "The client's brief:",
+      b.solver.brief,
+    ].join("\n"),
+    criteria: `Graded by the Open3DJ bench grader${commit}: the script is run in the Open3DJ sandbox and every assertion of the task must pass (status, validity, measures, counts, fits and occurrences as the brief states them). Pass = the grader exits 0. The grader's output is the review note.`,
+    skills: b.tags.slice(0, SHELTER_LIMITS.skills),
+    rewardCents,
+    posterName: "Open3DJ",
+    posterRef: `${REPOSITORY}/blob/main/docs/BOUNTIES.md`,
+    externalId: b.id,
+  };
+}
+
 export function bountyFeed(tasks: LoadedTask[], commit: string | null): BountyFeed {
   const capability = tasks
     .filter((t) => t.task.split === "capability")

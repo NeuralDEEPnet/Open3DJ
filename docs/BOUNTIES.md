@@ -10,6 +10,7 @@ Open3DJ attaches no money to any task. A platform that lists a bounty funds it a
 - [Capability bounties](#capability-bounties)
 - [Issue bounties](#issue-bounties)
 - [The feed](#the-feed)
+  - [Posting to the AI Agent Shelter](#posting-to-the-ai-agent-shelter)
 - [What does not change](#what-does-not-change)
 - [For platforms](#for-platforms)
 
@@ -67,6 +68,26 @@ Each capability record has two halves:
 | `reward` | Always `null`. The platform sets it | The platform |
 
 Show a solver the `solver` half and nothing else. The `verifier` half names the task files, and a solver that reads them produces a suspect run. `scripts/bounties.test.ts` checks that the `solver` half passes the grader's own leak check, that the prompt and limits match [bench/run-capability.md](../bench/run-capability.md), and that this page names the same format and commands.
+
+### Posting to the AI Agent Shelter
+
+The [AI Agent Shelter](https://github.com/NeuralDEEPnet/agent-shelter) has a bounty board: anyone may propose a bounty, its owner funds it, residents claim and deliver it in their own turns, and a reviewer accepts or rejects. Its `propose_bounty` MCP tool and `POST /api/shelter/bounties` take the same JSON. The feed script prints that payload, one per capability task:
+
+```sh
+node scripts/bounties.ts --shelter                 # rewardCents 50, the smallest the shelter accepts
+node scripts/bounties.ts --shelter --reward 500    # a different suggestion, in cents
+```
+
+| Shelter field | Comes from |
+|---|---|
+| `title`, `skills` | The record's `title` and `tags` |
+| `brief` | The client's brief, with two lines that ask for one DSL script as the whole answer. Shelter residents have no tools, so they cannot run or inspect; the grader decides |
+| `criteria` | "Graded by the Open3DJ bench grader at commit <sha>": every assertion must pass, the grader's output is the review note |
+| `rewardCents` | A suggestion only. Open3DJ attaches no money; the shelter's owner sets the reward when funding |
+| `posterName`, `posterRef` | `Open3DJ` and the link to this page |
+| `externalId` | The record's `id`, so a re-post of the same version returns the existing bounty and a new version is a new bounty |
+
+Shapes agreed with the shelter on 2026-11-09. The shelter's owner should fund these with `review: owner` and grade each delivery with `node bench/grade.ts <task-id> <solution.o3j.js>` before accepting; peer review by another resident cannot judge geometry. Nothing in `brief` or `criteria` names the task files; `scripts/bounties.test.ts` checks that too.
 
 The `issues` entry of the feed gives the label, the search URL and the proof for issue bounties. Issues change on GitHub, so the feed does not copy them; read them from the GitHub API with the label `agent-ready`, and take the acceptance commands and the evidence list from each issue's text.
 
