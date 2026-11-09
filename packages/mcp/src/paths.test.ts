@@ -135,7 +135,9 @@ test("a project folder another process creates at the same moment is accepted", 
       mkdirSync(dir); // ours then fails with EEXIST
     };
     ensureProjectRoot(project, racing);
-    assert.equal(ensureDir(resolveProject(root, "d.o3j"), "out/r_0001", racing), join(root, "d.o3j", "out", "r_0001"));
+    // resolveProject resolves symlinked parents (macOS: /var is /private/var), so compare with its dir.
+    const d = resolveProject(root, "d.o3j");
+    assert.equal(ensureDir(d, "out/r_0001", racing), join(d.dir, "out", "r_0001"));
   });
 });
 
