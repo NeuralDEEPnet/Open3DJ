@@ -52,6 +52,8 @@ A `run` that takes longer than the interactive deadline (20 s by default, `inter
 
 `serveStdio()` uses `@modelcontextprotocol/server` 2.4.0 with `legacy: "serve"`: one factory answers 2025-06-18 and 2025-11-25 `initialize` and 2026-07-28 `server/discover`. Tools are registered from `TOOL_DEFINITIONS` with `fromJsonSchema()` and a validator built on `@open3dj/schemas`, so `tools/list` publishes exactly the schemas in `packages/schemas` and the same rules check every input. Results carry `structuredContent` and a JSON text mirror. `render` adds the PNG as image content and the SVG as an embedded resource.
 
+Every tools/call goes through `callTool(handlers, name, args)` in `src/call.ts`, which returns that MCP result. A handler that throws becomes a `status: "error"` result, and an unknown tool name a `BAD_INPUT` result. The planned agent panel (`@open3dj/agent`, RFC 0001) will call the same function, so a tool will behave the same over MCP and in `open3dj view`.
+
 `guardStdout()` sends every console method to stderr. `open3dj mcp` calls it before anything else.
 
 ## docs
@@ -70,5 +72,6 @@ A test fails when the file is stale, and another runs every example through the 
 - `handlers.test.ts`: the store, revisions, `REV_CONFLICT` (also for two racing runs), provenance, `set_param`, the job model and cancel, inspect, render, export, the path policy and docs, on a fake compute pool (`src/testing.ts`).
 - `waivers.test.ts`: the waive op, human-only refusals, the binding to shape and finding, the 1,000 cap and pruning, clean reasons, waived and open failures in `inspect fields=[gates]`, and the gate status of every export, on the fake pool.
 - `server.test.ts`: the real server code on the fake pool, driven by a raw 2025-06-18 session, the v1 SDK client (1.32.2) and the v2 client (2.4.0) in legacy mode and pinned to 2026-07-28. `tools/list` must equal `TOOL_DEFINITIONS`, and errors must be tool results.
+- `call.test.ts`: `callTool()` gives byte-identical results to the switch it replaced (kept in the test as the reference) for every tool and for handlers that throw, and the server sends exactly what `callTool()` returns.
 - `dsl-docs.test.ts`: docs/DSL.md is current and its examples run.
 - The stdout-leak gate (`scripts/leak-gate.ts`) drives the real `open3dj mcp` with the real pool through a run, two STEP exports, a render and an inspect.

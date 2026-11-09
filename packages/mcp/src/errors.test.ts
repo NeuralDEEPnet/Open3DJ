@@ -30,3 +30,9 @@ test("redactPaths keeps the last segment of paths with spaces", () => {
   assert.equal(redactPaths("C:\\Users\\John Smith\\Documents\\Open3DJ\\a.o3j\\main.o3j.js failed"), "…/main.o3j.js failed");
   assert.equal(redactPaths("mkdir '/Users/Jane Doe/My Designs/x.o3j'"), "mkdir '…/x.o3j'");
 });
+
+test("an error that names a bare home folder never keeps the user name", () => {
+  const messages = ["cannot create /home/jane/ (read-only file system)", "mkdir 'C:\\Users\\Jane'", "cwd c:\\users\\jane\\", "at file:///Users/jane"];
+  for (const message of messages) assert.doesNotMatch(toScriptError(new Error(message)).message, /jane/i, message);
+  assert.equal(toScriptError(new Error("cannot create /home/jane/ (read-only file system)")).message, "cannot create ~/ (read-only file system)");
+});

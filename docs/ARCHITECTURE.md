@@ -359,6 +359,7 @@ Each plugin point is a registry keyed by name and version, using the C1 and C5 c
 packages/
   open3dj/            CLI and daemon entry (npx open3dj)
   mcp/                tool handlers and dual-era server
+  agent/              agent panel of open3dj view (RFC 0001): Messages API tools, result mapping, system prompt
   schemas/            C1, C4, C5, C6, C7 JSON Schemas and migrations
   dsl/                3dj DSL facade (C2)
   kernel/             KernelAdapter (C3), occt-wasm binding, Manifold
