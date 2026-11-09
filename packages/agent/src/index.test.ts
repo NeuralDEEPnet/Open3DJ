@@ -11,11 +11,13 @@ test("a stub until Engine A runs a turn, with the parts built so far exported", 
   assert.equal(PACKAGE_STATUS, "stub");
   for (const name of [
     "apiTools", "withProject", "toApiContent", "redactText", "systemPrompt", "skillBody",
-    "SseParser", "readSse", "MessageAccumulator", "parseInput",
+    "SseParser", "readSse", "MessageAccumulator", "parseInput", "createApiClient", "retryWait", "listModels",
   ]) {
     assert.equal(typeof (agent as Record<string, unknown>)[name], "function", name);
   }
   assert.deepEqual([...agent.API_TOOL_ORDER], ["run", "inspect", "render", "export", "docs"]);
+  assert.equal(agent.API_VERSION, "2026-10-21");
+  assert.equal("startFakeMessagesApi" in agent, false, "the fake API is test data, not an export");
 });
 
 test("only workspace dependencies, pinned", () => {
