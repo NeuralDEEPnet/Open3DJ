@@ -2,16 +2,23 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
-import { readFileSync } from "node:fs";
+import { mkdtempSync, readFileSync, rmSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { createHandlers } from "@open3dj/mcp";
+// The fake compute pool is test data of @open3dj/mcp, not part of its public exports.
+import { FAKE_INVENTORY, fakePlace, fakePool } from "../../mcp/src/testing.ts";
+import { startFakeMessagesApi, streamReply } from "./fake-messages-api.testing.ts";
 import * as agent from "./index.ts";
+import type { AgentEventBody } from "./index.ts";
 
 const { PACKAGE_STATUS } = agent;
 
-test("a stub until Engine A runs a turn, with the parts built so far exported", () => {
-  assert.equal(PACKAGE_STATUS, "stub");
+test("ready since Engine A runs a turn, with its parts exported", () => {
+  assert.equal(PACKAGE_STATUS, "ready");
   for (const name of [
     "apiTools", "withProject", "toApiContent", "redactText", "systemPrompt", "skillBody",
-    "SseParser", "readSse", "MessageAccumulator", "parseInput", "createApiClient", "retryWait", "listModels",
+    "SseParser", "readSse", "MessageAccumulator", "parseInput", "createApiClient", "retryWait", "listModels", "createApiEngine", "summarize",
   ]) {
     assert.equal(typeof (agent as Record<string, unknown>)[name], "function", name);
   }
@@ -47,8 +54,34 @@ process.stderr.write(JSON.stringify(seen));`;
   assert.deepEqual(loaded, []);
 });
 
-// A placeholder that fails on purpose once the status flips (packages/README.md): the change
-// that makes Engine A run a turn (plan step B4) replaces it with real tests.
-test("Engine A runs a turn against a fake Messages API", { skip: PACKAGE_STATUS === "stub" ? "agent is a stub until plan step B4" : false }, () => {
-  assert.fail("write the Engine A turn tests (B4) before PACKAGE_STATUS flips to ready");
+// The placeholder of the stub became this: a turn through the public exports only. The
+// behaviour of the turn loop is tested in api-engine.test.ts.
+test("Engine A runs a turn against a fake Messages API", async () => {
+  const api = await startFakeMessagesApi();
+  const root = mkdtempSync(join(tmpdir(), "o3j-agent-index-"));
+  try {
+    const handlers = createHandlers({ pool: fakePool(), inventory: FAKE_INVENTORY, place: fakePlace, root, interactiveMs: 5_000 });
+    const client = agent.createApiClient({ apiKey: ["sk", "ant", "test", "x".repeat(24)].join("-"), baseUrl: api.url, sleep: async () => {} });
+    api.reply({ json: { data: [{ id: "model-a", display_name: "Model A", max_tokens: 16000 }], has_more: false } });
+    const [model] = await agent.listModels(client);
+    const engine = agent.createApiEngine({ client, handlers, project: join(root, "plate.o3j") });
+    api.reply(
+      streamReply({ content: [{ type: "tool_use", id: "toolu_1", name: "run", input: { script: "return box(10, 10, 2);" } }], stop_reason: "tool_use" }),
+      streamReply({ content: [{ type: "text", text: "Made r_0001." }], stop_reason: "end_turn" }),
+    );
+    const events: AgentEventBody[] = [];
+    let revisions = 0;
+    const end = await engine.turn({
+      turn: "t_0001", text: "Make a plate", model: model!.id, limits: { maxRounds: 4, maxOutputTokens: model!.max_tokens!, timeoutMs: 10_000 },
+      ledger: { remaining: () => ({ input: 1_000_000, output: 100_000 }), add: () => {} }, signal: new AbortController().signal,
+      emit: (e) => void events.push(e), onRevision: () => void revisions++,
+    });
+    assert.deepEqual(end, { reason: "end_turn" });
+    assert.equal(revisions, 1);
+    assert.deepEqual(events.filter((e) => e.kind === "tool_result").map((e) => (e as { rev?: string }).rev), ["r_0001"]);
+    await engine.close();
+  } finally {
+    await api.close();
+    rmSync(root, { recursive: true, force: true });
+  }
 });

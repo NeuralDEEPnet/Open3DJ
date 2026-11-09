@@ -37,7 +37,7 @@ Do not add a language, framework, build tool or runtime dependency without an ac
 | `docs/DSL.md` | The DSL reference the `docs` tool searches. Generated: never edit it by hand |
 | `docs/images/` | Screenshots used by the README and the guides, each under 200 KB |
 | `examples/` | Ten small parts and assemblies, each with `expected.json` and `drawing.png`; `scripts/examples.test.ts` runs them all |
-| `packages/` | The code: `schemas`, `kernel`, `sandbox`, `dsl`, `assembly`, `render`, `compute`, `mcp`, `agent` (the viewer's agent panel, a stub), `viewer` and `open3dj` (the CLI). Each exports `src/index.ts`; tests sit next to sources as `*.test.ts` |
+| `packages/` | The code: `schemas`, `kernel`, `sandbox`, `dsl`, `assembly`, `render`, `compute`, `mcp`, `agent` (the viewer's agent panel; nothing calls it yet), `viewer` and `open3dj` (the CLI). Each exports `src/index.ts`; tests sit next to sources as `*.test.ts` |
 | `scripts/` | `check`, the test runner, the stdout-leak gate, the licence gate, the examples runner, `hdet.ts` (determinism) and `hooks/` (the Claude Code hooks) |
 | `bench/` | o3dj-bench: `tasks/` (12 regression and 10 capability tasks), task-lint, the regression runner and the grader. Read `bench/README.md` |
 | `corpora/` | Seeded and timing corpora: `reference-assemblies/` (145 and 1,025 occurrences), `hdet/` and `gates/` (the seeded gate corpus) |
