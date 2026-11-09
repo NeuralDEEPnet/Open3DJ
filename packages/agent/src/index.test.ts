@@ -14,11 +14,12 @@ import type { AgentEventBody } from "./index.ts";
 
 const { PACKAGE_STATUS } = agent;
 
-test("ready since Engine A runs a turn, with its parts exported", () => {
+test("ready since Engine A runs a turn, with its parts and the session's records exported", () => {
   assert.equal(PACKAGE_STATUS, "ready");
   for (const name of [
     "apiTools", "withProject", "toApiContent", "redactText", "systemPrompt", "skillBody",
     "SseParser", "readSse", "MessageAccumulator", "parseInput", "createApiClient", "retryWait", "listModels", "createApiEngine", "summarize",
+    "Approvals", "buildPayload", "payloadHash", "isDecider", "BudgetLedger", "EgressLog",
   ]) {
     assert.equal(typeof (agent as Record<string, unknown>)[name], "function", name);
   }

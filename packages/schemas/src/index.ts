@@ -1,5 +1,6 @@
 // @open3dj/schemas: the v0 contract schemas (C1 tools and reports, C4 project files,
-// C5 compute) and their TypeScript types, plus validate(schemaId, value).
+// C5 compute, and the agent panel's events and egress log) and their TypeScript types, plus
+// validate(schemaId, value). The agent panel's types live in @open3dj/agent.
 import { SchemaRegistry } from "./validator.ts";
 import type { SchemaObject, ValidationResult } from "./validator.ts";
 import type { PackageStatus } from "./errors.ts";
@@ -26,6 +27,8 @@ import viewerSelection from "../json/viewer-selection.schema.json" with { type: 
 import viewerSelectionInput from "../json/viewer-selection-input.schema.json" with { type: "json" };
 import viewerHighlight from "../json/viewer-highlight.schema.json" with { type: "json" };
 import waivers from "../json/waivers.schema.json" with { type: "json" };
+import agentEvent from "../json/agent-event.schema.json" with { type: "json" };
+import egressRecord from "../json/egress-record.schema.json" with { type: "json" };
 
 export type * from "./types.ts";
 export type { ValidationIssue, ValidationResult, JsonSchema, SchemaObject } from "./validator.ts";
@@ -74,6 +77,8 @@ export const SCHEMA_IDS = {
   "viewer-selection-input": "urn:open3dj:v0:viewer-selection-input",
   "viewer-highlight": "urn:open3dj:v0:viewer-highlight",
   "waivers": "urn:open3dj:v0:waivers",
+  "agent-event": "urn:open3dj:v0:agent-event",
+  "egress-record": "urn:open3dj:v0:egress-record",
 } as const;
 
 export type SchemaName = keyof typeof SCHEMA_IDS;
@@ -81,7 +86,7 @@ export type SchemaName = keyof typeof SCHEMA_IDS;
 const ALL: SchemaObject[] = [
   common, compute, deviceInventory, scriptError, geometryReport, provenance, project, assembly,
   runIn, runOut, inspectIn, inspectOut, renderIn, renderOut, exportIn, exportOut, docsIn, docsOut, benchTask,
-  viewerSelection, viewerSelectionInput, viewerHighlight, waivers,
+  viewerSelection, viewerSelectionInput, viewerHighlight, waivers, agentEvent, egressRecord,
 ];
 
 /** The registry holding every v0 schema. Built once; every $ref is checked at load. */

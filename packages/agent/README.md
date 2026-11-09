@@ -2,7 +2,7 @@
 
 The agent panel of `open3dj view`: a person types a request in the viewer page, and a model works on the project with the five Open3DJ tools. The design is RFC 0001 (`rfcs/0001-agent-panel.md`, issue #31).
 
-**Status: ready, not wired.** Engine A runs a turn (plan step B4), so `PACKAGE_STATUS` is `"ready"`. Nothing in `open3dj view` calls the package yet: approvals, the budget ledger, the egress log and the session come in step B5, and the routes and flags in B6.
+**Status: ready, not wired.** Engine A runs a turn (plan step B4), so `PACKAGE_STATUS` is `"ready"`. The records of step B5 are here (approval cards, the budget ledger and the egress log); the session that keeps them, with the event log and replay, comes next. Nothing in `open3dj view` calls the package yet: the routes and flags come in B6.
 
 The package never loads the kernel (it runs inside the `open3dj view` process) and has no third-party dependency: only `@open3dj/mcp`, `@open3dj/schemas` and Node's `fetch` and `node:crypto`.
 
@@ -21,6 +21,9 @@ The package never loads the kernel (it runs inside the `open3dj view` process) a
 | `src/client.ts` | `createApiClient({apiKey, baseUrl?, fetch?, sleep?})` | Speaks the Messages API over `fetch` with `anthropic-version: 2026-10-21`. The key lives only in the function's closure and goes only into the `x-api-key` header. 429, 5xx and network errors are retried twice, honouring `retry-after` (seconds or an HTTP date, capped at 60 s; otherwise 1 s, then 2 s), and Stop cuts a wait short. 401 becomes "the API key was refused" and a 404 on `/v1/messages` "unknown model". A redirect is never followed (it would carry the key, and for 307 and 308 the body, to another address): any 3xx answer is an error and is not retried. Every message it makes goes through `redact()`, which removes the key by value and any `sk-ant-` run. The base URL must be https, or http on 127.0.0.1 for tests. |
 | `src/models.ts` | `listModels(client)` | `GET /v1/models`, page by page with `after_id` until `has_more` is false, newest first as the API lists them: `{id, display_name, max_tokens?, max_input_tokens?}`. Ids outside the documented form are left out. Open3DJ never names a model. |
 | `src/api-engine.ts` | `createApiEngine({client, handlers, project, systemPrompt?, now?})` | Engine A, below. |
+| `src/approval.ts` | `Approvals`, `buildPayload()` | The egress approval cards, below. |
+| `src/ledger.ts` | `BudgetLedger` | The session budget: input and output token caps set once from the CLI options (defaults 4,000,000 and 200,000), `add()`, `remaining()` (never below 0) and `snapshot()`. Every input token counts against the input cap, cached or not (`input`, `cache_read` and `cache_write`), because each was sent. One request may pass the cap; the next one does not start. Nothing can raise a cap. |
+| `src/egress-log.ts` | `EgressLog` | An append-only JSON Lines file at the path it is given, made owner-only (folder 0700, file 0600, also when the file already exists). One record per approval decision and one per request: time, approval id and payload hash, engine, host, model, and for a request its bytes, attempts, usage and outcome. Each record is checked against `packages/schemas/json/egress-record.schema.json`, which has no field for free text, and anything shaped like a key is refused, so the prompt text and keys never reach the file. |
 | `src/fake-messages-api.testing.ts` | (tests only) | A fake Messages API on 127.0.0.1. It scripts a reply per request, records each request's method, path, headers and body, streams SSE in 7-byte chunks, and can answer 401, 404, 429 with `retry-after`, 500, a mid-stream error event, `max_tokens` and `refusal`, or keep a stream open until the client goes away. |
 
 ## Engine A, one turn
@@ -35,6 +38,15 @@ The package never loads the kernel (it runs inside the `open3dj view` process) a
 - **Events.** `text` as it streams (the end of the text is held back while it could be the start of a key), `discard`, `tool_call` (an input preview of at most 32 KiB and the input's size), `tool_result` (status, revision, error code and one line, for example "r_0012 ok, 5 of 5 definitions valid"), `usage` per request (the request, this engine's total and what the budget has left) and `notice`. `prompt`, `status` and `turn_end` are left to the session (step B5). `onRequest()` reports each request's size, attempts, usage and outcome for the egress log (step B5), never its text.
 - **The key** never appears in an event, a returned message or a request report: text, previews, summaries, notices and errors go through the client's `redact()`.
 
+## The egress approval
+
+The session (next) sends nothing off the machine until the person approves a card it made itself (RFC 0001, ahead of the S5 approval service). The card's payload names the engine, who pays, the host, the model (or null when Claude Code names it only once it starts), the project folder's name, the prompt, the conversation the engine resends (messages and bytes), Open3DJ's instructions and tool list (count, bytes and a short sha256), the limits, the budget left, and an input estimate of all those bytes divided by 4, labelled as an estimate.
+
+- `payload_hash` is sha256 of the payload as canonical JSON with sorted keys. Approving or denying needs it, so what the person approves is what is sent.
+- A card expires 10 minutes after it was made (the clock is injectable). An expired card answers `expired`, every time.
+- A decision is final: a second decision on the same card is refused with `ALREADY_DECIDED`.
+- Scopes: `prompt` covers one prompt. `session` ("don't ask again until this viewer stops") is allowed only for `computer`, this computer's own page, never for a paired device (`device:<id>`), and only when the card offers it; a prompt from a device gets a card with `prompt` only.
+
 ## Tests
 
 All offline: the fake Messages API on 127.0.0.1 and the fake compute pool from `@open3dj/mcp`. Key-like test strings are built at run time.
@@ -43,6 +55,9 @@ All offline: the fake Messages API on 127.0.0.1 and the fake compute pool from `
 - `stream.test.ts`: every block type, usage, stop details, tool input parsing, unknown block and delta types, the error event and broken streams.
 - `client.test.ts`: headers, retries and their limit, `retry-after`, network errors, error words, redirects that are never followed, redaction, the base URL rules and `listModels` pagination.
 - `api-engine.test.ts`: a turn with two tool rounds on the real handlers (requests that extend each other, one user message of results per reply), the request shape and caching, the injected `base_rev`, invalid tool input, `maxRounds`, the budget, every stop reason, Stop mid-stream and mid-tool, the time limit, thinking blocks, errors, retries, the preview cap, and the key never leaking.
+- `approval.test.ts`: the payload and its hash, a wrong hash, expiry on an injected clock, the scope rules and finality.
+- `ledger.test.ts`: the defaults, what counts, the floor at 0, refused caps and usage, and no way to raise a cap.
+- `egress-log.test.ts`: the file and folder modes, append-only lines, schema checks, and no prompt text or key.
 - `api-tools.test.ts`, `results.test.ts`, `prompt.test.ts` and `index.test.ts`: the first slice, the exports, the dependencies, and a child process that imports the package and checks that no kernel or compute worker module is resolved.
 
 ```sh

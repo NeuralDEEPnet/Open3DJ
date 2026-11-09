@@ -12,7 +12,7 @@ Each package is an npm workspace named `@open3dj/<dir>` (the CLI is `open3dj`). 
 | `render` | ready | Four-view HLR PNG and SVG | `renderAssembly(kernel, asm, { view, targets, format })` |
 | `compute` | ready | DeviceInventory, placement, worker pool, job worker | `deviceInventory`, `place`, `createPool`, `doctor`, `runJobInline`; `createJobRunner` from `@open3dj/compute/job` |
 | `mcp` | ready | Five tool handlers, the shared tool dispatch and the dual-era stdio server | `TOOL_DEFINITIONS`, `createHandlers`, `callTool`, `serveStdio`, `guardStdout` |
-| `agent` | ready | The agent panel of `open3dj view` (RFC 0001): Engine A (the Messages API over fetch, SSE parser, turn loop, model list); nothing calls it yet | `createApiClient`, `createApiEngine`, `listModels`, `apiTools`, `toApiContent`, `systemPrompt` |
+| `agent` | ready | The agent panel of `open3dj view` (RFC 0001): Engine A (the Messages API over fetch, SSE parser, turn loop, model list), approvals, budget ledger and egress log; nothing calls it yet | `createApiEngine`, `createApiClient`, `listModels`, `Approvals`, `BudgetLedger`, `EgressLog` |
 | `open3dj` | ready | CLI and daemon entry; `open3dj view` serves the viewer | `main(argv)`, `parseCommand`, `startViewServer` |
 | `viewer` | ready | Browser viewer (S2): plain ES modules on three 0.186.1 | `viewerAssets`, `viewerPage`, `IMPORT_MAP`, `THREE_VERSION` |
 

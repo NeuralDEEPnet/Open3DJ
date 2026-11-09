@@ -149,6 +149,50 @@ export const viewerHighlight: ViewerHighlight = {
   targets: [{ target: "base#1@elem:face:5", paths: ["base#1"], element: "face:5" }, { target: "screw", paths: ["screw#1", "screw#2"] }], note: "the face to fillet",
 };
 
+// The agent panel (RFC 0001). Its TypeScript types live in @open3dj/agent, which depends on
+// this package, so these fixtures are plain objects; the agent's tests validate every event
+// its session emits against the same schema.
+const A_ID = "a_0123456789abcdef";
+const tokens = { input: 1200, output: 340, cache_read: 9000, cache_write: 400 };
+export const agentPayload = {
+  engine: "api", billing: "billed to the API key in ANTHROPIC_API_KEY", host: "api.anthropic.com", model: "model-a", project: "bracket.o3j",
+  prompt: "Make the wall 2 mm thick", conversation: { messages: 4, bytes: 5120 }, instructions: { tools: 5, bytes: 20000, hash: "0123456789abcdef" },
+  limits: { maxRounds: 12, maxOutputTokens: 16000, timeoutMs: 600000 }, budget: { input: 3990000, output: 199000 },
+  estimate: { input_tokens: 6286, basis: "bytes / 4, an estimate" },
+};
+const ev = (seq: number, body: Record<string, unknown>, turn?: string): Record<string, unknown> => ({ seq, ts: "2026-11-08T12:00:00.000Z", ...(turn ? { turn } : {}), ...body });
+export const agentEvents: Array<Record<string, unknown>> = [
+  ev(1, { kind: "status", state: "awaiting_approval", engine: "api", model: "model-a" }),
+  ev(2, { kind: "approval", id: A_ID, payload: agentPayload, payload_hash: HASH, expires_at: "2026-11-08T12:10:00.000Z", scopes: ["prompt", "session"] }),
+  ev(3, { kind: "approval_result", id: A_ID, decision: "approved", scope: "prompt", by: "computer" }),
+  ev(4, { kind: "prompt", text: "Make the wall 2 mm thick" }, "t_0001"),
+  ev(5, { kind: "status", state: "running", engine: "api", model: "model-a" }, "t_0001"),
+  ev(6, { kind: "text", delta: "I will set wall to 2." }, "t_0001"),
+  ev(7, { kind: "tool_call", call: "toolu_01", tool: "run", input_preview: "{\n  \"params\": { \"wall\": 2 }\n}", input_bytes: 22 }, "t_0001"),
+  ev(8, { kind: "tool_result", call: "toolu_01", status: "ok", rev: "r_0012", summary: "r_0012 ok, 5 of 5 definitions valid" }, "t_0001"),
+  ev(9, { kind: "tool_result", call: "toolu_02", status: "error", code: "REV_CONFLICT", summary: "REV_CONFLICT: bracket.o3j is at r_0013, not r_0012" }, "t_0001"),
+  ev(10, { kind: "usage", request: tokens, session: tokens, remaining: { input: 3989400, output: 199660 } }, "t_0001"),
+  ev(11, { kind: "notice", level: "info", text: "The request failed (HTTP 429); trying again in 2 s, attempt 2 of 3." }, "t_0001"),
+  ev(12, { kind: "discard", reason: "stopped by the person" }, "t_0001"),
+  ev(13, { kind: "turn_end", reason: "stopped", message: "stopped by the person" }, "t_0001"),
+  ev(14, { kind: "approval_result", id: A_ID, decision: "expired", by: "expiry" }),
+  ev(15, { kind: "approval_result", id: A_ID, decision: "denied", by: "device:ipad_1" }),
+  ev(16, { kind: "reset" }),
+  ev(17, { kind: "resync" }),
+  ev(18, { kind: "approval", id: A_ID, payload: { ...agentPayload, engine: "cli", model: null, host: "through Claude Code" }, payload_hash: HASH, expires_at: "2026-11-08T12:10:00.000Z", scopes: ["prompt"] }),
+  ev(19, { kind: "turn_end", reason: "context_window", message: "the conversation reached the model's context window. Press New conversation to go on." }, "t_0002"),
+];
+export const egressApproval: Record<string, unknown> = {
+  ts: "2026-11-08T12:00:00.000Z", kind: "approval", approval_id: A_ID, payload_hash: HASH, engine: "api", host: "api.anthropic.com", model: "model-a",
+  decision: "approved", scope: "session", by: "computer",
+};
+export const egressRequest: Record<string, unknown> = {
+  ts: "2026-11-08T12:00:05.000Z", kind: "request", approval_id: A_ID, payload_hash: HASH, engine: "api", host: "api.anthropic.com", model: "model-a",
+  request_bytes: 25000, attempts: 1, usage: tokens, outcome: "ok",
+};
+/** A copy without the named keys. */
+const without = (o: Record<string, unknown>, ...keys: string[]) => Object.fromEntries(Object.entries(o).filter(([k]) => !keys.includes(k)));
+
 export const VALID: Array<[SchemaName, unknown]> = [
   ["compute", compute], ["geometry-report", report], ["script-error", scriptError], ["device-inventory", devices],
   ["provenance", provenance], ["project", project], ["assembly", assembly],
@@ -175,6 +219,11 @@ export const VALID: Array<[SchemaName, unknown]> = [
   ["tool-render-input", { project: "bracket.o3j", view: "highlight", targets: ["base#1@elem:face:5"], note: "here" }],
   ["tool-render-output", { status: "ok", rev: "r_2", view: "highlight", targets: ["base#1"], files: [{ path: ".o3j-view/highlight.json", format: "json", bytes: 220, sha256: HASH }], compute }],
   ["viewer-selection-input", viewerSelectionIn], ["viewer-selection-input", { items: [] }], ["viewer-selection", viewerSelection], ["viewer-highlight", viewerHighlight],
+  ...agentEvents.map((e): [SchemaName, unknown] => ["agent-event", e]),
+  ["egress-record", egressApproval], ["egress-record", egressRequest],
+  ["egress-record", { ...without(egressApproval, "scope"), decision: "expired", by: "expiry" }],
+  ["egress-record", { ...egressApproval, scope: "prompt", grant: "a_fedcba9876543210" }],
+  ["egress-record", { ...egressRequest, engine: "cli", host: "through Claude Code", model: null, usage: null, outcome: "stopped" }],
 ];
 
 const clone = <T>(v: T): T => structuredClone(v);
@@ -239,4 +288,25 @@ export const INVALID: Array<[SchemaName, unknown, string, string]> = [
   ["viewer-highlight", with_(viewerHighlight, (v) => { v.note = "x".repeat(201); }), "/note", "note is bounded"],
   ["viewer-highlight", with_(viewerHighlight, (v) => { v.id = "../../etc"; }), "/id", "id is 16 hex digits"],
   ["tool-render-input", { project: "p.o3j", view: "highlight", note: "y".repeat(201) }, "/note", "note is bounded"],
+  ["agent-event", { ...agentEvents[5], kind: "thinking" }, "/kind", "an unknown kind"],
+  ["agent-event", { ...agentEvents[5], delta: 5 }, "/delta", "text is a string"],
+  ["agent-event", { ...agentEvents[5], seq: 0 }, "/seq", "seq starts at 1"],
+  ["agent-event", { ...agentEvents[5], html: "<b>x</b>" }, "/html", "no field outside the kind's own"],
+  ["agent-event", { ...agentEvents[6], input_preview: "x".repeat(32769) }, "/input_preview", "the preview is at most 32 KiB"],
+  ["agent-event", { ...agentEvents[7], rev: "12" }, "/rev", "a revision has the r_ form"],
+  ["agent-event", { ...agentEvents[9], remaining: { input: -1, output: 0 } }, "/remaining/input", "the budget left is never negative"],
+  ["agent-event", { ...agentEvents[2], by: "anyone" }, "/by", "only this computer, a paired device or the clock decide"],
+  ["agent-event", { ...agentEvents[2], decision: "maybe" }, "/decision", "an unknown decision"],
+  ["agent-event", { ...agentEvents[1], payload: { ...agentPayload, estimate: { input_tokens: 1, basis: "exact" } } }, "/payload/estimate/basis", "the estimate says it is one"],
+  ["agent-event", { ...agentEvents[1], payload: { ...agentPayload, key: "x" } }, "/payload/key", "the card holds nothing else"],
+  ["agent-event", { ...agentEvents[1], scopes: ["prompt", "forever"] }, "/scopes/1", "an unknown scope"],
+  ["agent-event", { ...agentEvents[3], turn: "turn-1" }, "/turn", "turn ids are t_ and digits"],
+  ["agent-event", { ...agentEvents[12], reason: "context_full" }, "/reason", "an unknown turn end reason"],
+  ["egress-record", { ...egressApproval, prompt: "Make the wall 2 mm thick" }, "/prompt", "never the prompt text"],
+  ["egress-record", { ...egressRequest, api_key: "x" }, "/api_key", "never a key"],
+  ["egress-record", without(egressApproval, "decision"), "", "an approval record says what was decided"],
+  ["egress-record", { ...egressRequest, request_bytes: -1 }, "/request_bytes", "bytes are never negative"],
+  ["egress-record", { ...egressRequest, payload_hash: "abc" }, "/payload_hash", "the hash is sha256 hex"],
+  ["egress-record", { ...egressApproval, by: "device:../x" }, "/by", "a device id is letters, digits, _ and -"],
+  ["egress-record", { ...egressApproval, model: "model a" }, "/model", "a model id has no spaces"],
 ];
