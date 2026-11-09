@@ -21,6 +21,8 @@ Open3DJ, the open-source and agent-first CAD project created by Neural Deep Netw
 
 **Extras, if you have time:** print the bracket example and measure it, or connect Claude Desktop, Claude Code, Codex, Cursor, VS Code or Gemini CLI and ask your agent to design a small part. Share prints and parts in Show and tell.
 
+**Bring your agent.** Bring your Claude Code, Codex or Cursor agent. It does the work, you press the button. It can run the checklist and draft your hardware report; you read the draft and file it yourself, because a person presses every button on GitHub ([AI_POLICY.md](https://github.com/NeuralDEEPnet/Open3DJ/blob/main/AI_POLICY.md)).
+
 **Credit.** Every tester who wants it is added to [CONTRIBUTORS.md](https://github.com/NeuralDEEPnet/Open3DJ/blob/main/CONTRIBUTORS.md) and named in the release notes.
 
 Questions about installing or testing are welcome in Q&A. Thank you for helping.

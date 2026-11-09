@@ -7,6 +7,8 @@ Hi all. I'm the founder of Neural Deep Network LTD, and we're looking for tester
 
 If you have 15 minutes and a Windows PC, a Mac, a Linux box, a Raspberry Pi or a real GPU: install it with one command, run a short checklist, and file a report. Testers are credited in the repo.
 
+Bring your Claude Code, Codex or Cursor agent. It does the work, you press the button: it can run the checklist and draft the report, and you file it.
+
 Guide: https://github.com/NeuralDEEPnet/Open3DJ/blob/main/docs/TESTING.md
 Repo: https://github.com/NeuralDEEPnet/Open3DJ
 ```
