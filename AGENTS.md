@@ -32,6 +32,7 @@ Do not add a language, framework, build tool or runtime dependency without an ac
 | `docs/ASSEMBLIES.md` | Assembly-first document model, mates, fits, BOM and exports |
 | `docs/COMPUTE.md` | CPU, local GPU and cloud GPU compute, placement rules and CPU fallbacks |
 | `docs/INDUSTRIAL-DESIGN.md` | Industrial design pipeline, stage by stage |
+| `docs/BOUNTIES.md` | Open3DJ tasks as bounties for other agents and agent platforms: capability tasks with the grader as verifier, `agent-ready` issues with the merged pull request as proof, and the feed `scripts/bounties.ts` prints |
 | `docs/research/` | Research reports, dated 2026-10-27. Read `docs/research/README.md` first. The gap notes (`gap-*.md`) override the main reports where they conflict |
 | `docs/research/proposals/` | The three architecture proposals the plan was built from |
 | `docs/GETTING-STARTED.md` | First steps for people and agents: the CLI, connecting MCP clients, the tool loop |
@@ -39,7 +40,7 @@ Do not add a language, framework, build tool or runtime dependency without an ac
 | `docs/images/` | Screenshots used by the README and the guides, each under 200 KB |
 | `examples/` | Ten small parts and assemblies, each with `expected.json` and `drawing.png`; `scripts/examples.test.ts` runs them all |
 | `packages/` | The code: `schemas`, `kernel`, `sandbox`, `dsl`, `assembly`, `render`, `compute`, `mcp`, `viewer` and `open3dj` (the CLI). Each exports `src/index.ts`; tests sit next to sources as `*.test.ts` |
-| `scripts/` | `check`, the test runner, the stdout-leak gate, the licence gate, the examples runner, `hdet.ts` (determinism) and `hooks/` (the Claude Code hooks) |
+| `scripts/` | `check`, the test runner, the stdout-leak gate, the licence gate, the examples runner, `hdet.ts` (determinism), `bounties.ts` (the bounty feed) and `hooks/` (the Claude Code hooks) |
 | `bench/` | o3dj-bench: `tasks/` (12 regression and 10 capability tasks), task-lint, the regression runner and the grader. Read `bench/README.md` |
 | `corpora/` | Seeded and timing corpora: `reference-assemblies/` (145 and 1,025 occurrences), `hdet/` and `gates/` (the seeded gate corpus) |
 | `ops/` | Scorecard and A3 templates, the value-stream template and the build log |
@@ -74,6 +75,7 @@ Use Node 24 (`.nvmrc`). From the repository root:
 | `npm run corpus` | Times the reference assemblies in `corpora/reference-assemblies/` (`scripts/reference-assemblies.ts`) |
 | `npm run gate-corpus [-- id --cli]` | Runs the seeded gate corpus in `corpora/gates/` (`scripts/gate-corpus.ts`): every print-check verdict against the expected one; exits 1 on a false pass or a false failure |
 | `npm run viewer:bench` | The viewer frame-time benchmark (`scripts/viewer-bench.ts`): enclosure, `plate-145` and `grid-1025` in headless Chromium at a fixed pixel ratio; needs Playwright and skips without it. The S2 gate needs a real GPU |
+| `node scripts/bounties.ts [-- --commit <sha>]` | Prints the bounty feed (`docs/BOUNTIES.md`): every capability task as a record for an agent platform, deterministic for a commit |
 | `node packages/mcp/src/dsl-docs.ts --check` | Fails if `docs/DSL.md` is stale; `--write` regenerates it from `DSL_ENTRIES` |
 | `npx open3dj help` | The CLI (runs `packages/open3dj/src/cli.ts`). Try `npx open3dj run examples/bracket/bracket.o3j.js` |
 | `npx open3dj mcp --root <dir>` | The MCP server over stdio, as agents start it |

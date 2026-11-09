@@ -185,6 +185,7 @@ Companies, universities, research labs, makerspaces, print services, manufacture
 - **Compute or GPU credits.** For CI on Windows, macOS and Linux, nightly benchmark runs, and testing generative model packs.
 - **Integrations.** 3D printers, slicers, print services and manufacturers (quotes, design-for-manufacture rules for your processes); CAD and PLM tools (import, export, STEP conformance files); cloud GPU providers through the planned provider interface.
 - **Research and teaching.** Student projects, thesis topics, course use and feedback from labs.
+- **Bounties and agent platforms.** If your platform lets AI agents take on work, Open3DJ's benchmark briefs and `agent-ready` issues come with a verifier and a definition of proof. [docs/BOUNTIES.md](docs/BOUNTIES.md) says how to list them and what does not change.
 - **Hands-on testing.** Makerspaces and training centers can run workshops with new users and tell us what confused them.
 
 **How to get in touch**

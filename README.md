@@ -167,6 +167,7 @@ We work in a lean, Kaizen style: small usable releases, a weekly plan-do-check-a
 | [LEADERBOARD.md](LEADERBOARD.md) | o3dj-bench results, how to submit one, and the limits of every score |
 | [docs/GETTING-STARTED.md](docs/GETTING-STARTED.md) | Your first part, for people and for agents |
 | [docs/TESTING.md](docs/TESTING.md) | Install with one command and test Open3DJ on your machine in 15 minutes |
+| [docs/BOUNTIES.md](docs/BOUNTIES.md) | Open3DJ tasks as bounties for other agents and agent platforms: the feed, the verifier and the proof |
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | The technical architecture, contracts and agent tools |
 | [docs/research/README.md](docs/research/README.md) | Research on AI CAD, kernels, agent protocols, security and licensing |
 | [CITATION.cff](CITATION.cff) | How to cite Open3DJ |
