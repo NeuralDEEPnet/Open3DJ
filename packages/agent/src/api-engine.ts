@@ -77,6 +77,12 @@ export function createApiEngine(options: ApiEngineOptions): Engine {
 
   let history: ApiMessage[] = [];
   let lastHead: string | undefined;
+  /**
+   * A head the project reached during a declined prompt when the remaining conversation had seen
+   * no revision at all. Until the conversation sees a revision again, a run without base_rev is
+   * refused rather than built on it unseen (there is no earlier head to fill in).
+   */
+  let unseenHead: string | undefined;
   /** Counts reset() calls, so a turn that is still ending cannot touch the new conversation. */
   let generation = 0;
   let totals: TokenUsage = zero();
@@ -245,6 +251,8 @@ export function createApiEngine(options: ApiEngineOptions): Engine {
       if (use.name === "run" && input.base_rev === undefined && lastHead) {
         input = { ...input, base_rev: lastHead };
         notice("info", `run left out base_rev, so Open3DJ filled in ${lastHead}, the last revision this conversation saw: a change made in between is reported, not overwritten.`);
+      } else if (use.name === "run" && input.base_rev === undefined && unseenHead) {
+        return invalid(use, `not run: this project's head is ${unseenHead}, made during a prompt that was left out of the conversation, so this conversation has not seen it. Inspect the project, then run again (with base_rev to build on that head).`, undefined, "NOT_RUN");
       }
       if ((TOOL_NAMES as readonly string[]).includes(use.name)) {
         const v = validate(`tool-${use.name}-input`, input);
@@ -276,7 +284,10 @@ export function createApiEngine(options: ApiEngineOptions): Engine {
       const step = summarize(use.name, sc, result.isError === true);
       step.summary = cut(client.redact(step.summary));
       const rev = typeof sc.rev === "string" && REV.test(sc.rev) ? sc.rev : undefined;
-      if (rev && gen === generation && (use.name === "run" || (["inspect", "render", "export"].includes(use.name) && input?.rev === undefined))) lastHead = rev;
+      if (rev && gen === generation && (use.name === "run" || (["inspect", "render", "export"].includes(use.name) && input?.rev === undefined))) {
+        lastHead = rev;
+        unseenHead = undefined;
+      }
       const block: ToolResultBlock = { type: "tool_result", tool_use_id: use.id, content: api.content };
       if (api.is_error) block.is_error = true;
       return { block, event: { kind: "tool_result", call: use.id, ...step } };
@@ -349,9 +360,13 @@ export function createApiEngine(options: ApiEngineOptions): Engine {
         // declined. The history goes back to how it was before this prompt (a prefix, so the
         // cache and any thinking signatures stay valid), and nothing of the reply runs or stays.
         messages.length = start;
-        // The conversation no longer shows this prompt's revisions: a later run without
-        // base_rev reports them as a conflict instead of overwriting them.
-        if (gen === generation) lastHead = headAtStart;
+        // The conversation no longer shows this prompt's revisions. A later run without base_rev
+        // gets the head the conversation saw before, so it reports them as a conflict instead of
+        // overwriting them; when it had seen none, such a run is refused until it looks again.
+        if (gen === generation) {
+          if (headAtStart === undefined && lastHead !== undefined) unseenHead = lastHead;
+          lastHead = headAtStart;
+        }
         const category = typeof details?.category === "string" ? safe(details.category) : undefined;
         const named = `declined this request${category ? ` (category: ${category})` : ""}`;
         const why = typeof details?.explanation === "string" && details.explanation.trim() !== "" ? ` ${cut(details.explanation)}` : "";
@@ -423,6 +438,7 @@ export function createApiEngine(options: ApiEngineOptions): Engine {
       generation++;
       history = [];
       lastHead = undefined;
+      unseenHead = undefined;
     },
     async close() {
       closed = true;

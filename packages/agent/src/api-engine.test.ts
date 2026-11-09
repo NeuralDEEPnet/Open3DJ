@@ -394,6 +394,61 @@ test("refusal after a tool round: the whole prompt is left out, and base_rev goe
   });
 });
 
+// Regression (review of the refusal fix): when the declined prompt was the first to see a
+// revision, the conversation had no head to go back to, so a later run without base_rev got no
+// base_rev at all and silently built on a revision the model never saw.
+test("refusal on the first prompt: a later run without base_rev is refused until the conversation sees the head", async () => {
+  await withEngine(async (h) => {
+    h.api.reply(
+      streamReply({ content: [tool("toolu_1", "run", { script: "return box(10, 10, 2);" })], stop_reason: "tool_use" }),
+      streamReply({ content: [text("I won't")], stop_reason: "refusal", stop_details: { type: "refusal", category: "cyber" } }),
+    );
+    assert.equal((await h.prompt("One")).reason, "refusal");
+    assert.equal(of(h.events, "tool_result")[0]!.rev, "r_0001", "the declined prompt's revision stays in the project");
+    h.api.reply(
+      streamReply({ content: [tool("toolu_2", "run", { script: "return box(99, 99, 99);" })], stop_reason: "tool_use" }),
+      streamReply({ content: [tool("toolu_3", "inspect", { fields: ["tree"] })], stop_reason: "tool_use" }),
+      streamReply({ content: [tool("toolu_4", "run", { script: "return box(99, 99, 99);" })], stop_reason: "tool_use" }),
+      streamReply({ content: [text("Built on r_0001.")], stop_reason: "end_turn" }),
+    );
+    await h.prompt("Two");
+    const results = of(h.events, "tool_result");
+    const refused = results.find((e) => e.call === "toolu_2")!;
+    assert.equal(refused.code, "NOT_RUN", "the run is refused, not built on an unseen head");
+    assert.match(refused.summary, /r_0001.*left out of the conversation.*[Ii]nspect/);
+    assert.match(of(h.events, "notice").at(-1)!.text, /filled in r_0001/, "after inspect, the conversation has seen r_0001 and the run builds on it");
+    assert.equal(results.find((e) => e.call === "toolu_4")!.rev, "r_0002");
+  });
+});
+
+// The gen guard on the refusal's restore: a reset() while the declined request finishes must not
+// carry the old conversation's head, or its unseen-head guard, into the new conversation.
+test("reset() while a declined request finishes leaves the new conversation without the old head", async () => {
+  await withEngine(async (h) => {
+    h.api.reply(
+      streamReply({ content: [tool("toolu_1", "run", { script: "return box(10, 10, 2);" })], stop_reason: "tool_use" }),
+      streamReply({ content: [text("Made r_0001.")], stop_reason: "end_turn" }),
+    );
+    await h.prompt("One");
+    let requests = 0;
+    h.api.reply(
+      streamReply({ content: [tool("toolu_2", "run", { script: "return box(20, 10, 2);" })], stop_reason: "tool_use" }),
+      streamReply({ content: [text("I won't")], stop_reason: "refusal", stop_details: { type: "refusal", category: "cyber" } }),
+    );
+    assert.equal((await h.prompt("Two", { onRequest: () => { if (++requests === 2) h.engine.reset(); } })).reason, "refusal");
+    h.api.reply(
+      streamReply({ content: [tool("toolu_3", "run", { script: "return box(30, 10, 2);" })], stop_reason: "tool_use" }),
+      streamReply({ content: [text("A new start.")], stop_reason: "end_turn" }),
+    );
+    await h.prompt("Three");
+    const last = of(h.events, "tool_result").at(-1)!;
+    assert.equal(last.call, "toolu_3");
+    assert.notEqual(last.code, "REV_CONFLICT", "no old head was filled in");
+    assert.notEqual(last.code, "NOT_RUN", "no old unseen-head guard was carried over");
+    assert.ok(!of(h.events, "notice").some((n) => /filled in/.test(n.text) && h.events.indexOf(n) > h.events.indexOf(of(h.events, "tool_result").find((e) => e.call === "toolu_2")!)), "no filled-in notice in the new conversation");
+  });
+});
+
 test("model_context_window_exceeded: a cut-off call is closed, and the turn asks for a new conversation", async () => {
   await withEngine(async (h) => {
     h.api.reply(streamReply({ content: [text("I'll change the"), tool("toolu_1", "run", "{\"script\": \"ret")], stop_reason: "model_context_window_exceeded" }));
