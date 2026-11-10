@@ -154,7 +154,7 @@ function cmdScore(opt: Record<string, string>) {
     const outside = cx.filter((p) => !region.fails(p.params));
     const first = inside[0];
     const rnd = existsSync(join(dir, "random", `${id}.json`)) ? readJson<RandomRun[]>(join(dir, "random", `${id}.json`)) : [];
-    const rndFound = rnd.map((r) => ({ seed: r.seed, found: r.points.some((p) => p.fresh.length > 0 && region.fails(p.params)), outside: r.points.filter((p) => p.fresh.length > 0 && !region.fails(p.params)).map((p) => ({ params: p.params, fresh: p.fresh })) }));
+    const rndFound = rnd.map((r) => ({ seed: r.seed, found: r.points.some((p) => p.fresh.length > 0 && region.fails(p.params)), first_hit: r.points.findIndex((p) => p.fresh.length > 0 && region.fails(p.params)), outside: r.points.filter((p) => p.fresh.length > 0 && !region.fails(p.params)).map((p) => ({ params: p.params, fresh: p.fresh })) }));
     const shrunk = c.shrunk !== undefined ? c.points[c.shrunk]! : undefined;
     return {
       id,
