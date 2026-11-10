@@ -93,20 +93,25 @@ function Invoke-Open3DJInstaller {
       } catch { }
     }
   }
-  function Remove-Tree([string]$Path) {
-    if (-not (Test-Path -LiteralPath $Path)) { return }
-    Remove-TreeChildren $Path $true
-    $left = @(Get-ChildItem -LiteralPath $Path -Force -ErrorAction SilentlyContinue | Where-Object { $_.Name -ne '.open3dj-install' })
-    if ($left.Count -eq 0) {
-      try {
-        $m = Join-Path $Path '.open3dj-install'
-        if (Test-Path -LiteralPath $m) { [IO.File]::Delete($m) }
-        [IO.Directory]::Delete($Path, $false)
-      } catch { }
+  # A file can stay locked for a moment after the program that used it exits (the process is
+  # still unloading, or a virus scanner is reading a new executable), so while anything is left
+  # the delete runs again, up to Tries times 300 ms apart (about 3 s), before it gives up.
+  function Remove-Tree([string]$Path, [int]$Tries = 10) {
+    for ($i = 1; $i -le $Tries; $i++) {
+      if (-not (Test-Path -LiteralPath $Path)) { return }
+      Remove-TreeChildren $Path $true
+      $left = @(Get-ChildItem -LiteralPath $Path -Force -ErrorAction SilentlyContinue | Where-Object { $_.Name -ne '.open3dj-install' })
+      if ($left.Count -eq 0) {
+        try {
+          $m = Join-Path $Path '.open3dj-install'
+          if (Test-Path -LiteralPath $m) { [IO.File]::Delete($m) }
+          [IO.Directory]::Delete($Path, $false)
+        } catch { }
+      }
+      if (-not (Test-Path -LiteralPath $Path)) { return }
+      if ($i -lt $Tries) { Start-Sleep -Milliseconds 300 }
     }
-    if (Test-Path -LiteralPath $Path) {
-      Fail "could not remove $Path. Close programs that use Open3DJ (an MCP client such as Claude Desktop, or a running open3dj view) and run this again."
-    }
+    Fail "could not remove $Path. Close programs that use Open3DJ (an MCP client such as Claude Desktop, or a running open3dj view) and run this again."
   }
 
   # A git ref the way git check-ref-format allows it, within a safe character set. No '..', so
