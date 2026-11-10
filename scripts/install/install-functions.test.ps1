@@ -67,11 +67,33 @@ if ($IsWin) {
     $renameFailed = $false
     try { Rename-Item -LiteralPath $nodeDir 'node.removing' } catch { $renameFailed = $true }
     $threw = $false
-    try { Remove-Tree $busy } catch { $threw = $true }
+    try { Remove-Tree $busy 2 } catch { $threw = $true }
     $out.busy = [ordered]@{ renameFailed = $renameFailed; threw = $threw; markerKept = Test-Path -LiteralPath (Join-Path $busy '.open3dj-install') }
   } finally { $fs.Dispose() }
   Remove-Tree $busy
   $out.busy.removedAfterClose = -not (Test-Path -LiteralPath $busy)
+}
+
+# ---- a file in use for a moment: Remove-Tree waits for it (Windows only) ----------------------
+# Another process holds a file for 1.2 s, as a just-run node.exe or a virus scan can, and
+# Remove-Tree starts while it is held. Seen on Windows arm64 CI (#53, #57).
+if ($IsWin) {
+  $brief = New-Dir (Join-Path $base 'busy-briefly')
+  New-File (Join-Path $brief '.open3dj-install') 'marker'
+  $held = Join-Path (New-Dir (Join-Path $brief 'node')) 'node.exe'
+  New-File $held 'x'
+  $ready = Join-Path $base 'busy-briefly.ready'
+  $q = { param($p) "'" + $p.Replace("'", "''") + "'" }
+  $cmd = "`$f = [IO.File]::Open($(& $q $held), 'Open', 'Read', 'None'); [IO.File]::WriteAllText($(& $q $ready), 'x'); Start-Sleep -Milliseconds 1200; `$f.Dispose()"
+  $enc = [Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($cmd))
+  $holder = Start-Process -FilePath (Get-Process -Id $PID).Path -ArgumentList '-NoProfile', '-NonInteractive', '-EncodedCommand', $enc -PassThru -WindowStyle Hidden
+  $deadline = (Get-Date).AddSeconds(30)
+  while (-not (Test-Path -LiteralPath $ready) -and (Get-Date) -lt $deadline) { Start-Sleep -Milliseconds 50 }
+  $heldAtStart = Test-Path -LiteralPath $ready
+  $threw = $false
+  try { Remove-Tree $brief } catch { $threw = $true }
+  $out.briefly = [ordered]@{ heldAtStart = $heldAtStart; threw = $threw; removed = -not (Test-Path -LiteralPath $brief) }
+  $holder.WaitForExit()
 }
 
 # ---- Rename-WithRetry: a free folder renames; a busy one fails after its tries, then renames --
