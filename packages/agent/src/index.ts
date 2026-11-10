@@ -1,9 +1,9 @@
 // @open3dj/agent: the agent panel of open3dj view (RFC 0001). It holds the tool entries for
 // the Messages API, the mapping of tool results, the system prompt, Engine A (a client for
 // the Messages API over fetch, a server-sent-events parser, a stream accumulator, the model
-// list and the turn loop), and the records the session will keep: approval cards, the budget
-// ledger and the egress log. The session itself comes next; nothing in open3dj view calls
-// this package yet. It never loads the kernel.
+// list and the turn loop), and the session around the engines: approval cards, the budget
+// ledger, the egress log and the event log with replay. Nothing in open3dj view calls this
+// package yet. It never loads the kernel.
 import type { PackageStatus } from "@open3dj/schemas";
 
 export type * from "./types.ts";
@@ -28,6 +28,8 @@ export { BudgetLedger, DEFAULT_INPUT_BUDGET, DEFAULT_OUTPUT_BUDGET } from "./led
 export type { BudgetCaps, LedgerSnapshot } from "./ledger.ts";
 export { EgressLog } from "./egress-log.ts";
 export type { EgressRecord } from "./egress-log.ts";
+export { AgentSession, MAX_PROMPT_CHARS, MAX_TRANSCRIPT_BYTES, RING_BYTES, RING_EVENTS } from "./session.ts";
+export type { AgentSessionOptions, AgentSnapshot, DecisionResult, PromptInput, PromptResult, SessionError, SessionErrorCode, ToolStepResult, TranscriptEntry } from "./session.ts";
 
 /** "ready" since Engine A runs a turn (RFC 0001, plan step B4). */
 export const PACKAGE_STATUS: PackageStatus = "ready";
