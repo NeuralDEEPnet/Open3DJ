@@ -1,0 +1,7 @@
+corpus: 14 of 15 defects have an in-region counterexample that fails builds, status, valid, a gate or a clash check; the rest: d13-key-drift (fails only key-gap)
+flange: 20 counterexamples; 20 fail a brief-free check; 0 of the other 0 change the event signature (counts, fits or gate verdicts) from nominal; brief-only assertions none
+box-with-lid: 35 counterexamples; 34 fail a brief-free check; 1 of the other 1 change the event signature (counts, fits or gate verdicts) from nominal; brief-only assertions lip-gap
+bracket: 23 counterexamples; 22 fail a brief-free check; 1 of the other 1 change the event signature (counts, fits or gate verdicts) from nominal; brief-only assertions edges
+knob: 19 counterexamples; 0 fail a brief-free check; 19 of the other 19 change the event signature (counts, fits or gate verdicts) from nominal; brief-only assertions size-z
+tapered-cup: 9 counterexamples; 9 fail a brief-free check; 0 of the other 0 change the event signature (counts, fits or gate verdicts) from nominal; brief-only assertions none
+vented-box: 30 counterexamples; 16 fail a brief-free check; 14 of the other 14 change the event signature (counts, fits or gate verdicts) from nominal; brief-only assertions edges, faces

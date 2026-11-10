@@ -1,0 +1,17 @@
+tapered-cup H 30 W 1.2: analytic fillet web 0.704 mm, gate reads 0.693 mm
+tapered-cup H 120 W 1.2: analytic fillet web 0.533 mm, gate reads 0.531 mm
+tapered-cup H 70 W 1.2: analytic fillet web 0.582 mm, gate reads 0.569 mm
+tapered-cup H 98.3558 W 1.266949: analytic fillet web 0.640 mm, gate reads 0.638 mm
+tapered-cup H 50 W 1.2: analytic fillet web 0.625 mm, gate reads 0.612 mm
+tapered-cup H 60 W 1.2: analytic fillet web 0.601 mm, gate reads 0.588 mm
+tapered-cup H 65 W 1.2: analytic fillet web 0.591 mm, gate reads 0.578 mm
+tapered-cup H 65.625 W 1.3625: analytic fillet web 0.806 mm, gate reads 0.793 mm
+tapered-cup H 65.3125 W 1.28125: analytic fillet web 0.698 mm, gate reads 0.686 mm
+tapered-cup: largest |gate - analytic| 0.013 mm over the failing points
+tapered-cup H 30: the fillet web is under the 0.84 mm fail line for Wall below 1.309 mm
+tapered-cup H 50: the fillet web is under the 0.84 mm fail line for Wall below 1.365 mm
+tapered-cup H 70: the fillet web is under the 0.84 mm fail line for Wall below 1.393 mm
+tapered-cup H 90: the fillet web is under the 0.84 mm fail line for Wall below 1.409 mm
+tapered-cup H 120: the fillet web is under the 0.84 mm fail line for Wall below 1.424 mm
+tapered-cup nominal (H 70, W 2.5): analytic fillet web 2.319 mm
+knob: min_wall fails at 56 of 56 points with Flutes > 0 (readings 0.004 to 0.079 mm) and at 0 of 8 points with Flutes 0

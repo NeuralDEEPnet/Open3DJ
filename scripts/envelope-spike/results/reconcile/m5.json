@@ -1,0 +1,7 @@
+{
+ "note": "Reconciliation re-run of M5 (no audit had run the 4-worker configurations). Enclosure brief, budget 64, seed 1, one process per configuration, run one after the other on an otherwise idle 4-core, 15 GiB Linux x64 container under Node v24.22.1, timed from the shell around each process (pool start included), on 2026-11-10. Command: node scripts/envelope-spike.ts certify scripts/envelope-spike/briefs/enclosure.brief.json --budget 64 --seed 1 --workers W --lane L --jobs 1 --out DIR. Every certificate written is byte-identical (cmp) to results/certs/enclosure.cert.json.",
+ "w4-interactive": { "workers": 4, "lane": "interactive", "process_wall_s": 37.59, "builder_s": 33.94, "certificate_byte_identical": true },
+ "w4-batch": { "workers": 4, "lane": "batch", "usable_workers": 3, "process_wall_s": 45.42, "builder_s": 42.22, "certificate_byte_identical": true },
+ "w1-batch": { "workers": 1, "lane": "batch", "process_wall_s": 108.84, "builder_s": 101.84, "certificate_byte_identical": true },
+ "budget32_guided": "The budget-32 guided run scored in score-budget32.txt: node scripts/envelope-spike.ts certify <the 15 corpus defect briefs> --budget 32 --seed 1 --workers 4 --lane interactive --jobs 4 --out <dir>, then node scripts/envelope-spike/reconcile.ts score <dir>. Exploratory: budget 32 was not pre-registered. Its certificates are not committed; the run is deterministic and regenerates them."
+}

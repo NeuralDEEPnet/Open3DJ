@@ -1,0 +1,12 @@
+budget 64, seeds 1-10: per seed 13,14,13,14,13,14,14,14,9,14; mean 88.0%
+budget 64, seeds 11-20: per seed 10,12,10,12,13,12,14,14,14,13; mean 82.7%
+budget 64, seeds 1-20: mean 85.3%
+budget 64, seeds 1-10000: expected 87.32%; per-seed sd 8.3 points; 10-seed standard error 2.6 points; disjoint 10-seed blocks where 100% guided is 15 points or more ahead: 183 of 1000
+budget 16: expected random rate over seeds 1-2000 58.7%
+budget 24: expected random rate over seeds 1-2000 69.5%
+budget 32: expected random rate over seeds 1-2000 76.1%
+budget 48: expected random rate over seeds 1-2000 83.5%
+budget 128: expected random rate over seeds 1-2000 92.3%
+corners (the first 24, as the guided search caps them at budget 64) then 40 uniform points, seeds 1-2000: 98.6%
+corners, special points, then uniform points up to 64, seeds 1-2000: 99.4%
+per defect, uniform random at 64, seeds 1-2000: d01 100.0%, d02 75.8%, d03 93.0%, d04 81.3%, d05 94.7%, d06 99.8%, d07 94.5%, d08 71.2%, d09 100.0%, d10 97.8%, d11 100.0%, d12 99.5%, d13 99.4%, d14 2.1%, d15 99.9%

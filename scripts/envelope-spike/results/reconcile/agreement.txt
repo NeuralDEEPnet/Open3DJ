@@ -1,0 +1,16 @@
+d01-plate-hole-pitch: random points inside the region 67, of which pass on the kernel 0; outside the region but failing 0; seeds where region and kernel disagree on found 0
+d02-blind-pocket: random points inside the region 18, of which pass on the kernel 0; outside the region but failing 0; seeds where region and kernel disagree on found 0
+d03-fillet-corners: random points inside the region 30, of which pass on the kernel 0; outside the region but failing 0; seeds where region and kernel disagree on found 0
+d04-bolt-circle-count: random points inside the region 18, of which pass on the kernel 0; outside the region but failing 0; seeds where region and kernel disagree on found 0
+d05-shuttle-post: random points inside the region 25, of which pass on the kernel 0; outside the region but failing 0; seeds where region and kernel disagree on found 0
+d06-slot-near-hole: random points inside the region 57, of which pass on the kernel 10; outside the region but failing 0; seeds where region and kernel disagree on found 0
+d07-pin-bushing: random points inside the region 32, of which pass on the kernel 0; outside the region but failing 0; seeds where region and kernel disagree on found 0
+d08-vent-bool: random points inside the region 8, of which pass on the kernel 0; outside the region but failing 0; seeds where region and kernel disagree on found 0
+d09-rotor-stop: random points inside the region 111, of which pass on the kernel 0; outside the region but failing 0; seeds where region and kernel disagree on found 0
+d10-screw-boss-choice: random points inside the region 47, of which pass on the kernel 0; outside the region but failing 0; seeds where region and kernel disagree on found 0
+d11-hole-diagonal: random points inside the region 77, of which pass on the kernel 0; outside the region but failing 0; seeds where region and kernel disagree on found 0
+d12-swing-arm: random points inside the region 52, of which pass on the kernel 0; outside the region but failing 0; seeds where region and kernel disagree on found 0
+d13-key-drift: random points inside the region 58, of which pass on the kernel 0; outside the region but failing 0; seeds where region and kernel disagree on found 0
+d14-side-port: random points inside the region 0, of which pass on the kernel 0; outside the region but failing 0; seeds where region and kernel disagree on found 0
+d15-wall-boss: random points inside the region 57, of which pass on the kernel 0; outside the region but failing 0; seeds where region and kernel disagree on found 0
+misses by seed (seeds 1-10): 1: 2 (d08 d14); 2: 1 (d14); 3: 2 (d08 d14); 4: 1 (d14); 5: 2 (d08 d14); 6: 1 (d14); 7: 1 (d14); 8: 1 (d14); 9: 6 (d02 d03 d04 d07 d08 d14); 10: 1 (d14)

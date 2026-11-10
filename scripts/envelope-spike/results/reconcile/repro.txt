@@ -1,0 +1,97 @@
+v24.22.1
+### gates flange.o3j.js
+gates fdm.v1 (build 0, 0, 1; bed 220 x 220 x 250 mm): pass, 0 open, 0 waived
+  flange  pass watertight, min_wall, overhang, bed  (thinnest wall 5.99 mm, 74804 rays)
+### run flange.o3j.js --param Diameter=52
+ok  r_0002  1 occurrence, 1 definition, 23.14 g, 51.92 x 52 x 20 mm
+  flange  valid    18662.06 mm3  51.92 x 52 x 20 mm  1 solid, 20 faces
+### gates flange.o3j.js --param Diameter=52
+gates fdm.v1 (build 0, 0, 1; bed 220 x 220 x 250 mm): fail, 1 open, 0 waived
+  flange  pass watertight, overhang, bed  (thinnest wall 0.006 mm, 42450 rays)
+    FAIL min_wall  0.006 against 0.8 at face:7  waivable by an agent, with a reason: Thinner than the 0.8 mm limit: thinnest wall 0.006 mm from 42450 rays on 12 faces (faces lists the 8 thinnest walls).
+### gates flange.o3j.js --param Diameter=56
+gates fdm.v1 (build 0, 0, 1; bed 220 x 220 x 250 mm): fail, 1 open, 0 waived
+  flange  pass watertight, overhang, bed  (thinnest wall 0.692 mm, 48166 rays)
+    FAIL min_wall  0.692 against 0.8 at face:5  waivable by an agent, with a reason: Thinner than the 0.8 mm limit: thinnest wall 0.692 mm from 48166 rays on 7 faces.
+### run box-with-lid.o3j.js --param Clearance=0.25
+ok  r_0001  2 occurrences, 2 definitions, 39.07 g, 70 x 50 x 33 mm
+  base  valid    19676.11 mm3  70 x 50 x 30 mm  1 solid, 19 faces
+  lid   valid    11828.67 mm3  70 x 50 x 7 mm  1 solid, 28 faces
+  clearance  base / lid  0.25 mm (measured) beside a mated seat
+### run box-with-lid.o3j.js --param Clearance=0
+ok  r_0002  2 occurrences, 2 definitions, 39.08 g, 70 x 50 x 33 mm
+  base  valid    19676.11 mm3  70 x 50 x 30 mm  1 solid, 19 faces
+  lid   valid    11838.25 mm3  70 x 50 x 7 mm  1 solid, 28 faces
+### run box-with-lid.o3j.js --param Clearance=0.6
+ok  r_0003  2 occurrences, 2 definitions, 39.05 g, 70 x 50 x 33 mm
+  base  valid    19676.11 mm3  70 x 50 x 30 mm  1 solid, 19 faces
+  lid   valid    11814.54 mm3  70 x 50 x 7 mm  1 solid, 28 faces
+### run box-with-lid.o3j.js --param Clearance=-0.3
+warning  r_0004  2 occurrences, 2 definitions, 39.09 g, 70 x 50 x 33 mm
+  base  valid    19676.11 mm3  70 x 50 x 30 mm  1 solid, 19 faces
+  lid   valid    11850.32 mm3  70 x 50 x 7 mm  1 solid, 28 faces
+  clash      base / lid  265.811 mm3 (measured)
+### run bracket.o3j.js --param Thickness=2
+error KERNEL_FILLET_FAILED at bracket.o3j.js:20:8: fillet failed: operation failed (the kernel named no edge; elements lists the 7 edges asked for)
+  op: fillet
+  elements: edge:5, edge:7, edge:14, edge:19, edge:22, edge:32, edge:39
+### run bracket.o3j.js --param Thickness=2.125
+ok  r_0001  1 occurrence, 1 definition, 7.75 g, 40 x 35 x 35 mm
+  bracket  valid    6248.71 mm3  40 x 35 x 35 mm  1 solid, 26 faces
+### run bracket-r09.o3j.js --param Thickness=2
+ok  r_0001  1 occurrence, 1 definition, 7.32 g, 40 x 35 x 35 mm
+  bracket  valid    5903 mm3  40 x 35 x 35 mm  1 solid, 26 faces
+### counts bracket.o3j.js
+  solids:1 faces:26 edges:64
+### counts bracket.o3j.js --param Width=100 --param Leg=20 --param Thickness=10 --param Screw=M5
+  solids:1 faces:26 edges:84
+### counts bracket.o3j.js --param Width=100 --param Leg=21 --param Thickness=10 --param Screw=M5
+  solids:1 faces:26 edges:64
+### gates bracket.o3j.js --param Width=24 --param Leg=80 --param Thickness=10 --param Screw=M5
+gates fdm.v1 (build 0, 0, 1; bed 220 x 220 x 250 mm): fail, 2 open, 0 waived
+  bracket  pass watertight, bed  (thinnest wall 0.751 mm, 65181 rays)
+    FAIL min_wall  0.751 against 0.8 at face:21  waivable by an agent, with a reason: Thinner than the 0.8 mm limit: thinnest wall 0.751 mm from 65181 rays on 8 faces.
+### gates knob.o3j.js
+gates fdm.v1 (build 0, 0, 1; bed 220 x 220 x 250 mm): fail, 2 open, 0 waived
+  knob  pass watertight, bed  (thinnest wall 0.076 mm, 21595 rays)
+    FAIL min_wall  0.076 against 0.8 at face:34  waivable by an agent, with a reason: Thinner than the 0.8 mm limit: thinnest wall 0.076 mm from 21595 rays on 25 faces (faces lists the 8 thinnest walls).
+### gates knob-short-flute.o3j.js
+gates fdm.v1 (build 0, 0, 1; bed 220 x 220 x 250 mm): fail, 1 open, 0 waived
+  knob  pass watertight, min_wall, bed  (thinnest wall 1.072 mm, 21501 rays)
+### run knob.o3j.js --param Height=12
+ok  r_0002  1 occurrence, 1 definition, 9.7 g, 32 x 32 x 11.97 mm
+  knob  valid    7823.92 mm3  32 x 32 x 11.97 mm  1 solid, 45 faces
+### run knob.o3j.js --param Height=12.25
+ok  r_0003  1 occurrence, 1 definition, 9.94 g, 32 x 32 x 12.25 mm
+  knob  valid    8017.65 mm3  32 x 32 x 12.25 mm  1 solid, 46 faces
+### gates tapered-cup.o3j.js
+gates fdm.v1 (build 0, 0, 1; bed 220 x 220 x 250 mm): fail, 1 open, 0 waived
+  cup  pass watertight, min_wall, bed  (thinnest wall 2.307 mm, 95119 rays)
+### gates tapered-cup.o3j.js --param Height=120 --param Wall=1.2
+gates fdm.v1 (build 0, 0, 1; bed 220 x 220 x 250 mm): fail, 2 open, 0 waived
+  cup  pass watertight, bed  (thinnest wall 0.531 mm, 99783 rays)
+    FAIL min_wall  0.531 against 0.8 at face:7  waivable by an agent, with a reason: Thinner than the 0.8 mm limit: thinnest wall 0.531 mm from 99783 rays on 5 faces.
+### gates tapered-cup.o3j.js --param Height=70 --param Wall=1.35
+gates fdm.v1 (build 0, 0, 1; bed 220 x 220 x 250 mm): fail, 2 open, 0 waived
+  cup  pass watertight, bed  (thinnest wall 0.77 mm, 95623 rays)
+    FAIL min_wall (marginal)  0.77 against 0.8 at face:7  waivable by an agent, with a reason: Within the 0.8 mm limit plus or minus 0.04 mm: thinnest wall 0.77 mm from 95623 rays on 4 faces.
+### gates tapered-cup.o3j.js --param Height=70 --param Wall=1.45
+gates fdm.v1 (build 0, 0, 1; bed 220 x 220 x 250 mm): fail, 1 open, 0 waived
+  cup  pass watertight, min_wall, bed  (thinnest wall 0.903 mm, 95599 rays)
+### gates vented-box.o3j.js
+gates fdm.v1 (build 0, 0, 1; bed 220 x 220 x 250 mm): fail, 1 open, 0 waived
+  vented_box  pass watertight, min_wall, bed  (thinnest wall 1.991 mm, 99775 rays)
+### gates vented-box.o3j.js --param Height=32
+gates fdm.v1 (build 0, 0, 1; bed 220 x 220 x 250 mm): fail, 2 open, 0 waived
+  vented_box  pass watertight, bed  (thinnest wall 0.5 mm, 96370 rays)
+    FAIL min_wall  0.5 against 0.8 at face:4  waivable by an agent, with a reason: Thinner than the 0.8 mm limit: thinnest wall 0.5 mm from 96370 rays on 19 faces (faces lists the 8 thinnest walls).
+### counts vented-box.o3j.js
+  solids:1 faces:167 edges:492
+### counts vented-box.o3j.js --param Height=25
+  solids:1 faces:130 edges:384
+### gates vented-box.o3j.js --param Width=66.4
+gates fdm.v1 (build 0, 0, 1; bed 220 x 220 x 250 mm): fail, 2 open, 0 waived
+  vented_box  pass watertight, bed  (thinnest wall 0.028 mm, 97861 rays)
+    FAIL min_wall  0.028 against 0.8 at face:65  waivable by an agent, with a reason: Thinner than the 0.8 mm limit: thinnest wall 0.028 mm from 97861 rays on 22 faces (faces lists the 8 thinnest walls).
+### counts vented-box.o3j.js --param Width=66.4
+  solids:1 faces:159 edges:564
