@@ -83,7 +83,7 @@ async function withEngine(fn: (h: Harness) => Promise<void>, opts: { slowMs?: nu
   } finally {
     await engine.close();
     await api.close();
-    rmSync(root, { recursive: true, force: true });
+    rmSync(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 }
 
