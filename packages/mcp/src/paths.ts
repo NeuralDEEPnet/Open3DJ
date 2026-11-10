@@ -94,9 +94,9 @@ export function safeSegments(relPath: string): string[] {
 }
 
 /** Create (or check) a folder inside the project, refusing symlinked folders on the way. */
-export function ensureDir(project: ProjectDir, relDir: string): string {
+export function ensureDir(project: ProjectDir, relDir: string, mkdir: (dir: string) => void = mkdirSync): string {
   let p = project.dir;
-  ensureProjectRoot(project);
+  ensureProjectRoot(project, mkdir);
   for (const s of safeSegments(relDir)) {
     p = join(p, s);
     try {
@@ -105,20 +105,35 @@ export function ensureDir(project: ProjectDir, relDir: string): string {
       if (!st.isDirectory()) throw new ToolError("PATH_REFUSED", `${relLabel(project, p)} exists and is not a folder`);
     } catch (e) {
       if (e instanceof ToolError) throw e;
-      mkdirSync(p);
+      makeFolder(p, mkdir, () => new ToolError("PATH_REFUSED", `${relLabel(project, p)} exists and is not a folder`));
     }
   }
   return p;
 }
 
 /** The project folder itself: create it if missing. */
-export function ensureProjectRoot(project: ProjectDir): void {
+export function ensureProjectRoot(project: ProjectDir, mkdir: (dir: string) => void = mkdirSync): void {
   try {
     const st = lstatSync(project.dir);
     if (st.isSymbolicLink() || !st.isDirectory()) throw new ToolError("PATH_REFUSED", `${project.label} is not a real folder`);
   } catch (e) {
     if (e instanceof ToolError) throw e;
-    mkdirSync(project.dir);
+    makeFolder(project.dir, mkdir, () => new ToolError("PATH_REFUSED", `${project.label} is not a real folder`));
+  }
+}
+
+/**
+ * mkdir after a check found nothing there. Another process can create the same folder in
+ * between (two processes opening one new project), and that folder is accepted; a symlink or a
+ * file made in between is refused, as the check would have refused it.
+ */
+function makeFolder(dir: string, mkdir: (dir: string) => void, refused: () => ToolError): void {
+  try {
+    mkdir(dir);
+  } catch (e) {
+    if ((e as NodeJS.ErrnoException).code !== "EEXIST") throw e;
+    const st = lstatSync(dir);
+    if (st.isSymbolicLink() || !st.isDirectory()) throw refused();
   }
 }
 
@@ -164,8 +179,11 @@ export function writeProjectFile(project: ProjectDir, relPath: string, data: str
   return target;
 }
 
-/** Error codes Windows gives while another process holds the target of a rename open. */
-const RENAME_BUSY = new Set(["EPERM", "EACCES", "EBUSY"]);
+/**
+ * Error codes Windows gives while another process holds a file open, or while a file of that
+ * name is still being deleted: for the target of a rename, and for the project lock file.
+ */
+const WINDOWS_BUSY = new Set(["EPERM", "EACCES", "EBUSY"]);
 
 /**
  * renameSync that waits for readers on Windows. Windows refuses to replace a file that another
@@ -186,7 +204,7 @@ export function renameWithRetry(
       return;
     } catch (e) {
       const code = (e as NodeJS.ErrnoException).code;
-      if (platform !== "win32" || code === undefined || !RENAME_BUSY.has(code) || waited >= retryMs) throw e;
+      if (platform !== "win32" || code === undefined || !WINDOWS_BUSY.has(code) || waited >= retryMs) throw e;
     }
     sleep(delay);
     waited += delay;
@@ -198,22 +216,47 @@ function sleepSync(ms: number): void {
   Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
 }
 
+/** Create the lock file exclusively and write who holds it. */
+function createLockFile(file: string): void {
+  const fd = openSync(file, constants.O_WRONLY | constants.O_CREAT | constants.O_EXCL | NOFOLLOW, 0o644);
+  try {
+    writeSync(fd, `${process.pid} ${new Date().toISOString()}\n`);
+  } finally {
+    closeSync(fd);
+  }
+}
+
+/** The lock's options; tests replace the file calls and the platform. */
+export interface LockOptions {
+  platform?: NodeJS.Platform;
+  create?: (file: string) => void;
+  remove?: (file: string) => void;
+  sleep?: (ms: number) => void;
+}
+
 /**
  * Take the project's lock file (created with O_EXCL), waiting up to waitMs. Returns the
  * release function. A lock older than 30 s is taken over: its holder died mid-commit.
+ * On Windows, creating or removing the lock file can fail for a moment with EPERM, EACCES or
+ * EBUSY while another process deletes it or holds it open; that is a busy lock, waited for
+ * like an existing one. If it lasts the whole wait, that error is thrown, since it is then
+ * more likely a real permission problem than a busy project.
  */
-export async function lockProject(project: ProjectDir, waitMs = 15_000): Promise<() => void> {
+export async function lockProject(project: ProjectDir, waitMs = 15_000, options: LockOptions = {}): Promise<() => void> {
+  const { platform = process.platform, create = createLockFile, remove = (f: string) => rmSync(f, { force: true }), sleep = sleepSync } = options;
+  const busy = (code: string | undefined) => platform === "win32" && code !== undefined && WINDOWS_BUSY.has(code);
   ensureProjectRoot(project);
   const file = join(project.dir, LOCK_FILE);
   const end = Date.now() + waitMs;
+  let refused: unknown;
   for (let delay = 2; ; delay = Math.min(delay * 2, 50)) {
     try {
-      const fd = openSync(file, constants.O_WRONLY | constants.O_CREAT | constants.O_EXCL | NOFOLLOW, 0o644);
-      writeSync(fd, `${process.pid} ${new Date().toISOString()}\n`);
-      closeSync(fd);
-      return () => rmSync(file, { force: true });
+      create(file);
+      return () => releaseLock(file, busy, remove, sleep);
     } catch (e) {
-      if ((e as NodeJS.ErrnoException).code !== "EEXIST") throw e;
+      const code = (e as NodeJS.ErrnoException).code;
+      if (code !== "EEXIST" && !busy(code)) throw e;
+      refused = code === "EEXIST" ? undefined : e;
     }
     // Something other than a lock file at the lock path (an export folder, a cloned entry)
     // can never be taken over: say so now instead of waiting and reporting a busy project.
@@ -232,9 +275,25 @@ export async function lockProject(project: ProjectDir, waitMs = 15_000): Promise
       // released in the meantime
     }
     if (Date.now() > end) {
+      if (refused !== undefined) throw refused;
       throw new ToolError("PROJECT_BUSY", `${project.label} is being changed by another process`, `Try again. If no other open3dj process is running, delete ${project.label}/${LOCK_FILE}.`);
     }
     await new Promise((r) => setTimeout(r, delay));
+  }
+}
+
+/** Remove the lock file, trying again for up to 3 s while Windows reports it busy. */
+function releaseLock(file: string, busy: (code: string | undefined) => boolean, remove: (file: string) => void, sleep: (ms: number) => void): void {
+  let waited = 0;
+  for (let delay = 1; ; delay = Math.min(delay * 2, 100)) {
+    try {
+      remove(file);
+      return;
+    } catch (e) {
+      if (!busy((e as NodeJS.ErrnoException).code) || waited >= 3_000) throw e;
+    }
+    sleep(delay);
+    waited += delay;
   }
 }
 

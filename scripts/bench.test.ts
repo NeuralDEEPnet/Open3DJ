@@ -6,12 +6,12 @@
 import { after, test } from "node:test";
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
-import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, symlinkSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { createPool } from "@open3dj/compute";
 import type { GeometryReport } from "@open3dj/schemas";
-import { CANARY, ROOT, checkRun, evaluate, evaluateAll, glob, leakIn, lintTask, loadTask, loadTasks, meets, poolRunner, runOnPool, solutionOf, summarizeRuns, turnedScript, validateTask } from "../bench/lib.ts";
+import { CANARY, ROOT, checkRun, evaluate, evaluateAll, glob, leakIn, lintTask, loadTask, loadTasks, meets, poolRunner, runOnPool, solutionOf, specialEntries, summarizeRuns, turnedScript, validateTask } from "../bench/lib.ts";
 import type { Assertion, LoadedTask, Outcome, RunGrade } from "../bench/lib.ts";
 import { evaluate as evaluateLanes, validatePolicy } from "./automerge/policy.ts";
 import type { ChangedFile } from "./automerge/policy.ts";
@@ -177,6 +177,36 @@ test("grade --runs reports a run that read the task files as suspect, and a run 
     ]);
   } finally {
     rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+// A maintainer re-grades a stranger's run folders (LEADERBOARD.md). The grader reads and writes
+// them outside the sandbox, so a symbolic link in them could point a read or the grades.json
+// write at any file the maintainer can reach.
+test("grade --runs refuses a run folder that holds a symbolic link, before it reads or writes anything", (t) => {
+  const dir = mkdtempSync(join(tmpdir(), "o3j-runs-"));
+  const outside = mkdtempSync(join(tmpdir(), "o3j-outside-"));
+  try {
+    const victim = join(outside, "victim.txt");
+    writeFileSync(victim, "precious\n");
+    const project = join(dir, "reg-bracket", "run-1", "solution.o3j");
+    mkdirSync(project, { recursive: true });
+    writeFileSync(join(project, "main.o3j.js"), "// a script\n");
+    try {
+      symlinkSync(victim, join(dir, "grades.json"));
+      symlinkSync(victim, join(dir, "reg-bracket", "run-1", "transcript.jsonl"));
+    } catch (e) {
+      if ((e as NodeJS.ErrnoException).code === "EPERM") return t.skip("this account may not create symbolic links");
+      throw e;
+    }
+    assert.deepEqual(specialEntries(dir), ["grades.json", "reg-bracket/run-1/transcript.jsonl"]);
+    const r = spawnSync(process.execPath, [join(ROOT, "bench", "grade.ts"), "--runs", dir], { cwd: ROOT, encoding: "utf8", timeout: 120_000 });
+    assert.equal(r.status, 3, r.stdout);
+    assert.match(r.stderr, /holds 2 symbolic links or special files \(grades\.json, reg-bracket\/run-1\/transcript\.jsonl\)/);
+    assert.equal(readFileSync(victim, "utf8"), "precious\n", "the file outside the folder is untouched");
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+    rmSync(outside, { recursive: true, force: true });
   }
 });
 

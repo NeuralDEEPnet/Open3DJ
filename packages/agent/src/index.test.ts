@@ -83,6 +83,6 @@ test("Engine A runs a turn against a fake Messages API", async () => {
     await engine.close();
   } finally {
     await api.close();
-    rmSync(root, { recursive: true, force: true });
+    rmSync(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 });
