@@ -6,7 +6,7 @@
 // test counts the watcher's own pool jobs. No kernel and no browser.
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { chmodSync, lstatSync, mkdtempSync, readFileSync, readdirSync, readlinkSync, rmSync, statSync, symlinkSync, writeFileSync } from "node:fs";
+import { chmodSync, lstatSync, mkdtempSync, readFileSync, readdirSync, readlinkSync, rmSync, statSync, symlinkSync, watch, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { createHandlers } from "@open3dj/mcp";
@@ -68,6 +68,8 @@ interface BenchOptions {
   /** Script mode: part.o3j.js is a symlink to real.o3j.js. */
   link?: boolean;
   names?: { script: string; project: string; run: string };
+  /** A file watcher that never reports a change, as fs.watch can fail to on macOS. */
+  deafWatcher?: boolean;
 }
 
 async function bench(o: BenchOptions): Promise<Bench> {
@@ -105,6 +107,7 @@ async function bench(o: BenchOptions): Promise<Bench> {
     if (s.params) options.params = s.params;
     if (s.syncScript !== undefined) options.syncScript = s.syncScript;
     if (o.names) options.names = o.names;
+    if (o.deafWatcher) options.watch = (dir) => watch(dir, () => {});
     const started = await startViewServer(options);
     await started.ready;
     return started;
@@ -148,6 +151,38 @@ async function bench(o: BenchOptions): Promise<Bench> {
 }
 
 const conflicts = (b: Bench) => b.runs.filter((r) => r.error?.code === "REV_CONFLICT");
+
+// Regression (macOS CI on #56): fs.watch can miss a change or merge it with another, and the
+// viewer ran a save only when fs.watch reported it, so a missed event meant the save never ran.
+test("script mode: a save that the file watcher never reports still runs, within a poll", async () => {
+  const b = await bench({ mode: "script", deafWatcher: true });
+  try {
+    assert.equal(b.head(), "r_0001");
+    const S1b = S1.replace("box(40, 20, 4)", "box(40, 20, 5)");
+    writeFileSync(b.file, S1b);
+    await until("the poll to run the save", () => b.head() === "r_0002", 2_000);
+    assert.equal(b.rev("r_0002").script, S1b);
+    await sleep(SETTLE_MS);
+    assert.equal(b.revs(), 2, "the save runs once");
+    assert.equal(b.inputs.filter((i) => i.script === S1b).length, 1);
+  } finally {
+    await b.close();
+  }
+});
+
+test("project mode: a save of main.o3j.js that the file watcher never reports still runs, within a poll", async () => {
+  const b = await bench({ mode: "project", deafWatcher: true });
+  try {
+    writeFileSync(b.file, S2);
+    await until("the poll to run the save", () => b.head() === "r_0002", 2_000);
+    assert.equal(b.rev("r_0002").script, S2);
+    await sleep(SETTLE_MS);
+    assert.equal(b.revs(), 2, "the save runs once");
+    assert.deepEqual(conflicts(b), []);
+  } finally {
+    await b.close();
+  }
+});
 
 test("project mode: an agent's revision is not run again by the watcher, and the agent's base_rev still holds", async () => {
   const b = await bench({ mode: "project" });

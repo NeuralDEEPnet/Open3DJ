@@ -29,7 +29,8 @@
 //   joined onto a folder, so it cannot name another file.
 //
 // It watches the script and runs it again on save (debounced), and polls the project head,
-// so a revision made by an agent through open3dj mcp shows up too. A save never replaces an
+// so a revision made by an agent through open3dj mcp shows up too. The poll also looks at the
+// script itself, so a save that fs.watch did not report still runs. A save never replaces an
 // agent's revision without saying so: a script equal to the head's is not run again, every
 // watcher run passes base_rev, and in script mode an agent's revision (also one made while the
 // viewer was closed) is written back to the script while the script has no changes that did
@@ -41,7 +42,7 @@
 // agent highlights are announced on a server-sent-events stream.
 import { spawn } from "node:child_process";
 import { createHash, randomBytes, timingSafeEqual } from "node:crypto";
-import { closeSync, constants, fsyncSync, lstatSync, mkdtempSync, openSync, readFileSync, realpathSync, rmSync, watch, writeFileSync, writeSync } from "node:fs";
+import { closeSync, constants, fsyncSync, lstatSync, mkdtempSync, openSync, readFileSync, realpathSync, rmSync, statSync, watch, writeFileSync, writeSync } from "node:fs";
 import type { FSWatcher } from "node:fs";
 import { createServer } from "node:http";
 import type { IncomingMessage, ServerResponse } from "node:http";
@@ -92,6 +93,8 @@ export interface ViewServerOptions {
   debounceMs?: number;
   /** How often to check the project head for revisions made elsewhere. Default 1000 ms. */
   pollMs?: number;
+  /** Watches the script's folder. Default fs.watch; tests pass one that never reports a change. */
+  watch?: (dir: string, listener: (event: string, filename: string | null) => void) => FSWatcher;
   /** Called after every run, for the terminal. */
   onRun?: (run: RunState, out?: RunOutput) => void;
   /** Diagnostics. Default: stderr. */
@@ -683,8 +686,28 @@ export async function startViewServer(o: ViewServerOptions): Promise<ViewServer>
 
   let timer: NodeJS.Timeout | undefined;
   let watcher: FSWatcher | undefined;
+  /** The script's size, times and inode, or "" when it cannot be read. */
+  const scriptKey = (): string => {
+    try {
+      const st = statSync(scriptFile);
+      return `${st.size}:${st.mtimeMs}:${st.ctimeMs}:${st.ino}`;
+    } catch {
+      return "";
+    }
+  };
+  let scriptSeen = scriptKey();
+  // fs.watch is not consistent across platforms: on macOS a change can arrive late or be merged
+  // with another, and then a save would never run. So the poll also looks at the script and
+  // schedules a run when it changed. runScript() compares the text with the last one it ran,
+  // so a save the watcher did report is not run twice.
+  function checkScript(): void {
+    const key = scriptKey();
+    if (key === scriptSeen) return;
+    scriptSeen = key;
+    if (!pending) void schedule();
+  }
   try {
-    watcher = watch(dirname(scriptFile), (_event, filename) => {
+    watcher = (o.watch ?? watch)(dirname(scriptFile), (_event, filename) => {
       if (filename !== null && filename !== basename(scriptFile)) return;
       clearTimeout(timer);
       pending = true;
@@ -722,6 +745,7 @@ export async function startViewServer(o: ViewServerOptions): Promise<ViewServer>
   }
   const poll = setInterval(() => {
     checkHead();
+    checkScript();
     try {
       followHead();
     } catch (e) {
