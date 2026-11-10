@@ -72,7 +72,7 @@ test("install.sh parses, prints help and rejects bad options", { skip: noSh }, (
     assert.match(sh(["--prefix"], home).stderr, /--prefix needs a value/);
     assert.match(sh(["--prefix", home, "--yes"], home).stderr, /not \/ or your home folder/);
   } finally {
-    rmSync(home, { recursive: true, force: true });
+    rmSync(home, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 });
 
@@ -95,7 +95,7 @@ test("install.sh never installs into or uninstalls a folder it did not make", { 
     assert.equal(clean.status, 0, clean.stderr);
     assert.equal(read(join(home, ".profile")), "export A=1\n");
   } finally {
-    rmSync(home, { recursive: true, force: true });
+    rmSync(home, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 });
 
@@ -178,7 +178,7 @@ test("install.sh writes the PATH lines to the right profiles when HOME has space
     assert.match(linked.stderr, /is inside --source/);
     assert.ok(!existsSync(join(src, "inst-linked")));
   } finally {
-    rmSync(tmp, { recursive: true, force: true });
+    rmSync(tmp, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 });
 
@@ -234,7 +234,7 @@ for (const ps of shells.length ? shells : ["PowerShell"]) {
       assert.equal(out.shim.asciiPreamble, 0, "open3dj.cmd would start with a byte order mark");
       assert.match(out.shim.refused, /cannot hold/);
     } finally {
-      rmSync(base, { recursive: true, force: true });
+      rmSync(base, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
     }
   });
 }

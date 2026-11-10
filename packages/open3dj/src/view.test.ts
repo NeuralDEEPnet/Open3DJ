@@ -48,7 +48,7 @@ after(async () => {
   await server?.close();
   handlers?.shutdown();
   await pool?.close();
-  rmSync(dir, { recursive: true, force: true });
+  rmSync(dir, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
 });
 
 /** A request with the session cookie (unless headers name another cookie). */
@@ -408,6 +408,6 @@ test("an agent's parameter values survive a comment-only save, and a save that d
   } finally {
     await s.close();
     h.shutdown();
-    rmSync(d, { recursive: true, force: true });
+    rmSync(d, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 });

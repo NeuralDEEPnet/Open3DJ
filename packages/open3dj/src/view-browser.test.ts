@@ -139,7 +139,7 @@ test("the automatic browser open reaches the page: the redirect file's cross-sit
     opened.cleanup();
     await browser.close();
     await server.close();
-    rmSync(dir, { recursive: true, force: true });
+    rmSync(dir, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 });
 
@@ -284,6 +284,6 @@ test("the viewer shows examples/enclosure: 6 occurrences, a click selects a scre
     await server.close();
     handlers.shutdown();
     await pool.close();
-    rmSync(dir, { recursive: true, force: true });
+    rmSync(dir, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 });

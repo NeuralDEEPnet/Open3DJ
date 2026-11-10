@@ -117,7 +117,7 @@ await new Promise<void>((resolve) => {
   });
 });
 clearTimeout(killer);
-rmSync(work, { recursive: true, force: true });
+rmSync(work, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
 
 const lines = Buffer.concat(chunks).toString("utf8").split("\n").filter((l) => l.length > 0);
 const foreign = lines.filter((l) => {

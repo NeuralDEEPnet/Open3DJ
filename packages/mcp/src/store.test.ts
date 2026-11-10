@@ -26,6 +26,6 @@ test("two processes running one project never claim the same revision", async ()
     assert.equal(files.length, claimed.length, "every claimed revision has its own file");
     for (const r of results) assert.deepEqual(r.errors, [], r.who);
   } finally {
-    rmSync(root, { recursive: true, force: true });
+    rmSync(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 });
