@@ -69,7 +69,7 @@ test("the plugin carries the same skill, a manifest and an MCP config that start
     assert.deepEqual(tools, Object.keys(TOOL_DEFINITIONS).sort());
   } finally {
     await client.close();
-    rmSync(root, { recursive: true, force: true });
+    rmSync(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 });
 

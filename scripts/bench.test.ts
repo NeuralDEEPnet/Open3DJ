@@ -73,7 +73,7 @@ test("task-lint reports a task script without the canary line", () => {
     const problems = loadTask(copy, t.task.id).problems;
     assert.ok(problems.some((p) => p.includes(t.task.mutant) && p.includes("canary")), problems.join("; "));
   } finally {
-    rmSync(dir, { recursive: true, force: true });
+    rmSync(dir, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 });
 
@@ -108,7 +108,7 @@ test("checkRun reads every transcript file of a run, and the solution for the ca
     writeFileSync(script, `// ${CANARY}\nreturn box(1, 1, 1);\n`);
     assert.match(checkRun(dir, script).suspect ?? "", /main\.o3j\.js holds the o3dj-bench canary/);
   } finally {
-    rmSync(dir, { recursive: true, force: true });
+    rmSync(dir, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 });
 
@@ -176,7 +176,7 @@ test("grade --runs reports a run that read the task files as suspect, and a run 
       ["reg-flange-8", "run-1", true, 1, false], ["reg-flange-8", "run-2", true, 1, false], ["reg-flange-8", "run-3", true, 0, false],
     ]);
   } finally {
-    rmSync(dir, { recursive: true, force: true });
+    rmSync(dir, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 });
 
@@ -205,8 +205,8 @@ test("grade --runs refuses a run folder that holds a symbolic link, before it re
     assert.match(r.stderr, /holds 2 symbolic links or special files \(grades\.json, reg-bracket\/run-1\/transcript\.jsonl\)/);
     assert.equal(readFileSync(victim, "utf8"), "precious\n", "the file outside the folder is untouched");
   } finally {
-    rmSync(dir, { recursive: true, force: true });
-    rmSync(outside, { recursive: true, force: true });
+    rmSync(dir, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
+    rmSync(outside, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 });
 
@@ -403,6 +403,6 @@ test("grading a project uses the params the agent saved, over the task's params"
     writeFileSync(join(project, "params.o3j.json"), "[1, 2]");
     assert.throws(() => solutionOf(project, {}), /params\.o3j\.json/);
   } finally {
-    rmSync(dir, { recursive: true, force: true });
+    rmSync(dir, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 });

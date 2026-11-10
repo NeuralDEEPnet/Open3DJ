@@ -78,7 +78,7 @@ test("a case can be its own file in cases/, with ids unique across cases.json an
     writeFileSync(join(dir, "stray.o3j.js"), "return box(1, 1, 1);\n");
     has(checkCorpus(loadCorpus(dir), dir), "stray.o3j.js has no case");
   } finally {
-    rmSync(dir, { recursive: true, force: true });
+    rmSync(dir, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 });
 

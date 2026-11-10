@@ -24,7 +24,7 @@ async function project() {
   const store = new ProjectStore(resolveProject(root, "p.o3j"));
   const rec = store.resolve();
   const faces = faceCounts(rec.report.parts);
-  return { root, h, store, rec, faces, done: () => rmSync(root, { recursive: true, force: true }) };
+  return { root, h, store, rec, faces, done: () => rmSync(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 }) };
 }
 
 test("inspect fields=[selection] says nothing is selected, then returns what the viewer shared", async () => {
@@ -167,7 +167,7 @@ test("render view=highlight writes the pointer file for a running viewer, withou
     assert.equal(readHighlight(store)?.id, hl.id);
   } finally {
     h.shutdown();
-    rmSync(root, { recursive: true, force: true });
+    rmSync(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 });
 
