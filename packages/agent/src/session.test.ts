@@ -100,7 +100,7 @@ async function withSession(fn: (h: H) => Promise<void>, opts: Partial<AgentSessi
     events.forEach((e, i) => i > 0 && assert.equal(e.seq, events[i - 1]!.seq + 1));
   } finally {
     await session.close();
-    rmSync(dir, { recursive: true, force: true });
+    rmSync(dir, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 }
 
@@ -463,6 +463,6 @@ test("the session with the real Engine A on the fake Messages API", async () => 
     await session.close();
   } finally {
     await fake.close();
-    rmSync(root, { recursive: true, force: true });
+    rmSync(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 });
