@@ -1,9 +1,9 @@
-// @open3dj/agent: the agent panel of open3dj view (RFC 0001). So far it holds the tool
-// entries for the Messages API, the mapping of tool results, the system prompt, and the
-// parts of Engine A below its turn loop: a client for the Messages API over fetch, the model
-// list, a server-sent-events parser and the accumulator that turns stream events into the
-// final message. The turn loop, approvals and the budget ledger come in later steps; nothing
-// calls this package yet. It never loads the kernel.
+// @open3dj/agent: the agent panel of open3dj view (RFC 0001). It holds the tool entries for
+// the Messages API, the mapping of tool results, the system prompt, and Engine A: a client
+// for the Messages API over fetch, a server-sent-events parser, a stream accumulator, the
+// model list and the turn loop. Approvals, the budget ledger, the egress log and the session
+// come in the next step; nothing in open3dj view calls this package yet. It never loads the
+// kernel.
 import type { PackageStatus } from "@open3dj/schemas";
 
 export type * from "./types.ts";
@@ -20,9 +20,8 @@ export { API_VERSION, ApiError, DEFAULT_BASE_URL, KEY_PATTERN, MAX_RETRIES, MAX_
 export type { ApiClient, ApiClientOptions, RequestOptions, RetryInfo } from "./client.ts";
 export { MAX_MODEL_PAGES, MODELS_PAGE_SIZE, listModels } from "./models.ts";
 export type { ModelInfo } from "./models.ts";
+export { API_BILLING, INPUT_PREVIEW_BYTES, MIN_OUTPUT_TOKENS, STOP_GRACE_MS, createApiEngine, summarize } from "./api-engine.ts";
+export type { ApiEngineOptions, ApiMessage, ToolResultBlock, UserMessage } from "./api-engine.ts";
 
-/**
- * "stub" until Engine A runs a turn (RFC 0001, plan step B4). The helpers above are built
- * and tested now; the placeholder test in index.test.ts fails on purpose once this flips.
- */
-export const PACKAGE_STATUS: PackageStatus = "stub";
+/** "ready" since Engine A runs a turn (RFC 0001, plan step B4). */
+export const PACKAGE_STATUS: PackageStatus = "ready";

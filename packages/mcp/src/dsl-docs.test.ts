@@ -70,14 +70,17 @@ test("a bar length stated in an example comment is the length the example builds
 // Regression (review round 2): the docs tool promises that an error code gives its fix, but
 // codes such as INTERNAL_ERROR, KERNEL_TESSELLATION_FAILED and UNKNOWN_DEFINITION had no entry.
 // The emitted codes are read from the sources, so a new code without a playbook entry fails here.
+// The agent panel (packages/agent) is left out: its codes, such as NOT_RUN on a tool step, go to
+// the viewer page and never to an MCP client, and the model sees their words, not the code.
 test("every error code the daemon, pool, sandbox, DSL, assembly, render and kernel can emit has a playbook entry", () => {
   const root = fileURLToPath(new URL("../../", import.meta.url));
+  const pageOnly = join(root, "agent");
   const emitted = new Set<string>();
   const walk = (dir: string) => {
     for (const d of readdirSync(dir, { withFileTypes: true })) {
       const p = join(dir, d.name);
       if (d.isDirectory()) {
-        if (d.name !== "node_modules") walk(p);
+        if (d.name !== "node_modules" && p !== pageOnly) walk(p);
       } else if (/\.ts$/.test(d.name) && !/\.(test|testing)\.ts$/.test(d.name) && p.includes(`${sep}src${sep}`)) {
         const text = readFileSync(p, "utf8");
         const re = /(?:new (?:DslError|AssemblyError|RenderError|ToolError|StickyFault)\(|hostError\(|fail\(|code: )"([A-Z][A-Z0-9_]+)"/g;
