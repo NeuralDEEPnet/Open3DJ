@@ -402,7 +402,7 @@ export function runOnCli(scriptPath: string, params: Record<string, ParamValue>)
     const report: GeometryReport = { ...(out.report as GeometryReport), status: out.status === "queued" ? "error" : out.status, rev: out.rev ?? "r_0001", compute: out.compute };
     return { ok: true, outcome: { report, occurrences }, ms: Math.round(performance.now() - t) };
   } finally {
-    rmSync(tmp, { recursive: true, force: true });
+    rmSync(tmp, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 }
 
@@ -619,7 +619,7 @@ export const cliRunner: Runner = async (scriptPath, params, turn) => {
     writeFileSync(file, turnedScript(readFileSync(scriptPath, "utf8"), turn));
     return runOnCli(file, params);
   } finally {
-    rmSync(dir, { recursive: true, force: true });
+    rmSync(dir, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 };
 

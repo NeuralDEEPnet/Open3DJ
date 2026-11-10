@@ -24,7 +24,7 @@ before(async () => {
   dir = await mkdtemp(join(tmpdir(), "open3dj-export-"));
 });
 after(async () => {
-  await rm(dir, { recursive: true, force: true });
+  await rm(dir, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
 });
 
 const text = (a: ExportArtifact | undefined) => new TextDecoder().decode(a!.bytes);

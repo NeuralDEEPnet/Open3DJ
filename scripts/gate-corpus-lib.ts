@@ -214,7 +214,7 @@ export function runOnCli(c: GateCase, options: { dir?: string } = {}): CaseRun {
     if (!out.gates) return { ok: false, error: { code: out.error?.code ?? "CLI_FAILED", message: out.error?.message ?? "no gates in the output" }, ms };
     return onePart(out.gates, ms);
   } finally {
-    rmSync(tmp, { recursive: true, force: true });
+    rmSync(tmp, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 }
 

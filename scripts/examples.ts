@@ -44,7 +44,7 @@ const versions = runtimeVersions();
 const rows: string[] = [];
 const failures: string[] = [];
 for (const ex of listExamples().filter((e) => filters.length === 0 || filters.some((f) => e.name.includes(f)))) {
-  rmSync(ex.project, { recursive: true, force: true });
+  rmSync(ex.project, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   try {
     const run = must(cli(["run", ex.script, "--detailed", "--json"]), `open3dj run ${rel(ex.script)}`);
     const out = JSON.parse(run.stdout) as RunOutput;

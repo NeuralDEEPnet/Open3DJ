@@ -42,7 +42,7 @@ test("a missing SKILL.md is a clear error without local paths", () => {
     writeFileSync(file, "---\nname: x\n---\n\n# Body\n\nText.\n");
     assert.equal(systemPrompt({ skillFile: file }), `${PANEL_PREAMBLE}\n\n${INSTRUCTIONS}\n\n# Body\n\nText.`);
   } finally {
-    rmSync(dir, { recursive: true, force: true });
+    rmSync(dir, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 });
 

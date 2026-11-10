@@ -102,7 +102,7 @@ function e2e(connect: (root: string, stdoutLog: string) => Promise<AnyClient>): 
       await new Promise((r) => setTimeout(r, 500));
       assert.ok(assertOnlyJsonRpc(stdoutLog) >= 5);
     } finally {
-      rmSync(root, { recursive: true, force: true });
+      rmSync(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
     }
   };
 }

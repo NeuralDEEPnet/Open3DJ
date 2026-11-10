@@ -49,7 +49,7 @@ function cliRun(c: Config, detailed: boolean): { ms: number; bytes: number; out?
     }
     return { ms, bytes: Buffer.byteLength(r.stdout ?? ""), ...(out ? { out } : {}) };
   } finally {
-    rmSync(tmp, { recursive: true, force: true });
+    rmSync(tmp, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 }
 
