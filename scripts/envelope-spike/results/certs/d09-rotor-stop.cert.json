@@ -1,0 +1,3876 @@
+{
+ "certificate": "o3dj-envelope-cert/spike-0",
+ "brief": "d09-rotor-stop",
+ "brief_hash": "27b89838851293219c7ffeff23ea079569f3d67fc018c2a7a0659d5edd91350d",
+ "script_hash": "5da1e3668ff5a5017c71500a5f093da288b594d296f2d94f87038fa3e280dccb",
+ "inputs_hash": "b851f6023674d377b0077943bc386ab572e1c1d5e60b3a1fd76ee8ff04eecc85",
+ "engine": {
+  "occt_wasm": "5.8.1",
+  "node": "v24.22.1",
+  "analysis": "2"
+ },
+ "platform": "linux-x64",
+ "seed": 1,
+ "budget": 64,
+ "watch_mm": 0.5,
+ "verdict": "counterexample",
+ "statement": "counterexample: 10 of 64 points fail an assertion that passes at nominal",
+ "nominal_failures": [],
+ "counterexamples": [
+  9,
+  32,
+  38,
+  41,
+  48,
+  49,
+  52,
+  53,
+  55,
+  63
+ ],
+ "shrunk": 53,
+ "events": [
+  {
+   "kind": "axis",
+   "axis": "Arms",
+   "between": [
+    29,
+    30
+   ],
+   "from": {
+    "Arms": 3,
+    "Pin angle": 100,
+    "Arm length": 36
+   },
+   "to": {
+    "Arms": 4,
+    "Pin angle": 100,
+    "Arm length": 36
+   },
+   "changed": [
+    "counts: rotor:1/36/80 -> rotor:1/48/98"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Arms",
+   "between": [
+    30,
+    31
+   ],
+   "from": {
+    "Arms": 4,
+    "Pin angle": 100,
+    "Arm length": 36
+   },
+   "to": {
+    "Arms": 5,
+    "Pin angle": 100,
+    "Arm length": 36
+   },
+   "changed": [
+    "counts: rotor:1/48/98 -> rotor:1/70/152"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Arms",
+   "between": [
+    31,
+    0
+   ],
+   "from": {
+    "Arms": 5,
+    "Pin angle": 100,
+    "Arm length": 36
+   },
+   "to": {
+    "Arms": 6,
+    "Pin angle": 100,
+    "Arm length": 36
+   },
+   "changed": [
+    "counts: rotor:1/70/152 -> rotor:1/84/170"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Arms",
+   "between": [
+    0,
+    32
+   ],
+   "from": {
+    "Arms": 6,
+    "Pin angle": 100,
+    "Arm length": 36
+   },
+   "to": {
+    "Arms": 7,
+    "Pin angle": 100,
+    "Arm length": 36
+   },
+   "changed": [
+    "counts: rotor:1/84/170 -> rotor:1/112/240",
+    "fits:  -> rotor|stop|clash",
+    "status: \"ok\" -> \"warning\""
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Arms",
+   "between": [
+    32,
+    56
+   ],
+   "from": {
+    "Arms": 7,
+    "Pin angle": 100,
+    "Arm length": 36
+   },
+   "to": {
+    "Arms": 9,
+    "Pin angle": 100,
+    "Arm length": 36
+   },
+   "changed": [
+    "counts: rotor:1/112/240 -> rotor:1/162/344",
+    "fits: rotor|stop|clash -> ",
+    "status: \"warning\" -> \"ok\""
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Arms",
+   "between": [
+    56,
+    53
+   ],
+   "from": {
+    "Arms": 9,
+    "Pin angle": 100,
+    "Arm length": 36
+   },
+   "to": {
+    "Arms": 11,
+    "Pin angle": 100,
+    "Arm length": 36
+   },
+   "changed": [
+    "counts: rotor:1/162/344 -> rotor:1/220/464",
+    "fits:  -> rotor|stop|clash",
+    "status: \"ok\" -> \"warning\""
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Arms",
+   "between": [
+    1,
+    23
+   ],
+   "from": {
+    "Arms": 3,
+    "Pin angle": 66,
+    "Arm length": 32
+   },
+   "to": {
+    "Arms": 5,
+    "Pin angle": 66,
+    "Arm length": 32
+   },
+   "changed": [
+    "counts: rotor:1/36/80 -> rotor:1/70/152"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Arms",
+   "between": [
+    23,
+    14
+   ],
+   "from": {
+    "Arms": 5,
+    "Pin angle": 66,
+    "Arm length": 32
+   },
+   "to": {
+    "Arms": 6,
+    "Pin angle": 66,
+    "Arm length": 32
+   },
+   "changed": [
+    "counts: rotor:1/70/152 -> rotor:1/84/170"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Arms",
+   "between": [
+    14,
+    5
+   ],
+   "from": {
+    "Arms": 6,
+    "Pin angle": 66,
+    "Arm length": 32
+   },
+   "to": {
+    "Arms": 7,
+    "Pin angle": 66,
+    "Arm length": 32
+   },
+   "changed": [
+    "counts: rotor:1/84/170 -> rotor:1/112/240"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Arms",
+   "between": [
+    5,
+    50
+   ],
+   "from": {
+    "Arms": 7,
+    "Pin angle": 66,
+    "Arm length": 32
+   },
+   "to": {
+    "Arms": 9,
+    "Pin angle": 66,
+    "Arm length": 32
+   },
+   "changed": [
+    "counts: rotor:1/112/240 -> rotor:1/162/344"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Arms",
+   "between": [
+    50,
+    18
+   ],
+   "from": {
+    "Arms": 9,
+    "Pin angle": 66,
+    "Arm length": 32
+   },
+   "to": {
+    "Arms": 10,
+    "Pin angle": 66,
+    "Arm length": 32
+   },
+   "changed": [
+    "counts: rotor:1/162/344 -> rotor:1/180/362"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Arms",
+   "between": [
+    18,
+    9
+   ],
+   "from": {
+    "Arms": 10,
+    "Pin angle": 66,
+    "Arm length": 32
+   },
+   "to": {
+    "Arms": 11,
+    "Pin angle": 66,
+    "Arm length": 32
+   },
+   "changed": [
+    "counts: rotor:1/180/362 -> rotor:1/220/464",
+    "fits:  -> rotor|stop|clash",
+    "status: \"ok\" -> \"warning\""
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Arms",
+   "between": [
+    11,
+    2
+   ],
+   "from": {
+    "Arms": 3,
+    "Pin angle": 114,
+    "Arm length": 40
+   },
+   "to": {
+    "Arms": 4,
+    "Pin angle": 114,
+    "Arm length": 40
+   },
+   "changed": [
+    "counts: rotor:1/36/80 -> rotor:1/48/98"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Arms",
+   "between": [
+    2,
+    24
+   ],
+   "from": {
+    "Arms": 4,
+    "Pin angle": 114,
+    "Arm length": 40
+   },
+   "to": {
+    "Arms": 6,
+    "Pin angle": 114,
+    "Arm length": 40
+   },
+   "changed": [
+    "counts: rotor:1/48/98 -> rotor:1/84/170"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Arms",
+   "between": [
+    24,
+    15
+   ],
+   "from": {
+    "Arms": 6,
+    "Pin angle": 114,
+    "Arm length": 40
+   },
+   "to": {
+    "Arms": 7,
+    "Pin angle": 114,
+    "Arm length": 40
+   },
+   "changed": [
+    "counts: rotor:1/84/170 -> rotor:1/112/240"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Arms",
+   "between": [
+    15,
+    6
+   ],
+   "from": {
+    "Arms": 7,
+    "Pin angle": 114,
+    "Arm length": 40
+   },
+   "to": {
+    "Arms": 8,
+    "Pin angle": 114,
+    "Arm length": 40
+   },
+   "changed": [
+    "counts: rotor:1/112/240 -> rotor:1/128/258"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Arms",
+   "between": [
+    6,
+    19
+   ],
+   "from": {
+    "Arms": 8,
+    "Pin angle": 114,
+    "Arm length": 40
+   },
+   "to": {
+    "Arms": 11,
+    "Pin angle": 114,
+    "Arm length": 40
+   },
+   "changed": [
+    "counts: rotor:1/128/258 -> rotor:1/220/464"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Arms",
+   "between": [
+    19,
+    10
+   ],
+   "from": {
+    "Arms": 11,
+    "Pin angle": 114,
+    "Arm length": 40
+   },
+   "to": {
+    "Arms": 12,
+    "Pin angle": 114,
+    "Arm length": 40
+   },
+   "changed": [
+    "counts: rotor:1/220/464 -> rotor:1/240/482"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Arms",
+   "between": [
+    21,
+    12
+   ],
+   "from": {
+    "Arms": 3,
+    "Pin angle": 114,
+    "Arm length": 32
+   },
+   "to": {
+    "Arms": 4,
+    "Pin angle": 114,
+    "Arm length": 32
+   },
+   "changed": [
+    "counts: rotor:1/36/80 -> rotor:1/48/98"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Arms",
+   "between": [
+    12,
+    3
+   ],
+   "from": {
+    "Arms": 4,
+    "Pin angle": 114,
+    "Arm length": 32
+   },
+   "to": {
+    "Arms": 5,
+    "Pin angle": 114,
+    "Arm length": 32
+   },
+   "changed": [
+    "counts: rotor:1/48/98 -> rotor:1/70/152"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Arms",
+   "between": [
+    3,
+    16
+   ],
+   "from": {
+    "Arms": 5,
+    "Pin angle": 114,
+    "Arm length": 32
+   },
+   "to": {
+    "Arms": 8,
+    "Pin angle": 114,
+    "Arm length": 32
+   },
+   "changed": [
+    "counts: rotor:1/70/152 -> rotor:1/128/258"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Arms",
+   "between": [
+    16,
+    7
+   ],
+   "from": {
+    "Arms": 8,
+    "Pin angle": 114,
+    "Arm length": 32
+   },
+   "to": {
+    "Arms": 9,
+    "Pin angle": 114,
+    "Arm length": 32
+   },
+   "changed": [
+    "counts: rotor:1/128/258 -> rotor:1/162/344"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Arms",
+   "between": [
+    7,
+    20
+   ],
+   "from": {
+    "Arms": 9,
+    "Pin angle": 114,
+    "Arm length": 32
+   },
+   "to": {
+    "Arms": 12,
+    "Pin angle": 114,
+    "Arm length": 32
+   },
+   "changed": [
+    "counts: rotor:1/162/344 -> rotor:1/240/482"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Arms",
+   "between": [
+    22,
+    13
+   ],
+   "from": {
+    "Arms": 4,
+    "Pin angle": 66,
+    "Arm length": 40
+   },
+   "to": {
+    "Arms": 5,
+    "Pin angle": 66,
+    "Arm length": 40
+   },
+   "changed": [
+    "counts: rotor:1/48/98 -> rotor:1/70/152"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Arms",
+   "between": [
+    13,
+    4
+   ],
+   "from": {
+    "Arms": 5,
+    "Pin angle": 66,
+    "Arm length": 40
+   },
+   "to": {
+    "Arms": 6,
+    "Pin angle": 66,
+    "Arm length": 40
+   },
+   "changed": [
+    "counts: rotor:1/70/152 -> rotor:1/84/170"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Arms",
+   "between": [
+    4,
+    17
+   ],
+   "from": {
+    "Arms": 6,
+    "Pin angle": 66,
+    "Arm length": 40
+   },
+   "to": {
+    "Arms": 9,
+    "Pin angle": 66,
+    "Arm length": 40
+   },
+   "changed": [
+    "counts: rotor:1/84/170 -> rotor:1/162/344"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Arms",
+   "between": [
+    17,
+    8
+   ],
+   "from": {
+    "Arms": 9,
+    "Pin angle": 66,
+    "Arm length": 40
+   },
+   "to": {
+    "Arms": 10,
+    "Pin angle": 66,
+    "Arm length": 40
+   },
+   "changed": [
+    "counts: rotor:1/162/344 -> rotor:1/180/362"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Arms",
+   "between": [
+    25,
+    49
+   ],
+   "from": {
+    "Arms": 6,
+    "Pin angle": 66,
+    "Arm length": 36
+   },
+   "to": {
+    "Arms": 11,
+    "Pin angle": 66,
+    "Arm length": 36
+   },
+   "changed": [
+    "counts: rotor:1/84/170 -> rotor:1/220/464",
+    "fits:  -> rotor|stop|clash",
+    "status: \"ok\" -> \"warning\""
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Arms",
+   "between": [
+    27,
+    54
+   ],
+   "from": {
+    "Arms": 6,
+    "Pin angle": 100,
+    "Arm length": 32
+   },
+   "to": {
+    "Arms": 9,
+    "Pin angle": 100,
+    "Arm length": 32
+   },
+   "changed": [
+    "counts: rotor:1/84/170 -> rotor:1/162/344"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Arms",
+   "between": [
+    54,
+    48
+   ],
+   "from": {
+    "Arms": 9,
+    "Pin angle": 100,
+    "Arm length": 32
+   },
+   "to": {
+    "Arms": 11,
+    "Pin angle": 100,
+    "Arm length": 32
+   },
+   "changed": [
+    "counts: rotor:1/162/344 -> rotor:1/220/464",
+    "fits:  -> rotor|stop|clash",
+    "status: \"ok\" -> \"warning\""
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Pin angle",
+   "between": [
+    9,
+    51
+   ],
+   "from": {
+    "Arms": 11,
+    "Pin angle": 66,
+    "Arm length": 32
+   },
+   "to": {
+    "Arms": 11,
+    "Pin angle": 83,
+    "Arm length": 32
+   },
+   "changed": [
+    "fits: rotor|stop|clash -> ",
+    "status: \"warning\" -> \"ok\""
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Pin angle",
+   "between": [
+    51,
+    48
+   ],
+   "from": {
+    "Arms": 11,
+    "Pin angle": 83,
+    "Arm length": 32
+   },
+   "to": {
+    "Arms": 11,
+    "Pin angle": 100,
+    "Arm length": 32
+   },
+   "changed": [
+    "fits:  -> rotor|stop|clash",
+    "status: \"ok\" -> \"warning\""
+   ]
+  }
+ ],
+ "smallest_margins": [
+  {
+   "id": "builds",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "status",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 9
+  },
+  {
+   "id": "valid",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "occurrences",
+   "signed": 0,
+   "scale": 1,
+   "normalized": 0,
+   "at": 0
+  },
+  {
+   "id": "no-clash",
+   "signed": -2.324894726801625,
+   "scale": 0.01,
+   "normalized": -232.48947268016252,
+   "at": 9
+  }
+ ],
+ "coverage": {
+  "points": 64,
+  "phases": {
+   "nominal": 1,
+   "corner": 24,
+   "special": 8,
+   "halton": 22,
+   "shrink": 9
+  },
+  "corners_planned": 40,
+  "special_planned": 13,
+  "axes": [
+   {
+    "name": "Arms",
+    "values_seen": 10,
+    "values": 10
+   },
+   {
+    "name": "Pin angle",
+    "min_seen": 66,
+    "max_seen": 114,
+    "min": 66,
+    "max": 114
+   },
+   {
+    "name": "Arm length",
+    "min_seen": 32,
+    "max_seen": 40,
+    "min": 32,
+    "max": 40
+   }
+  ]
+ },
+ "limits": [
+  "Sampling is not proof: the brief was checked at the points listed under this model, never for all values. A thin band can hide between samples.",
+  "The gates are fdm.v1 rule checks on the kernel's geometry (watertight, 0.8 mm min_wall from rays, 45 degree overhang, bed), never a print simulation.",
+  "Fits are exact OCCT clash, contact and clearance checks within the fit watch distance; a pair with no line inside it is censored, not a measured pass.",
+  "Bit-identical replay is only claimed for the platform named here.",
+  "Fit watch distance 0.5 mm."
+ ],
+ "points": [
+  {
+   "index": 0,
+   "phase": "nominal",
+   "fresh": [],
+   "params": {
+    "Arms": 6,
+    "Pin angle": 100,
+    "Arm length": 36
+   },
+   "ok": true,
+   "report_hash": "2cfa3ca9b6b246c2f04bf011a965087adcbeda96ac17137929c26f0786671570",
+   "signature_hash": "2c94d31bde7507694baa7aed530f7707b1e05ce61cd709c99ba1a4f352e44c44",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 1,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Arms": 3,
+    "Pin angle": 66,
+    "Arm length": 32
+   },
+   "ok": true,
+   "report_hash": "ede8e690c0f927a3e1d4accaad1a86fc09b29e0ba08ab54a5003e3ba8e2249d9",
+   "signature_hash": "ad360c6181537bf887d4fe64b536a452021aed98c3a0d8c0ab3e56d0fdbf32b3",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 2,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Arms": 4,
+    "Pin angle": 114,
+    "Arm length": 40
+   },
+   "ok": true,
+   "report_hash": "4cbebee516c4f88e07a8247b2047948f0d4aa02091566aa1f6a3510f3678fa5e",
+   "signature_hash": "9ca6c07004980c45481d47205631f2ba52f9a45b876d3b476de661a5456d663e",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 3,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Arms": 5,
+    "Pin angle": 114,
+    "Arm length": 32
+   },
+   "ok": true,
+   "report_hash": "0d97b66328249fb20d92c9911524bac7c28d1cca594a522119d9cdf6fcd0d969",
+   "signature_hash": "d223e0e1a73c04a4e3b09db3cae081384afea6c90ca3f31ea18fd6fcfcd9529a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 4,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Arms": 6,
+    "Pin angle": 66,
+    "Arm length": 40
+   },
+   "ok": true,
+   "report_hash": "059c41f99f530b23081247f5d56fcd2950ea46edce8b43373d03c828816c6f3c",
+   "signature_hash": "2c94d31bde7507694baa7aed530f7707b1e05ce61cd709c99ba1a4f352e44c44",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 5,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Arms": 7,
+    "Pin angle": 66,
+    "Arm length": 32
+   },
+   "ok": true,
+   "report_hash": "7f9d8d5adfd9071c1493d4b30a8d8f1f9b20ceef5e0fc56a130585acd7238bf6",
+   "signature_hash": "0d8de30e09b48b264e4adae1d817ad06454c5d94ad01d545d11d2abcb0784bca",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 6,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Arms": 8,
+    "Pin angle": 114,
+    "Arm length": 40
+   },
+   "ok": true,
+   "report_hash": "412b4d3fcba1f049961567c6fec3a6d43b7e144169a3ffd0d092d097e938a8de",
+   "signature_hash": "b6c5f03b683026e65149cf1613e6a51bf03d508f517accdf2fd2d664ec164512",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 7,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Arms": 9,
+    "Pin angle": 114,
+    "Arm length": 32
+   },
+   "ok": true,
+   "report_hash": "f7062c02c803db22f929490a03e296fff228656e49ede0f0e5c8b11983b5cb72",
+   "signature_hash": "34e349cf8e304c1575d64f729c73289ae747413c5fa03c8ce5152883dc6683ce",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 8,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Arms": 10,
+    "Pin angle": 66,
+    "Arm length": 40
+   },
+   "ok": true,
+   "report_hash": "abd716409dd5235641b25f1fa973bc3f7e55ed306999e245ce00e9bdcd618917",
+   "signature_hash": "3af7e28287d3f821634badf0655798727de41a39c9a1b98bb692ce980f6ecac8",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 9,
+   "phase": "corner",
+   "fresh": [
+    "status",
+    "no-clash"
+   ],
+   "params": {
+    "Arms": 11,
+    "Pin angle": 66,
+    "Arm length": 32
+   },
+   "ok": true,
+   "report_hash": "f02566b754a4c0e0efbe43e521d85f44a5ac5e53f50d660560bbfdcf09b2fe7c",
+   "signature_hash": "565f1fa7bc4164fab816dc7e4b3f7be46a663f67e9c3db8c09bc1b315afb9d46",
+   "failing": [
+    "status",
+    "no-clash"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -2.324894726801625,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    }
+   ]
+  },
+  {
+   "index": 10,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Arms": 12,
+    "Pin angle": 114,
+    "Arm length": 40
+   },
+   "ok": true,
+   "report_hash": "e5db8e0da04745e9e1f70d32e2319e07223bebb933fbce3799bfd2a79b3aa448",
+   "signature_hash": "3be5ee291d8ee422d8d7c621d7dc034d751e8cf149c235b9a949516839e856ac",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 11,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Arms": 3,
+    "Pin angle": 114,
+    "Arm length": 40
+   },
+   "ok": true,
+   "report_hash": "82778bf8dab9c3826bc65b22cc0420f867cf993421942d642d06a7d62cd40f55",
+   "signature_hash": "ad360c6181537bf887d4fe64b536a452021aed98c3a0d8c0ab3e56d0fdbf32b3",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 12,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Arms": 4,
+    "Pin angle": 114,
+    "Arm length": 32
+   },
+   "ok": true,
+   "report_hash": "6ab8e6ecd51c43376cbe2610be84ca9914dff311bb20b5db33d2a23171076796",
+   "signature_hash": "9ca6c07004980c45481d47205631f2ba52f9a45b876d3b476de661a5456d663e",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 13,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Arms": 5,
+    "Pin angle": 66,
+    "Arm length": 40
+   },
+   "ok": true,
+   "report_hash": "bcbbdd8f3ea64f96e9d7b7cbd8654d88d55b7568e2c63ff9b33e5f3b756eb0b0",
+   "signature_hash": "d223e0e1a73c04a4e3b09db3cae081384afea6c90ca3f31ea18fd6fcfcd9529a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 14,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Arms": 6,
+    "Pin angle": 66,
+    "Arm length": 32
+   },
+   "ok": true,
+   "report_hash": "ec7b735269611d313f3503898ef4c6ef8b7153dc2c4c7bcca5799611463a6a99",
+   "signature_hash": "2c94d31bde7507694baa7aed530f7707b1e05ce61cd709c99ba1a4f352e44c44",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 15,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Arms": 7,
+    "Pin angle": 114,
+    "Arm length": 40
+   },
+   "ok": true,
+   "report_hash": "59f95c85020d81e68298c46be8df00bfa4d54153d08a56714707db764c58296d",
+   "signature_hash": "0d8de30e09b48b264e4adae1d817ad06454c5d94ad01d545d11d2abcb0784bca",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 16,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Arms": 8,
+    "Pin angle": 114,
+    "Arm length": 32
+   },
+   "ok": true,
+   "report_hash": "0e0e1ed2fee0cc4fac9d0dc89835d73b0ff3789c75e7a3e908ab57fd873f6efe",
+   "signature_hash": "b6c5f03b683026e65149cf1613e6a51bf03d508f517accdf2fd2d664ec164512",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 17,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Arms": 9,
+    "Pin angle": 66,
+    "Arm length": 40
+   },
+   "ok": true,
+   "report_hash": "a046f10cbc83d85b70188dfaaa3f3687ac91e0cfad934a088cca7ef97186211a",
+   "signature_hash": "34e349cf8e304c1575d64f729c73289ae747413c5fa03c8ce5152883dc6683ce",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 18,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Arms": 10,
+    "Pin angle": 66,
+    "Arm length": 32
+   },
+   "ok": true,
+   "report_hash": "992181a6bf3f3fd3bf03780fc8ccd24a40c03eafe37001369f0d8337d26e35ca",
+   "signature_hash": "3af7e28287d3f821634badf0655798727de41a39c9a1b98bb692ce980f6ecac8",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 19,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Arms": 11,
+    "Pin angle": 114,
+    "Arm length": 40
+   },
+   "ok": true,
+   "report_hash": "53bd5484c96e5da5a25cb28f808f46055713c922d22edbaafc4f236a17793a24",
+   "signature_hash": "3ae34a52a1b2d8b505e4877db111886074f1b79f66e3a1a66719311ab549e374",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 20,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Arms": 12,
+    "Pin angle": 114,
+    "Arm length": 32
+   },
+   "ok": true,
+   "report_hash": "f2312984ddcd6e2fc79e07610639bb60afb85f823710a6f339f150c88bb022cf",
+   "signature_hash": "3be5ee291d8ee422d8d7c621d7dc034d751e8cf149c235b9a949516839e856ac",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 21,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Arms": 3,
+    "Pin angle": 114,
+    "Arm length": 32
+   },
+   "ok": true,
+   "report_hash": "8c147860231a651c2586bfae6a0f6c28d3ea0a51d5b112d14afd845a4c9ba7a4",
+   "signature_hash": "ad360c6181537bf887d4fe64b536a452021aed98c3a0d8c0ab3e56d0fdbf32b3",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 22,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Arms": 4,
+    "Pin angle": 66,
+    "Arm length": 40
+   },
+   "ok": true,
+   "report_hash": "dd924fc4b741e726cffe768b3768079d3bcf2576c95f7116e129a0b941fd20b0",
+   "signature_hash": "9ca6c07004980c45481d47205631f2ba52f9a45b876d3b476de661a5456d663e",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 23,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Arms": 5,
+    "Pin angle": 66,
+    "Arm length": 32
+   },
+   "ok": true,
+   "report_hash": "52e867598d14f23cd1a37c324713aa2a0b1db1b03e9a011b7117a296343e2e65",
+   "signature_hash": "d223e0e1a73c04a4e3b09db3cae081384afea6c90ca3f31ea18fd6fcfcd9529a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 24,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Arms": 6,
+    "Pin angle": 114,
+    "Arm length": 40
+   },
+   "ok": true,
+   "report_hash": "0c3bef01eebc8b05f911cb6cfc662a6116afdc2b389514af547bed147194ad47",
+   "signature_hash": "2c94d31bde7507694baa7aed530f7707b1e05ce61cd709c99ba1a4f352e44c44",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 25,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Arms": 6,
+    "Pin angle": 66,
+    "Arm length": 36
+   },
+   "ok": true,
+   "report_hash": "f553d1bdd010d0a066920b954a2e685b2bb958f273fc05a57a1c28e25adf41e6",
+   "signature_hash": "2c94d31bde7507694baa7aed530f7707b1e05ce61cd709c99ba1a4f352e44c44",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 26,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Arms": 6,
+    "Pin angle": 114,
+    "Arm length": 36
+   },
+   "ok": true,
+   "report_hash": "688438ecfabbde755a88fc672a10f9a21033bfdaf86a8346463825f752d42652",
+   "signature_hash": "2c94d31bde7507694baa7aed530f7707b1e05ce61cd709c99ba1a4f352e44c44",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 27,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Arms": 6,
+    "Pin angle": 100,
+    "Arm length": 32
+   },
+   "ok": true,
+   "report_hash": "480179dba09b1b4f43b9b2506bbe4d649c95d585e9d9970c5cb6369f9bb4825d",
+   "signature_hash": "2c94d31bde7507694baa7aed530f7707b1e05ce61cd709c99ba1a4f352e44c44",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 28,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Arms": 6,
+    "Pin angle": 100,
+    "Arm length": 40
+   },
+   "ok": true,
+   "report_hash": "1dfb932c13908a5b7f92a9784c223c9d2c29fc0619751b0c995ea767d948af65",
+   "signature_hash": "2c94d31bde7507694baa7aed530f7707b1e05ce61cd709c99ba1a4f352e44c44",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 29,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Arms": 3,
+    "Pin angle": 100,
+    "Arm length": 36
+   },
+   "ok": true,
+   "report_hash": "5b738d5bd865ff7505fcf925492ab2c0a9e970d66a4043e22e2e7dc3eea8a36d",
+   "signature_hash": "ad360c6181537bf887d4fe64b536a452021aed98c3a0d8c0ab3e56d0fdbf32b3",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 30,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Arms": 4,
+    "Pin angle": 100,
+    "Arm length": 36
+   },
+   "ok": true,
+   "report_hash": "001fd6dd8f5b6c8fe1d11d9eddbc8a8c4398fc8eb1a61acdcc1e189c7fb70682",
+   "signature_hash": "9ca6c07004980c45481d47205631f2ba52f9a45b876d3b476de661a5456d663e",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 31,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Arms": 5,
+    "Pin angle": 100,
+    "Arm length": 36
+   },
+   "ok": true,
+   "report_hash": "5149e28095cd8d507e0ff2c7f2d4c72d30c03e4e84dadaeccd54a072775975a8",
+   "signature_hash": "d223e0e1a73c04a4e3b09db3cae081384afea6c90ca3f31ea18fd6fcfcd9529a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 32,
+   "phase": "special",
+   "fresh": [
+    "status",
+    "no-clash"
+   ],
+   "params": {
+    "Arms": 7,
+    "Pin angle": 100,
+    "Arm length": 36
+   },
+   "ok": true,
+   "report_hash": "e73924c5783a03ecb2fde261eb6ace58a3809ac3176b21713caca918bdda105b",
+   "signature_hash": "9e2e2269f133b8c6e9f9a31ef1bd7dee6856e4a2863aeb6eea64f89f41e177dc",
+   "failing": [
+    "status",
+    "no-clash"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -1.8488839628584528,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    }
+   ]
+  },
+  {
+   "index": 33,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Arms": 3,
+    "Pin angle": 100.623447,
+    "Arm length": 36.270781
+   },
+   "ok": true,
+   "report_hash": "6b37a5c7bc7e5a6b8c4640732ca016a063bf0c206259a4849568008018a6626f",
+   "signature_hash": "ad360c6181537bf887d4fe64b536a452021aed98c3a0d8c0ab3e56d0fdbf32b3",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 34,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Arms": 8,
+    "Pin angle": 73.95678,
+    "Arm length": 37.870781
+   },
+   "ok": true,
+   "report_hash": "af4db418b194df195111955720989a1e27b98449383f69e105a557d6c078d4ee",
+   "signature_hash": "b6c5f03b683026e65149cf1613e6a51bf03d508f517accdf2fd2d664ec164512",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 35,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Arms": 6,
+    "Pin angle": 89.95678,
+    "Arm length": 39.470781
+   },
+   "ok": true,
+   "report_hash": "61e8dc0e73c63d5e24ce333cb0d1a7644e953f986cc41630c3b454329110f210",
+   "signature_hash": "2c94d31bde7507694baa7aed530f7707b1e05ce61cd709c99ba1a4f352e44c44",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 36,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Arms": 11,
+    "Pin angle": 105.95678,
+    "Arm length": 33.390781
+   },
+   "ok": true,
+   "report_hash": "197e83af83b9a11206b9954e1d807d40cbb33bdf178032c9022d33cc7a1c1623",
+   "signature_hash": "3ae34a52a1b2d8b505e4877db111886074f1b79f66e3a1a66719311ab549e374",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 37,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Arms": 4,
+    "Pin angle": 113.067891,
+    "Arm length": 34.990781
+   },
+   "ok": true,
+   "report_hash": "05884fccfb9463ae5cb536a194a7d900de44e43ea476399d8232737f916942fb",
+   "signature_hash": "9ca6c07004980c45481d47205631f2ba52f9a45b876d3b476de661a5456d663e",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 38,
+   "phase": "halton",
+   "fresh": [
+    "status",
+    "no-clash"
+   ],
+   "params": {
+    "Arms": 9,
+    "Pin angle": 81.067891,
+    "Arm length": 36.590781
+   },
+   "ok": true,
+   "report_hash": "92b72c90642cf8f05c1f16d9dea7d2ed582502e5776bd335486ca80ff4efe53d",
+   "signature_hash": "8102b6c54f6179ca3dff04b5d351f00db84d3d633c5f7ea6e22f85d7b947cb40",
+   "failing": [
+    "status",
+    "no-clash"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -2.3182500180091847,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    }
+   ]
+  },
+  {
+   "index": 39,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Arms": 7,
+    "Pin angle": 97.067891,
+    "Arm length": 38.190781
+   },
+   "ok": true,
+   "report_hash": "f08be6b60cd998af1e8b112915a68daebb499dd6a310c5e7de323c1e4eeb726e",
+   "signature_hash": "0d8de30e09b48b264e4adae1d817ad06454c5d94ad01d545d11d2abcb0784bca",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 40,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Arms": 12,
+    "Pin angle": 70.401224,
+    "Arm length": 39.790781
+   },
+   "ok": true,
+   "report_hash": "4b9359d7f2fd82c723d2713d39eaf816777087ef325781302d741971586168c2",
+   "signature_hash": "3be5ee291d8ee422d8d7c621d7dc034d751e8cf149c235b9a949516839e856ac",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 41,
+   "phase": "halton",
+   "fresh": [
+    "status",
+    "no-clash"
+   ],
+   "params": {
+    "Arms": 4,
+    "Pin angle": 86.401224,
+    "Arm length": 33.710781
+   },
+   "ok": true,
+   "report_hash": "2fd646ac3b4034143f9c72b053ba0578589794db32fa04d333e7e4f681ebcd70",
+   "signature_hash": "ac8fa350721556f00db5ae5fc5e28f4b2260199ab1846282e4a199d9e19d81f8",
+   "failing": [
+    "status",
+    "no-clash"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -1.4880944967351228,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    }
+   ]
+  },
+  {
+   "index": 42,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Arms": 9,
+    "Pin angle": 102.401224,
+    "Arm length": 35.310781
+   },
+   "ok": true,
+   "report_hash": "3da91f00aee55ada8b4883b67a964ace8887513ef831af7884ad3fff154469be",
+   "signature_hash": "34e349cf8e304c1575d64f729c73289ae747413c5fa03c8ce5152883dc6683ce",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 43,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Arms": 6,
+    "Pin angle": 75.734558,
+    "Arm length": 36.910781
+   },
+   "ok": true,
+   "report_hash": "3cbbd513230f196825e6a3931bbb017b5a32cde85590985ce97e52b2d4479acd",
+   "signature_hash": "2c94d31bde7507694baa7aed530f7707b1e05ce61cd709c99ba1a4f352e44c44",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 44,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Arms": 11,
+    "Pin angle": 91.734558,
+    "Arm length": 38.510781
+   },
+   "ok": true,
+   "report_hash": "4bf8788cd89e990d365279802d011787f2bab02a6dd2021c5a8dba318c90900c",
+   "signature_hash": "3ae34a52a1b2d8b505e4877db111886074f1b79f66e3a1a66719311ab549e374",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 45,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Arms": 5,
+    "Pin angle": 107.734558,
+    "Arm length": 32.110781
+   },
+   "ok": true,
+   "report_hash": "7e448b48af759598aa6fdbd6ab327e41f14f141ccd6c7da43e3a048d54513a1c",
+   "signature_hash": "d223e0e1a73c04a4e3b09db3cae081384afea6c90ca3f31ea18fd6fcfcd9529a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 46,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Arms": 10,
+    "Pin angle": 66.845669,
+    "Arm length": 34.030781
+   },
+   "ok": true,
+   "report_hash": "3442b17738acceaa83427ce3d8b34474a8594ae720104086256048cf043d3093",
+   "signature_hash": "70c70057600666880aa97358570e088e83d7d11638fd837c52622bfa3e47547d",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.195163,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 47,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Arms": 8,
+    "Pin angle": 82.845669,
+    "Arm length": 35.630781
+   },
+   "ok": true,
+   "report_hash": "9c64ff56a5aed430099bb1571406c69a0df035a389c94d84f68e99c9df0392d9",
+   "signature_hash": "b6c5f03b683026e65149cf1613e6a51bf03d508f517accdf2fd2d664ec164512",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 48,
+   "phase": "shrink",
+   "fresh": [
+    "status",
+    "no-clash"
+   ],
+   "params": {
+    "Arms": 11,
+    "Pin angle": 100,
+    "Arm length": 32
+   },
+   "ok": true,
+   "report_hash": "b1cabe1ed76946e0c0589e40c90b9041d397c9ae74e692484fdd46e93e02578a",
+   "signature_hash": "565f1fa7bc4164fab816dc7e4b3f7be46a663f67e9c3db8c09bc1b315afb9d46",
+   "failing": [
+    "status",
+    "no-clash"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -2.1854211651942532,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    }
+   ]
+  },
+  {
+   "index": 49,
+   "phase": "shrink",
+   "fresh": [
+    "status",
+    "no-clash"
+   ],
+   "params": {
+    "Arms": 11,
+    "Pin angle": 66,
+    "Arm length": 36
+   },
+   "ok": true,
+   "report_hash": "15efc43d790d3fb5c1c739dc2df9c1d2b04c15d8193b1e01b4820562e60a8352",
+   "signature_hash": "565f1fa7bc4164fab816dc7e4b3f7be46a663f67e9c3db8c09bc1b315afb9d46",
+   "failing": [
+    "status",
+    "no-clash"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -2.324894726801625,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    }
+   ]
+  },
+  {
+   "index": 50,
+   "phase": "shrink",
+   "fresh": [],
+   "params": {
+    "Arms": 9,
+    "Pin angle": 66,
+    "Arm length": 32
+   },
+   "ok": true,
+   "report_hash": "06898550944d25918a743ba9be937ff69d7b7fee8cb2ab5c0324285d99b6f362",
+   "signature_hash": "34e349cf8e304c1575d64f729c73289ae747413c5fa03c8ce5152883dc6683ce",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 51,
+   "phase": "shrink",
+   "fresh": [],
+   "params": {
+    "Arms": 11,
+    "Pin angle": 83,
+    "Arm length": 32
+   },
+   "ok": true,
+   "report_hash": "b4b9498bd3315672095f5c79933d2e87ce56ba1d04878494165b2ac9a430b6ec",
+   "signature_hash": "3ae34a52a1b2d8b505e4877db111886074f1b79f66e3a1a66719311ab549e374",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 52,
+   "phase": "shrink",
+   "fresh": [
+    "status",
+    "no-clash"
+   ],
+   "params": {
+    "Arms": 11,
+    "Pin angle": 66,
+    "Arm length": 34
+   },
+   "ok": true,
+   "report_hash": "b82bb5bd4d2a3553e29c887ace33671155a26b1f60e5dfa5d3053e93d8deed0f",
+   "signature_hash": "565f1fa7bc4164fab816dc7e4b3f7be46a663f67e9c3db8c09bc1b315afb9d46",
+   "failing": [
+    "status",
+    "no-clash"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -2.324894726801625,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    }
+   ]
+  },
+  {
+   "index": 53,
+   "phase": "shrink",
+   "fresh": [
+    "status",
+    "no-clash"
+   ],
+   "params": {
+    "Arms": 11,
+    "Pin angle": 100,
+    "Arm length": 36
+   },
+   "ok": true,
+   "report_hash": "a09889a70d113fc5a341f02b8601324cc0269e0d240194655c43630986baad75",
+   "signature_hash": "565f1fa7bc4164fab816dc7e4b3f7be46a663f67e9c3db8c09bc1b315afb9d46",
+   "failing": [
+    "status",
+    "no-clash"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -2.1854211651942532,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    }
+   ]
+  },
+  {
+   "index": 54,
+   "phase": "shrink",
+   "fresh": [],
+   "params": {
+    "Arms": 9,
+    "Pin angle": 100,
+    "Arm length": 32
+   },
+   "ok": true,
+   "report_hash": "9d6c64bf5f90c263e47205930e362758a64d5920e6646ba4d6163818a4efa053",
+   "signature_hash": "34e349cf8e304c1575d64f729c73289ae747413c5fa03c8ce5152883dc6683ce",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 55,
+   "phase": "shrink",
+   "fresh": [
+    "status",
+    "no-clash"
+   ],
+   "params": {
+    "Arms": 11,
+    "Pin angle": 100,
+    "Arm length": 34
+   },
+   "ok": true,
+   "report_hash": "fcbf3b97902b1c2ba3d7b638351f64f4900bc9aa529f45d6516c8a5a65adaa43",
+   "signature_hash": "565f1fa7bc4164fab816dc7e4b3f7be46a663f67e9c3db8c09bc1b315afb9d46",
+   "failing": [
+    "status",
+    "no-clash"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -2.1854211651942532,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    }
+   ]
+  },
+  {
+   "index": 56,
+   "phase": "shrink",
+   "fresh": [],
+   "params": {
+    "Arms": 9,
+    "Pin angle": 100,
+    "Arm length": 36
+   },
+   "ok": true,
+   "report_hash": "4c95bf0a008ca7217cd4e8e875e185e4c3f2f14080eae9f66e5dabb0feada179",
+   "signature_hash": "34e349cf8e304c1575d64f729c73289ae747413c5fa03c8ce5152883dc6683ce",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 57,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Arms": 3,
+    "Pin angle": 98.845669,
+    "Arm length": 37.230781
+   },
+   "ok": true,
+   "report_hash": "26bb4447780e7a7564dc76ca285a9b21ee6941abcfb31a4b31b662a9a538f5f3",
+   "signature_hash": "ad360c6181537bf887d4fe64b536a452021aed98c3a0d8c0ab3e56d0fdbf32b3",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 58,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Arms": 4,
+    "Pin angle": 72.179002,
+    "Arm length": 38.830781
+   },
+   "ok": true,
+   "report_hash": "55ffc3af134c6a9eafb3e718c74341dd9b0dbdd4645de06e16ea19c29ded6952",
+   "signature_hash": "9ca6c07004980c45481d47205631f2ba52f9a45b876d3b476de661a5456d663e",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 59,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Arms": 9,
+    "Pin angle": 88.179002,
+    "Arm length": 32.430781
+   },
+   "ok": true,
+   "report_hash": "5428d5c00d3abf73ac82de73e24c6658959afe4f4d3ed595ed7940936a7e1440",
+   "signature_hash": "34e349cf8e304c1575d64f729c73289ae747413c5fa03c8ce5152883dc6683ce",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 60,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Arms": 6,
+    "Pin angle": 104.179002,
+    "Arm length": 32.814781
+   },
+   "ok": true,
+   "report_hash": "c8e629aa423bbfbb4e17ba17ad49773b07515fd3611fcb3cf7d4e6d9648aa1ab",
+   "signature_hash": "2c94d31bde7507694baa7aed530f7707b1e05ce61cd709c99ba1a4f352e44c44",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 61,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Arms": 11,
+    "Pin angle": 77.512336,
+    "Arm length": 34.414781
+   },
+   "ok": true,
+   "report_hash": "1ea51019ef0ea52b536dce76eb893a2cc110567807efafbe719172ca913d959c",
+   "signature_hash": "3ae34a52a1b2d8b505e4877db111886074f1b79f66e3a1a66719311ab549e374",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 62,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Arms": 5,
+    "Pin angle": 93.512336,
+    "Arm length": 36.014781
+   },
+   "ok": true,
+   "report_hash": "066137dbd15b8cac95310036e924da78e2d996511f26ed4e51f45dafe4edad7a",
+   "signature_hash": "d223e0e1a73c04a4e3b09db3cae081384afea6c90ca3f31ea18fd6fcfcd9529a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 63,
+   "phase": "halton",
+   "fresh": [
+    "status",
+    "no-clash"
+   ],
+   "params": {
+    "Arms": 10,
+    "Pin angle": 109.512336,
+    "Arm length": 37.614781
+   },
+   "ok": true,
+   "report_hash": "555d319b28036f5ebf9ccc4db449d87e1f01204a583219a21120392e5d1543fa",
+   "signature_hash": "489f436ef5ae94f5e1e20c274c8d4af021f83abbb1e9470b0cda6051767df799",
+   "failing": [
+    "status",
+    "no-clash"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -2.25266535166377,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    }
+   ]
+  }
+ ]
+}

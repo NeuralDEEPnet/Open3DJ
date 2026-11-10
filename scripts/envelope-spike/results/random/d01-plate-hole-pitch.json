@@ -1,0 +1,6148 @@
+[
+ {
+  "brief": "d01-plate-hole-pitch",
+  "seed": 1,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Width": 71.353697,
+     "Pitch": 20.082072,
+     "Thickness": 5.637235
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 89.052548,
+     "Pitch": 49.051337,
+     "Thickness": 4.405518
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 70.641943,
+     "Pitch": 41.622294,
+     "Thickness": 5.128985
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 89.741147,
+     "Pitch": 33.658134,
+     "Thickness": 5.443942
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 46.946679,
+     "Pitch": 32.112343,
+     "Thickness": 4.237619
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 47.724657,
+     "Pitch": 34.674317,
+     "Thickness": 3.336849
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 59.730966,
+     "Pitch": 43.013241,
+     "Thickness": 4.429308
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 49.543679,
+     "Pitch": 21.281891,
+     "Thickness": 5.13691
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 69.519125,
+     "Pitch": 43.960526,
+     "Thickness": 4.474349
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 50.273489,
+     "Pitch": 39.743889,
+     "Thickness": 5.730412
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 77.922142,
+     "Pitch": 25.784421,
+     "Thickness": 6.604739
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 62.706801,
+     "Pitch": 43.112415,
+     "Thickness": 7.97267
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 51.966666,
+     "Pitch": 42.710039,
+     "Thickness": 3.766355
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 56.166581,
+     "Pitch": 32.395909,
+     "Thickness": 4.246063
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 47.604414,
+     "Pitch": 41.783145,
+     "Thickness": 5.881707
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 46.360544,
+     "Pitch": 27.939729,
+     "Thickness": 3.243617
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 71.111002,
+     "Pitch": 45.973162,
+     "Thickness": 4.192471
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 89.468874,
+     "Pitch": 41.549154,
+     "Thickness": 5.011489
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 55.118642,
+     "Pitch": 40.316448,
+     "Thickness": 7.763157
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 86.166559,
+     "Pitch": 40.782313,
+     "Thickness": 7.594419
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 81.721093,
+     "Pitch": 48.015149,
+     "Thickness": 3.574028
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 41.9724,
+     "Pitch": 46.060584,
+     "Thickness": 4.47238
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Width": 84.061327,
+     "Pitch": 35.301759,
+     "Thickness": 7.679471
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 75.219768,
+     "Pitch": 24.987715,
+     "Thickness": 6.384045
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 87.444061,
+     "Pitch": 23.957617,
+     "Thickness": 7.889413
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 48.150641,
+     "Pitch": 31.650666,
+     "Thickness": 3.587988
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 60.062129,
+     "Pitch": 29.729748,
+     "Thickness": 6.287757
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 65.453225,
+     "Pitch": 35.946321,
+     "Thickness": 3.380562
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 80.399538,
+     "Pitch": 45.627161,
+     "Thickness": 4.363933
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 48.213449,
+     "Pitch": 29.097695,
+     "Thickness": 7.469871
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 54.496971,
+     "Pitch": 24.311874,
+     "Thickness": 6.272883
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 67.453044,
+     "Pitch": 29.738513,
+     "Thickness": 3.600828
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 47.067186,
+     "Pitch": 22.022853,
+     "Thickness": 4.504135
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 73.7804,
+     "Pitch": 39.543303,
+     "Thickness": 3.584193
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 65.408526,
+     "Pitch": 35.697102,
+     "Thickness": 4.059199
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 79.609925,
+     "Pitch": 27.570249,
+     "Thickness": 7.958269
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 87.700415,
+     "Pitch": 46.100297,
+     "Thickness": 3.018536
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 49.148553,
+     "Pitch": 20.850518,
+     "Thickness": 7.921257
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 56.48589,
+     "Pitch": 41.620249,
+     "Thickness": 7.327045
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 44.692628,
+     "Pitch": 27.518256,
+     "Thickness": 7.348846
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 79.760691,
+     "Pitch": 43.754652,
+     "Thickness": 4.104031
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 44.81315,
+     "Pitch": 24.474123,
+     "Thickness": 5.043316
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 67.127721,
+     "Pitch": 28.618868,
+     "Thickness": 7.422682
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 55.609975,
+     "Pitch": 47.273172,
+     "Thickness": 7.308782
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 71.648608,
+     "Pitch": 40.071898,
+     "Thickness": 4.172784
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 59.182488,
+     "Pitch": 29.225567,
+     "Thickness": 4.023055
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 53.247002,
+     "Pitch": 47.929168,
+     "Thickness": 7.831237
+    },
+    "failing": [
+     "faces",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "faces",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 47.992941,
+     "Pitch": 29.889846,
+     "Thickness": 3.383284
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 41.829725,
+     "Pitch": 43.509065,
+     "Thickness": 4.935752
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Width": 52.186474,
+     "Pitch": 24.452458,
+     "Thickness": 7.105901
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 55.397444,
+     "Pitch": 46.773221,
+     "Thickness": 5.62939
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 61.391655,
+     "Pitch": 40.591249,
+     "Thickness": 4.724195
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 52.262932,
+     "Pitch": 36.081192,
+     "Thickness": 6.81198
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 79.716733,
+     "Pitch": 21.517309,
+     "Thickness": 4.043135
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 71.586102,
+     "Pitch": 39.378842,
+     "Thickness": 3.149562
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 56.313958,
+     "Pitch": 32.875075,
+     "Thickness": 7.358133
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 72.440708,
+     "Pitch": 30.762749,
+     "Thickness": 4.77298
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 70.063932,
+     "Pitch": 20.408029,
+     "Thickness": 7.618417
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 67.00401,
+     "Pitch": 37.041065,
+     "Thickness": 6.212717
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 46.21932,
+     "Pitch": 22.10601,
+     "Thickness": 7.071211
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 47.073675,
+     "Pitch": 41.317107,
+     "Thickness": 4.38211
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 72.073768,
+     "Pitch": 28.809221,
+     "Thickness": 5.727969
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 86.277517,
+     "Pitch": 22.164229,
+     "Thickness": 3.550751
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 48.666711,
+     "Pitch": 40.427757,
+     "Thickness": 3.227187
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d01-plate-hole-pitch",
+  "seed": 2,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Width": 76.712547,
+     "Pitch": 29.749953,
+     "Thickness": 4.42648
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 66.897758,
+     "Pitch": 46.258638,
+     "Thickness": 6.154167
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 64.960079,
+     "Pitch": 30.71734,
+     "Thickness": 6.907945
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 45.701586,
+     "Pitch": 43.57601,
+     "Thickness": 4.007727
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Width": 61.211283,
+     "Pitch": 45.049923,
+     "Thickness": 5.906602
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 47.050335,
+     "Pitch": 40.166817,
+     "Thickness": 4.833491
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 88.580672,
+     "Pitch": 21.176034,
+     "Thickness": 7.575989
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 43.109154,
+     "Pitch": 23.840734,
+     "Thickness": 3.959668
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 40.355278,
+     "Pitch": 48.203075,
+     "Thickness": 5.260372
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Width": 71.732609,
+     "Pitch": 49.652312,
+     "Thickness": 4.163997
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 63.398152,
+     "Pitch": 30.447247,
+     "Thickness": 3.26318
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 66.060992,
+     "Pitch": 22.860898,
+     "Thickness": 3.289091
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 88.014637,
+     "Pitch": 44.150801,
+     "Thickness": 3.003131
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 89.103966,
+     "Pitch": 22.175553,
+     "Thickness": 7.861865
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 66.36956,
+     "Pitch": 25.842756,
+     "Thickness": 6.38946
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 42.57393,
+     "Pitch": 43.339139,
+     "Thickness": 7.557938
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Width": 81.356522,
+     "Pitch": 33.370076,
+     "Thickness": 7.744192
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 43.557401,
+     "Pitch": 41.42291,
+     "Thickness": 7.900148
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Width": 81.94385,
+     "Pitch": 39.247563,
+     "Thickness": 5.6221
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 41.656774,
+     "Pitch": 45.463241,
+     "Thickness": 7.194163
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Width": 67.399252,
+     "Pitch": 29.375071,
+     "Thickness": 7.512888
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 86.417838,
+     "Pitch": 33.408595,
+     "Thickness": 4.746344
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 40.922403,
+     "Pitch": 48.56992,
+     "Thickness": 4.566749
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Width": 61.912672,
+     "Pitch": 43.975873,
+     "Thickness": 7.336885
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 85.975863,
+     "Pitch": 32.954342,
+     "Thickness": 4.035481
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 72.311214,
+     "Pitch": 38.725165,
+     "Thickness": 6.566042
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 86.901244,
+     "Pitch": 26.15419,
+     "Thickness": 4.394229
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 57.265209,
+     "Pitch": 36.117559,
+     "Thickness": 3.1374
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 54.404407,
+     "Pitch": 44.920257,
+     "Thickness": 3.836046
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 78.848548,
+     "Pitch": 31.834791,
+     "Thickness": 5.095661
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 59.761609,
+     "Pitch": 45.312857,
+     "Thickness": 5.378262
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 89.475355,
+     "Pitch": 27.798062,
+     "Thickness": 3.425745
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 75.40272,
+     "Pitch": 20.61803,
+     "Thickness": 6.671235
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 79.096969,
+     "Pitch": 39.424316,
+     "Thickness": 4.433202
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 56.335851,
+     "Pitch": 39.544783,
+     "Thickness": 3.537567
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 49.395024,
+     "Pitch": 41.973009,
+     "Thickness": 7.877356
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 71.523473,
+     "Pitch": 23.420722,
+     "Thickness": 5.891561
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 87.27925,
+     "Pitch": 20.862936,
+     "Thickness": 5.890772
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 65.825123,
+     "Pitch": 41.533269,
+     "Thickness": 7.233077
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 61.26067,
+     "Pitch": 35.33155,
+     "Thickness": 3.340397
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 83.135067,
+     "Pitch": 33.360089,
+     "Thickness": 4.133828
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 69.122775,
+     "Pitch": 33.827485,
+     "Thickness": 5.847674
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 66.048422,
+     "Pitch": 29.102304,
+     "Thickness": 4.075709
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 85.322229,
+     "Pitch": 37.998822,
+     "Thickness": 5.598474
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 50.190094,
+     "Pitch": 24.671744,
+     "Thickness": 4.255935
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 81.095283,
+     "Pitch": 25.67508,
+     "Thickness": 7.887913
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 51.384615,
+     "Pitch": 44.503596,
+     "Thickness": 4.612217
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 55.73635,
+     "Pitch": 42.194546,
+     "Thickness": 7.556367
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 58.614037,
+     "Pitch": 32.161057,
+     "Thickness": 7.105188
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 84.688739,
+     "Pitch": 30.12568,
+     "Thickness": 5.143661
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 85.112894,
+     "Pitch": 47.6826,
+     "Thickness": 5.691993
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 81.708478,
+     "Pitch": 24.322516,
+     "Thickness": 4.86979
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 55.435563,
+     "Pitch": 24.174173,
+     "Thickness": 4.554289
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 85.100158,
+     "Pitch": 27.829088,
+     "Thickness": 4.410041
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 84.034567,
+     "Pitch": 23.562047,
+     "Thickness": 4.042529
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 42.966661,
+     "Pitch": 40.253588,
+     "Thickness": 6.410309
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Width": 69.40191,
+     "Pitch": 43.671031,
+     "Thickness": 4.856639
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 82.916541,
+     "Pitch": 21.714425,
+     "Thickness": 6.370868
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 74.326494,
+     "Pitch": 45.710792,
+     "Thickness": 3.82153
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 67.554064,
+     "Pitch": 25.519621,
+     "Thickness": 4.989107
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 58.492405,
+     "Pitch": 46.481392,
+     "Thickness": 5.942058
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 77.421291,
+     "Pitch": 20.566827,
+     "Thickness": 6.383765
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 44.544315,
+     "Pitch": 46.792567,
+     "Thickness": 3.058442
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Width": 52.916754,
+     "Pitch": 23.12791,
+     "Thickness": 7.615057
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d01-plate-hole-pitch",
+  "seed": 3,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Width": 76.011339,
+     "Pitch": 21.159865,
+     "Thickness": 5.280961
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 43.7464,
+     "Pitch": 42.890162,
+     "Thickness": 5.405902
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Width": 64.336479,
+     "Pitch": 24.854017,
+     "Thickness": 4.316281
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 67.630361,
+     "Pitch": 25.847488,
+     "Thickness": 3.417964
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 75.68937,
+     "Pitch": 34.301841,
+     "Thickness": 6.96866
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 83.988666,
+     "Pitch": 29.70871,
+     "Thickness": 6.452907
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 54.337353,
+     "Pitch": 40.164213,
+     "Thickness": 5.632143
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 81.586692,
+     "Pitch": 36.198413,
+     "Thickness": 3.05803
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 83.867718,
+     "Pitch": 29.31191,
+     "Thickness": 7.684109
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 78.468461,
+     "Pitch": 32.617408,
+     "Thickness": 6.57342
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 47.716598,
+     "Pitch": 31.037699,
+     "Thickness": 6.613497
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 40.07203,
+     "Pitch": 20.250675,
+     "Thickness": 5.391546
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 83.153778,
+     "Pitch": 38.089149,
+     "Thickness": 6.410324
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 79.315634,
+     "Pitch": 37.530805,
+     "Thickness": 5.908851
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 43.545948,
+     "Pitch": 31.168855,
+     "Thickness": 5.654654
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 81.926028,
+     "Pitch": 32.389569,
+     "Thickness": 5.319831
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 64.838031,
+     "Pitch": 37.126439,
+     "Thickness": 6.880405
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 82.772222,
+     "Pitch": 39.938066,
+     "Thickness": 4.861445
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 74.447776,
+     "Pitch": 40.995489,
+     "Thickness": 5.331471
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 88.940239,
+     "Pitch": 46.422484,
+     "Thickness": 6.563085
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 73.856051,
+     "Pitch": 48.578442,
+     "Thickness": 6.825848
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 42.84447,
+     "Pitch": 21.984554,
+     "Thickness": 5.687964
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 83.275262,
+     "Pitch": 30.34478,
+     "Thickness": 5.700978
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 54.496496,
+     "Pitch": 33.898793,
+     "Thickness": 5.759883
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 68.891489,
+     "Pitch": 31.733204,
+     "Thickness": 6.781042
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 48.649817,
+     "Pitch": 48.578468,
+     "Thickness": 6.215374
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Width": 77.533027,
+     "Pitch": 43.099391,
+     "Thickness": 3.305562
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 60.623842,
+     "Pitch": 24.639758,
+     "Thickness": 6.453542
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 78.696157,
+     "Pitch": 38.635731,
+     "Thickness": 7.933181
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 89.515369,
+     "Pitch": 49.40931,
+     "Thickness": 5.914034
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 84.326567,
+     "Pitch": 48.509992,
+     "Thickness": 7.067713
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 55.804803,
+     "Pitch": 38.771618,
+     "Thickness": 7.719743
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 59.547971,
+     "Pitch": 37.965966,
+     "Thickness": 3.704175
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 71.551627,
+     "Pitch": 36.420112,
+     "Thickness": 4.282002
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 84.0622,
+     "Pitch": 21.473241,
+     "Thickness": 7.241077
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 44.414505,
+     "Pitch": 32.731565,
+     "Thickness": 7.447378
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 41.452263,
+     "Pitch": 40.10917,
+     "Thickness": 3.515964
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Width": 54.398477,
+     "Pitch": 49.801012,
+     "Thickness": 5.616847
+    },
+    "failing": [
+     "faces",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "faces",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 48.977514,
+     "Pitch": 20.15476,
+     "Thickness": 3.789874
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 72.437465,
+     "Pitch": 38.905144,
+     "Thickness": 7.138609
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 74.445701,
+     "Pitch": 44.226609,
+     "Thickness": 3.627484
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 49.632854,
+     "Pitch": 23.836467,
+     "Thickness": 6.046022
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 73.775914,
+     "Pitch": 37.326036,
+     "Thickness": 6.640931
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 55.922673,
+     "Pitch": 48.522039,
+     "Thickness": 3.471687
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 88.23361,
+     "Pitch": 25.847884,
+     "Thickness": 4.916549
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 64.877963,
+     "Pitch": 33.121114,
+     "Thickness": 5.757173
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 53.900744,
+     "Pitch": 40.132118,
+     "Thickness": 3.059954
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 63.158403,
+     "Pitch": 43.379739,
+     "Thickness": 4.683752
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 62.474636,
+     "Pitch": 31.074528,
+     "Thickness": 7.946763
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 43.94156,
+     "Pitch": 23.091047,
+     "Thickness": 3.924618
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 46.334763,
+     "Pitch": 46.034289,
+     "Thickness": 6.854731
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Width": 81.961839,
+     "Pitch": 31.569562,
+     "Thickness": 3.322342
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 56.75892,
+     "Pitch": 27.815921,
+     "Thickness": 3.667155
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 46.369171,
+     "Pitch": 32.361207,
+     "Thickness": 4.157959
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 40.949272,
+     "Pitch": 36.402218,
+     "Thickness": 5.31962
+    },
+    "failing": [
+     "faces",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "faces",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 59.220005,
+     "Pitch": 48.802534,
+     "Thickness": 7.471679
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 85.130079,
+     "Pitch": 28.731104,
+     "Thickness": 4.618203
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 54.010296,
+     "Pitch": 26.114039,
+     "Thickness": 6.834496
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 40.565503,
+     "Pitch": 25.827621,
+     "Thickness": 4.885542
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 89.267418,
+     "Pitch": 29.311027,
+     "Thickness": 5.82795
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 48.23867,
+     "Pitch": 37.841051,
+     "Thickness": 7.066233
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 41.201327,
+     "Pitch": 49.51604,
+     "Thickness": 4.567813
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Width": 44.242624,
+     "Pitch": 20.427759,
+     "Thickness": 5.38736
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 74.069486,
+     "Pitch": 45.998648,
+     "Thickness": 5.706445
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d01-plate-hole-pitch",
+  "seed": 4,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Width": 86.18181,
+     "Pitch": 29.991376,
+     "Thickness": 4.10834
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 44.092051,
+     "Pitch": 27.019917,
+     "Thickness": 5.542484
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 43.869574,
+     "Pitch": 49.215858,
+     "Thickness": 6.110187
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Width": 74.540772,
+     "Pitch": 43.044383,
+     "Thickness": 4.845743
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 76.624746,
+     "Pitch": 46.276252,
+     "Thickness": 5.643844
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 77.167308,
+     "Pitch": 32.65238,
+     "Thickness": 5.452251
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 76.795674,
+     "Pitch": 47.921698,
+     "Thickness": 7.897702
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 63.567204,
+     "Pitch": 30.438613,
+     "Thickness": 6.940452
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 53.465608,
+     "Pitch": 42.566258,
+     "Thickness": 5.637863
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 57.14346,
+     "Pitch": 33.675714,
+     "Thickness": 3.054363
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 64.272578,
+     "Pitch": 36.200611,
+     "Thickness": 6.819089
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 44.768242,
+     "Pitch": 44.218172,
+     "Thickness": 5.021084
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Width": 56.487698,
+     "Pitch": 36.415514,
+     "Thickness": 3.302737
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 71.187741,
+     "Pitch": 28.348875,
+     "Thickness": 5.784123
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 47.341052,
+     "Pitch": 48.607914,
+     "Thickness": 7.262872
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Width": 86.063661,
+     "Pitch": 30.500815,
+     "Thickness": 3.930907
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 72.934404,
+     "Pitch": 34.959851,
+     "Thickness": 3.337575
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 78.35582,
+     "Pitch": 48.696081,
+     "Thickness": 3.020631
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 64.082922,
+     "Pitch": 47.151596,
+     "Thickness": 6.440737
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 67.75349,
+     "Pitch": 49.487883,
+     "Thickness": 4.445593
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 78.368538,
+     "Pitch": 30.854129,
+     "Thickness": 5.323366
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 75.07095,
+     "Pitch": 20.162356,
+     "Thickness": 4.197928
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 65.2368,
+     "Pitch": 43.627831,
+     "Thickness": 7.269305
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 43.601349,
+     "Pitch": 33.815126,
+     "Thickness": 6.188761
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 88.934455,
+     "Pitch": 38.410518,
+     "Thickness": 4.404337
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 75.434002,
+     "Pitch": 43.096866,
+     "Thickness": 4.539085
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 87.757068,
+     "Pitch": 43.193985,
+     "Thickness": 3.906121
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 89.246735,
+     "Pitch": 31.516479,
+     "Thickness": 7.896551
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 86.64394,
+     "Pitch": 33.738159,
+     "Thickness": 3.607167
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 44.074733,
+     "Pitch": 20.284205,
+     "Thickness": 3.56967
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 73.492406,
+     "Pitch": 23.510676,
+     "Thickness": 7.506624
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 86.830409,
+     "Pitch": 40.473243,
+     "Thickness": 4.753006
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 59.132946,
+     "Pitch": 40.103162,
+     "Thickness": 7.550384
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 52.393455,
+     "Pitch": 38.92555,
+     "Thickness": 6.649966
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 70.314513,
+     "Pitch": 45.906611,
+     "Thickness": 7.683066
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 75.585069,
+     "Pitch": 23.285325,
+     "Thickness": 6.312624
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 82.366514,
+     "Pitch": 24.520218,
+     "Thickness": 4.408683
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 76.843598,
+     "Pitch": 31.275015,
+     "Thickness": 7.997303
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 85.863465,
+     "Pitch": 20.911858,
+     "Thickness": 6.817327
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 60.272287,
+     "Pitch": 47.023966,
+     "Thickness": 5.546938
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 42.465507,
+     "Pitch": 40.708368,
+     "Thickness": 3.236661
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Width": 84.950577,
+     "Pitch": 38.371055,
+     "Thickness": 5.819051
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 61.964624,
+     "Pitch": 43.419446,
+     "Thickness": 4.926224
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 54.144575,
+     "Pitch": 48.383071,
+     "Thickness": 7.987626
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 56.717058,
+     "Pitch": 22.486563,
+     "Thickness": 6.781003
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 43.746197,
+     "Pitch": 44.805214,
+     "Thickness": 4.575735
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Width": 62.646596,
+     "Pitch": 38.603392,
+     "Thickness": 3.706557
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 83.258848,
+     "Pitch": 32.892337,
+     "Thickness": 7.4439
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 78.744962,
+     "Pitch": 43.917786,
+     "Thickness": 7.510575
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 57.293677,
+     "Pitch": 34.086035,
+     "Thickness": 5.738458
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 69.568233,
+     "Pitch": 32.847051,
+     "Thickness": 4.771859
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 63.670446,
+     "Pitch": 37.469476,
+     "Thickness": 6.084698
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 77.430453,
+     "Pitch": 24.127013,
+     "Thickness": 6.757342
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 86.54915,
+     "Pitch": 37.688111,
+     "Thickness": 3.965229
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 58.206383,
+     "Pitch": 40.637307,
+     "Thickness": 4.947188
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 56.75767,
+     "Pitch": 36.260247,
+     "Thickness": 7.425853
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 63.687139,
+     "Pitch": 39.281335,
+     "Thickness": 5.003873
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 81.279299,
+     "Pitch": 25.737434,
+     "Thickness": 4.829961
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 83.927395,
+     "Pitch": 21.844059,
+     "Thickness": 3.413435
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 46.835133,
+     "Pitch": 24.86964,
+     "Thickness": 5.621695
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 72.195213,
+     "Pitch": 31.89681,
+     "Thickness": 6.58746
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 48.064648,
+     "Pitch": 42.564118,
+     "Thickness": 6.156691
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 40.963343,
+     "Pitch": 23.384244,
+     "Thickness": 5.942194
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 86.990359,
+     "Pitch": 37.603447,
+     "Thickness": 3.188742
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d01-plate-hole-pitch",
+  "seed": 5,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Width": 74.488746,
+     "Pitch": 43.182298,
+     "Thickness": 4.098815
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 71.158941,
+     "Pitch": 22.554116,
+     "Thickness": 5.960825
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 76.005112,
+     "Pitch": 33.743126,
+     "Thickness": 7.528108
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 51.471449,
+     "Pitch": 43.395902,
+     "Thickness": 6.703064
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 73.028003,
+     "Pitch": 20.414643,
+     "Thickness": 5.327007
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 55.022754,
+     "Pitch": 46.896493,
+     "Thickness": 4.440579
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 77.764859,
+     "Pitch": 41.704499,
+     "Thickness": 4.26789
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 40.950918,
+     "Pitch": 43.805247,
+     "Thickness": 4.041437
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Width": 53.630966,
+     "Pitch": 23.697858,
+     "Thickness": 5.350388
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 89.582169,
+     "Pitch": 27.364175,
+     "Thickness": 3.404724
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 82.429655,
+     "Pitch": 29.510727,
+     "Thickness": 5.03781
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 89.28687,
+     "Pitch": 28.159276,
+     "Thickness": 4.930512
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 50.862933,
+     "Pitch": 46.076732,
+     "Thickness": 6.611807
+    },
+    "failing": [
+     "faces",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "faces",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 83.940623,
+     "Pitch": 35.346587,
+     "Thickness": 7.025343
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 72.457784,
+     "Pitch": 24.188884,
+     "Thickness": 6.180238
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 68.88095,
+     "Pitch": 29.455499,
+     "Thickness": 6.894428
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 70.470905,
+     "Pitch": 20.243807,
+     "Thickness": 7.660051
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 57.075965,
+     "Pitch": 30.503283,
+     "Thickness": 7.373012
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 52.459753,
+     "Pitch": 25.256608,
+     "Thickness": 7.16833
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 53.944528,
+     "Pitch": 49.948597,
+     "Thickness": 3.068628
+    },
+    "failing": [
+     "faces",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "faces",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 57.553111,
+     "Pitch": 42.755176,
+     "Thickness": 4.571159
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 73.037926,
+     "Pitch": 22.303297,
+     "Thickness": 3.399684
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 76.74799,
+     "Pitch": 35.741722,
+     "Thickness": 4.267183
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 86.502026,
+     "Pitch": 21.485885,
+     "Thickness": 6.673551
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 87.69369,
+     "Pitch": 28.556713,
+     "Thickness": 5.665853
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 82.825466,
+     "Pitch": 45.404473,
+     "Thickness": 5.894466
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 87.824272,
+     "Pitch": 41.074577,
+     "Thickness": 5.700907
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 45.495204,
+     "Pitch": 28.821452,
+     "Thickness": 5.647286
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 47.750061,
+     "Pitch": 27.563286,
+     "Thickness": 6.834312
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 46.92887,
+     "Pitch": 22.401589,
+     "Thickness": 4.633468
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 80.281145,
+     "Pitch": 39.294889,
+     "Thickness": 5.062663
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 44.880154,
+     "Pitch": 28.715422,
+     "Thickness": 7.784559
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 56.322752,
+     "Pitch": 41.083383,
+     "Thickness": 6.720762
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 45.110661,
+     "Pitch": 43.5052,
+     "Thickness": 7.658589
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Width": 70.286091,
+     "Pitch": 23.341745,
+     "Thickness": 4.808914
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 60.148976,
+     "Pitch": 21.555676,
+     "Thickness": 5.106506
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 85.890203,
+     "Pitch": 29.338053,
+     "Thickness": 6.834059
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 42.600704,
+     "Pitch": 44.492643,
+     "Thickness": 3.503284
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Width": 65.597163,
+     "Pitch": 44.805788,
+     "Thickness": 4.048616
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 69.824081,
+     "Pitch": 23.027215,
+     "Thickness": 4.81917
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 73.172261,
+     "Pitch": 27.626268,
+     "Thickness": 6.406519
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 51.99174,
+     "Pitch": 27.599363,
+     "Thickness": 7.923347
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 72.15636,
+     "Pitch": 33.587407,
+     "Thickness": 6.711466
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 41.933717,
+     "Pitch": 38.553347,
+     "Thickness": 6.278326
+    },
+    "failing": [
+     "faces",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "faces",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 40.966331,
+     "Pitch": 24.339603,
+     "Thickness": 4.668162
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 56.745528,
+     "Pitch": 39.271396,
+     "Thickness": 7.744213
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 69.674429,
+     "Pitch": 46.057487,
+     "Thickness": 6.866938
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 54.171684,
+     "Pitch": 21.912853,
+     "Thickness": 3.850276
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 42.078995,
+     "Pitch": 26.810975,
+     "Thickness": 7.454605
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 62.601063,
+     "Pitch": 21.264958,
+     "Thickness": 6.886093
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 69.31099,
+     "Pitch": 28.582415,
+     "Thickness": 7.471563
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 78.728318,
+     "Pitch": 49.110262,
+     "Thickness": 3.915338
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 53.619476,
+     "Pitch": 44.149302,
+     "Thickness": 4.370632
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 54.686596,
+     "Pitch": 42.974435,
+     "Thickness": 3.019604
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 72.916596,
+     "Pitch": 35.910333,
+     "Thickness": 4.353114
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 52.157935,
+     "Pitch": 39.958233,
+     "Thickness": 7.047812
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 68.215139,
+     "Pitch": 38.157268,
+     "Thickness": 6.356521
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 61.311212,
+     "Pitch": 37.068343,
+     "Thickness": 3.996245
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 45.32012,
+     "Pitch": 31.149021,
+     "Thickness": 5.480352
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 43.144499,
+     "Pitch": 38.271409,
+     "Thickness": 5.270618
+    },
+    "failing": [
+     "faces",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "faces",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 63.261244,
+     "Pitch": 31.52281,
+     "Thickness": 5.502491
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 57.865048,
+     "Pitch": 27.570796,
+     "Thickness": 5.174774
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 66.312745,
+     "Pitch": 39.834436,
+     "Thickness": 4.794249
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 52.261457,
+     "Pitch": 43.700213,
+     "Thickness": 3.337302
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d01-plate-hole-pitch",
+  "seed": 6,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Width": 66.287331,
+     "Pitch": 20.070306,
+     "Thickness": 6.315857
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 50.108135,
+     "Pitch": 36.263588,
+     "Thickness": 3.353819
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 40.226892,
+     "Pitch": 47.627792,
+     "Thickness": 7.852778
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Width": 50.502643,
+     "Pitch": 48.019892,
+     "Thickness": 4.913697
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Width": 41.117591,
+     "Pitch": 21.546215,
+     "Thickness": 5.264979
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 79.211705,
+     "Pitch": 38.938208,
+     "Thickness": 5.405235
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 60.332656,
+     "Pitch": 25.97639,
+     "Thickness": 7.939399
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 87.256513,
+     "Pitch": 28.073832,
+     "Thickness": 7.724394
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 82.66939,
+     "Pitch": 49.518542,
+     "Thickness": 6.492442
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 87.223184,
+     "Pitch": 48.851447,
+     "Thickness": 7.721577
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 50.914387,
+     "Pitch": 36.577805,
+     "Thickness": 4.02696
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 54.590529,
+     "Pitch": 26.390379,
+     "Thickness": 7.156621
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 60.246872,
+     "Pitch": 37.448364,
+     "Thickness": 5.891507
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 84.273769,
+     "Pitch": 37.137844,
+     "Thickness": 7.377184
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 75.676923,
+     "Pitch": 37.191732,
+     "Thickness": 4.362842
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 82.608003,
+     "Pitch": 44.310888,
+     "Thickness": 4.02178
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 60.965602,
+     "Pitch": 30.864025,
+     "Thickness": 6.28998
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 41.085069,
+     "Pitch": 29.936631,
+     "Thickness": 4.460033
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 52.830013,
+     "Pitch": 29.077293,
+     "Thickness": 4.318609
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 58.643189,
+     "Pitch": 22.712734,
+     "Thickness": 4.802754
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 44.162582,
+     "Pitch": 47.864489,
+     "Thickness": 5.502138
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Width": 45.760502,
+     "Pitch": 34.683754,
+     "Thickness": 5.369848
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 42.763177,
+     "Pitch": 33.297763,
+     "Thickness": 6.334619
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 54.728661,
+     "Pitch": 28.680492,
+     "Thickness": 7.632865
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 46.035293,
+     "Pitch": 24.860445,
+     "Thickness": 5.933835
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 74.561543,
+     "Pitch": 42.036328,
+     "Thickness": 7.489536
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 47.940624,
+     "Pitch": 37.780399,
+     "Thickness": 5.10589
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 76.304889,
+     "Pitch": 24.481259,
+     "Thickness": 3.954787
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 81.898074,
+     "Pitch": 22.395941,
+     "Thickness": 3.506996
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 68.884816,
+     "Pitch": 28.994446,
+     "Thickness": 6.664792
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 65.164251,
+     "Pitch": 46.384335,
+     "Thickness": 6.858827
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 49.522008,
+     "Pitch": 28.173563,
+     "Thickness": 5.631077
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 56.785942,
+     "Pitch": 36.009912,
+     "Thickness": 3.811157
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 46.119026,
+     "Pitch": 25.740667,
+     "Thickness": 5.051871
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 47.27644,
+     "Pitch": 42.247602,
+     "Thickness": 6.645726
+    },
+    "failing": [
+     "faces",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "faces",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 40.296801,
+     "Pitch": 38.73338,
+     "Thickness": 3.26929
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Width": 85.122655,
+     "Pitch": 32.666977,
+     "Thickness": 7.117445
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 81.583546,
+     "Pitch": 48.047359,
+     "Thickness": 4.968896
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 74.851731,
+     "Pitch": 20.674915,
+     "Thickness": 4.940362
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 84.743923,
+     "Pitch": 26.26388,
+     "Thickness": 6.442221
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 44.762429,
+     "Pitch": 31.355523,
+     "Thickness": 3.423553
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 49.615892,
+     "Pitch": 43.266315,
+     "Thickness": 5.951933
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 65.007339,
+     "Pitch": 28.237823,
+     "Thickness": 7.811623
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 86.56654,
+     "Pitch": 36.143418,
+     "Thickness": 5.97984
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 77.740762,
+     "Pitch": 28.591747,
+     "Thickness": 4.311176
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 59.548086,
+     "Pitch": 36.168671,
+     "Thickness": 6.593202
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 82.5843,
+     "Pitch": 23.270967,
+     "Thickness": 4.257904
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 83.366844,
+     "Pitch": 22.12158,
+     "Thickness": 3.635905
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 75.561192,
+     "Pitch": 35.772356,
+     "Thickness": 7.788524
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 44.056927,
+     "Pitch": 47.362208,
+     "Thickness": 4.683667
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Width": 64.980495,
+     "Pitch": 34.705679,
+     "Thickness": 4.591233
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 51.795201,
+     "Pitch": 31.920283,
+     "Thickness": 4.402939
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 57.586617,
+     "Pitch": 35.167775,
+     "Thickness": 5.956309
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 86.389388,
+     "Pitch": 34.248847,
+     "Thickness": 7.966001
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 87.194371,
+     "Pitch": 43.217135,
+     "Thickness": 3.171997
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 66.023048,
+     "Pitch": 32.175561,
+     "Thickness": 6.201563
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 61.615141,
+     "Pitch": 23.932577,
+     "Thickness": 7.488642
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 41.27967,
+     "Pitch": 20.746868,
+     "Thickness": 5.149169
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 78.480081,
+     "Pitch": 25.296543,
+     "Thickness": 6.186603
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 88.768268,
+     "Pitch": 28.488687,
+     "Thickness": 5.191287
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 57.667941,
+     "Pitch": 28.432183,
+     "Thickness": 5.125404
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 88.074138,
+     "Pitch": 32.155056,
+     "Thickness": 5.626559
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 79.100717,
+     "Pitch": 28.169571,
+     "Thickness": 7.495121
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 40.645628,
+     "Pitch": 36.906612,
+     "Thickness": 3.201708
+    },
+    "failing": [
+     "faces",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "faces",
+     "gate-min-wall"
+    ]
+   }
+  ]
+ },
+ {
+  "brief": "d01-plate-hole-pitch",
+  "seed": 7,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Width": 40.585238,
+     "Pitch": 21.858748,
+     "Thickness": 7.884538
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 74.951435,
+     "Pitch": 35.643358,
+     "Thickness": 5.027608
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 63.311632,
+     "Pitch": 27.197756,
+     "Thickness": 5.766628
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 76.491104,
+     "Pitch": 27.734467,
+     "Thickness": 3.779742
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 78.204494,
+     "Pitch": 35.552076,
+     "Thickness": 3.985686
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 58.39793,
+     "Pitch": 28.79742,
+     "Thickness": 5.673698
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 54.816512,
+     "Pitch": 49.338383,
+     "Thickness": 4.237668
+    },
+    "failing": [
+     "faces",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "faces",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 83.88898,
+     "Pitch": 25.723751,
+     "Thickness": 3.718287
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 47.732202,
+     "Pitch": 28.728536,
+     "Thickness": 5.739507
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 78.093685,
+     "Pitch": 22.235543,
+     "Thickness": 7.564704
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 67.685537,
+     "Pitch": 38.648745,
+     "Thickness": 6.400455
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 88.299485,
+     "Pitch": 38.731419,
+     "Thickness": 7.606024
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 81.381424,
+     "Pitch": 21.199354,
+     "Thickness": 3.874708
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 57.849051,
+     "Pitch": 32.759472,
+     "Thickness": 3.100881
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 44.405312,
+     "Pitch": 43.040476,
+     "Thickness": 4.844847
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Width": 61.335785,
+     "Pitch": 34.059879,
+     "Thickness": 7.731106
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 75.164054,
+     "Pitch": 40.648924,
+     "Thickness": 4.65324
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 57.816726,
+     "Pitch": 24.163736,
+     "Thickness": 3.666466
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 85.651743,
+     "Pitch": 29.672809,
+     "Thickness": 3.951878
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 71.610437,
+     "Pitch": 30.103128,
+     "Thickness": 3.218157
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 74.212689,
+     "Pitch": 47.641153,
+     "Thickness": 5.739363
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 81.328876,
+     "Pitch": 39.657331,
+     "Thickness": 7.59939
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 45.85207,
+     "Pitch": 35.897873,
+     "Thickness": 6.24583
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 84.553245,
+     "Pitch": 48.814952,
+     "Thickness": 7.189787
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 69.711729,
+     "Pitch": 48.916124,
+     "Thickness": 7.837532
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 67.428413,
+     "Pitch": 44.55554,
+     "Thickness": 3.0285
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 65.803675,
+     "Pitch": 29.841691,
+     "Thickness": 6.621358
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 67.474755,
+     "Pitch": 42.662491,
+     "Thickness": 7.88467
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 67.877666,
+     "Pitch": 44.694785,
+     "Thickness": 5.149971
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 72.11757,
+     "Pitch": 42.15661,
+     "Thickness": 5.758484
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 55.619191,
+     "Pitch": 27.105055,
+     "Thickness": 3.046574
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 41.20364,
+     "Pitch": 48.301907,
+     "Thickness": 7.166845
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Width": 71.53007,
+     "Pitch": 20.432036,
+     "Thickness": 6.09448
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 69.744832,
+     "Pitch": 41.505493,
+     "Thickness": 7.974303
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 53.89987,
+     "Pitch": 49.588258,
+     "Thickness": 6.249855
+    },
+    "failing": [
+     "faces",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "faces",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 80.245872,
+     "Pitch": 38.731967,
+     "Thickness": 7.150695
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 46.953208,
+     "Pitch": 49.825959,
+     "Thickness": 5.534658
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Width": 68.344496,
+     "Pitch": 24.826467,
+     "Thickness": 4.980831
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 50.533452,
+     "Pitch": 44.406267,
+     "Thickness": 7.307837
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 76.795965,
+     "Pitch": 39.753656,
+     "Thickness": 7.951214
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 70.465498,
+     "Pitch": 42.093654,
+     "Thickness": 7.776943
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 64.46099,
+     "Pitch": 26.893201,
+     "Thickness": 5.920039
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 79.784082,
+     "Pitch": 45.617582,
+     "Thickness": 3.949599
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 67.744799,
+     "Pitch": 34.331148,
+     "Thickness": 5.628229
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 49.010294,
+     "Pitch": 27.518974,
+     "Thickness": 5.194821
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 63.875601,
+     "Pitch": 25.125226,
+     "Thickness": 3.016055
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 48.657638,
+     "Pitch": 20.723163,
+     "Thickness": 3.536142
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 83.815254,
+     "Pitch": 49.484473,
+     "Thickness": 3.300599
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 48.722737,
+     "Pitch": 32.151122,
+     "Thickness": 5.494978
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 76.616716,
+     "Pitch": 31.047427,
+     "Thickness": 4.800079
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 79.576298,
+     "Pitch": 41.322026,
+     "Thickness": 7.000571
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 66.499491,
+     "Pitch": 43.949648,
+     "Thickness": 5.060828
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 68.131826,
+     "Pitch": 28.779385,
+     "Thickness": 5.636294
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 78.824173,
+     "Pitch": 22.400405,
+     "Thickness": 4.260989
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 81.342135,
+     "Pitch": 44.821229,
+     "Thickness": 6.873354
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 61.491492,
+     "Pitch": 30.707359,
+     "Thickness": 7.601632
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 52.566604,
+     "Pitch": 30.842308,
+     "Thickness": 5.384824
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 81.515342,
+     "Pitch": 32.121145,
+     "Thickness": 7.872832
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 67.56407,
+     "Pitch": 33.089436,
+     "Thickness": 4.692798
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 66.852032,
+     "Pitch": 28.797642,
+     "Thickness": 7.420953
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 68.612936,
+     "Pitch": 49.581198,
+     "Thickness": 7.205024
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 64.781802,
+     "Pitch": 33.104198,
+     "Thickness": 6.488358
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 86.553288,
+     "Pitch": 36.519638,
+     "Thickness": 6.286856
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 48.119237,
+     "Pitch": 40.799057,
+     "Thickness": 4.954014
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d01-plate-hole-pitch",
+  "seed": 8,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Width": 47.814758,
+     "Pitch": 38.755768,
+     "Thickness": 4.503323
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 74.797714,
+     "Pitch": 37.550273,
+     "Thickness": 5.246995
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 80.937978,
+     "Pitch": 27.164437,
+     "Thickness": 5.533088
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 43.006903,
+     "Pitch": 35.425517,
+     "Thickness": 3.366792
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 68.472733,
+     "Pitch": 26.610793,
+     "Thickness": 3.802738
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 87.736632,
+     "Pitch": 40.80291,
+     "Thickness": 3.454979
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 46.39036,
+     "Pitch": 21.181514,
+     "Thickness": 5.779932
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 62.204791,
+     "Pitch": 42.581559,
+     "Thickness": 6.870927
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 41.983571,
+     "Pitch": 33.618469,
+     "Thickness": 4.793072
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 65.020684,
+     "Pitch": 29.63054,
+     "Thickness": 5.592781
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 46.231557,
+     "Pitch": 45.827271,
+     "Thickness": 4.619978
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Width": 76.655712,
+     "Pitch": 46.990126,
+     "Thickness": 5.557011
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 74.247097,
+     "Pitch": 42.632656,
+     "Thickness": 6.246189
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 55.389265,
+     "Pitch": 28.300228,
+     "Thickness": 3.520445
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 55.50735,
+     "Pitch": 49.996016,
+     "Thickness": 5.841062
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 60.171291,
+     "Pitch": 21.43719,
+     "Thickness": 5.211809
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 79.460322,
+     "Pitch": 49.934773,
+     "Thickness": 4.249807
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 83.024817,
+     "Pitch": 22.197696,
+     "Thickness": 5.734353
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 66.798334,
+     "Pitch": 25.350847,
+     "Thickness": 5.026925
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 45.758376,
+     "Pitch": 23.214693,
+     "Thickness": 7.97163
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 81.916884,
+     "Pitch": 25.724784,
+     "Thickness": 3.113207
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 87.947984,
+     "Pitch": 38.195316,
+     "Thickness": 6.971396
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 60.004571,
+     "Pitch": 33.352914,
+     "Thickness": 3.153795
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 60.857086,
+     "Pitch": 29.000771,
+     "Thickness": 6.511579
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 40.055568,
+     "Pitch": 42.567223,
+     "Thickness": 4.871982
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Width": 52.817031,
+     "Pitch": 49.494404,
+     "Thickness": 7.435337
+    },
+    "failing": [
+     "faces",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "faces",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 82.051957,
+     "Pitch": 37.650917,
+     "Thickness": 6.350167
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 87.73248,
+     "Pitch": 29.305266,
+     "Thickness": 3.47365
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 69.228389,
+     "Pitch": 31.90298,
+     "Thickness": 4.683246
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 84.61981,
+     "Pitch": 29.715537,
+     "Thickness": 5.744634
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 54.225441,
+     "Pitch": 41.710996,
+     "Thickness": 5.672137
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 60.158327,
+     "Pitch": 42.195241,
+     "Thickness": 5.593134
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 75.776141,
+     "Pitch": 44.778803,
+     "Thickness": 4.817694
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 53.300009,
+     "Pitch": 49.336287,
+     "Thickness": 3.295871
+    },
+    "failing": [
+     "faces",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "faces",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 44.57901,
+     "Pitch": 40.513245,
+     "Thickness": 4.585426
+    },
+    "failing": [
+     "faces",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "faces",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 86.827188,
+     "Pitch": 20.929001,
+     "Thickness": 5.895148
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 57.959457,
+     "Pitch": 40.498333,
+     "Thickness": 3.5984
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 49.5352,
+     "Pitch": 27.738462,
+     "Thickness": 6.77221
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 77.627612,
+     "Pitch": 23.303173,
+     "Thickness": 5.66991
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 62.01742,
+     "Pitch": 38.446238,
+     "Thickness": 4.332895
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 53.214841,
+     "Pitch": 36.054724,
+     "Thickness": 4.307398
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 45.07021,
+     "Pitch": 34.165328,
+     "Thickness": 4.055461
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 65.908045,
+     "Pitch": 23.022222,
+     "Thickness": 3.140305
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 76.909443,
+     "Pitch": 22.122829,
+     "Thickness": 5.448021
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 83.669907,
+     "Pitch": 38.401325,
+     "Thickness": 5.132544
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 71.480458,
+     "Pitch": 27.837634,
+     "Thickness": 3.59732
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 74.816414,
+     "Pitch": 36.11429,
+     "Thickness": 7.583751
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 48.633898,
+     "Pitch": 29.024608,
+     "Thickness": 7.221172
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 84.243833,
+     "Pitch": 36.883202,
+     "Thickness": 6.292952
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 50.320337,
+     "Pitch": 26.18507,
+     "Thickness": 6.171774
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 65.476905,
+     "Pitch": 43.567476,
+     "Thickness": 4.114173
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 55.474851,
+     "Pitch": 48.59533,
+     "Thickness": 4.307462
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 85.103993,
+     "Pitch": 24.668201,
+     "Thickness": 4.052067
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 43.295274,
+     "Pitch": 33.778195,
+     "Thickness": 4.179364
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 54.441671,
+     "Pitch": 45.602456,
+     "Thickness": 3.021104
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 40.635686,
+     "Pitch": 37.631688,
+     "Thickness": 5.716887
+    },
+    "failing": [
+     "faces",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "faces",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 75.602737,
+     "Pitch": 46.67226,
+     "Thickness": 3.059939
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 51.729982,
+     "Pitch": 28.88196,
+     "Thickness": 4.443495
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 72.340006,
+     "Pitch": 46.986733,
+     "Thickness": 4.222797
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 56.930774,
+     "Pitch": 47.121253,
+     "Thickness": 6.919513
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 40.836965,
+     "Pitch": 31.767286,
+     "Thickness": 4.727138
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 68.518522,
+     "Pitch": 39.549436,
+     "Thickness": 6.202635
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 85.341485,
+     "Pitch": 37.500832,
+     "Thickness": 3.57833
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 49.17026,
+     "Pitch": 48.382985,
+     "Thickness": 7.790112
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   }
+  ]
+ },
+ {
+  "brief": "d01-plate-hole-pitch",
+  "seed": 9,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Width": 49.936446,
+     "Pitch": 45.536324,
+     "Thickness": 3.708831
+    },
+    "failing": [
+     "faces",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "faces",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 81.083586,
+     "Pitch": 41.714132,
+     "Thickness": 6.444308
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 53.135922,
+     "Pitch": 47.583628,
+     "Thickness": 3.654308
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 71.614526,
+     "Pitch": 40.940473,
+     "Thickness": 5.936427
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 54.171489,
+     "Pitch": 48.134502,
+     "Thickness": 4.435112
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 76.513565,
+     "Pitch": 39.259223,
+     "Thickness": 4.834684
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 66.777312,
+     "Pitch": 46.92315,
+     "Thickness": 7.327794
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 62.766399,
+     "Pitch": 46.210632,
+     "Thickness": 3.94908
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 73.864101,
+     "Pitch": 30.006813,
+     "Thickness": 3.240475
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 83.815594,
+     "Pitch": 26.136091,
+     "Thickness": 5.631781
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 64.704543,
+     "Pitch": 22.242089,
+     "Thickness": 7.171131
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 75.186246,
+     "Pitch": 25.903938,
+     "Thickness": 3.341657
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 64.439982,
+     "Pitch": 29.291012,
+     "Thickness": 6.293649
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 54.607592,
+     "Pitch": 36.600511,
+     "Thickness": 7.785346
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 68.394293,
+     "Pitch": 24.803758,
+     "Thickness": 5.587697
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 56.266574,
+     "Pitch": 36.102823,
+     "Thickness": 6.998736
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 68.853328,
+     "Pitch": 38.410806,
+     "Thickness": 5.667656
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 72.829905,
+     "Pitch": 34.905054,
+     "Thickness": 3.898757
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 86.484314,
+     "Pitch": 37.907391,
+     "Thickness": 6.205792
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 67.650226,
+     "Pitch": 39.703499,
+     "Thickness": 7.912646
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 85.873767,
+     "Pitch": 20.642999,
+     "Thickness": 6.658758
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 44.752091,
+     "Pitch": 39.975572,
+     "Thickness": 6.200497
+    },
+    "failing": [
+     "faces",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "faces",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 88.741918,
+     "Pitch": 42.035483,
+     "Thickness": 7.524256
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 79.726125,
+     "Pitch": 26.968003,
+     "Thickness": 6.430605
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 87.858408,
+     "Pitch": 23.681362,
+     "Thickness": 7.707951
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 74.270038,
+     "Pitch": 43.795242,
+     "Thickness": 4.72969
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 78.455907,
+     "Pitch": 29.683091,
+     "Thickness": 6.575162
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 82.869078,
+     "Pitch": 22.082462,
+     "Thickness": 5.917764
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 67.843206,
+     "Pitch": 29.60531,
+     "Thickness": 5.672234
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 54.185752,
+     "Pitch": 34.638916,
+     "Thickness": 3.930644
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 80.970222,
+     "Pitch": 40.777046,
+     "Thickness": 5.856853
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 87.169231,
+     "Pitch": 45.237871,
+     "Thickness": 3.173851
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 50.751665,
+     "Pitch": 37.873019,
+     "Thickness": 6.42654
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 49.888236,
+     "Pitch": 27.881479,
+     "Thickness": 7.471382
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 72.124987,
+     "Pitch": 20.079589,
+     "Thickness": 5.304771
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 44.547949,
+     "Pitch": 25.753115,
+     "Thickness": 3.558815
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 48.829867,
+     "Pitch": 25.749541,
+     "Thickness": 4.443186
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 81.309512,
+     "Pitch": 24.399692,
+     "Thickness": 7.276549
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 74.485442,
+     "Pitch": 44.974892,
+     "Thickness": 4.894118
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 87.400933,
+     "Pitch": 35.937709,
+     "Thickness": 7.765474
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 81.405693,
+     "Pitch": 34.475638,
+     "Thickness": 4.263984
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 86.035364,
+     "Pitch": 48.250831,
+     "Thickness": 3.414804
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 57.959773,
+     "Pitch": 30.370562,
+     "Thickness": 7.509561
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 61.7827,
+     "Pitch": 32.558672,
+     "Thickness": 7.091665
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 76.900895,
+     "Pitch": 36.569654,
+     "Thickness": 7.133396
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 43.512942,
+     "Pitch": 20.181592,
+     "Thickness": 7.715901
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 83.828076,
+     "Pitch": 47.463666,
+     "Thickness": 7.140626
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 84.176107,
+     "Pitch": 43.366575,
+     "Thickness": 7.34639
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 57.840993,
+     "Pitch": 33.939629,
+     "Thickness": 7.067692
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 48.170548,
+     "Pitch": 31.948709,
+     "Thickness": 5.808334
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 66.095575,
+     "Pitch": 46.702183,
+     "Thickness": 3.192751
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 65.503909,
+     "Pitch": 23.450363,
+     "Thickness": 6.606919
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 60.150233,
+     "Pitch": 39.926801,
+     "Thickness": 6.146569
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 49.453905,
+     "Pitch": 28.568635,
+     "Thickness": 6.312369
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 55.779365,
+     "Pitch": 46.800591,
+     "Thickness": 3.54193
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 67.582589,
+     "Pitch": 40.859344,
+     "Thickness": 3.089989
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 46.554168,
+     "Pitch": 25.054628,
+     "Thickness": 5.618156
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 86.684343,
+     "Pitch": 33.848977,
+     "Thickness": 3.901758
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 63.354373,
+     "Pitch": 27.400852,
+     "Thickness": 6.889528
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 87.491438,
+     "Pitch": 34.19344,
+     "Thickness": 7.538866
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 70.454836,
+     "Pitch": 23.9153,
+     "Thickness": 3.419397
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 50.101044,
+     "Pitch": 38.995826,
+     "Thickness": 6.508744
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 69.478838,
+     "Pitch": 32.230623,
+     "Thickness": 6.068205
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 81.315932,
+     "Pitch": 23.106602,
+     "Thickness": 4.616039
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d01-plate-hole-pitch",
+  "seed": 10,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Width": 65.099601,
+     "Pitch": 47.524604,
+     "Thickness": 6.456592
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 80.105134,
+     "Pitch": 33.722529,
+     "Thickness": 5.241731
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 50.114348,
+     "Pitch": 22.506839,
+     "Thickness": 3.170634
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 89.83593,
+     "Pitch": 47.662842,
+     "Thickness": 3.646637
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 59.638669,
+     "Pitch": 31.641824,
+     "Thickness": 5.221573
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 86.283557,
+     "Pitch": 28.734113,
+     "Thickness": 7.040819
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 86.802074,
+     "Pitch": 24.73669,
+     "Thickness": 4.943519
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 74.769015,
+     "Pitch": 35.617365,
+     "Thickness": 5.409018
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 54.729194,
+     "Pitch": 30.269949,
+     "Thickness": 4.919952
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 65.861303,
+     "Pitch": 21.375872,
+     "Thickness": 5.563547
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 41.924501,
+     "Pitch": 22.229479,
+     "Thickness": 4.020236
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 47.326596,
+     "Pitch": 22.552904,
+     "Thickness": 3.714801
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 78.378127,
+     "Pitch": 34.513469,
+     "Thickness": 5.089809
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 71.481944,
+     "Pitch": 43.85325,
+     "Thickness": 3.789213
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 62.232756,
+     "Pitch": 47.537264,
+     "Thickness": 4.18873
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 79.484895,
+     "Pitch": 40.523137,
+     "Thickness": 3.671835
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 69.876553,
+     "Pitch": 46.386585,
+     "Thickness": 5.980321
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 40.7816,
+     "Pitch": 42.251385,
+     "Thickness": 6.59669
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Width": 70.853219,
+     "Pitch": 44.013822,
+     "Thickness": 5.780724
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 59.441854,
+     "Pitch": 29.468603,
+     "Thickness": 6.762502
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 46.02517,
+     "Pitch": 31.655444,
+     "Thickness": 4.103223
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 42.902387,
+     "Pitch": 46.317946,
+     "Thickness": 5.206333
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Width": 62.201171,
+     "Pitch": 24.7499,
+     "Thickness": 7.397286
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 61.190847,
+     "Pitch": 46.021841,
+     "Thickness": 7.653286
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 43.408372,
+     "Pitch": 24.899347,
+     "Thickness": 4.50249
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 89.225735,
+     "Pitch": 48.628665,
+     "Thickness": 5.77401
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 40.039842,
+     "Pitch": 26.101089,
+     "Thickness": 4.619193
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 77.023237,
+     "Pitch": 46.328041,
+     "Thickness": 7.26725
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 82.248478,
+     "Pitch": 29.790228,
+     "Thickness": 4.020433
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 54.6455,
+     "Pitch": 49.330683,
+     "Thickness": 7.513082
+    },
+    "failing": [
+     "faces",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "faces",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 74.577986,
+     "Pitch": 43.219339,
+     "Thickness": 5.515493
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 60.489894,
+     "Pitch": 27.002937,
+     "Thickness": 4.295152
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 70.927345,
+     "Pitch": 30.562883,
+     "Thickness": 6.879611
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 41.451851,
+     "Pitch": 36.324031,
+     "Thickness": 7.39279
+    },
+    "failing": [
+     "faces",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "faces",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 80.031524,
+     "Pitch": 35.124832,
+     "Thickness": 5.112773
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 80.471554,
+     "Pitch": 46.871661,
+     "Thickness": 5.405605
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 51.026107,
+     "Pitch": 27.771429,
+     "Thickness": 3.255412
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 84.651554,
+     "Pitch": 29.3635,
+     "Thickness": 6.423915
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 73.139185,
+     "Pitch": 36.441526,
+     "Thickness": 4.409532
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 57.405586,
+     "Pitch": 29.01149,
+     "Thickness": 5.90707
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 62.974164,
+     "Pitch": 40.519769,
+     "Thickness": 4.416396
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 76.78799,
+     "Pitch": 48.513408,
+     "Thickness": 5.996288
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 46.44843,
+     "Pitch": 21.062011,
+     "Thickness": 3.876943
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 80.375651,
+     "Pitch": 34.329403,
+     "Thickness": 6.385583
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 73.844989,
+     "Pitch": 44.017711,
+     "Thickness": 3.142959
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 66.005411,
+     "Pitch": 28.6799,
+     "Thickness": 5.507196
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 43.568272,
+     "Pitch": 27.58076,
+     "Thickness": 3.980736
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 85.287438,
+     "Pitch": 42.73007,
+     "Thickness": 7.256598
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 59.615592,
+     "Pitch": 26.532699,
+     "Thickness": 4.837887
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 80.166662,
+     "Pitch": 47.81871,
+     "Thickness": 4.004593
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 52.129659,
+     "Pitch": 34.758829,
+     "Thickness": 4.482511
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 76.362478,
+     "Pitch": 46.378122,
+     "Thickness": 3.818017
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 58.024527,
+     "Pitch": 24.773855,
+     "Thickness": 7.254622
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 86.605566,
+     "Pitch": 42.460457,
+     "Thickness": 7.138749
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 59.713907,
+     "Pitch": 23.043488,
+     "Thickness": 7.132986
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 83.221861,
+     "Pitch": 36.353876,
+     "Thickness": 4.588814
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 48.766456,
+     "Pitch": 35.748733,
+     "Thickness": 4.004342
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 65.356711,
+     "Pitch": 29.732477,
+     "Thickness": 5.659439
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 68.452529,
+     "Pitch": 21.624832,
+     "Thickness": 3.239595
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 66.896442,
+     "Pitch": 33.875513,
+     "Thickness": 5.388734
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 59.468175,
+     "Pitch": 34.008518,
+     "Thickness": 7.157276
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 50.097963,
+     "Pitch": 36.60613,
+     "Thickness": 7.35095
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 60.300785,
+     "Pitch": 48.238417,
+     "Thickness": 5.881426
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 42.584499,
+     "Pitch": 25.394084,
+     "Thickness": 4.730007
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ }
+]

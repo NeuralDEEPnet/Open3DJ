@@ -1,0 +1,5202 @@
+[
+ {
+  "brief": "c06-slot-hole-safe",
+  "seed": 1,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Slot X": -17.458521,
+     "Slot Y": -11.934343
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.451059,
+     "Slot Y": 11.545223
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -10.632442,
+     "Slot Y": -5.253516
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -17.743223,
+     "Slot Y": 5.297835
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -21.484061,
+     "Slot Y": 11.875751
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -20.894577,
+     "Slot Y": -0.26908
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -27.221328,
+     "Slot Y": -2.310126
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -25.049522,
+     "Slot Y": -8.292165
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -20.217122,
+     "Slot Y": -10.383123
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -22.107614,
+     "Slot Y": 6.410593
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.282767,
+     "Slot Y": -7.419034
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -29.145406,
+     "Slot Y": -1.742833
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -18.19235,
+     "Slot Y": 7.168421
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.102603,
+     "Slot Y": -7.068725
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.837407,
+     "Slot Y": 1.105977
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -14.831143,
+     "Slot Y": -7.372463
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -15.581045,
+     "Slot Y": -1.100736
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -14.591724,
+     "Slot Y": 11.868816
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -25.213334,
+     "Slot Y": 6.168031
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -26.934581,
+     "Slot Y": -4.240041
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -21.73606,
+     "Slot Y": -6.018896
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -26.958235,
+     "Slot Y": 5.426516
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -18.473171,
+     "Slot Y": -8.946939
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.706848,
+     "Slot Y": -10.830637
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -17.555599,
+     "Slot Y": 8.77853
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -25.230116,
+     "Slot Y": 11.74506
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -15.633898,
+     "Slot Y": -2.344851
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -23.952543,
+     "Slot Y": 4.253159
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -10.947371,
+     "Slot Y": 10.159948
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.145125,
+     "Slot Y": 10.053211
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -13.311563,
+     "Slot Y": 10.412119
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -27.703887,
+     "Slot Y": -11.053248
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -12.626277,
+     "Slot Y": -4.932578
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -12.375469,
+     "Slot Y": 0.241407
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -11.282115,
+     "Slot Y": 4.905489
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -26.674856,
+     "Slot Y": 4.243416
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -11.022376,
+     "Slot Y": -8.833906
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -10.442348,
+     "Slot Y": -8.087692
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -22.23289,
+     "Slot Y": -9.177657
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -21.975148,
+     "Slot Y": -4.216202
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.848971,
+     "Slot Y": 0.217548
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.36912,
+     "Slot Y": -10.173301
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -13.840185,
+     "Slot Y": 8.501729
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.544269,
+     "Slot Y": -8.057545
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -23.93487,
+     "Slot Y": 9.45538
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.201212,
+     "Slot Y": -8.550501
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.908469,
+     "Slot Y": 1.177461
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -23.507658,
+     "Slot Y": -9.116025
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -27.173126,
+     "Slot Y": -10.381717
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -23.983462,
+     "Slot Y": 4.214592
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.971131,
+     "Slot Y": -9.195872
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.836589,
+     "Slot Y": 0.557682
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -25.763205,
+     "Slot Y": 7.012764
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.953167,
+     "Slot Y": 11.799692
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -10.919834,
+     "Slot Y": 8.880238
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -29.925855,
+     "Slot Y": -7.608695
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -29.432988,
+     "Slot Y": 11.622035
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -23.405644,
+     "Slot Y": 5.296199
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -12.69182,
+     "Slot Y": -9.747539
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.987829,
+     "Slot Y": 8.874459
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -14.095724,
+     "Slot Y": 7.003722
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -25.583875,
+     "Slot Y": -9.689688
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -27.017251,
+     "Slot Y": -2.192083
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.148912,
+     "Slot Y": -5.104906
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "c06-slot-hole-safe",
+  "seed": 2,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Slot X": -15.314981,
+     "Slot Y": -4.200038
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.294079,
+     "Slot Y": 0.910924
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -12.494241,
+     "Slot Y": 3.14
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -20.015969,
+     "Slot Y": -3.426128
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -14.368222,
+     "Slot Y": -9.263239
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -14.28266,
+     "Slot Y": -7.162912
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -21.515487,
+     "Slot Y": 8.039939
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -18.373592,
+     "Slot Y": -8.615839
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.555455,
+     "Slot Y": -3.199242
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -10.567731,
+     "Slot Y": -11.059173
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -11.696044,
+     "Slot Y": -10.507606
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -27.439511,
+     "Slot Y": -7.393593
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -29.857889,
+     "Slot Y": 10.56246
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -20.958512,
+     "Slot Y": 3.231652
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -10.231792,
+     "Slot Y": -6.412815
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -20.640739,
+     "Slot Y": -3.642202
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -28.947278,
+     "Slot Y": 0.509276
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -28.092735,
+     "Slot Y": -10.612365
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -10.794145,
+     "Slot Y": 7.320641
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -29.987478,
+     "Slot Y": 11.569904
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -28.549631,
+     "Slot Y": 11.336953
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.452176,
+     "Slot Y": -7.325795
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.442158,
+     "Slot Y": -10.764513
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -14.440574,
+     "Slot Y": 9.878103
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -13.457391,
+     "Slot Y": -1.303939
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -11.023231,
+     "Slot Y": -10.292448
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -15.71806,
+     "Slot Y": 11.520712
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -13.22246,
+     "Slot Y": 3.39805
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.511601,
+     "Slot Y": -11.204748
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -13.024506,
+     "Slot Y": 8.13198
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.040299,
+     "Slot Y": -4.499943
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -11.948447,
+     "Slot Y": 10.280562
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -21.060937,
+     "Slot Y": -3.617547
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -29.631039,
+     "Slot Y": 10.855936
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -23.733005,
+     "Slot Y": -1.481918
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -14.016085,
+     "Slot Y": 8.817047
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -11.609655,
+     "Slot Y": -1.636527
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -25.858078,
+     "Slot Y": 3.509383
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -17.516557,
+     "Slot Y": 5.117001
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -11.239502,
+     "Slot Y": -7.076648
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.423086,
+     "Slot Y": -3.7127
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.254961,
+     "Slot Y": -11.340481
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.238237,
+     "Slot Y": 7.936206
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -26.655815,
+     "Slot Y": 6.647303
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -22.110139,
+     "Slot Y": -1.940828
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -22.095357,
+     "Slot Y": 8.250286
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -20.486951,
+     "Slot Y": 11.748171
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.801292,
+     "Slot Y": -9.956424
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -15.838912,
+     "Slot Y": -11.505576
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -15.315062,
+     "Slot Y": 6.766545
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -17.050456,
+     "Slot Y": -5.120632
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -23.46566,
+     "Slot Y": 3.635826
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -27.84973,
+     "Slot Y": -7.490388
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -15.351327,
+     "Slot Y": 11.411307
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -17.390611,
+     "Slot Y": -9.263422
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -18.433756,
+     "Slot Y": 10.69404
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -29.42471,
+     "Slot Y": 1.875704
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.669951,
+     "Slot Y": 5.226615
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -13.067692,
+     "Slot Y": -1.794879
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.778966,
+     "Slot Y": -10.366092
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -12.745973,
+     "Slot Y": -1.311929
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -25.464687,
+     "Slot Y": 1.978932
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -20.781676,
+     "Slot Y": 1.668836
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.580631,
+     "Slot Y": -4.718157
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "c06-slot-hole-safe",
+  "seed": 3,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Slot X": -15.595464,
+     "Slot Y": -11.072108
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -20.876156,
+     "Slot Y": -10.201728
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -14.739892,
+     "Slot Y": -0.45167
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -20.265409,
+     "Slot Y": -8.116786
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.734875,
+     "Slot Y": 1.262573
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -26.101675,
+     "Slot Y": -9.993771
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -15.724252,
+     "Slot Y": -0.558527
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -14.125359,
+     "Slot Y": 9.11456
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -23.527527,
+     "Slot Y": 4.573953
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.265059,
+     "Slot Y": 4.13137
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.471428,
+     "Slot Y": 7.961612
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.201058,
+     "Slot Y": -11.721457
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -12.452913,
+     "Slot Y": -4.550472
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -11.263564,
+     "Slot Y": 6.464862
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -21.588394,
+     "Slot Y": 5.152418
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -26.913361,
+     "Slot Y": -3.169841
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -15.546014,
+     "Slot Y": -11.965426
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -29.832884,
+     "Slot Y": -0.520579
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -12.738489,
+     "Slot Y": 2.471319
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.358705,
+     "Slot Y": 6.871505
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -18.312797,
+     "Slot Y": 1.962483
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -28.581621,
+     "Slot Y": -3.064916
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.381385,
+     "Slot Y": 8.124493
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -21.740288,
+     "Slot Y": -0.86481
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -20.064788,
+     "Slot Y": 1.701152
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -14.478379,
+     "Slot Y": 8.530667
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.707956,
+     "Slot Y": -3.065063
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.22089,
+     "Slot Y": 4.796391
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -20.674116,
+     "Slot Y": 11.491315
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -12.385011,
+     "Slot Y": 5.10281
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.45758,
+     "Slot Y": 10.862753
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -14.696608,
+     "Slot Y": -10.634655
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -28.676964,
+     "Slot Y": 0.902229
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -12.689895,
+     "Slot Y": -3.724176
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.196089,
+     "Slot Y": -5.041682
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -20.734138,
+     "Slot Y": 1.247438
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -18.443405,
+     "Slot Y": -2.613437
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -14.875831,
+     "Slot Y": -7.848088
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -10.947688,
+     "Slot Y": 3.433793
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -14.986789,
+     "Slot Y": 6.479513
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -28.777753,
+     "Slot Y": -2.100556
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -26.906828,
+     "Slot Y": 4.577002
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -14.521537,
+     "Slot Y": 2.908585
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -10.267278,
+     "Slot Y": 11.767377
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -10.393793,
+     "Slot Y": 1.987363
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -12.269373,
+     "Slot Y": 10.807994
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -13.729149,
+     "Slot Y": -4.413695
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -17.485588,
+     "Slot Y": 10.654765
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -22.180812,
+     "Slot Y": 2.372773
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -27.183301,
+     "Slot Y": 3.144781
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.053258,
+     "Slot Y": -5.846389
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -12.37512,
+     "Slot Y": -10.821407
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -13.035691,
+     "Slot Y": -9.881038
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -21.51229,
+     "Slot Y": 9.347414
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -29.419095,
+     "Slot Y": 4.087336
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -27.936146,
+     "Slot Y": -5.088731
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -10.132658,
+     "Slot Y": 0.560867
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -26.408995,
+     "Slot Y": -11.876192
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -26.840504,
+     "Slot Y": 3.569983
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -17.396571,
+     "Slot Y": 7.865321
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.22172,
+     "Slot Y": 7.381287
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -27.490063,
+     "Slot Y": -7.37623
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -27.442356,
+     "Slot Y": 2.620903
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.489634,
+     "Slot Y": 1.860829
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "c06-slot-hole-safe",
+  "seed": 4,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Slot X": -11.527276,
+     "Slot Y": -4.006899
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -25.566642,
+     "Slot Y": -10.035816
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -25.320055,
+     "Slot Y": 0.203925
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -28.45217,
+     "Slot Y": 11.372686
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -17.55925,
+     "Slot Y": 4.579571
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -14.637078,
+     "Slot Y": -3.140432
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -15.350102,
+     "Slot Y": 9.021002
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.424625,
+     "Slot Y": 5.840308
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -21.56508,
+     "Slot Y": -0.229196
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -15.28173,
+     "Slot Y": 10.337358
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -10.409194,
+     "Slot Y": -0.687742
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -23.040925,
+     "Slot Y": 6.914171
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.613757,
+     "Slot Y": 6.053006
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.44855,
+     "Slot Y": -3.771139
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -20.882857,
+     "Slot Y": -11.739058
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -20.290969,
+     "Slot Y": 0.960488
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -14.723645,
+     "Slot Y": -9.711244
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -13.854552,
+     "Slot Y": -2.298797
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -23.404921,
+     "Slot Y": 1.132411
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -28.789051,
+     "Slot Y": 2.970116
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.434083,
+     "Slot Y": 1.363793
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -27.063579,
+     "Slot Y": 10.886331
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -12.948511,
+     "Slot Y": 10.110557
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -22.999456,
+     "Slot Y": -7.531648
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.826238,
+     "Slot Y": -0.032119
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -28.649701,
+     "Slot Y": 6.410794
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -10.86928,
+     "Slot Y": -11.900974
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -20.366831,
+     "Slot Y": 9.721277
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.23705,
+     "Slot Y": 1.321675
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -10.341411,
+     "Slot Y": -5.061152
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -14.652585,
+     "Slot Y": -3.316696
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -20.706537,
+     "Slot Y": 4.834056
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -29.891763,
+     "Slot Y": -6.249944
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.90528,
+     "Slot Y": 6.902265
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -12.922782,
+     "Slot Y": -10.271352
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -20.789916,
+     "Slot Y": 3.306051
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -10.426218,
+     "Slot Y": 2.728415
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.38265,
+     "Slot Y": 5.008321
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -14.60209,
+     "Slot Y": -4.612393
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -10.897173,
+     "Slot Y": 6.555188
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -26.375517,
+     "Slot Y": 11.638433
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -22.322348,
+     "Slot Y": 11.503446
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -11.342424,
+     "Slot Y": -1.009473
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -27.571332,
+     "Slot Y": -10.044128
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -29.81053,
+     "Slot Y": -9.265582
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.603038,
+     "Slot Y": -9.191459
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -11.973503,
+     "Slot Y": 10.478596
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.351171,
+     "Slot Y": -3.585574
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -22.346822,
+     "Slot Y": 4.08253
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -11.798465,
+     "Slot Y": -6.051142
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -17.382967,
+     "Slot Y": 5.519838
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -17.874195,
+     "Slot Y": 8.725289
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -11.267736,
+     "Slot Y": 5.080833
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -27.809784,
+     "Slot Y": 3.900594
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -13.053395,
+     "Slot Y": -8.383825
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.365267,
+     "Slot Y": 5.684927
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -22.483323,
+     "Slot Y": 11.987053
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -11.654614,
+     "Slot Y": -11.270514
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -14.730692,
+     "Slot Y": -2.269302
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -11.984023,
+     "Slot Y": 0.225304
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -29.013797,
+     "Slot Y": 4.566695
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -29.053357,
+     "Slot Y": 9.576277
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -17.75263,
+     "Slot Y": 1.531442
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -21.21415,
+     "Slot Y": 6.735557
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "c06-slot-hole-safe",
+  "seed": 5,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Slot X": -16.204502,
+     "Slot Y": 6.545839
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -25.60474,
+     "Slot Y": 2.956292
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -28.297256,
+     "Slot Y": 2.211959
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -15.597955,
+     "Slot Y": -1.005499
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -11.88757,
+     "Slot Y": -6.493705
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -14.402732,
+     "Slot Y": 5.774708
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.788799,
+     "Slot Y": -11.668286
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -20.691972,
+     "Slot Y": -4.789078
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -12.069004,
+     "Slot Y": -5.085219
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -14.894057,
+     "Slot Y": 5.363599
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.928438,
+     "Slot Y": -11.543559
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -14.129835,
+     "Slot Y": -7.001101
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.547614,
+     "Slot Y": -9.041714
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -20.598447,
+     "Slot Y": 11.799441
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -25.09055,
+     "Slot Y": -10.057323
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -13.028138,
+     "Slot Y": -4.391418
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -21.848759,
+     "Slot Y": 11.657697
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.560482,
+     "Slot Y": -2.733542
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -25.654827,
+     "Slot Y": 8.861385
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -15.552771,
+     "Slot Y": 9.091499
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.768942,
+     "Slot Y": 7.321647
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -17.016887,
+     "Slot Y": -8.648893
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -17.279049,
+     "Slot Y": 1.862856
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -23.696334,
+     "Slot Y": 6.693254
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -17.811638,
+     "Slot Y": -11.804954
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -11.359794,
+     "Slot Y": -3.803537
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -22.997811,
+     "Slot Y": 8.990459
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -25.016099,
+     "Slot Y": -7.794713
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -13.326681,
+     "Slot Y": -5.306626
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -10.034269,
+     "Slot Y": -11.670588
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -22.978756,
+     "Slot Y": 6.204141
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -23.715364,
+     "Slot Y": 3.858204
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -28.464468,
+     "Slot Y": -10.081515
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -15.300804,
+     "Slot Y": 0.593377
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.931268,
+     "Slot Y": 10.320972
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -29.00941,
+     "Slot Y": 5.633045
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -10.922524,
+     "Slot Y": -5.154629
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.336588,
+     "Slot Y": 8.556224
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -13.063685,
+     "Slot Y": 1.893436
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -10.870291,
+     "Slot Y": 4.859661
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.196372,
+     "Slot Y": -9.362302
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.119032,
+     "Slot Y": 0.706974
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -26.899975,
+     "Slot Y": -5.949371
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -14.662754,
+     "Slot Y": -8.674143
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -28.398941,
+     "Slot Y": -4.159355
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -13.887542,
+     "Slot Y": 3.435911
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -21.749349,
+     "Slot Y": -9.657526
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.189719,
+     "Slot Y": 10.965884
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -23.470899,
+     "Slot Y": 4.866706
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -15.116953,
+     "Slot Y": -9.546883
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -14.329867,
+     "Slot Y": 10.361228
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -17.885563,
+     "Slot Y": -9.326604
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -22.764343,
+     "Slot Y": -2.328492
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -28.962883,
+     "Slot Y": -1.88877
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -11.643919,
+     "Slot Y": -4.529558
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -14.663763,
+     "Slot Y": -10.751662
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -13.671572,
+     "Slot Y": -9.584238
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.761135,
+     "Slot Y": 7.844631
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -25.805535,
+     "Slot Y": 2.315559
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -27.981857,
+     "Slot Y": -3.267985
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.731096,
+     "Slot Y": -5.898985
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.373923,
+     "Slot Y": -6.243965
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.933758,
+     "Slot Y": 11.632065
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -17.137456,
+     "Slot Y": -1.130074
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "c06-slot-hole-safe",
+  "seed": 6,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Slot X": -19.485068,
+     "Slot Y": -11.943755
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.736572,
+     "Slot Y": -7.148095
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.157608,
+     "Slot Y": -10.301667
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -29.909243,
+     "Slot Y": 10.102234
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -10.588887,
+     "Slot Y": -6.958731
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -11.320072,
+     "Slot Y": -2.814254
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -29.552963,
+     "Slot Y": -10.763028
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -20.940083,
+     "Slot Y": 6.821619
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -17.374528,
+     "Slot Y": -0.454873
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -21.866937,
+     "Slot Y": -7.218888
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -10.242404,
+     "Slot Y": 10.683126
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.617445,
+     "Slot Y": 10.67709
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -12.932244,
+     "Slot Y": 11.614833
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.030233,
+     "Slot Y": 10.667128
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -10.765702,
+     "Slot Y": 10.663569
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -25.634245,
+     "Slot Y": 1.262244
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -25.89216,
+     "Slot Y": -4.996546
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -25.739747,
+     "Slot Y": 7.951782
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -21.901251,
+     "Slot Y": 1.958691
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -18.433972,
+     "Slot Y": 9.251409
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -18.574771,
+     "Slot Y": 9.010484
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -15.729231,
+     "Slot Y": 1.753386
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.54863,
+     "Slot Y": 8.451841
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -13.792741,
+     "Slot Y": -7.095455
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -21.613759,
+     "Slot Y": -3.30878
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.840079,
+     "Slot Y": -11.479167
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -23.375579,
+     "Slot Y": -4.991843
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.867995,
+     "Slot Y": -4.738165
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.725562,
+     "Slot Y": -3.051269
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -28.191511,
+     "Slot Y": -3.346782
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -28.334967,
+     "Slot Y": 10.291591
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.991448,
+     "Slot Y": -9.234959
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -20.210831,
+     "Slot Y": -0.624732
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -28.894729,
+     "Slot Y": -1.361789
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.661523,
+     "Slot Y": -4.930243
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.213005,
+     "Slot Y": 10.237751
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -27.585883,
+     "Slot Y": -8.111644
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -18.26466,
+     "Slot Y": 4.589541
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -15.309115,
+     "Slot Y": 9.549773
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -26.823751,
+     "Slot Y": 2.224319
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -21.576441,
+     "Slot Y": 5.426347
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -27.012494,
+     "Slot Y": -7.417024
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -13.240771,
+     "Slot Y": -10.083247
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -27.972017,
+     "Slot Y": 1.864711
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.003702,
+     "Slot Y": 5.591003
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.9343,
+     "Slot Y": 9.107468
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -14.564692,
+     "Slot Y": -7.429436
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.550958,
+     "Slot Y": 0.629169
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -23.285623,
+     "Slot Y": 0.80793
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -26.755371,
+     "Slot Y": -9.062867
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -26.172889,
+     "Slot Y": -2.15102
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -27.089424,
+     "Slot Y": 5.798082
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -15.417097,
+     "Slot Y": -11.857536
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -17.51108,
+     "Slot Y": -10.707407
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -11.950938,
+     "Slot Y": -1.866418
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -13.530222,
+     "Slot Y": 7.960102
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -11.30176,
+     "Slot Y": -2.549299
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.059308,
+     "Slot Y": -11.460068
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -22.23855,
+     "Slot Y": 9.477083
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -25.82408,
+     "Slot Y": 4.522661
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -28.095028,
+     "Slot Y": -2.915582
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -28.30579,
+     "Slot Y": -7.384372
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -14.489123,
+     "Slot Y": 2.169277
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.997064,
+     "Slot Y": -5.409741
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "c06-slot-hole-safe",
+  "seed": 7,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Slot X": -29.765905,
+     "Slot Y": -10.513002
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -10.461847,
+     "Slot Y": 4.776689
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.571095,
+     "Slot Y": -2.267479
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -20.675347,
+     "Slot Y": -6.241796
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -18.933488,
+     "Slot Y": 5.51573
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.843689,
+     "Slot Y": -8.257239
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -14.718202,
+     "Slot Y": 0.441661
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -26.057255,
+     "Slot Y": -3.168994
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.135053,
+     "Slot Y": 0.833749
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.073395,
+     "Slot Y": 11.470707
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -25.049328,
+     "Slot Y": 9.06671
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -26.184166,
+     "Slot Y": -8.552223
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -26.907119,
+     "Slot Y": -5.017171
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.041971,
+     "Slot Y": 6.284969
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -28.509638,
+     "Slot Y": 9.910577
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -18.925785,
+     "Slot Y": 2.918996
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.398182,
+     "Slot Y": 11.183753
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -17.512387,
+     "Slot Y": 10.108917
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -13.44743,
+     "Slot Y": -11.040517
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -26.501169,
+     "Slot Y": -3.432456
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -21.493686,
+     "Slot Y": -11.515773
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -28.237875,
+     "Slot Y": 6.432381
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -22.620614,
+     "Slot Y": -1.758823
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -20.626747,
+     "Slot Y": 10.709308
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -15.934378,
+     "Slot Y": 4.519139
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -23.387042,
+     "Slot Y": -3.447971
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -27.224176,
+     "Slot Y": -8.800962
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -11.739303,
+     "Slot Y": -4.261753
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -26.192489,
+     "Slot Y": 3.17301
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -23.264581,
+     "Slot Y": -10.952848
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.314924,
+     "Slot Y": 10.112923
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.042547,
+     "Slot Y": 7.837861
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.895112,
+     "Slot Y": 10.077072
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -27.659172,
+     "Slot Y": 0.718298
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -17.016679,
+     "Slot Y": 9.385558
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -10.790032,
+     "Slot Y": 8.110979
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -18.115308,
+     "Slot Y": 11.132899
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -10.649874,
+     "Slot Y": 1.165638
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -13.62964,
+     "Slot Y": -11.863201
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.67853,
+     "Slot Y": -4.126647
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -15.514568,
+     "Slot Y": 1.187882
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -14.891673,
+     "Slot Y": 11.446415
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -18.848934,
+     "Slot Y": 7.755828
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -21.400117,
+     "Slot Y": 3.416434
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -15.228927,
+     "Slot Y": 1.240721
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -23.752323,
+     "Slot Y": -6.315956
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -29.813704,
+     "Slot Y": -11.422253
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -11.132062,
+     "Slot Y": 8.000854
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -17.387972,
+     "Slot Y": -11.654371
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -17.622079,
+     "Slot Y": 2.277519
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -15.663005,
+     "Slot Y": 11.876655
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.440052,
+     "Slot Y": 11.670607
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -17.000578,
+     "Slot Y": 7.318019
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -17.512022,
+     "Slot Y": 7.923334
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -27.218717,
+     "Slot Y": 11.860767
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.861367,
+     "Slot Y": 1.605358
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -26.782355,
+     "Slot Y": -2.492009
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -25.786619,
+     "Slot Y": 7.525013
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -12.768654,
+     "Slot Y": 5.662063
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.830896,
+     "Slot Y": 11.76583
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -17.813801,
+     "Slot Y": 5.674923
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -10.892228,
+     "Slot Y": -0.258725
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -25.404533,
+     "Slot Y": 2.016185
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -14.086367,
+     "Slot Y": 8.494065
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "c06-slot-hole-safe",
+  "seed": 8,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Slot X": -26.874097,
+     "Slot Y": 3.004614
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -23.986708,
+     "Slot Y": 4.702903
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -18.299818,
+     "Slot Y": -1.214424
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -13.624809,
+     "Slot Y": -6.268451
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.867647,
+     "Slot Y": -10.556686
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.716322,
+     "Slot Y": -10.239398
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -18.610907,
+     "Slot Y": -6.711365
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -26.789048,
+     "Slot Y": 10.913583
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.131393,
+     "Slot Y": -9.816101
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -27.443856,
+     "Slot Y": -11.054789
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -18.880272,
+     "Slot Y": -1.3417
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -14.945627,
+     "Slot Y": 6.58045
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -29.206572,
+     "Slot Y": -1.105225
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -22.82771,
+     "Slot Y": 0.009929
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -23.57964,
+     "Slot Y": 0.445349
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -27.507377,
+     "Slot Y": 8.661817
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -23.52009,
+     "Slot Y": 5.594742
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -12.006582,
+     "Slot Y": 0.273654
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.301161,
+     "Slot Y": 6.106124
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -17.015246,
+     "Slot Y": -4.613153
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.466514,
+     "Slot Y": -9.501866
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -23.79706,
+     "Slot Y": 11.996813
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -18.635752,
+     "Slot Y": -2.31778
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -29.041874,
+     "Slot Y": -1.383318
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -14.215871,
+     "Slot Y": 11.947818
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -25.00077,
+     "Slot Y": 8.651912
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -28.534869,
+     "Slot Y": 1.124893
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.280667,
+     "Slot Y": -7.719323
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -21.892298,
+     "Slot Y": -9.23598
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -27.856871,
+     "Slot Y": 11.863823
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -13.233246,
+     "Slot Y": -7.420173
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -29.547174,
+     "Slot Y": 11.015032
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -17.86979,
+     "Slot Y": 7.0627
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -21.998171,
+     "Slot Y": -1.317669
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -29.38482,
+     "Slot Y": -1.988599
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -23.999486,
+     "Slot Y": 4.855581
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -29.977773,
+     "Slot Y": 6.053778
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -22.51207,
+     "Slot Y": -5.847825
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -10.337064,
+     "Slot Y": 9.289618
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -13.179217,
+     "Slot Y": 2.120734
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.599331,
+     "Slot Y": 10.91159
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -23.796489,
+     "Slot Y": -9.726478
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -18.308644,
+     "Slot Y": -2.477616
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -23.267017,
+     "Slot Y": 9.417509
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -23.522975,
+     "Slot Y": 1.174244
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.309824,
+     "Slot Y": 5.368797
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.311453,
+     "Slot Y": -2.324003
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -15.203173,
+     "Slot Y": 0.447042
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -15.689543,
+     "Slot Y": 7.823042
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -22.729225,
+     "Slot Y": -5.615996
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -10.442475,
+     "Slot Y": -10.57982
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -28.168396,
+     "Slot Y": 4.410596
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -23.658298,
+     "Slot Y": 10.47705
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -29.380666,
+     "Slot Y": 1.896712
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -22.816217,
+     "Slot Y": 4.398667
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -27.606401,
+     "Slot Y": -7.423104
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.841026,
+     "Slot Y": 6.10661
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -14.948955,
+     "Slot Y": -9.357462
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.32036,
+     "Slot Y": -1.431638
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -17.702508,
+     "Slot Y": -5.602102
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.714064,
+     "Slot Y": 0.843779
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.770407,
+     "Slot Y": -9.566299
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -20.556448,
+     "Slot Y": -6.933788
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.636782,
+     "Slot Y": -9.582223
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "c06-slot-hole-safe",
+  "seed": 9,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Slot X": -26.025422,
+     "Slot Y": 8.429059
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -27.164678,
+     "Slot Y": 7.720121
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -15.523912,
+     "Slot Y": 4.532679
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.745631,
+     "Slot Y": 10.066902
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -27.382767,
+     "Slot Y": 3.174972
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.039685,
+     "Slot Y": 2.094849
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.331404,
+     "Slot Y": 10.507601
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.25955,
+     "Slot Y": 5.526511
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -17.160518,
+     "Slot Y": -3.193519
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.289075,
+     "Slot Y": 9.53852
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -12.688823,
+     "Slot Y": -1.072128
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -12.526246,
+     "Slot Y": -7.444416
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.454359,
+     "Slot Y": -3.99455
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -29.038102,
+     "Slot Y": 9.031485
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -25.909272,
+     "Slot Y": 0.632549
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -20.118183,
+     "Slot Y": -10.206329
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -13.315476,
+     "Slot Y": 4.889398
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -26.064042,
+     "Slot Y": -10.360046
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -20.224007,
+     "Slot Y": -4.567191
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.825406,
+     "Slot Y": -4.988356
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -18.932992,
+     "Slot Y": 10.969661
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -18.642283,
+     "Slot Y": -8.156994
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.649214,
+     "Slot Y": -4.192045
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.264785,
+     "Slot Y": 7.193932
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -18.458669,
+     "Slot Y": 2.728644
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.329376,
+     "Slot Y": 3.758354
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -20.063298,
+     "Slot Y": -7.685966
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -11.406275,
+     "Slot Y": 2.325913
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -17.176833,
+     "Slot Y": 1.272108
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.864334,
+     "Slot Y": 11.580699
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -11.650493,
+     "Slot Y": -11.485601
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -15.364966,
+     "Slot Y": -9.718996
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.682952,
+     "Slot Y": 3.362386
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -10.503233,
+     "Slot Y": 5.628387
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -11.902976,
+     "Slot Y": 7.06854
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -25.354665,
+     "Slot Y": 4.466906
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -10.856637,
+     "Slot Y": -9.05491
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -11.168196,
+     "Slot Y": 4.449618
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -14.136505,
+     "Slot Y": -3.697488
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -14.617637,
+     "Slot Y": -4.253527
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -15.699354,
+     "Slot Y": 8.577157
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -28.611692,
+     "Slot Y": 2.005268
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -18.862718,
+     "Slot Y": -4.315752
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.311064,
+     "Slot Y": -5.190839
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -20.240723,
+     "Slot Y": -7.532911
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -13.611911,
+     "Slot Y": 4.621636
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -18.572587,
+     "Slot Y": 10.641231
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -13.174752,
+     "Slot Y": -11.165513
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -25.699334,
+     "Slot Y": 2.298415
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.293842,
+     "Slot Y": -7.253647
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.745681,
+     "Slot Y": 9.462636
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -17.150005,
+     "Slot Y": -11.936329
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -20.780914,
+     "Slot Y": -9.816985
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -26.16459,
+     "Slot Y": -9.317686
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -26.468053,
+     "Slot Y": -7.400368
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.227255,
+     "Slot Y": 7.828566
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -27.066872,
+     "Slot Y": 8.527437
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.205823,
+     "Slot Y": 7.979914
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -22.423526,
+     "Slot Y": 10.752448
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.37486,
+     "Slot Y": 10.874274
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -13.437723,
+     "Slot Y": -0.41949
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.944064,
+     "Slot Y": 10.096975
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -11.166113,
+     "Slot Y": -10.00894
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -22.816091,
+     "Slot Y": -3.70355
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "c06-slot-hole-safe",
+  "seed": 10,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Slot X": -19.96016,
+     "Slot Y": 10.019683
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.173634,
+     "Slot Y": 7.250464
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -20.851647,
+     "Slot Y": -1.239691
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -25.954261,
+     "Slot Y": -9.994529
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -29.317463,
+     "Slot Y": 11.921246
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -11.558106,
+     "Slot Y": -8.896141
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -22.144532,
+     "Slot Y": -2.686541
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -21.113708,
+     "Slot Y": 10.216108
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.177258,
+     "Slot Y": 7.395934
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -11.27917,
+     "Slot Y": -8.210648
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -22.225922,
+     "Slot Y": 4.689127
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.588423,
+     "Slot Y": -0.436715
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.108322,
+     "Slot Y": -3.784041
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -22.320194,
+     "Slot Y": 0.413426
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -29.082752,
+     "Slot Y": 0.305024
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -29.2302,
+     "Slot Y": -10.216417
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -25.919057,
+     "Slot Y": -8.483234
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -28.298064,
+     "Slot Y": -8.568955
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -14.648749,
+     "Slot Y": -0.389225
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -21.640763,
+     "Slot Y": 3.111333
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -14.097833,
+     "Slot Y": -8.211778
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -21.106898,
+     "Slot Y": 10.029811
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -25.245078,
+     "Slot Y": 6.952749
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.317909,
+     "Slot Y": -8.775192
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -18.049379,
+     "Slot Y": 9.109268
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -18.078715,
+     "Slot Y": -11.624832
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -15.165744,
+     "Slot Y": 5.264114
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -17.658713,
+     "Slot Y": 7.211057
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -18.877105,
+     "Slot Y": -2.66791
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -23.687598,
+     "Slot Y": 6.060009
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -27.589932,
+     "Slot Y": -2.675645
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -25.587109,
+     "Slot Y": -10.606854
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -12.454703,
+     "Slot Y": -1.409603
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -21.119532,
+     "Slot Y": -8.20008
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -12.410858,
+     "Slot Y": -1.828393
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -12.652106,
+     "Slot Y": 10.335774
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -28.636651,
+     "Slot Y": -8.080523
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -23.990041,
+     "Slot Y": 11.628353
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -10.914224,
+     "Slot Y": 1.31525
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -29.984063,
+     "Slot Y": -7.119129
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -23.523226,
+     "Slot Y": 5.771154
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -12.447973,
+     "Slot Y": 8.4828
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -13.100609,
+     "Slot Y": -4.167817
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -25.918267,
+     "Slot Y": -4.97016
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -10.446211,
+     "Slot Y": 9.662793
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.168806,
+     "Slot Y": 6.575471
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.938027,
+     "Slot Y": -2.164851
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -25.331376,
+     "Slot Y": -5.783272
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -17.629062,
+     "Slot Y": -3.549694
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -14.481557,
+     "Slot Y": -11.303112
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -19.117313,
+     "Slot Y": 9.085392
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -13.98739,
+     "Slot Y": 0.099866
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -21.54891,
+     "Slot Y": 7.426346
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -12.085559,
+     "Slot Y": -0.453094
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -25.589557,
+     "Slot Y": -5.782857
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -28.978352,
+     "Slot Y": 9.432746
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -23.757667,
+     "Slot Y": 4.434794
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -16.744326,
+     "Slot Y": 1.153221
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.361873,
+     "Slot Y": -3.645318
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -23.99234,
+     "Slot Y": 1.953935
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -20.810335,
+     "Slot Y": 4.415815
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -24.334414,
+     "Slot Y": 5.658235
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -10.991062,
+     "Slot Y": 2.382184
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Slot X": -27.420628,
+     "Slot Y": -11.150391
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ }
+]

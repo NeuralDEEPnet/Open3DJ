@@ -1,0 +1,20 @@
+{
+  "note": "How the raw results in this folder were produced. Every number in summary.json comes from the files next to it (node scripts/envelope-spike.ts score).",
+  "machine": { "platform": "linux-x64", "cores": 4, "ram_gib": 15, "node": "v24.22.1", "occt_wasm": "5.8.1" },
+  "preregistration": {
+    "briefs": "78d3b57 Pre-register the envelope briefs (12 natural briefs, before any run of them)",
+    "fit_options_patch": "c344a1f Pass fitOptions through compute run jobs for the envelope spike",
+    "corpus": "52e2f3c Pre-register the seeded envelope corpus (15 defects, 10 controls, regions, scoring rule, seeds; after the corpus lint, before any search or random sampling)",
+    "harness": "f323f9d Add the envelope spike search, certificates and replay",
+    "change_after_preregistration": "Before the measurement runs, a smoke run on flange, d01, d05 and c07 at budget 24 and 64 showed the compass search would follow an equality assertion with margin 0 everywhere; the compass now follows only assertions whose margin varies, and unused budget goes to further Halton points (in f323f9d). In the measurement runs the compass search never ran on a seeded defect, because every defect had a counterexample before the compass phase."
+  },
+  "commands": [
+    { "step": "guided search, all 25 corpus briefs and 12 natural briefs", "cmd": "node scripts/envelope-spike.ts certify scripts/envelope-spike/corpus/*.brief.json scripts/envelope-spike/briefs/*.brief.json --budget 64 --seed 1 --workers 4 --lane interactive --jobs 4", "wall": "3 min 2 s", "out": "certs/" },
+    { "step": "uniform random baseline, 25 corpus briefs, seeds 1 to 10", "cmd": "node scripts/envelope-spike.ts random scripts/envelope-spike/corpus/*.brief.json --budget 64 --seeds 1-10 --workers 4 --lane interactive --jobs 4", "wall": "7 min 46 s", "out": "random/" },
+    { "step": "replay of every certificate point in a new process, each on a fresh kernel (freshKernel: true)", "cmd": "node scripts/envelope-spike.ts verify scripts/envelope-spike/results/certs/*.cert.json --workers 4 --lane interactive", "wall": "3 min 33 s", "out": "verify.json" },
+    { "step": "M5, enclosure alone, one process per configuration, run one after the other", "cmd": "node scripts/envelope-spike.ts certify scripts/envelope-spike/briefs/enclosure.brief.json --budget 64 --seed 1 --workers {1,4} --lane {batch,interactive} --jobs 1 --out results/m5/<run>", "out": "m5/" },
+    { "step": "scoring", "cmd": "node scripts/envelope-spike.ts score", "out": "summary.json" }
+  ],
+  "lane_note": "The measurement runs used the interactive lane so all 4 workers ran jobs; the lane changes scheduling only. The M5 certificates from 1 worker (batch), 4 workers (batch, 3 usable) and 4 workers (interactive) have the same certificate hash as certs/enclosure.cert.json.",
+  "m6": "not run (optional): no mutants were generated or scored."
+}

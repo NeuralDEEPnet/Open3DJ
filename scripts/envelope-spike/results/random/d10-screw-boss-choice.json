@@ -1,0 +1,6030 @@
+[
+ {
+  "brief": "d10-screw-boss-choice",
+  "seed": 1,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 4.010943,
+     "Boss height": 14.329364
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 7.873512,
+     "Boss height": 11.373242
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 6.882973,
+     "Boss height": 13.109563
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.821085,
+     "Boss height": 13.86546
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 5.614979,
+     "Boss height": 10.970287
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 5.956576,
+     "Boss height": 8.808439
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 7.068432,
+     "Boss height": 11.43034
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 4.170919,
+     "Boss height": 13.128583
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 7.194737,
+     "Boss height": 11.538438
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 6.632519,
+     "Boss height": 14.552988
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 4.771256,
+     "Boss height": 16.651373
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 7.081655,
+     "Boss height": 19.934408
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 7.028005,
+     "Boss height": 9.839251
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 5.652788,
+     "Boss height": 10.990552
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 6.904419,
+     "Boss height": 14.916097
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 5.05863,
+     "Boss height": 8.584682
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 7.463088,
+     "Boss height": 10.86193
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 6.87322,
+     "Boss height": 12.827575
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 6.70886,
+     "Boss height": 19.431577
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 6.770975,
+     "Boss height": 19.026605
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 7.735353,
+     "Boss height": 9.377668
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 7.474745,
+     "Boss height": 11.533711
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 6.040235,
+     "Boss height": 19.230731
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 4.665029,
+     "Boss height": 16.121708
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 4.527682,
+     "Boss height": 19.734591
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 5.553422,
+     "Boss height": 9.411172
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.2973,
+     "Boss height": 15.890618
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 6.126176,
+     "Boss height": 8.91335
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 7.416955,
+     "Boss height": 11.273439
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 5.213026,
+     "Boss height": 18.72769
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 4.574917,
+     "Boss height": 15.854919
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.298468,
+     "Boss height": 9.441988
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 4.269714,
+     "Boss height": 11.609923
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 6.605774,
+     "Boss height": 9.402064
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 6.092947,
+     "Boss height": 10.542077
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 5.009367,
+     "Boss height": 19.899846
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 7.48004,
+     "Boss height": 8.044487
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 4.113402,
+     "Boss height": 19.811017
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 6.8827,
+     "Boss height": 18.384908
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 5.002434,
+     "Boss height": 18.43723
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 7.167287,
+     "Boss height": 10.649675
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 4.59655,
+     "Boss height": 12.903958
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.149182,
+     "Boss height": 18.614436
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 7.636423,
+     "Boss height": 18.341078
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 6.676253,
+     "Boss height": 10.814682
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 5.230076,
+     "Boss height": 10.455333
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 7.723889,
+     "Boss height": 19.594969
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 5.318646,
+     "Boss height": 8.919882
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 7.134542,
+     "Boss height": 12.645804
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 4.593661,
+     "Boss height": 17.854162
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 7.569763,
+     "Boss height": 14.310537
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 6.7455,
+     "Boss height": 12.138067
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 6.144159,
+     "Boss height": 17.148753
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 4.202308,
+     "Boss height": 10.503524
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 6.583846,
+     "Boss height": 8.358948
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 5.716677,
+     "Boss height": 18.45952
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 5.435033,
+     "Boss height": 12.255153
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 4.054404,
+     "Boss height": 19.084201
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 6.272142,
+     "Boss height": 15.71052
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 4.280801,
+     "Boss height": 17.770906
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 6.842281,
+     "Boss height": 11.317065
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 5.174563,
+     "Boss height": 14.547125
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 4.288564,
+     "Boss height": 9.321802
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 6.723701,
+     "Boss height": 8.545248
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d10-screw-boss-choice",
+  "seed": 2,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 5.299994,
+     "Boss height": 11.423553
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 7.501152,
+     "Boss height": 15.57
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.428979,
+     "Boss height": 17.379067
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 7.143468,
+     "Boss height": 10.418544
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 7.33999,
+     "Boss height": 14.975845
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 6.688909,
+     "Boss height": 12.400379
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 4.156805,
+     "Boss height": 18.982373
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 4.512098,
+     "Boss height": 10.303203
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 7.76041,
+     "Boss height": 13.424893
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 7.953642,
+     "Boss height": 10.793592
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.392966,
+     "Boss height": 8.631633
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 4.381453,
+     "Boss height": 8.693818
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 7.220107,
+     "Boss height": 8.007513
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 4.290074,
+     "Boss height": 19.668476
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 4.779034,
+     "Boss height": 16.134705
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 7.111885,
+     "Boss height": 18.939051
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.782677,
+     "Boss height": 19.386062
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 6.856388,
+     "Boss height": 19.760356
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 6.566342,
+     "Boss height": 14.293039
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 7.395099,
+     "Boss height": 18.06599
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.250009,
+     "Boss height": 18.830932
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.787813,
+     "Boss height": 12.191227
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 7.809323,
+     "Boss height": 11.760197
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 7.196783,
+     "Boss height": 18.408523
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.727246,
+     "Boss height": 10.485153
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 6.496689,
+     "Boss height": 16.558501
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 4.820559,
+     "Boss height": 11.346149
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 6.149008,
+     "Boss height": 8.32976
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 7.322701,
+     "Boss height": 10.006511
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 5.577972,
+     "Boss height": 13.029586
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 7.375048,
+     "Boss height": 13.707829
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.039742,
+     "Boss height": 9.021788
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 4.082404,
+     "Boss height": 16.810963
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 6.589909,
+     "Boss height": 11.439684
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 6.605971,
+     "Boss height": 9.290162
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 6.929735,
+     "Boss height": 19.705654
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 4.456096,
+     "Boss height": 14.939747
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 4.115058,
+     "Boss height": 14.937852
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 6.871102,
+     "Boss height": 18.159385
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 6.044207,
+     "Boss height": 8.816954
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.781345,
+     "Boss height": 10.721188
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.843665,
+     "Boss height": 14.834418
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.213641,
+     "Boss height": 10.581701
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 6.399843,
+     "Boss height": 14.236338
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 4.622899,
+     "Boss height": 11.014245
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 4.756677,
+     "Boss height": 19.730991
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 7.267146,
+     "Boss height": 11.869322
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 6.959273,
+     "Boss height": 18.935281
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 5.621474,
+     "Boss height": 17.852451
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.350091,
+     "Boss height": 13.144787
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 7.691013,
+     "Boss height": 14.460784
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 4.576335,
+     "Boss height": 12.487497
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 4.556556,
+     "Boss height": 11.730295
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.043878,
+     "Boss height": 11.384098
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 4.47494,
+     "Boss height": 10.502068
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 6.700478,
+     "Boss height": 16.184741
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 7.156138,
+     "Boss height": 12.455934
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 4.22859,
+     "Boss height": 16.090084
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 7.428106,
+     "Boss height": 9.971673
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 4.735949,
+     "Boss height": 12.773857
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 7.530852,
+     "Boss height": 15.060938
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 4.075577,
+     "Boss height": 16.121036
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 7.572342,
+     "Boss height": 8.14026
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 4.417055,
+     "Boss height": 19.076137
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d10-screw-boss-choice",
+  "seed": 3,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 4.154649,
+     "Boss height": 13.474306
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 7.052022,
+     "Boss height": 13.774165
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 4.647202,
+     "Boss height": 11.159075
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 4.779665,
+     "Boss height": 9.003115
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 5.906912,
+     "Boss height": 17.524785
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.294495,
+     "Boss height": 16.286977
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 6.688562,
+     "Boss height": 14.317143
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 6.159788,
+     "Boss height": 8.139271
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.241588,
+     "Boss height": 19.241862
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 5.682321,
+     "Boss height": 16.576209
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 5.471693,
+     "Boss height": 16.672392
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 4.033423,
+     "Boss height": 13.73971
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 6.411886,
+     "Boss height": 16.184777
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 6.337441,
+     "Boss height": 14.981242
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 5.489181,
+     "Boss height": 14.371169
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.651942,
+     "Boss height": 13.567595
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 6.283525,
+     "Boss height": 17.312973
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 6.658409,
+     "Boss height": 12.467469
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 6.799399,
+     "Boss height": 13.59553
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 7.522998,
+     "Boss height": 16.551405
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 7.810459,
+     "Boss height": 17.182035
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 4.264607,
+     "Boss height": 14.451115
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.379304,
+     "Boss height": 14.482347
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 5.853172,
+     "Boss height": 14.623719
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.564427,
+     "Boss height": 17.074501
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 7.810462,
+     "Boss height": 15.716897
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 7.079919,
+     "Boss height": 8.733348
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 4.618634,
+     "Boss height": 16.288501
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 6.484764,
+     "Boss height": 19.839633
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 7.921241,
+     "Boss height": 14.993681
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 7.801332,
+     "Boss height": 17.762511
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 6.502882,
+     "Boss height": 19.327382
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 6.395462,
+     "Boss height": 9.690019
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 6.189348,
+     "Boss height": 11.076806
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 4.196432,
+     "Boss height": 18.178585
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 5.697542,
+     "Boss height": 18.673707
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 6.681223,
+     "Boss height": 9.238313
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 7.973468,
+     "Boss height": 14.280433
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 4.020635,
+     "Boss height": 9.895697
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 6.520686,
+     "Boss height": 17.932661
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 7.230214,
+     "Boss height": 9.505962
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 4.511529,
+     "Boss height": 15.310452
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 6.310138,
+     "Boss height": 16.738234
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 7.802939,
+     "Boss height": 9.132049
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 4.779718,
+     "Boss height": 12.599718
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.749482,
+     "Boss height": 14.617215
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 6.684282,
+     "Boss height": 8.143891
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 7.117299,
+     "Boss height": 12.041005
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.476604,
+     "Boss height": 19.872232
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 4.41214,
+     "Boss height": 10.219083
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 7.471239,
+     "Boss height": 17.251355
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.542608,
+     "Boss height": 8.773621
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 5.042123,
+     "Boss height": 9.601172
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 5.648161,
+     "Boss height": 10.779102
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 6.186962,
+     "Boss height": 13.567089
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 7.840338,
+     "Boss height": 18.732031
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.164147,
+     "Boss height": 11.883686
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 4.815205,
+     "Boss height": 17.20279
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 4.777016,
+     "Boss height": 12.525301
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.24147,
+     "Boss height": 14.787079
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 6.378807,
+     "Boss height": 17.758958
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 7.935472,
+     "Boss height": 11.76275
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 4.057035,
+     "Boss height": 13.729664
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 7.466486,
+     "Boss height": 14.495468
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d10-screw-boss-choice",
+  "seed": 4,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.332184,
+     "Boss height": 10.660015
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 4.935989,
+     "Boss height": 14.101962
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 7.895448,
+     "Boss height": 15.46445
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 7.072584,
+     "Boss height": 12.429784
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 7.5035,
+     "Boss height": 14.345225
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 5.686984,
+     "Boss height": 13.885402
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 7.722893,
+     "Boss height": 19.754484
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.391815,
+     "Boss height": 17.457086
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 7.008834,
+     "Boss height": 14.33087
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 5.823429,
+     "Boss height": 8.130471
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 6.160081,
+     "Boss height": 17.165813
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 7.22909,
+     "Boss height": 12.850602
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 6.188735,
+     "Boss height": 8.72657
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 5.113183,
+     "Boss height": 14.681896
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 7.814388,
+     "Boss height": 18.230893
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.400109,
+     "Boss height": 10.234176
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 5.994647,
+     "Boss height": 8.81018
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 7.826144,
+     "Boss height": 8.049513
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 7.620213,
+     "Boss height": 16.25777
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 7.931718,
+     "Boss height": 11.469424
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 5.447217,
+     "Boss height": 13.576078
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 4.021647,
+     "Boss height": 10.875028
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 7.150377,
+     "Boss height": 18.246331
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 5.842017,
+     "Boss height": 15.653025
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 6.454736,
+     "Boss height": 11.37041
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 7.079582,
+     "Boss height": 11.693803
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 7.092531,
+     "Boss height": 10.17469
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.53553,
+     "Boss height": 19.751723
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.831755,
+     "Boss height": 9.457201
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 4.037894,
+     "Boss height": 9.367209
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 4.46809,
+     "Boss height": 18.815898
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 6.729766,
+     "Boss height": 12.207213
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 6.680422,
+     "Boss height": 18.920921
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 6.523407,
+     "Boss height": 16.759919
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 7.454215,
+     "Boss height": 19.239359
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 4.438043,
+     "Boss height": 15.950297
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 4.602696,
+     "Boss height": 11.38084
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 5.503335,
+     "Boss height": 19.993526
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 4.121581,
+     "Boss height": 17.161585
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 7.603195,
+     "Boss height": 14.112652
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 6.761116,
+     "Boss height": 8.567986
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 6.449474,
+     "Boss height": 14.765721
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 7.122593,
+     "Boss height": 12.622937
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 7.784409,
+     "Boss height": 19.970302
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 4.331542,
+     "Boss height": 17.074408
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 7.307362,
+     "Boss height": 11.781764
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 6.480452,
+     "Boss height": 9.695737
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.718978,
+     "Boss height": 18.66536
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 7.189038,
+     "Boss height": 18.82538
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 5.878138,
+     "Boss height": 14.572298
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.71294,
+     "Boss height": 12.252461
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 6.329263,
+     "Boss height": 15.403275
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 4.550268,
+     "Boss height": 17.017621
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 6.358415,
+     "Boss height": 10.31655
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 6.751641,
+     "Boss height": 12.673251
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 6.168033,
+     "Boss height": 18.622048
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 6.570845,
+     "Boss height": 12.809296
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 4.764991,
+     "Boss height": 12.391906
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 4.245875,
+     "Boss height": 8.992243
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 4.649285,
+     "Boss height": 14.292067
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 5.586241,
+     "Boss height": 16.609904
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 7.008549,
+     "Boss height": 15.576059
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 4.451233,
+     "Boss height": 15.061265
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 6.347126,
+     "Boss height": 8.45298
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d10-screw-boss-choice",
+  "seed": 5,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 7.090973,
+     "Boss height": 10.637156
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 4.340549,
+     "Boss height": 15.105979
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 5.832417,
+     "Boss height": 18.867458
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 7.119454,
+     "Boss height": 16.887354
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 4.055286,
+     "Boss height": 13.584817
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 7.586199,
+     "Boss height": 11.457391
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 6.893933,
+     "Boss height": 11.042937
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 7.174033,
+     "Boss height": 10.49945
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 4.493048,
+     "Boss height": 13.640932
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 4.98189,
+     "Boss height": 8.971338
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.268097,
+     "Boss height": 12.890744
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.087904,
+     "Boss height": 12.633229
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 7.476898,
+     "Boss height": 16.668337
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 6.046212,
+     "Boss height": 17.660823
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 4.558518,
+     "Boss height": 15.632571
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.260733,
+     "Boss height": 17.346627
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 4.032508,
+     "Boss height": 19.184123
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 5.400438,
+     "Boss height": 18.495229
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 4.700881,
+     "Boss height": 18.003991
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 7.993146,
+     "Boss height": 8.164706
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 7.034024,
+     "Boss height": 11.770781
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 4.307106,
+     "Boss height": 8.959243
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 6.098896,
+     "Boss height": 11.041239
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 4.198118,
+     "Boss height": 16.816522
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.140895,
+     "Boss height": 14.398047
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 7.387263,
+     "Boss height": 14.946718
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 6.809944,
+     "Boss height": 14.482177
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 5.176194,
+     "Boss height": 14.353487
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 5.008438,
+     "Boss height": 17.202348
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 4.320212,
+     "Boss height": 11.920322
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 6.572652,
+     "Boss height": 12.950391
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 5.162056,
+     "Boss height": 19.482942
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 6.811118,
+     "Boss height": 16.929828
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 7.134027,
+     "Boss height": 19.180614
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 4.445566,
+     "Boss height": 12.341394
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 4.207423,
+     "Boss height": 13.055615
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.245074,
+     "Boss height": 17.201742
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 7.265686,
+     "Boss height": 9.207881
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 7.307438,
+     "Boss height": 10.516679
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 4.403629,
+     "Boss height": 12.366007
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 5.016836,
+     "Boss height": 16.175646
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 5.013248,
+     "Boss height": 19.816032
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 5.811654,
+     "Boss height": 16.907519
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 6.47378,
+     "Boss height": 15.867983
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 4.578614,
+     "Boss height": 12.003589
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 6.569519,
+     "Boss height": 19.386111
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 7.474332,
+     "Boss height": 17.280651
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 4.255047,
+     "Boss height": 10.040663
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 4.90813,
+     "Boss height": 18.691051
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 4.168661,
+     "Boss height": 17.326623
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.144322,
+     "Boss height": 18.731752
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 7.881368,
+     "Boss height": 10.19681
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 7.219907,
+     "Boss height": 11.289517
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 7.063258,
+     "Boss height": 8.047049
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 6.121378,
+     "Boss height": 11.247475
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 6.661098,
+     "Boss height": 17.714749
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 6.420969,
+     "Boss height": 16.05565
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 6.275779,
+     "Boss height": 10.390989
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 5.486536,
+     "Boss height": 13.952844
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 6.436188,
+     "Boss height": 13.449484
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.536375,
+     "Boss height": 14.005979
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 5.009439,
+     "Boss height": 13.219457
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 6.644591,
+     "Boss height": 12.306197
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 7.160028,
+     "Boss height": 8.809525
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d10-screw-boss-choice",
+  "seed": 6,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 4.009374,
+     "Boss height": 15.958057
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 6.168478,
+     "Boss height": 8.849166
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 7.683706,
+     "Boss height": 19.646668
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 7.735986,
+     "Boss height": 12.592873
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 4.206162,
+     "Boss height": 13.43595
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 6.525094,
+     "Boss height": 13.772563
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 4.796852,
+     "Boss height": 19.854558
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.076511,
+     "Boss height": 19.338545
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 7.935806,
+     "Boss height": 16.38186
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 7.84686,
+     "Boss height": 19.331785
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 6.210374,
+     "Boss height": 10.464704
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 4.852051,
+     "Boss height": 17.975891
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 6.326449,
+     "Boss height": 14.939617
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 6.285046,
+     "Boss height": 18.505242
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 6.292231,
+     "Boss height": 11.270822
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 7.241452,
+     "Boss height": 10.452273
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.448537,
+     "Boss height": 15.895952
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 5.324884,
+     "Boss height": 11.504079
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 5.210306,
+     "Boss height": 11.164663
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 4.361698,
+     "Boss height": 12.326609
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 7.715265,
+     "Boss height": 14.005131
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 5.957834,
+     "Boss height": 13.687634
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 5.773035,
+     "Boss height": 16.003086
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 5.157399,
+     "Boss height": 19.118876
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 4.648059,
+     "Boss height": 15.041204
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 6.938177,
+     "Boss height": 18.774887
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 6.37072,
+     "Boss height": 13.054136
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 4.597501,
+     "Boss height": 10.291488
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 4.319459,
+     "Boss height": 9.21679
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.19926,
+     "Boss height": 16.795502
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 7.517911,
+     "Boss height": 17.261185
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 5.089808,
+     "Boss height": 14.314585
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 6.134655,
+     "Boss height": 9.946778
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 4.765422,
+     "Boss height": 12.92449
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 6.966347,
+     "Boss height": 16.749742
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 6.497784,
+     "Boss height": 8.646297
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.68893,
+     "Boss height": 17.881867
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 7.739648,
+     "Boss height": 12.72535
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 4.089989,
+     "Boss height": 12.65687
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 4.835184,
+     "Boss height": 16.26133
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 5.51407,
+     "Boss height": 9.016526
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 7.102175,
+     "Boss height": 15.084638
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.098376,
+     "Boss height": 19.547895
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 6.152456,
+     "Boss height": 15.151616
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 5.145566,
+     "Boss height": 11.146822
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 6.155823,
+     "Boss height": 16.623685
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 4.436129,
+     "Boss height": 11.01897
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 4.282877,
+     "Boss height": 9.526171
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 6.102981,
+     "Boss height": 19.492457
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 7.648294,
+     "Boss height": 12.040802
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.960757,
+     "Boss height": 11.818958
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 5.589371,
+     "Boss height": 11.367055
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 6.02237,
+     "Boss height": 15.095142
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.899846,
+     "Boss height": 19.918403
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 7.095618,
+     "Boss height": 8.412793
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.623408,
+     "Boss height": 15.683751
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 4.524344,
+     "Boss height": 18.772741
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 4.099582,
+     "Boss height": 13.158005
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 4.706206,
+     "Boss height": 15.647846
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.131825,
+     "Boss height": 13.259089
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 5.124291,
+     "Boss height": 13.100968
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.620674,
+     "Boss height": 14.303741
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 5.089276,
+     "Boss height": 18.788291
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 6.254215,
+     "Boss height": 8.484099
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d10-screw-boss-choice",
+  "seed": 7,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 4.247833,
+     "Boss height": 19.722892
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 6.085781,
+     "Boss height": 12.86626
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 4.959701,
+     "Boss height": 14.639907
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 5.031262,
+     "Boss height": 9.87138
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 6.07361,
+     "Boss height": 10.365647
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 5.172989,
+     "Boss height": 14.416874
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 7.911784,
+     "Boss height": 10.970403
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 4.763167,
+     "Boss height": 9.723889
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 5.163805,
+     "Boss height": 14.574817
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 4.298072,
+     "Boss height": 18.955288
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 6.486499,
+     "Boss height": 16.161091
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 6.497523,
+     "Boss height": 19.054458
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 4.159914,
+     "Boss height": 10.099299
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 5.701263,
+     "Boss height": 8.242113
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 7.072063,
+     "Boss height": 12.427632
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.874651,
+     "Boss height": 19.354654
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 6.75319,
+     "Boss height": 11.967775
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 4.555165,
+     "Boss height": 9.599519
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.289708,
+     "Boss height": 10.284506
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 5.347084,
+     "Boss height": 8.523576
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 7.685487,
+     "Boss height": 14.574472
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 6.620978,
+     "Boss height": 19.038536
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 6.119716,
+     "Boss height": 15.789992
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 7.841994,
+     "Boss height": 18.05549
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 7.855483,
+     "Boss height": 19.610076
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 7.274072,
+     "Boss height": 8.068399
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.312225,
+     "Boss height": 16.691259
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 7.021665,
+     "Boss height": 19.723208
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 7.292638,
+     "Boss height": 13.15993
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 6.954215,
+     "Boss height": 14.620361
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 4.947341,
+     "Boss height": 8.111778
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 7.773588,
+     "Boss height": 18.000427
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 4.057605,
+     "Boss height": 15.426753
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 6.867399,
+     "Boss height": 19.938328
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 7.945101,
+     "Boss height": 15.799653
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 6.497596,
+     "Boss height": 17.961667
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 7.976794,
+     "Boss height": 14.08318
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 4.643529,
+     "Boss height": 12.753995
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 7.254169,
+     "Boss height": 18.338808
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 6.633821,
+     "Boss height": 19.882915
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 6.945821,
+     "Boss height": 19.464663
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 4.919093,
+     "Boss height": 15.008092
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 7.415678,
+     "Boss height": 10.279037
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.91082,
+     "Boss height": 14.307749
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 5.00253,
+     "Boss height": 13.267569
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 4.683364,
+     "Boss height": 8.038532
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 4.096422,
+     "Boss height": 9.28674
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 7.931263,
+     "Boss height": 8.721437
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 5.62015,
+     "Boss height": 13.987947
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 5.47299,
+     "Boss height": 12.32019
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 6.842937,
+     "Boss height": 17.601371
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 7.193286,
+     "Boss height": 12.945986
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.170585,
+     "Boss height": 14.327106
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 4.320054,
+     "Boss height": 11.026374
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 7.309497,
+     "Boss height": 17.296049
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.427648,
+     "Boss height": 19.043916
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 5.445641,
+     "Boss height": 13.723576
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.616153,
+     "Boss height": 19.694796
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.745258,
+     "Boss height": 12.062715
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.173019,
+     "Boss height": 18.610286
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 7.94416,
+     "Boss height": 18.092058
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.747226,
+     "Boss height": 16.37206
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 6.202618,
+     "Boss height": 15.888454
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 6.773208,
+     "Boss height": 12.689633
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d10-screw-boss-choice",
+  "seed": 8,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 6.500769,
+     "Boss height": 11.607975
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 6.340036,
+     "Boss height": 13.392788
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 4.955258,
+     "Boss height": 14.079412
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 6.056736,
+     "Boss height": 8.880301
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 4.881439,
+     "Boss height": 9.926571
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 6.773721,
+     "Boss height": 9.09195
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 4.157535,
+     "Boss height": 14.671837
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 7.010875,
+     "Boss height": 17.290225
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 5.815796,
+     "Boss height": 12.303374
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.284072,
+     "Boss height": 14.222675
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 7.443636,
+     "Boss height": 11.887946
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 7.598684,
+     "Boss height": 14.136827
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 7.017687,
+     "Boss height": 15.790852
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 5.106697,
+     "Boss height": 9.249067
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 7.999469,
+     "Boss height": 14.818549
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 4.191625,
+     "Boss height": 13.308341
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 7.991303,
+     "Boss height": 10.999538
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 4.293026,
+     "Boss height": 14.562447
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 4.713446,
+     "Boss height": 12.864621
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 4.428626,
+     "Boss height": 19.931912
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 4.763305,
+     "Boss height": 8.271696
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 6.426042,
+     "Boss height": 17.53135
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.780389,
+     "Boss height": 8.369108
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.200103,
+     "Boss height": 16.427791
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 7.008963,
+     "Boss height": 12.492758
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 7.932587,
+     "Boss height": 18.644809
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 6.353456,
+     "Boss height": 16.040402
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.240702,
+     "Boss height": 9.136761
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.587064,
+     "Boss height": 12.03979
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.295405,
+     "Boss height": 14.587122
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 6.894799,
+     "Boss height": 14.413128
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 6.959365,
+     "Boss height": 14.223521
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 7.30384,
+     "Boss height": 12.362465
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 7.911505,
+     "Boss height": 8.71009
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 6.735099,
+     "Boss height": 11.805021
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 4.123867,
+     "Boss height": 14.948356
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 6.733111,
+     "Boss height": 9.436159
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 5.031795,
+     "Boss height": 17.053305
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 4.440423,
+     "Boss height": 14.407784
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 6.459498,
+     "Boss height": 11.198949
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 6.14063,
+     "Boss height": 11.137756
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 5.88871,
+     "Boss height": 10.533106
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 4.402963,
+     "Boss height": 8.336731
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 4.283044,
+     "Boss height": 13.875251
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 6.45351,
+     "Boss height": 13.118106
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 5.045018,
+     "Boss height": 9.433567
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 6.148572,
+     "Boss height": 19.001002
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 5.203281,
+     "Boss height": 18.130812
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 6.251094,
+     "Boss height": 15.903084
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 4.824676,
+     "Boss height": 15.612258
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 7.14233,
+     "Boss height": 10.674015
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 7.812711,
+     "Boss height": 11.13791
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 4.622427,
+     "Boss height": 10.524962
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 5.837093,
+     "Boss height": 10.830473
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 7.413661,
+     "Boss height": 8.050651
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 6.350892,
+     "Boss height": 14.520529
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 7.556301,
+     "Boss height": 8.143855
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 5.184261,
+     "Boss height": 11.464389
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 7.598231,
+     "Boss height": 10.934712
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 7.616167,
+     "Boss height": 17.406831
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 5.568971,
+     "Boss height": 12.145131
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 6.606591,
+     "Boss height": 15.686325
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 6.333444,
+     "Boss height": 9.387993
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 7.784398,
+     "Boss height": 19.496269
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d10-screw-boss-choice",
+  "seed": 9,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 7.404843,
+     "Boss height": 9.701193
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 6.895218,
+     "Boss height": 16.266339
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 7.677817,
+     "Boss height": 9.57034
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 6.792063,
+     "Boss height": 15.047425
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 7.751267,
+     "Boss height": 11.44427
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 6.567896,
+     "Boss height": 12.403241
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 7.589753,
+     "Boss height": 18.386706
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 7.494751,
+     "Boss height": 10.277792
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 5.334242,
+     "Boss height": 8.577139
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 4.818146,
+     "Boss height": 14.316275
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 4.298945,
+     "Boss height": 18.010714
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 4.787192,
+     "Boss height": 8.819977
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.238802,
+     "Boss height": 15.904756
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 6.213402,
+     "Boss height": 19.48483
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 4.640501,
+     "Boss height": 14.210472
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 6.147043,
+     "Boss height": 17.596966
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 6.454774,
+     "Boss height": 14.402374
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 5.98734,
+     "Boss height": 10.157017
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 6.387652,
+     "Boss height": 15.6939
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 6.627133,
+     "Boss height": 19.790349
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 4.085733,
+     "Boss height": 16.78102
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 6.66341,
+     "Boss height": 15.681193
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 6.938064,
+     "Boss height": 18.858214
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 4.929067,
+     "Boss height": 16.233453
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 4.490848,
+     "Boss height": 19.299082
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 7.172699,
+     "Boss height": 12.151256
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 5.291079,
+     "Boss height": 16.580388
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 4.277662,
+     "Boss height": 15.002634
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.280708,
+     "Boss height": 14.413362
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 5.951855,
+     "Boss height": 10.233545
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 6.770273,
+     "Boss height": 14.856448
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 7.36505,
+     "Boss height": 8.417243
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 6.383069,
+     "Boss height": 16.223695
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 5.050864,
+     "Boss height": 18.731318
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 4.010612,
+     "Boss height": 13.531452
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 4.767082,
+     "Boss height": 9.341157
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 4.766605,
+     "Boss height": 11.463647
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 4.586626,
+     "Boss height": 18.263719
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 7.329986,
+     "Boss height": 12.545884
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 6.125028,
+     "Boss height": 19.437137
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.930085,
+     "Boss height": 11.033562
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 7.766777,
+     "Boss height": 8.99553
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 5.382742,
+     "Boss height": 18.822947
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.67449,
+     "Boss height": 17.819997
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 6.209287,
+     "Boss height": 17.920151
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 4.024212,
+     "Boss height": 19.318163
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 7.661822,
+     "Boss height": 17.937502
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 7.115543,
+     "Boss height": 18.431336
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 5.858617,
+     "Boss height": 17.76246
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 5.593161,
+     "Boss height": 14.740002
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 7.560291,
+     "Boss height": 8.462603
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 4.460048,
+     "Boss height": 16.656606
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 6.656907,
+     "Boss height": 15.551766
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 5.142485,
+     "Boss height": 15.949686
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 7.573412,
+     "Boss height": 9.300632
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 6.781246,
+     "Boss height": 8.215972
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 4.67395,
+     "Boss height": 14.283575
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.84653,
+     "Boss height": 10.164218
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 4.98678,
+     "Boss height": 17.334866
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.892459,
+     "Boss height": 18.893278
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 4.52204,
+     "Boss height": 9.006554
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 6.532777,
+     "Boss height": 16.420985
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.63075,
+     "Boss height": 15.363693
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 4.414214,
+     "Boss height": 11.878493
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   }
+  ]
+ },
+ {
+  "brief": "d10-screw-boss-choice",
+  "seed": 10,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 7.669947,
+     "Boss height": 16.29582
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.829671,
+     "Boss height": 13.380154
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 4.334245,
+     "Boss height": 8.409522
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 7.688379,
+     "Boss height": 9.551929
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 5.552243,
+     "Boss height": 13.331775
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.164548,
+     "Boss height": 17.697967
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 4.631559,
+     "Boss height": 12.664447
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 6.082315,
+     "Boss height": 13.781643
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 5.369327,
+     "Boss height": 12.607884
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 4.18345,
+     "Boss height": 14.152512
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 4.297264,
+     "Boss height": 10.448566
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 4.340387,
+     "Boss height": 9.715522
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 5.935129,
+     "Boss height": 13.015542
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 7.180433,
+     "Boss height": 9.894111
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 7.671635,
+     "Boss height": 10.852953
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 6.736418,
+     "Boss height": 9.612404
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 7.518211,
+     "Boss height": 15.152771
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 6.966851,
+     "Boss height": 16.632057
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 7.201843,
+     "Boss height": 14.673737
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 5.26248,
+     "Boss height": 17.030004
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 5.554059,
+     "Boss height": 10.647735
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 7.509059,
+     "Boss height": 13.295199
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 4.63332,
+     "Boss height": 18.553485
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 7.469579,
+     "Boss height": 19.167887
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 4.653246,
+     "Boss height": 11.605976
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 7.817155,
+     "Boss height": 14.657625
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 4.813479,
+     "Boss height": 11.886064
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 7.510405,
+     "Boss height": 18.2414
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.305364,
+     "Boss height": 10.44904
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 7.910758,
+     "Boss height": 18.831397
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 7.095912,
+     "Boss height": 14.037184
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 4.933725,
+     "Boss height": 11.108364
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 5.408384,
+     "Boss height": 17.311066
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 6.176537,
+     "Boss height": 18.542696
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 6.016644,
+     "Boss height": 13.070654
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 7.582888,
+     "Boss height": 13.773453
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 5.036191,
+     "Boss height": 8.612989
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.248467,
+     "Boss height": 16.217397
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 6.192203,
+     "Boss height": 11.382876
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 5.201532,
+     "Boss height": 14.976968
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 6.735969,
+     "Boss height": 11.399351
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 7.801788,
+     "Boss height": 15.191092
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 4.141601,
+     "Boss height": 10.104663
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 5.910587,
+     "Boss height": 16.1254
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 7.202361,
+     "Boss height": 8.343101
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.15732,
+     "Boss height": 14.01727
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 5.010768,
+     "Boss height": 10.353768
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 7.030676,
+     "Boss height": 18.215836
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 4.871026,
+     "Boss height": 12.410929
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 7.709161,
+     "Boss height": 10.411022
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 5.967844,
+     "Boss height": 11.558026
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 7.517083,
+     "Boss height": 9.96324
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 4.636514,
+     "Boss height": 18.211093
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 6.994728,
+     "Boss height": 17.932997
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 4.405798,
+     "Boss height": 17.919166
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M6",
+     "Boss radius": 6.180517,
+     "Boss height": 11.813154
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 6.099831,
+     "Boss height": 10.410422
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.297664,
+     "Boss height": 14.382653
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 4.216644,
+     "Boss height": 8.575028
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 5.850068,
+     "Boss height": 13.732963
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 5.867802,
+     "Boss height": 17.977463
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M3",
+     "Boss radius": 6.214151,
+     "Boss height": 18.442279
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M4",
+     "Boss radius": 7.765122,
+     "Boss height": 14.915422
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Screw": "M2.5",
+     "Boss radius": 4.719211,
+     "Boss height": 12.152018
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ }
+]

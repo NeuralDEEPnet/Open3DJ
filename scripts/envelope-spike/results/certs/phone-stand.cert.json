@@ -1,0 +1,6411 @@
+{
+ "certificate": "o3dj-envelope-cert/spike-0",
+ "brief": "phone-stand",
+ "brief_hash": "a771efe2f191d43f9dcc70c29caa278121940e23e6cb935d96c2409b450ad57a",
+ "script_hash": "a4a83e0bd2bef1d9eed2a44bacc74811e82e4f0f9b662972b6736ff7ccebe017",
+ "inputs_hash": "d434fdb88a2065f3045c452b6d2b00ba53312c70cd6e53e4cb166b2a3d8fd3e6",
+ "engine": {
+  "occt_wasm": "5.8.1",
+  "node": "v24.22.1",
+  "analysis": "2"
+ },
+ "platform": "linux-x64",
+ "seed": 1,
+ "budget": 64,
+ "watch_mm": 0.5,
+ "verdict": "holds",
+ "statement": "holds at 64 points under this model (apart from 1 nominal failure(s))",
+ "nominal_failures": [
+  "gate-overhang"
+ ],
+ "counterexamples": [],
+ "compass_on": "size-x",
+ "events": [],
+ "smallest_margins": [
+  {
+   "id": "builds",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "status",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "valid",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "one-solid",
+   "signed": 0,
+   "scale": 1,
+   "normalized": 0,
+   "at": 0
+  },
+  {
+   "id": "size-x",
+   "signed": 0.0009990000000025248,
+   "scale": 0.119982911,
+   "normalized": 0.0083261857182522,
+   "at": 61
+  },
+  {
+   "id": "size-y",
+   "signed": 0.001,
+   "scale": 0.095,
+   "normalized": 0.010526315789473684,
+   "at": 0
+  },
+  {
+   "id": "size-z",
+   "signed": 0.001,
+   "scale": 0.080522705,
+   "normalized": 0.012418857513542299,
+   "at": 0
+  },
+  {
+   "id": "faces",
+   "signed": 0,
+   "scale": 1,
+   "normalized": 0,
+   "at": 0
+  },
+  {
+   "id": "edges",
+   "signed": 0,
+   "scale": 1,
+   "normalized": 0,
+   "at": 0
+  },
+  {
+   "id": "gate-watertight",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "gate-min-wall",
+   "signed": 5.158,
+   "scale": 0.04,
+   "normalized": 128.95000000000002,
+   "at": 0
+  },
+  {
+   "id": "gate-bed",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  }
+ ],
+ "coverage": {
+  "points": 64,
+  "phases": {
+   "nominal": 1,
+   "corner": 2,
+   "halton": 47,
+   "compass": 14
+  },
+  "corners_planned": 2,
+  "special_planned": 2,
+  "axes": [
+   {
+    "name": "Width",
+    "min_seen": 50,
+    "max_seen": 120,
+    "min": 50,
+    "max": 120
+   }
+  ]
+ },
+ "limits": [
+  "Sampling is not proof: the brief was checked at the points listed under this model, never for all values. A thin band can hide between samples.",
+  "The gates are fdm.v1 rule checks on the kernel's geometry (watertight, 0.8 mm min_wall from rays, 45 degree overhang, bed), never a print simulation.",
+  "Fits are exact OCCT clash, contact and clearance checks within the fit watch distance; a pair with no line inside it is censored, not a measured pass.",
+  "Bit-identical replay is only claimed for the platform named here.",
+  "Fit watch distance 0.5 mm."
+ ],
+ "points": [
+  {
+   "index": 0,
+   "phase": "nominal",
+   "fresh": [],
+   "params": {
+    "Width": 70
+   },
+   "ok": true,
+   "report_hash": "d7d0dcb48923713d15d4a96c4ab3e6dfe762275d2f333f96114f5d69cfe183e6",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:149c909133b9d9b1"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.07
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 1,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Width": 50
+   },
+   "ok": true,
+   "report_hash": "1ae4c94efacb4e16da37ffb7495b7d67e9a81a45f175568c3c2061723282ff5e",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:4e8214fd0f33248a"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 2,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Width": 120
+   },
+   "ok": true,
+   "report_hash": "eeecea5de595d48af6a226dabce0e3ea4de80ef977e1d8d70db27fb3244f7f1b",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:2e5cd9f7e8445ed0"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.12
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 3,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 55.040622
+   },
+   "ok": true,
+   "report_hash": "b80ea85790355205b9f75fde21a25c12b033391f02ee880468e8758764a0ff61",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:c32e3c72ae911c95"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.055040622
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 4,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 90.040622
+   },
+   "ok": true,
+   "report_hash": "23a1c5a998c8994bb83f627203208ad680ac1f625518577157170ce015eb60c6",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:7dbe0df5e6f08e75"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.090040622
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 5,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 72.540622
+   },
+   "ok": true,
+   "report_hash": "a53497f1a9d5a03ec2167b55707c3a0d7a8f9941416c8025922fa927a0a3bdbc",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:86d95b7bdd4b870b"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.072540622
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 6,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 107.540622
+   },
+   "ok": true,
+   "report_hash": "2eec80e6be320f6d7e26966a911c4ab91371d1e5a81d9b62c8c750f9465a0ed7",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:043b0e8f44dcdf7d"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.107540622
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 7,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 63.790622
+   },
+   "ok": true,
+   "report_hash": "d40e10c5cf458bb36398b9efc8a477e7547775ed80171f07e81609c74707fc9d",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:02566e725a899fff"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.063790622
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 8,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 98.790622
+   },
+   "ok": true,
+   "report_hash": "8b06d64ef5b9fe61b6fec85624a815e71a8bd4e6c5f4b2b57982a4e1e97c0049",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:8cf1725c93968630"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.098790622
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 9,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 81.290622
+   },
+   "ok": true,
+   "report_hash": "dafd37081b563d1dd65e9dfe2d2b48ab94e28f1d0e8ed22ff44f9157f493d102",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:c223eeba1f30959b"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.081290622
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 10,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 116.290622
+   },
+   "ok": true,
+   "report_hash": "6e0bbde9a48e5bfe75be251774f201ec1483058e405ecd934c4cd7ca5bd83eaf",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:5f62c8002bde3ba8"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.116290622
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 11,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 59.415622
+   },
+   "ok": true,
+   "report_hash": "71e21f28c2a5ec1212b8a8021919d8bb6f362776fa220a38dfc7d7d7370ec632",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:5d58b2385a788592"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.059415622
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 12,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 94.415622
+   },
+   "ok": true,
+   "report_hash": "3c1c55338527be23f7fc25f97d72d591a0f7b6da6eb776c906f8804b441ea8e1",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:7ff09e5431acb92f"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.094415622
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 13,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 76.915622
+   },
+   "ok": true,
+   "report_hash": "e6fc5ac54cd03637f7528dae559759567c1edc1099266443a486bfb3be8ede70",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:8b55f8e0a9975ce5"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.076915622
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 14,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 111.915622
+   },
+   "ok": true,
+   "report_hash": "65ad0985cf9650e1c1dd161a78966cfc38528eec964c7d4d6c1f4b78083df132",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:1e8f8c9ee6c07f03"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.111915622
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 15,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 68.165622
+   },
+   "ok": true,
+   "report_hash": "f98d69855f2b7d1737917cb127dad15101aea2ec04159ef706b4c39ac016424c",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:379db06c3677f41f"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.068165622
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 16,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 103.165622
+   },
+   "ok": true,
+   "report_hash": "fe7ee832828eb5fc1af46d7d818af1f536d0fb517034e51618ecb93660c81bf8",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:1be8c48b1af2ac0b"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.103165622
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 17,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 85.665622
+   },
+   "ok": true,
+   "report_hash": "73ad74a1c4a83c30f9326d3cf869872202c54c48d73890c530a5c077d69888df",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:81a9936dda59c48f"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.085665622
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 18,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 50.665622
+   },
+   "ok": true,
+   "report_hash": "e2741064c066395b80f6aee240522c68744e81522ff9f26eb55dc0b12f4d6a28",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:32af873100f7d723"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.050665622
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 19,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 57.228122
+   },
+   "ok": true,
+   "report_hash": "0783bea4987b8c2e60d4a2700e680836d4512bb14e6c41f6ade12f1bd31a6b1f",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:0b9b5ffee5787b30"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.057228122
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 20,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 92.228122
+   },
+   "ok": true,
+   "report_hash": "d3f9049deb0c5f534846c9ada1674bd9f1dd8f29195cffdf0f7add89e0ed7da4",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:338a22b3e5033089"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.092228122
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 21,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 74.728122
+   },
+   "ok": true,
+   "report_hash": "c8b5608045491b82fb883285d5d4e5b45a54c75a7f3c90a68cdc5ca86d45288d",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:7c68174e24e990bb"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.074728122
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 22,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 109.728122
+   },
+   "ok": true,
+   "report_hash": "2ece22921e8d7188e77a98b148798f68f2b0f007705ace5c56781ef769a8fba6",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:43ce01b673760d23"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.109728122
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 23,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 65.978122
+   },
+   "ok": true,
+   "report_hash": "c0d89a27f987cd97b2cebd7671dc7622fe7141178414acbbf94e5733da33bafe",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:a1ddb861f40b4647"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.065978122
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 24,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 100.978122
+   },
+   "ok": true,
+   "report_hash": "85314329d9b90556af590556f6b3ed63fa6e705df0747bdd907818ebaecbc1d0",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:9366a50ee48df307"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.100978122
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 25,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 83.478122
+   },
+   "ok": true,
+   "report_hash": "311eabff175808fbde099acc2ef06187d56a1b709a45726178fec58c64afa4a4",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:428ceefb670500e2"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.083478122
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 26,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 118.478122
+   },
+   "ok": true,
+   "report_hash": "ccc211bcb7d004fe22c40217f4ace805322dfbaae982d40af8b6b503e3b4584f",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:b694bea5717b7074"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.118478122
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 27,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 61.603122
+   },
+   "ok": true,
+   "report_hash": "840cf6a6886e9be2d834be79f5b153c0c3d92a631e3fd01bb649583d9312edfb",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:acbc28044785540e"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.061603122
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 28,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 96.603122
+   },
+   "ok": true,
+   "report_hash": "6939d911d41a59c4cb214df046e8e8ac80dfc00c9191aa34e786c7e89fae8993",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:ae067ca051a90818"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.096603122
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 29,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 79.103122
+   },
+   "ok": true,
+   "report_hash": "c5b1e83ec30373a0cb414f95cdecd56f850959991c205647a5f21f499f2d1ae9",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:956c48f72cd757b2"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.079103122
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 30,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 114.103122
+   },
+   "ok": true,
+   "report_hash": "547798d7b5564aac4920a039dc0b1a81909350acbcfed4f8a70cc7eb8d67f4ae",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:3f8ed42ae342cb45"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.114103122
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 31,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 70.353122
+   },
+   "ok": true,
+   "report_hash": "25d9e27a7d868a54876fb5f91ef18017a87439b69a266ccfc72dcc76f17e931f",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:7d910891a35fe717"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.070353122
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 32,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 105.353122
+   },
+   "ok": true,
+   "report_hash": "b16b4d515a5e02b0065ec9e9e2eaa85448c467df6c7fd8573d87254a4d0d1a58",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:71d1d8dbf9b8400c"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.10535312200000001
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 33,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 87.853122
+   },
+   "ok": true,
+   "report_hash": "3e7e3581be3c67598a695f96c973018d80f835293a12f3eb896d4ecf7507ce11",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:f073de14cc10dc7f"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.087853122
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 34,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 52.853122
+   },
+   "ok": true,
+   "report_hash": "bd3378fd5eddaebfbcb53bd8949f4ac23336d505c2c40766049423a709c6b3ff",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:0d084ed5fa24ff59"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.052853122
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 35,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 54.493747
+   },
+   "ok": true,
+   "report_hash": "bf966d6abcda8888f9a850b2245cd98e65f987661b017429d656852de3393bf6",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:ecc6171cd830473f"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.054493747
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 36,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 89.493747
+   },
+   "ok": true,
+   "report_hash": "2bc8f9229b4ac300bdbd7b5c75b5f67859b6b0ee75fb1ea97b32c72c4f143d49",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:8685ea00e493d73f"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.089493747
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 37,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 71.993747
+   },
+   "ok": true,
+   "report_hash": "bd1b0257483dee8bed8e31e233c9241da77eb85935173f8aa06a0f4dfdc78a9c",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:a58ccdfad0b06cdd"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.071993747
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 38,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 106.993747
+   },
+   "ok": true,
+   "report_hash": "3e28e66619cae76561e21c9fa21207ced2fe7d7bc67c4568d2e9d1d44ca1be04",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:0f09beac0b813166"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.106993747
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 39,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 63.243747
+   },
+   "ok": true,
+   "report_hash": "306c4f3a319c26177c4ef4e4b53c8e766adb3501e8b3fae7ada71f3858455a62",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:180d84e9ecda2fb6"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.063243747
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 40,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 98.243747
+   },
+   "ok": true,
+   "report_hash": "d09ea10b1f1d341ab177e9e182e2096935273a34876fadb0146f5ea3adb6b240",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:71a95245c8074678"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.098243747
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 41,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 80.743747
+   },
+   "ok": true,
+   "report_hash": "8ad518baa6f7008b4cd376a1c8f64c58622b55f3c419ae3da39bd3776e933c4f",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:7b2ea649960ba985"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.080743747
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 42,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 115.743747
+   },
+   "ok": true,
+   "report_hash": "24cc48782c15817381a84016cd94510e59f2e09f7001840f1b70e368a15ebd4f",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:a5ac2dfe9bccbef5"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.11574374700000001
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 43,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 58.868747
+   },
+   "ok": true,
+   "report_hash": "4f07f4bd9724a1f8d25362cd748687449509c30d701b5b361d6e7c2c7dd7a20e",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:4878e095b92d3b9b"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.058868747
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 44,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 93.868747
+   },
+   "ok": true,
+   "report_hash": "4162fa079680ccbbc99c5c25d5d054a5c40b263fbc56aede117ba7ab8e8141fe",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:d5c00dda9bc20cd0"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.093868747
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 45,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 76.368747
+   },
+   "ok": true,
+   "report_hash": "ed8c89970f90686611ff772c64148a07664831bed7264b310892f23d0701b448",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:2748e3746af68398"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.076368747
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 46,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 111.368747
+   },
+   "ok": true,
+   "report_hash": "0ae0cbb684b0029d6d86fc2ee2187e4811800b69baefff84dcc2793477cd15de",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:a8d8d78e093cc0e0"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.111368747
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 47,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 67.618747
+   },
+   "ok": true,
+   "report_hash": "4959c90f0d55a219678019b4eb749368a89953cdaf1c04f8a8fde7293f368769",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:2b357ba79aed37fa"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.067618747
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 48,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 102.5
+   },
+   "ok": true,
+   "report_hash": "13330420df9440a27da36467d2f6695733adaab39148c00f94c83ff845445d39",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:cb16d6278d6e48fc"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.10250000000000001
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 49,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 111.25
+   },
+   "ok": true,
+   "report_hash": "bfee63fe585d925164423258f8d84239c5518a52b3e5bc534abb79c29aa7ab63",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:6ac2738c65dc3aff"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.11125
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 50,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 115.625
+   },
+   "ok": true,
+   "report_hash": "36162d5e23a8ce9260724a1aa153adebb590f32f858d9a7645c4e72f0f6084cb",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:ed1b99e5130eb84c"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.115625
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 51,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 117.8125
+   },
+   "ok": true,
+   "report_hash": "d6a2c74fd41414d88792830832111fc7dd0d7b18b3de23c9b5c8ad9cc55236ea",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:7c9dd43fe36b8254"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.1178125
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 52,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 118.90625
+   },
+   "ok": true,
+   "report_hash": "716f7b8b1dad3712379e70900a10d8cddba8fa1cf5cc41f90531026f02dceedc",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:c5bd6caea86d2c28"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.11890625
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 53,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 119.453125
+   },
+   "ok": true,
+   "report_hash": "c67b5d43ab6bb072d1a1e9bc271a315df21e87dbfd7a533302938ae0cfcf32ae",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:e7163a030532b099"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.11945312500000001
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 54,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 119.726563
+   },
+   "ok": true,
+   "report_hash": "9a42f0dd987ce8aa7f8ec1eac6cc3273546f16c0a08314b0539dfa3e99d92789",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:9edaba7422f1385c"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.11972656300000001
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 55,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 119.863281
+   },
+   "ok": true,
+   "report_hash": "a490df78c0b861b0295bdf98e4f3db19caa70495ab7d7de45c7b3637731e8644",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:23b53bc8ed5f76d8"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.119863281
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 56,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 119.931641
+   },
+   "ok": true,
+   "report_hash": "e0c7aaf33a0fdfc2ce2da4afd15ffc11b38796d6654a46071679cb5a875e11c6",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:c4700fae50d03919"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.119931641
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 57,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 119.863282
+   },
+   "ok": true,
+   "report_hash": "795934ff0d9a7dfa863c75530d8ff833248aaaaef7108c7c4cedb0a4c9931a7e",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:2d85b5d7a3eb25ff"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.119863282
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 58,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 119.897461
+   },
+   "ok": true,
+   "report_hash": "62dedac1bd211b773fdb6153cbd109d90d23da792c53141c1c91a1427e67f021",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:2c430b56bd343727"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.11989746100000001
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 59,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 119.965821
+   },
+   "ok": true,
+   "report_hash": "6b1a7385f952f63c4d78801185fe00aa4b2ae659c45eada39823c8dc06e599de",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:8bce032563032d71"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.11996582100000001
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 60,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 119.948731
+   },
+   "ok": true,
+   "report_hash": "5003972f447dabc3a12dfe9809bb3bec8163793083314b62f22903055532f70d",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:54c67c514c75dffa"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.000998999999988314,
+     "scale": 0.119948731
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 61,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 119.982911
+   },
+   "ok": true,
+   "report_hash": "185dd3208b8caba453df8b9aa4bdd895a0c3e87c2e20b8de6d264eda24b39ccd",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:b23b54f500a9c488"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.119982911
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 62,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 102.618747
+   },
+   "ok": true,
+   "report_hash": "d055fae33f16c355f6bba7f073bc4b1733db44db5ee046a3cb5682d063bfc05c",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:c2663c3893160238"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.102618747
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 63,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 85.118747
+   },
+   "ok": true,
+   "report_hash": "fd792fd31c69c5bb2e58813ab61cc9743821916341d052f57edd8684ed112a16",
+   "signature_hash": "374a8f6daa05928db18e8705facd664ab1ea86f7cefb8f106e7786271b9dfe77",
+   "shape_hash": {
+    "phone_stand": "s1:af688e7baa8ef35a"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.085118747
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.095
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080522705
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.158,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (phone_stand face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  }
+ ]
+}

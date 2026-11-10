@@ -1,0 +1,7280 @@
+{
+ "platform": "linux-x64",
+ "node": "v24.22.1",
+ "pid_note": "run in its own process, every point on a fresh kernel",
+ "results": [
+  {
+   "brief": "box-with-lid",
+   "cert_hash": "38fc65ea2b35565028686726bac0f180cbbc066c1a0a385dc9dac4603cbb7194",
+   "platform": "linux-x64",
+   "same_platform": true,
+   "inputs_match": true,
+   "points": 64,
+   "identical": 64,
+   "differing": [],
+   "counterexamples": [
+    {
+     "index": 1,
+     "params": {
+      "Width": 40,
+      "Depth": 30,
+      "Height": 15,
+      "Clearance": -1
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 3,
+     "params": {
+      "Width": 150,
+      "Depth": 30,
+      "Height": 15,
+      "Clearance": -1
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 5,
+     "params": {
+      "Width": 40,
+      "Depth": 120,
+      "Height": 15,
+      "Clearance": -1
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 7,
+     "params": {
+      "Width": 150,
+      "Depth": 120,
+      "Height": 15,
+      "Clearance": -1
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 9,
+     "params": {
+      "Width": 40,
+      "Depth": 30,
+      "Height": 80,
+      "Clearance": -1
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 11,
+     "params": {
+      "Width": 150,
+      "Depth": 30,
+      "Height": 80,
+      "Clearance": -1
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 13,
+     "params": {
+      "Width": 40,
+      "Depth": 120,
+      "Height": 80,
+      "Clearance": -1
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 15,
+     "params": {
+      "Width": 150,
+      "Depth": 120,
+      "Height": 80,
+      "Clearance": -1
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 17,
+     "params": {
+      "Width": 70,
+      "Depth": 50,
+      "Height": 30,
+      "Clearance": 0
+     },
+     "fresh_before": [
+      "lip-gap"
+     ],
+     "failing_after": [
+      "lip-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 24,
+     "params": {
+      "Width": 70,
+      "Depth": 50,
+      "Height": 30,
+      "Clearance": -1
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 27,
+     "params": {
+      "Width": 75.420977,
+      "Depth": 74.918962,
+      "Height": 75.7001,
+      "Clearance": -0.992477
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 28,
+     "params": {
+      "Width": 130.420977,
+      "Depth": 104.918962,
+      "Height": 26.3001,
+      "Clearance": -0.665946
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 29,
+     "params": {
+      "Width": 61.670977,
+      "Depth": 118.252296,
+      "Height": 39.3001,
+      "Clearance": -0.380232
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 30,
+     "params": {
+      "Width": 116.670977,
+      "Depth": 58.252296,
+      "Height": 52.3001,
+      "Clearance": -0.094517
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 34,
+     "params": {
+      "Width": 109.795977,
+      "Depth": 98.252296,
+      "Height": 41.9001,
+      "Clearance": -0.95166
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 35,
+     "params": {
+      "Width": 82.295977,
+      "Depth": 48.252296,
+      "Height": 54.9001,
+      "Clearance": -0.62513
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 36,
+     "params": {
+      "Width": 137.295977,
+      "Depth": 78.252296,
+      "Height": 67.9001,
+      "Clearance": -0.339415
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 37,
+     "params": {
+      "Width": 68.545977,
+      "Depth": 108.252296,
+      "Height": 15.9001,
+      "Clearance": -0.053701
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 41,
+     "params": {
+      "Width": 51.358477,
+      "Depth": 41.585629,
+      "Height": 70.5001,
+      "Clearance": -0.910844
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 42,
+     "params": {
+      "Width": 106.358477,
+      "Depth": 71.585629,
+      "Height": 18.5001,
+      "Clearance": -0.864197
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 43,
+     "params": {
+      "Width": 78.858477,
+      "Depth": 101.585629,
+      "Height": 21.6201,
+      "Clearance": -0.578482
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 44,
+     "params": {
+      "Width": 133.858477,
+      "Depth": 51.585629,
+      "Height": 34.6201,
+      "Clearance": -0.292768
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 45,
+     "params": {
+      "Width": 65.108477,
+      "Depth": 81.585629,
+      "Height": 47.6201,
+      "Clearance": -0.007054
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 48,
+     "params": {
+      "Width": 70,
+      "Depth": 30,
+      "Height": 15,
+      "Clearance": -1
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 49,
+     "params": {
+      "Width": 40,
+      "Depth": 50,
+      "Height": 15,
+      "Clearance": -1
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 50,
+     "params": {
+      "Width": 40,
+      "Depth": 30,
+      "Height": 30,
+      "Clearance": -1
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 52,
+     "params": {
+      "Width": 55,
+      "Depth": 30,
+      "Height": 15,
+      "Clearance": -1
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 53,
+     "params": {
+      "Width": 40,
+      "Depth": 40,
+      "Height": 15,
+      "Clearance": -1
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 54,
+     "params": {
+      "Width": 40,
+      "Depth": 30,
+      "Height": 22.5,
+      "Clearance": -1
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 55,
+     "params": {
+      "Width": 40,
+      "Depth": 30,
+      "Height": 15,
+      "Clearance": -0.375
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 56,
+     "params": {
+      "Width": 70,
+      "Depth": 50,
+      "Height": 15,
+      "Clearance": -1
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 57,
+     "params": {
+      "Width": 70,
+      "Depth": 30,
+      "Height": 30,
+      "Clearance": -1
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 58,
+     "params": {
+      "Width": 70,
+      "Depth": 50,
+      "Height": 26.25,
+      "Clearance": -0.0625
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 59,
+     "params": {
+      "Width": 70,
+      "Depth": 50,
+      "Height": 22.5,
+      "Clearance": -0.375
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 60,
+     "params": {
+      "Width": 70,
+      "Depth": 50,
+      "Height": 18.75,
+      "Clearance": -0.6875
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "lip-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    }
+   ],
+   "wall_ms": 13949
+  },
+  {
+   "brief": "bracket",
+   "cert_hash": "07cb905a8ce959318d558bd92a63be3f5ff218863be373676174dccb07055792",
+   "platform": "linux-x64",
+   "same_platform": true,
+   "inputs_match": true,
+   "points": 64,
+   "identical": 64,
+   "differing": [],
+   "counterexamples": [
+    {
+     "index": 1,
+     "params": {
+      "Width": 24,
+      "Leg": 20,
+      "Thickness": 2,
+      "Screw": "M3"
+     },
+     "fresh_before": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-bed"
+     ],
+     "failing_after": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-overhang",
+      "gate-bed"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 3,
+     "params": {
+      "Width": 100,
+      "Leg": 20,
+      "Thickness": 2,
+      "Screw": "M5"
+     },
+     "fresh_before": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-bed"
+     ],
+     "failing_after": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-overhang",
+      "gate-bed"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 5,
+     "params": {
+      "Width": 24,
+      "Leg": 80,
+      "Thickness": 2,
+      "Screw": "M4"
+     },
+     "fresh_before": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-bed"
+     ],
+     "failing_after": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-overhang",
+      "gate-bed"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 6,
+     "params": {
+      "Width": 100,
+      "Leg": 20,
+      "Thickness": 10,
+      "Screw": "M5"
+     },
+     "fresh_before": [
+      "edges"
+     ],
+     "failing_after": [
+      "edges",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 7,
+     "params": {
+      "Width": 100,
+      "Leg": 80,
+      "Thickness": 2,
+      "Screw": "M3"
+     },
+     "fresh_before": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-bed"
+     ],
+     "failing_after": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-overhang",
+      "gate-bed"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 9,
+     "params": {
+      "Width": 24,
+      "Leg": 20,
+      "Thickness": 2,
+      "Screw": "M4"
+     },
+     "fresh_before": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-bed"
+     ],
+     "failing_after": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-overhang",
+      "gate-bed"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 11,
+     "params": {
+      "Width": 100,
+      "Leg": 20,
+      "Thickness": 2,
+      "Screw": "M3"
+     },
+     "fresh_before": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-bed"
+     ],
+     "failing_after": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-overhang",
+      "gate-bed"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 13,
+     "params": {
+      "Width": 24,
+      "Leg": 80,
+      "Thickness": 2,
+      "Screw": "M5"
+     },
+     "fresh_before": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-bed"
+     ],
+     "failing_after": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-overhang",
+      "gate-bed"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 15,
+     "params": {
+      "Width": 100,
+      "Leg": 80,
+      "Thickness": 2,
+      "Screw": "M4"
+     },
+     "fresh_before": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-bed"
+     ],
+     "failing_after": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-overhang",
+      "gate-bed"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 16,
+     "params": {
+      "Width": 24,
+      "Leg": 20,
+      "Thickness": 10,
+      "Screw": "M5"
+     },
+     "fresh_before": [
+      "edges",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "edges",
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 17,
+     "params": {
+      "Width": 24,
+      "Leg": 20,
+      "Thickness": 2,
+      "Screw": "M5"
+     },
+     "fresh_before": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-bed"
+     ],
+     "failing_after": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-overhang",
+      "gate-bed"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 19,
+     "params": {
+      "Width": 100,
+      "Leg": 20,
+      "Thickness": 2,
+      "Screw": "M4"
+     },
+     "fresh_before": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-bed"
+     ],
+     "failing_after": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-overhang",
+      "gate-bed"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 20,
+     "params": {
+      "Width": 24,
+      "Leg": 80,
+      "Thickness": 10,
+      "Screw": "M5"
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 21,
+     "params": {
+      "Width": 24,
+      "Leg": 80,
+      "Thickness": 2,
+      "Screw": "M3"
+     },
+     "fresh_before": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-bed"
+     ],
+     "failing_after": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-overhang",
+      "gate-bed"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 23,
+     "params": {
+      "Width": 100,
+      "Leg": 80,
+      "Thickness": 2,
+      "Screw": "M5"
+     },
+     "fresh_before": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-bed"
+     ],
+     "failing_after": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-overhang",
+      "gate-bed"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 29,
+     "params": {
+      "Width": 40,
+      "Leg": 35,
+      "Thickness": 2,
+      "Screw": "M4"
+     },
+     "fresh_before": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-bed"
+     ],
+     "failing_after": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-overhang",
+      "gate-bed"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 48,
+     "params": {
+      "Width": 40,
+      "Leg": 20,
+      "Thickness": 2,
+      "Screw": "M3"
+     },
+     "fresh_before": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-bed"
+     ],
+     "failing_after": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-overhang",
+      "gate-bed"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 49,
+     "params": {
+      "Width": 24,
+      "Leg": 35,
+      "Thickness": 2,
+      "Screw": "M3"
+     },
+     "fresh_before": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-bed"
+     ],
+     "failing_after": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-overhang",
+      "gate-bed"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 51,
+     "params": {
+      "Width": 32,
+      "Leg": 20,
+      "Thickness": 2,
+      "Screw": "M3"
+     },
+     "fresh_before": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-bed"
+     ],
+     "failing_after": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-overhang",
+      "gate-bed"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 52,
+     "params": {
+      "Width": 24,
+      "Leg": 27.5,
+      "Thickness": 2,
+      "Screw": "M3"
+     },
+     "fresh_before": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-bed"
+     ],
+     "failing_after": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-overhang",
+      "gate-bed"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 54,
+     "params": {
+      "Width": 40,
+      "Leg": 35,
+      "Thickness": 2,
+      "Screw": "M3"
+     },
+     "fresh_before": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-bed"
+     ],
+     "failing_after": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-overhang",
+      "gate-bed"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 56,
+     "params": {
+      "Width": 40,
+      "Leg": 20,
+      "Thickness": 2,
+      "Screw": "M4"
+     },
+     "fresh_before": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-bed"
+     ],
+     "failing_after": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-overhang",
+      "gate-bed"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 57,
+     "params": {
+      "Width": 40,
+      "Leg": 27.5,
+      "Thickness": 2,
+      "Screw": "M3"
+     },
+     "fresh_before": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-bed"
+     ],
+     "failing_after": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "size-x",
+      "size-y",
+      "size-z",
+      "faces",
+      "edges",
+      "gate-watertight",
+      "gate-min-wall",
+      "gate-overhang",
+      "gate-bed"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    }
+   ],
+   "wall_ms": 4678
+  },
+  {
+   "brief": "c01-plate-center-hole",
+   "cert_hash": "24dced790b1eed68731fef9e79c3d14d35056278db0bb215787f87b9d777fc9f",
+   "platform": "linux-x64",
+   "same_platform": true,
+   "inputs_match": true,
+   "points": 64,
+   "identical": 64,
+   "differing": [],
+   "counterexamples": [],
+   "wall_ms": 2169
+  },
+  {
+   "brief": "c02-blind-pocket-safe",
+   "cert_hash": "f187f92fe8ec3f3f1d931253449372a94573db74e5d909fdd80ce6b92c632647",
+   "platform": "linux-x64",
+   "same_platform": true,
+   "inputs_match": true,
+   "points": 64,
+   "identical": 64,
+   "differing": [],
+   "counterexamples": [],
+   "wall_ms": 1897
+  },
+  {
+   "brief": "c03-fillet-safe",
+   "cert_hash": "4cc5b670d3f74c3fccc27bcf7306ae61737846ae52d17eae150c7f3bf58079d5",
+   "platform": "linux-x64",
+   "same_platform": true,
+   "inputs_match": true,
+   "points": 64,
+   "identical": 64,
+   "differing": [],
+   "counterexamples": [],
+   "wall_ms": 1810
+  },
+  {
+   "brief": "c04-bolt-circle-safe",
+   "cert_hash": "7461766c7a0080bb5c6bf041c2d752d469d29a209add173c80e453525e1b929c",
+   "platform": "linux-x64",
+   "same_platform": true,
+   "inputs_match": true,
+   "points": 64,
+   "identical": 64,
+   "differing": [],
+   "counterexamples": [],
+   "wall_ms": 4896
+  },
+  {
+   "brief": "c05-shuttle-post-safe",
+   "cert_hash": "1deb70492cd747dae6802d8b216a78fe18d5f90a22c056068b51cef008db3f7a",
+   "platform": "linux-x64",
+   "same_platform": true,
+   "inputs_match": true,
+   "points": 64,
+   "identical": 64,
+   "differing": [],
+   "counterexamples": [],
+   "wall_ms": 879
+  },
+  {
+   "brief": "c06-slot-hole-safe",
+   "cert_hash": "1c9d9e4e28ca62e68f70286d8f95dddf44387285c2a6a5c9aa801e872ceda44e",
+   "platform": "linux-x64",
+   "same_platform": true,
+   "inputs_match": true,
+   "points": 64,
+   "identical": 64,
+   "differing": [],
+   "counterexamples": [],
+   "wall_ms": 3250
+  },
+  {
+   "brief": "c07-pin-bushing-safe",
+   "cert_hash": "d0350c6218b6061fd94e97b1a45d86204353aab52919dc9fb3db17f3a395b901",
+   "platform": "linux-x64",
+   "same_platform": true,
+   "inputs_match": true,
+   "points": 64,
+   "identical": 64,
+   "differing": [],
+   "counterexamples": [],
+   "wall_ms": 1047
+  },
+  {
+   "brief": "c08-vent-bool-safe",
+   "cert_hash": "8a58fd54af046b164bc21b98f125e510771175e422fba3b4ea4fcdc2de77aa87",
+   "platform": "linux-x64",
+   "same_platform": true,
+   "inputs_match": true,
+   "points": 64,
+   "identical": 64,
+   "differing": [],
+   "counterexamples": [],
+   "wall_ms": 4671
+  },
+  {
+   "brief": "c09-rotor-stop-safe",
+   "cert_hash": "c0a14dd3a855fdfbce46862a47937eb0ee3190a12d8d79e970ff488dc73eb1bb",
+   "platform": "linux-x64",
+   "same_platform": true,
+   "inputs_match": true,
+   "points": 64,
+   "identical": 64,
+   "differing": [],
+   "counterexamples": [],
+   "wall_ms": 3625
+  },
+  {
+   "brief": "c10-key-channel-safe",
+   "cert_hash": "1e8b7fd2d20b95d26ecdcd0d3f70d5af5607af06470dbf119d6286c2beb6a935",
+   "platform": "linux-x64",
+   "same_platform": true,
+   "inputs_match": true,
+   "points": 64,
+   "identical": 64,
+   "differing": [],
+   "counterexamples": [],
+   "wall_ms": 2079
+  },
+  {
+   "brief": "d01-plate-hole-pitch",
+   "cert_hash": "b933cc2ec5460388126bd7f9faa139c9bb4e7f4f1d72a6e7c069087a43f91a24",
+   "platform": "linux-x64",
+   "same_platform": true,
+   "inputs_match": true,
+   "points": 64,
+   "identical": 64,
+   "differing": [],
+   "counterexamples": [
+    {
+     "index": 4,
+     "params": {
+      "Width": 40,
+      "Pitch": 50,
+      "Thickness": 8
+     },
+     "fresh_before": [
+      "faces"
+     ],
+     "failing_after": [
+      "faces"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 5,
+     "params": {
+      "Width": 40,
+      "Pitch": 50,
+      "Thickness": 3
+     },
+     "fresh_before": [
+      "faces"
+     ],
+     "failing_after": [
+      "faces"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 9,
+     "params": {
+      "Width": 40,
+      "Pitch": 36,
+      "Thickness": 4
+     },
+     "fresh_before": [
+      "faces",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "faces",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 15,
+     "params": {
+      "Width": 43.600444,
+      "Pitch": 41.639654,
+      "Thickness": 5.669238
+     },
+     "fresh_before": [
+      "faces"
+     ],
+     "failing_after": [
+      "faces"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 19,
+     "params": {
+      "Width": 49.850444,
+      "Pitch": 49.417432,
+      "Thickness": 4.869238
+     },
+     "fresh_before": [
+      "faces"
+     ],
+     "failing_after": [
+      "faces"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 27,
+     "params": {
+      "Width": 52.975444,
+      "Pitch": 46.084099,
+      "Thickness": 3.069238
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 30,
+     "params": {
+      "Width": 40.475444,
+      "Pitch": 40.528543,
+      "Thickness": 6.269238
+     },
+     "fresh_before": [
+      "faces"
+     ],
+     "failing_after": [
+      "faces"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 46,
+     "params": {
+      "Width": 42.037944,
+      "Pitch": 49.787802,
+      "Thickness": 6.909238
+     },
+     "fresh_before": [
+      "faces"
+     ],
+     "failing_after": [
+      "faces"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 49,
+     "params": {
+      "Width": 40,
+      "Pitch": 36,
+      "Thickness": 8
+     },
+     "fresh_before": [
+      "faces",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "faces",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 50,
+     "params": {
+      "Width": 40,
+      "Pitch": 50,
+      "Thickness": 4
+     },
+     "fresh_before": [
+      "faces"
+     ],
+     "failing_after": [
+      "faces"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 51,
+     "params": {
+      "Width": 50,
+      "Pitch": 50,
+      "Thickness": 8
+     },
+     "fresh_before": [
+      "faces"
+     ],
+     "failing_after": [
+      "faces"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 52,
+     "params": {
+      "Width": 40,
+      "Pitch": 43,
+      "Thickness": 8
+     },
+     "fresh_before": [
+      "faces"
+     ],
+     "failing_after": [
+      "faces"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 53,
+     "params": {
+      "Width": 40,
+      "Pitch": 50,
+      "Thickness": 6
+     },
+     "fresh_before": [
+      "faces"
+     ],
+     "failing_after": [
+      "faces"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 55,
+     "params": {
+      "Width": 40,
+      "Pitch": 36,
+      "Thickness": 6
+     },
+     "fresh_before": [
+      "faces",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "faces",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 61,
+     "params": {
+      "Width": 42.5,
+      "Pitch": 36,
+      "Thickness": 5.75
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 62,
+     "params": {
+      "Width": 41.25,
+      "Pitch": 36,
+      "Thickness": 5.875
+     },
+     "fresh_before": [
+      "faces",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "faces",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 63,
+     "params": {
+      "Width": 42.1875,
+      "Pitch": 36,
+      "Thickness": 5.78125
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    }
+   ],
+   "wall_ms": 2650
+  },
+  {
+   "brief": "d02-blind-pocket",
+   "cert_hash": "5fcf57dc0f171859082ba18a4e8fc7290d05ba6b144b11e66f4b4f01f5831421",
+   "platform": "linux-x64",
+   "same_platform": true,
+   "inputs_match": true,
+   "points": 64,
+   "identical": 64,
+   "differing": [],
+   "counterexamples": [
+    {
+     "index": 4,
+     "params": {
+      "Height": 10,
+      "Pocket depth": 12,
+      "Pocket radius": 6
+     },
+     "fresh_before": [
+      "faces"
+     ],
+     "failing_after": [
+      "faces"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 5,
+     "params": {
+      "Height": 10,
+      "Pocket depth": 12,
+      "Pocket radius": 2.5
+     },
+     "fresh_before": [
+      "faces"
+     ],
+     "failing_after": [
+      "faces"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 46,
+     "params": {
+      "Height": 10.815178,
+      "Pocket depth": 11.936341,
+      "Pocket radius": 5.236467
+     },
+     "fresh_before": [
+      "faces"
+     ],
+     "failing_after": [
+      "faces"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 50,
+     "params": {
+      "Height": 10,
+      "Pocket depth": 12,
+      "Pocket radius": 4
+     },
+     "fresh_before": [
+      "faces"
+     ],
+     "failing_after": [
+      "faces"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 52,
+     "params": {
+      "Height": 10,
+      "Pocket depth": 10,
+      "Pocket radius": 6
+     },
+     "fresh_before": [
+      "faces"
+     ],
+     "failing_after": [
+      "faces"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 53,
+     "params": {
+      "Height": 10,
+      "Pocket depth": 12,
+      "Pocket radius": 5
+     },
+     "fresh_before": [
+      "faces"
+     ],
+     "failing_after": [
+      "faces"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 55,
+     "params": {
+      "Height": 10,
+      "Pocket depth": 10,
+      "Pocket radius": 4
+     },
+     "fresh_before": [
+      "faces"
+     ],
+     "failing_after": [
+      "faces"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 62,
+     "params": {
+      "Height": 10.625,
+      "Pocket depth": 9.875,
+      "Pocket radius": 4
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 63,
+     "params": {
+      "Height": 10.46875,
+      "Pocket depth": 9.90625,
+      "Pocket radius": 4
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    }
+   ],
+   "wall_ms": 1869
+  },
+  {
+   "brief": "d03-fillet-corners",
+   "cert_hash": "d3bae037103ccd3f937e972939a4b9feb5922d5d49f265f0e310336c4b831ca4",
+   "platform": "linux-x64",
+   "same_platform": true,
+   "inputs_match": true,
+   "points": 64,
+   "identical": 64,
+   "differing": [],
+   "counterexamples": [
+    {
+     "index": 4,
+     "params": {
+      "Width": 10,
+      "Corner radius": 8,
+      "Height": 20
+     },
+     "fresh_before": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "faces",
+      "gate-watertight",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "faces",
+      "gate-watertight",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 5,
+     "params": {
+      "Width": 10,
+      "Corner radius": 8,
+      "Height": 5
+     },
+     "fresh_before": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "faces",
+      "gate-watertight",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "faces",
+      "gate-watertight",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 30,
+     "params": {
+      "Width": 10.285267,
+      "Corner radius": 5.789993,
+      "Height": 14.807715
+     },
+     "fresh_before": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "faces",
+      "gate-watertight",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "faces",
+      "gate-watertight",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 46,
+     "params": {
+      "Width": 11.222767,
+      "Corner radius": 7.950487,
+      "Height": 16.727715
+     },
+     "fresh_before": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "faces",
+      "gate-watertight",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "faces",
+      "gate-watertight",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 50,
+     "params": {
+      "Width": 10,
+      "Corner radius": 8,
+      "Height": 10
+     },
+     "fresh_before": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "faces",
+      "gate-watertight",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "faces",
+      "gate-watertight",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 52,
+     "params": {
+      "Width": 10,
+      "Corner radius": 5.5,
+      "Height": 20
+     },
+     "fresh_before": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "faces",
+      "gate-watertight",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "faces",
+      "gate-watertight",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 53,
+     "params": {
+      "Width": 10,
+      "Corner radius": 8,
+      "Height": 15
+     },
+     "fresh_before": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "faces",
+      "gate-watertight",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "faces",
+      "gate-watertight",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 55,
+     "params": {
+      "Width": 10,
+      "Corner radius": 5.5,
+      "Height": 10
+     },
+     "fresh_before": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "faces",
+      "gate-watertight",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "faces",
+      "gate-watertight",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 63,
+     "params": {
+      "Width": 10.65625,
+      "Corner radius": 5.382813,
+      "Height": 10
+     },
+     "fresh_before": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "faces",
+      "gate-watertight",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "builds",
+      "status",
+      "valid",
+      "one-solid",
+      "faces",
+      "gate-watertight",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    }
+   ],
+   "wall_ms": 1752
+  },
+  {
+   "brief": "d04-bolt-circle-count",
+   "cert_hash": "1350f7b35b4c2d648c1a7795fe1728ba9b728f532f133b92f7aeff06615d2b60",
+   "platform": "linux-x64",
+   "same_platform": true,
+   "inputs_match": true,
+   "points": 64,
+   "identical": 64,
+   "differing": [],
+   "counterexamples": [
+    {
+     "index": 12,
+     "params": {
+      "Bolt circle radius": 15,
+      "Holes": 14,
+      "Thickness": 12
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 13,
+     "params": {
+      "Bolt circle radius": 15,
+      "Holes": 15,
+      "Thickness": 4
+     },
+     "fresh_before": [
+      "status",
+      "one-solid",
+      "faces",
+      "gate-watertight",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "status",
+      "one-solid",
+      "faces",
+      "gate-watertight",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 49,
+     "params": {
+      "Bolt circle radius": 15,
+      "Holes": 14,
+      "Thickness": 6
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 51,
+     "params": {
+      "Bolt circle radius": 15,
+      "Holes": 14,
+      "Thickness": 9
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 58,
+     "params": {
+      "Bolt circle radius": 16.375,
+      "Holes": 14,
+      "Thickness": 6
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 59,
+     "params": {
+      "Bolt circle radius": 15.6875,
+      "Holes": 14,
+      "Thickness": 6
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 62,
+     "params": {
+      "Bolt circle radius": 16.546875,
+      "Holes": 14,
+      "Thickness": 6
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 63,
+     "params": {
+      "Bolt circle radius": 16.675781,
+      "Holes": 14,
+      "Thickness": 6
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    }
+   ],
+   "wall_ms": 5876
+  },
+  {
+   "brief": "d05-shuttle-post",
+   "cert_hash": "3386c641e7c154833f34441cf6fd1f095728b3c16322723e82f2c642b6b486c0",
+   "platform": "linux-x64",
+   "same_platform": true,
+   "inputs_match": true,
+   "points": 64,
+   "identical": 64,
+   "differing": [],
+   "counterexamples": [
+    {
+     "index": 19,
+     "params": {
+      "Shuttle X": 8.070533,
+      "Post Y": 6.200612
+     },
+     "fresh_before": [
+      "status",
+      "no-clash"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 27,
+     "params": {
+      "Shuttle X": 6.195533,
+      "Post Y": -0.910499
+     },
+     "fresh_before": [
+      "status",
+      "no-clash"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 49,
+     "params": {
+      "Shuttle X": 8.070533,
+      "Post Y": 0
+     },
+     "fresh_before": [
+      "status",
+      "no-clash"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 51,
+     "params": {
+      "Shuttle X": 8.070533,
+      "Post Y": 3.100306
+     },
+     "fresh_before": [
+      "status",
+      "no-clash"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 56,
+     "params": {
+      "Shuttle X": 4.561716,
+      "Post Y": 0
+     },
+     "fresh_before": [
+      "status",
+      "no-clash"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 57,
+     "params": {
+      "Shuttle X": 6.316125,
+      "Post Y": 0
+     },
+     "fresh_before": [
+      "status",
+      "no-clash"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    }
+   ],
+   "wall_ms": 798
+  },
+  {
+   "brief": "d06-slot-near-hole",
+   "cert_hash": "c3de9146e069bd1046af0df95f16394c94e5665a1af43580dd8d4b78a2c8d8af",
+   "platform": "linux-x64",
+   "same_platform": true,
+   "inputs_match": true,
+   "points": 64,
+   "identical": 64,
+   "differing": [],
+   "counterexamples": [
+    {
+     "index": 16,
+     "params": {
+      "Slot X": 11.820533,
+      "Slot Y": -4.466054
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 40,
+     "params": {
+      "Slot X": 17.445533,
+      "Slot Y": 0.274686
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 44,
+     "params": {
+      "Slot X": 3.851783,
+      "Slot Y": 3.830242
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 54,
+     "params": {
+      "Slot X": 3.8654,
+      "Slot Y": -1.34954
+     },
+     "fresh_before": [
+      "faces"
+     ],
+     "failing_after": [
+      "faces"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 55,
+     "params": {
+      "Slot X": 5.854183,
+      "Slot Y": -2.128669
+     },
+     "fresh_before": [
+      "faces"
+     ],
+     "failing_after": [
+      "faces"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 56,
+     "params": {
+      "Slot X": 7.842966,
+      "Slot Y": -2.907797
+     },
+     "fresh_before": [
+      "faces"
+     ],
+     "failing_after": [
+      "faces"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 57,
+     "params": {
+      "Slot X": 9.83175,
+      "Slot Y": -3.686926
+     },
+     "fresh_before": [
+      "faces",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "faces",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 58,
+     "params": {
+      "Slot X": 8.340162,
+      "Slot Y": -3.102579
+     },
+     "fresh_before": [
+      "faces"
+     ],
+     "failing_after": [
+      "faces"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 59,
+     "params": {
+      "Slot X": 8.837358,
+      "Slot Y": -3.297361
+     },
+     "fresh_before": [
+      "faces",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "faces",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 60,
+     "params": {
+      "Slot X": 9.334554,
+      "Slot Y": -3.492144
+     },
+     "fresh_before": [
+      "faces",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "faces",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 61,
+     "params": {
+      "Slot X": 8.464461,
+      "Slot Y": -3.151275
+     },
+     "fresh_before": [
+      "faces",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "faces",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 62,
+     "params": {
+      "Slot X": 8.58876,
+      "Slot Y": -3.19997
+     },
+     "fresh_before": [
+      "faces",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "faces",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 63,
+     "params": {
+      "Slot X": 8.713059,
+      "Slot Y": -3.248666
+     },
+     "fresh_before": [
+      "faces",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "faces",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    }
+   ],
+   "wall_ms": 3429
+  },
+  {
+   "brief": "d07-pin-bushing",
+   "cert_hash": "3811ae886a655d189c9fc6a465ddbb5aca49e0de4d5f4973c06f98a3675bdcc8",
+   "platform": "linux-x64",
+   "same_platform": true,
+   "inputs_match": true,
+   "points": 64,
+   "identical": 64,
+   "differing": [],
+   "counterexamples": [
+    {
+     "index": 4,
+     "params": {
+      "Bore": 6.4,
+      "Pin": 6.6,
+      "Length": 30
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "pin-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "pin-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 5,
+     "params": {
+      "Bore": 6.4,
+      "Pin": 6.6,
+      "Length": 12
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "pin-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "pin-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 9,
+     "params": {
+      "Bore": 6.4,
+      "Pin": 6.4,
+      "Length": 20
+     },
+     "fresh_before": [
+      "pin-gap"
+     ],
+     "failing_after": [
+      "pin-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 19,
+     "params": {
+      "Bore": 6.597009,
+      "Pin": 6.580581,
+      "Length": 18.729258
+     },
+     "fresh_before": [
+      "pin-gap"
+     ],
+     "failing_after": [
+      "pin-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 46,
+     "params": {
+      "Bore": 6.440759,
+      "Pin": 6.592927,
+      "Length": 26.073258
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "pin-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "pin-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 49,
+     "params": {
+      "Bore": 6.4,
+      "Pin": 6.4,
+      "Length": 30
+     },
+     "fresh_before": [
+      "pin-gap"
+     ],
+     "failing_after": [
+      "pin-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 50,
+     "params": {
+      "Bore": 6.4,
+      "Pin": 6.6,
+      "Length": 20
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "pin-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "pin-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 51,
+     "params": {
+      "Bore": 6.65,
+      "Pin": 6.6,
+      "Length": 30
+     },
+     "fresh_before": [
+      "pin-gap"
+     ],
+     "failing_after": [
+      "pin-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 52,
+     "params": {
+      "Bore": 6.4,
+      "Pin": 6.5,
+      "Length": 30
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "pin-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "pin-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 53,
+     "params": {
+      "Bore": 6.4,
+      "Pin": 6.6,
+      "Length": 25
+     },
+     "fresh_before": [
+      "status",
+      "no-clash",
+      "pin-gap"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash",
+      "pin-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 55,
+     "params": {
+      "Bore": 6.4,
+      "Pin": 6.4,
+      "Length": 25
+     },
+     "fresh_before": [
+      "pin-gap"
+     ],
+     "failing_after": [
+      "pin-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 60,
+     "params": {
+      "Bore": 6.49375,
+      "Pin": 6.4,
+      "Length": 24.0625
+     },
+     "fresh_before": [
+      "pin-gap"
+     ],
+     "failing_after": [
+      "pin-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 61,
+     "params": {
+      "Bore": 6.4625,
+      "Pin": 6.4,
+      "Length": 24.375
+     },
+     "fresh_before": [
+      "pin-gap"
+     ],
+     "failing_after": [
+      "pin-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 62,
+     "params": {
+      "Bore": 6.43125,
+      "Pin": 6.4,
+      "Length": 24.6875
+     },
+     "fresh_before": [
+      "pin-gap"
+     ],
+     "failing_after": [
+      "pin-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    }
+   ],
+   "wall_ms": 1013
+  },
+  {
+   "brief": "d08-vent-bool",
+   "cert_hash": "46c0de5fb572824d6f932ee70967f18114e05e914ede1f87a964b343733d530e",
+   "platform": "linux-x64",
+   "same_platform": true,
+   "inputs_match": true,
+   "points": 64,
+   "identical": 64,
+   "differing": [],
+   "counterexamples": [
+    {
+     "index": 4,
+     "params": {
+      "Height": 24,
+      "Width": 100,
+      "Vents": true
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 5,
+     "params": {
+      "Height": 24,
+      "Width": 50,
+      "Vents": true
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 29,
+     "params": {
+      "Height": 24.34232,
+      "Width": 84.214238,
+      "Vents": true
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 49,
+     "params": {
+      "Height": 24,
+      "Width": 70,
+      "Vents": true
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 51,
+     "params": {
+      "Height": 24,
+      "Width": 85,
+      "Vents": true
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 57,
+     "params": {
+      "Height": 25,
+      "Width": 70,
+      "Vents": true
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 60,
+     "params": {
+      "Height": 25.25,
+      "Width": 70,
+      "Vents": true
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 63,
+     "params": {
+      "Height": 25.3125,
+      "Width": 70,
+      "Vents": true
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    }
+   ],
+   "wall_ms": 5220
+  },
+  {
+   "brief": "d09-rotor-stop",
+   "cert_hash": "f7ec3a2d00ff51730a7094e28cbf760859df727efe9a3053267b948e967032a4",
+   "platform": "linux-x64",
+   "same_platform": true,
+   "inputs_match": true,
+   "points": 64,
+   "identical": 64,
+   "differing": [],
+   "counterexamples": [
+    {
+     "index": 9,
+     "params": {
+      "Arms": 11,
+      "Pin angle": 66,
+      "Arm length": 32
+     },
+     "fresh_before": [
+      "status",
+      "no-clash"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 32,
+     "params": {
+      "Arms": 7,
+      "Pin angle": 100,
+      "Arm length": 36
+     },
+     "fresh_before": [
+      "status",
+      "no-clash"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 38,
+     "params": {
+      "Arms": 9,
+      "Pin angle": 81.067891,
+      "Arm length": 36.590781
+     },
+     "fresh_before": [
+      "status",
+      "no-clash"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 41,
+     "params": {
+      "Arms": 4,
+      "Pin angle": 86.401224,
+      "Arm length": 33.710781
+     },
+     "fresh_before": [
+      "status",
+      "no-clash"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 48,
+     "params": {
+      "Arms": 11,
+      "Pin angle": 100,
+      "Arm length": 32
+     },
+     "fresh_before": [
+      "status",
+      "no-clash"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 49,
+     "params": {
+      "Arms": 11,
+      "Pin angle": 66,
+      "Arm length": 36
+     },
+     "fresh_before": [
+      "status",
+      "no-clash"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 52,
+     "params": {
+      "Arms": 11,
+      "Pin angle": 66,
+      "Arm length": 34
+     },
+     "fresh_before": [
+      "status",
+      "no-clash"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 53,
+     "params": {
+      "Arms": 11,
+      "Pin angle": 100,
+      "Arm length": 36
+     },
+     "fresh_before": [
+      "status",
+      "no-clash"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 55,
+     "params": {
+      "Arms": 11,
+      "Pin angle": 100,
+      "Arm length": 34
+     },
+     "fresh_before": [
+      "status",
+      "no-clash"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 63,
+     "params": {
+      "Arms": 10,
+      "Pin angle": 109.512336,
+      "Arm length": 37.614781
+     },
+     "fresh_before": [
+      "status",
+      "no-clash"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    }
+   ],
+   "wall_ms": 4054
+  },
+  {
+   "brief": "d10-screw-boss-choice",
+   "cert_hash": "356e0084128003a7103aa709c2167c30c8f5b439c0d9362b76aad7384c7247c4",
+   "platform": "linux-x64",
+   "same_platform": true,
+   "inputs_match": true,
+   "points": 64,
+   "identical": 64,
+   "differing": [],
+   "counterexamples": [
+    {
+     "index": 4,
+     "params": {
+      "Screw": "M5",
+      "Boss radius": 4,
+      "Boss height": 20
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 9,
+     "params": {
+      "Screw": "M5",
+      "Boss radius": 4,
+      "Boss height": 8
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 32,
+     "params": {
+      "Screw": "M6",
+      "Boss radius": 7.329732,
+      "Boss height": 10.086172
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 36,
+     "params": {
+      "Screw": "M6",
+      "Boss radius": 4.366769,
+      "Boss height": 19.686172
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 49,
+     "params": {
+      "Screw": "M5",
+      "Boss radius": 4,
+      "Boss height": 12
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 51,
+     "params": {
+      "Screw": "M5",
+      "Boss radius": 4,
+      "Boss height": 16
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 58,
+     "params": {
+      "Screw": "M5",
+      "Boss radius": 4.046875,
+      "Boss height": 12
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 59,
+     "params": {
+      "Screw": "M5",
+      "Boss radius": 4.03125,
+      "Boss height": 12
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 60,
+     "params": {
+      "Screw": "M5",
+      "Boss radius": 4.015625,
+      "Boss height": 12
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    }
+   ],
+   "wall_ms": 2165
+  },
+  {
+   "brief": "d11-hole-diagonal",
+   "cert_hash": "9e00024e58485e42b6f232be6532cc798e932bae7f2704635e4934977d4c1d02",
+   "platform": "linux-x64",
+   "same_platform": true,
+   "inputs_match": true,
+   "points": 64,
+   "identical": 64,
+   "differing": [],
+   "counterexamples": [
+    {
+     "index": 6,
+     "params": {
+      "Offset A": 40,
+      "Offset B": 12
+     },
+     "fresh_before": [
+      "faces"
+     ],
+     "failing_after": [
+      "faces"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 8,
+     "params": {
+      "Offset A": 12,
+      "Offset B": 40
+     },
+     "fresh_before": [
+      "faces"
+     ],
+     "failing_after": [
+      "faces"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 32,
+     "params": {
+      "Offset A": 39.130355,
+      "Offset B": 11.568922
+     },
+     "fresh_before": [
+      "faces"
+     ],
+     "failing_after": [
+      "faces"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 38,
+     "params": {
+      "Offset A": 31.630355,
+      "Offset B": 20.45781
+     },
+     "fresh_before": [
+      "faces"
+     ],
+     "failing_after": [
+      "faces"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 42,
+     "params": {
+      "Offset A": 22.567855,
+      "Offset B": 26.383736
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 44,
+     "params": {
+      "Offset A": 32.567855,
+      "Offset B": 17.494848
+     },
+     "fresh_before": [
+      "faces",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "faces",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 53,
+     "params": {
+      "Offset A": 38.25,
+      "Offset B": 12
+     },
+     "fresh_before": [
+      "faces"
+     ],
+     "failing_after": [
+      "faces"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 54,
+     "params": {
+      "Offset A": 36.9375,
+      "Offset B": 12
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 55,
+     "params": {
+      "Offset A": 37.375,
+      "Offset B": 12
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 56,
+     "params": {
+      "Offset A": 37.8125,
+      "Offset B": 12
+     },
+     "fresh_before": [
+      "faces",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "faces",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 57,
+     "params": {
+      "Offset A": 37.484375,
+      "Offset B": 12
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 58,
+     "params": {
+      "Offset A": 37.59375,
+      "Offset B": 12
+     },
+     "fresh_before": [
+      "faces",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "faces",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 59,
+     "params": {
+      "Offset A": 37.703125,
+      "Offset B": 12
+     },
+     "fresh_before": [
+      "faces",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "faces",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 60,
+     "params": {
+      "Offset A": 37.511719,
+      "Offset B": 12
+     },
+     "fresh_before": [
+      "faces",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "faces",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 61,
+     "params": {
+      "Offset A": 37.539063,
+      "Offset B": 12
+     },
+     "fresh_before": [
+      "faces",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "faces",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 62,
+     "params": {
+      "Offset A": 37.566406,
+      "Offset B": 12
+     },
+     "fresh_before": [
+      "faces",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "faces",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 63,
+     "params": {
+      "Offset A": 37.491211,
+      "Offset B": 12
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    }
+   ],
+   "wall_ms": 2646
+  },
+  {
+   "brief": "d12-swing-arm",
+   "cert_hash": "b172ccaa6c4a4a10404759c70a1dd063f8823b37918d1216517e580b5d83e10f",
+   "platform": "linux-x64",
+   "same_platform": true,
+   "inputs_match": true,
+   "points": 64,
+   "identical": 64,
+   "differing": [],
+   "counterexamples": [
+    {
+     "index": 23,
+     "params": {
+      "Angle": 45.8558,
+      "Arm length": 27.019029
+     },
+     "fresh_before": [
+      "status",
+      "no-clash"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 31,
+     "params": {
+      "Angle": 43.0433,
+      "Arm length": 39.117794
+     },
+     "fresh_before": [
+      "status",
+      "no-clash"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 39,
+     "params": {
+      "Angle": 48.6683,
+      "Arm length": 36.895572
+     },
+     "fresh_before": [
+      "status",
+      "no-clash"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 42,
+     "params": {
+      "Angle": 50.777675,
+      "Arm length": 33.191868
+     },
+     "fresh_before": [
+      "status",
+      "no-clash"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 49,
+     "params": {
+      "Angle": 45.8558,
+      "Arm length": 30
+     },
+     "fresh_before": [
+      "status",
+      "no-clash"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 51,
+     "params": {
+      "Angle": 45.8558,
+      "Arm length": 28.509515
+     },
+     "fresh_before": [
+      "status",
+      "no-clash"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 56,
+     "params": {
+      "Angle": 42.623825,
+      "Arm length": 30
+     },
+     "fresh_before": [
+      "status",
+      "no-clash"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 57,
+     "params": {
+      "Angle": 44.239812,
+      "Arm length": 30
+     },
+     "fresh_before": [
+      "status",
+      "no-clash"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 62,
+     "params": {
+      "Angle": 42.421827,
+      "Arm length": 30
+     },
+     "fresh_before": [
+      "status",
+      "no-clash"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 63,
+     "params": {
+      "Angle": 42.522826,
+      "Arm length": 30
+     },
+     "fresh_before": [
+      "status",
+      "no-clash"
+     ],
+     "failing_after": [
+      "status",
+      "no-clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    }
+   ],
+   "wall_ms": 1135
+  },
+  {
+   "brief": "d13-key-drift",
+   "cert_hash": "95129dd54bce825216da122bdac69452c8665b3f2c76cc950265802b9608d86a",
+   "platform": "linux-x64",
+   "same_platform": true,
+   "inputs_match": true,
+   "points": 64,
+   "identical": 64,
+   "differing": [],
+   "counterexamples": [
+    {
+     "index": 3,
+     "params": {
+      "Length": 120,
+      "Clearance": 0.2
+     },
+     "fresh_before": [
+      "key-gap"
+     ],
+     "failing_after": [
+      "key-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 16,
+     "params": {
+      "Length": 115.760711,
+      "Clearance": 0.218338
+     },
+     "fresh_before": [
+      "key-gap"
+     ],
+     "failing_after": [
+      "key-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 22,
+     "params": {
+      "Length": 100.760711,
+      "Clearance": 0.203524
+     },
+     "fresh_before": [
+      "key-gap"
+     ],
+     "failing_after": [
+      "key-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 32,
+     "params": {
+      "Length": 118.260711,
+      "Clearance": 0.257845
+     },
+     "fresh_before": [
+      "key-gap"
+     ],
+     "failing_after": [
+      "key-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 34,
+     "params": {
+      "Length": 93.260711,
+      "Clearance": 0.2134
+     },
+     "fresh_before": [
+      "key-gap"
+     ],
+     "failing_after": [
+      "key-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 48,
+     "params": {
+      "Length": 90,
+      "Clearance": 0.2
+     },
+     "fresh_before": [
+      "key-gap"
+     ],
+     "failing_after": [
+      "key-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 49,
+     "params": {
+      "Length": 120,
+      "Clearance": 0.25
+     },
+     "fresh_before": [
+      "key-gap"
+     ],
+     "failing_after": [
+      "key-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 59,
+     "params": {
+      "Length": 88.59375,
+      "Clearance": 0.204688
+     },
+     "fresh_before": [
+      "key-gap"
+     ],
+     "failing_after": [
+      "key-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 60,
+     "params": {
+      "Length": 89.0625,
+      "Clearance": 0.203125
+     },
+     "fresh_before": [
+      "key-gap"
+     ],
+     "failing_after": [
+      "key-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 61,
+     "params": {
+      "Length": 89.53125,
+      "Clearance": 0.201563
+     },
+     "fresh_before": [
+      "key-gap"
+     ],
+     "failing_after": [
+      "key-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 62,
+     "params": {
+      "Length": 88.242188,
+      "Clearance": 0.205859
+     },
+     "fresh_before": [
+      "key-gap"
+     ],
+     "failing_after": [
+      "key-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 63,
+     "params": {
+      "Length": 88.359375,
+      "Clearance": 0.205469
+     },
+     "fresh_before": [
+      "key-gap"
+     ],
+     "failing_after": [
+      "key-gap"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    }
+   ],
+   "wall_ms": 1655
+  },
+  {
+   "brief": "d14-side-port",
+   "cert_hash": "3616fc7e389b81bb2c4a78c9b1e37e923d45afd088176804c7250b20230b038b",
+   "platform": "linux-x64",
+   "same_platform": true,
+   "inputs_match": true,
+   "points": 64,
+   "identical": 64,
+   "differing": [],
+   "counterexamples": [
+    {
+     "index": 4,
+     "params": {
+      "Height": 20,
+      "Port height": 16,
+      "Port diameter": 8,
+      "Width": 80
+     },
+     "fresh_before": [
+      "faces",
+      "gate-watertight",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "faces",
+      "gate-watertight",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 13,
+     "params": {
+      "Height": 20,
+      "Port height": 16,
+      "Port diameter": 8,
+      "Width": 40
+     },
+     "fresh_before": [
+      "faces",
+      "gate-watertight",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "faces",
+      "gate-watertight",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 51,
+     "params": {
+      "Height": 20,
+      "Port height": 16,
+      "Port diameter": 8,
+      "Width": 60
+     },
+     "fresh_before": [
+      "faces",
+      "gate-watertight",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "faces",
+      "gate-watertight",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 54,
+     "params": {
+      "Height": 20,
+      "Port height": 16,
+      "Port diameter": 6.5,
+      "Width": 80
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 55,
+     "params": {
+      "Height": 20,
+      "Port height": 16,
+      "Port diameter": 8,
+      "Width": 70
+     },
+     "fresh_before": [
+      "faces",
+      "gate-watertight",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "faces",
+      "gate-watertight",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    }
+   ],
+   "wall_ms": 3197
+  },
+  {
+   "brief": "d15-wall-boss",
+   "cert_hash": "e90110443b603054f797c506d1d87b2ef1b618774817472bab53f5fe56d078ef",
+   "platform": "linux-x64",
+   "same_platform": true,
+   "inputs_match": true,
+   "points": 64,
+   "identical": 64,
+   "differing": [],
+   "counterexamples": [
+    {
+     "index": 6,
+     "params": {
+      "Wall": 6,
+      "Boss length": 4,
+      "Pocket depth": 10
+     },
+     "fresh_before": [
+      "faces"
+     ],
+     "failing_after": [
+      "faces"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 8,
+     "params": {
+      "Wall": 2,
+      "Boss length": 4,
+      "Pocket depth": 10
+     },
+     "fresh_before": [
+      "faces"
+     ],
+     "failing_after": [
+      "faces"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 22,
+     "params": {
+      "Wall": 5.788036,
+      "Boss length": 4.733537,
+      "Pocket depth": 9.843086
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 31,
+     "params": {
+      "Wall": 2.413036,
+      "Boss length": 5.029834,
+      "Pocket depth": 9.123086
+     },
+     "fresh_before": [
+      "faces"
+     ],
+     "failing_after": [
+      "faces"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 47,
+     "params": {
+      "Wall": 2.256786,
+      "Boss length": 6.610081,
+      "Pocket depth": 9.891086
+     },
+     "fresh_before": [
+      "faces"
+     ],
+     "failing_after": [
+      "faces"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 48,
+     "params": {
+      "Wall": 3,
+      "Boss length": 4,
+      "Pocket depth": 10
+     },
+     "fresh_before": [
+      "faces"
+     ],
+     "failing_after": [
+      "faces"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 51,
+     "params": {
+      "Wall": 4.5,
+      "Boss length": 4,
+      "Pocket depth": 10
+     },
+     "fresh_before": [
+      "faces"
+     ],
+     "failing_after": [
+      "faces"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 54,
+     "params": {
+      "Wall": 3,
+      "Boss length": 6,
+      "Pocket depth": 10
+     },
+     "fresh_before": [
+      "faces"
+     ],
+     "failing_after": [
+      "faces"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 55,
+     "params": {
+      "Wall": 3,
+      "Boss length": 4,
+      "Pocket depth": 8
+     },
+     "fresh_before": [
+      "faces"
+     ],
+     "failing_after": [
+      "faces"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 59,
+     "params": {
+      "Wall": 3,
+      "Boss length": 6.5,
+      "Pocket depth": 9
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 60,
+     "params": {
+      "Wall": 3,
+      "Boss length": 6.375,
+      "Pocket depth": 9.25
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 61,
+     "params": {
+      "Wall": 3,
+      "Boss length": 6.25,
+      "Pocket depth": 9.5
+     },
+     "fresh_before": [
+      "faces"
+     ],
+     "failing_after": [
+      "faces"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 62,
+     "params": {
+      "Wall": 3,
+      "Boss length": 6.125,
+      "Pocket depth": 9.75
+     },
+     "fresh_before": [
+      "faces"
+     ],
+     "failing_after": [
+      "faces"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 63,
+     "params": {
+      "Wall": 3,
+      "Boss length": 6.34375,
+      "Pocket depth": 9.3125
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    }
+   ],
+   "wall_ms": 2310
+  },
+  {
+   "brief": "enclosure",
+   "cert_hash": "1f34160722a79d973f756906dbb1e2ba2947f35d4f440a1383ce9f2b9226c841",
+   "platform": "linux-x64",
+   "same_platform": true,
+   "inputs_match": true,
+   "points": 64,
+   "identical": 64,
+   "differing": [],
+   "counterexamples": [],
+   "wall_ms": 30981
+  },
+  {
+   "brief": "flange",
+   "cert_hash": "1dbebad45faac77120e7dd1b8162e812c0705f40d59a7d2b280000be6bdc423d",
+   "platform": "linux-x64",
+   "same_platform": true,
+   "inputs_match": true,
+   "points": 64,
+   "identical": 64,
+   "differing": [],
+   "counterexamples": [
+    {
+     "index": 1,
+     "params": {
+      "Diameter": 50,
+      "Thickness": 4,
+      "Bolt holes": 3
+     },
+     "fresh_before": [
+      "size-x",
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "size-x",
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 4,
+     "params": {
+      "Diameter": 50,
+      "Thickness": 20,
+      "Bolt holes": 6
+     },
+     "fresh_before": [
+      "size-x",
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "size-x",
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 5,
+     "params": {
+      "Diameter": 50,
+      "Thickness": 4,
+      "Bolt holes": 7
+     },
+     "fresh_before": [
+      "size-x",
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "size-x",
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 8,
+     "params": {
+      "Diameter": 50,
+      "Thickness": 20,
+      "Bolt holes": 10
+     },
+     "fresh_before": [
+      "size-x",
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "size-x",
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 9,
+     "params": {
+      "Diameter": 50,
+      "Thickness": 4,
+      "Bolt holes": 11
+     },
+     "fresh_before": [
+      "size-x",
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "size-x",
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 13,
+     "params": {
+      "Diameter": 50,
+      "Thickness": 20,
+      "Bolt holes": 5
+     },
+     "fresh_before": [
+      "size-x",
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "size-x",
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 14,
+     "params": {
+      "Diameter": 50,
+      "Thickness": 4,
+      "Bolt holes": 6
+     },
+     "fresh_before": [
+      "size-x",
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "size-x",
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 17,
+     "params": {
+      "Diameter": 50,
+      "Thickness": 20,
+      "Bolt holes": 9
+     },
+     "fresh_before": [
+      "size-x",
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "size-x",
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 18,
+     "params": {
+      "Diameter": 50,
+      "Thickness": 4,
+      "Bolt holes": 10
+     },
+     "fresh_before": [
+      "size-x",
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "size-x",
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 22,
+     "params": {
+      "Diameter": 50,
+      "Thickness": 20,
+      "Bolt holes": 4
+     },
+     "fresh_before": [
+      "size-x",
+      "size-y",
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "size-x",
+      "size-y",
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 23,
+     "params": {
+      "Diameter": 50,
+      "Thickness": 4,
+      "Bolt holes": 5
+     },
+     "fresh_before": [
+      "size-x",
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "size-x",
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 25,
+     "params": {
+      "Diameter": 50,
+      "Thickness": 8,
+      "Bolt holes": 6
+     },
+     "fresh_before": [
+      "size-x",
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "size-x",
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 49,
+     "params": {
+      "Diameter": 50,
+      "Thickness": 8,
+      "Bolt holes": 3
+     },
+     "fresh_before": [
+      "size-x",
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "size-x",
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 51,
+     "params": {
+      "Diameter": 50,
+      "Thickness": 6,
+      "Bolt holes": 3
+     },
+     "fresh_before": [
+      "size-x",
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "size-x",
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 53,
+     "params": {
+      "Diameter": 50,
+      "Thickness": 8,
+      "Bolt holes": 5
+     },
+     "fresh_before": [
+      "size-x",
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "size-x",
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 57,
+     "params": {
+      "Diameter": 55.625,
+      "Thickness": 8,
+      "Bolt holes": 5
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 58,
+     "params": {
+      "Diameter": 53.75,
+      "Thickness": 8,
+      "Bolt holes": 5
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 59,
+     "params": {
+      "Diameter": 51.875,
+      "Thickness": 8,
+      "Bolt holes": 5
+     },
+     "fresh_before": [
+      "size-x",
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "size-x",
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 61,
+     "params": {
+      "Diameter": 56.5625,
+      "Thickness": 8,
+      "Bolt holes": 5
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 62,
+     "params": {
+      "Diameter": 56.09375,
+      "Thickness": 8,
+      "Bolt holes": 5
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    }
+   ],
+   "wall_ms": 6648
+  },
+  {
+   "brief": "gear-blank",
+   "cert_hash": "fd6b5f6a96b527df7b009d4950f37bd854e44d509c93d5ed1ce387f1ebaebb23",
+   "platform": "linux-x64",
+   "same_platform": true,
+   "inputs_match": true,
+   "points": 53,
+   "identical": 53,
+   "differing": [],
+   "counterexamples": [
+    {
+     "index": 2,
+     "params": {
+      "Teeth": 60
+     },
+     "fresh_before": [
+      "size-x"
+     ],
+     "failing_after": [
+      "size-x"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 3,
+     "params": {
+      "Teeth": 11
+     },
+     "fresh_before": [
+      "size-x"
+     ],
+     "failing_after": [
+      "size-x"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 5,
+     "params": {
+      "Teeth": 25
+     },
+     "fresh_before": [
+      "size-x"
+     ],
+     "failing_after": [
+      "size-x"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 6,
+     "params": {
+      "Teeth": 51
+     },
+     "fresh_before": [
+      "size-x"
+     ],
+     "failing_after": [
+      "size-x"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 9,
+     "params": {
+      "Teeth": 31
+     },
+     "fresh_before": [
+      "size-x"
+     ],
+     "failing_after": [
+      "size-x"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 10,
+     "params": {
+      "Teeth": 58
+     },
+     "fresh_before": [
+      "size-x"
+     ],
+     "failing_after": [
+      "size-x"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 11,
+     "params": {
+      "Teeth": 15
+     },
+     "fresh_before": [
+      "size-x"
+     ],
+     "failing_after": [
+      "size-x"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 12,
+     "params": {
+      "Teeth": 41
+     },
+     "fresh_before": [
+      "size-x"
+     ],
+     "failing_after": [
+      "size-x"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 15,
+     "params": {
+      "Teeth": 21
+     },
+     "fresh_before": [
+      "size-x"
+     ],
+     "failing_after": [
+      "size-x"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 17,
+     "params": {
+      "Teeth": 35
+     },
+     "fresh_before": [
+      "size-x"
+     ],
+     "failing_after": [
+      "size-x"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 18,
+     "params": {
+      "Teeth": 13
+     },
+     "fresh_before": [
+      "size-x"
+     ],
+     "failing_after": [
+      "size-x"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 19,
+     "params": {
+      "Teeth": 39
+     },
+     "fresh_before": [
+      "size-x"
+     ],
+     "failing_after": [
+      "size-x"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 21,
+     "params": {
+      "Teeth": 53
+     },
+     "fresh_before": [
+      "size-x"
+     ],
+     "failing_after": [
+      "size-x"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 23,
+     "params": {
+      "Teeth": 33
+     },
+     "fresh_before": [
+      "size-x"
+     ],
+     "failing_after": [
+      "size-x"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 24,
+     "params": {
+      "Teeth": 59
+     },
+     "fresh_before": [
+      "size-x"
+     ],
+     "failing_after": [
+      "size-x"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 26,
+     "params": {
+      "Teeth": 43
+     },
+     "fresh_before": [
+      "size-x"
+     ],
+     "failing_after": [
+      "size-x"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 29,
+     "params": {
+      "Teeth": 23
+     },
+     "fresh_before": [
+      "size-x"
+     ],
+     "failing_after": [
+      "size-x"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 30,
+     "params": {
+      "Teeth": 49
+     },
+     "fresh_before": [
+      "size-x"
+     ],
+     "failing_after": [
+      "size-x"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 33,
+     "params": {
+      "Teeth": 37
+     },
+     "fresh_before": [
+      "size-x"
+     ],
+     "failing_after": [
+      "size-x"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 35,
+     "params": {
+      "Teeth": 57
+     },
+     "fresh_before": [
+      "size-x"
+     ],
+     "failing_after": [
+      "size-x"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 37,
+     "params": {
+      "Teeth": 27
+     },
+     "fresh_before": [
+      "size-x"
+     ],
+     "failing_after": [
+      "size-x"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 38,
+     "params": {
+      "Teeth": 47
+     },
+     "fresh_before": [
+      "size-x"
+     ],
+     "failing_after": [
+      "size-x"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 41,
+     "params": {
+      "Teeth": 19
+     },
+     "fresh_before": [
+      "size-x"
+     ],
+     "failing_after": [
+      "size-x"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 44,
+     "params": {
+      "Teeth": 29
+     },
+     "fresh_before": [
+      "size-x"
+     ],
+     "failing_after": [
+      "size-x"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 46,
+     "params": {
+      "Teeth": 9
+     },
+     "fresh_before": [
+      "size-x"
+     ],
+     "failing_after": [
+      "size-x"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 50,
+     "params": {
+      "Teeth": 55
+     },
+     "fresh_before": [
+      "size-x"
+     ],
+     "failing_after": [
+      "size-x"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 51,
+     "params": {
+      "Teeth": 45
+     },
+     "fresh_before": [
+      "size-x"
+     ],
+     "failing_after": [
+      "size-x"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 52,
+     "params": {
+      "Teeth": 17
+     },
+     "fresh_before": [
+      "size-x"
+     ],
+     "failing_after": [
+      "size-x"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    }
+   ],
+   "wall_ms": 12667
+  },
+  {
+   "brief": "hinge",
+   "cert_hash": "6e79697bdd4234a0c3954fd3db16761035433630554d03b0b2442a73431473ee",
+   "platform": "linux-x64",
+   "same_platform": true,
+   "inputs_match": true,
+   "points": 64,
+   "identical": 64,
+   "differing": [],
+   "counterexamples": [],
+   "wall_ms": 23994
+  },
+  {
+   "brief": "knob",
+   "cert_hash": "5a0dca9b25692aea79ed87e9c49f12e31a805644a3dee2093a1290423a980a49",
+   "platform": "linux-x64",
+   "same_platform": true,
+   "inputs_match": true,
+   "points": 64,
+   "identical": 64,
+   "differing": [],
+   "counterexamples": [
+    {
+     "index": 1,
+     "params": {
+      "Radius": 10,
+      "Height": 10,
+      "Flutes": 0
+     },
+     "fresh_before": [
+      "size-z"
+     ],
+     "failing_after": [
+      "size-z",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 3,
+     "params": {
+      "Radius": 30,
+      "Height": 10,
+      "Flutes": 2
+     },
+     "fresh_before": [
+      "size-z"
+     ],
+     "failing_after": [
+      "size-z",
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 5,
+     "params": {
+      "Radius": 10,
+      "Height": 10,
+      "Flutes": 4
+     },
+     "fresh_before": [
+      "size-z"
+     ],
+     "failing_after": [
+      "size-z",
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 7,
+     "params": {
+      "Radius": 30,
+      "Height": 10,
+      "Flutes": 6
+     },
+     "fresh_before": [
+      "size-z"
+     ],
+     "failing_after": [
+      "size-z",
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 9,
+     "params": {
+      "Radius": 10,
+      "Height": 10,
+      "Flutes": 8
+     },
+     "fresh_before": [
+      "size-z"
+     ],
+     "failing_after": [
+      "size-z",
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 11,
+     "params": {
+      "Radius": 30,
+      "Height": 10,
+      "Flutes": 10
+     },
+     "fresh_before": [
+      "size-z"
+     ],
+     "failing_after": [
+      "size-z",
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 13,
+     "params": {
+      "Radius": 10,
+      "Height": 10,
+      "Flutes": 12
+     },
+     "fresh_before": [
+      "size-z"
+     ],
+     "failing_after": [
+      "size-z",
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 15,
+     "params": {
+      "Radius": 30,
+      "Height": 10,
+      "Flutes": 14
+     },
+     "fresh_before": [
+      "size-z"
+     ],
+     "failing_after": [
+      "size-z",
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 17,
+     "params": {
+      "Radius": 10,
+      "Height": 10,
+      "Flutes": 16
+     },
+     "fresh_before": [
+      "size-z"
+     ],
+     "failing_after": [
+      "size-z",
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 19,
+     "params": {
+      "Radius": 30,
+      "Height": 10,
+      "Flutes": 18
+     },
+     "fresh_before": [
+      "size-z"
+     ],
+     "failing_after": [
+      "size-z",
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 21,
+     "params": {
+      "Radius": 10,
+      "Height": 10,
+      "Flutes": 20
+     },
+     "fresh_before": [
+      "size-z"
+     ],
+     "failing_after": [
+      "size-z",
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 23,
+     "params": {
+      "Radius": 30,
+      "Height": 10,
+      "Flutes": 22
+     },
+     "fresh_before": [
+      "size-z"
+     ],
+     "failing_after": [
+      "size-z",
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 27,
+     "params": {
+      "Radius": 16,
+      "Height": 10,
+      "Flutes": 12
+     },
+     "fresh_before": [
+      "size-z"
+     ],
+     "failing_after": [
+      "size-z",
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 46,
+     "params": {
+      "Radius": 25.190178,
+      "Height": 10.528543,
+      "Flutes": 6
+     },
+     "fresh_before": [
+      "size-z"
+     ],
+     "failing_after": [
+      "size-z",
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 48,
+     "params": {
+      "Radius": 16,
+      "Height": 10,
+      "Flutes": 0
+     },
+     "fresh_before": [
+      "size-z"
+     ],
+     "failing_after": [
+      "size-z",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 50,
+     "params": {
+      "Radius": 13,
+      "Height": 10,
+      "Flutes": 0
+     },
+     "fresh_before": [
+      "size-z"
+     ],
+     "failing_after": [
+      "size-z",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 52,
+     "params": {
+      "Radius": 10,
+      "Height": 10,
+      "Flutes": 6
+     },
+     "fresh_before": [
+      "size-z"
+     ],
+     "failing_after": [
+      "size-z",
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 54,
+     "params": {
+      "Radius": 16,
+      "Height": 10,
+      "Flutes": 6
+     },
+     "fresh_before": [
+      "size-z"
+     ],
+     "failing_after": [
+      "size-z",
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 58,
+     "params": {
+      "Radius": 16,
+      "Height": 12,
+      "Flutes": 6
+     },
+     "fresh_before": [
+      "size-z"
+     ],
+     "failing_after": [
+      "size-z",
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    }
+   ],
+   "wall_ms": 7936
+  },
+  {
+   "brief": "lid-interference",
+   "cert_hash": "57ec1dfa67fedbb53013cbf4139f355e8b70d527def90b3137a4f2096cc828bd",
+   "platform": "linux-x64",
+   "same_platform": true,
+   "inputs_match": true,
+   "points": 64,
+   "identical": 64,
+   "differing": [],
+   "counterexamples": [
+    {
+     "index": 2,
+     "params": {
+      "Width": 150,
+      "Depth": 120,
+      "Height": 80,
+      "Clearance": 1
+     },
+     "fresh_before": [
+      "status",
+      "clash"
+     ],
+     "failing_after": [
+      "status",
+      "clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 4,
+     "params": {
+      "Width": 40,
+      "Depth": 120,
+      "Height": 80,
+      "Clearance": 1
+     },
+     "fresh_before": [
+      "status",
+      "clash"
+     ],
+     "failing_after": [
+      "status",
+      "clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 6,
+     "params": {
+      "Width": 150,
+      "Depth": 30,
+      "Height": 80,
+      "Clearance": 1
+     },
+     "fresh_before": [
+      "status",
+      "clash"
+     ],
+     "failing_after": [
+      "status",
+      "clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 8,
+     "params": {
+      "Width": 40,
+      "Depth": 30,
+      "Height": 80,
+      "Clearance": 1
+     },
+     "fresh_before": [
+      "status",
+      "clash"
+     ],
+     "failing_after": [
+      "status",
+      "clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 10,
+     "params": {
+      "Width": 150,
+      "Depth": 120,
+      "Height": 15,
+      "Clearance": 1
+     },
+     "fresh_before": [
+      "status",
+      "clash"
+     ],
+     "failing_after": [
+      "status",
+      "clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 12,
+     "params": {
+      "Width": 40,
+      "Depth": 120,
+      "Height": 15,
+      "Clearance": 1
+     },
+     "fresh_before": [
+      "status",
+      "clash"
+     ],
+     "failing_after": [
+      "status",
+      "clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 14,
+     "params": {
+      "Width": 150,
+      "Depth": 30,
+      "Height": 15,
+      "Clearance": 1
+     },
+     "fresh_before": [
+      "status",
+      "clash"
+     ],
+     "failing_after": [
+      "status",
+      "clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 16,
+     "params": {
+      "Width": 40,
+      "Depth": 30,
+      "Height": 15,
+      "Clearance": 1
+     },
+     "fresh_before": [
+      "status",
+      "clash"
+     ],
+     "failing_after": [
+      "status",
+      "clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 17,
+     "params": {
+      "Width": 70,
+      "Depth": 50,
+      "Height": 30,
+      "Clearance": 0
+     },
+     "fresh_before": [
+      "status",
+      "clash"
+     ],
+     "failing_after": [
+      "status",
+      "clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 25,
+     "params": {
+      "Width": 47.920977,
+      "Depth": 94.918962,
+      "Height": 49.7001,
+      "Clearance": 0.436095
+     },
+     "fresh_before": [
+      "status",
+      "clash"
+     ],
+     "failing_after": [
+      "status",
+      "clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 26,
+     "params": {
+      "Width": 102.920977,
+      "Depth": 44.918962,
+      "Height": 62.7001,
+      "Clearance": 0.721809
+     },
+     "fresh_before": [
+      "status",
+      "clash"
+     ],
+     "failing_after": [
+      "status",
+      "clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 31,
+     "params": {
+      "Width": 89.170977,
+      "Depth": 88.252296,
+      "Height": 65.3001,
+      "Clearance": 0.191197
+     },
+     "fresh_before": [
+      "status",
+      "clash"
+     ],
+     "failing_after": [
+      "status",
+      "clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 32,
+     "params": {
+      "Width": 144.170977,
+      "Depth": 38.252296,
+      "Height": 78.3001,
+      "Clearance": 0.476911
+     },
+     "fresh_before": [
+      "status",
+      "clash"
+     ],
+     "failing_after": [
+      "status",
+      "clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 33,
+     "params": {
+      "Width": 54.795977,
+      "Depth": 68.252296,
+      "Height": 28.9001,
+      "Clearance": 0.762626
+     },
+     "fresh_before": [
+      "status",
+      "clash"
+     ],
+     "failing_after": [
+      "status",
+      "clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 38,
+     "params": {
+      "Width": 123.545977,
+      "Depth": 31.585629,
+      "Height": 31.5001,
+      "Clearance": 0.232013
+     },
+     "fresh_before": [
+      "status",
+      "clash"
+     ],
+     "failing_after": [
+      "status",
+      "clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 39,
+     "params": {
+      "Width": 96.045977,
+      "Depth": 61.585629,
+      "Height": 44.5001,
+      "Clearance": 0.517728
+     },
+     "fresh_before": [
+      "status",
+      "clash"
+     ],
+     "failing_after": [
+      "status",
+      "clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 40,
+     "params": {
+      "Width": 41.045977,
+      "Depth": 91.585629,
+      "Height": 57.5001,
+      "Clearance": 0.803442
+     },
+     "fresh_before": [
+      "status",
+      "clash"
+     ],
+     "failing_after": [
+      "status",
+      "clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 46,
+     "params": {
+      "Width": 120.108477,
+      "Depth": 111.585629,
+      "Height": 60.6201,
+      "Clearance": 0.278661
+     },
+     "fresh_before": [
+      "status",
+      "clash"
+     ],
+     "failing_after": [
+      "status",
+      "clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 47,
+     "params": {
+      "Width": 92.608477,
+      "Depth": 116.030074,
+      "Height": 73.6201,
+      "Clearance": 0.564375
+     },
+     "fresh_before": [
+      "status",
+      "clash"
+     ],
+     "failing_after": [
+      "status",
+      "clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 48,
+     "params": {
+      "Width": 70,
+      "Depth": 120,
+      "Height": 80,
+      "Clearance": 1
+     },
+     "fresh_before": [
+      "status",
+      "clash"
+     ],
+     "failing_after": [
+      "status",
+      "clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 49,
+     "params": {
+      "Width": 150,
+      "Depth": 50,
+      "Height": 80,
+      "Clearance": 1
+     },
+     "fresh_before": [
+      "status",
+      "clash"
+     ],
+     "failing_after": [
+      "status",
+      "clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 50,
+     "params": {
+      "Width": 150,
+      "Depth": 120,
+      "Height": 30,
+      "Clearance": 1
+     },
+     "fresh_before": [
+      "status",
+      "clash"
+     ],
+     "failing_after": [
+      "status",
+      "clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 52,
+     "params": {
+      "Width": 110,
+      "Depth": 120,
+      "Height": 80,
+      "Clearance": 1
+     },
+     "fresh_before": [
+      "status",
+      "clash"
+     ],
+     "failing_after": [
+      "status",
+      "clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 53,
+     "params": {
+      "Width": 150,
+      "Depth": 85,
+      "Height": 80,
+      "Clearance": 1
+     },
+     "fresh_before": [
+      "status",
+      "clash"
+     ],
+     "failing_after": [
+      "status",
+      "clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 54,
+     "params": {
+      "Width": 150,
+      "Depth": 120,
+      "Height": 55,
+      "Clearance": 1
+     },
+     "fresh_before": [
+      "status",
+      "clash"
+     ],
+     "failing_after": [
+      "status",
+      "clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 55,
+     "params": {
+      "Width": 150,
+      "Depth": 120,
+      "Height": 80,
+      "Clearance": 0.35
+     },
+     "fresh_before": [
+      "status",
+      "clash"
+     ],
+     "failing_after": [
+      "status",
+      "clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 56,
+     "params": {
+      "Width": 70,
+      "Depth": 50,
+      "Height": 80,
+      "Clearance": 1
+     },
+     "fresh_before": [
+      "status",
+      "clash"
+     ],
+     "failing_after": [
+      "status",
+      "clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 57,
+     "params": {
+      "Width": 70,
+      "Depth": 120,
+      "Height": 30,
+      "Clearance": 1
+     },
+     "fresh_before": [
+      "status",
+      "clash"
+     ],
+     "failing_after": [
+      "status",
+      "clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 58,
+     "params": {
+      "Width": 70,
+      "Depth": 50,
+      "Height": 42.5,
+      "Clearance": 0.025
+     },
+     "fresh_before": [
+      "status",
+      "clash"
+     ],
+     "failing_after": [
+      "status",
+      "clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 59,
+     "params": {
+      "Width": 70,
+      "Depth": 50,
+      "Height": 55,
+      "Clearance": 0.35
+     },
+     "fresh_before": [
+      "status",
+      "clash"
+     ],
+     "failing_after": [
+      "status",
+      "clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 60,
+     "params": {
+      "Width": 70,
+      "Depth": 50,
+      "Height": 67.5,
+      "Clearance": 0.675
+     },
+     "fresh_before": [
+      "status",
+      "clash"
+     ],
+     "failing_after": [
+      "status",
+      "clash"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    }
+   ],
+   "wall_ms": 3777
+  },
+  {
+   "brief": "pegboard-hook",
+   "cert_hash": "849c0d7b4691df44a7efb73504e56882c1a3b0f65aef1704f3f980bccb148782",
+   "platform": "linux-x64",
+   "same_platform": true,
+   "inputs_match": true,
+   "points": 64,
+   "identical": 64,
+   "differing": [],
+   "counterexamples": [],
+   "wall_ms": 5603
+  },
+  {
+   "brief": "phone-stand",
+   "cert_hash": "da9fd59cb3f7ed5316862d7c95c54fd3200111120b2823d7a2508728581b1eb3",
+   "platform": "linux-x64",
+   "same_platform": true,
+   "inputs_match": true,
+   "points": 64,
+   "identical": 64,
+   "differing": [],
+   "counterexamples": [],
+   "wall_ms": 7460
+  },
+  {
+   "brief": "tapered-cup",
+   "cert_hash": "504da92f4034423bf3058100a4de780420edaa315717c2ea537c9d05dec6c551",
+   "platform": "linux-x64",
+   "same_platform": true,
+   "inputs_match": true,
+   "points": 64,
+   "identical": 64,
+   "differing": [],
+   "counterexamples": [
+    {
+     "index": 1,
+     "params": {
+      "Height": 30,
+      "Wall": 1.2
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 3,
+     "params": {
+      "Height": 120,
+      "Wall": 1.2
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 7,
+     "params": {
+      "Height": 70,
+      "Wall": 1.2
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 22,
+     "params": {
+      "Height": 98.3558,
+      "Wall": 1.266949
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 48,
+     "params": {
+      "Height": 50,
+      "Wall": 1.2
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 51,
+     "params": {
+      "Height": 60,
+      "Wall": 1.2
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 54,
+     "params": {
+      "Height": 65,
+      "Wall": 1.2
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 61,
+     "params": {
+      "Height": 65.625,
+      "Wall": 1.3625
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 62,
+     "params": {
+      "Height": 65.3125,
+      "Wall": 1.28125
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    }
+   ],
+   "wall_ms": 12193
+  },
+  {
+   "brief": "vented-box",
+   "cert_hash": "6c8dd815cc4dfc51383a8a03f9ba1fdb43baaebf07fe9bc198448fb2d66def3a",
+   "platform": "linux-x64",
+   "same_platform": true,
+   "inputs_match": true,
+   "points": 64,
+   "identical": 64,
+   "differing": [],
+   "counterexamples": [
+    {
+     "index": 1,
+     "params": {
+      "Width": 60,
+      "Depth": 40,
+      "Height": 25
+     },
+     "fresh_before": [
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "faces",
+      "edges",
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 3,
+     "params": {
+      "Width": 160,
+      "Depth": 40,
+      "Height": 25
+     },
+     "fresh_before": [
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "faces",
+      "edges",
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 4,
+     "params": {
+      "Width": 60,
+      "Depth": 120,
+      "Height": 80
+     },
+     "fresh_before": [
+      "edges"
+     ],
+     "failing_after": [
+      "edges",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 5,
+     "params": {
+      "Width": 60,
+      "Depth": 120,
+      "Height": 25
+     },
+     "fresh_before": [
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "faces",
+      "edges",
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 7,
+     "params": {
+      "Width": 160,
+      "Depth": 120,
+      "Height": 25
+     },
+     "fresh_before": [
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "faces",
+      "edges",
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 8,
+     "params": {
+      "Width": 60,
+      "Depth": 40,
+      "Height": 80
+     },
+     "fresh_before": [
+      "edges"
+     ],
+     "failing_after": [
+      "edges",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 9,
+     "params": {
+      "Width": 60,
+      "Depth": 60,
+      "Height": 40
+     },
+     "fresh_before": [
+      "edges"
+     ],
+     "failing_after": [
+      "edges",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 13,
+     "params": {
+      "Width": 90,
+      "Depth": 60,
+      "Height": 25
+     },
+     "fresh_before": [
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "faces",
+      "edges",
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 15,
+     "params": {
+      "Width": 67.200888,
+      "Depth": 97.705744,
+      "Height": 54.361623
+     },
+     "fresh_before": [
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "faces",
+      "edges",
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 23,
+     "params": {
+      "Width": 73.450888,
+      "Depth": 74.002041,
+      "Height": 36.761623
+     },
+     "fresh_before": [
+      "edges"
+     ],
+     "failing_after": [
+      "edges",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 27,
+     "params": {
+      "Width": 85.950888,
+      "Depth": 109.557596,
+      "Height": 25.761623
+     },
+     "fresh_before": [
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "faces",
+      "edges",
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 30,
+     "params": {
+      "Width": 60.950888,
+      "Depth": 94.742781,
+      "Height": 60.961623
+     },
+     "fresh_before": [
+      "edges"
+     ],
+     "failing_after": [
+      "edges",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 31,
+     "params": {
+      "Width": 70.325888,
+      "Depth": 50.298337,
+      "Height": 71.961623
+     },
+     "fresh_before": [
+      "edges",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "edges",
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 32,
+     "params": {
+      "Width": 120.325888,
+      "Depth": 76.965004,
+      "Height": 27.961623
+     },
+     "fresh_before": [
+      "faces",
+      "edges"
+     ],
+     "failing_after": [
+      "faces",
+      "edges",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 33,
+     "params": {
+      "Width": 95.325888,
+      "Depth": 103.63167,
+      "Height": 30.601623
+     },
+     "fresh_before": [
+      "faces"
+     ],
+     "failing_after": [
+      "faces",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 39,
+     "params": {
+      "Width": 76.575888,
+      "Depth": 89.80451,
+      "Height": 43.801623
+     },
+     "fresh_before": [
+      "edges"
+     ],
+     "failing_after": [
+      "edges",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 46,
+     "params": {
+      "Width": 64.075888,
+      "Depth": 119.43414,
+      "Height": 68.001623
+     },
+     "fresh_before": [
+      "faces",
+      "edges"
+     ],
+     "failing_after": [
+      "faces",
+      "edges",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 47,
+     "params": {
+      "Width": 66.419638,
+      "Depth": 66.100806,
+      "Height": 79.001623
+     },
+     "fresh_before": [
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "faces",
+      "edges",
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 48,
+     "params": {
+      "Width": 90,
+      "Depth": 40,
+      "Height": 25
+     },
+     "fresh_before": [
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "faces",
+      "edges",
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 49,
+     "params": {
+      "Width": 60,
+      "Depth": 60,
+      "Height": 25
+     },
+     "fresh_before": [
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "faces",
+      "edges",
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 50,
+     "params": {
+      "Width": 60,
+      "Depth": 40,
+      "Height": 40
+     },
+     "fresh_before": [
+      "edges"
+     ],
+     "failing_after": [
+      "edges",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 51,
+     "params": {
+      "Width": 75,
+      "Depth": 40,
+      "Height": 25
+     },
+     "fresh_before": [
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "faces",
+      "edges",
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 52,
+     "params": {
+      "Width": 60,
+      "Depth": 50,
+      "Height": 25
+     },
+     "fresh_before": [
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "faces",
+      "edges",
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 53,
+     "params": {
+      "Width": 60,
+      "Depth": 40,
+      "Height": 32.5
+     },
+     "fresh_before": [
+      "edges"
+     ],
+     "failing_after": [
+      "edges",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 54,
+     "params": {
+      "Width": 90,
+      "Depth": 50,
+      "Height": 25
+     },
+     "fresh_before": [
+      "faces",
+      "edges",
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "faces",
+      "edges",
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 59,
+     "params": {
+      "Width": 90,
+      "Depth": 52.5,
+      "Height": 28.75
+     },
+     "fresh_before": [
+      "faces",
+      "edges"
+     ],
+     "failing_after": [
+      "faces",
+      "edges",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 60,
+     "params": {
+      "Width": 90,
+      "Depth": 54.375,
+      "Height": 31.5625
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 61,
+     "params": {
+      "Width": 90,
+      "Depth": 53.75,
+      "Height": 30.625
+     },
+     "fresh_before": [
+      "faces"
+     ],
+     "failing_after": [
+      "faces",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 62,
+     "params": {
+      "Width": 90,
+      "Depth": 53.125,
+      "Height": 29.6875
+     },
+     "fresh_before": [
+      "faces",
+      "edges"
+     ],
+     "failing_after": [
+      "faces",
+      "edges",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    },
+    {
+     "index": 63,
+     "params": {
+      "Width": 90,
+      "Depth": 54.84375,
+      "Height": 32.265625
+     },
+     "fresh_before": [
+      "gate-min-wall"
+     ],
+     "failing_after": [
+      "gate-min-wall",
+      "gate-overhang"
+     ],
+     "fails_again": true,
+     "same_failures": true
+    }
+   ],
+   "wall_ms": 17250
+  }
+ ]
+}

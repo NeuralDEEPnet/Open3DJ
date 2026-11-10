@@ -1,0 +1,3267 @@
+{
+ "certificate": "o3dj-envelope-cert/spike-0",
+ "brief": "d05-shuttle-post",
+ "brief_hash": "6ec5d658d2e9f9250ad2407c073a6a96d18117209a54e3f8449167ef787f314e",
+ "script_hash": "34f6f6fa1244af6323eb7715acda555e3e544dd60932838bd3d3da4949d411f9",
+ "inputs_hash": "a2f42d71a8bb29cbf291fa2ce34705992abf1b4ab38b02a00539c32864d6787a",
+ "engine": {
+  "occt_wasm": "5.8.1",
+  "node": "v24.22.1",
+  "analysis": "2"
+ },
+ "platform": "linux-x64",
+ "seed": 1,
+ "budget": 64,
+ "watch_mm": 0.5,
+ "verdict": "counterexample",
+ "statement": "counterexample: 6 of 64 points fail an assertion that passes at nominal",
+ "nominal_failures": [],
+ "counterexamples": [
+  19,
+  27,
+  49,
+  51,
+  56,
+  57
+ ],
+ "shrunk": 49,
+ "line": {
+  "pass": 0,
+  "fail": 49,
+  "lo": 0.87109375,
+  "hi": 0.875,
+  "points": [
+   {
+    "index": 0,
+    "t": 0
+   },
+   {
+    "index": 53,
+    "t": 0.25
+   },
+   {
+    "index": 52,
+    "t": 0.5
+   },
+   {
+    "index": 54,
+    "t": 0.75
+   },
+   {
+    "index": 55,
+    "t": 0.8125
+   },
+   {
+    "index": 58,
+    "t": 0.828125
+   },
+   {
+    "index": 59,
+    "t": 0.84375
+   },
+   {
+    "index": 60,
+    "t": 0.859375
+   },
+   {
+    "index": 61,
+    "t": 0.86328125
+   },
+   {
+    "index": 62,
+    "t": 0.8671875
+   },
+   {
+    "index": 63,
+    "t": 0.87109375
+   },
+   {
+    "index": 56,
+    "t": 0.875
+   },
+   {
+    "index": 57,
+    "t": 0.9375
+   },
+   {
+    "index": 49,
+    "t": 1
+   }
+  ]
+ },
+ "events": [
+  {
+   "kind": "axis",
+   "axis": "Shuttle X",
+   "between": [
+    59,
+    60
+   ],
+   "from": {
+    "Shuttle X": 3.684512,
+    "Post Y": 0
+   },
+   "to": {
+    "Shuttle X": 4.123114,
+    "Post Y": 0
+   },
+   "changed": [
+    "fits:  -> shuttle|post|clearance"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Shuttle X",
+   "between": [
+    63,
+    56
+   ],
+   "from": {
+    "Shuttle X": 4.452066,
+    "Post Y": 0
+   },
+   "to": {
+    "Shuttle X": 4.561716,
+    "Post Y": 0
+   },
+   "changed": [
+    "fits: shuttle|post|clearance -> shuttle|post|clash",
+    "status: \"ok\" -> \"warning\""
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Shuttle X",
+   "between": [
+    49,
+    7
+   ],
+   "from": {
+    "Shuttle X": 8.070533,
+    "Post Y": 0
+   },
+   "to": {
+    "Shuttle X": 30,
+    "Post Y": 0
+   },
+   "changed": [
+    "fits: shuttle|post|clash -> ",
+    "status: \"warning\" -> \"ok\""
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Shuttle X",
+   "between": [
+    50,
+    19
+   ],
+   "from": {
+    "Shuttle X": -5.964734,
+    "Post Y": 6.200612
+   },
+   "to": {
+    "Shuttle X": 8.070533,
+    "Post Y": 6.200612
+   },
+   "changed": [
+    "fits:  -> shuttle|post|clash",
+    "status: \"ok\" -> \"warning\""
+   ]
+  },
+  {
+   "kind": "line",
+   "between": [
+    59,
+    60
+   ],
+   "from": {
+    "Shuttle X": 3.684512,
+    "Post Y": 0
+   },
+   "to": {
+    "Shuttle X": 4.123114,
+    "Post Y": 0
+   },
+   "changed": [
+    "fits:  -> shuttle|post|clearance"
+   ]
+  },
+  {
+   "kind": "line",
+   "between": [
+    63,
+    56
+   ],
+   "from": {
+    "Shuttle X": 4.452066,
+    "Post Y": 0
+   },
+   "to": {
+    "Shuttle X": 4.561716,
+    "Post Y": 0
+   },
+   "changed": [
+    "fits: shuttle|post|clearance -> shuttle|post|clash",
+    "status: \"ok\" -> \"warning\""
+   ]
+  }
+ ],
+ "smallest_margins": [
+  {
+   "id": "builds",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "status",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 19
+  },
+  {
+   "id": "valid",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "occurrences",
+   "signed": 0,
+   "scale": 1,
+   "normalized": 0,
+   "at": 0
+  },
+  {
+   "id": "no-clash",
+   "signed": -3.295948195194655,
+   "scale": 0.01,
+   "normalized": -329.5948195194655,
+   "at": 57
+  }
+ ],
+ "coverage": {
+  "points": 64,
+  "phases": {
+   "nominal": 1,
+   "corner": 4,
+   "special": 5,
+   "halton": 38,
+   "shrink": 5,
+   "bisect": 11
+  },
+  "corners_planned": 4,
+  "special_planned": 6,
+  "axes": [
+   {
+    "name": "Shuttle X",
+    "min_seen": -30,
+    "max_seen": 30,
+    "min": -30,
+    "max": 30
+   },
+   {
+    "name": "Post Y",
+    "min_seen": -12,
+    "max_seen": 12,
+    "min": -12,
+    "max": 12
+   }
+  ]
+ },
+ "limits": [
+  "Sampling is not proof: the brief was checked at the points listed under this model, never for all values. A thin band can hide between samples.",
+  "The gates are fdm.v1 rule checks on the kernel's geometry (watertight, 0.8 mm min_wall from rays, 45 degree overhang, bed), never a print simulation.",
+  "Fits are exact OCCT clash, contact and clearance checks within the fit watch distance; a pair with no line inside it is censored, not a measured pass.",
+  "Bit-identical replay is only claimed for the platform named here.",
+  "Fit watch distance 0.5 mm."
+ ],
+ "points": [
+  {
+   "index": 0,
+   "phase": "nominal",
+   "fresh": [],
+   "params": {
+    "Shuttle X": -20,
+    "Post Y": 0
+   },
+   "ok": true,
+   "report_hash": "f0c06894697995814a1aacabda87a5950360de92573d22d16771f10695e75abe",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 1,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Shuttle X": -30,
+    "Post Y": -12
+   },
+   "ok": true,
+   "report_hash": "49a01e96a062b0c0aeab9f1944541f6d4961085de6c936417db259c118d94da0",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 2,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Shuttle X": 30,
+    "Post Y": 12
+   },
+   "ok": true,
+   "report_hash": "8703b3aec25b09a9c64d3f2632947642ae1681c6baf016fd14a1ab010b0b51d5",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 3,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Shuttle X": 30,
+    "Post Y": -12
+   },
+   "ok": true,
+   "report_hash": "ef6806f10cb49c73ce8cfff2bc3a1edc679da64f05e74d5ccceb4de5e97581c7",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 4,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Shuttle X": -30,
+    "Post Y": 12
+   },
+   "ok": true,
+   "report_hash": "c06c77e4288f7cbc41d3247ab083d3d52662670deaf6f62588ce5ff73b891652",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 5,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Shuttle X": 0,
+    "Post Y": 0
+   },
+   "ok": true,
+   "report_hash": "63a372efefd522fad88ed694349003e30e5b9218abdda12ec5dc2a7ee6fb47ec",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 6,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Shuttle X": -30,
+    "Post Y": 0
+   },
+   "ok": true,
+   "report_hash": "021cf3b7809eae880bea003a501d06abcec8e075a54d75e09330294884bd9fa0",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 7,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Shuttle X": 30,
+    "Post Y": 0
+   },
+   "ok": true,
+   "report_hash": "ed70633f7c417ef17762e81f8982ce5434583dd8ed98d947a096f29100d9bcd3",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 8,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Shuttle X": -20,
+    "Post Y": -12
+   },
+   "ok": true,
+   "report_hash": "c29dc1ab71280dce8c91ca07bd637a589759c7b32b5df2125e867b65ae1eb5ae",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 9,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Shuttle X": -20,
+    "Post Y": 12
+   },
+   "ok": true,
+   "report_hash": "ca39562aaab00a1b5094717836b5b46d397ef8e46cdde0be4bf195272fb84461",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 10,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Shuttle X": -25.679467,
+    "Post Y": 5.311723
+   },
+   "ok": true,
+   "report_hash": "f3bb7b8e734589d6b0c683eb53e617fd45efdc2dd6e08830dc5e87916edf2625",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 11,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Shuttle X": 4.320533,
+    "Post Y": -8.02161
+   },
+   "ok": true,
+   "report_hash": "41f57d371c400b5c5aa54ea7e336e2aa38054bc3c2937e355b06e78ff1991564",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 12,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Shuttle X": -10.679467,
+    "Post Y": -0.02161
+   },
+   "ok": true,
+   "report_hash": "bf137677478463b226b90569ee2918a989ea302d43947f2095be50f6ae4a9b0e",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 13,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Shuttle X": 19.320533,
+    "Post Y": 7.97839
+   },
+   "ok": true,
+   "report_hash": "76a2a07e71c903551ef20a111e4992ea316a33a0e1c8322e6f89c6e37f2ea818",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 14,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Shuttle X": -18.179467,
+    "Post Y": 11.533946
+   },
+   "ok": true,
+   "report_hash": "bdbf1c0de2b70b28619b59f24e23b16ab0c5ebcded21b86a0817191574fd7f49",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 15,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Shuttle X": 11.820533,
+    "Post Y": -4.466054
+   },
+   "ok": true,
+   "report_hash": "57bf6a3bb1ddf4715b360d5d6bad698b961c6cb6425fae676fec7fab78098984",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 16,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Shuttle X": -3.179467,
+    "Post Y": 3.533946
+   },
+   "ok": true,
+   "report_hash": "ab7f9397cc28ead6404d85a176889bf26373bfcc67db843e7d78a449336be780",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 17,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Shuttle X": 26.820533,
+    "Post Y": -9.799388
+   },
+   "ok": true,
+   "report_hash": "f93d9c7b28b007bb5f371e721c5f9beaff03a3ab4ab4eb6f3db2fcbb39776e0f",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 18,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Shuttle X": -21.929467,
+    "Post Y": -1.799388
+   },
+   "ok": true,
+   "report_hash": "48c571b0214f135ea4358c88fafa667c28388c9d8b470b2665efd3bc1ba80c88",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 19,
+   "phase": "halton",
+   "fresh": [
+    "status",
+    "no-clash"
+   ],
+   "params": {
+    "Shuttle X": 8.070533,
+    "Post Y": 6.200612
+   },
+   "ok": true,
+   "report_hash": "30e19c0f85b997e787af524bd21623b501f9f6e4105d67bc7f52e55feec8abb5",
+   "signature_hash": "af230dbcb51a2c74885057153ed8473f314a5a0143c812aa9768085e7c50cf50",
+   "failing": [
+    "status",
+    "no-clash"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -1.0909684740401755,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    }
+   ]
+  },
+  {
+   "index": 20,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Shuttle X": -6.929467,
+    "Post Y": -7.132721
+   },
+   "ok": true,
+   "report_hash": "3e81b2a025b5bb4d6a3d19fb21085d10ea8c636913f8d74e4e6cca2ee4cebfa0",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 21,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Shuttle X": 23.070533,
+    "Post Y": 0.867279
+   },
+   "ok": true,
+   "report_hash": "f90f2b67e5c6cc15cf3b83b6201c1da251bda972c5bf99e6fef3f66ae1c6885b",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 22,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Shuttle X": -14.429467,
+    "Post Y": 8.867279
+   },
+   "ok": true,
+   "report_hash": "f427b2e6faee421056ae9c7ef8f499b885bd188d6d875e0de05757a807810296",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 23,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Shuttle X": 15.570533,
+    "Post Y": -11.577166
+   },
+   "ok": true,
+   "report_hash": "efa3a510be614f9db937c8b20caf4f9704e301f62388923be9d5419994bd18eb",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 24,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Shuttle X": 0.570533,
+    "Post Y": -3.577166
+   },
+   "ok": true,
+   "report_hash": "962084134ab9f807a62230b6a9ce24e317ee73c45170c6fc0ec7f886417eda3f",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 25,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Shuttle X": -29.429467,
+    "Post Y": 4.422834
+   },
+   "ok": true,
+   "report_hash": "cfebd91ab1a635c6fe23230e974bdca85b3cc81d93a3991b6af36bc143b5dc1a",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 26,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Shuttle X": -23.804467,
+    "Post Y": -8.910499
+   },
+   "ok": true,
+   "report_hash": "9e66b99d23ed9651dd8c1cfc69219611e3814f12086a9eae06531f1511082955",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 27,
+   "phase": "halton",
+   "fresh": [
+    "status",
+    "no-clash"
+   ],
+   "params": {
+    "Shuttle X": 6.195533,
+    "Post Y": -0.910499
+   },
+   "ok": true,
+   "report_hash": "e68553d3736342950653dc74f9a13843b4029eabe03916d3f7a1eca51f3ca79c",
+   "signature_hash": "af230dbcb51a2c74885057153ed8473f314a5a0143c812aa9768085e7c50cf50",
+   "failing": [
+    "status",
+    "no-clash"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -3.2060368139979323,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    }
+   ]
+  },
+  {
+   "index": 28,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Shuttle X": -8.804467,
+    "Post Y": 7.089501
+   },
+   "ok": true,
+   "report_hash": "d73d48687683841119d433712ff96679f456ddfb44b2258e28ac32b276aa104e",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 29,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Shuttle X": 21.195533,
+    "Post Y": -6.243832
+   },
+   "ok": true,
+   "report_hash": "60d325d082c0e301897e38ae65db6a91c9e1a4d61ba71768ed4d9376690a3595",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 30,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Shuttle X": -16.304467,
+    "Post Y": 1.756168
+   },
+   "ok": true,
+   "report_hash": "205fb81f6d89fe09ad01354e03f34c5efc8f1f62f38d0528d689f277b572330a",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 31,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Shuttle X": 13.695533,
+    "Post Y": 9.756168
+   },
+   "ok": true,
+   "report_hash": "ceefc3cb5c31f9db0fb9521e7b4e37a4b76a559ecbf6bb389ffd0593e3bc033b",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 32,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Shuttle X": -1.304467,
+    "Post Y": 10.941353
+   },
+   "ok": true,
+   "report_hash": "10402cb9d354e20a6a0640ea17942da04ea40680efeb554ab2ef7c63b2eb30f3",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 33,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Shuttle X": 28.695533,
+    "Post Y": -5.058647
+   },
+   "ok": true,
+   "report_hash": "77bc9e580bf637d2931e22c1cf0185ea853bf85579132407354f9d6a6d931091",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 34,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Shuttle X": -20.054467,
+    "Post Y": 2.941353
+   },
+   "ok": true,
+   "report_hash": "64c1dc0f8424f1ef5d718e29901b274f12cdc95d00ac08f8a08d7e8749a7e2c8",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 35,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Shuttle X": 9.945533,
+    "Post Y": -10.39198
+   },
+   "ok": true,
+   "report_hash": "6f0c71492522295b5918e8d705b684130c95e0b93694b475fea9999afd71bab0",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 36,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Shuttle X": -5.054467,
+    "Post Y": -2.39198
+   },
+   "ok": true,
+   "report_hash": "ba1d13553f598db38cfa5f03378e170a8573ddb68a7124faddfa82bd6ea1f2fc",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 37,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Shuttle X": 24.945533,
+    "Post Y": 5.60802
+   },
+   "ok": true,
+   "report_hash": "995b827ee050427fad7b7a9af719c66618e69be9bd2d72f01cf7456c16c31b5b",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 38,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Shuttle X": -12.554467,
+    "Post Y": -7.725314
+   },
+   "ok": true,
+   "report_hash": "2be936cb9f9631b539d38cda0b1de0d1c227fb1f1e9d5bfb72aec074194d209b",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 39,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Shuttle X": 17.445533,
+    "Post Y": 0.274686
+   },
+   "ok": true,
+   "report_hash": "06b73dd6ee712256b631bf810814ee6b1923c286c3f7cb0a6224a5ff9adea9f3",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 40,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Shuttle X": 2.445533,
+    "Post Y": 8.274686
+   },
+   "ok": true,
+   "report_hash": "0a25d0455c52361c93087b00e269860fb3fa4a70c25638e240f19b6518f089fa",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 41,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Shuttle X": -27.554467,
+    "Post Y": 11.830242
+   },
+   "ok": true,
+   "report_hash": "c8004ffd414977556a438dede309a3c8eb2ff2866716efb620ee3b4aaa175e2a",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 42,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Shuttle X": -26.148217,
+    "Post Y": -4.169758
+   },
+   "ok": true,
+   "report_hash": "cc17adc66e8f04d4436d38c074ed4c2bd049dfc4ca62fb4a36d2ebfb386889b7",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 43,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Shuttle X": 3.851783,
+    "Post Y": 3.830242
+   },
+   "ok": true,
+   "report_hash": "c3c19ff193a999a0b6c4a9e253b5c562643afb51e9112d398b04cdba234f34e2",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 44,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Shuttle X": -11.148217,
+    "Post Y": -9.503091
+   },
+   "ok": true,
+   "report_hash": "8d2dabdb213ec6800ede8d71c1157e80d18c20e28eedcc5edf2eaaa2bb0582d4",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 45,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Shuttle X": 18.851783,
+    "Post Y": -1.503091
+   },
+   "ok": true,
+   "report_hash": "e348d3c19f76aeeabc824929aa4c352b0d53d863dcd328a0f5da97f2c8d98dd5",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 46,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Shuttle X": -18.648217,
+    "Post Y": 6.496909
+   },
+   "ok": true,
+   "report_hash": "14cc8e47d4e4ad2ce6d06871d60857aacf4750230ed3866c2785460aa10ec110",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 47,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Shuttle X": 11.351783,
+    "Post Y": -6.836425
+   },
+   "ok": true,
+   "report_hash": "95b9980df486c1c55cd9d2a3b99146e7109e2d15941e852e77944f9901583373",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 48,
+   "phase": "shrink",
+   "fresh": [],
+   "params": {
+    "Shuttle X": -20,
+    "Post Y": 6.200612
+   },
+   "ok": true,
+   "report_hash": "2370c418e0958424f26e32dab513fb221f4579857bcf13c84b3a01431115d7f5",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 49,
+   "phase": "shrink",
+   "fresh": [
+    "status",
+    "no-clash"
+   ],
+   "params": {
+    "Shuttle X": 8.070533,
+    "Post Y": 0
+   },
+   "ok": true,
+   "report_hash": "5104faac093c80b22851e388c9895b9a1aa5429d660bf7e54f595036eeede729",
+   "signature_hash": "af230dbcb51a2c74885057153ed8473f314a5a0143c812aa9768085e7c50cf50",
+   "failing": [
+    "status",
+    "no-clash"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -2.984444144537988,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    }
+   ]
+  },
+  {
+   "index": 50,
+   "phase": "shrink",
+   "fresh": [],
+   "params": {
+    "Shuttle X": -5.964734,
+    "Post Y": 6.200612
+   },
+   "ok": true,
+   "report_hash": "1a94a727a74872275926b0af572e40cae43747f99170739c7b32c45efc899234",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 51,
+   "phase": "shrink",
+   "fresh": [
+    "status",
+    "no-clash"
+   ],
+   "params": {
+    "Shuttle X": 8.070533,
+    "Post Y": 3.100306
+   },
+   "ok": true,
+   "report_hash": "949247bfa6d4f7b0fb232766de2324f9657b77ffb177252d3902d5205b149649",
+   "signature_hash": "af230dbcb51a2c74885057153ed8473f314a5a0143c812aa9768085e7c50cf50",
+   "failing": [
+    "status",
+    "no-clash"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -2.984444144537988,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    }
+   ]
+  },
+  {
+   "index": 52,
+   "phase": "shrink",
+   "fresh": [],
+   "params": {
+    "Shuttle X": -5.964734,
+    "Post Y": 0
+   },
+   "ok": true,
+   "report_hash": "5f17bcb0636686710a1a9f65132fd9a85d783077b273b7492f972ac74d37b0f9",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 53,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Shuttle X": -12.982367,
+    "Post Y": 0
+   },
+   "ok": true,
+   "report_hash": "5700d5520d12c2783944f36932f44e949e9a71743140642f184e564e2d112e07",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 54,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Shuttle X": 1.0529,
+    "Post Y": 0
+   },
+   "ok": true,
+   "report_hash": "dd1e4dff74681fdd7dbf27ef17edebdd77c5e7d16572d789874546321e58c559",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 55,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Shuttle X": 2.807308,
+    "Post Y": 0
+   },
+   "ok": true,
+   "report_hash": "7f0a68a752372adbd88013853cad1fc8ec86c5eb5d56123f65d4ff9309e91fc4",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 56,
+   "phase": "bisect",
+   "fresh": [
+    "status",
+    "no-clash"
+   ],
+   "params": {
+    "Shuttle X": 4.561716,
+    "Post Y": 0
+   },
+   "ok": true,
+   "report_hash": "2e0c6551de28d48f5d39d7deb995c5a75bd9cd124b6f07452f1c2df30b7a0813",
+   "signature_hash": "af230dbcb51a2c74885057153ed8473f314a5a0143c812aa9768085e7c50cf50",
+   "failing": [
+    "status",
+    "no-clash"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -0.6553840763569022,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    }
+   ]
+  },
+  {
+   "index": 57,
+   "phase": "bisect",
+   "fresh": [
+    "status",
+    "no-clash"
+   ],
+   "params": {
+    "Shuttle X": 6.316125,
+    "Post Y": 0
+   },
+   "ok": true,
+   "report_hash": "5b872bcac751c18f68e3883e75f6e3f02a94ca666ff0754e731f37db141f0973",
+   "signature_hash": "af230dbcb51a2c74885057153ed8473f314a5a0143c812aa9768085e7c50cf50",
+   "failing": [
+    "status",
+    "no-clash"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -3.295948195194655,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    }
+   ]
+  },
+  {
+   "index": 58,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Shuttle X": 3.24591,
+    "Post Y": 0
+   },
+   "ok": true,
+   "report_hash": "2f93b92248099809da456296e0d6132e07fa1820e80b988c2f2289db9ed5c4d9",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 59,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Shuttle X": 3.684512,
+    "Post Y": 0
+   },
+   "ok": true,
+   "report_hash": "176dbcf3f95f67c019d780ceeda9abbd5218abb4bfb79558fb418aae227d7d6c",
+   "signature_hash": "565e17308e0565165005a148530d60db4a94b14d1134cfcc1042d8c24c11fc90",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 60,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Shuttle X": 4.123114,
+    "Post Y": 0
+   },
+   "ok": true,
+   "report_hash": "519171e1dbe1be5fa08b477231b6bdbfda6470c569b92dd9e5204f79a320f14f",
+   "signature_hash": "1f8660df31b61e356cd2d0a0340bc11a9db5b5306e9bc2e44adbcdd170473202",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.376886,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 61,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Shuttle X": 4.232765,
+    "Post Y": 0
+   },
+   "ok": true,
+   "report_hash": "43b061d4488b5dafbf2b5d1f4d6171cf0591a4b17bcdab46f17310787aec28eb",
+   "signature_hash": "1f8660df31b61e356cd2d0a0340bc11a9db5b5306e9bc2e44adbcdd170473202",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.267235,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 62,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Shuttle X": 4.342415,
+    "Post Y": 0
+   },
+   "ok": true,
+   "report_hash": "a45e177aac301f004452b6db255861d6428416edb542bc5c7e748a7147672ed0",
+   "signature_hash": "1f8660df31b61e356cd2d0a0340bc11a9db5b5306e9bc2e44adbcdd170473202",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.157585,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 63,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Shuttle X": 4.452066,
+    "Post Y": 0
+   },
+   "ok": true,
+   "report_hash": "e58aef03131e3c6cba38c64a3f9acaac8a094ac0430d88df33ff5fab77f3fee6",
+   "signature_hash": "1f8660df31b61e356cd2d0a0340bc11a9db5b5306e9bc2e44adbcdd170473202",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.047934,
+     "scale": 0.01
+    }
+   ]
+  }
+ ]
+}

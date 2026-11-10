@@ -1,0 +1,5352 @@
+[
+ {
+  "brief": "d05-shuttle-post",
+  "seed": 1,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Shuttle X": 7.624436,
+     "Post Y": -11.934343
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 1.646822,
+     "Post Y": 11.545223
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 28.102674,
+     "Post Y": -5.253516
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 6.770332,
+     "Post Y": 5.297835
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Shuttle X": -4.452183,
+     "Post Y": 11.875751
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -2.683732,
+     "Post Y": -0.26908
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -21.663985,
+     "Post Y": -2.310126
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -15.148566,
+     "Post Y": -8.292165
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -0.651366,
+     "Post Y": -10.383123
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -6.322841,
+     "Post Y": 6.410593
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -12.8483,
+     "Post Y": -7.419034
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -27.436217,
+     "Post Y": -1.742833
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 5.42295,
+     "Post Y": 7.168421
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -12.307808,
+     "Post Y": -7.068725
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 9.487779,
+     "Post Y": 1.105977
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Shuttle X": 15.50657,
+     "Post Y": -7.372463
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 13.256864,
+     "Post Y": -1.100736
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 16.224829,
+     "Post Y": 11.868816
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -15.640001,
+     "Post Y": 6.168031
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -20.803743,
+     "Post Y": -4.240041
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -5.208181,
+     "Post Y": -6.018896
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -20.874704,
+     "Post Y": 5.426516
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 4.580487,
+     "Post Y": -8.946939
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -14.120543,
+     "Post Y": -10.830637
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 7.333202,
+     "Post Y": 8.77853
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -15.690348,
+     "Post Y": 11.74506
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 13.098307,
+     "Post Y": -2.344851
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -11.857629,
+     "Post Y": 4.253159
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 27.157886,
+     "Post Y": 10.159948
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 11.564626,
+     "Post Y": 10.053211
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 20.065312,
+     "Post Y": 10.412119
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -23.11166,
+     "Post Y": -11.053248
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 22.121169,
+     "Post Y": -4.932578
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 22.873592,
+     "Post Y": 0.241407
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 26.153655,
+     "Post Y": 4.905489
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -20.024569,
+     "Post Y": 4.243416
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 26.932873,
+     "Post Y": -8.833906
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 28.672955,
+     "Post Y": -8.087692
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -6.698669,
+     "Post Y": -9.177657
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -5.925445,
+     "Post Y": -4.216202
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 9.453088,
+     "Post Y": 0.217548
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Shuttle X": 1.892641,
+     "Post Y": -10.173301
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 18.479446,
+     "Post Y": 8.501729
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -13.632807,
+     "Post Y": -8.057545
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -11.80461,
+     "Post Y": 9.45538
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -12.603635,
+     "Post Y": -8.550501
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 9.274594,
+     "Post Y": 1.177461
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Shuttle X": -10.522975,
+     "Post Y": -9.116025
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -21.519377,
+     "Post Y": -10.381717
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -11.950385,
+     "Post Y": 4.214592
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 9.086607,
+     "Post Y": -9.195872
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 0.490232,
+     "Post Y": 0.557682
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -17.289616,
+     "Post Y": 7.012764
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -14.859501,
+     "Post Y": 11.799692
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 27.240498,
+     "Post Y": 8.880238
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -29.777564,
+     "Post Y": -7.608695
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -28.298964,
+     "Post Y": 11.622035
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -10.216932,
+     "Post Y": 5.296199
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 21.92454,
+     "Post Y": -9.747539
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -14.963488,
+     "Post Y": 8.874459
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 17.712829,
+     "Post Y": 7.003722
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -16.751625,
+     "Post Y": -9.689688
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -21.051753,
+     "Post Y": -2.192083
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 2.553265,
+     "Post Y": -5.104906
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d05-shuttle-post",
+  "seed": 2,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Shuttle X": 14.055057,
+     "Post Y": -4.200038
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -12.882237,
+     "Post Y": 0.910924
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 22.517277,
+     "Post Y": 3.14
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -0.047906,
+     "Post Y": -3.426128
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 16.895334,
+     "Post Y": -9.263239
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 17.152019,
+     "Post Y": -7.162912
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -4.54646,
+     "Post Y": 8.039939
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 4.879225,
+     "Post Y": -8.615839
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 10.333634,
+     "Post Y": -3.199242
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 28.296807,
+     "Post Y": -11.059173
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 24.911867,
+     "Post Y": -10.507606
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -22.318532,
+     "Post Y": -7.393593
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -29.573666,
+     "Post Y": 10.56246
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -2.875537,
+     "Post Y": 3.231652
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 29.304624,
+     "Post Y": -6.412815
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -1.922218,
+     "Post Y": -3.642202
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -26.841834,
+     "Post Y": 0.509276
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -24.278204,
+     "Post Y": -10.612365
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 27.617565,
+     "Post Y": 7.320641
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -29.962433,
+     "Post Y": 11.569904
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -25.648893,
+     "Post Y": 11.336953
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 1.643471,
+     "Post Y": -7.325795
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 10.673525,
+     "Post Y": -10.764513
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 16.678278,
+     "Post Y": 9.878103
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 19.627826,
+     "Post Y": -1.303939
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 26.930308,
+     "Post Y": -10.292448
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 12.845821,
+     "Post Y": 11.520712
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 20.33262,
+     "Post Y": 3.39805
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 1.465196,
+     "Post Y": -11.204748
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 20.926482,
+     "Post Y": 8.13198
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 2.879102,
+     "Post Y": -4.499943
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 24.154659,
+     "Post Y": 10.280562
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -3.18281,
+     "Post Y": -3.617547
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -28.893116,
+     "Post Y": 10.855936
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -11.199016,
+     "Post Y": -1.481918
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 17.951746,
+     "Post Y": 8.817047
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 25.171036,
+     "Post Y": -1.636527
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -17.574234,
+     "Post Y": 3.509383
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 7.450329,
+     "Post Y": 5.117001
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Shuttle X": 26.281493,
+     "Post Y": -7.076648
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -13.269257,
+     "Post Y": -3.7127
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 2.235118,
+     "Post Y": -11.340481
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -12.714712,
+     "Post Y": 7.936206
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -19.967444,
+     "Post Y": 6.647303
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -6.330418,
+     "Post Y": -1.940828
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -6.28607,
+     "Post Y": 8.250286
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -1.460854,
+     "Post Y": 11.748171
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -14.403876,
+     "Post Y": -9.956424
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 12.483264,
+     "Post Y": -11.505576
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 14.054814,
+     "Post Y": 6.766545
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 8.848632,
+     "Post Y": -5.120632
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Shuttle X": -10.396979,
+     "Post Y": 3.635826
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -23.549191,
+     "Post Y": -7.490388
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 13.946019,
+     "Post Y": 11.411307
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 7.828167,
+     "Post Y": -9.263422
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 4.698733,
+     "Post Y": 10.69404
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -28.274129,
+     "Post Y": 1.875704
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 0.990147,
+     "Post Y": 5.226615
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 20.796925,
+     "Post Y": -1.794879
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 0.663101,
+     "Post Y": -10.366092
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 21.76208,
+     "Post Y": -1.311929
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -16.39406,
+     "Post Y": 1.978932
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -2.345029,
+     "Post Y": 1.668836
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 1.258106,
+     "Post Y": -4.718157
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d05-shuttle-post",
+  "seed": 3,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Shuttle X": 13.213607,
+     "Post Y": -11.072108
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -2.628468,
+     "Post Y": -10.201728
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 15.780323,
+     "Post Y": -0.45167
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -0.796226,
+     "Post Y": -8.116786
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -14.204624,
+     "Post Y": 1.262573
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -18.305025,
+     "Post Y": -9.993771
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 12.827243,
+     "Post Y": -0.558527
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 17.623923,
+     "Post Y": 9.11456
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -10.58258,
+     "Post Y": 4.573953
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -12.795176,
+     "Post Y": 4.13137
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 1.585715,
+     "Post Y": 7.961612
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 2.396827,
+     "Post Y": -11.721457
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 22.641262,
+     "Post Y": -4.550472
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 26.209309,
+     "Post Y": 6.464862
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -4.765183,
+     "Post Y": 5.152418
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -20.740082,
+     "Post Y": -3.169841
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 13.361959,
+     "Post Y": -11.965426
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -29.498651,
+     "Post Y": -0.520579
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 21.784534,
+     "Post Y": 2.471319
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 10.923884,
+     "Post Y": 6.871505
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 5.061609,
+     "Post Y": 1.962483
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Shuttle X": -25.744863,
+     "Post Y": -3.064916
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 1.855845,
+     "Post Y": 8.124493
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -5.220863,
+     "Post Y": -0.86481
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -0.194363,
+     "Post Y": 1.701152
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 16.564864,
+     "Post Y": 8.530667
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 9.876132,
+     "Post Y": -3.065063
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 11.337331,
+     "Post Y": 4.796391
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -2.022349,
+     "Post Y": 11.491315
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 22.844968,
+     "Post Y": 5.10281
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 10.627261,
+     "Post Y": 10.862753
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 15.910176,
+     "Post Y": -10.634655
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -26.030892,
+     "Post Y": 0.902229
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 21.930314,
+     "Post Y": -3.724176
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 2.411733,
+     "Post Y": -5.041682
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -2.202415,
+     "Post Y": 1.247438
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 4.669786,
+     "Post Y": -2.613437
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Shuttle X": 15.372507,
+     "Post Y": -7.848088
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 27.156936,
+     "Post Y": 3.433793
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 15.039633,
+     "Post Y": 6.479513
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -26.333258,
+     "Post Y": -2.100556
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -20.720483,
+     "Post Y": 4.577002
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 16.435388,
+     "Post Y": 2.908585
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 29.198166,
+     "Post Y": 11.767377
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 28.81862,
+     "Post Y": 1.987363
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 23.191881,
+     "Post Y": 10.807994
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 18.812553,
+     "Post Y": -4.413695
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 7.543237,
+     "Post Y": 10.654765
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -6.542435,
+     "Post Y": 2.372773
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -21.549904,
+     "Post Y": 3.144781
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 2.840225,
+     "Post Y": -5.846389
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 22.87464,
+     "Post Y": -10.821407
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 20.892926,
+     "Post Y": -9.881038
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -4.53687,
+     "Post Y": 9.347414
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -28.257285,
+     "Post Y": 4.087336
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -23.808437,
+     "Post Y": -5.088731
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 29.602025,
+     "Post Y": 0.560867
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -19.226984,
+     "Post Y": -11.876192
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -20.521513,
+     "Post Y": 3.569983
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 7.810287,
+     "Post Y": 7.865321
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 11.334841,
+     "Post Y": 7.381287
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -22.470188,
+     "Post Y": -7.37623
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -22.327067,
+     "Post Y": 2.620903
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 10.531097,
+     "Post Y": 1.860829
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d05-shuttle-post",
+  "seed": 4,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Shuttle X": 25.418172,
+     "Post Y": -4.006899
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -16.699926,
+     "Post Y": -10.035816
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -15.960165,
+     "Post Y": 0.203925
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -25.356511,
+     "Post Y": 11.372686
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 7.322249,
+     "Post Y": 4.579571
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Shuttle X": 16.088766,
+     "Post Y": -3.140432
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 13.949695,
+     "Post Y": 9.021002
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 1.726126,
+     "Post Y": 5.840308
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -4.695239,
+     "Post Y": -0.229196
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 14.154809,
+     "Post Y": 10.337358
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 28.772419,
+     "Post Y": -0.687742
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -9.122774,
+     "Post Y": 6.914171
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -13.841271,
+     "Post Y": 6.053006
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 1.654351,
+     "Post Y": -3.771139
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -2.648572,
+     "Post Y": -11.739058
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -0.872907,
+     "Post Y": 0.960488
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 15.829066,
+     "Post Y": -9.711244
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 18.436345,
+     "Post Y": -2.298797
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -10.214762,
+     "Post Y": 1.132411
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -26.367152,
+     "Post Y": 2.970116
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -13.302249,
+     "Post Y": 1.363793
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -21.190737,
+     "Post Y": 10.886331
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 21.154466,
+     "Post Y": 10.110557
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -8.998369,
+     "Post Y": -7.531648
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 9.521285,
+     "Post Y": -0.032119
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -25.949102,
+     "Post Y": 6.410794
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 27.392161,
+     "Post Y": -11.900974
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -1.100494,
+     "Post Y": 9.721277
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 11.288849,
+     "Post Y": 1.321675
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 28.975766,
+     "Post Y": -5.061152
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 16.042245,
+     "Post Y": -3.316696
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -2.11961,
+     "Post Y": 4.834056
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -29.675288,
+     "Post Y": -6.249944
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 0.28416,
+     "Post Y": 6.902265
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 21.231655,
+     "Post Y": -10.271352
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -2.369747,
+     "Post Y": 3.306051
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 28.721346,
+     "Post Y": 2.728415
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -13.147951,
+     "Post Y": 5.008321
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 16.193731,
+     "Post Y": -4.612393
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 27.308482,
+     "Post Y": 6.555188
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -19.126552,
+     "Post Y": 11.638433
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -6.967043,
+     "Post Y": 11.503446
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 25.972728,
+     "Post Y": -1.009473
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -22.713995,
+     "Post Y": -10.044128
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -29.431589,
+     "Post Y": -9.265582
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 10.190887,
+     "Post Y": -9.191459
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 24.079492,
+     "Post Y": 10.478596
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 10.946486,
+     "Post Y": -3.585574
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -7.040465,
+     "Post Y": 4.08253
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 24.604606,
+     "Post Y": -6.051142
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 7.8511,
+     "Post Y": 5.519838
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Shuttle X": 6.377416,
+     "Post Y": 8.725289
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 26.196793,
+     "Post Y": 5.080833
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -23.429351,
+     "Post Y": 3.900594
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 20.839816,
+     "Post Y": -8.383825
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -13.095802,
+     "Post Y": 5.684927
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -7.44997,
+     "Post Y": 11.987053
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 25.036159,
+     "Post Y": -11.270514
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 15.807925,
+     "Post Y": -2.269302
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 24.047932,
+     "Post Y": 0.225304
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -27.041391,
+     "Post Y": 4.566695
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -27.16007,
+     "Post Y": 9.576277
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 6.742109,
+     "Post Y": 1.531442
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Shuttle X": -3.642451,
+     "Post Y": 6.735557
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d05-shuttle-post",
+  "seed": 5,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Shuttle X": 11.386495,
+     "Post Y": 6.545839
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -16.814219,
+     "Post Y": 2.956292
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -24.891768,
+     "Post Y": 2.211959
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 13.206135,
+     "Post Y": -1.005499
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 24.33729,
+     "Post Y": -6.493705
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 16.791805,
+     "Post Y": 5.774708
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 9.633603,
+     "Post Y": -11.668286
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -2.075916,
+     "Post Y": -4.789078
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 23.792987,
+     "Post Y": -5.085219
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 15.31783,
+     "Post Y": 5.363599
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -14.785314,
+     "Post Y": -11.543559
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 17.610495,
+     "Post Y": -7.001101
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -13.642841,
+     "Post Y": -9.041714
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -1.795342,
+     "Post Y": 11.799441
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -15.27165,
+     "Post Y": -10.057323
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 20.915586,
+     "Post Y": -4.391418
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -5.546278,
+     "Post Y": 11.657697
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -13.681447,
+     "Post Y": -2.733542
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -16.96448,
+     "Post Y": 8.861385
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 13.341686,
+     "Post Y": 9.091499
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 0.693175,
+     "Post Y": 7.321647
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 8.94934,
+     "Post Y": -8.648893
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 8.162854,
+     "Post Y": 1.862856
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Shuttle X": -11.089002,
+     "Post Y": 6.693254
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 6.565086,
+     "Post Y": -11.804954
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 25.920617,
+     "Post Y": -3.803537
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -8.993434,
+     "Post Y": 8.990459
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -15.048296,
+     "Post Y": -7.794713
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 20.019957,
+     "Post Y": -5.306626
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 29.897193,
+     "Post Y": -11.670588
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -8.936267,
+     "Post Y": 6.204141
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -11.146093,
+     "Post Y": 3.858204
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -25.393405,
+     "Post Y": -10.081515
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 14.097589,
+     "Post Y": 0.593377
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -14.793805,
+     "Post Y": 10.320972
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -27.028229,
+     "Post Y": 5.633045
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 27.232428,
+     "Post Y": -5.154629
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 1.990236,
+     "Post Y": 8.556224
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 20.808945,
+     "Post Y": 1.893436
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 27.389126,
+     "Post Y": 4.859661
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 2.410885,
+     "Post Y": -9.362302
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -12.357096,
+     "Post Y": 0.706974
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -20.699926,
+     "Post Y": -5.949371
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 16.011739,
+     "Post Y": -8.674143
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -25.196822,
+     "Post Y": -4.159355
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 18.337375,
+     "Post Y": 3.435911
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -5.248047,
+     "Post Y": -9.657526
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -12.569156,
+     "Post Y": 10.965884
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -10.412698,
+     "Post Y": 4.866706
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 14.649142,
+     "Post Y": -9.546883
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 17.0104,
+     "Post Y": 10.361228
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 6.34331,
+     "Post Y": -9.326604
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -8.29303,
+     "Post Y": -2.328492
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -26.888648,
+     "Post Y": -1.88877
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 25.068244,
+     "Post Y": -4.529558
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 16.008711,
+     "Post Y": -10.751662
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 18.985285,
+     "Post Y": -9.584238
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 0.716596,
+     "Post Y": 7.844631
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -17.416604,
+     "Post Y": 2.315559
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -23.945571,
+     "Post Y": -3.267985
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 9.806713,
+     "Post Y": -5.898985
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 10.878232,
+     "Post Y": -6.243965
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -14.801273,
+     "Post Y": 11.632065
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 8.587632,
+     "Post Y": -1.130074
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   }
+  ]
+ },
+ {
+  "brief": "d05-shuttle-post",
+  "seed": 6,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Shuttle X": 1.544797,
+     "Post Y": -11.943755
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 9.790285,
+     "Post Y": -7.148095
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 2.527175,
+     "Post Y": -10.301667
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -29.72773,
+     "Post Y": 10.102234
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 28.233338,
+     "Post Y": -6.958731
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 26.039784,
+     "Post Y": -2.814254
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -28.65889,
+     "Post Y": -10.763028
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -2.820248,
+     "Post Y": 6.821619
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 7.876417,
+     "Post Y": -0.454873
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Shuttle X": -5.600812,
+     "Post Y": -7.218888
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 29.272789,
+     "Post Y": 10.683126
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -13.852336,
+     "Post Y": 10.67709
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 21.203269,
+     "Post Y": 11.614833
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 11.9093,
+     "Post Y": 10.667128
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 27.702894,
+     "Post Y": 10.663569
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -16.902736,
+     "Post Y": 1.262244
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -17.676479,
+     "Post Y": -4.996546
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -17.219242,
+     "Post Y": 7.951782
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -5.703754,
+     "Post Y": 1.958691
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 4.698085,
+     "Post Y": 9.251409
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 4.275688,
+     "Post Y": 9.010484
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 12.812308,
+     "Post Y": 1.753386
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -13.64589,
+     "Post Y": 8.451841
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 18.621776,
+     "Post Y": -7.095455
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -4.841278,
+     "Post Y": -3.30878
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 9.479762,
+     "Post Y": -11.479167
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -10.126738,
+     "Post Y": -4.991843
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -14.603985,
+     "Post Y": -4.738165
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -14.176687,
+     "Post Y": -3.051269
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -24.574533,
+     "Post Y": -3.346782
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -25.004902,
+     "Post Y": 10.291591
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 0.025657,
+     "Post Y": -9.234959
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -0.632492,
+     "Post Y": -0.624732
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -26.684187,
+     "Post Y": -1.361789
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 10.015431,
+     "Post Y": -4.930243
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -12.639015,
+     "Post Y": 10.237751
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -22.757648,
+     "Post Y": -8.111644
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 5.20602,
+     "Post Y": 4.589541
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Shuttle X": 14.072656,
+     "Post Y": 9.549773
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -20.471252,
+     "Post Y": 2.224319
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -4.729322,
+     "Post Y": 5.426347
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -21.037482,
+     "Post Y": -7.417024
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 20.277688,
+     "Post Y": -10.083247
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -23.91605,
+     "Post Y": 1.864711
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -12.011107,
+     "Post Y": 5.591003
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 0.197101,
+     "Post Y": 9.107468
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 16.305923,
+     "Post Y": -7.429436
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -13.652874,
+     "Post Y": 0.629169
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -9.856869,
+     "Post Y": 0.80793
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -20.266112,
+     "Post Y": -9.062867
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -18.518666,
+     "Post Y": -2.15102
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -21.268272,
+     "Post Y": 5.798082
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 13.748709,
+     "Post Y": -11.857536
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 7.46676,
+     "Post Y": -10.707407
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 24.147186,
+     "Post Y": -1.866418
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 19.409335,
+     "Post Y": 7.960102
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 26.094719,
+     "Post Y": -2.549299
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 11.822077,
+     "Post Y": -11.460068
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -6.71565,
+     "Post Y": 9.477083
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -17.472239,
+     "Post Y": 4.522661
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -24.285085,
+     "Post Y": -2.915582
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -24.917369,
+     "Post Y": -7.384372
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 16.53263,
+     "Post Y": 2.169277
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 0.008807,
+     "Post Y": -5.409741
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d05-shuttle-post",
+  "seed": 7,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Shuttle X": -29.297715,
+     "Post Y": -10.513002
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 28.614458,
+     "Post Y": 4.776689
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 1.286716,
+     "Post Y": -2.267479
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -2.026042,
+     "Post Y": -6.241796
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 3.199536,
+     "Post Y": 5.51573
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -14.531066,
+     "Post Y": -8.257239
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 15.845393,
+     "Post Y": 0.441661
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -18.171764,
+     "Post Y": -3.168994
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -12.40516,
+     "Post Y": 0.833749
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -12.220185,
+     "Post Y": 11.470707
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -15.147984,
+     "Post Y": 9.06671
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -18.552497,
+     "Post Y": -8.552223
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -20.721358,
+     "Post Y": -5.017171
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 2.874086,
+     "Post Y": 6.284969
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -25.528915,
+     "Post Y": 9.910577
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 3.222645,
+     "Post Y": 2.918996
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 10.805454,
+     "Post Y": 11.183753
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 7.462839,
+     "Post Y": 10.108917
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 19.657709,
+     "Post Y": -11.040517
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -19.503507,
+     "Post Y": -3.432456
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -4.481057,
+     "Post Y": -11.515773
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -24.713626,
+     "Post Y": 6.432381
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -7.861842,
+     "Post Y": -1.758823
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -1.880242,
+     "Post Y": 10.709308
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 12.196865,
+     "Post Y": 4.519139
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -10.161125,
+     "Post Y": -3.447971
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -21.672528,
+     "Post Y": -8.800962
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 24.782092,
+     "Post Y": -4.261753
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -18.577468,
+     "Post Y": 3.17301
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -9.793744,
+     "Post Y": -10.952848
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 11.055227,
+     "Post Y": 10.112923
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 2.872359,
+     "Post Y": 7.837861
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 9.314663,
+     "Post Y": 10.077072
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -22.977516,
+     "Post Y": 0.718298
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 8.949962,
+     "Post Y": 9.385558
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 27.629904,
+     "Post Y": 8.110979
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 5.654075,
+     "Post Y": 11.132899
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 28.050379,
+     "Post Y": 1.165638
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 19.111079,
+     "Post Y": -11.863201
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 0.964409,
+     "Post Y": -4.126647
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 13.456296,
+     "Post Y": 1.187882
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 15.324981,
+     "Post Y": 11.446415
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 3.453199,
+     "Post Y": 7.755828
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -4.200352,
+     "Post Y": 3.416434
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 14.31322,
+     "Post Y": 1.240721
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -11.25697,
+     "Post Y": -6.315956
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -29.441111,
+     "Post Y": -11.422253
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 26.603814,
+     "Post Y": 8.000854
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 7.836084,
+     "Post Y": -11.654371
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 7.133764,
+     "Post Y": 2.277519
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Shuttle X": 13.010985,
+     "Post Y": 11.876655
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -13.320156,
+     "Post Y": 11.670607
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 8.998265,
+     "Post Y": 7.318019
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 7.463935,
+     "Post Y": 7.923334
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -21.65615,
+     "Post Y": 11.860767
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 0.4159,
+     "Post Y": 1.605358
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -20.347065,
+     "Post Y": -2.492009
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -17.359857,
+     "Post Y": 7.525013
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 21.694039,
+     "Post Y": 5.662063
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 9.507312,
+     "Post Y": 11.76583
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 6.558598,
+     "Post Y": 5.674923
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Shuttle X": 27.323317,
+     "Post Y": -0.258725
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -16.213599,
+     "Post Y": 2.016185
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 17.740899,
+     "Post Y": 8.494065
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d05-shuttle-post",
+  "seed": 8,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Shuttle X": -20.62229,
+     "Post Y": 3.004614
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -11.960125,
+     "Post Y": 4.702903
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 5.100546,
+     "Post Y": -1.214424
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Shuttle X": 19.125573,
+     "Post Y": -6.268451
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 0.39706,
+     "Post Y": -10.556686
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 0.851035,
+     "Post Y": -10.239398
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 4.167279,
+     "Post Y": -6.711365
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -20.367143,
+     "Post Y": 10.913583
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 11.60582,
+     "Post Y": -9.816101
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -22.331568,
+     "Post Y": -11.054789
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 3.359185,
+     "Post Y": -1.3417
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 15.163118,
+     "Post Y": 6.58045
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -27.619715,
+     "Post Y": -1.105225
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -8.48313,
+     "Post Y": 0.009929
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -10.738921,
+     "Post Y": 0.445349
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -22.522131,
+     "Post Y": 8.661817
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -10.56027,
+     "Post Y": 5.594742
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 23.980253,
+     "Post Y": 0.273654
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 11.096516,
+     "Post Y": 6.106124
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 8.954262,
+     "Post Y": -4.613153
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Shuttle X": -13.399543,
+     "Post Y": -9.501866
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -11.391181,
+     "Post Y": 11.996813
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 4.092743,
+     "Post Y": -2.31778
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -27.125621,
+     "Post Y": -1.383318
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 17.352387,
+     "Post Y": 11.947818
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -15.002311,
+     "Post Y": 8.651912
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -25.604607,
+     "Post Y": 1.124893
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 2.158,
+     "Post Y": -7.719323
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -5.676895,
+     "Post Y": -9.23598
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -23.570614,
+     "Post Y": 11.863823
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 20.300261,
+     "Post Y": -7.420173
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -28.641521,
+     "Post Y": 11.015032
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 6.390631,
+     "Post Y": 7.0627
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -5.994514,
+     "Post Y": -1.317669
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -28.154461,
+     "Post Y": -1.988599
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -11.998458,
+     "Post Y": 4.855581
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -29.933318,
+     "Post Y": 6.053778
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -7.53621,
+     "Post Y": -5.847825
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 28.988809,
+     "Post Y": 9.289618
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 20.462349,
+     "Post Y": 2.120734
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 10.202008,
+     "Post Y": 10.91159
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -11.389468,
+     "Post Y": -9.726478
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 5.074067,
+     "Post Y": -2.477616
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Shuttle X": -9.80105,
+     "Post Y": 9.417509
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -10.568926,
+     "Post Y": 1.174244
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -12.929471,
+     "Post Y": 5.368797
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 2.065642,
+     "Post Y": -2.324003
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 14.390482,
+     "Post Y": 0.447042
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 12.93137,
+     "Post Y": 7.823042
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -8.187675,
+     "Post Y": -5.615996
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 28.672575,
+     "Post Y": -10.57982
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -24.505188,
+     "Post Y": 4.410596
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -10.974893,
+     "Post Y": 10.47705
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -28.141999,
+     "Post Y": 1.896712
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -8.448652,
+     "Post Y": 4.398667
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -22.819204,
+     "Post Y": -7.423104
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -14.523077,
+     "Post Y": 6.10661
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 15.153134,
+     "Post Y": -9.357462
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 2.038921,
+     "Post Y": -1.431638
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 6.892475,
+     "Post Y": -5.602102
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Shuttle X": -14.142191,
+     "Post Y": 0.843779
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -14.31122,
+     "Post Y": -9.566299
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -1.669344,
+     "Post Y": -6.933788
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 1.089654,
+     "Post Y": -9.582223
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d05-shuttle-post",
+  "seed": 9,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Shuttle X": -18.076265,
+     "Post Y": 8.429059
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -21.494034,
+     "Post Y": 7.720121
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 13.428264,
+     "Post Y": 4.532679
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -14.236894,
+     "Post Y": 10.066902
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -22.148301,
+     "Post Y": 3.174972
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 11.880946,
+     "Post Y": 2.094849
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -12.994213,
+     "Post Y": 10.507601
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -12.778651,
+     "Post Y": 5.526511
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 8.518445,
+     "Post Y": -3.193519
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Shuttle X": 2.132774,
+     "Post Y": 9.53852
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 21.933531,
+     "Post Y": -1.072128
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 22.421263,
+     "Post Y": -7.444416
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 10.636922,
+     "Post Y": -3.99455
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -27.114306,
+     "Post Y": 9.031485
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -17.727817,
+     "Post Y": 0.632549
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -0.354548,
+     "Post Y": -10.206329
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 20.053572,
+     "Post Y": 4.889398
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -18.192125,
+     "Post Y": -10.360046
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -0.672022,
+     "Post Y": -4.567191
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 9.523782,
+     "Post Y": -4.988356
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 3.201023,
+     "Post Y": 10.969661
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 4.073151,
+     "Post Y": -8.156994
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 1.052359,
+     "Post Y": -4.192045
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 2.205646,
+     "Post Y": 7.193932
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 4.623994,
+     "Post Y": 2.728644
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Shuttle X": 2.011872,
+     "Post Y": 3.758354
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -0.189893,
+     "Post Y": -7.685966
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 25.781176,
+     "Post Y": 2.325913
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 8.4695,
+     "Post Y": 1.272108
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Shuttle X": 9.406997,
+     "Post Y": 11.580699
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 25.048521,
+     "Post Y": -11.485601
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 13.905102,
+     "Post Y": -9.718996
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 9.951145,
+     "Post Y": 3.362386
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 28.490302,
+     "Post Y": 5.628387
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 24.291072,
+     "Post Y": 7.06854
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -16.063994,
+     "Post Y": 4.466906
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 27.430089,
+     "Post Y": -9.05491
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 26.495411,
+     "Post Y": 4.449618
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 17.590485,
+     "Post Y": -3.697488
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 16.147088,
+     "Post Y": -4.253527
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 12.901939,
+     "Post Y": 8.577157
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -25.835076,
+     "Post Y": 2.005268
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 3.411847,
+     "Post Y": -4.315752
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 2.066808,
+     "Post Y": -5.190839
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -0.722168,
+     "Post Y": -7.532911
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 19.164267,
+     "Post Y": 4.621636
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 4.28224,
+     "Post Y": 10.641231
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 20.475743,
+     "Post Y": -11.165513
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -17.098002,
+     "Post Y": 2.298415
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 11.118475,
+     "Post Y": -7.253647
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -14.237043,
+     "Post Y": 9.462636
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 8.549984,
+     "Post Y": -11.936329
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -2.342742,
+     "Post Y": -9.816985
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -18.49377,
+     "Post Y": -9.317686
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -19.40416,
+     "Post Y": -7.400368
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -12.681765,
+     "Post Y": 7.828566
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -21.200615,
+     "Post Y": 8.527437
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 11.38253,
+     "Post Y": 7.979914
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -7.270579,
+     "Post Y": 10.752448
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 1.875419,
+     "Post Y": 10.874274
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 19.686832,
+     "Post Y": -0.41949
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -14.832191,
+     "Post Y": 10.096975
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 26.501662,
+     "Post Y": -10.00894
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -8.448273,
+     "Post Y": -3.70355
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d05-shuttle-post",
+  "seed": 10,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Shuttle X": 0.119521,
+     "Post Y": 10.019683
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 11.479098,
+     "Post Y": 7.250464
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -2.554942,
+     "Post Y": -1.239691
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -17.862783,
+     "Post Y": -9.994529
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -27.95239,
+     "Post Y": 11.921246
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 25.325683,
+     "Post Y": -8.896141
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -6.433597,
+     "Post Y": -2.686541
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -3.341123,
+     "Post Y": 10.216108
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -12.531774,
+     "Post Y": 7.395934
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 26.162489,
+     "Post Y": -8.210648
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -6.677766,
+     "Post Y": 4.689127
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 1.23473,
+     "Post Y": -0.436715
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -12.324967,
+     "Post Y": -3.784041
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -6.960581,
+     "Post Y": 0.413426
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -27.248256,
+     "Post Y": 0.305024
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -27.690599,
+     "Post Y": -10.216417
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -17.75717,
+     "Post Y": -8.483234
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -24.894193,
+     "Post Y": -8.568955
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 16.053752,
+     "Post Y": -0.389225
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -4.92229,
+     "Post Y": 3.111333
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 17.7065,
+     "Post Y": -8.211778
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -3.320693,
+     "Post Y": 10.029811
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -15.735234,
+     "Post Y": 6.952749
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 11.046274,
+     "Post Y": -8.775192
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 5.851863,
+     "Post Y": 9.109268
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 5.763856,
+     "Post Y": -11.624832
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 14.502769,
+     "Post Y": 5.264114
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 7.023862,
+     "Post Y": 7.211057
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 3.368686,
+     "Post Y": -2.66791
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -11.062795,
+     "Post Y": 6.060009
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -22.769796,
+     "Post Y": -2.675645
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -16.761326,
+     "Post Y": -10.606854
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 22.635892,
+     "Post Y": -1.409603
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -3.358595,
+     "Post Y": -8.20008
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 22.767427,
+     "Post Y": -1.828393
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 22.043682,
+     "Post Y": 10.335774
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -25.909953,
+     "Post Y": -8.080523
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -11.970122,
+     "Post Y": 11.628353
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 27.257329,
+     "Post Y": 1.31525
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -29.952189,
+     "Post Y": -7.119129
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -10.569679,
+     "Post Y": 5.771154
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 22.656081,
+     "Post Y": 8.4828
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 20.698174,
+     "Post Y": -4.167817
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -17.754802,
+     "Post Y": -4.97016
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 28.661367,
+     "Post Y": 9.662793
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 11.493583,
+     "Post Y": 6.575471
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 0.185918,
+     "Post Y": -2.164851
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -15.994127,
+     "Post Y": -5.783272
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 7.112814,
+     "Post Y": -3.549694
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Shuttle X": 16.55533,
+     "Post Y": -11.303112
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 2.648061,
+     "Post Y": 9.085392
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 18.037829,
+     "Post Y": 0.099866
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -4.646729,
+     "Post Y": 7.426346
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 23.743322,
+     "Post Y": -0.453094
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -16.768672,
+     "Post Y": -5.782857
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -26.935055,
+     "Post Y": 9.432746
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -11.273001,
+     "Post Y": 4.434794
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 9.767022,
+     "Post Y": 1.153221
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -13.085619,
+     "Post Y": -3.645318
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -11.97702,
+     "Post Y": 1.953935
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -2.431004,
+     "Post Y": 4.415815
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -13.003243,
+     "Post Y": 5.658235
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": 27.026815,
+     "Post Y": 2.382184
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Shuttle X": -22.261884,
+     "Post Y": -11.150391
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ }
+]

@@ -1,0 +1,5954 @@
+[
+ {
+  "brief": "d04-bolt-circle-count",
+  "seed": 1,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Bolt circle radius": 30.676849,
+     "Holes": 3,
+     "Thickness": 8.219576
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 39.526274,
+     "Holes": 16,
+     "Thickness": 6.248828
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 30.320972,
+     "Holes": 13,
+     "Thickness": 7.406376
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 39.870574,
+     "Holes": 9,
+     "Thickness": 7.910307
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 18.47334,
+     "Holes": 8,
+     "Thickness": 5.980191
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 18.862328,
+     "Holes": 9,
+     "Thickness": 4.538959
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 24.865483,
+     "Holes": 13,
+     "Thickness": 6.286893
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 19.771839,
+     "Holes": 3,
+     "Thickness": 7.419056
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 29.759562,
+     "Holes": 14,
+     "Thickness": 6.358959
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 20.136745,
+     "Holes": 12,
+     "Thickness": 8.368659
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 33.961071,
+     "Holes": 5,
+     "Thickness": 9.767582
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 26.3534,
+     "Holes": 13,
+     "Thickness": 11.956272
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 20.983333,
+     "Holes": 13,
+     "Thickness": 5.226168
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 23.08329,
+     "Holes": 8,
+     "Thickness": 5.993701
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 18.802207,
+     "Holes": 13,
+     "Thickness": 8.610732
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 18.180272,
+     "Holes": 6,
+     "Thickness": 4.389788
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 30.555501,
+     "Holes": 15,
+     "Thickness": 5.907954
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 39.734437,
+     "Holes": 13,
+     "Thickness": 7.218383
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 22.559321,
+     "Holes": 12,
+     "Thickness": 11.621052
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 38.083279,
+     "Holes": 12,
+     "Thickness": 11.35107
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 35.860547,
+     "Holes": 16,
+     "Thickness": 4.918445
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 15.9862,
+     "Holes": 15,
+     "Thickness": 6.355807
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Bolt circle radius": 37.030663,
+     "Holes": 10,
+     "Thickness": 11.487154
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 32.609884,
+     "Holes": 5,
+     "Thickness": 9.414472
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 38.72203,
+     "Holes": 4,
+     "Thickness": 11.823061
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 19.07532,
+     "Holes": 8,
+     "Thickness": 4.940781
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 25.031065,
+     "Holes": 7,
+     "Thickness": 9.260412
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 27.726613,
+     "Holes": 10,
+     "Thickness": 4.6089
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 35.199769,
+     "Holes": 14,
+     "Thickness": 6.182292
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 19.106724,
+     "Holes": 7,
+     "Thickness": 11.151793
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 22.248485,
+     "Holes": 5,
+     "Thickness": 9.236613
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 28.726522,
+     "Holes": 7,
+     "Thickness": 4.961325
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 18.533593,
+     "Holes": 3,
+     "Thickness": 6.406615
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 31.8902,
+     "Holes": 12,
+     "Thickness": 4.934709
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 27.704263,
+     "Holes": 10,
+     "Thickness": 5.694718
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 34.804962,
+     "Holes": 6,
+     "Thickness": 11.933231
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 38.850207,
+     "Holes": 15,
+     "Thickness": 4.029658
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 19.574276,
+     "Holes": 3,
+     "Thickness": 11.874012
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 23.242945,
+     "Holes": 13,
+     "Thickness": 10.923272
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 17.346314,
+     "Holes": 6,
+     "Thickness": 10.958153
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 34.880345,
+     "Holes": 14,
+     "Thickness": 5.76645
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 17.406575,
+     "Holes": 5,
+     "Thickness": 7.269306
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 28.56386,
+     "Holes": 7,
+     "Thickness": 11.076291
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 22.804987,
+     "Holes": 15,
+     "Thickness": 10.894052
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 30.824304,
+     "Holes": 12,
+     "Thickness": 5.876455
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 24.591244,
+     "Holes": 7,
+     "Thickness": 5.636889
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 21.623501,
+     "Holes": 16,
+     "Thickness": 11.72998
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 18.996471,
+     "Holes": 7,
+     "Thickness": 4.613255
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 15.914863,
+     "Holes": 13,
+     "Thickness": 7.097203
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 21.093237,
+     "Holes": 5,
+     "Thickness": 10.569441
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 22.698722,
+     "Holes": 15,
+     "Thickness": 8.207025
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 25.695828,
+     "Holes": 12,
+     "Thickness": 6.758711
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 21.131466,
+     "Holes": 10,
+     "Thickness": 10.099169
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 34.858367,
+     "Holes": 3,
+     "Thickness": 5.669016
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 30.793051,
+     "Holes": 12,
+     "Thickness": 4.239299
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 23.156979,
+     "Holes": 9,
+     "Thickness": 10.973013
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 31.220354,
+     "Holes": 8,
+     "Thickness": 6.836769
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 30.031966,
+     "Holes": 3,
+     "Thickness": 11.389468
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 28.502005,
+     "Holes": 10,
+     "Thickness": 9.140347
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 18.10966,
+     "Holes": 3,
+     "Thickness": 10.513937
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 18.536837,
+     "Holes": 12,
+     "Thickness": 6.211376
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 31.036884,
+     "Holes": 7,
+     "Thickness": 8.36475
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 38.138759,
+     "Holes": 4,
+     "Thickness": 4.881201
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 19.333355,
+     "Holes": 12,
+     "Thickness": 4.363498
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d04-bolt-circle-count",
+  "seed": 2,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Bolt circle radius": 33.356274,
+     "Holes": 7,
+     "Thickness": 6.282368
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 28.448879,
+     "Holes": 15,
+     "Thickness": 9.046667
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 27.480039,
+     "Holes": 8,
+     "Thickness": 10.252711
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 17.850793,
+     "Holes": 14,
+     "Thickness": 5.612363
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 25.605642,
+     "Holes": 14,
+     "Thickness": 8.650563
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 18.525167,
+     "Holes": 12,
+     "Thickness": 6.933586
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 39.290336,
+     "Holes": 3,
+     "Thickness": 11.321582
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 16.554577,
+     "Holes": 4,
+     "Thickness": 5.535469
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 15.177639,
+     "Holes": 16,
+     "Thickness": 7.616595
+    },
+    "failing": [
+     "status",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "status",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Bolt circle radius": 30.866305,
+     "Holes": 16,
+     "Thickness": 5.862395
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 26.699076,
+     "Holes": 7,
+     "Thickness": 4.421089
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 28.030496,
+     "Holes": 4,
+     "Thickness": 4.462545
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 39.007319,
+     "Holes": 14,
+     "Thickness": 4.005009
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 39.551983,
+     "Holes": 4,
+     "Thickness": 11.778984
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 28.18478,
+     "Holes": 5,
+     "Thickness": 9.423137
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 16.286965,
+     "Holes": 13,
+     "Thickness": 11.292701
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 35.678261,
+     "Holes": 9,
+     "Thickness": 11.590708
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 16.7787,
+     "Holes": 12,
+     "Thickness": 11.840237
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 35.971925,
+     "Holes": 11,
+     "Thickness": 8.19536
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 15.828387,
+     "Holes": 14,
+     "Thickness": 10.71066
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Bolt circle radius": 28.699626,
+     "Holes": 7,
+     "Thickness": 11.220621
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 38.208919,
+     "Holes": 9,
+     "Thickness": 6.794151
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 15.461202,
+     "Holes": 16,
+     "Thickness": 6.506798
+    },
+    "failing": [
+     "status",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "status",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Bolt circle radius": 25.956336,
+     "Holes": 14,
+     "Thickness": 10.939016
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 37.987932,
+     "Holes": 9,
+     "Thickness": 5.656769
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 31.155607,
+     "Holes": 11,
+     "Thickness": 9.705667
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 38.450622,
+     "Holes": 5,
+     "Thickness": 6.230766
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 23.632604,
+     "Holes": 10,
+     "Thickness": 4.21984
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 22.202204,
+     "Holes": 14,
+     "Thickness": 5.337674
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 34.424274,
+     "Holes": 8,
+     "Thickness": 7.353057
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 24.880804,
+     "Holes": 14,
+     "Thickness": 7.805219
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 39.737678,
+     "Holes": 6,
+     "Thickness": 4.681192
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 32.70136,
+     "Holes": 3,
+     "Thickness": 9.873975
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 34.548484,
+     "Holes": 12,
+     "Thickness": 6.293123
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 23.167925,
+     "Holes": 12,
+     "Thickness": 4.860108
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 19.697512,
+     "Holes": 13,
+     "Thickness": 11.803769
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 30.761736,
+     "Holes": 4,
+     "Thickness": 8.626498
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 38.639625,
+     "Holes": 3,
+     "Thickness": 8.625235
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 27.912561,
+     "Holes": 13,
+     "Thickness": 10.772923
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 25.630335,
+     "Holes": 10,
+     "Thickness": 4.544636
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 36.567533,
+     "Holes": 9,
+     "Thickness": 5.814125
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 29.561387,
+     "Holes": 9,
+     "Thickness": 8.556279
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 28.024211,
+     "Holes": 7,
+     "Thickness": 5.721134
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 37.661115,
+     "Holes": 11,
+     "Thickness": 8.157558
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 20.095047,
+     "Holes": 5,
+     "Thickness": 6.009497
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 35.547642,
+     "Holes": 5,
+     "Thickness": 11.820661
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 20.692307,
+     "Holes": 14,
+     "Thickness": 6.579548
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 22.868175,
+     "Holes": 13,
+     "Thickness": 11.290187
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 24.307018,
+     "Holes": 8,
+     "Thickness": 10.5683
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 37.344369,
+     "Holes": 7,
+     "Thickness": 7.429858
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 37.556447,
+     "Holes": 15,
+     "Thickness": 8.307189
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 35.854239,
+     "Holes": 5,
+     "Thickness": 6.991665
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 22.717781,
+     "Holes": 4,
+     "Thickness": 6.486863
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 37.550079,
+     "Holes": 6,
+     "Thickness": 6.256066
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 37.017283,
+     "Holes": 4,
+     "Thickness": 5.668046
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 16.483331,
+     "Holes": 12,
+     "Thickness": 9.456494
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 29.700955,
+     "Holes": 14,
+     "Thickness": 6.970622
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 36.45827,
+     "Holes": 3,
+     "Thickness": 9.393389
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 32.163247,
+     "Holes": 14,
+     "Thickness": 5.314448
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 28.777032,
+     "Holes": 5,
+     "Thickness": 7.182571
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 24.246202,
+     "Holes": 15,
+     "Thickness": 8.707292
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 33.710645,
+     "Holes": 3,
+     "Thickness": 9.414024
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 17.272158,
+     "Holes": 15,
+     "Thickness": 4.093507
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Bolt circle radius": 21.458377,
+     "Holes": 4,
+     "Thickness": 11.384091
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d04-bolt-circle-count",
+  "seed": 3,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Bolt circle radius": 33.00567,
+     "Holes": 3,
+     "Thickness": 7.649538
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 16.8732,
+     "Holes": 13,
+     "Thickness": 7.849443
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 27.168239,
+     "Holes": 5,
+     "Thickness": 6.10605
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 28.815181,
+     "Holes": 5,
+     "Thickness": 4.668743
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 32.844685,
+     "Holes": 9,
+     "Thickness": 10.349856
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 36.994333,
+     "Holes": 7,
+     "Thickness": 9.524651
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 22.168677,
+     "Holes": 12,
+     "Thickness": 8.211429
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 35.793346,
+     "Holes": 10,
+     "Thickness": 4.092848
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 36.933859,
+     "Holes": 7,
+     "Thickness": 11.494574
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 34.234231,
+     "Holes": 8,
+     "Thickness": 9.717473
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 18.858299,
+     "Holes": 8,
+     "Thickness": 9.781595
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 15.036015,
+     "Holes": 3,
+     "Thickness": 7.826474
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 36.576889,
+     "Holes": 11,
+     "Thickness": 9.456518
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 34.657817,
+     "Holes": 11,
+     "Thickness": 8.654161
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 16.772974,
+     "Holes": 8,
+     "Thickness": 8.247446
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 35.963014,
+     "Holes": 8,
+     "Thickness": 7.71173
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 27.419016,
+     "Holes": 10,
+     "Thickness": 10.208649
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 36.386111,
+     "Holes": 12,
+     "Thickness": 6.978312
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 32.223888,
+     "Holes": 12,
+     "Thickness": 7.730353
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 39.47012,
+     "Holes": 15,
+     "Thickness": 9.700937
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 31.928025,
+     "Holes": 16,
+     "Thickness": 10.121357
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 16.422235,
+     "Holes": 3,
+     "Thickness": 8.300743
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 36.637631,
+     "Holes": 7,
+     "Thickness": 8.321564
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 22.248248,
+     "Holes": 9,
+     "Thickness": 8.415813
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 29.445744,
+     "Holes": 8,
+     "Thickness": 10.049668
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 19.324909,
+     "Holes": 16,
+     "Thickness": 9.144598
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 33.766514,
+     "Holes": 13,
+     "Thickness": 4.488899
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 25.311921,
+     "Holes": 5,
+     "Thickness": 9.525667
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 34.348078,
+     "Holes": 11,
+     "Thickness": 11.893089
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 39.757684,
+     "Holes": 16,
+     "Thickness": 8.662454
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 37.163284,
+     "Holes": 16,
+     "Thickness": 10.50834
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 22.902401,
+     "Holes": 11,
+     "Thickness": 11.551588
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 24.773985,
+     "Holes": 11,
+     "Thickness": 5.12668
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 30.775813,
+     "Holes": 10,
+     "Thickness": 6.051204
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 37.0311,
+     "Holes": 3,
+     "Thickness": 10.785723
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 17.207252,
+     "Holes": 8,
+     "Thickness": 11.115805
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 15.726131,
+     "Holes": 12,
+     "Thickness": 4.825542
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 22.199239,
+     "Holes": 16,
+     "Thickness": 8.186956
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 19.488757,
+     "Holes": 3,
+     "Thickness": 5.263798
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 31.218733,
+     "Holes": 11,
+     "Thickness": 10.621774
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 32.222851,
+     "Holes": 14,
+     "Thickness": 5.003975
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 19.816427,
+     "Holes": 4,
+     "Thickness": 8.873634
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 31.887957,
+     "Holes": 11,
+     "Thickness": 9.82549
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 22.961337,
+     "Holes": 16,
+     "Thickness": 4.754699
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 39.116805,
+     "Holes": 5,
+     "Thickness": 7.066478
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 27.438982,
+     "Holes": 9,
+     "Thickness": 8.411477
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 21.950372,
+     "Holes": 12,
+     "Thickness": 4.095927
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 26.579202,
+     "Holes": 13,
+     "Thickness": 6.694004
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 26.237318,
+     "Holes": 8,
+     "Thickness": 11.914821
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 16.97078,
+     "Holes": 4,
+     "Thickness": 5.479388
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 18.167382,
+     "Holes": 15,
+     "Thickness": 10.16757
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 35.98092,
+     "Holes": 8,
+     "Thickness": 4.515747
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 23.37946,
+     "Holes": 6,
+     "Thickness": 5.067448
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 18.184586,
+     "Holes": 8,
+     "Thickness": 5.852735
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 15.474636,
+     "Holes": 10,
+     "Thickness": 7.711392
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 24.610002,
+     "Holes": 16,
+     "Thickness": 11.154687
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 37.565039,
+     "Holes": 7,
+     "Thickness": 6.589124
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 22.005148,
+     "Holes": 5,
+     "Thickness": 10.135193
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 15.282752,
+     "Holes": 5,
+     "Thickness": 7.016867
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 39.633709,
+     "Holes": 7,
+     "Thickness": 8.52472
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 19.119335,
+     "Holes": 11,
+     "Thickness": 10.505972
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 15.600664,
+     "Holes": 16,
+     "Thickness": 6.5085
+    },
+    "failing": [
+     "status",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "status",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Bolt circle radius": 17.121312,
+     "Holes": 3,
+     "Thickness": 7.819776
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 32.034743,
+     "Holes": 15,
+     "Thickness": 8.330312
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d04-bolt-circle-count",
+  "seed": 4,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Bolt circle radius": 38.090905,
+     "Holes": 7,
+     "Thickness": 5.773343
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 17.046025,
+     "Holes": 6,
+     "Thickness": 8.067975
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 16.934787,
+     "Holes": 16,
+     "Thickness": 8.9763
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Bolt circle radius": 32.270386,
+     "Holes": 13,
+     "Thickness": 6.953189
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 33.312373,
+     "Holes": 15,
+     "Thickness": 8.23015
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 33.583654,
+     "Holes": 8,
+     "Thickness": 7.923601
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 33.397837,
+     "Holes": 16,
+     "Thickness": 11.836323
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 26.783602,
+     "Holes": 7,
+     "Thickness": 10.304724
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 21.732804,
+     "Holes": 13,
+     "Thickness": 8.22058
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 23.57173,
+     "Holes": 9,
+     "Thickness": 4.086981
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 27.136289,
+     "Holes": 10,
+     "Thickness": 10.110542
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 17.384121,
+     "Holes": 14,
+     "Thickness": 7.233734
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 23.243849,
+     "Holes": 10,
+     "Thickness": 4.48438
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 30.59387,
+     "Holes": 6,
+     "Thickness": 8.454598
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 18.670526,
+     "Holes": 16,
+     "Thickness": 10.820595
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Bolt circle radius": 38.031831,
+     "Holes": 7,
+     "Thickness": 5.489451
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 31.467202,
+     "Holes": 9,
+     "Thickness": 4.54012
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 34.17791,
+     "Holes": 16,
+     "Thickness": 4.033009
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 27.041461,
+     "Holes": 15,
+     "Thickness": 9.50518
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 28.876745,
+     "Holes": 16,
+     "Thickness": 6.312949
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 34.184269,
+     "Holes": 8,
+     "Thickness": 7.717385
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 32.535475,
+     "Holes": 3,
+     "Thickness": 5.916685
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 27.6184,
+     "Holes": 14,
+     "Thickness": 10.830887
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 16.800675,
+     "Holes": 9,
+     "Thickness": 9.102017
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 39.467228,
+     "Holes": 11,
+     "Thickness": 6.24694
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 32.717001,
+     "Holes": 13,
+     "Thickness": 6.462536
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 38.878534,
+     "Holes": 13,
+     "Thickness": 5.449793
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 39.623367,
+     "Holes": 8,
+     "Thickness": 11.834482
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 38.32197,
+     "Holes": 9,
+     "Thickness": 4.971467
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 17.037367,
+     "Holes": 3,
+     "Thickness": 4.911473
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 31.746203,
+     "Holes": 4,
+     "Thickness": 11.210599
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 38.415205,
+     "Holes": 12,
+     "Thickness": 6.804809
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 24.566473,
+     "Holes": 12,
+     "Thickness": 11.280614
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 21.196727,
+     "Holes": 11,
+     "Thickness": 9.839946
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 30.157257,
+     "Holes": 15,
+     "Thickness": 11.492906
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 32.792534,
+     "Holes": 4,
+     "Thickness": 9.300198
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 36.183257,
+     "Holes": 5,
+     "Thickness": 6.253893
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 33.421799,
+     "Holes": 8,
+     "Thickness": 11.995684
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 37.931733,
+     "Holes": 3,
+     "Thickness": 10.107723
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 25.136144,
+     "Holes": 15,
+     "Thickness": 8.075101
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 16.232754,
+     "Holes": 12,
+     "Thickness": 4.378657
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 37.475289,
+     "Holes": 11,
+     "Thickness": 8.510481
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 25.982312,
+     "Holes": 13,
+     "Thickness": 7.081958
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 22.072288,
+     "Holes": 16,
+     "Thickness": 11.980201
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 23.358529,
+     "Holes": 4,
+     "Thickness": 10.049606
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 16.873098,
+     "Holes": 14,
+     "Thickness": 6.521176
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 26.323298,
+     "Holes": 11,
+     "Thickness": 5.130491
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 36.629424,
+     "Holes": 9,
+     "Thickness": 11.11024
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 34.372481,
+     "Holes": 14,
+     "Thickness": 11.21692
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 23.646838,
+     "Holes": 9,
+     "Thickness": 8.381532
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 29.784116,
+     "Holes": 8,
+     "Thickness": 6.834974
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 26.835223,
+     "Holes": 11,
+     "Thickness": 8.935517
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 33.715226,
+     "Holes": 4,
+     "Thickness": 10.011748
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 38.274575,
+     "Holes": 11,
+     "Thickness": 5.544367
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 24.103192,
+     "Holes": 12,
+     "Thickness": 7.115501
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 23.378835,
+     "Holes": 10,
+     "Thickness": 11.081365
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 26.84357,
+     "Holes": 11,
+     "Thickness": 7.206197
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 35.63965,
+     "Holes": 5,
+     "Thickness": 6.927937
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 36.963697,
+     "Holes": 3,
+     "Thickness": 4.661495
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 18.417567,
+     "Holes": 5,
+     "Thickness": 8.194711
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 31.097607,
+     "Holes": 8,
+     "Thickness": 9.739936
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 19.032324,
+     "Holes": 13,
+     "Thickness": 9.050706
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 15.481672,
+     "Holes": 4,
+     "Thickness": 8.70751
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 38.49518,
+     "Holes": 11,
+     "Thickness": 4.301987
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d04-bolt-circle-count",
+  "seed": 5,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Bolt circle radius": 32.244373,
+     "Holes": 13,
+     "Thickness": 5.758104
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 30.579471,
+     "Holes": 4,
+     "Thickness": 8.73732
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 33.002556,
+     "Holes": 9,
+     "Thickness": 11.244972
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 20.735724,
+     "Holes": 13,
+     "Thickness": 9.924903
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 31.514001,
+     "Holes": 3,
+     "Thickness": 7.723211
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 22.511377,
+     "Holes": 15,
+     "Thickness": 6.304927
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 33.882429,
+     "Holes": 13,
+     "Thickness": 6.028625
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 15.475459,
+     "Holes": 14,
+     "Thickness": 5.6663
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Bolt circle radius": 21.815483,
+     "Holes": 4,
+     "Thickness": 7.760621
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 39.791085,
+     "Holes": 6,
+     "Thickness": 4.647559
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 36.214827,
+     "Holes": 7,
+     "Thickness": 7.260496
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 39.643435,
+     "Holes": 6,
+     "Thickness": 7.088819
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 20.431467,
+     "Holes": 15,
+     "Thickness": 9.778891
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 36.970312,
+     "Holes": 10,
+     "Thickness": 10.440549
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 31.228892,
+     "Holes": 4,
+     "Thickness": 9.088381
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 29.440475,
+     "Holes": 7,
+     "Thickness": 10.231085
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 30.235452,
+     "Holes": 3,
+     "Thickness": 11.456082
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 23.537982,
+     "Holes": 7,
+     "Thickness": 10.99682
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 21.229876,
+     "Holes": 5,
+     "Thickness": 10.669328
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 21.972264,
+     "Holes": 16,
+     "Thickness": 4.109804
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 23.776555,
+     "Holes": 13,
+     "Thickness": 6.513854
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 31.518963,
+     "Holes": 4,
+     "Thickness": 4.639495
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 33.373995,
+     "Holes": 10,
+     "Thickness": 6.027493
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 38.251013,
+     "Holes": 3,
+     "Thickness": 9.877682
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 38.846845,
+     "Holes": 6,
+     "Thickness": 8.265365
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 36.412733,
+     "Holes": 14,
+     "Thickness": 8.631145
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 38.912136,
+     "Holes": 12,
+     "Thickness": 8.321451
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 17.747602,
+     "Holes": 7,
+     "Thickness": 8.235658
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 18.875031,
+     "Holes": 6,
+     "Thickness": 10.134899
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 18.464435,
+     "Holes": 4,
+     "Thickness": 6.613548
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 35.140573,
+     "Holes": 12,
+     "Thickness": 7.30026
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 17.440077,
+     "Holes": 7,
+     "Thickness": 11.655295
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 23.161376,
+     "Holes": 12,
+     "Thickness": 9.953219
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 17.555331,
+     "Holes": 13,
+     "Thickness": 11.453743
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 30.143046,
+     "Holes": 4,
+     "Thickness": 6.894263
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 25.074488,
+     "Holes": 3,
+     "Thickness": 7.37041
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 37.945101,
+     "Holes": 7,
+     "Thickness": 10.134495
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 16.300352,
+     "Holes": 14,
+     "Thickness": 4.805254
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Bolt circle radius": 27.798582,
+     "Holes": 14,
+     "Thickness": 5.677786
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 29.912041,
+     "Holes": 4,
+     "Thickness": 6.910672
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 31.586131,
+     "Holes": 6,
+     "Thickness": 9.450431
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 20.99587,
+     "Holes": 6,
+     "Thickness": 11.877355
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 31.07818,
+     "Holes": 9,
+     "Thickness": 9.938346
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 15.966859,
+     "Holes": 11,
+     "Thickness": 9.245322
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 15.483165,
+     "Holes": 5,
+     "Thickness": 6.669059
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 23.372764,
+     "Holes": 11,
+     "Thickness": 11.590741
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 29.837214,
+     "Holes": 15,
+     "Thickness": 10.1871
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 22.085842,
+     "Holes": 3,
+     "Thickness": 5.360442
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 16.039497,
+     "Holes": 6,
+     "Thickness": 11.127368
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 26.300531,
+     "Holes": 3,
+     "Thickness": 10.217748
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 29.655495,
+     "Holes": 7,
+     "Thickness": 11.154502
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 34.364159,
+     "Holes": 16,
+     "Thickness": 5.46454
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 21.809738,
+     "Holes": 14,
+     "Thickness": 6.193011
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 22.343298,
+     "Holes": 13,
+     "Thickness": 4.031366
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 31.458298,
+     "Holes": 10,
+     "Thickness": 6.164983
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 21.078967,
+     "Holes": 12,
+     "Thickness": 10.476499
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 29.10757,
+     "Holes": 11,
+     "Thickness": 9.370433
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 25.655606,
+     "Holes": 10,
+     "Thickness": 5.593993
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 17.66006,
+     "Holes": 8,
+     "Thickness": 7.968563
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 16.57225,
+     "Holes": 11,
+     "Thickness": 7.632989
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 26.630622,
+     "Holes": 8,
+     "Thickness": 8.003986
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 23.932524,
+     "Holes": 6,
+     "Thickness": 7.479638
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 28.156373,
+     "Holes": 12,
+     "Thickness": 6.870798
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 21.130728,
+     "Holes": 14,
+     "Thickness": 4.539683
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d04-bolt-circle-count",
+  "seed": 6,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Bolt circle radius": 28.143665,
+     "Holes": 3,
+     "Thickness": 9.305371
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 20.054068,
+     "Holes": 10,
+     "Thickness": 4.566111
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 15.113446,
+     "Holes": 15,
+     "Thickness": 11.764445
+    },
+    "failing": [
+     "status",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "status",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Bolt circle radius": 20.251321,
+     "Holes": 16,
+     "Thickness": 7.061915
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 15.558796,
+     "Holes": 3,
+     "Thickness": 7.623967
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 34.605853,
+     "Holes": 11,
+     "Thickness": 7.848376
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 25.166328,
+     "Holes": 5,
+     "Thickness": 11.903038
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 38.628256,
+     "Holes": 6,
+     "Thickness": 11.55903
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 36.334695,
+     "Holes": 16,
+     "Thickness": 9.587907
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 38.611592,
+     "Holes": 16,
+     "Thickness": 11.554523
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 20.457193,
+     "Holes": 10,
+     "Thickness": 5.643136
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 22.295264,
+     "Holes": 5,
+     "Thickness": 10.650594
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 25.123436,
+     "Holes": 11,
+     "Thickness": 8.626411
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 37.136884,
+     "Holes": 10,
+     "Thickness": 11.003495
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 32.838462,
+     "Holes": 11,
+     "Thickness": 6.180548
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 36.304001,
+     "Holes": 14,
+     "Thickness": 5.634848
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 25.482801,
+     "Holes": 8,
+     "Thickness": 9.263968
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 15.542535,
+     "Holes": 7,
+     "Thickness": 6.336052
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 21.415006,
+     "Holes": 7,
+     "Thickness": 6.109775
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 24.321595,
+     "Holes": 4,
+     "Thickness": 6.884406
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 17.081291,
+     "Holes": 16,
+     "Thickness": 8.003421
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Bolt circle radius": 17.880251,
+     "Holes": 9,
+     "Thickness": 7.791756
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 16.381589,
+     "Holes": 9,
+     "Thickness": 9.335391
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 22.36433,
+     "Holes": 7,
+     "Thickness": 11.412584
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 18.017646,
+     "Holes": 5,
+     "Thickness": 8.694136
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 32.280772,
+     "Holes": 13,
+     "Thickness": 11.183258
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 18.970312,
+     "Holes": 11,
+     "Thickness": 7.369424
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 33.152445,
+     "Holes": 5,
+     "Thickness": 5.527659
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 35.949037,
+     "Holes": 4,
+     "Thickness": 4.811193
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 29.442408,
+     "Holes": 7,
+     "Thickness": 9.863668
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 27.582125,
+     "Holes": 15,
+     "Thickness": 10.174123
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 19.761004,
+     "Holes": 6,
+     "Thickness": 8.209723
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 23.392971,
+     "Holes": 10,
+     "Thickness": 5.297852
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 18.059513,
+     "Holes": 5,
+     "Thickness": 7.282993
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 18.63822,
+     "Holes": 13,
+     "Thickness": 9.833161
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 15.1484,
+     "Holes": 11,
+     "Thickness": 4.430864
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 37.561328,
+     "Holes": 8,
+     "Thickness": 10.587911
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 35.791773,
+     "Holes": 16,
+     "Thickness": 7.150234
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 32.425865,
+     "Holes": 3,
+     "Thickness": 7.10458
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 37.371961,
+     "Holes": 5,
+     "Thickness": 9.507554
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 17.381214,
+     "Holes": 8,
+     "Thickness": 4.677684
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 19.807946,
+     "Holes": 13,
+     "Thickness": 8.723092
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 27.503669,
+     "Holes": 6,
+     "Thickness": 11.698597
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 38.28327,
+     "Holes": 10,
+     "Thickness": 8.767744
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 33.870381,
+     "Holes": 7,
+     "Thickness": 6.097881
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 24.774043,
+     "Holes": 10,
+     "Thickness": 9.749123
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 36.29215,
+     "Holes": 4,
+     "Thickness": 6.012647
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 36.683422,
+     "Holes": 3,
+     "Thickness": 5.017448
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 32.780596,
+     "Holes": 10,
+     "Thickness": 11.661638
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 17.028464,
+     "Holes": 15,
+     "Thickness": 6.693868
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Bolt circle radius": 27.490248,
+     "Holes": 9,
+     "Thickness": 6.545972
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 20.8976,
+     "Holes": 8,
+     "Thickness": 6.244703
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 23.793309,
+     "Holes": 10,
+     "Thickness": 8.730095
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 38.194694,
+     "Holes": 9,
+     "Thickness": 11.945602
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 38.597186,
+     "Holes": 13,
+     "Thickness": 4.275195
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 28.011524,
+     "Holes": 8,
+     "Thickness": 9.1225
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 25.80757,
+     "Holes": 4,
+     "Thickness": 11.181827
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 15.639835,
+     "Holes": 3,
+     "Thickness": 7.43867
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 34.240041,
+     "Holes": 5,
+     "Thickness": 9.098564
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 39.384134,
+     "Holes": 6,
+     "Thickness": 7.506059
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 23.83397,
+     "Holes": 6,
+     "Thickness": 7.400646
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 39.037069,
+     "Holes": 8,
+     "Thickness": 8.202494
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 34.550358,
+     "Holes": 6,
+     "Thickness": 11.192194
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 15.322814,
+     "Holes": 10,
+     "Thickness": 4.322733
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d04-bolt-circle-count",
+  "seed": 7,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Bolt circle radius": 15.292619,
+     "Holes": 3,
+     "Thickness": 11.815261
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 32.475718,
+     "Holes": 10,
+     "Thickness": 7.244174
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 26.655816,
+     "Holes": 6,
+     "Thickness": 8.426605
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 33.245552,
+     "Holes": 6,
+     "Thickness": 5.247587
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 34.102247,
+     "Holes": 10,
+     "Thickness": 5.577098
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 24.198965,
+     "Holes": 7,
+     "Thickness": 8.277916
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 22.408256,
+     "Holes": 16,
+     "Thickness": 5.980269
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 36.94449,
+     "Holes": 5,
+     "Thickness": 5.149259
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 18.866101,
+     "Holes": 7,
+     "Thickness": 8.383211
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 34.046842,
+     "Holes": 4,
+     "Thickness": 11.303526
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 28.842769,
+     "Holes": 11,
+     "Thickness": 9.440727
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 39.149743,
+     "Holes": 11,
+     "Thickness": 11.369639
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 35.690712,
+     "Holes": 3,
+     "Thickness": 5.399532
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 23.924525,
+     "Holes": 8,
+     "Thickness": 4.161409
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 17.202656,
+     "Holes": 13,
+     "Thickness": 6.951754
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 25.667893,
+     "Holes": 9,
+     "Thickness": 11.569769
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 32.582027,
+     "Holes": 12,
+     "Thickness": 6.645183
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 23.908363,
+     "Holes": 4,
+     "Thickness": 5.066346
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 37.825872,
+     "Holes": 7,
+     "Thickness": 5.523004
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 30.805219,
+     "Holes": 7,
+     "Thickness": 4.349051
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 32.106344,
+     "Holes": 15,
+     "Thickness": 8.382981
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 35.664438,
+     "Holes": 12,
+     "Thickness": 11.359024
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 17.926035,
+     "Holes": 10,
+     "Thickness": 9.193328
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 37.276623,
+     "Holes": 16,
+     "Thickness": 10.70366
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 29.855865,
+     "Holes": 16,
+     "Thickness": 11.740051
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 28.714207,
+     "Holes": 14,
+     "Thickness": 4.0456
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 27.901837,
+     "Holes": 7,
+     "Thickness": 9.794173
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 28.737378,
+     "Holes": 13,
+     "Thickness": 11.815472
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 28.938833,
+     "Holes": 14,
+     "Thickness": 7.439953
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 31.058785,
+     "Holes": 13,
+     "Thickness": 8.413574
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 22.809596,
+     "Holes": 6,
+     "Thickness": 4.074519
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 15.60182,
+     "Holes": 16,
+     "Thickness": 10.666951
+    },
+    "failing": [
+     "status",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "status",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Bolt circle radius": 30.765035,
+     "Holes": 3,
+     "Thickness": 8.951169
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 29.872416,
+     "Holes": 13,
+     "Thickness": 11.958885
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 21.949935,
+     "Holes": 16,
+     "Thickness": 9.199769
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 35.122936,
+     "Holes": 11,
+     "Thickness": 10.641111
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 18.476604,
+     "Holes": 16,
+     "Thickness": 8.055453
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Bolt circle radius": 29.172248,
+     "Holes": 5,
+     "Thickness": 7.16933
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 20.266726,
+     "Holes": 14,
+     "Thickness": 10.892538
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 33.397983,
+     "Holes": 12,
+     "Thickness": 11.921943
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 30.232749,
+     "Holes": 13,
+     "Thickness": 11.643109
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 27.230495,
+     "Holes": 6,
+     "Thickness": 8.672062
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 34.892041,
+     "Holes": 14,
+     "Thickness": 5.519358
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 28.872399,
+     "Holes": 9,
+     "Thickness": 8.205166
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 19.505147,
+     "Holes": 6,
+     "Thickness": 7.511713
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 26.9378,
+     "Holes": 5,
+     "Thickness": 4.025688
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 19.328819,
+     "Holes": 3,
+     "Thickness": 4.857827
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 36.907627,
+     "Holes": 16,
+     "Thickness": 4.480958
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 19.361369,
+     "Holes": 8,
+     "Thickness": 7.991964
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 33.308358,
+     "Holes": 8,
+     "Thickness": 6.880127
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 34.788149,
+     "Holes": 12,
+     "Thickness": 10.400914
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 28.249746,
+     "Holes": 14,
+     "Thickness": 7.297324
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 29.065913,
+     "Holes": 7,
+     "Thickness": 8.218071
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 34.412086,
+     "Holes": 4,
+     "Thickness": 6.017583
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 35.671068,
+     "Holes": 14,
+     "Thickness": 10.197366
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 25.745746,
+     "Holes": 7,
+     "Thickness": 11.362611
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 21.283302,
+     "Holes": 8,
+     "Thickness": 7.815718
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 35.757671,
+     "Holes": 8,
+     "Thickness": 11.79653
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 28.782035,
+     "Holes": 9,
+     "Thickness": 6.708477
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 28.426016,
+     "Holes": 7,
+     "Thickness": 11.073524
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 29.306468,
+     "Holes": 16,
+     "Thickness": 10.728039
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 27.390901,
+     "Holes": 9,
+     "Thickness": 9.581373
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 38.276644,
+     "Holes": 10,
+     "Thickness": 9.25897
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 19.059618,
+     "Holes": 12,
+     "Thickness": 7.126422
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d04-bolt-circle-count",
+  "seed": 8,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Bolt circle radius": 18.907379,
+     "Holes": 11,
+     "Thickness": 6.405317
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 32.398857,
+     "Holes": 11,
+     "Thickness": 7.595192
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 35.468989,
+     "Holes": 6,
+     "Thickness": 8.052941
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 16.503452,
+     "Holes": 10,
+     "Thickness": 4.586867
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 29.236366,
+     "Holes": 6,
+     "Thickness": 5.284381
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 38.868316,
+     "Holes": 12,
+     "Thickness": 4.727966
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 18.19518,
+     "Holes": 3,
+     "Thickness": 8.447891
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 26.102396,
+     "Holes": 13,
+     "Thickness": 10.193483
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 15.991786,
+     "Holes": 9,
+     "Thickness": 6.868916
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 27.510342,
+     "Holes": 7,
+     "Thickness": 8.14845
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 18.115779,
+     "Holes": 15,
+     "Thickness": 6.591964
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 33.327856,
+     "Holes": 15,
+     "Thickness": 8.091218
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 32.123548,
+     "Holes": 13,
+     "Thickness": 9.193902
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 22.694632,
+     "Holes": 6,
+     "Thickness": 4.832711
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 22.753675,
+     "Holes": 16,
+     "Thickness": 8.545699
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 25.085646,
+     "Holes": 3,
+     "Thickness": 7.538894
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 34.730161,
+     "Holes": 16,
+     "Thickness": 5.999692
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 36.512409,
+     "Holes": 4,
+     "Thickness": 8.374964
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 28.399167,
+     "Holes": 5,
+     "Thickness": 7.243081
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 17.879188,
+     "Holes": 4,
+     "Thickness": 11.954608
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 35.958442,
+     "Holes": 5,
+     "Thickness": 4.181131
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 38.973992,
+     "Holes": 11,
+     "Thickness": 10.354233
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 25.002286,
+     "Holes": 9,
+     "Thickness": 4.246072
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 25.428543,
+     "Holes": 7,
+     "Thickness": 9.618527
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 15.027784,
+     "Holes": 13,
+     "Thickness": 6.995172
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Bolt circle radius": 21.408516,
+     "Holes": 16,
+     "Thickness": 11.096539
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 36.025979,
+     "Holes": 11,
+     "Thickness": 9.360268
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 38.86624,
+     "Holes": 7,
+     "Thickness": 4.757841
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 29.614194,
+     "Holes": 8,
+     "Thickness": 6.693193
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 37.309905,
+     "Holes": 7,
+     "Thickness": 8.391415
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 22.11272,
+     "Holes": 13,
+     "Thickness": 8.275419
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 25.079163,
+     "Holes": 13,
+     "Thickness": 8.149014
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 32.888071,
+     "Holes": 14,
+     "Thickness": 6.90831
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 21.650005,
+     "Holes": 16,
+     "Thickness": 4.473393
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 17.289505,
+     "Holes": 12,
+     "Thickness": 6.536681
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 38.413594,
+     "Holes": 3,
+     "Thickness": 8.632237
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 23.979728,
+     "Holes": 12,
+     "Thickness": 4.957439
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 19.7676,
+     "Holes": 6,
+     "Thickness": 10.035537
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 33.813806,
+     "Holes": 4,
+     "Thickness": 8.271856
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 26.00871,
+     "Holes": 11,
+     "Thickness": 6.132633
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 21.60742,
+     "Holes": 10,
+     "Thickness": 6.091837
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 17.535105,
+     "Holes": 9,
+     "Thickness": 5.688737
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 27.954022,
+     "Holes": 4,
+     "Thickness": 4.224487
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 33.454721,
+     "Holes": 3,
+     "Thickness": 7.916834
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 36.834953,
+     "Holes": 11,
+     "Thickness": 7.41207
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 30.740229,
+     "Holes": 6,
+     "Thickness": 4.955712
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 32.408207,
+     "Holes": 10,
+     "Thickness": 11.334001
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 19.316949,
+     "Holes": 7,
+     "Thickness": 10.753875
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 37.121917,
+     "Holes": 10,
+     "Thickness": 9.268723
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 20.160169,
+     "Holes": 5,
+     "Thickness": 9.074839
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 27.738453,
+     "Holes": 13,
+     "Thickness": 5.782677
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 22.737425,
+     "Holes": 16,
+     "Thickness": 6.09194
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 37.551997,
+     "Holes": 5,
+     "Thickness": 5.683308
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 16.647637,
+     "Holes": 9,
+     "Thickness": 5.886982
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 22.220835,
+     "Holes": 14,
+     "Thickness": 4.033767
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 15.317843,
+     "Holes": 11,
+     "Thickness": 8.347019
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 32.801368,
+     "Holes": 15,
+     "Thickness": 4.095903
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 20.864991,
+     "Holes": 7,
+     "Thickness": 6.309593
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 31.170003,
+     "Holes": 15,
+     "Thickness": 5.956475
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 23.465387,
+     "Holes": 15,
+     "Thickness": 10.271221
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 15.418483,
+     "Holes": 8,
+     "Thickness": 6.763421
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 29.259261,
+     "Holes": 12,
+     "Thickness": 9.124217
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 37.670742,
+     "Holes": 11,
+     "Thickness": 4.925329
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 19.58513,
+     "Holes": 16,
+     "Thickness": 11.664179
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d04-bolt-circle-count",
+  "seed": 9,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Bolt circle radius": 19.968223,
+     "Holes": 14,
+     "Thickness": 5.134129
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 35.541793,
+     "Holes": 13,
+     "Thickness": 9.510893
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 21.567961,
+     "Holes": 15,
+     "Thickness": 5.046893
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 30.807263,
+     "Holes": 12,
+     "Thickness": 8.698283
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 22.085745,
+     "Holes": 16,
+     "Thickness": 6.29618
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 33.256783,
+     "Holes": 11,
+     "Thickness": 6.935494
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 28.388656,
+     "Holes": 15,
+     "Thickness": 10.924471
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 26.3832,
+     "Holes": 15,
+     "Thickness": 5.518528
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 31.932051,
+     "Holes": 7,
+     "Thickness": 4.384759
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 36.907797,
+     "Holes": 5,
+     "Thickness": 8.21085
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 27.352271,
+     "Holes": 4,
+     "Thickness": 10.67381
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 32.593123,
+     "Holes": 5,
+     "Thickness": 4.546651
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 27.219991,
+     "Holes": 7,
+     "Thickness": 9.269838
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 22.303796,
+     "Holes": 10,
+     "Thickness": 11.656554
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 29.197146,
+     "Holes": 5,
+     "Thickness": 8.140315
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 23.133287,
+     "Holes": 10,
+     "Thickness": 10.397977
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 29.426664,
+     "Holes": 11,
+     "Thickness": 8.26825
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 31.414952,
+     "Holes": 9,
+     "Thickness": 5.438011
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 38.242157,
+     "Holes": 11,
+     "Thickness": 9.129267
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 28.825113,
+     "Holes": 12,
+     "Thickness": 11.860233
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 37.936884,
+     "Holes": 3,
+     "Thickness": 9.854014
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 17.376045,
+     "Holes": 12,
+     "Thickness": 9.120795
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 39.370959,
+     "Holes": 13,
+     "Thickness": 11.23881
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 34.863063,
+     "Holes": 6,
+     "Thickness": 9.488969
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 38.929204,
+     "Holes": 4,
+     "Thickness": 11.532722
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 32.135019,
+     "Holes": 14,
+     "Thickness": 6.767504
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 34.227954,
+     "Holes": 7,
+     "Thickness": 9.720259
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 36.434539,
+     "Holes": 3,
+     "Thickness": 8.668423
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 28.921603,
+     "Holes": 7,
+     "Thickness": 8.275574
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 22.092876,
+     "Holes": 9,
+     "Thickness": 5.48903
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 35.485111,
+     "Holes": 12,
+     "Thickness": 8.570965
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 38.584616,
+     "Holes": 14,
+     "Thickness": 4.278162
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 20.375832,
+     "Holes": 11,
+     "Thickness": 9.482463
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 19.944118,
+     "Holes": 6,
+     "Thickness": 11.154212
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 31.062493,
+     "Holes": 3,
+     "Thickness": 7.687634
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 17.273974,
+     "Holes": 5,
+     "Thickness": 4.894105
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 19.414933,
+     "Holes": 5,
+     "Thickness": 6.309098
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 35.654756,
+     "Holes": 5,
+     "Thickness": 10.842479
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 32.242721,
+     "Holes": 14,
+     "Thickness": 7.030589
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 38.700467,
+     "Holes": 10,
+     "Thickness": 11.624758
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 35.702847,
+     "Holes": 9,
+     "Thickness": 6.022374
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 38.017682,
+     "Holes": 16,
+     "Thickness": 4.663687
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 23.979886,
+     "Holes": 7,
+     "Thickness": 11.215298
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 25.89135,
+     "Holes": 8,
+     "Thickness": 10.546665
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 33.450448,
+     "Holes": 10,
+     "Thickness": 10.613434
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 16.756471,
+     "Holes": 3,
+     "Thickness": 11.545442
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 36.914038,
+     "Holes": 15,
+     "Thickness": 10.625002
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 37.088053,
+     "Holes": 13,
+     "Thickness": 10.954224
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 23.920496,
+     "Holes": 9,
+     "Thickness": 10.508307
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 19.085274,
+     "Holes": 8,
+     "Thickness": 8.493335
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 28.047788,
+     "Holes": 15,
+     "Thickness": 4.308402
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 27.751954,
+     "Holes": 4,
+     "Thickness": 9.771071
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 25.075117,
+     "Holes": 12,
+     "Thickness": 9.03451
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 19.726953,
+     "Holes": 6,
+     "Thickness": 9.299791
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 22.889682,
+     "Holes": 15,
+     "Thickness": 4.867088
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 28.791294,
+     "Holes": 12,
+     "Thickness": 4.143982
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 18.277084,
+     "Holes": 5,
+     "Thickness": 8.18905
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 38.342171,
+     "Holes": 9,
+     "Thickness": 5.442812
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 26.677187,
+     "Holes": 6,
+     "Thickness": 10.223244
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 38.745719,
+     "Holes": 9,
+     "Thickness": 11.262185
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 30.227418,
+     "Holes": 4,
+     "Thickness": 4.671036
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 20.050522,
+     "Holes": 11,
+     "Thickness": 9.61399
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 29.739419,
+     "Holes": 8,
+     "Thickness": 8.909128
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 35.657966,
+     "Holes": 4,
+     "Thickness": 6.585662
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d04-bolt-circle-count",
+  "seed": 10,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Bolt circle radius": 27.5498,
+     "Holes": 15,
+     "Thickness": 9.530546
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 35.052567,
+     "Holes": 9,
+     "Thickness": 7.58677
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 20.057174,
+     "Holes": 4,
+     "Thickness": 4.273015
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 39.917965,
+     "Holes": 15,
+     "Thickness": 5.03462
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 24.819335,
+     "Holes": 8,
+     "Thickness": 7.554517
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 38.141779,
+     "Holes": 7,
+     "Thickness": 10.465311
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 38.401037,
+     "Holes": 5,
+     "Thickness": 7.109631
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 32.384508,
+     "Holes": 10,
+     "Thickness": 7.854428
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 22.364597,
+     "Holes": 7,
+     "Thickness": 7.071923
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 27.930652,
+     "Holes": 3,
+     "Thickness": 8.101675
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 15.962251,
+     "Holes": 4,
+     "Thickness": 5.632377
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 18.663298,
+     "Holes": 4,
+     "Thickness": 5.143682
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 34.189063,
+     "Holes": 9,
+     "Thickness": 7.343695
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 30.740972,
+     "Holes": 14,
+     "Thickness": 5.262741
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 26.116378,
+     "Holes": 15,
+     "Thickness": 5.901969
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 34.742447,
+     "Holes": 12,
+     "Thickness": 5.074936
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 29.938276,
+     "Holes": 15,
+     "Thickness": 8.768514
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 15.3908,
+     "Holes": 13,
+     "Thickness": 9.754705
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Bolt circle radius": 30.426609,
+     "Holes": 14,
+     "Thickness": 8.449158
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 24.720927,
+     "Holes": 7,
+     "Thickness": 10.020003
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 18.012585,
+     "Holes": 8,
+     "Thickness": 5.765157
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 16.451194,
+     "Holes": 15,
+     "Thickness": 7.530132
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Bolt circle radius": 26.100585,
+     "Holes": 5,
+     "Thickness": 11.035657
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 25.595424,
+     "Holes": 15,
+     "Thickness": 11.445258
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 16.704186,
+     "Holes": 5,
+     "Thickness": 6.403984
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 39.612867,
+     "Holes": 16,
+     "Thickness": 8.438417
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 15.019921,
+     "Holes": 5,
+     "Thickness": 6.590709
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 33.511619,
+     "Holes": 15,
+     "Thickness": 10.8276
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 36.124239,
+     "Holes": 7,
+     "Thickness": 5.632693
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 22.32275,
+     "Holes": 16,
+     "Thickness": 11.220931
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 32.288993,
+     "Holes": 13,
+     "Thickness": 8.024789
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 25.244947,
+     "Holes": 6,
+     "Thickness": 6.072243
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 30.463673,
+     "Holes": 7,
+     "Thickness": 10.207377
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 15.725925,
+     "Holes": 10,
+     "Thickness": 11.028464
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 35.015762,
+     "Holes": 10,
+     "Thickness": 7.380436
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 35.235777,
+     "Holes": 15,
+     "Thickness": 7.848969
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 20.513053,
+     "Holes": 6,
+     "Thickness": 4.408659
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 37.325777,
+     "Holes": 7,
+     "Thickness": 9.478265
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 31.569593,
+     "Holes": 10,
+     "Thickness": 6.255251
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 23.702793,
+     "Holes": 7,
+     "Thickness": 8.651312
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 26.487082,
+     "Holes": 12,
+     "Thickness": 6.266234
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 33.393995,
+     "Holes": 16,
+     "Thickness": 8.794061
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 18.224215,
+     "Holes": 3,
+     "Thickness": 5.403109
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 35.187826,
+     "Holes": 9,
+     "Thickness": 9.416934
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 31.922495,
+     "Holes": 14,
+     "Thickness": 4.228734
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 28.002705,
+     "Holes": 7,
+     "Thickness": 8.011513
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 16.784136,
+     "Holes": 6,
+     "Thickness": 5.569178
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 37.643719,
+     "Holes": 13,
+     "Thickness": 10.810557
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 24.807796,
+     "Holes": 6,
+     "Thickness": 6.940619
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 35.083331,
+     "Holes": 15,
+     "Thickness": 5.607348
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 21.06483,
+     "Holes": 9,
+     "Thickness": 6.372017
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 33.181239,
+     "Holes": 15,
+     "Thickness": 5.308827
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 24.012263,
+     "Holes": 5,
+     "Thickness": 10.807396
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 38.302783,
+     "Holes": 13,
+     "Thickness": 10.621998
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 24.856953,
+     "Holes": 4,
+     "Thickness": 10.612777
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 36.61093,
+     "Holes": 10,
+     "Thickness": 6.542103
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 19.383228,
+     "Holes": 10,
+     "Thickness": 5.606948
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 27.678356,
+     "Holes": 7,
+     "Thickness": 8.255102
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 29.226264,
+     "Holes": 3,
+     "Thickness": 4.383352
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 28.448221,
+     "Holes": 9,
+     "Thickness": 7.821975
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 24.734088,
+     "Holes": 9,
+     "Thickness": 10.651642
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 20.048982,
+     "Holes": 10,
+     "Thickness": 10.961519
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 25.150393,
+     "Holes": 16,
+     "Thickness": 8.610282
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bolt circle radius": 16.292249,
+     "Holes": 5,
+     "Thickness": 6.768012
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ }
+]

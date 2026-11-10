@@ -1,0 +1,7515 @@
+{
+ "certificate": "o3dj-envelope-cert/spike-0",
+ "brief": "flange",
+ "brief_hash": "9569bb5cd813b308baed5afa182a807c280d36f597719e765c1ba88d9b163eaf",
+ "script_hash": "f42032aee4ca52bf60a8ba372d6edf35de3e9426286abbdfb4c0e37343427f87",
+ "inputs_hash": "10372a769931de9796d5d516f43f9b869e343ea0ba673a42857718370b2d822a",
+ "engine": {
+  "occt_wasm": "5.8.1",
+  "node": "v24.22.1",
+  "analysis": "2"
+ },
+ "platform": "linux-x64",
+ "seed": 1,
+ "budget": 64,
+ "watch_mm": 0.5,
+ "verdict": "counterexample",
+ "statement": "counterexample: 20 of 64 points fail an assertion that passes at nominal",
+ "nominal_failures": [],
+ "counterexamples": [
+  1,
+  4,
+  5,
+  8,
+  9,
+  13,
+  14,
+  17,
+  18,
+  22,
+  23,
+  25,
+  49,
+  51,
+  53,
+  57,
+  58,
+  59,
+  61,
+  62
+ ],
+ "shrunk": 53,
+ "line": {
+  "pass": 31,
+  "fail": 53,
+  "lo": 0.76953125,
+  "hi": 0.78125,
+  "points": [
+   {
+    "index": 31,
+    "t": 0
+   },
+   {
+    "index": 55,
+    "t": 0.25
+   },
+   {
+    "index": 54,
+    "t": 0.5
+   },
+   {
+    "index": 56,
+    "t": 0.75
+   },
+   {
+    "index": 60,
+    "t": 0.765625
+   },
+   {
+    "index": 63,
+    "t": 0.76953125
+   },
+   {
+    "index": 61,
+    "t": 0.78125
+   },
+   {
+    "index": 62,
+    "t": 0.796875
+   },
+   {
+    "index": 57,
+    "t": 0.8125
+   },
+   {
+    "index": 58,
+    "t": 0.875
+   },
+   {
+    "index": 59,
+    "t": 0.9375
+   },
+   {
+    "index": 53,
+    "t": 1
+   }
+  ]
+ },
+ "events": [
+  {
+   "kind": "axis",
+   "axis": "Diameter",
+   "between": [
+    25,
+    0
+   ],
+   "from": {
+    "Diameter": 50,
+    "Thickness": 8,
+    "Bolt holes": 6
+   },
+   "to": {
+    "Diameter": 80,
+    "Thickness": 8,
+    "Bolt holes": 6
+   },
+   "changed": [
+    "counts: flange:1/20/47 -> flange:1/15/32",
+    "gates: flange:bed+overhang+watertight -> flange:bed+min_wall+overhang+watertight"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Diameter",
+   "between": [
+    1,
+    50
+   ],
+   "from": {
+    "Diameter": 50,
+    "Thickness": 4,
+    "Bolt holes": 3
+   },
+   "to": {
+    "Diameter": 65,
+    "Thickness": 4,
+    "Bolt holes": 3
+   },
+   "changed": [
+    "counts: flange:1/14/29 -> flange:1/12/23",
+    "gates: flange:bed+overhang+watertight -> flange:bed+min_wall+overhang+watertight"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Diameter",
+   "between": [
+    22,
+    2
+   ],
+   "from": {
+    "Diameter": 50,
+    "Thickness": 20,
+    "Bolt holes": 4
+   },
+   "to": {
+    "Diameter": 160,
+    "Thickness": 20,
+    "Bolt holes": 4
+   },
+   "changed": [
+    "counts: flange:1/16/35 -> flange:1/13/26",
+    "gates: flange:bed+overhang+watertight -> flange:bed+min_wall+overhang+watertight"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Diameter",
+   "between": [
+    23,
+    3
+   ],
+   "from": {
+    "Diameter": 50,
+    "Thickness": 4,
+    "Bolt holes": 5
+   },
+   "to": {
+    "Diameter": 160,
+    "Thickness": 4,
+    "Bolt holes": 5
+   },
+   "changed": [
+    "counts: flange:1/18/41 -> flange:1/14/29",
+    "gates: flange:bed+overhang+watertight -> flange:bed+min_wall+overhang+watertight"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Diameter",
+   "between": [
+    4,
+    28
+   ],
+   "from": {
+    "Diameter": 50,
+    "Thickness": 20,
+    "Bolt holes": 6
+   },
+   "to": {
+    "Diameter": 80,
+    "Thickness": 20,
+    "Bolt holes": 6
+   },
+   "changed": [
+    "counts: flange:1/20/47 -> flange:1/15/32",
+    "gates: flange:bed+overhang+watertight -> flange:bed+min_wall+overhang+watertight"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Diameter",
+   "between": [
+    14,
+    27
+   ],
+   "from": {
+    "Diameter": 50,
+    "Thickness": 4,
+    "Bolt holes": 6
+   },
+   "to": {
+    "Diameter": 80,
+    "Thickness": 4,
+    "Bolt holes": 6
+   },
+   "changed": [
+    "counts: flange:1/20/47 -> flange:1/15/32",
+    "gates: flange:bed+overhang+watertight -> flange:bed+min_wall+overhang+watertight"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Diameter",
+   "between": [
+    49,
+    52
+   ],
+   "from": {
+    "Diameter": 50,
+    "Thickness": 8,
+    "Bolt holes": 3
+   },
+   "to": {
+    "Diameter": 65,
+    "Thickness": 8,
+    "Bolt holes": 3
+   },
+   "changed": [
+    "counts: flange:1/14/29 -> flange:1/12/23",
+    "gates: flange:bed+overhang+watertight -> flange:bed+min_wall+overhang+watertight"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Diameter",
+   "between": [
+    59,
+    58
+   ],
+   "from": {
+    "Diameter": 51.875,
+    "Thickness": 8,
+    "Bolt holes": 5
+   },
+   "to": {
+    "Diameter": 53.75,
+    "Thickness": 8,
+    "Bolt holes": 5
+   },
+   "changed": [
+    "counts: flange:1/18/41 -> flange:1/14/29"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Diameter",
+   "between": [
+    61,
+    63
+   ],
+   "from": {
+    "Diameter": 56.5625,
+    "Thickness": 8,
+    "Bolt holes": 5
+   },
+   "to": {
+    "Diameter": 56.914063,
+    "Thickness": 8,
+    "Bolt holes": 5
+   },
+   "changed": [
+    "gates: flange:bed+overhang+watertight -> flange:bed+min_wall+overhang+watertight"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Bolt holes",
+   "between": [
+    29,
+    30
+   ],
+   "from": {
+    "Diameter": 80,
+    "Thickness": 8,
+    "Bolt holes": 3
+   },
+   "to": {
+    "Diameter": 80,
+    "Thickness": 8,
+    "Bolt holes": 4
+   },
+   "changed": [
+    "counts: flange:1/12/23 -> flange:1/13/26"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Bolt holes",
+   "between": [
+    30,
+    31
+   ],
+   "from": {
+    "Diameter": 80,
+    "Thickness": 8,
+    "Bolt holes": 4
+   },
+   "to": {
+    "Diameter": 80,
+    "Thickness": 8,
+    "Bolt holes": 5
+   },
+   "changed": [
+    "counts: flange:1/13/26 -> flange:1/14/29"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Bolt holes",
+   "between": [
+    31,
+    0
+   ],
+   "from": {
+    "Diameter": 80,
+    "Thickness": 8,
+    "Bolt holes": 5
+   },
+   "to": {
+    "Diameter": 80,
+    "Thickness": 8,
+    "Bolt holes": 6
+   },
+   "changed": [
+    "counts: flange:1/14/29 -> flange:1/15/32"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Bolt holes",
+   "between": [
+    0,
+    32
+   ],
+   "from": {
+    "Diameter": 80,
+    "Thickness": 8,
+    "Bolt holes": 6
+   },
+   "to": {
+    "Diameter": 80,
+    "Thickness": 8,
+    "Bolt holes": 7
+   },
+   "changed": [
+    "counts: flange:1/15/32 -> flange:1/16/35"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Bolt holes",
+   "between": [
+    1,
+    23
+   ],
+   "from": {
+    "Diameter": 50,
+    "Thickness": 4,
+    "Bolt holes": 3
+   },
+   "to": {
+    "Diameter": 50,
+    "Thickness": 4,
+    "Bolt holes": 5
+   },
+   "changed": [
+    "counts: flange:1/14/29 -> flange:1/18/41"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Bolt holes",
+   "between": [
+    23,
+    14
+   ],
+   "from": {
+    "Diameter": 50,
+    "Thickness": 4,
+    "Bolt holes": 5
+   },
+   "to": {
+    "Diameter": 50,
+    "Thickness": 4,
+    "Bolt holes": 6
+   },
+   "changed": [
+    "counts: flange:1/18/41 -> flange:1/20/47"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Bolt holes",
+   "between": [
+    14,
+    5
+   ],
+   "from": {
+    "Diameter": 50,
+    "Thickness": 4,
+    "Bolt holes": 6
+   },
+   "to": {
+    "Diameter": 50,
+    "Thickness": 4,
+    "Bolt holes": 7
+   },
+   "changed": [
+    "counts: flange:1/20/47 -> flange:1/22/53"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Bolt holes",
+   "between": [
+    5,
+    18
+   ],
+   "from": {
+    "Diameter": 50,
+    "Thickness": 4,
+    "Bolt holes": 7
+   },
+   "to": {
+    "Diameter": 50,
+    "Thickness": 4,
+    "Bolt holes": 10
+   },
+   "changed": [
+    "counts: flange:1/22/53 -> flange:1/28/71"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Bolt holes",
+   "between": [
+    18,
+    9
+   ],
+   "from": {
+    "Diameter": 50,
+    "Thickness": 4,
+    "Bolt holes": 10
+   },
+   "to": {
+    "Diameter": 50,
+    "Thickness": 4,
+    "Bolt holes": 11
+   },
+   "changed": [
+    "counts: flange:1/28/71 -> flange:1/30/77"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Bolt holes",
+   "between": [
+    11,
+    2
+   ],
+   "from": {
+    "Diameter": 160,
+    "Thickness": 20,
+    "Bolt holes": 3
+   },
+   "to": {
+    "Diameter": 160,
+    "Thickness": 20,
+    "Bolt holes": 4
+   },
+   "changed": [
+    "counts: flange:1/12/23 -> flange:1/13/26"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Bolt holes",
+   "between": [
+    2,
+    24
+   ],
+   "from": {
+    "Diameter": 160,
+    "Thickness": 20,
+    "Bolt holes": 4
+   },
+   "to": {
+    "Diameter": 160,
+    "Thickness": 20,
+    "Bolt holes": 6
+   },
+   "changed": [
+    "counts: flange:1/13/26 -> flange:1/15/32"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Bolt holes",
+   "between": [
+    24,
+    15
+   ],
+   "from": {
+    "Diameter": 160,
+    "Thickness": 20,
+    "Bolt holes": 6
+   },
+   "to": {
+    "Diameter": 160,
+    "Thickness": 20,
+    "Bolt holes": 7
+   },
+   "changed": [
+    "counts: flange:1/15/32 -> flange:1/16/35"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Bolt holes",
+   "between": [
+    15,
+    6
+   ],
+   "from": {
+    "Diameter": 160,
+    "Thickness": 20,
+    "Bolt holes": 7
+   },
+   "to": {
+    "Diameter": 160,
+    "Thickness": 20,
+    "Bolt holes": 8
+   },
+   "changed": [
+    "counts: flange:1/16/35 -> flange:1/17/38"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Bolt holes",
+   "between": [
+    6,
+    19
+   ],
+   "from": {
+    "Diameter": 160,
+    "Thickness": 20,
+    "Bolt holes": 8
+   },
+   "to": {
+    "Diameter": 160,
+    "Thickness": 20,
+    "Bolt holes": 11
+   },
+   "changed": [
+    "counts: flange:1/17/38 -> flange:1/20/47"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Bolt holes",
+   "between": [
+    19,
+    10
+   ],
+   "from": {
+    "Diameter": 160,
+    "Thickness": 20,
+    "Bolt holes": 11
+   },
+   "to": {
+    "Diameter": 160,
+    "Thickness": 20,
+    "Bolt holes": 12
+   },
+   "changed": [
+    "counts: flange:1/20/47 -> flange:1/21/50"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Bolt holes",
+   "between": [
+    21,
+    12
+   ],
+   "from": {
+    "Diameter": 160,
+    "Thickness": 4,
+    "Bolt holes": 3
+   },
+   "to": {
+    "Diameter": 160,
+    "Thickness": 4,
+    "Bolt holes": 4
+   },
+   "changed": [
+    "counts: flange:1/12/23 -> flange:1/13/26"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Bolt holes",
+   "between": [
+    12,
+    3
+   ],
+   "from": {
+    "Diameter": 160,
+    "Thickness": 4,
+    "Bolt holes": 4
+   },
+   "to": {
+    "Diameter": 160,
+    "Thickness": 4,
+    "Bolt holes": 5
+   },
+   "changed": [
+    "counts: flange:1/13/26 -> flange:1/14/29"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Bolt holes",
+   "between": [
+    3,
+    16
+   ],
+   "from": {
+    "Diameter": 160,
+    "Thickness": 4,
+    "Bolt holes": 5
+   },
+   "to": {
+    "Diameter": 160,
+    "Thickness": 4,
+    "Bolt holes": 8
+   },
+   "changed": [
+    "counts: flange:1/14/29 -> flange:1/17/38"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Bolt holes",
+   "between": [
+    16,
+    7
+   ],
+   "from": {
+    "Diameter": 160,
+    "Thickness": 4,
+    "Bolt holes": 8
+   },
+   "to": {
+    "Diameter": 160,
+    "Thickness": 4,
+    "Bolt holes": 9
+   },
+   "changed": [
+    "counts: flange:1/17/38 -> flange:1/18/41"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Bolt holes",
+   "between": [
+    7,
+    20
+   ],
+   "from": {
+    "Diameter": 160,
+    "Thickness": 4,
+    "Bolt holes": 9
+   },
+   "to": {
+    "Diameter": 160,
+    "Thickness": 4,
+    "Bolt holes": 12
+   },
+   "changed": [
+    "counts: flange:1/18/41 -> flange:1/21/50"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Bolt holes",
+   "between": [
+    22,
+    13
+   ],
+   "from": {
+    "Diameter": 50,
+    "Thickness": 20,
+    "Bolt holes": 4
+   },
+   "to": {
+    "Diameter": 50,
+    "Thickness": 20,
+    "Bolt holes": 5
+   },
+   "changed": [
+    "counts: flange:1/16/35 -> flange:1/18/41"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Bolt holes",
+   "between": [
+    13,
+    4
+   ],
+   "from": {
+    "Diameter": 50,
+    "Thickness": 20,
+    "Bolt holes": 5
+   },
+   "to": {
+    "Diameter": 50,
+    "Thickness": 20,
+    "Bolt holes": 6
+   },
+   "changed": [
+    "counts: flange:1/18/41 -> flange:1/20/47"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Bolt holes",
+   "between": [
+    4,
+    17
+   ],
+   "from": {
+    "Diameter": 50,
+    "Thickness": 20,
+    "Bolt holes": 6
+   },
+   "to": {
+    "Diameter": 50,
+    "Thickness": 20,
+    "Bolt holes": 9
+   },
+   "changed": [
+    "counts: flange:1/20/47 -> flange:1/26/65"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Bolt holes",
+   "between": [
+    17,
+    8
+   ],
+   "from": {
+    "Diameter": 50,
+    "Thickness": 20,
+    "Bolt holes": 9
+   },
+   "to": {
+    "Diameter": 50,
+    "Thickness": 20,
+    "Bolt holes": 10
+   },
+   "changed": [
+    "counts: flange:1/26/65 -> flange:1/28/71"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Bolt holes",
+   "between": [
+    49,
+    53
+   ],
+   "from": {
+    "Diameter": 50,
+    "Thickness": 8,
+    "Bolt holes": 3
+   },
+   "to": {
+    "Diameter": 50,
+    "Thickness": 8,
+    "Bolt holes": 5
+   },
+   "changed": [
+    "counts: flange:1/14/29 -> flange:1/18/41"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Bolt holes",
+   "between": [
+    53,
+    25
+   ],
+   "from": {
+    "Diameter": 50,
+    "Thickness": 8,
+    "Bolt holes": 5
+   },
+   "to": {
+    "Diameter": 50,
+    "Thickness": 8,
+    "Bolt holes": 6
+   },
+   "changed": [
+    "counts: flange:1/18/41 -> flange:1/20/47"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Bolt holes",
+   "between": [
+    48,
+    27
+   ],
+   "from": {
+    "Diameter": 80,
+    "Thickness": 4,
+    "Bolt holes": 3
+   },
+   "to": {
+    "Diameter": 80,
+    "Thickness": 4,
+    "Bolt holes": 6
+   },
+   "changed": [
+    "counts: flange:1/12/23 -> flange:1/15/32"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Bolt holes",
+   "between": [
+    52,
+    54
+   ],
+   "from": {
+    "Diameter": 65,
+    "Thickness": 8,
+    "Bolt holes": 3
+   },
+   "to": {
+    "Diameter": 65,
+    "Thickness": 8,
+    "Bolt holes": 5
+   },
+   "changed": [
+    "counts: flange:1/12/23 -> flange:1/14/29"
+   ]
+  },
+  {
+   "kind": "line",
+   "between": [
+    63,
+    61
+   ],
+   "from": {
+    "Diameter": 56.914063,
+    "Thickness": 8,
+    "Bolt holes": 5
+   },
+   "to": {
+    "Diameter": 56.5625,
+    "Thickness": 8,
+    "Bolt holes": 5
+   },
+   "changed": [
+    "gates: flange:bed+min_wall+overhang+watertight -> flange:bed+overhang+watertight"
+   ]
+  },
+  {
+   "kind": "line",
+   "between": [
+    58,
+    59
+   ],
+   "from": {
+    "Diameter": 53.75,
+    "Thickness": 8,
+    "Bolt holes": 5
+   },
+   "to": {
+    "Diameter": 51.875,
+    "Thickness": 8,
+    "Bolt holes": 5
+   },
+   "changed": [
+    "counts: flange:1/14/29 -> flange:1/18/41"
+   ]
+  }
+ ],
+ "smallest_margins": [
+  {
+   "id": "builds",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "status",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "valid",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "one-solid",
+   "signed": 0,
+   "scale": 1,
+   "normalized": 0,
+   "at": 0
+  },
+  {
+   "id": "size-x",
+   "signed": -0.2052219999999968,
+   "scale": 0.05,
+   "normalized": -4.1044399999999355,
+   "at": 4
+  },
+  {
+   "id": "size-y",
+   "signed": -0.2052219999999968,
+   "scale": 0.05,
+   "normalized": -4.1044399999999355,
+   "at": 22
+  },
+  {
+   "id": "size-z",
+   "signed": 0.001,
+   "scale": 0.032,
+   "normalized": 0.03125,
+   "at": 2
+  },
+  {
+   "id": "faces",
+   "signed": -10,
+   "scale": 1,
+   "normalized": -10,
+   "at": 9
+  },
+  {
+   "id": "edges",
+   "signed": -30,
+   "scale": 1,
+   "normalized": -30,
+   "at": 9
+  },
+  {
+   "id": "gate-watertight",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "gate-min-wall",
+   "signed": -0.8350000000000001,
+   "scale": 0.04,
+   "normalized": -20.875,
+   "at": 4
+  },
+  {
+   "id": "gate-overhang",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "gate-bed",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  }
+ ],
+ "coverage": {
+  "points": 64,
+  "phases": {
+   "nominal": 1,
+   "corner": 24,
+   "special": 8,
+   "halton": 15,
+   "shrink": 7,
+   "bisect": 9
+  },
+  "corners_planned": 40,
+  "special_planned": 13,
+  "axes": [
+   {
+    "name": "Diameter",
+    "min_seen": 50,
+    "max_seen": 160,
+    "min": 50,
+    "max": 160
+   },
+   {
+    "name": "Thickness",
+    "min_seen": 4,
+    "max_seen": 20,
+    "min": 4,
+    "max": 20
+   },
+   {
+    "name": "Bolt holes",
+    "values_seen": 10,
+    "values": 10
+   }
+  ]
+ },
+ "limits": [
+  "Sampling is not proof: the brief was checked at the points listed under this model, never for all values. A thin band can hide between samples.",
+  "The gates are fdm.v1 rule checks on the kernel's geometry (watertight, 0.8 mm min_wall from rays, 45 degree overhang, bed), never a print simulation.",
+  "Fits are exact OCCT clash, contact and clearance checks within the fit watch distance; a pair with no line inside it is censored, not a measured pass.",
+  "Bit-identical replay is only claimed for the platform named here.",
+  "Fit watch distance 0.5 mm."
+ ],
+ "points": [
+  {
+   "index": 0,
+   "phase": "nominal",
+   "fresh": [],
+   "params": {
+    "Diameter": 80,
+    "Thickness": 8,
+    "Bolt holes": 6
+   },
+   "ok": true,
+   "report_hash": "ee3557e6e69001811e47dbd61bbb4faa14e036623f088d7153b04095b0c24749",
+   "signature_hash": "87860e055bc09c5cad6caf646435492c718480f164e69fafd4475cb79d67361d",
+   "shape_hash": {
+    "flange": "s1:8c5cb09dbb295de7"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.08
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.08
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.15,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 1,
+   "phase": "corner",
+   "fresh": [
+    "size-x",
+    "faces",
+    "edges",
+    "gate-min-wall"
+   ],
+   "params": {
+    "Diameter": 50,
+    "Thickness": 4,
+    "Bolt holes": 3
+   },
+   "ok": true,
+   "report_hash": "09537afe8747087ab9d243f6c39117d39742909c50eca92a9016141f8bd22a8b",
+   "signature_hash": "42216e3b4cc43b2bde82c5300ed0581d3c73e764f242f7935226601486d59cb4",
+   "shape_hash": {
+    "flange": "s1:0822085862059ecc"
+   },
+   "failing": [
+    "size-x",
+    "faces",
+    "edges",
+    "gate-min-wall"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": false,
+     "signed": -0.1021109999999984,
+     "scale": 0.05,
+     "detail": "size_x of assembly = 49.896889, expected = 50 (tol abs 0.001)"
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.016
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": -2,
+     "scale": 1,
+     "detail": "faces of flange = 14, expected = 12"
+    },
+    {
+     "id": "edges",
+     "pass": false,
+     "signed": -6,
+     "scale": 1,
+     "detail": "edges of flange = 29, expected = 23"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.8230000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.017 mm (fails: flange face:7 0.017)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 2,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Diameter": 160,
+    "Thickness": 20,
+    "Bolt holes": 4
+   },
+   "ok": true,
+   "report_hash": "870526f296a552bfa90da5e08d7fe7387edeaba62214e7aaccebda91939c42b2",
+   "signature_hash": "e288e78d2e829a5c85f52283e03d69ed9ed4a7a77a06cd0963cd095932a6c797",
+   "shape_hash": {
+    "flange": "s1:552a57dec01f3e7c"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.16
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.16
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.15,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 3,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Diameter": 160,
+    "Thickness": 4,
+    "Bolt holes": 5
+   },
+   "ok": true,
+   "report_hash": "d6ef6539aff40a2633d34c0dba25ae435b13e68811bad912162dbbc5fd434e21",
+   "signature_hash": "00c3061999e13f1055e49662fd445d607b7c7f3daa77bf1ca354f99ea063b789",
+   "shape_hash": {
+    "flange": "s1:7a9e44a45b511921"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.16
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.16
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.016
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.16,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 4,
+   "phase": "corner",
+   "fresh": [
+    "size-x",
+    "faces",
+    "edges",
+    "gate-min-wall"
+   ],
+   "params": {
+    "Diameter": 50,
+    "Thickness": 20,
+    "Bolt holes": 6
+   },
+   "ok": true,
+   "report_hash": "99153663a3d8cc6175d7f61d5b447efab85d9c78ae76854b14981e71ba00af2b",
+   "signature_hash": "3575501e9928a1276bb5619cfca93b3f01c267235f5d383253eb99eb853bb346",
+   "shape_hash": {
+    "flange": "s1:0b00da60fa7ba0b3"
+   },
+   "failing": [
+    "size-x",
+    "faces",
+    "edges",
+    "gate-min-wall"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": false,
+     "signed": -0.2052219999999968,
+     "scale": 0.05,
+     "detail": "size_x of assembly = 49.793778, expected = 50 (tol abs 0.001)"
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": -5,
+     "scale": 1,
+     "detail": "faces of flange = 20, expected = 15"
+    },
+    {
+     "id": "edges",
+     "pass": false,
+     "signed": -15,
+     "scale": 1,
+     "detail": "edges of flange = 47, expected = 32"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.8350000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.005 mm (fails: flange face:5 0.005)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 5,
+   "phase": "corner",
+   "fresh": [
+    "size-x",
+    "faces",
+    "edges",
+    "gate-min-wall"
+   ],
+   "params": {
+    "Diameter": 50,
+    "Thickness": 4,
+    "Bolt holes": 7
+   },
+   "ok": true,
+   "report_hash": "a04a34c00978f23d51bc23fd98ef4e1c159601bdab4fd9b1f23004a3e5edabbb",
+   "signature_hash": "e452b6d66e68cc88f9295fe9a49d24aeb8aea0426367d428ff7d579184616b79",
+   "shape_hash": {
+    "flange": "s1:a0e79fff655b4a0e"
+   },
+   "failing": [
+    "size-x",
+    "faces",
+    "edges",
+    "gate-min-wall"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": false,
+     "signed": -0.1021109999999984,
+     "scale": 0.05,
+     "detail": "size_x of assembly = 49.896889, expected = 50 (tol abs 0.001)"
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.016
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": -6,
+     "scale": 1,
+     "detail": "faces of flange = 22, expected = 16"
+    },
+    {
+     "id": "edges",
+     "pass": false,
+     "signed": -18,
+     "scale": 1,
+     "detail": "edges of flange = 53, expected = 35"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.8230000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.017 mm (fails: flange face:9 0.017)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 6,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Diameter": 160,
+    "Thickness": 20,
+    "Bolt holes": 8
+   },
+   "ok": true,
+   "report_hash": "abd5bdc35bbaa2a11242debf26cf7a8bd5195948d9bf12dcc3f67f0d45f3411a",
+   "signature_hash": "5569330e73e0d005ad8b8807a640e8783d93ed98b4bda1bbf651192e3db395ea",
+   "shape_hash": {
+    "flange": "s1:8fe416757c8eaa3f"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.16
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.16
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.15,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 7,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Diameter": 160,
+    "Thickness": 4,
+    "Bolt holes": 9
+   },
+   "ok": true,
+   "report_hash": "2d09e3d02671a055ed26ed6037647b5ee335d81fe4e83c537ac8cc27c8d7a79d",
+   "signature_hash": "18930a9f02360a17c92d425f35a8a2b7f329d083d6261348b4b79619aeb3f43e",
+   "shape_hash": {
+    "flange": "s1:2d6dc2e525966ba4"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.16
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.16
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.016
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.16,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 8,
+   "phase": "corner",
+   "fresh": [
+    "size-x",
+    "faces",
+    "edges",
+    "gate-min-wall"
+   ],
+   "params": {
+    "Diameter": 50,
+    "Thickness": 20,
+    "Bolt holes": 10
+   },
+   "ok": true,
+   "report_hash": "963c975605701582893c8bd1391ba202a73eb7a1c65fb1eea9d1191efffe1a29",
+   "signature_hash": "cfbae6dca64ad618ddd8cbda24561f98a5360ed22d8010b9c882cadcb63f65d7",
+   "shape_hash": {
+    "flange": "s1:e99e86c6ba7f4714"
+   },
+   "failing": [
+    "size-x",
+    "faces",
+    "edges",
+    "gate-min-wall"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": false,
+     "signed": -0.2052219999999968,
+     "scale": 0.05,
+     "detail": "size_x of assembly = 49.793778, expected = 50 (tol abs 0.001)"
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": -9,
+     "scale": 1,
+     "detail": "faces of flange = 28, expected = 19"
+    },
+    {
+     "id": "edges",
+     "pass": false,
+     "signed": -27,
+     "scale": 1,
+     "detail": "edges of flange = 71, expected = 44"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.8350000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.005 mm (fails: flange face:23 0.005)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 9,
+   "phase": "corner",
+   "fresh": [
+    "size-x",
+    "faces",
+    "edges",
+    "gate-min-wall"
+   ],
+   "params": {
+    "Diameter": 50,
+    "Thickness": 4,
+    "Bolt holes": 11
+   },
+   "ok": true,
+   "report_hash": "065ed1283cbd7629f334415e85a58793da54ede5900468f19264ea39ccf41ae5",
+   "signature_hash": "46de33b3ffd7ff4f3591269ba15078aaac244e0c8f5bd7859d3dec1283f19a21",
+   "shape_hash": {
+    "flange": "s1:845f2cd845ce179e"
+   },
+   "failing": [
+    "size-x",
+    "faces",
+    "edges",
+    "gate-min-wall"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": false,
+     "signed": -0.1021109999999984,
+     "scale": 0.05,
+     "detail": "size_x of assembly = 49.896889, expected = 50 (tol abs 0.001)"
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.016
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": -10,
+     "scale": 1,
+     "detail": "faces of flange = 30, expected = 20"
+    },
+    {
+     "id": "edges",
+     "pass": false,
+     "signed": -30,
+     "scale": 1,
+     "detail": "edges of flange = 77, expected = 47"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.8230000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.017 mm (fails: flange face:11 0.017)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 10,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Diameter": 160,
+    "Thickness": 20,
+    "Bolt holes": 12
+   },
+   "ok": true,
+   "report_hash": "577f4ca2973826d411d512b2914d4ea1e3ac473d1ea86acdcf1dc6f6ec81515f",
+   "signature_hash": "2fd084530234689b9cdcf9e9b21679bc6978fa1fad80a2fa31866794ce9fc36a",
+   "shape_hash": {
+    "flange": "s1:934cd44835da672c"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.16
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.16
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.15,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 11,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Diameter": 160,
+    "Thickness": 20,
+    "Bolt holes": 3
+   },
+   "ok": true,
+   "report_hash": "19dadf51a64aba95d8706cd2086e95cc203cfa48b56ba67eb6e82e777c380fe5",
+   "signature_hash": "8293404c20ecf76450f031151e3b82eba34fbdeac0a74261c7c6bcd2dfec4a05",
+   "shape_hash": {
+    "flange": "s1:9c91ca45d9510e1a"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.16
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.16
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.15,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 12,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Diameter": 160,
+    "Thickness": 4,
+    "Bolt holes": 4
+   },
+   "ok": true,
+   "report_hash": "40b19c31c8ee46163a0d85d30c927924b977413dcdfeee11097ee934c4f2a101",
+   "signature_hash": "e288e78d2e829a5c85f52283e03d69ed9ed4a7a77a06cd0963cd095932a6c797",
+   "shape_hash": {
+    "flange": "s1:d7fde76846fd0691"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.16
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.16
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.016
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.16,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 13,
+   "phase": "corner",
+   "fresh": [
+    "size-x",
+    "faces",
+    "edges",
+    "gate-min-wall"
+   ],
+   "params": {
+    "Diameter": 50,
+    "Thickness": 20,
+    "Bolt holes": 5
+   },
+   "ok": true,
+   "report_hash": "6ae49e1ea1dd835f42c21a9262b43902ff8a66e85f055c5cbbbb0b96d0b7884b",
+   "signature_hash": "d5c039e721d6dd6260c3bfc3488a9a23732d94c82ffb6aa7a37b921424f06041",
+   "shape_hash": {
+    "flange": "s1:bb976b5b61b458e9"
+   },
+   "failing": [
+    "size-x",
+    "faces",
+    "edges",
+    "gate-min-wall"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": false,
+     "signed": -0.1021109999999984,
+     "scale": 0.05,
+     "detail": "size_x of assembly = 49.896889, expected = 50 (tol abs 0.001)"
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": -4,
+     "scale": 1,
+     "detail": "faces of flange = 18, expected = 14"
+    },
+    {
+     "id": "edges",
+     "pass": false,
+     "signed": -12,
+     "scale": 1,
+     "detail": "edges of flange = 41, expected = 29"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.8350000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.005 mm (fails: flange face:11 0.005)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 14,
+   "phase": "corner",
+   "fresh": [
+    "size-x",
+    "faces",
+    "edges",
+    "gate-min-wall"
+   ],
+   "params": {
+    "Diameter": 50,
+    "Thickness": 4,
+    "Bolt holes": 6
+   },
+   "ok": true,
+   "report_hash": "1fb791c4061699b3d15fe4f3e8f60e34e13b73a1160b10a44209989006fbe830",
+   "signature_hash": "3575501e9928a1276bb5619cfca93b3f01c267235f5d383253eb99eb853bb346",
+   "shape_hash": {
+    "flange": "s1:5b7efe6b17257895"
+   },
+   "failing": [
+    "size-x",
+    "faces",
+    "edges",
+    "gate-min-wall"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": false,
+     "signed": -0.2052219999999968,
+     "scale": 0.05,
+     "detail": "size_x of assembly = 49.793778, expected = 50 (tol abs 0.001)"
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.016
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": -5,
+     "scale": 1,
+     "detail": "faces of flange = 20, expected = 15"
+    },
+    {
+     "id": "edges",
+     "pass": false,
+     "signed": -15,
+     "scale": 1,
+     "detail": "edges of flange = 47, expected = 32"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.8230000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.017 mm (fails: flange face:5 0.017)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 15,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Diameter": 160,
+    "Thickness": 20,
+    "Bolt holes": 7
+   },
+   "ok": true,
+   "report_hash": "60d2de146ed63927b838f3c07742a5c36518dcd4a4092674a84c97fccc104822",
+   "signature_hash": "0b01b7bcfb4063225bd4db31b990ce2a876980f9071ca590f984523f9255dae1",
+   "shape_hash": {
+    "flange": "s1:4dec47ef326a3b8f"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.16
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.16
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.15,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 16,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Diameter": 160,
+    "Thickness": 4,
+    "Bolt holes": 8
+   },
+   "ok": true,
+   "report_hash": "8c7649b9b7477b4e5db2d96e7f84b0bdacea1fa7e728ee95025b5d51c2a9cc3a",
+   "signature_hash": "5569330e73e0d005ad8b8807a640e8783d93ed98b4bda1bbf651192e3db395ea",
+   "shape_hash": {
+    "flange": "s1:2a175fa7d4cf27fe"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.16
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.16
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.016
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.16,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 17,
+   "phase": "corner",
+   "fresh": [
+    "size-x",
+    "faces",
+    "edges",
+    "gate-min-wall"
+   ],
+   "params": {
+    "Diameter": 50,
+    "Thickness": 20,
+    "Bolt holes": 9
+   },
+   "ok": true,
+   "report_hash": "e143bc2e26648ba49b2361c3192fc1ccb0c9b6ca4dd77bffc9961d9534cee8ad",
+   "signature_hash": "43a86b883fe1a3cfb39859db7a17b5699dadde2fb03e7fb3e4560db9eae7677c",
+   "shape_hash": {
+    "flange": "s1:6c18b70503826801"
+   },
+   "failing": [
+    "size-x",
+    "faces",
+    "edges",
+    "gate-min-wall"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": false,
+     "signed": -0.1021109999999984,
+     "scale": 0.05,
+     "detail": "size_x of assembly = 49.896889, expected = 50 (tol abs 0.001)"
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": -8,
+     "scale": 1,
+     "detail": "faces of flange = 26, expected = 18"
+    },
+    {
+     "id": "edges",
+     "pass": false,
+     "signed": -24,
+     "scale": 1,
+     "detail": "edges of flange = 65, expected = 41"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.8350000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.005 mm (fails: flange face:13 0.005)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 18,
+   "phase": "corner",
+   "fresh": [
+    "size-x",
+    "faces",
+    "edges",
+    "gate-min-wall"
+   ],
+   "params": {
+    "Diameter": 50,
+    "Thickness": 4,
+    "Bolt holes": 10
+   },
+   "ok": true,
+   "report_hash": "7dd452286ee57c6fee52c230661fe691c97517176618d5c9fca9ed0e4df84ff1",
+   "signature_hash": "cfbae6dca64ad618ddd8cbda24561f98a5360ed22d8010b9c882cadcb63f65d7",
+   "shape_hash": {
+    "flange": "s1:18673d4aa7a4b428"
+   },
+   "failing": [
+    "size-x",
+    "faces",
+    "edges",
+    "gate-min-wall"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": false,
+     "signed": -0.2052219999999968,
+     "scale": 0.05,
+     "detail": "size_x of assembly = 49.793778, expected = 50 (tol abs 0.001)"
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.016
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": -9,
+     "scale": 1,
+     "detail": "faces of flange = 28, expected = 19"
+    },
+    {
+     "id": "edges",
+     "pass": false,
+     "signed": -27,
+     "scale": 1,
+     "detail": "edges of flange = 71, expected = 44"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.8230000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.017 mm (fails: flange face:7 0.017)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 19,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Diameter": 160,
+    "Thickness": 20,
+    "Bolt holes": 11
+   },
+   "ok": true,
+   "report_hash": "571716893a0d65b18365557f6590a5b2562ae75fe0e16ca754d95d6de8df9b80",
+   "signature_hash": "328dd80f2eaf2a9b39cb6c8232cab49bff8e1d667be9bc9c9a13698fd181b48b",
+   "shape_hash": {
+    "flange": "s1:6b06a440209cca50"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.16
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.16
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.15,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 20,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Diameter": 160,
+    "Thickness": 4,
+    "Bolt holes": 12
+   },
+   "ok": true,
+   "report_hash": "28ad010323ea44be246621385a172930419136af3eab8b60da3cae78efa611f1",
+   "signature_hash": "2fd084530234689b9cdcf9e9b21679bc6978fa1fad80a2fa31866794ce9fc36a",
+   "shape_hash": {
+    "flange": "s1:45cc50c50c4c4a0e"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.16
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.16
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.016
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.16,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 21,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Diameter": 160,
+    "Thickness": 4,
+    "Bolt holes": 3
+   },
+   "ok": true,
+   "report_hash": "bcc729b29d4cdc2641f00e444e625585a3ca1574e63035aa169701122e0c9691",
+   "signature_hash": "8293404c20ecf76450f031151e3b82eba34fbdeac0a74261c7c6bcd2dfec4a05",
+   "shape_hash": {
+    "flange": "s1:73aa00122cc48010"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.16
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.16
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.016
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.16,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 22,
+   "phase": "corner",
+   "fresh": [
+    "size-x",
+    "size-y",
+    "faces",
+    "edges",
+    "gate-min-wall"
+   ],
+   "params": {
+    "Diameter": 50,
+    "Thickness": 20,
+    "Bolt holes": 4
+   },
+   "ok": true,
+   "report_hash": "fa86cef9e936b0f02fa9628422d7a16c800ffe859f4f782802775c5be4c73290",
+   "signature_hash": "8a85410119961efc4a1df7ed15a0ef974309b4ca81089cd2448a2fb1052e429b",
+   "shape_hash": {
+    "flange": "s1:3091cb02b07a7882"
+   },
+   "failing": [
+    "size-x",
+    "size-y",
+    "faces",
+    "edges",
+    "gate-min-wall"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": false,
+     "signed": -0.2052219999999968,
+     "scale": 0.05,
+     "detail": "size_x of assembly = 49.793778, expected = 50 (tol abs 0.001)"
+    },
+    {
+     "id": "size-y",
+     "pass": false,
+     "signed": -0.2052219999999968,
+     "scale": 0.05,
+     "detail": "size_y of assembly = 49.793778, expected = 50 (tol abs 0.001)"
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": -3,
+     "scale": 1,
+     "detail": "faces of flange = 16, expected = 13"
+    },
+    {
+     "id": "edges",
+     "pass": false,
+     "signed": -9,
+     "scale": 1,
+     "detail": "edges of flange = 35, expected = 26"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.8350000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.005 mm (fails: flange face:5 0.005)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 23,
+   "phase": "corner",
+   "fresh": [
+    "size-x",
+    "faces",
+    "edges",
+    "gate-min-wall"
+   ],
+   "params": {
+    "Diameter": 50,
+    "Thickness": 4,
+    "Bolt holes": 5
+   },
+   "ok": true,
+   "report_hash": "8ce900e89302805ee4b37c8f816da5b851db1502ab750469ba73405036996045",
+   "signature_hash": "d5c039e721d6dd6260c3bfc3488a9a23732d94c82ffb6aa7a37b921424f06041",
+   "shape_hash": {
+    "flange": "s1:7cd2b5d6efbfa69d"
+   },
+   "failing": [
+    "size-x",
+    "faces",
+    "edges",
+    "gate-min-wall"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": false,
+     "signed": -0.1021109999999984,
+     "scale": 0.05,
+     "detail": "size_x of assembly = 49.896889, expected = 50 (tol abs 0.001)"
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.016
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": -4,
+     "scale": 1,
+     "detail": "faces of flange = 18, expected = 14"
+    },
+    {
+     "id": "edges",
+     "pass": false,
+     "signed": -12,
+     "scale": 1,
+     "detail": "edges of flange = 41, expected = 29"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.8230000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.017 mm (fails: flange face:11 0.017)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 24,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Diameter": 160,
+    "Thickness": 20,
+    "Bolt holes": 6
+   },
+   "ok": true,
+   "report_hash": "2403713c4f443f852b3773bcf2b6723e842b66299aad834355afa3e5b6cbf35a",
+   "signature_hash": "87860e055bc09c5cad6caf646435492c718480f164e69fafd4475cb79d67361d",
+   "shape_hash": {
+    "flange": "s1:192fe1bf7bd69cff"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.16
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.16
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.15,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 25,
+   "phase": "special",
+   "fresh": [
+    "size-x",
+    "faces",
+    "edges",
+    "gate-min-wall"
+   ],
+   "params": {
+    "Diameter": 50,
+    "Thickness": 8,
+    "Bolt holes": 6
+   },
+   "ok": true,
+   "report_hash": "06e23df922cd60dc75bd1e5f4cbd57cbd861f9c7c66dc964988e29833d9de553",
+   "signature_hash": "3575501e9928a1276bb5619cfca93b3f01c267235f5d383253eb99eb853bb346",
+   "shape_hash": {
+    "flange": "s1:34cb358a0493927e"
+   },
+   "failing": [
+    "size-x",
+    "faces",
+    "edges",
+    "gate-min-wall"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": false,
+     "signed": -0.2052219999999968,
+     "scale": 0.05,
+     "detail": "size_x of assembly = 49.793778, expected = 50 (tol abs 0.001)"
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": -5,
+     "scale": 1,
+     "detail": "faces of flange = 20, expected = 15"
+    },
+    {
+     "id": "edges",
+     "pass": false,
+     "signed": -15,
+     "scale": 1,
+     "detail": "edges of flange = 47, expected = 32"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.8300000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.01 mm (fails: flange face:5 0.01)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 26,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Diameter": 160,
+    "Thickness": 8,
+    "Bolt holes": 6
+   },
+   "ok": true,
+   "report_hash": "ce6ea83144db0926ab59bce380f8e07a1aa333a02266e912f909bceb0688043c",
+   "signature_hash": "87860e055bc09c5cad6caf646435492c718480f164e69fafd4475cb79d67361d",
+   "shape_hash": {
+    "flange": "s1:3e29af7e35088ac0"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.16
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.16
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.15,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 27,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Diameter": 80,
+    "Thickness": 4,
+    "Bolt holes": 6
+   },
+   "ok": true,
+   "report_hash": "72a98e4826352f65112a67f6639f72ad5a4f1a7722c5c9894123ef047ad42e95",
+   "signature_hash": "87860e055bc09c5cad6caf646435492c718480f164e69fafd4475cb79d67361d",
+   "shape_hash": {
+    "flange": "s1:3793971699e1ba9e"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.08
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.08
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.016
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.16,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 28,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Diameter": 80,
+    "Thickness": 20,
+    "Bolt holes": 6
+   },
+   "ok": true,
+   "report_hash": "f54f5240052def809aac758909b963831b9d1622ecc0376906e7b8a847d4e51e",
+   "signature_hash": "87860e055bc09c5cad6caf646435492c718480f164e69fafd4475cb79d67361d",
+   "shape_hash": {
+    "flange": "s1:5895594af516762d"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.08
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.08
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.15,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 29,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Diameter": 80,
+    "Thickness": 8,
+    "Bolt holes": 3
+   },
+   "ok": true,
+   "report_hash": "03ca81901748e55400a347f7ac46b944fec25c68b5b46ac9f9952760eed01b07",
+   "signature_hash": "8293404c20ecf76450f031151e3b82eba34fbdeac0a74261c7c6bcd2dfec4a05",
+   "shape_hash": {
+    "flange": "s1:d883b89ae5a0372a"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.08
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.08
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.15,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 30,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Diameter": 80,
+    "Thickness": 8,
+    "Bolt holes": 4
+   },
+   "ok": true,
+   "report_hash": "c8afdfeb33596b27e8b318b311dfb2fceae4ed5762f880b44fe6872b6db78ea8",
+   "signature_hash": "e288e78d2e829a5c85f52283e03d69ed9ed4a7a77a06cd0963cd095932a6c797",
+   "shape_hash": {
+    "flange": "s1:a7bda20d657ab138"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.08
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.08
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.15,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 31,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Diameter": 80,
+    "Thickness": 8,
+    "Bolt holes": 5
+   },
+   "ok": true,
+   "report_hash": "e7e1611d708afbda2ede02f5d535570c84cc8c7f667c22dbd0b29d8bf973b45a",
+   "signature_hash": "00c3061999e13f1055e49662fd445d607b7c7f3daa77bf1ca354f99ea063b789",
+   "shape_hash": {
+    "flange": "s1:21afe39d5941b881"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.08
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.08
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.15,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 32,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Diameter": 80,
+    "Thickness": 8,
+    "Bolt holes": 7
+   },
+   "ok": true,
+   "report_hash": "9fef7958633b5a15344b2d917b4d01c50c34736a0d5851189c86a55952b613e2",
+   "signature_hash": "0b01b7bcfb4063225bd4db31b990ce2a876980f9071ca590f984523f9255dae1",
+   "shape_hash": {
+    "flange": "s1:f54b467c2ccc304b"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.08
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.08
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.15,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 33,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Diameter": 57.920977,
+    "Thickness": 15.541149,
+    "Bolt holes": 8
+   },
+   "ok": true,
+   "report_hash": "97375c9ca5b459c7564d6a530fe12696d986a103229127bfc11d55bdbf332a1b",
+   "signature_hash": "5569330e73e0d005ad8b8807a640e8783d93ed98b4bda1bbf651192e3db395ea",
+   "shape_hash": {
+    "flange": "s1:c784d0fb40eab095"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.057920977
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.057920977
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.027541149
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 0.34099999999999997,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 34,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Diameter": 112.920977,
+    "Thickness": 6.65226,
+    "Bolt holes": 10
+   },
+   "ok": true,
+   "report_hash": "fdff4ac7b4876d206172e9fa4d7c5b97e3ea5ba01851f2e7b509212273083674",
+   "signature_hash": "573041c8e259f00b3df83505ffab98eac3a3c249901c41f73f0909835cd74c43",
+   "shape_hash": {
+    "flange": "s1:ef1070c13fc2153c"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.11292097699999999
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.11292097699999999
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01865226
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.15,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 35,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Diameter": 85.420977,
+    "Thickness": 11.985593,
+    "Bolt holes": 12
+   },
+   "ok": true,
+   "report_hash": "96e914ce6c55db8d5b6b5db002e2b108564d118399fccdec969bf6b70b6c64cd",
+   "signature_hash": "2fd084530234689b9cdcf9e9b21679bc6978fa1fad80a2fa31866794ce9fc36a",
+   "shape_hash": {
+    "flange": "s1:9bbfb146ef05d19f"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.085420977
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.085420977
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.023985593000000003
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.15,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 36,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Diameter": 140.420977,
+    "Thickness": 17.318927,
+    "Bolt holes": 4
+   },
+   "ok": true,
+   "report_hash": "1c09ee61e2199e71db2df04dec43326220896e71d4fcaf128841e07a5f004f29",
+   "signature_hash": "e288e78d2e829a5c85f52283e03d69ed9ed4a7a77a06cd0963cd095932a6c797",
+   "shape_hash": {
+    "flange": "s1:8c5359275a2061ae"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.140420977
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.140420977
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.029318926999999998
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.15,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 37,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Diameter": 71.670977,
+    "Thickness": 19.689297,
+    "Bolt holes": 6
+   },
+   "ok": true,
+   "report_hash": "7b26bc49ea2f24c9d4b508a8b9fffa857ebb4480ea9ca09f08a0de935b6dfda5",
+   "signature_hash": "87860e055bc09c5cad6caf646435492c718480f164e69fafd4475cb79d67361d",
+   "shape_hash": {
+    "flange": "s1:6aac8b9466a4724f"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.071670977
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.071670977
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.031689297
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.768,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 38,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Diameter": 126.670977,
+    "Thickness": 9.02263,
+    "Bolt holes": 8
+   },
+   "ok": true,
+   "report_hash": "e0ab103c9acc995a74c4d5bc79d661e440fda7a5855be4aced85adb2bcfe36e9",
+   "signature_hash": "5569330e73e0d005ad8b8807a640e8783d93ed98b4bda1bbf651192e3db395ea",
+   "shape_hash": {
+    "flange": "s1:7e95db26638f2506"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.126670977
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.126670977
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02102263
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.15,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 39,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Diameter": 99.170977,
+    "Thickness": 14.355964,
+    "Bolt holes": 10
+   },
+   "ok": true,
+   "report_hash": "7c9c32026512cdc602b999dc31eeb7e04be31493b2ae6ecb7e27c31fbb43d14b",
+   "signature_hash": "573041c8e259f00b3df83505ffab98eac3a3c249901c41f73f0909835cd74c43",
+   "shape_hash": {
+    "flange": "s1:a548a0a82b5a043f"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.099170977
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.099170977
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.026355964
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.15,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 40,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Diameter": 154.170977,
+    "Thickness": 5.467075,
+    "Bolt holes": 12
+   },
+   "ok": true,
+   "report_hash": "47eb5f144a24dfee89ed982d996375938ed63d2b8b911c6593cfd181ad14738f",
+   "signature_hash": "2fd084530234689b9cdcf9e9b21679bc6978fa1fad80a2fa31866794ce9fc36a",
+   "shape_hash": {
+    "flange": "s1:30be0afebda1a8b8"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.154170977
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.154170977
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.017467075000000002
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 4.627,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 41,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Diameter": 64.795977,
+    "Thickness": 10.800408,
+    "Bolt holes": 5
+   },
+   "ok": true,
+   "report_hash": "e855b4ff9e89e7a80892cdb04496ce77d951416a29319f1aedc8b56cf37b0100",
+   "signature_hash": "00c3061999e13f1055e49662fd445d607b7c7f3daa77bf1ca354f99ea063b789",
+   "shape_hash": {
+    "flange": "s1:bd8e5da2dc42db40"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.06479597699999999
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.06479597699999999
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.0009999999999964473,
+     "scale": 0.022800407999999998
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 2.05,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 42,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Diameter": 119.795977,
+    "Thickness": 16.133741,
+    "Bolt holes": 7
+   },
+   "ok": true,
+   "report_hash": "57de6177c779c618c92e3ad1949f5f11a20af0989fcdb0e2ca9d21baf71d9b8f",
+   "signature_hash": "0b01b7bcfb4063225bd4db31b990ce2a876980f9071ca590f984523f9255dae1",
+   "shape_hash": {
+    "flange": "s1:bbf5dbd56c13f453"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.119795977
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.119795977
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.028133741
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.15,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 43,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Diameter": 92.295977,
+    "Thickness": 7.244853,
+    "Bolt holes": 9
+   },
+   "ok": true,
+   "report_hash": "7751b52bbbba3d8c1c3e0547d48d36d016c77f30412976f3e97aadf03ba92579",
+   "signature_hash": "18930a9f02360a17c92d425f35a8a2b7f329d083d6261348b4b79619aeb3f43e",
+   "shape_hash": {
+    "flange": "s1:ce95d36301c6c028"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.092295977
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.092295977
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.019244853
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.15,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 44,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Diameter": 147.295977,
+    "Thickness": 12.578186,
+    "Bolt holes": 11
+   },
+   "ok": true,
+   "report_hash": "543c01a53ff77a8926ea2f8da046e2b63394f180d0948dfdbffb79e49b1b76c6",
+   "signature_hash": "328dd80f2eaf2a9b39cb6c8232cab49bff8e1d667be9bc9c9a13698fd181b48b",
+   "shape_hash": {
+    "flange": "s1:afe92761ffdd3994"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.147295977
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.147295977
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.0009999999999964473,
+     "scale": 0.024578186000000002
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.15,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 45,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Diameter": 78.545977,
+    "Thickness": 17.911519,
+    "Bolt holes": 3
+   },
+   "ok": true,
+   "report_hash": "5979d711cd54dc6426caf649729d2813c829d8ce2a406efd8997aaba6e9d029d",
+   "signature_hash": "8293404c20ecf76450f031151e3b82eba34fbdeac0a74261c7c6bcd2dfec4a05",
+   "shape_hash": {
+    "flange": "s1:66502a24d678ab3c"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.07854597699999999
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.07854597699999999
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.029911518999999998
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.15,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 46,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Diameter": 133.545977,
+    "Thickness": 4.28189,
+    "Bolt holes": 5
+   },
+   "ok": true,
+   "report_hash": "b9c903147766067de6a988c4aae565b9ce24ce92829e3424c6c3a7777943cf21",
+   "signature_hash": "00c3061999e13f1055e49662fd445d607b7c7f3daa77bf1ca354f99ea063b789",
+   "shape_hash": {
+    "flange": "s1:eb6093a1f2510c80"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.133545977
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.133545977
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01628189
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.442,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 47,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Diameter": 106.045977,
+    "Thickness": 9.615223,
+    "Bolt holes": 7
+   },
+   "ok": true,
+   "report_hash": "9c4331264b15d3823eb627d4bff52c35cbefd988275e14714837044d661a50f2",
+   "signature_hash": "0b01b7bcfb4063225bd4db31b990ce2a876980f9071ca590f984523f9255dae1",
+   "shape_hash": {
+    "flange": "s1:b53836e5b5d5d357"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.106045977
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.106045977
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.021615223
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.15,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 48,
+   "phase": "shrink",
+   "fresh": [],
+   "params": {
+    "Diameter": 80,
+    "Thickness": 4,
+    "Bolt holes": 3
+   },
+   "ok": true,
+   "report_hash": "faf4829bd79eb5bd6d0d56de77d18428660769a00f3cf238f9aff4453e0cd282",
+   "signature_hash": "8293404c20ecf76450f031151e3b82eba34fbdeac0a74261c7c6bcd2dfec4a05",
+   "shape_hash": {
+    "flange": "s1:676f33bac3c65ba5"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.08
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.08
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.016
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.16,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 49,
+   "phase": "shrink",
+   "fresh": [
+    "size-x",
+    "faces",
+    "edges",
+    "gate-min-wall"
+   ],
+   "params": {
+    "Diameter": 50,
+    "Thickness": 8,
+    "Bolt holes": 3
+   },
+   "ok": true,
+   "report_hash": "8cbda55fb6b1745dc180845216886ecedb0fb2988137e000ff46a880b2f566fe",
+   "signature_hash": "42216e3b4cc43b2bde82c5300ed0581d3c73e764f242f7935226601486d59cb4",
+   "shape_hash": {
+    "flange": "s1:caeb72ca2d4c746b"
+   },
+   "failing": [
+    "size-x",
+    "faces",
+    "edges",
+    "gate-min-wall"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": false,
+     "signed": -0.1021109999999984,
+     "scale": 0.05,
+     "detail": "size_x of assembly = 49.896889, expected = 50 (tol abs 0.001)"
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": -2,
+     "scale": 1,
+     "detail": "faces of flange = 14, expected = 12"
+    },
+    {
+     "id": "edges",
+     "pass": false,
+     "signed": -6,
+     "scale": 1,
+     "detail": "edges of flange = 29, expected = 23"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.8300000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.01 mm (fails: flange face:7 0.01)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 50,
+   "phase": "shrink",
+   "fresh": [],
+   "params": {
+    "Diameter": 65,
+    "Thickness": 4,
+    "Bolt holes": 3
+   },
+   "ok": true,
+   "report_hash": "359d71e598d90630c5c95b8a164d8c5e3958dbb02bd5eace95116b3fb87aa7fc",
+   "signature_hash": "8293404c20ecf76450f031151e3b82eba34fbdeac0a74261c7c6bcd2dfec4a05",
+   "shape_hash": {
+    "flange": "s1:0ed804c8efdd0f2e"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.065
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.065
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.016
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 2.1020000000000003,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 51,
+   "phase": "shrink",
+   "fresh": [
+    "size-x",
+    "faces",
+    "edges",
+    "gate-min-wall"
+   ],
+   "params": {
+    "Diameter": 50,
+    "Thickness": 6,
+    "Bolt holes": 3
+   },
+   "ok": true,
+   "report_hash": "f4ffd25c3a90c5d066bbbd0e71130dfe0145e0757477a02835acbb07da153730",
+   "signature_hash": "42216e3b4cc43b2bde82c5300ed0581d3c73e764f242f7935226601486d59cb4",
+   "shape_hash": {
+    "flange": "s1:d5d5c1fb64619dc9"
+   },
+   "failing": [
+    "size-x",
+    "faces",
+    "edges",
+    "gate-min-wall"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": false,
+     "signed": -0.1021109999999984,
+     "scale": 0.05,
+     "detail": "size_x of assembly = 49.896889, expected = 50 (tol abs 0.001)"
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.018000000000000002
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": -2,
+     "scale": 1,
+     "detail": "faces of flange = 14, expected = 12"
+    },
+    {
+     "id": "edges",
+     "pass": false,
+     "signed": -6,
+     "scale": 1,
+     "detail": "edges of flange = 29, expected = 23"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.8270000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.013 mm (fails: flange face:7 0.013)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 52,
+   "phase": "shrink",
+   "fresh": [],
+   "params": {
+    "Diameter": 65,
+    "Thickness": 8,
+    "Bolt holes": 3
+   },
+   "ok": true,
+   "report_hash": "8281de1d0e49d3eaf8ef73f149d9496b16cc8912640e651de885ab0bdc8681f6",
+   "signature_hash": "8293404c20ecf76450f031151e3b82eba34fbdeac0a74261c7c6bcd2dfec4a05",
+   "shape_hash": {
+    "flange": "s1:2a048b494f446d78"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.065
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.065
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 2.1020000000000003,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 53,
+   "phase": "shrink",
+   "fresh": [
+    "size-x",
+    "faces",
+    "edges",
+    "gate-min-wall"
+   ],
+   "params": {
+    "Diameter": 50,
+    "Thickness": 8,
+    "Bolt holes": 5
+   },
+   "ok": true,
+   "report_hash": "184980df9cd0f9b69a74e31f567f77d2cdb6f379e8bf4daa1a3425f30bf5e02f",
+   "signature_hash": "d5c039e721d6dd6260c3bfc3488a9a23732d94c82ffb6aa7a37b921424f06041",
+   "shape_hash": {
+    "flange": "s1:97f335ac1873e47e"
+   },
+   "failing": [
+    "size-x",
+    "faces",
+    "edges",
+    "gate-min-wall"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": false,
+     "signed": -0.1021109999999984,
+     "scale": 0.05,
+     "detail": "size_x of assembly = 49.896889, expected = 50 (tol abs 0.001)"
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": -4,
+     "scale": 1,
+     "detail": "faces of flange = 18, expected = 14"
+    },
+    {
+     "id": "edges",
+     "pass": false,
+     "signed": -12,
+     "scale": 1,
+     "detail": "edges of flange = 41, expected = 29"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.8300000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.01 mm (fails: flange face:11 0.01)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 54,
+   "phase": "shrink",
+   "fresh": [],
+   "params": {
+    "Diameter": 65,
+    "Thickness": 8,
+    "Bolt holes": 5
+   },
+   "ok": true,
+   "report_hash": "d7db9fe588e94c938d23fe3e282f148ab444de73c05959d4d46cde58b935a8b2",
+   "signature_hash": "00c3061999e13f1055e49662fd445d607b7c7f3daa77bf1ca354f99ea063b789",
+   "shape_hash": {
+    "flange": "s1:62c199004b8d67fb"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.065
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.065
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 2.101,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 55,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Diameter": 72.5,
+    "Thickness": 8,
+    "Bolt holes": 5
+   },
+   "ok": true,
+   "report_hash": "82fb435c632bcc6eb85046ca99ac742da378199bda6bc0bfa5cbb1f933716dde",
+   "signature_hash": "00c3061999e13f1055e49662fd445d607b7c7f3daa77bf1ca354f99ea063b789",
+   "shape_hash": {
+    "flange": "s1:d83ceff0aae16d2f"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0725
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0725
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.976,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 56,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Diameter": 57.5,
+    "Thickness": 8,
+    "Bolt holes": 5
+   },
+   "ok": true,
+   "report_hash": "bae7a552bbb9a363e45561dbf3d5ae58807f5c77cc50f0653f4e2285a578c2cc",
+   "signature_hash": "00c3061999e13f1055e49662fd445d607b7c7f3daa77bf1ca354f99ea063b789",
+   "shape_hash": {
+    "flange": "s1:b7c51e3b7a2b34a9"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0575
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0575
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 0.236,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 57,
+   "phase": "bisect",
+   "fresh": [
+    "gate-min-wall"
+   ],
+   "params": {
+    "Diameter": 55.625,
+    "Thickness": 8,
+    "Bolt holes": 5
+   },
+   "ok": true,
+   "report_hash": "bc7d120e5d4bd6c9aa9f2eeee978242f1c4129de6a604be54dfe113f65c734bf",
+   "signature_hash": "42216e3b4cc43b2bde82c5300ed0581d3c73e764f242f7935226601486d59cb4",
+   "shape_hash": {
+    "flange": "s1:0e2f808fc790599a"
+   },
+   "failing": [
+    "gate-min-wall"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.055625
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.055625
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.2420000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.598 mm (fails: flange face:7 0.598)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 58,
+   "phase": "bisect",
+   "fresh": [
+    "gate-min-wall"
+   ],
+   "params": {
+    "Diameter": 53.75,
+    "Thickness": 8,
+    "Bolt holes": 5
+   },
+   "ok": true,
+   "report_hash": "52e2c45fc81009ad62c19b3de947509934492dbc2fbd13f352e489186b8dc12e",
+   "signature_hash": "42216e3b4cc43b2bde82c5300ed0581d3c73e764f242f7935226601486d59cb4",
+   "shape_hash": {
+    "flange": "s1:ddeb3df1fea54c5b"
+   },
+   "failing": [
+    "gate-min-wall"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05375
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05375
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7110000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.129 mm (fails: flange face:8 0.129)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 59,
+   "phase": "bisect",
+   "fresh": [
+    "size-x",
+    "faces",
+    "edges",
+    "gate-min-wall"
+   ],
+   "params": {
+    "Diameter": 51.875,
+    "Thickness": 8,
+    "Bolt holes": 5
+   },
+   "ok": true,
+   "report_hash": "4325e442fef6f4e2e9b8f164386f7dc6a40417f69dc86f7fde479407d7de1df5",
+   "signature_hash": "d5c039e721d6dd6260c3bfc3488a9a23732d94c82ffb6aa7a37b921424f06041",
+   "shape_hash": {
+    "flange": "s1:2bdef52a8d20cfdf"
+   },
+   "failing": [
+    "size-x",
+    "faces",
+    "edges",
+    "gate-min-wall"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": false,
+     "signed": -0.04420300000000077,
+     "scale": 0.051875000000000004,
+     "detail": "size_x of assembly = 51.829797, expected = 51.875 (tol abs 0.001)"
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.051875000000000004
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": -4,
+     "scale": 1,
+     "detail": "faces of flange = 18, expected = 14"
+    },
+    {
+     "id": "edges",
+     "pass": false,
+     "signed": -12,
+     "scale": 1,
+     "detail": "edges of flange = 41, expected = 29"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.8340000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.006 mm (fails: flange face:5 0.006)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 60,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Diameter": 57.03125,
+    "Thickness": 8,
+    "Bolt holes": 5
+   },
+   "ok": true,
+   "report_hash": "c4e587ff2c352f2d58dbd96dad64f779919397395a1dd7d07474c13d75f1fb8a",
+   "signature_hash": "00c3061999e13f1055e49662fd445d607b7c7f3daa77bf1ca354f99ea063b789",
+   "shape_hash": {
+    "flange": "s1:8c471fb73d3e824e"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05703125
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05703125
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 0.10899999999999987,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 61,
+   "phase": "bisect",
+   "fresh": [
+    "gate-min-wall"
+   ],
+   "params": {
+    "Diameter": 56.5625,
+    "Thickness": 8,
+    "Bolt holes": 5
+   },
+   "ok": true,
+   "report_hash": "049912bc35584c83c55074cb893584b5ef3bb5a68b5d5501a483c75fcfdb39e8",
+   "signature_hash": "42216e3b4cc43b2bde82c5300ed0581d3c73e764f242f7935226601486d59cb4",
+   "shape_hash": {
+    "flange": "s1:fc874d12cb2fedc5"
+   },
+   "failing": [
+    "gate-min-wall"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0565625
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0565625
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.008000000000000118,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.832 mm (fails: flange face:6 0.832)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 62,
+   "phase": "bisect",
+   "fresh": [
+    "gate-min-wall"
+   ],
+   "params": {
+    "Diameter": 56.09375,
+    "Thickness": 8,
+    "Bolt holes": 5
+   },
+   "ok": true,
+   "report_hash": "b50b7580daffc1a26951f41b874f4ef096ed89a2fda5a3e0baa8dfa5b0aed2af",
+   "signature_hash": "42216e3b4cc43b2bde82c5300ed0581d3c73e764f242f7935226601486d59cb4",
+   "shape_hash": {
+    "flange": "s1:e3146788cd71d0cc"
+   },
+   "failing": [
+    "gate-min-wall"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05609375
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05609375
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.1250000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.715 mm (fails: flange face:7 0.715)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 63,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Diameter": 56.914063,
+    "Thickness": 8,
+    "Bolt holes": 5
+   },
+   "ok": true,
+   "report_hash": "0b55d711bf7a42d4f539c613def0ada7b327aaf2d209204a2e4e8965619d5081",
+   "signature_hash": "00c3061999e13f1055e49662fd445d607b7c7f3daa77bf1ca354f99ea063b789",
+   "shape_hash": {
+    "flange": "s1:9b94662474742aa4"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.056914063
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.056914063
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 0.07999999999999996,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  }
+ ]
+}

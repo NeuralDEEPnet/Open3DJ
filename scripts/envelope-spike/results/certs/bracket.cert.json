@@ -1,0 +1,8024 @@
+{
+ "certificate": "o3dj-envelope-cert/spike-0",
+ "brief": "bracket",
+ "brief_hash": "5292dec3c604b3554882b5e8e7801173ec9c512308b4ef6a6b1d5c1153822f92",
+ "script_hash": "d59965fe6345b3a147646c2648218466a6bf73dc89640dfd0ae958d727cf95aa",
+ "inputs_hash": "5e77af129436a6cdb61c6f4cb586558dc2c902717d7d2f880958a9e1d43a9ec2",
+ "engine": {
+  "occt_wasm": "5.8.1",
+  "node": "v24.22.1",
+  "analysis": "2"
+ },
+ "platform": "linux-x64",
+ "seed": 1,
+ "budget": 64,
+ "watch_mm": 0.5,
+ "verdict": "counterexample",
+ "statement": "counterexample: 23 of 64 points fail an assertion that passes at nominal",
+ "nominal_failures": [
+  "gate-overhang"
+ ],
+ "counterexamples": [
+  1,
+  3,
+  5,
+  6,
+  7,
+  9,
+  11,
+  13,
+  15,
+  16,
+  17,
+  19,
+  20,
+  21,
+  23,
+  29,
+  48,
+  49,
+  51,
+  52,
+  54,
+  56,
+  57
+ ],
+ "shrunk": 54,
+ "line": {
+  "pass": 31,
+  "fail": 54,
+  "lo": 0.9375,
+  "hi": 1,
+  "points": [
+   {
+    "index": 31,
+    "t": 0
+   },
+   {
+    "index": 58,
+    "t": 0.25
+   },
+   {
+    "index": 59,
+    "t": 0.5
+   },
+   {
+    "index": 60,
+    "t": 0.75
+   },
+   {
+    "index": 61,
+    "t": 0.8125
+   },
+   {
+    "index": 62,
+    "t": 0.875
+   },
+   {
+    "index": 63,
+    "t": 0.9375
+   },
+   {
+    "index": 54,
+    "t": 1
+   }
+  ]
+ },
+ "events": [
+  {
+   "kind": "axis",
+   "axis": "Width",
+   "between": [
+    16,
+    6
+   ],
+   "from": {
+    "Width": 24,
+    "Leg": 20,
+    "Thickness": 10,
+    "Screw": "M5"
+   },
+   "to": {
+    "Width": 100,
+    "Leg": 20,
+    "Thickness": 10,
+    "Screw": "M5"
+   },
+   "changed": [
+    "gates: bracket:bed+watertight -> bracket:bed+min_wall+watertight"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Width",
+   "between": [
+    20,
+    10
+   ],
+   "from": {
+    "Width": 24,
+    "Leg": 80,
+    "Thickness": 10,
+    "Screw": "M5"
+   },
+   "to": {
+    "Width": 100,
+    "Leg": 80,
+    "Thickness": 10,
+    "Screw": "M5"
+   },
+   "changed": [
+    "gates: bracket:bed+watertight -> bracket:bed+min_wall+watertight"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Leg",
+   "between": [
+    6,
+    10
+   ],
+   "from": {
+    "Width": 100,
+    "Leg": 20,
+    "Thickness": 10,
+    "Screw": "M5"
+   },
+   "to": {
+    "Width": 100,
+    "Leg": 80,
+    "Thickness": 10,
+    "Screw": "M5"
+   },
+   "changed": [
+    "counts: bracket:1/26/84 -> bracket:1/26/64"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Leg",
+   "between": [
+    16,
+    20
+   ],
+   "from": {
+    "Width": 24,
+    "Leg": 20,
+    "Thickness": 10,
+    "Screw": "M5"
+   },
+   "to": {
+    "Width": 24,
+    "Leg": 80,
+    "Thickness": 10,
+    "Screw": "M5"
+   },
+   "changed": [
+    "counts: bracket:1/26/84 -> bracket:1/26/64"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Thickness",
+   "between": [
+    29,
+    0
+   ],
+   "from": {
+    "Width": 40,
+    "Leg": 35,
+    "Thickness": 2,
+    "Screw": "M4"
+   },
+   "to": {
+    "Width": 40,
+    "Leg": 35,
+    "Thickness": 4,
+    "Screw": "M4"
+   },
+   "changed": [
+    "build error:KERNEL_FILLET_FAILED vs ok",
+    "counts:  -> bracket:1/26/64",
+    "fits:  -> ",
+    "gates:  -> bracket:bed+min_wall+watertight",
+    "status: undefined -> \"ok\""
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Thickness",
+   "between": [
+    1,
+    53
+   ],
+   "from": {
+    "Width": 24,
+    "Leg": 20,
+    "Thickness": 2,
+    "Screw": "M3"
+   },
+   "to": {
+    "Width": 24,
+    "Leg": 20,
+    "Thickness": 3,
+    "Screw": "M3"
+   },
+   "changed": [
+    "build error:KERNEL_FILLET_FAILED vs ok",
+    "counts:  -> bracket:1/26/64",
+    "fits:  -> ",
+    "gates:  -> bracket:bed+min_wall+watertight",
+    "status: undefined -> \"ok\""
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Thickness",
+   "between": [
+    15,
+    2
+   ],
+   "from": {
+    "Width": 100,
+    "Leg": 80,
+    "Thickness": 2,
+    "Screw": "M4"
+   },
+   "to": {
+    "Width": 100,
+    "Leg": 80,
+    "Thickness": 10,
+    "Screw": "M4"
+   },
+   "changed": [
+    "build error:KERNEL_FILLET_FAILED vs ok",
+    "counts:  -> bracket:1/26/64",
+    "fits:  -> ",
+    "gates:  -> bracket:bed+min_wall+watertight",
+    "status: undefined -> \"ok\""
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Thickness",
+   "between": [
+    3,
+    6
+   ],
+   "from": {
+    "Width": 100,
+    "Leg": 20,
+    "Thickness": 2,
+    "Screw": "M5"
+   },
+   "to": {
+    "Width": 100,
+    "Leg": 20,
+    "Thickness": 10,
+    "Screw": "M5"
+   },
+   "changed": [
+    "build error:KERNEL_FILLET_FAILED vs ok",
+    "counts:  -> bracket:1/26/84",
+    "fits:  -> ",
+    "gates:  -> bracket:bed+min_wall+watertight",
+    "status: undefined -> \"ok\""
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Thickness",
+   "between": [
+    21,
+    4
+   ],
+   "from": {
+    "Width": 24,
+    "Leg": 80,
+    "Thickness": 2,
+    "Screw": "M3"
+   },
+   "to": {
+    "Width": 24,
+    "Leg": 80,
+    "Thickness": 10,
+    "Screw": "M3"
+   },
+   "changed": [
+    "build error:KERNEL_FILLET_FAILED vs ok",
+    "counts:  -> bracket:1/26/64",
+    "fits:  -> ",
+    "gates:  -> bracket:bed+min_wall+watertight",
+    "status: undefined -> \"ok\""
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Thickness",
+   "between": [
+    5,
+    12
+   ],
+   "from": {
+    "Width": 24,
+    "Leg": 80,
+    "Thickness": 2,
+    "Screw": "M4"
+   },
+   "to": {
+    "Width": 24,
+    "Leg": 80,
+    "Thickness": 10,
+    "Screw": "M4"
+   },
+   "changed": [
+    "build error:KERNEL_FILLET_FAILED vs ok",
+    "counts:  -> bracket:1/26/64",
+    "fits:  -> ",
+    "gates:  -> bracket:bed+min_wall+watertight",
+    "status: undefined -> \"ok\""
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Thickness",
+   "between": [
+    7,
+    18
+   ],
+   "from": {
+    "Width": 100,
+    "Leg": 80,
+    "Thickness": 2,
+    "Screw": "M3"
+   },
+   "to": {
+    "Width": 100,
+    "Leg": 80,
+    "Thickness": 10,
+    "Screw": "M3"
+   },
+   "changed": [
+    "build error:KERNEL_FILLET_FAILED vs ok",
+    "counts:  -> bracket:1/26/64",
+    "fits:  -> ",
+    "gates:  -> bracket:bed+min_wall+watertight",
+    "status: undefined -> \"ok\""
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Thickness",
+   "between": [
+    9,
+    8
+   ],
+   "from": {
+    "Width": 24,
+    "Leg": 20,
+    "Thickness": 2,
+    "Screw": "M4"
+   },
+   "to": {
+    "Width": 24,
+    "Leg": 20,
+    "Thickness": 10,
+    "Screw": "M4"
+   },
+   "changed": [
+    "build error:KERNEL_FILLET_FAILED vs ok",
+    "counts:  -> bracket:1/26/64",
+    "fits:  -> ",
+    "gates:  -> bracket:bed+min_wall+watertight",
+    "status: undefined -> \"ok\""
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Thickness",
+   "between": [
+    23,
+    10
+   ],
+   "from": {
+    "Width": 100,
+    "Leg": 80,
+    "Thickness": 2,
+    "Screw": "M5"
+   },
+   "to": {
+    "Width": 100,
+    "Leg": 80,
+    "Thickness": 10,
+    "Screw": "M5"
+   },
+   "changed": [
+    "build error:KERNEL_FILLET_FAILED vs ok",
+    "counts:  -> bracket:1/26/64",
+    "fits:  -> ",
+    "gates:  -> bracket:bed+min_wall+watertight",
+    "status: undefined -> \"ok\""
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Thickness",
+   "between": [
+    11,
+    14
+   ],
+   "from": {
+    "Width": 100,
+    "Leg": 20,
+    "Thickness": 2,
+    "Screw": "M3"
+   },
+   "to": {
+    "Width": 100,
+    "Leg": 20,
+    "Thickness": 10,
+    "Screw": "M3"
+   },
+   "changed": [
+    "build error:KERNEL_FILLET_FAILED vs ok",
+    "counts:  -> bracket:1/26/64",
+    "fits:  -> ",
+    "gates:  -> bracket:bed+min_wall+watertight",
+    "status: undefined -> \"ok\""
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Thickness",
+   "between": [
+    13,
+    20
+   ],
+   "from": {
+    "Width": 24,
+    "Leg": 80,
+    "Thickness": 2,
+    "Screw": "M5"
+   },
+   "to": {
+    "Width": 24,
+    "Leg": 80,
+    "Thickness": 10,
+    "Screw": "M5"
+   },
+   "changed": [
+    "build error:KERNEL_FILLET_FAILED vs ok",
+    "counts:  -> bracket:1/26/64",
+    "fits:  -> ",
+    "gates:  -> bracket:bed+watertight",
+    "status: undefined -> \"ok\""
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Thickness",
+   "between": [
+    17,
+    16
+   ],
+   "from": {
+    "Width": 24,
+    "Leg": 20,
+    "Thickness": 2,
+    "Screw": "M5"
+   },
+   "to": {
+    "Width": 24,
+    "Leg": 20,
+    "Thickness": 10,
+    "Screw": "M5"
+   },
+   "changed": [
+    "build error:KERNEL_FILLET_FAILED vs ok",
+    "counts:  -> bracket:1/26/84",
+    "fits:  -> ",
+    "gates:  -> bracket:bed+watertight",
+    "status: undefined -> \"ok\""
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Thickness",
+   "between": [
+    19,
+    22
+   ],
+   "from": {
+    "Width": 100,
+    "Leg": 20,
+    "Thickness": 2,
+    "Screw": "M4"
+   },
+   "to": {
+    "Width": 100,
+    "Leg": 20,
+    "Thickness": 10,
+    "Screw": "M4"
+   },
+   "changed": [
+    "build error:KERNEL_FILLET_FAILED vs ok",
+    "counts:  -> bracket:1/26/64",
+    "fits:  -> ",
+    "gates:  -> bracket:bed+min_wall+watertight",
+    "status: undefined -> \"ok\""
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Thickness",
+   "between": [
+    56,
+    27
+   ],
+   "from": {
+    "Width": 40,
+    "Leg": 20,
+    "Thickness": 2,
+    "Screw": "M4"
+   },
+   "to": {
+    "Width": 40,
+    "Leg": 20,
+    "Thickness": 4,
+    "Screw": "M4"
+   },
+   "changed": [
+    "build error:KERNEL_FILLET_FAILED vs ok",
+    "counts:  -> bracket:1/26/64",
+    "fits:  -> ",
+    "gates:  -> bracket:bed+min_wall+watertight",
+    "status: undefined -> \"ok\""
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Thickness",
+   "between": [
+    54,
+    63
+   ],
+   "from": {
+    "Width": 40,
+    "Leg": 35,
+    "Thickness": 2,
+    "Screw": "M3"
+   },
+   "to": {
+    "Width": 40,
+    "Leg": 35,
+    "Thickness": 2.125,
+    "Screw": "M3"
+   },
+   "changed": [
+    "build error:KERNEL_FILLET_FAILED vs ok",
+    "counts:  -> bracket:1/26/64",
+    "fits:  -> ",
+    "gates:  -> bracket:bed+min_wall+watertight",
+    "status: undefined -> \"ok\""
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Thickness",
+   "between": [
+    48,
+    55
+   ],
+   "from": {
+    "Width": 40,
+    "Leg": 20,
+    "Thickness": 2,
+    "Screw": "M3"
+   },
+   "to": {
+    "Width": 40,
+    "Leg": 20,
+    "Thickness": 4,
+    "Screw": "M3"
+   },
+   "changed": [
+    "build error:KERNEL_FILLET_FAILED vs ok",
+    "counts:  -> bracket:1/26/64",
+    "fits:  -> ",
+    "gates:  -> bracket:bed+min_wall+watertight",
+    "status: undefined -> \"ok\""
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Screw",
+   "between": [
+    12,
+    20
+   ],
+   "from": {
+    "Width": 24,
+    "Leg": 80,
+    "Thickness": 10,
+    "Screw": "M4"
+   },
+   "to": {
+    "Width": 24,
+    "Leg": 80,
+    "Thickness": 10,
+    "Screw": "M5"
+   },
+   "changed": [
+    "gates: bracket:bed+min_wall+watertight -> bracket:bed+watertight"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Screw",
+   "between": [
+    22,
+    6
+   ],
+   "from": {
+    "Width": 100,
+    "Leg": 20,
+    "Thickness": 10,
+    "Screw": "M4"
+   },
+   "to": {
+    "Width": 100,
+    "Leg": 20,
+    "Thickness": 10,
+    "Screw": "M5"
+   },
+   "changed": [
+    "counts: bracket:1/26/64 -> bracket:1/26/84"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Screw",
+   "between": [
+    8,
+    16
+   ],
+   "from": {
+    "Width": 24,
+    "Leg": 20,
+    "Thickness": 10,
+    "Screw": "M4"
+   },
+   "to": {
+    "Width": 24,
+    "Leg": 20,
+    "Thickness": 10,
+    "Screw": "M5"
+   },
+   "changed": [
+    "counts: bracket:1/26/64 -> bracket:1/26/84",
+    "gates: bracket:bed+min_wall+watertight -> bracket:bed+watertight"
+   ]
+  },
+  {
+   "kind": "line",
+   "between": [
+    63,
+    54
+   ],
+   "from": {
+    "Width": 40,
+    "Leg": 35,
+    "Thickness": 2.125,
+    "Screw": "M3"
+   },
+   "to": {
+    "Width": 40,
+    "Leg": 35,
+    "Thickness": 2,
+    "Screw": "M3"
+   },
+   "changed": [
+    "build ok vs error:KERNEL_FILLET_FAILED",
+    "counts: bracket:1/26/64 -> ",
+    "fits:  -> ",
+    "gates: bracket:bed+min_wall+watertight -> ",
+    "status: \"ok\" -> undefined"
+   ]
+  }
+ ],
+ "smallest_margins": [
+  {
+   "id": "builds",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 1
+  },
+  {
+   "id": "status",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 1
+  },
+  {
+   "id": "valid",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 1
+  },
+  {
+   "id": "one-solid",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 1
+  },
+  {
+   "id": "size-x",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 1
+  },
+  {
+   "id": "size-y",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 1
+  },
+  {
+   "id": "size-z",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 1
+  },
+  {
+   "id": "faces",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 1
+  },
+  {
+   "id": "edges",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 1
+  },
+  {
+   "id": "gate-watertight",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 1
+  },
+  {
+   "id": "gate-min-wall",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 1
+  },
+  {
+   "id": "gate-bed",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 1
+  }
+ ],
+ "coverage": {
+  "points": 64,
+  "phases": {
+   "nominal": 1,
+   "corner": 24,
+   "special": 8,
+   "halton": 15,
+   "shrink": 10,
+   "bisect": 6
+  },
+  "corners_planned": 24,
+  "special_planned": 8,
+  "axes": [
+   {
+    "name": "Width",
+    "min_seen": 24,
+    "max_seen": 100,
+    "min": 24,
+    "max": 100
+   },
+   {
+    "name": "Leg",
+    "min_seen": 20,
+    "max_seen": 80,
+    "min": 20,
+    "max": 80
+   },
+   {
+    "name": "Thickness",
+    "min_seen": 2,
+    "max_seen": 10,
+    "min": 2,
+    "max": 10
+   },
+   {
+    "name": "Screw",
+    "values_seen": 3,
+    "values": 3
+   }
+  ]
+ },
+ "limits": [
+  "Sampling is not proof: the brief was checked at the points listed under this model, never for all values. A thin band can hide between samples.",
+  "The gates are fdm.v1 rule checks on the kernel's geometry (watertight, 0.8 mm min_wall from rays, 45 degree overhang, bed), never a print simulation.",
+  "Fits are exact OCCT clash, contact and clearance checks within the fit watch distance; a pair with no line inside it is censored, not a measured pass.",
+  "Bit-identical replay is only claimed for the platform named here.",
+  "Fit watch distance 0.5 mm."
+ ],
+ "points": [
+  {
+   "index": 0,
+   "phase": "nominal",
+   "fresh": [],
+   "params": {
+    "Width": 40,
+    "Leg": 35,
+    "Thickness": 4,
+    "Screw": "M4"
+   },
+   "ok": true,
+   "report_hash": "b381b845e846e7d7dbb03ecef25952d421712d86bfc71ec8133c588f57d94976",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:33ac2f039064a454"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.035
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.035
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.1580000000000004,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 1,
+   "phase": "corner",
+   "fresh": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-bed"
+   ],
+   "params": {
+    "Width": 24,
+    "Leg": 20,
+    "Thickness": 2,
+    "Screw": "M3"
+   },
+   "ok": false,
+   "error": "KERNEL_FILLET_FAILED",
+   "report_hash": "d9103d091a86f91b7dd55f9f1bffeb3c3f19185d6874ee03a249cee6c261a809",
+   "signature_hash": "4ba1ab85e79216a8a264269125a8999482524ebfb4d90071ef117d8d3ed45210",
+   "failing": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-overhang",
+    "gate-bed"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "KERNEL_FILLET_FAILED: fillet failed: operation failed (the kernel named no edge; elements lists the 7 edges asked for)"
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "valid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "one-solid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-x",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-y",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "edges",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-bed",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    }
+   ]
+  },
+  {
+   "index": 2,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Width": 100,
+    "Leg": 80,
+    "Thickness": 10,
+    "Screw": "M4"
+   },
+   "ok": true,
+   "report_hash": "60369552aebf09b649bf7e0d446ba7012d243b0fd7055563514a6ca457ba8836",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:6e8773a99ab261aa"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.1
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.08
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.08
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 9.159,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 3,
+   "phase": "corner",
+   "fresh": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-bed"
+   ],
+   "params": {
+    "Width": 100,
+    "Leg": 20,
+    "Thickness": 2,
+    "Screw": "M5"
+   },
+   "ok": false,
+   "error": "KERNEL_FILLET_FAILED",
+   "report_hash": "d9103d091a86f91b7dd55f9f1bffeb3c3f19185d6874ee03a249cee6c261a809",
+   "signature_hash": "4ba1ab85e79216a8a264269125a8999482524ebfb4d90071ef117d8d3ed45210",
+   "failing": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-overhang",
+    "gate-bed"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "KERNEL_FILLET_FAILED: fillet failed: operation failed (the kernel named no edge; elements lists the 7 edges asked for)"
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "valid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "one-solid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-x",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-y",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "edges",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-bed",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    }
+   ]
+  },
+  {
+   "index": 4,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Width": 24,
+    "Leg": 80,
+    "Thickness": 10,
+    "Screw": "M3"
+   },
+   "ok": true,
+   "report_hash": "8d9a21aeb82c81ac81818a0d5f80b2e8cd5adad6b70670c6e189b52af174a4e4",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:290c9d5acd083645"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.024
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.08
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.08
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 0.9609999999999999,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:21 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 5,
+   "phase": "corner",
+   "fresh": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-bed"
+   ],
+   "params": {
+    "Width": 24,
+    "Leg": 80,
+    "Thickness": 2,
+    "Screw": "M4"
+   },
+   "ok": false,
+   "error": "KERNEL_FILLET_FAILED",
+   "report_hash": "d9103d091a86f91b7dd55f9f1bffeb3c3f19185d6874ee03a249cee6c261a809",
+   "signature_hash": "4ba1ab85e79216a8a264269125a8999482524ebfb4d90071ef117d8d3ed45210",
+   "failing": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-overhang",
+    "gate-bed"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "KERNEL_FILLET_FAILED: fillet failed: operation failed (the kernel named no edge; elements lists the 7 edges asked for)"
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "valid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "one-solid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-x",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-y",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "edges",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-bed",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    }
+   ]
+  },
+  {
+   "index": 6,
+   "phase": "corner",
+   "fresh": [
+    "edges"
+   ],
+   "params": {
+    "Width": 100,
+    "Leg": 20,
+    "Thickness": 10,
+    "Screw": "M5"
+   },
+   "ok": true,
+   "report_hash": "581ae47507de59b12850c56a5c1e9a47b1dffe76a3897393c88e1e2a1b9c8469",
+   "signature_hash": "1fc7ae34f13d5fa28320b380a4a01e8feb0e7490dba386f00befe7a89102fd31",
+   "shape_hash": {
+    "bracket": "s1:7d4c7b78b51c1dca"
+   },
+   "failing": [
+    "edges",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.1
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": false,
+     "signed": -20,
+     "scale": 1,
+     "detail": "edges of bracket = 84, expected = 64"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.654,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:21 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 7,
+   "phase": "corner",
+   "fresh": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-bed"
+   ],
+   "params": {
+    "Width": 100,
+    "Leg": 80,
+    "Thickness": 2,
+    "Screw": "M3"
+   },
+   "ok": false,
+   "error": "KERNEL_FILLET_FAILED",
+   "report_hash": "d9103d091a86f91b7dd55f9f1bffeb3c3f19185d6874ee03a249cee6c261a809",
+   "signature_hash": "4ba1ab85e79216a8a264269125a8999482524ebfb4d90071ef117d8d3ed45210",
+   "failing": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-overhang",
+    "gate-bed"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "KERNEL_FILLET_FAILED: fillet failed: operation failed (the kernel named no edge; elements lists the 7 edges asked for)"
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "valid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "one-solid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-x",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-y",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "edges",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-bed",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    }
+   ]
+  },
+  {
+   "index": 8,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Width": 24,
+    "Leg": 20,
+    "Thickness": 10,
+    "Screw": "M4"
+   },
+   "ok": true,
+   "report_hash": "610edd02c4a32592dcf810b6c1204934708d9f04677166bce76981b6a66a9aaa",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:4be1dc09c699b154"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.024
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 0.4109999999999998,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:20 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 9,
+   "phase": "corner",
+   "fresh": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-bed"
+   ],
+   "params": {
+    "Width": 24,
+    "Leg": 20,
+    "Thickness": 2,
+    "Screw": "M4"
+   },
+   "ok": false,
+   "error": "KERNEL_FILLET_FAILED",
+   "report_hash": "d9103d091a86f91b7dd55f9f1bffeb3c3f19185d6874ee03a249cee6c261a809",
+   "signature_hash": "4ba1ab85e79216a8a264269125a8999482524ebfb4d90071ef117d8d3ed45210",
+   "failing": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-overhang",
+    "gate-bed"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "KERNEL_FILLET_FAILED: fillet failed: operation failed (the kernel named no edge; elements lists the 7 edges asked for)"
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "valid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "one-solid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-x",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-y",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "edges",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-bed",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    }
+   ]
+  },
+  {
+   "index": 10,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Width": 100,
+    "Leg": 80,
+    "Thickness": 10,
+    "Screw": "M5"
+   },
+   "ok": true,
+   "report_hash": "3bda0eebc158bf0defba0162b2a59c4daa3642202a91010890c38d210a5b02cb",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:aa0399751b88d762"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.1
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.08
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.08
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 9.159,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 11,
+   "phase": "corner",
+   "fresh": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-bed"
+   ],
+   "params": {
+    "Width": 100,
+    "Leg": 20,
+    "Thickness": 2,
+    "Screw": "M3"
+   },
+   "ok": false,
+   "error": "KERNEL_FILLET_FAILED",
+   "report_hash": "d9103d091a86f91b7dd55f9f1bffeb3c3f19185d6874ee03a249cee6c261a809",
+   "signature_hash": "4ba1ab85e79216a8a264269125a8999482524ebfb4d90071ef117d8d3ed45210",
+   "failing": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-overhang",
+    "gate-bed"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "KERNEL_FILLET_FAILED: fillet failed: operation failed (the kernel named no edge; elements lists the 7 edges asked for)"
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "valid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "one-solid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-x",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-y",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "edges",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-bed",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    }
+   ]
+  },
+  {
+   "index": 12,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Width": 24,
+    "Leg": 80,
+    "Thickness": 10,
+    "Screw": "M4"
+   },
+   "ok": true,
+   "report_hash": "6f891b24fb6fc85748797f8a181f3fdc67c7888de0f2af788db10b9f828ceee7",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:5318e508cc119551"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.024
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.08
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.08
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 0.4109999999999998,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:20 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 13,
+   "phase": "corner",
+   "fresh": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-bed"
+   ],
+   "params": {
+    "Width": 24,
+    "Leg": 80,
+    "Thickness": 2,
+    "Screw": "M5"
+   },
+   "ok": false,
+   "error": "KERNEL_FILLET_FAILED",
+   "report_hash": "d9103d091a86f91b7dd55f9f1bffeb3c3f19185d6874ee03a249cee6c261a809",
+   "signature_hash": "4ba1ab85e79216a8a264269125a8999482524ebfb4d90071ef117d8d3ed45210",
+   "failing": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-overhang",
+    "gate-bed"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "KERNEL_FILLET_FAILED: fillet failed: operation failed (the kernel named no edge; elements lists the 7 edges asked for)"
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "valid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "one-solid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-x",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-y",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "edges",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-bed",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    }
+   ]
+  },
+  {
+   "index": 14,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Width": 100,
+    "Leg": 20,
+    "Thickness": 10,
+    "Screw": "M3"
+   },
+   "ok": true,
+   "report_hash": "19896b0e5d270a650f264ee92309087ae8f7511625c87fd3bc3cd4fcad4d9389",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:c8e42cda4f536f74"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.1
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 4.711,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:17 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 15,
+   "phase": "corner",
+   "fresh": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-bed"
+   ],
+   "params": {
+    "Width": 100,
+    "Leg": 80,
+    "Thickness": 2,
+    "Screw": "M4"
+   },
+   "ok": false,
+   "error": "KERNEL_FILLET_FAILED",
+   "report_hash": "d9103d091a86f91b7dd55f9f1bffeb3c3f19185d6874ee03a249cee6c261a809",
+   "signature_hash": "4ba1ab85e79216a8a264269125a8999482524ebfb4d90071ef117d8d3ed45210",
+   "failing": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-overhang",
+    "gate-bed"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "KERNEL_FILLET_FAILED: fillet failed: operation failed (the kernel named no edge; elements lists the 7 edges asked for)"
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "valid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "one-solid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-x",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-y",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "edges",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-bed",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    }
+   ]
+  },
+  {
+   "index": 16,
+   "phase": "corner",
+   "fresh": [
+    "edges",
+    "gate-min-wall"
+   ],
+   "params": {
+    "Width": 24,
+    "Leg": 20,
+    "Thickness": 10,
+    "Screw": "M5"
+   },
+   "ok": true,
+   "report_hash": "05e80ffb88098406ff28f46f43f1edec6690135db743dd36719d9b6a9ced0729",
+   "signature_hash": "e049372deb028f61e0d88d4524335aa5496011287e0c6a74aa18418d86fafe7f",
+   "shape_hash": {
+    "bracket": "s1:a8c754911c3c65aa"
+   },
+   "failing": [
+    "edges",
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.024
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": false,
+     "signed": -20,
+     "scale": 1,
+     "detail": "edges of bracket = 84, expected = 64"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.08900000000000008,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.751 mm (fails: bracket face:9 0.751)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:9 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 17,
+   "phase": "corner",
+   "fresh": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-bed"
+   ],
+   "params": {
+    "Width": 24,
+    "Leg": 20,
+    "Thickness": 2,
+    "Screw": "M5"
+   },
+   "ok": false,
+   "error": "KERNEL_FILLET_FAILED",
+   "report_hash": "d9103d091a86f91b7dd55f9f1bffeb3c3f19185d6874ee03a249cee6c261a809",
+   "signature_hash": "4ba1ab85e79216a8a264269125a8999482524ebfb4d90071ef117d8d3ed45210",
+   "failing": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-overhang",
+    "gate-bed"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "KERNEL_FILLET_FAILED: fillet failed: operation failed (the kernel named no edge; elements lists the 7 edges asked for)"
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "valid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "one-solid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-x",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-y",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "edges",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-bed",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    }
+   ]
+  },
+  {
+   "index": 18,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Width": 100,
+    "Leg": 80,
+    "Thickness": 10,
+    "Screw": "M3"
+   },
+   "ok": true,
+   "report_hash": "cdaa1e289d054da29536ee87f11a9ffa9258e666a119fe716e95e43c9ebc19cd",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:f9f28cb916c1415e"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.1
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.08
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.08
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 9.159,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 19,
+   "phase": "corner",
+   "fresh": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-bed"
+   ],
+   "params": {
+    "Width": 100,
+    "Leg": 20,
+    "Thickness": 2,
+    "Screw": "M4"
+   },
+   "ok": false,
+   "error": "KERNEL_FILLET_FAILED",
+   "report_hash": "d9103d091a86f91b7dd55f9f1bffeb3c3f19185d6874ee03a249cee6c261a809",
+   "signature_hash": "4ba1ab85e79216a8a264269125a8999482524ebfb4d90071ef117d8d3ed45210",
+   "failing": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-overhang",
+    "gate-bed"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "KERNEL_FILLET_FAILED: fillet failed: operation failed (the kernel named no edge; elements lists the 7 edges asked for)"
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "valid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "one-solid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-x",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-y",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "edges",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-bed",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    }
+   ]
+  },
+  {
+   "index": 20,
+   "phase": "corner",
+   "fresh": [
+    "gate-min-wall"
+   ],
+   "params": {
+    "Width": 24,
+    "Leg": 80,
+    "Thickness": 10,
+    "Screw": "M5"
+   },
+   "ok": true,
+   "report_hash": "752d23cdb2da5d75bbd4fde728e4aa9aca410fa3dd72654794c19676132e232a",
+   "signature_hash": "b65e7f51ce5cc271e377bba74f18593935f84103187460bd0e2f14d1e077ae17",
+   "shape_hash": {
+    "bracket": "s1:bf66ec94c609e95c"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.024
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.08
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.08
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.08900000000000008,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.751 mm (fails: bracket face:21 0.751)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:20 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 21,
+   "phase": "corner",
+   "fresh": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-bed"
+   ],
+   "params": {
+    "Width": 24,
+    "Leg": 80,
+    "Thickness": 2,
+    "Screw": "M3"
+   },
+   "ok": false,
+   "error": "KERNEL_FILLET_FAILED",
+   "report_hash": "d9103d091a86f91b7dd55f9f1bffeb3c3f19185d6874ee03a249cee6c261a809",
+   "signature_hash": "4ba1ab85e79216a8a264269125a8999482524ebfb4d90071ef117d8d3ed45210",
+   "failing": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-overhang",
+    "gate-bed"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "KERNEL_FILLET_FAILED: fillet failed: operation failed (the kernel named no edge; elements lists the 7 edges asked for)"
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "valid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "one-solid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-x",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-y",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "edges",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-bed",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    }
+   ]
+  },
+  {
+   "index": 22,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Width": 100,
+    "Leg": 20,
+    "Thickness": 10,
+    "Screw": "M4"
+   },
+   "ok": true,
+   "report_hash": "0d064c7efae91b82052e0ec3b6daba92917f31df824fb572eab2bcacb2eff91b",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:2307ad3d0b55c9a8"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.1
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 4.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:17 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 23,
+   "phase": "corner",
+   "fresh": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-bed"
+   ],
+   "params": {
+    "Width": 100,
+    "Leg": 80,
+    "Thickness": 2,
+    "Screw": "M5"
+   },
+   "ok": false,
+   "error": "KERNEL_FILLET_FAILED",
+   "report_hash": "d9103d091a86f91b7dd55f9f1bffeb3c3f19185d6874ee03a249cee6c261a809",
+   "signature_hash": "4ba1ab85e79216a8a264269125a8999482524ebfb4d90071ef117d8d3ed45210",
+   "failing": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-overhang",
+    "gate-bed"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "KERNEL_FILLET_FAILED: fillet failed: operation failed (the kernel named no edge; elements lists the 7 edges asked for)"
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "valid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "one-solid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-x",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-y",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "edges",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-bed",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    }
+   ]
+  },
+  {
+   "index": 24,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Width": 24,
+    "Leg": 20,
+    "Thickness": 10,
+    "Screw": "M3"
+   },
+   "ok": true,
+   "report_hash": "ee2f0b757cbf771210c2d8575f1da5abe0dfb32bd3f526862b4b9b3336be7191",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:da935f24f1f54811"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.024
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 0.9609999999999999,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:21 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 25,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Width": 24,
+    "Leg": 35,
+    "Thickness": 4,
+    "Screw": "M4"
+   },
+   "ok": true,
+   "report_hash": "4326071b966088607dea13d4ef543a3557cd60310c35f6b99bafa3c9c9ab48ae",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:c310b06de7c1fb49"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.024
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.035
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.035
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.91,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 26,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Width": 100,
+    "Leg": 35,
+    "Thickness": 4,
+    "Screw": "M4"
+   },
+   "ok": true,
+   "report_hash": "0d8a4df5383bb9bc49993e803c53099c363279b435936f6dda21b6f2622c63f7",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:6a62b2d2fcf867a7"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.1
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.035
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.035
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.1580000000000004,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 27,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Width": 40,
+    "Leg": 20,
+    "Thickness": 4,
+    "Screw": "M4"
+   },
+   "ok": true,
+   "report_hash": "79f1b4019ac43b6a4e67717e4dd3ee5b02f9f117a0c40a272096127c8701fa6f",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:389e7eb1b8f0cb59"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.1580000000000004,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:17 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 28,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Width": 40,
+    "Leg": 80,
+    "Thickness": 4,
+    "Screw": "M4"
+   },
+   "ok": true,
+   "report_hash": "50ea21f42e943c7942f6cc2274210daaea09770f9f104b64bc467e5f8db5a339",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:93a63a9f15f6b1a4"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.08
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.08
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.1580000000000004,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 29,
+   "phase": "special",
+   "fresh": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-bed"
+   ],
+   "params": {
+    "Width": 40,
+    "Leg": 35,
+    "Thickness": 2,
+    "Screw": "M4"
+   },
+   "ok": false,
+   "error": "KERNEL_FILLET_FAILED",
+   "report_hash": "d9103d091a86f91b7dd55f9f1bffeb3c3f19185d6874ee03a249cee6c261a809",
+   "signature_hash": "4ba1ab85e79216a8a264269125a8999482524ebfb4d90071ef117d8d3ed45210",
+   "failing": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-overhang",
+    "gate-bed"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "KERNEL_FILLET_FAILED: fillet failed: operation failed (the kernel named no edge; elements lists the 7 edges asked for)"
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "valid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "one-solid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-x",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-y",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "edges",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-bed",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    }
+   ]
+  },
+  {
+   "index": 30,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Width": 40,
+    "Leg": 35,
+    "Thickness": 10,
+    "Screw": "M4"
+   },
+   "ok": true,
+   "report_hash": "897076d1bde65543db57f52ae895d643fa4ab98463cb475aa8560dc6b4da700c",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:6ebf57b2f1949dbf"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.035
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.035
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 4.4110000000000005,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:20 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 31,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Width": 40,
+    "Leg": 35,
+    "Thickness": 4,
+    "Screw": "M3"
+   },
+   "ok": true,
+   "report_hash": "7045fc9fc36d290cece380500b038f207045f52c9a281ffc0735a4707bcd4990",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:b9a31642e7d7d1c5"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.035
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.035
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.1580000000000004,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 32,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Width": 40,
+    "Leg": 35,
+    "Thickness": 4,
+    "Screw": "M5"
+   },
+   "ok": true,
+   "report_hash": "a8fc3a0d40c8dcbfb5c2f18190c67f217b03499f5a0d30269ba6dac19d6b57b7",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:566739bc3f476b47"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.035
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.035
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.1580000000000004,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 33,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 29.472675,
+    "Leg": 63.279308,
+    "Thickness": 6.270781,
+    "Screw": "M5"
+   },
+   "ok": true,
+   "report_hash": "1a4039388035d555b1b3a55847628cd509e8bc7ef01a478d1213d8234d33cb12",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:b459ffe3f0c51620"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.029472675
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.063279308
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.063279308
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 2.2110000000000003,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:20 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 34,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 67.472675,
+    "Leg": 29.945975,
+    "Thickness": 7.870781,
+    "Screw": "M5"
+   },
+   "ok": true,
+   "report_hash": "41a4cf85bedc433c784dcfe9d1ab9cc9759f726d6b7c80bdb6ed1aa5cb7601db",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:9ddcf6a472fa20d8"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.067472675
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.029945975
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.029945975
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 7.03,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:17 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 35,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 48.472675,
+    "Leg": 49.945975,
+    "Thickness": 9.470781,
+    "Screw": "M3"
+   },
+   "ok": true,
+   "report_hash": "70a011dc39c81ac643e8854a8fabfa929b3436b5ba1412e7cf1c372f99493089",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:376fd7690fab5d1b"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.04847267500000001
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.049945975
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.049945975
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 7.212,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 36,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 86.472675,
+    "Leg": 69.945975,
+    "Thickness": 3.390781,
+    "Screw": "M3"
+   },
+   "ok": true,
+   "report_hash": "73498ad53d919e5ba5c5f1f347d28e003fec2aee25d5e137302f1795482423e6",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:2cc38a9833dd2cb0"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.086472675
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06994597500000001
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06994597500000001
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 2.5489999999999995,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 37,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 38.972675,
+    "Leg": 78.834864,
+    "Thickness": 4.990781,
+    "Screw": "M3"
+   },
+   "ok": true,
+   "report_hash": "b999ab5014e545d3dcc408205c549c41f2498718550d0b0b0ea55043ee154978",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:cfe58900c6481121"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.038972675000000005
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.078834864
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.078834864
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 4.15,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:17 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 38,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 76.972675,
+    "Leg": 38.834864,
+    "Thickness": 6.590781,
+    "Screw": "M4"
+   },
+   "ok": true,
+   "report_hash": "f6063cd63f5aca8462d23c45d3b01117b7bc9fec49da48dcb53954578d6b2353",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:7e02a8f9e99a2243"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.07697267499999999
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.038834864000000004
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.038834864000000004
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.75,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 39,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 57.972675,
+    "Leg": 58.834864,
+    "Thickness": 8.190781,
+    "Screw": "M4"
+   },
+   "ok": true,
+   "report_hash": "fa8c0d366a9547686bb5ca9e97a852a5fffd9786435f687f4ee52364bcf0ef06",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:90326df943e53dee"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.057972675
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05883486400000001
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05883486400000001
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 7.35,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 40,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 95.972675,
+    "Leg": 25.501531,
+    "Thickness": 9.790781,
+    "Screw": "M5"
+   },
+   "ok": true,
+   "report_hash": "18b216b23d977f67558393aa0e0f26ef4c190faffced341dfc7c3ee29d923a71",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:96c14d04991b93cc"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.095972675
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.025501531
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.025501531
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.767,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:17 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 41,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 34.222675,
+    "Leg": 45.501531,
+    "Thickness": 3.710781,
+    "Screw": "M5"
+   },
+   "ok": true,
+   "report_hash": "6c174219f3f94ba51841ffbeef677f2db33e2b00d873c8236c4b861b9d8994d1",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:01948acf6f078ea8"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.034222675
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.045501531
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.045501531
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 2.8689999999999998,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:17 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 42,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 72.222675,
+    "Leg": 65.501531,
+    "Thickness": 5.310781,
+    "Screw": "M3"
+   },
+   "ok": true,
+   "report_hash": "663b5752b9ee7a4311b744867c51b73ca104c1f2e82bd48a743f769e8b79a12d",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:adb0260e67cc75c4"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.072222675
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.065501531
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.065501531
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 4.47,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 43,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 53.222675,
+    "Leg": 32.168197,
+    "Thickness": 6.910781,
+    "Screw": "M3"
+   },
+   "ok": true,
+   "report_hash": "a1078d8fe66d80479f4d493ba32d983fceac1dddc8d7d14cbebace7cfd4e428d",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:f67cec8964b4a02f"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.053222675000000004
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032168197
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032168197
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 6.07,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:17 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 44,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 91.222675,
+    "Leg": 52.168197,
+    "Thickness": 8.510781,
+    "Screw": "M3"
+   },
+   "ok": true,
+   "report_hash": "7b3bcf1c35ed54f56dcef07e543ecfff5ccb404d713f2d5b55b1c376996f3845",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:e3af068cd06e335e"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.091222675
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.052168197
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.052168197
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 7.67,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 45,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 43.722675,
+    "Leg": 72.168197,
+    "Thickness": 2.110781,
+    "Screw": "M4"
+   },
+   "ok": true,
+   "report_hash": "973627c30b10c8bd35d141ac5e59b0ad159ad2112e6ed1a7ccf526dc31303927",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:e53dc3670012047d"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.043722675
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.072168197
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.072168197
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.268,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 46,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 81.722675,
+    "Leg": 21.057086,
+    "Thickness": 4.030781,
+    "Screw": "M4"
+   },
+   "ok": true,
+   "report_hash": "ba90ad3985eb348f4a6cb19cc98f0fae92283cb2959364797be8bfb2e1bb32cb",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:f719fd6428e221b2"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.081722675
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.021057086000000003
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.021057086000000003
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.189,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 47,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 62.722675,
+    "Leg": 41.057086,
+    "Thickness": 5.630781,
+    "Screw": "M5"
+   },
+   "ok": true,
+   "report_hash": "edb05905137b2ec1cf63558eae6932fc8da7b4044a2112ffaad63b143d916954",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:9a39ecb68e6cf6be"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.062722675
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.041057086
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.041057086
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 4.79,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 48,
+   "phase": "shrink",
+   "fresh": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-bed"
+   ],
+   "params": {
+    "Width": 40,
+    "Leg": 20,
+    "Thickness": 2,
+    "Screw": "M3"
+   },
+   "ok": false,
+   "error": "KERNEL_FILLET_FAILED",
+   "report_hash": "d9103d091a86f91b7dd55f9f1bffeb3c3f19185d6874ee03a249cee6c261a809",
+   "signature_hash": "4ba1ab85e79216a8a264269125a8999482524ebfb4d90071ef117d8d3ed45210",
+   "failing": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-overhang",
+    "gate-bed"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "KERNEL_FILLET_FAILED: fillet failed: operation failed (the kernel named no edge; elements lists the 7 edges asked for)"
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "valid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "one-solid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-x",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-y",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "edges",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-bed",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    }
+   ]
+  },
+  {
+   "index": 49,
+   "phase": "shrink",
+   "fresh": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-bed"
+   ],
+   "params": {
+    "Width": 24,
+    "Leg": 35,
+    "Thickness": 2,
+    "Screw": "M3"
+   },
+   "ok": false,
+   "error": "KERNEL_FILLET_FAILED",
+   "report_hash": "d9103d091a86f91b7dd55f9f1bffeb3c3f19185d6874ee03a249cee6c261a809",
+   "signature_hash": "4ba1ab85e79216a8a264269125a8999482524ebfb4d90071ef117d8d3ed45210",
+   "failing": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-overhang",
+    "gate-bed"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "KERNEL_FILLET_FAILED: fillet failed: operation failed (the kernel named no edge; elements lists the 7 edges asked for)"
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "valid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "one-solid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-x",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-y",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "edges",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-bed",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    }
+   ]
+  },
+  {
+   "index": 50,
+   "phase": "shrink",
+   "fresh": [],
+   "params": {
+    "Width": 24,
+    "Leg": 20,
+    "Thickness": 4,
+    "Screw": "M3"
+   },
+   "ok": true,
+   "report_hash": "f31fdcedf554269e48476ca4dde1e57138dc73e7a352f855e1018d5646fad83d",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:f7fe66859e2c97ef"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.024
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 2.4619999999999997,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:17 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 51,
+   "phase": "shrink",
+   "fresh": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-bed"
+   ],
+   "params": {
+    "Width": 32,
+    "Leg": 20,
+    "Thickness": 2,
+    "Screw": "M3"
+   },
+   "ok": false,
+   "error": "KERNEL_FILLET_FAILED",
+   "report_hash": "d9103d091a86f91b7dd55f9f1bffeb3c3f19185d6874ee03a249cee6c261a809",
+   "signature_hash": "4ba1ab85e79216a8a264269125a8999482524ebfb4d90071ef117d8d3ed45210",
+   "failing": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-overhang",
+    "gate-bed"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "KERNEL_FILLET_FAILED: fillet failed: operation failed (the kernel named no edge; elements lists the 7 edges asked for)"
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "valid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "one-solid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-x",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-y",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "edges",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-bed",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    }
+   ]
+  },
+  {
+   "index": 52,
+   "phase": "shrink",
+   "fresh": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-bed"
+   ],
+   "params": {
+    "Width": 24,
+    "Leg": 27.5,
+    "Thickness": 2,
+    "Screw": "M3"
+   },
+   "ok": false,
+   "error": "KERNEL_FILLET_FAILED",
+   "report_hash": "d9103d091a86f91b7dd55f9f1bffeb3c3f19185d6874ee03a249cee6c261a809",
+   "signature_hash": "4ba1ab85e79216a8a264269125a8999482524ebfb4d90071ef117d8d3ed45210",
+   "failing": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-overhang",
+    "gate-bed"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "KERNEL_FILLET_FAILED: fillet failed: operation failed (the kernel named no edge; elements lists the 7 edges asked for)"
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "valid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "one-solid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-x",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-y",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "edges",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-bed",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    }
+   ]
+  },
+  {
+   "index": 53,
+   "phase": "shrink",
+   "fresh": [],
+   "params": {
+    "Width": 24,
+    "Leg": 20,
+    "Thickness": 3,
+    "Screw": "M3"
+   },
+   "ok": true,
+   "report_hash": "1b22281cb28bbaa5b8e5e11aa98a5f18604dd8a18d661fe7ff3a93de168e7d47",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:ca83d1ad3a41d19e"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.024
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 2.1580000000000004,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:17 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 54,
+   "phase": "shrink",
+   "fresh": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-bed"
+   ],
+   "params": {
+    "Width": 40,
+    "Leg": 35,
+    "Thickness": 2,
+    "Screw": "M3"
+   },
+   "ok": false,
+   "error": "KERNEL_FILLET_FAILED",
+   "report_hash": "d9103d091a86f91b7dd55f9f1bffeb3c3f19185d6874ee03a249cee6c261a809",
+   "signature_hash": "4ba1ab85e79216a8a264269125a8999482524ebfb4d90071ef117d8d3ed45210",
+   "failing": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-overhang",
+    "gate-bed"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "KERNEL_FILLET_FAILED: fillet failed: operation failed (the kernel named no edge; elements lists the 7 edges asked for)"
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "valid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "one-solid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-x",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-y",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "edges",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-bed",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    }
+   ]
+  },
+  {
+   "index": 55,
+   "phase": "shrink",
+   "fresh": [],
+   "params": {
+    "Width": 40,
+    "Leg": 20,
+    "Thickness": 4,
+    "Screw": "M3"
+   },
+   "ok": true,
+   "report_hash": "46cbdb21ec3a2dd8d2d73b96b69dbb8d7c400b00bc0d10ebc142ea949efbdf59",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:adf66bbbdf6741d1"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.1580000000000004,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:17 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 56,
+   "phase": "shrink",
+   "fresh": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-bed"
+   ],
+   "params": {
+    "Width": 40,
+    "Leg": 20,
+    "Thickness": 2,
+    "Screw": "M4"
+   },
+   "ok": false,
+   "error": "KERNEL_FILLET_FAILED",
+   "report_hash": "d9103d091a86f91b7dd55f9f1bffeb3c3f19185d6874ee03a249cee6c261a809",
+   "signature_hash": "4ba1ab85e79216a8a264269125a8999482524ebfb4d90071ef117d8d3ed45210",
+   "failing": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-overhang",
+    "gate-bed"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "KERNEL_FILLET_FAILED: fillet failed: operation failed (the kernel named no edge; elements lists the 7 edges asked for)"
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "valid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "one-solid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-x",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-y",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "edges",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-bed",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    }
+   ]
+  },
+  {
+   "index": 57,
+   "phase": "shrink",
+   "fresh": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-bed"
+   ],
+   "params": {
+    "Width": 40,
+    "Leg": 27.5,
+    "Thickness": 2,
+    "Screw": "M3"
+   },
+   "ok": false,
+   "error": "KERNEL_FILLET_FAILED",
+   "report_hash": "d9103d091a86f91b7dd55f9f1bffeb3c3f19185d6874ee03a249cee6c261a809",
+   "signature_hash": "4ba1ab85e79216a8a264269125a8999482524ebfb4d90071ef117d8d3ed45210",
+   "failing": [
+    "builds",
+    "status",
+    "valid",
+    "one-solid",
+    "size-x",
+    "size-y",
+    "size-z",
+    "faces",
+    "edges",
+    "gate-watertight",
+    "gate-min-wall",
+    "gate-overhang",
+    "gate-bed"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "KERNEL_FILLET_FAILED: fillet failed: operation failed (the kernel named no edge; elements lists the 7 edges asked for)"
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "valid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "one-solid",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-x",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-y",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "edges",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    },
+    {
+     "id": "gate-bed",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "not evaluated: the run failed"
+    }
+   ]
+  },
+  {
+   "index": 58,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Width": 40,
+    "Leg": 35,
+    "Thickness": 3.5,
+    "Screw": "M3"
+   },
+   "ok": true,
+   "report_hash": "9079c6c3e248dd075e46b328be61cb3d9da6e44693e9550b146e52624e68f122",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:ec74ac5ba2230b95"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.035
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.035
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 2.6580000000000004,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 59,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Width": 40,
+    "Leg": 35,
+    "Thickness": 3,
+    "Screw": "M3"
+   },
+   "ok": true,
+   "report_hash": "a579b5f50ab85611408f7661cdc3147e0c00d0bbc49e054f84ed800821f20cbe",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:a30281d8f2496fcc"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.035
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.035
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 2.1580000000000004,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 60,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Width": 40,
+    "Leg": 35,
+    "Thickness": 2.5,
+    "Screw": "M3"
+   },
+   "ok": true,
+   "report_hash": "6c2a6f32067e9e7b520b0b0edac842bb2c142c2a16666a9386b2b99bd5a5f452",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:4140988fe62f2f50"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.035
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.035
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.6569999999999998,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 61,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Width": 40,
+    "Leg": 35,
+    "Thickness": 2.375,
+    "Screw": "M3"
+   },
+   "ok": true,
+   "report_hash": "3be8ab11a95b1e06dab828d38cbe312e7aff62090b36d45c3a89ac6d409ed1db",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:23aed648abe40a6c"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.035
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.035
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.5319999999999998,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 62,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Width": 40,
+    "Leg": 35,
+    "Thickness": 2.25,
+    "Screw": "M3"
+   },
+   "ok": true,
+   "report_hash": "5f4e995fd02b40e45458d22eb1c983b048851b8a36fd6afc1f7cf646830de458",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:4f4d392fdb64262f"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.035
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.035
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.4069999999999998,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 63,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Width": 40,
+    "Leg": 35,
+    "Thickness": 2.125,
+    "Screw": "M3"
+   },
+   "ok": true,
+   "report_hash": "be2bc5b09ffdf53d312ec4a70f27284d121b8368540237c9cd823ddb1d7474e6",
+   "signature_hash": "fe306c650f3fad62b783390bb584735b5da7c40f606357de4c007b5db938e75d",
+   "shape_hash": {
+    "bracket": "s1:348e7b58f5a79167"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.035
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.035
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "edges",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.2819999999999998,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (bracket face:3 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  }
+ ]
+}

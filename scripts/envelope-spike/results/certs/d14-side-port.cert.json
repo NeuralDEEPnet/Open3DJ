@@ -1,0 +1,4427 @@
+{
+ "certificate": "o3dj-envelope-cert/spike-0",
+ "brief": "d14-side-port",
+ "brief_hash": "5cd05b6814dc24c41979469d7eac47d82497b06f8dd33aa759bd532efc65a263",
+ "script_hash": "e4ac0f5b654c55b09f091c2e14ee813270c3287717e4922c92b6bc89fffac41e",
+ "inputs_hash": "3df8b685a42c792ee4a4eb0ff07b8e4a1d8e805a73e44fce420a32e6e61f4214",
+ "engine": {
+  "occt_wasm": "5.8.1",
+  "node": "v24.22.1",
+  "analysis": "2"
+ },
+ "platform": "linux-x64",
+ "seed": 1,
+ "budget": 64,
+ "watch_mm": 0.5,
+ "verdict": "counterexample",
+ "statement": "counterexample: 5 of 64 points fail an assertion that passes at nominal",
+ "nominal_failures": [],
+ "counterexamples": [
+  4,
+  13,
+  51,
+  54,
+  55
+ ],
+ "shrunk": 51,
+ "line": {
+  "pass": 0,
+  "fail": 51,
+  "lo": 0.9375,
+  "hi": 1,
+  "points": [
+   {
+    "index": 0,
+    "t": 0
+   },
+   {
+    "index": 58,
+    "t": 0.25
+   },
+   {
+    "index": 59,
+    "t": 0.5
+   },
+   {
+    "index": 60,
+    "t": 0.75
+   },
+   {
+    "index": 61,
+    "t": 0.8125
+   },
+   {
+    "index": 62,
+    "t": 0.875
+   },
+   {
+    "index": 63,
+    "t": 0.9375
+   },
+   {
+    "index": 51,
+    "t": 1
+   }
+  ]
+ },
+ "events": [
+  {
+   "kind": "axis",
+   "axis": "Height",
+   "between": [
+    4,
+    52
+   ],
+   "from": {
+    "Height": 20,
+    "Port height": 16,
+    "Port diameter": 8,
+    "Width": 80
+   },
+   "to": {
+    "Height": 25,
+    "Port height": 16,
+    "Port diameter": 8,
+    "Width": 80
+   },
+   "changed": [
+    "counts: tray:1/13/32 -> tray:1/12/27",
+    "gates: tray:bed -> tray:bed+min_wall+watertight"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Height",
+   "between": [
+    13,
+    15
+   ],
+   "from": {
+    "Height": 20,
+    "Port height": 16,
+    "Port diameter": 8,
+    "Width": 40
+   },
+   "to": {
+    "Height": 40,
+    "Port height": 16,
+    "Port diameter": 8,
+    "Width": 40
+   },
+   "changed": [
+    "counts: tray:1/13/32 -> tray:1/12/27",
+    "gates: tray:bed -> tray:bed+min_wall+watertight"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Height",
+   "between": [
+    51,
+    56
+   ],
+   "from": {
+    "Height": 20,
+    "Port height": 16,
+    "Port diameter": 8,
+    "Width": 60
+   },
+   "to": {
+    "Height": 30,
+    "Port height": 16,
+    "Port diameter": 8,
+    "Width": 60
+   },
+   "changed": [
+    "counts: tray:1/13/32 -> tray:1/12/27",
+    "gates: tray:bed -> tray:bed+min_wall+watertight"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Port height",
+   "between": [
+    53,
+    4
+   ],
+   "from": {
+    "Height": 20,
+    "Port height": 13,
+    "Port diameter": 8,
+    "Width": 80
+   },
+   "to": {
+    "Height": 20,
+    "Port height": 16,
+    "Port diameter": 8,
+    "Width": 80
+   },
+   "changed": [
+    "counts: tray:1/12/27 -> tray:1/13/32",
+    "gates: tray:bed+min_wall+watertight -> tray:bed"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Port height",
+   "between": [
+    9,
+    13
+   ],
+   "from": {
+    "Height": 20,
+    "Port height": 8,
+    "Port diameter": 8,
+    "Width": 40
+   },
+   "to": {
+    "Height": 20,
+    "Port height": 16,
+    "Port diameter": 8,
+    "Width": 40
+   },
+   "changed": [
+    "counts: tray:1/12/27 -> tray:1/13/32",
+    "gates: tray:bed+min_wall+watertight -> tray:bed"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Port height",
+   "between": [
+    57,
+    51
+   ],
+   "from": {
+    "Height": 20,
+    "Port height": 10,
+    "Port diameter": 8,
+    "Width": 60
+   },
+   "to": {
+    "Height": 20,
+    "Port height": 16,
+    "Port diameter": 8,
+    "Width": 60
+   },
+   "changed": [
+    "counts: tray:1/12/27 -> tray:1/13/32",
+    "gates: tray:bed+min_wall+watertight -> tray:bed"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Port diameter",
+   "between": [
+    50,
+    54
+   ],
+   "from": {
+    "Height": 20,
+    "Port height": 16,
+    "Port diameter": 5,
+    "Width": 80
+   },
+   "to": {
+    "Height": 20,
+    "Port height": 16,
+    "Port diameter": 6.5,
+    "Width": 80
+   },
+   "changed": [
+    "gates: tray:bed+min_wall+watertight -> tray:bed+watertight"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Port diameter",
+   "between": [
+    54,
+    4
+   ],
+   "from": {
+    "Height": 20,
+    "Port height": 16,
+    "Port diameter": 6.5,
+    "Width": 80
+   },
+   "to": {
+    "Height": 20,
+    "Port height": 16,
+    "Port diameter": 8,
+    "Width": 80
+   },
+   "changed": [
+    "counts: tray:1/12/27 -> tray:1/13/32",
+    "gates: tray:bed+watertight -> tray:bed"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Port diameter",
+   "between": [
+    5,
+    13
+   ],
+   "from": {
+    "Height": 20,
+    "Port height": 16,
+    "Port diameter": 3,
+    "Width": 40
+   },
+   "to": {
+    "Height": 20,
+    "Port height": 16,
+    "Port diameter": 8,
+    "Width": 40
+   },
+   "changed": [
+    "counts: tray:1/12/27 -> tray:1/13/32",
+    "gates: tray:bed+min_wall+watertight -> tray:bed"
+   ]
+  },
+  {
+   "kind": "line",
+   "between": [
+    63,
+    51
+   ],
+   "from": {
+    "Height": 20.625,
+    "Port height": 15.625,
+    "Port diameter": 7.8125,
+    "Width": 60
+   },
+   "to": {
+    "Height": 20,
+    "Port height": 16,
+    "Port diameter": 8,
+    "Width": 60
+   },
+   "changed": [
+    "counts: tray:1/12/27 -> tray:1/13/32",
+    "gates: tray:bed+min_wall+watertight -> tray:bed"
+   ]
+  }
+ ],
+ "smallest_margins": [
+  {
+   "id": "builds",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "status",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "valid",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "one-solid",
+   "signed": 0,
+   "scale": 1,
+   "normalized": 0,
+   "at": 0
+  },
+  {
+   "id": "faces",
+   "signed": -1,
+   "scale": 1,
+   "normalized": -1,
+   "at": 4
+  },
+  {
+   "id": "gate-watertight",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 4
+  },
+  {
+   "id": "gate-min-wall",
+   "signed": -0.8380000000000001,
+   "scale": 0.04,
+   "normalized": -20.950000000000003,
+   "at": 4
+  }
+ ],
+ "coverage": {
+  "points": 64,
+  "phases": {
+   "nominal": 1,
+   "corner": 16,
+   "special": 8,
+   "halton": 23,
+   "shrink": 10,
+   "bisect": 6
+  },
+  "corners_planned": 16,
+  "special_planned": 8,
+  "axes": [
+   {
+    "name": "Height",
+    "min_seen": 20,
+    "max_seen": 40,
+    "min": 20,
+    "max": 40
+   },
+   {
+    "name": "Port height",
+    "min_seen": 8,
+    "max_seen": 16,
+    "min": 8,
+    "max": 16
+   },
+   {
+    "name": "Port diameter",
+    "min_seen": 3,
+    "max_seen": 8,
+    "min": 3,
+    "max": 8
+   },
+   {
+    "name": "Width",
+    "min_seen": 40,
+    "max_seen": 80,
+    "min": 40,
+    "max": 80
+   }
+  ]
+ },
+ "limits": [
+  "Sampling is not proof: the brief was checked at the points listed under this model, never for all values. A thin band can hide between samples.",
+  "The gates are fdm.v1 rule checks on the kernel's geometry (watertight, 0.8 mm min_wall from rays, 45 degree overhang, bed), never a print simulation.",
+  "Fits are exact OCCT clash, contact and clearance checks within the fit watch distance; a pair with no line inside it is censored, not a measured pass.",
+  "Bit-identical replay is only claimed for the platform named here.",
+  "Fit watch distance 0.5 mm."
+ ],
+ "points": [
+  {
+   "index": 0,
+   "phase": "nominal",
+   "fresh": [],
+   "params": {
+    "Height": 30,
+    "Port height": 10,
+    "Port diameter": 5,
+    "Width": 60
+   },
+   "ok": true,
+   "report_hash": "b55fce9ad4cd95ccfb463ad8ab0cdcf13fd9c29e16128d5878e4d0441b0ab5fa",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:88ada2f129f6d110"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 1,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Height": 20,
+    "Port height": 8,
+    "Port diameter": 3,
+    "Width": 40
+   },
+   "ok": true,
+   "report_hash": "eac8f56615d7f67fbba54b908a368974bf0020635f0f53cabb932138d9c53a3e",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:7e10258c3a0029f4"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 2,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Height": 40,
+    "Port height": 16,
+    "Port diameter": 8,
+    "Width": 80
+   },
+   "ok": true,
+   "report_hash": "5e9d1ec66272e693e213c65c236e50c8fec8c1c5c5422e6af3809e743cd8ec2c",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:0dd8b349e2199a8e"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 3,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Height": 40,
+    "Port height": 8,
+    "Port diameter": 3,
+    "Width": 40
+   },
+   "ok": true,
+   "report_hash": "69c2848683566eb8ab8f82cc4ea38355498fbdf3e9a470711fc44e72ccca59c3",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:acd7c152c90607c9"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 4,
+   "phase": "corner",
+   "fresh": [
+    "faces",
+    "gate-watertight",
+    "gate-min-wall"
+   ],
+   "params": {
+    "Height": 20,
+    "Port height": 16,
+    "Port diameter": 8,
+    "Width": 80
+   },
+   "ok": true,
+   "report_hash": "debcd4880290ea3b9e3669e09c94269ae4aaccecde89b58496363f6404a9500e",
+   "signature_hash": "68c44fb04a75f6c811feb01f6ed0cb8bdd79e891db6748ce364dd6e6cfe85310",
+   "shape_hash": {
+    "tray": "s1:b8c5351e5a3b26ea"
+   },
+   "failing": [
+    "faces",
+    "gate-watertight",
+    "gate-min-wall"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": -1,
+     "scale": 1,
+     "detail": "faces of tray = 13, expected = 12"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "watertight fails (tray: Not a closed solid: the mesh has 1 open or non-manifold edges.)"
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.8380000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.002 mm (fails: tray face:6 0.002)"
+    }
+   ]
+  },
+  {
+   "index": 5,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Height": 20,
+    "Port height": 16,
+    "Port diameter": 3,
+    "Width": 40
+   },
+   "ok": true,
+   "report_hash": "02c3e25daee14efa11f7977ffab6449bfb53165bdb74c40a04c6a0e7eca8d6f6",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:9e8a0a85dcc21d3f"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 6,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Height": 40,
+    "Port height": 8,
+    "Port diameter": 8,
+    "Width": 80
+   },
+   "ok": true,
+   "report_hash": "a7bc9b49529b2dd2ddd6ae5946df40eaf4128edf27cb53440e7caf4adfff7b28",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:4d3697c638bbd45f"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 7,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Height": 40,
+    "Port height": 16,
+    "Port diameter": 3,
+    "Width": 40
+   },
+   "ok": true,
+   "report_hash": "36bddbbae95c735302a68a14a028abf0662b2c7b81a02a56250824016d7e7e0f",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:6338629d57e83110"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 8,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Height": 20,
+    "Port height": 8,
+    "Port diameter": 8,
+    "Width": 80
+   },
+   "ok": true,
+   "report_hash": "b500bcafddf86b07e5ee3d2cab28043cf24b1c9c92736e007f08d7725b095d4d",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:ff1cce1291b1763e"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 9,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Height": 20,
+    "Port height": 8,
+    "Port diameter": 8,
+    "Width": 40
+   },
+   "ok": true,
+   "report_hash": "6be21200939e2c80c2ffe44b0fb7a28cf536b6806bb288bcc55aac76ab5cbc25",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:2ab14f397a9ad5e8"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 10,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Height": 40,
+    "Port height": 16,
+    "Port diameter": 3,
+    "Width": 80
+   },
+   "ok": true,
+   "report_hash": "8b26572e93c68774a0ed031b8b18cd3e9f99c476553a9a77704fa5cc48359f45",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:5591e45bbbcfe417"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 11,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Height": 40,
+    "Port height": 8,
+    "Port diameter": 8,
+    "Width": 40
+   },
+   "ok": true,
+   "report_hash": "de7b5b7749010d21307a51a709aed6b2e2c88987db72770fb8e14380b27e0b09",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:3216d8cb8c6991c5"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 12,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Height": 20,
+    "Port height": 16,
+    "Port diameter": 3,
+    "Width": 80
+   },
+   "ok": true,
+   "report_hash": "120a5a86e8fb862ee134785f15bb8aa68dbc69360d1a16270441cbdf1f6d4df0",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:30491c312d2e7c76"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 13,
+   "phase": "corner",
+   "fresh": [
+    "faces",
+    "gate-watertight",
+    "gate-min-wall"
+   ],
+   "params": {
+    "Height": 20,
+    "Port height": 16,
+    "Port diameter": 8,
+    "Width": 40
+   },
+   "ok": true,
+   "report_hash": "3c9ac7ae4a9026c9197b1cdd5dcce3d5aee27c34afcac5069ad458d1d196925f",
+   "signature_hash": "68c44fb04a75f6c811feb01f6ed0cb8bdd79e891db6748ce364dd6e6cfe85310",
+   "shape_hash": {
+    "tray": "s1:f6242de469d3e492"
+   },
+   "failing": [
+    "faces",
+    "gate-watertight",
+    "gate-min-wall"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": -1,
+     "scale": 1,
+     "detail": "faces of tray = 13, expected = 12"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "watertight fails (tray: Not a closed solid: the mesh has 1 open or non-manifold edges.)"
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.8380000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.002 mm (fails: tray face:6 0.002)"
+    }
+   ]
+  },
+  {
+   "index": 14,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Height": 40,
+    "Port height": 8,
+    "Port diameter": 3,
+    "Width": 80
+   },
+   "ok": true,
+   "report_hash": "74af9db49e7367965d17d8495a5a5043d36f3677fb3cc9c358f2beb816c18046",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:fcf51740ee9d4f5a"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 15,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Height": 40,
+    "Port height": 16,
+    "Port diameter": 8,
+    "Width": 40
+   },
+   "ok": true,
+   "report_hash": "1b5ce72c8b6ed989c483db1df2978b6e7f02b3907f7744f616bdd7f9aea62f29",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:28f443205b016eda"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 16,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Height": 20,
+    "Port height": 8,
+    "Port diameter": 3,
+    "Width": 80
+   },
+   "ok": true,
+   "report_hash": "d332007f0886d5e264d227ce6a1949cee30467b1c9c42e4702f7a95514b6ddff",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:c217f329bd4bcad4"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 17,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Height": 20,
+    "Port height": 10,
+    "Port diameter": 5,
+    "Width": 60
+   },
+   "ok": true,
+   "report_hash": "9b9d769ecfb56e9fab78d3d1c6817edc3ce057b31d4c4f274fd1d269fdaa3b8a",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:c8c562c3597b3d82"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 18,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Height": 40,
+    "Port height": 10,
+    "Port diameter": 5,
+    "Width": 60
+   },
+   "ok": true,
+   "report_hash": "29fe76c56829c373ef8543fc17451231ed6933f62ec8f8ea926a74ba49df745a",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:520d223d69ad16cd"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 19,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Height": 30,
+    "Port height": 8,
+    "Port diameter": 5,
+    "Width": 60
+   },
+   "ok": true,
+   "report_hash": "34b6ba5c81ac7d0aa0acaa5f5c6416e0d4afddf3bf9382d1e94bf8c15d9c025f",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:5d453c257b675a3e"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 20,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Height": 30,
+    "Port height": 16,
+    "Port diameter": 5,
+    "Width": 60
+   },
+   "ok": true,
+   "report_hash": "b2967785c0e2bcfbf96507d81d18275be53e1fd4678b79fecb5bd4a35c8b57e5",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:b6104e3e3ec31ce0"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 21,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Height": 30,
+    "Port height": 10,
+    "Port diameter": 3,
+    "Width": 60
+   },
+   "ok": true,
+   "report_hash": "40a8bbd7e6c29ace9a88782412b7bdfafc3d78fb072a02d182a8e5a9edff3ef1",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:a9562c84286c121d"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 22,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Height": 30,
+    "Port height": 10,
+    "Port diameter": 8,
+    "Width": 60
+   },
+   "ok": true,
+   "report_hash": "15c15c77e26544114f62ad8a0dbc1df842503eb805aa2383337b8111816be1b4",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:352c10999f77edb9"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 23,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Height": 30,
+    "Port height": 10,
+    "Port diameter": 5,
+    "Width": 40
+   },
+   "ok": true,
+   "report_hash": "eb4a9dd22d0bfd9955a165fdd0be494c8e1eb30f55dbf64be21f6f034746b3c3",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:085bce3590ffb1d8"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 24,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Height": 30,
+    "Port height": 10,
+    "Port diameter": 5,
+    "Width": 80
+   },
+   "ok": true,
+   "report_hash": "8be9a3d8df7e467c48593be25ca0e51bd90b1f54af43033853e3ffd887f0abb7",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:c786514c15e38b40"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 25,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Height": 21.440178,
+    "Port height": 13.770574,
+    "Port diameter": 5.669238,
+    "Width": 68.721898
+   },
+   "ok": true,
+   "report_hash": "0b3cd4b72ccc8ebe66b99f82e520ab98dfdc3d0a3104623e98987f3b2fbf20aa",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:502132d2a4d4f84e"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 26,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Height": 31.440178,
+    "Port height": 9.32613,
+    "Port diameter": 6.669238,
+    "Width": 74.436184
+   },
+   "ok": true,
+   "report_hash": "eb9f0b19283ad2eaae217ab63fabc72c284d1253a90a6c88abdbf0697038a0b2",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:aa2eb5fb560ecebb"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 27,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Height": 26.440178,
+    "Port height": 11.992797,
+    "Port diameter": 7.669238,
+    "Width": 40.15047
+   },
+   "ok": true,
+   "report_hash": "43de82f7c8af293c282c6987da682dd85ddd344dfbe44674e8e2fc550268e0f2",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:cfd9553ff3465941"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 28,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Height": 36.440178,
+    "Port height": 14.659463,
+    "Port diameter": 3.869238,
+    "Width": 46.681082
+   },
+   "ok": true,
+   "report_hash": "66642be91c12e3b459fb0387eec581f9d258695bfefd1dce70b7c0a500df9d43",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:5aad59a69ca54dd7"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 29,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Height": 23.940178,
+    "Port height": 15.844649,
+    "Port diameter": 4.869238,
+    "Width": 52.395368
+   },
+   "ok": true,
+   "report_hash": "23951087df89a6ad4b3471b96a291c910440e19b7c708719affa9b49c3b79de7",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:25cd7bcb9bc10f3c"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 30,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Height": 33.940178,
+    "Port height": 10.511315,
+    "Port diameter": 5.869238,
+    "Width": 58.109653
+   },
+   "ok": true,
+   "report_hash": "aa1b8be5e734cd4ea50f414b1cc907c82b5aebee1e3776d0a7f9e5c4554168ce",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:db32ee56df2a724c"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 31,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Height": 28.940178,
+    "Port height": 13.177982,
+    "Port diameter": 6.869238,
+    "Width": 63.823939
+   },
+   "ok": true,
+   "report_hash": "89ce9ee99ed67ef09ba73131da5e6b6cf5d27e85e8a34a964f2485256f632224",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:4350ccb785538068"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 32,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Height": 38.940178,
+    "Port height": 8.733537,
+    "Port diameter": 7.869238,
+    "Width": 69.538225
+   },
+   "ok": true,
+   "report_hash": "0503713cd19942cf01542affac68dee27750fc1594ad6011510c285eb87c2f56",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:cda3b64aa4d9c01b"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 33,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Height": 22.690178,
+    "Port height": 11.400204,
+    "Port diameter": 4.069238,
+    "Width": 75.252511
+   },
+   "ok": true,
+   "report_hash": "251e80115f7d0fce4d3c5208209a926403da851ac68fd6b6c1d915138ae3b677",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:80ef809243de9834"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 34,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Height": 32.690178,
+    "Port height": 14.066871,
+    "Port diameter": 5.069238,
+    "Width": 40.966796
+   },
+   "ok": true,
+   "report_hash": "f8a5c9e0b88a6941a9bf3d37ed7f08184d466cec87ae3a0da4b5c323175f9d8e",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:489ca4ec14100daa"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 35,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Height": 27.690178,
+    "Port height": 9.622426,
+    "Port diameter": 6.069238,
+    "Width": 47.497409
+   },
+   "ok": true,
+   "report_hash": "c45ce853eaef5ff8dd233c588b766da4b992e6b9419d3a460fe91e45aeaee860",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:3e96cf94c5a89321"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 36,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Height": 37.690178,
+    "Port height": 12.289093,
+    "Port diameter": 7.069238,
+    "Width": 53.211694
+   },
+   "ok": true,
+   "report_hash": "4746e55fbfbc6596a809b6228262ecb2b50317a2da862795cd29a55406ad63b3",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:b5529cf740b30f7f"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 37,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Height": 25.190178,
+    "Port height": 14.95576,
+    "Port diameter": 3.069238,
+    "Width": 58.92598
+   },
+   "ok": true,
+   "report_hash": "dbc57e158fe4b407afb1da25613b8e5c9bdbcc2d6bc9175cda16bf40d511cc04",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:b098b568bf326fdd"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 38,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Height": 35.190178,
+    "Port height": 8.140945,
+    "Port diameter": 4.269238,
+    "Width": 64.640266
+   },
+   "ok": true,
+   "report_hash": "2bde30e800813466a3939649fc6805bed053f38e97e656ec6ea49b5a3bd30775",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:61b910735cc6f97d"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 39,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Height": 30.190178,
+    "Port height": 10.807611,
+    "Port diameter": 5.269238,
+    "Width": 70.354551
+   },
+   "ok": true,
+   "report_hash": "0b78fc3f90cda2d9bcc61b5f22b43d6be17748fd562296ee5b9068126fc0a22b",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:8118c66b87fa595a"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 40,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Height": 20.190178,
+    "Port height": 13.474278,
+    "Port diameter": 6.269238,
+    "Width": 76.068837
+   },
+   "ok": true,
+   "report_hash": "a5976515f277dfd9db4420d963c27e6d0a406939894a5ebc5fef5df1b2e70db5",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:4a5a9923e4d781fa"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 41,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Height": 22.065178,
+    "Port height": 9.029834,
+    "Port diameter": 7.269238,
+    "Width": 41.783123
+   },
+   "ok": true,
+   "report_hash": "869a1bb5bfc371477ca708e304843db7607fc19fcf07b73116dc4a636de910b1",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:53fe105a61274961"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 42,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Height": 32.065178,
+    "Port height": 11.6965,
+    "Port diameter": 3.269238,
+    "Width": 42.716067
+   },
+   "ok": true,
+   "report_hash": "4e108b582a74798dc5042fc638568a1483680bed8f418944b4b03f507cb09ccf",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:1837c290ab61be23"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 43,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Height": 27.065178,
+    "Port height": 14.363167,
+    "Port diameter": 3.509238,
+    "Width": 48.430353
+   },
+   "ok": true,
+   "report_hash": "5e2549e0ebc00ff3a50c5c0d9aa354a9d2a13ccdbae5f561a24e9cb21e9bc524",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:0fa08c45fc454446"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 44,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Height": 37.065178,
+    "Port height": 9.918723,
+    "Port diameter": 4.509238,
+    "Width": 54.144639
+   },
+   "ok": true,
+   "report_hash": "19279b0767a9050a10314cdb8f0f694993db0f2a83c1537e97419c5aa8f3d1ed",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:d6d9c102ac12875e"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 45,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Height": 24.565178,
+    "Port height": 12.585389,
+    "Port diameter": 5.509238,
+    "Width": 59.858925
+   },
+   "ok": true,
+   "report_hash": "f3e3b4e469477d2db657165b464bc24c05eb6ee371c713170452328d5c1129de",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:8b962f6a148d43d9"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 46,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Height": 34.565178,
+    "Port height": 15.252056,
+    "Port diameter": 6.509238,
+    "Width": 65.57321
+   },
+   "ok": true,
+   "report_hash": "efe8aa2356faf6ca877a4559f646c0911926a334e59c8a1a64b8a6c81b39c0b8",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:7501a9393fe70f21"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 47,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Height": 29.565178,
+    "Port height": 15.647118,
+    "Port diameter": 7.509238,
+    "Width": 71.287496
+   },
+   "ok": true,
+   "report_hash": "354808a8153b43a08ba57a4ca05f4c7f86e1241a99671e73c5f7b2e630844472",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:5840cfdb1039c72b"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 48,
+   "phase": "shrink",
+   "fresh": [],
+   "params": {
+    "Height": 30,
+    "Port height": 16,
+    "Port diameter": 8,
+    "Width": 80
+   },
+   "ok": true,
+   "report_hash": "2f6eae0fe35e9c87c76d41c8133abd8e3fe946a9af3b0af112a8f73973d59fe4",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:87505695c6de3752"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 49,
+   "phase": "shrink",
+   "fresh": [],
+   "params": {
+    "Height": 20,
+    "Port height": 10,
+    "Port diameter": 8,
+    "Width": 80
+   },
+   "ok": true,
+   "report_hash": "a2321f9e2a01d92111e189ebbfe841c1dfc0eae352e78699c3a5f691d6904b8b",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:21c8a426e8b0e4d5"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 50,
+   "phase": "shrink",
+   "fresh": [],
+   "params": {
+    "Height": 20,
+    "Port height": 16,
+    "Port diameter": 5,
+    "Width": 80
+   },
+   "ok": true,
+   "report_hash": "b3a612f97a68a244889e583250cdf920320f2c5bd34efcad22b938321f993720",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:0f413a2a603b9fdd"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 0.6599999999999999,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 51,
+   "phase": "shrink",
+   "fresh": [
+    "faces",
+    "gate-watertight",
+    "gate-min-wall"
+   ],
+   "params": {
+    "Height": 20,
+    "Port height": 16,
+    "Port diameter": 8,
+    "Width": 60
+   },
+   "ok": true,
+   "report_hash": "6796c3f6105c092356862a22a1324beff02be16f8924e24062d017db34198b95",
+   "signature_hash": "68c44fb04a75f6c811feb01f6ed0cb8bdd79e891db6748ce364dd6e6cfe85310",
+   "shape_hash": {
+    "tray": "s1:5dd6a21038955bd3"
+   },
+   "failing": [
+    "faces",
+    "gate-watertight",
+    "gate-min-wall"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": -1,
+     "scale": 1,
+     "detail": "faces of tray = 13, expected = 12"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "watertight fails (tray: Not a closed solid: the mesh has 1 open or non-manifold edges.)"
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.8380000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.002 mm (fails: tray face:6 0.002)"
+    }
+   ]
+  },
+  {
+   "index": 52,
+   "phase": "shrink",
+   "fresh": [],
+   "params": {
+    "Height": 25,
+    "Port height": 16,
+    "Port diameter": 8,
+    "Width": 80
+   },
+   "ok": true,
+   "report_hash": "5d0386191d3706e6012091de044bd619857f2c71ac68f403b903c654e7cb2c90",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:0a39311c338c4166"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 53,
+   "phase": "shrink",
+   "fresh": [],
+   "params": {
+    "Height": 20,
+    "Port height": 13,
+    "Port diameter": 8,
+    "Width": 80
+   },
+   "ok": true,
+   "report_hash": "6beabce3bac5c283375c9911ea7d6dab1cf0ac3528dfd4316611e2083bfb03ab",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:8cc1ef261ccbca96"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 54,
+   "phase": "shrink",
+   "fresh": [
+    "gate-min-wall"
+   ],
+   "params": {
+    "Height": 20,
+    "Port height": 16,
+    "Port diameter": 6.5,
+    "Width": 80
+   },
+   "ok": true,
+   "report_hash": "f9e9da1928fe3765ca8b69cd7207ce2ca34a91ac6d42b2df99a2d44f816e77a8",
+   "signature_hash": "6c3f8e73b5370c652590db5ee9bcf5461f3d88882b87427d6c3cc4837e8b023a",
+   "shape_hash": {
+    "tray": "s1:a3a97a1010534b94"
+   },
+   "failing": [
+    "gate-min-wall"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.08000000000000007,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.76 mm (fails: tray face:3 0.76)"
+    }
+   ]
+  },
+  {
+   "index": 55,
+   "phase": "shrink",
+   "fresh": [
+    "faces",
+    "gate-watertight",
+    "gate-min-wall"
+   ],
+   "params": {
+    "Height": 20,
+    "Port height": 16,
+    "Port diameter": 8,
+    "Width": 70
+   },
+   "ok": true,
+   "report_hash": "0b91df4ac91d5858ebd3b509a3035fe82a683335140333dccaa84187eb7a808d",
+   "signature_hash": "68c44fb04a75f6c811feb01f6ed0cb8bdd79e891db6748ce364dd6e6cfe85310",
+   "shape_hash": {
+    "tray": "s1:a521f8eeeaee3dcf"
+   },
+   "failing": [
+    "faces",
+    "gate-watertight",
+    "gate-min-wall"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": false,
+     "signed": -1,
+     "scale": 1,
+     "detail": "faces of tray = 13, expected = 12"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "watertight fails (tray: Not a closed solid: the mesh has 1 open or non-manifold edges.)"
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.8380000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.002 mm (fails: tray face:6 0.002)"
+    }
+   ]
+  },
+  {
+   "index": 56,
+   "phase": "shrink",
+   "fresh": [],
+   "params": {
+    "Height": 30,
+    "Port height": 16,
+    "Port diameter": 8,
+    "Width": 60
+   },
+   "ok": true,
+   "report_hash": "53e68da91c9770abc1519f544dc98b085b1c89b14e518e1aa78c7c6a861ebf1e",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:f4caa18c7f2ffc7b"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 57,
+   "phase": "shrink",
+   "fresh": [],
+   "params": {
+    "Height": 20,
+    "Port height": 10,
+    "Port diameter": 8,
+    "Width": 60
+   },
+   "ok": true,
+   "report_hash": "61721c664a95903427b57c136231f5ba044552d3abf2f28a73921cdac9bf29ef",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:9c290aadef3a48a6"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 58,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Height": 27.5,
+    "Port height": 11.5,
+    "Port diameter": 5.75,
+    "Width": 60
+   },
+   "ok": true,
+   "report_hash": "19b70bb671b462d0a735703972ba42205289aeed7411ab73f5c0c060487481b0",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:665b5d7233d764ba"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 59,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Height": 25,
+    "Port height": 13,
+    "Port diameter": 6.5,
+    "Width": 60
+   },
+   "ok": true,
+   "report_hash": "0068fe228726e09e6355790bd60f13caa7f6f3737cbfa4975d7bcc099ee64c6b",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:91e1c54e6b567710"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 60,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Height": 22.5,
+    "Port height": 14.5,
+    "Port diameter": 7.25,
+    "Width": 60
+   },
+   "ok": true,
+   "report_hash": "4c22958ccb6a333574a7c2d918beaf5aa38aa594880ea973a387847f9184ff3b",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:6658af988f86f943"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 61,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Height": 21.875,
+    "Port height": 14.875,
+    "Port diameter": 7.4375,
+    "Width": 60
+   },
+   "ok": true,
+   "report_hash": "f76de374c425d38621b96bce4f9b0d60ec5629015b24de09148470ec955d6d2d",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:011af5ca6ee693eb"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 62,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Height": 21.25,
+    "Port height": 15.25,
+    "Port diameter": 7.625,
+    "Width": 60
+   },
+   "ok": true,
+   "report_hash": "bc0f03de80e022719dab8e4e0fe92e4072bf9be724eca0e33191f2aa278c6209",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:86787611a2905875"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 63,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Height": 20.625,
+    "Port height": 15.625,
+    "Port diameter": 7.8125,
+    "Width": 60
+   },
+   "ok": true,
+   "report_hash": "d217310bf34779b22701ed1267f7ae53f5c4644988bed9e79ac497befc53d1fc",
+   "signature_hash": "43ac426f6a2902b8bab08d6d612ee59e198d9788a3ff9fbc00cf7c566cf1a204",
+   "shape_hash": {
+    "tray": "s1:cd7dea389a31ac20"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 0.254,
+     "scale": 0.04
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,6782 @@
+{
+ "certificate": "o3dj-envelope-cert/spike-0",
+ "brief": "knob",
+ "brief_hash": "1f51eedeaa418456bdc710467521a8f82983b191d99408e72343f1d49fe64cb3",
+ "script_hash": "a0c1b747fb22df5decdbde02e16636a8a4da1c78557b2d5b5eb4f67310520bfb",
+ "inputs_hash": "e2ed2d55ec2db6704cc77f5d96bd056174bc187b62a87aa406e4881bb0452789",
+ "engine": {
+  "occt_wasm": "5.8.1",
+  "node": "v24.22.1",
+  "analysis": "2"
+ },
+ "platform": "linux-x64",
+ "seed": 1,
+ "budget": 64,
+ "watch_mm": 0.5,
+ "verdict": "counterexample",
+ "statement": "counterexample: 19 of 64 points fail an assertion that passes at nominal",
+ "nominal_failures": [
+  "gate-min-wall",
+  "gate-overhang"
+ ],
+ "counterexamples": [
+  1,
+  3,
+  5,
+  7,
+  9,
+  11,
+  13,
+  15,
+  17,
+  19,
+  21,
+  23,
+  27,
+  46,
+  48,
+  50,
+  52,
+  54,
+  58
+ ],
+ "shrunk": 54,
+ "line": {
+  "pass": 55,
+  "fail": 54,
+  "lo": 0.71875,
+  "hi": 0.75,
+  "points": [
+   {
+    "index": 55,
+    "t": 0
+   },
+   {
+    "index": 57,
+    "t": 0.25
+   },
+   {
+    "index": 56,
+    "t": 0.5
+   },
+   {
+    "index": 59,
+    "t": 0.5625
+   },
+   {
+    "index": 60,
+    "t": 0.625
+   },
+   {
+    "index": 61,
+    "t": 0.6875
+   },
+   {
+    "index": 62,
+    "t": 0.703125
+   },
+   {
+    "index": 63,
+    "t": 0.71875
+   },
+   {
+    "index": 58,
+    "t": 0.75
+   },
+   {
+    "index": 54,
+    "t": 1
+   }
+  ]
+ },
+ "events": [
+  {
+   "kind": "axis",
+   "axis": "Height",
+   "between": [
+    27,
+    0
+   ],
+   "from": {
+    "Radius": 16,
+    "Height": 10,
+    "Flutes": 12
+   },
+   "to": {
+    "Radius": 16,
+    "Height": 18,
+    "Flutes": 12
+   },
+   "changed": [
+    "counts: knob:1/45/106 -> knob:1/46/106"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Height",
+   "between": [
+    1,
+    51
+   ],
+   "from": {
+    "Radius": 10,
+    "Height": 10,
+    "Flutes": 0
+   },
+   "to": {
+    "Radius": 10,
+    "Height": 14,
+    "Flutes": 0
+   },
+   "changed": [
+    "counts: knob:1/9/21 -> knob:1/10/21"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Height",
+   "between": [
+    13,
+    25
+   ],
+   "from": {
+    "Radius": 10,
+    "Height": 10,
+    "Flutes": 12
+   },
+   "to": {
+    "Radius": 10,
+    "Height": 18,
+    "Flutes": 12
+   },
+   "changed": [
+    "counts: knob:1/45/106 -> knob:1/46/106"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Height",
+   "between": [
+    48,
+    53
+   ],
+   "from": {
+    "Radius": 16,
+    "Height": 10,
+    "Flutes": 0
+   },
+   "to": {
+    "Radius": 16,
+    "Height": 14,
+    "Flutes": 0
+   },
+   "changed": [
+    "counts: knob:1/9/21 -> knob:1/10/21"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Height",
+   "between": [
+    58,
+    63
+   ],
+   "from": {
+    "Radius": 16,
+    "Height": 12,
+    "Flutes": 6
+   },
+   "to": {
+    "Radius": 16,
+    "Height": 12.25,
+    "Flutes": 6
+   },
+   "changed": [
+    "counts: knob:1/27/64 -> knob:1/28/64"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Flutes",
+   "between": [
+    29,
+    30
+   ],
+   "from": {
+    "Radius": 16,
+    "Height": 18,
+    "Flutes": 0
+   },
+   "to": {
+    "Radius": 16,
+    "Height": 18,
+    "Flutes": 1
+   },
+   "changed": [
+    "counts: knob:1/10/21 -> knob:1/13/29",
+    "gates: knob:bed+min_wall+watertight -> knob:bed+watertight"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Flutes",
+   "between": [
+    30,
+    31
+   ],
+   "from": {
+    "Radius": 16,
+    "Height": 18,
+    "Flutes": 1
+   },
+   "to": {
+    "Radius": 16,
+    "Height": 18,
+    "Flutes": 2
+   },
+   "changed": [
+    "counts: knob:1/13/29 -> knob:1/16/36"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Flutes",
+   "between": [
+    31,
+    32
+   ],
+   "from": {
+    "Radius": 16,
+    "Height": 18,
+    "Flutes": 2
+   },
+   "to": {
+    "Radius": 16,
+    "Height": 18,
+    "Flutes": 3
+   },
+   "changed": [
+    "counts: knob:1/16/36 -> knob:1/19/43"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Flutes",
+   "between": [
+    32,
+    55
+   ],
+   "from": {
+    "Radius": 16,
+    "Height": 18,
+    "Flutes": 3
+   },
+   "to": {
+    "Radius": 16,
+    "Height": 18,
+    "Flutes": 6
+   },
+   "changed": [
+    "counts: knob:1/19/43 -> knob:1/28/64"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Flutes",
+   "between": [
+    55,
+    0
+   ],
+   "from": {
+    "Radius": 16,
+    "Height": 18,
+    "Flutes": 6
+   },
+   "to": {
+    "Radius": 16,
+    "Height": 18,
+    "Flutes": 12
+   },
+   "changed": [
+    "counts: knob:1/28/64 -> knob:1/46/106"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Flutes",
+   "between": [
+    1,
+    5
+   ],
+   "from": {
+    "Radius": 10,
+    "Height": 10,
+    "Flutes": 0
+   },
+   "to": {
+    "Radius": 10,
+    "Height": 10,
+    "Flutes": 4
+   },
+   "changed": [
+    "counts: knob:1/9/21 -> knob:1/21/50",
+    "gates: knob:bed+min_wall+watertight -> knob:bed+watertight"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Flutes",
+   "between": [
+    5,
+    52
+   ],
+   "from": {
+    "Radius": 10,
+    "Height": 10,
+    "Flutes": 4
+   },
+   "to": {
+    "Radius": 10,
+    "Height": 10,
+    "Flutes": 6
+   },
+   "changed": [
+    "counts: knob:1/21/50 -> knob:1/27/64"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Flutes",
+   "between": [
+    52,
+    9
+   ],
+   "from": {
+    "Radius": 10,
+    "Height": 10,
+    "Flutes": 6
+   },
+   "to": {
+    "Radius": 10,
+    "Height": 10,
+    "Flutes": 8
+   },
+   "changed": [
+    "counts: knob:1/27/64 -> knob:1/33/78"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Flutes",
+   "between": [
+    9,
+    13
+   ],
+   "from": {
+    "Radius": 10,
+    "Height": 10,
+    "Flutes": 8
+   },
+   "to": {
+    "Radius": 10,
+    "Height": 10,
+    "Flutes": 12
+   },
+   "changed": [
+    "counts: knob:1/33/78 -> knob:1/45/106"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Flutes",
+   "between": [
+    13,
+    17
+   ],
+   "from": {
+    "Radius": 10,
+    "Height": 10,
+    "Flutes": 12
+   },
+   "to": {
+    "Radius": 10,
+    "Height": 10,
+    "Flutes": 16
+   },
+   "changed": [
+    "counts: knob:1/45/106 -> knob:1/57/134"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Flutes",
+   "between": [
+    17,
+    21
+   ],
+   "from": {
+    "Radius": 10,
+    "Height": 10,
+    "Flutes": 16
+   },
+   "to": {
+    "Radius": 10,
+    "Height": 10,
+    "Flutes": 20
+   },
+   "changed": [
+    "counts: knob:1/57/134 -> knob:1/69/162"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Flutes",
+   "between": [
+    2,
+    6
+   ],
+   "from": {
+    "Radius": 30,
+    "Height": 40,
+    "Flutes": 1
+   },
+   "to": {
+    "Radius": 30,
+    "Height": 40,
+    "Flutes": 5
+   },
+   "changed": [
+    "counts: knob:1/13/29 -> knob:1/25/57"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Flutes",
+   "between": [
+    6,
+    10
+   ],
+   "from": {
+    "Radius": 30,
+    "Height": 40,
+    "Flutes": 5
+   },
+   "to": {
+    "Radius": 30,
+    "Height": 40,
+    "Flutes": 9
+   },
+   "changed": [
+    "counts: knob:1/25/57 -> knob:1/37/85"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Flutes",
+   "between": [
+    10,
+    14
+   ],
+   "from": {
+    "Radius": 30,
+    "Height": 40,
+    "Flutes": 9
+   },
+   "to": {
+    "Radius": 30,
+    "Height": 40,
+    "Flutes": 13
+   },
+   "changed": [
+    "counts: knob:1/37/85 -> knob:1/49/113"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Flutes",
+   "between": [
+    14,
+    18
+   ],
+   "from": {
+    "Radius": 30,
+    "Height": 40,
+    "Flutes": 13
+   },
+   "to": {
+    "Radius": 30,
+    "Height": 40,
+    "Flutes": 17
+   },
+   "changed": [
+    "counts: knob:1/49/113 -> knob:1/61/141"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Flutes",
+   "between": [
+    18,
+    22
+   ],
+   "from": {
+    "Radius": 30,
+    "Height": 40,
+    "Flutes": 17
+   },
+   "to": {
+    "Radius": 30,
+    "Height": 40,
+    "Flutes": 21
+   },
+   "changed": [
+    "counts: knob:1/61/141 -> knob:1/73/169"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Flutes",
+   "between": [
+    3,
+    7
+   ],
+   "from": {
+    "Radius": 30,
+    "Height": 10,
+    "Flutes": 2
+   },
+   "to": {
+    "Radius": 30,
+    "Height": 10,
+    "Flutes": 6
+   },
+   "changed": [
+    "counts: knob:1/15/36 -> knob:1/27/64"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Flutes",
+   "between": [
+    7,
+    11
+   ],
+   "from": {
+    "Radius": 30,
+    "Height": 10,
+    "Flutes": 6
+   },
+   "to": {
+    "Radius": 30,
+    "Height": 10,
+    "Flutes": 10
+   },
+   "changed": [
+    "counts: knob:1/27/64 -> knob:1/39/92"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Flutes",
+   "between": [
+    11,
+    15
+   ],
+   "from": {
+    "Radius": 30,
+    "Height": 10,
+    "Flutes": 10
+   },
+   "to": {
+    "Radius": 30,
+    "Height": 10,
+    "Flutes": 14
+   },
+   "changed": [
+    "counts: knob:1/39/92 -> knob:1/51/120"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Flutes",
+   "between": [
+    15,
+    19
+   ],
+   "from": {
+    "Radius": 30,
+    "Height": 10,
+    "Flutes": 14
+   },
+   "to": {
+    "Radius": 30,
+    "Height": 10,
+    "Flutes": 18
+   },
+   "changed": [
+    "counts: knob:1/51/120 -> knob:1/63/148"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Flutes",
+   "between": [
+    19,
+    23
+   ],
+   "from": {
+    "Radius": 30,
+    "Height": 10,
+    "Flutes": 18
+   },
+   "to": {
+    "Radius": 30,
+    "Height": 10,
+    "Flutes": 22
+   },
+   "changed": [
+    "counts: knob:1/63/148 -> knob:1/75/176"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Flutes",
+   "between": [
+    4,
+    8
+   ],
+   "from": {
+    "Radius": 10,
+    "Height": 40,
+    "Flutes": 3
+   },
+   "to": {
+    "Radius": 10,
+    "Height": 40,
+    "Flutes": 7
+   },
+   "changed": [
+    "counts: knob:1/19/43 -> knob:1/31/71"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Flutes",
+   "between": [
+    8,
+    12
+   ],
+   "from": {
+    "Radius": 10,
+    "Height": 40,
+    "Flutes": 7
+   },
+   "to": {
+    "Radius": 10,
+    "Height": 40,
+    "Flutes": 11
+   },
+   "changed": [
+    "counts: knob:1/31/71 -> knob:1/43/99"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Flutes",
+   "between": [
+    12,
+    16
+   ],
+   "from": {
+    "Radius": 10,
+    "Height": 40,
+    "Flutes": 11
+   },
+   "to": {
+    "Radius": 10,
+    "Height": 40,
+    "Flutes": 15
+   },
+   "changed": [
+    "counts: knob:1/43/99 -> knob:1/55/127"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Flutes",
+   "between": [
+    16,
+    20
+   ],
+   "from": {
+    "Radius": 10,
+    "Height": 40,
+    "Flutes": 15
+   },
+   "to": {
+    "Radius": 10,
+    "Height": 40,
+    "Flutes": 19
+   },
+   "changed": [
+    "counts: knob:1/55/127 -> knob:1/67/155"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Flutes",
+   "between": [
+    20,
+    24
+   ],
+   "from": {
+    "Radius": 10,
+    "Height": 40,
+    "Flutes": 19
+   },
+   "to": {
+    "Radius": 10,
+    "Height": 40,
+    "Flutes": 23
+   },
+   "changed": [
+    "counts: knob:1/67/155 -> knob:1/125/275"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Flutes",
+   "between": [
+    49,
+    25
+   ],
+   "from": {
+    "Radius": 10,
+    "Height": 18,
+    "Flutes": 0
+   },
+   "to": {
+    "Radius": 10,
+    "Height": 18,
+    "Flutes": 12
+   },
+   "changed": [
+    "counts: knob:1/10/21 -> knob:1/46/106",
+    "gates: knob:bed+min_wall+watertight -> knob:bed+watertight"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Flutes",
+   "between": [
+    48,
+    54
+   ],
+   "from": {
+    "Radius": 16,
+    "Height": 10,
+    "Flutes": 0
+   },
+   "to": {
+    "Radius": 16,
+    "Height": 10,
+    "Flutes": 6
+   },
+   "changed": [
+    "counts: knob:1/9/21 -> knob:1/27/64",
+    "gates: knob:bed+min_wall+watertight -> knob:bed+watertight"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Flutes",
+   "between": [
+    54,
+    27
+   ],
+   "from": {
+    "Radius": 16,
+    "Height": 10,
+    "Flutes": 6
+   },
+   "to": {
+    "Radius": 16,
+    "Height": 10,
+    "Flutes": 12
+   },
+   "changed": [
+    "counts: knob:1/27/64 -> knob:1/45/106"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Flutes",
+   "between": [
+    53,
+    56
+   ],
+   "from": {
+    "Radius": 16,
+    "Height": 14,
+    "Flutes": 0
+   },
+   "to": {
+    "Radius": 16,
+    "Height": 14,
+    "Flutes": 6
+   },
+   "changed": [
+    "counts: knob:1/10/21 -> knob:1/28/64",
+    "gates: knob:bed+min_wall+watertight -> knob:bed+watertight"
+   ]
+  },
+  {
+   "kind": "line",
+   "between": [
+    63,
+    58
+   ],
+   "from": {
+    "Radius": 16,
+    "Height": 12.25,
+    "Flutes": 6
+   },
+   "to": {
+    "Radius": 16,
+    "Height": 12,
+    "Flutes": 6
+   },
+   "changed": [
+    "counts: knob:1/28/64 -> knob:1/27/64"
+   ]
+  }
+ ],
+ "smallest_margins": [
+  {
+   "id": "builds",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "status",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "valid",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "one-solid",
+   "signed": 0,
+   "scale": 1,
+   "normalized": 0,
+   "at": 0
+  },
+  {
+   "id": "size-x",
+   "signed": 0.001,
+   "scale": 0.06,
+   "normalized": 0.016666666666666666,
+   "at": 2
+  },
+  {
+   "id": "size-y",
+   "signed": 0.001,
+   "scale": 0.06,
+   "normalized": 0.016666666666666666,
+   "at": 2
+  },
+  {
+   "id": "size-z",
+   "signed": -0.08417900000000011,
+   "scale": 0.01,
+   "normalized": -8.417900000000012,
+   "at": 1
+  },
+  {
+   "id": "gate-watertight",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "gate-bed",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  }
+ ],
+ "coverage": {
+  "points": 64,
+  "phases": {
+   "nominal": 1,
+   "corner": 24,
+   "special": 8,
+   "halton": 15,
+   "shrink": 9,
+   "bisect": 7
+  },
+  "corners_planned": 100,
+  "special_planned": 28,
+  "axes": [
+   {
+    "name": "Radius",
+    "min_seen": 10,
+    "max_seen": 30,
+    "min": 10,
+    "max": 30
+   },
+   {
+    "name": "Height",
+    "min_seen": 10,
+    "max_seen": 40,
+    "min": 10,
+    "max": 40
+   },
+   {
+    "name": "Flutes",
+    "values_seen": 25,
+    "values": 25
+   }
+  ]
+ },
+ "limits": [
+  "Sampling is not proof: the brief was checked at the points listed under this model, never for all values. A thin band can hide between samples.",
+  "The gates are fdm.v1 rule checks on the kernel's geometry (watertight, 0.8 mm min_wall from rays, 45 degree overhang, bed), never a print simulation.",
+  "Fits are exact OCCT clash, contact and clearance checks within the fit watch distance; a pair with no line inside it is censored, not a measured pass.",
+  "Bit-identical replay is only claimed for the platform named here.",
+  "Fit watch distance 0.5 mm."
+ ],
+ "points": [
+  {
+   "index": 0,
+   "phase": "nominal",
+   "fresh": [],
+   "params": {
+    "Radius": 16,
+    "Height": 18,
+    "Flutes": 12
+   },
+   "ok": true,
+   "report_hash": "96532419569ab9d9831ed374b0fa47a2fa9f61d3d6cc625d64197bf108fcfb4f",
+   "signature_hash": "5095a007f4d368a26b93b7061416adac1caa8bedc371935162ea105d480d230c",
+   "shape_hash": {
+    "knob": "s1:9060da8c2ba35f81"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.018000000000000002
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7640000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.076 mm (fails: knob face:34 0.076)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 1,
+   "phase": "corner",
+   "fresh": [
+    "size-z"
+   ],
+   "params": {
+    "Radius": 10,
+    "Height": 10,
+    "Flutes": 0
+   },
+   "ok": true,
+   "report_hash": "e80da70476ec2b3c97ec3437314612a253448a3f4bb43f8a26d1957310aad685",
+   "signature_hash": "0eaa2f7873dc7c4e8dea2f0e16a5df139581cab83ee28f5afe01785a96669f10",
+   "shape_hash": {
+    "knob": "s1:68ba9ecf392b8d06"
+   },
+   "failing": [
+    "size-z",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": -0.08417900000000011,
+     "scale": 0.01,
+     "detail": "size_z of assembly = 9.914821, expected = 10 (tol abs 0.001)"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 0.10899999999999987,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -1,
+     "scale": 1,
+     "detail": "overhang 45 degrees (knob face:2 45)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 2,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Radius": 30,
+    "Height": 40,
+    "Flutes": 1
+   },
+   "ok": true,
+   "report_hash": "479287d8da05771b24fb5ca0c3acdfc4dcb0ad7d310b8506c6da1677ab5a9b60",
+   "signature_hash": "bba57b6ca9842df0913cb2096872c994c5d5b7fca681eeb82c864ee29a14b1fb",
+   "shape_hash": {
+    "knob": "s1:04949ab8ba1230eb"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7640000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.076 mm (fails: knob face:12 0.076)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 3,
+   "phase": "corner",
+   "fresh": [
+    "size-z"
+   ],
+   "params": {
+    "Radius": 30,
+    "Height": 10,
+    "Flutes": 2
+   },
+   "ok": true,
+   "report_hash": "7f6464dde44d5ba0d092c65656be057b1a175366bef3b0c34efea8938d208004",
+   "signature_hash": "7d3c1d1e9aca00cfba3bbe7e8283cf4415ade3f76df9bb4ca0138c9632ddae52",
+   "shape_hash": {
+    "knob": "s1:2969389a46cd7095"
+   },
+   "failing": [
+    "size-z",
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": -0.005138999999999228,
+     "scale": 0.01,
+     "detail": "size_z of assembly = 9.993861, expected = 10 (tol abs 0.001)"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7650000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.075 mm (fails: knob face:11 0.075)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:14 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 4,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Radius": 10,
+    "Height": 40,
+    "Flutes": 3
+   },
+   "ok": true,
+   "report_hash": "b9f02ae01e62ab984d2e2436a94ac8568628a8d7c3bdd8071689771a6b327923",
+   "signature_hash": "5cde04d160852372b14d637e7ca3d1b038faaedb41a10fe0fc8c621c3b4d7ec6",
+   "shape_hash": {
+    "knob": "s1:894194464a18b38a"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7610000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.079 mm (fails: knob face:18 0.079)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 5,
+   "phase": "corner",
+   "fresh": [
+    "size-z"
+   ],
+   "params": {
+    "Radius": 10,
+    "Height": 10,
+    "Flutes": 4
+   },
+   "ok": true,
+   "report_hash": "b3df6e4bc66c1e5402315665855438c3c616e3dfcb2449e4aeaebed41de6c2ec",
+   "signature_hash": "7e3be1ab4e0fad682277df8f5571855df2e1a976f338c4c60808ffe16fae23d6",
+   "shape_hash": {
+    "knob": "s1:ab5109d70700576b"
+   },
+   "failing": [
+    "size-z",
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": -0.08417900000000011,
+     "scale": 0.01,
+     "detail": "size_z of assembly = 9.914821, expected = 10 (tol abs 0.001)"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7610000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.079 mm (fails: knob face:20 0.079)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:18 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 6,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Radius": 30,
+    "Height": 40,
+    "Flutes": 5
+   },
+   "ok": true,
+   "report_hash": "8feab869b7b031c715c14ebb4d4c52a1ae264e8cf4b638146aacbfcdc4ca7ec7",
+   "signature_hash": "301f72e5d0d95c2928d9b68d3bb8d10b5cd1f7ea47eb1ff829e295c13abea673",
+   "shape_hash": {
+    "knob": "s1:545393c11db0fd04"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7650000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.075 mm (fails: knob face:11 0.075)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 7,
+   "phase": "corner",
+   "fresh": [
+    "size-z"
+   ],
+   "params": {
+    "Radius": 30,
+    "Height": 10,
+    "Flutes": 6
+   },
+   "ok": true,
+   "report_hash": "764398a41021ea6d59390e3860d37262843e0f47e0afa6e745d37c1b92c40f46",
+   "signature_hash": "45aa06e38ad5455296a9ae967c238bfddabfbedaf4ea474eba5b5c4131f028e8",
+   "shape_hash": {
+    "knob": "s1:ea7d845e3e920c90"
+   },
+   "failing": [
+    "size-z",
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": -0.005138999999999228,
+     "scale": 0.01,
+     "detail": "size_z of assembly = 9.993861, expected = 10 (tol abs 0.001)"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7650000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.075 mm (fails: knob face:11 0.075)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:22 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 8,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Radius": 10,
+    "Height": 40,
+    "Flutes": 7
+   },
+   "ok": true,
+   "report_hash": "e910499b8a153fe07d67275c0767598d9c16874ab1688154f1c223cafbd9e85e",
+   "signature_hash": "13a82af0304f521097dd0d9fc08b4fa958fd11f97f2af1e7b85589c2d9b718df",
+   "shape_hash": {
+    "knob": "s1:a27068399bb2bd79"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7620000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.078 mm (fails: knob face:26 0.078)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 9,
+   "phase": "corner",
+   "fresh": [
+    "size-z"
+   ],
+   "params": {
+    "Radius": 10,
+    "Height": 10,
+    "Flutes": 8
+   },
+   "ok": true,
+   "report_hash": "79c1429d2aa2f5ec679361cd2351ffa4df52020bee61f7a797c5536a58fc7ffa",
+   "signature_hash": "ec3b304c5104b3341e30edcd0a9379d42bde7ba69a3bea51a94b091e12c3e629",
+   "shape_hash": {
+    "knob": "s1:9a23f4f22b7ca5a0"
+   },
+   "failing": [
+    "size-z",
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": -0.08417900000000011,
+     "scale": 0.01,
+     "detail": "size_z of assembly = 9.914821, expected = 10 (tol abs 0.001)"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7620000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.078 mm (fails: knob face:29 0.078)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:26 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 10,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Radius": 30,
+    "Height": 40,
+    "Flutes": 9
+   },
+   "ok": true,
+   "report_hash": "13f708b8dafcd263f7354618ad65676671665e5775ba92f45489fec47bf60575",
+   "signature_hash": "4659bf574569e8a1459d6c483c19db44055177b8261a568bdf24ddfae6149341",
+   "shape_hash": {
+    "knob": "s1:149d3ed096ff8677"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7650000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.075 mm (fails: knob face:11 0.075)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 11,
+   "phase": "corner",
+   "fresh": [
+    "size-z"
+   ],
+   "params": {
+    "Radius": 30,
+    "Height": 10,
+    "Flutes": 10
+   },
+   "ok": true,
+   "report_hash": "79ba5b6139ed6e45d5eb2db22d27b9533dcab7e1873c28f1ac93cda79ab3e5df",
+   "signature_hash": "1aee9666f3bb3a2539e055c69e97e6902b65e9c5dd7c3be03b118455ab6a4fe9",
+   "shape_hash": {
+    "knob": "s1:5ddd630db1aac8dc"
+   },
+   "failing": [
+    "size-z",
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": -0.005138999999999228,
+     "scale": 0.01,
+     "detail": "size_z of assembly = 9.993861, expected = 10 (tol abs 0.001)"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7650000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.075 mm (fails: knob face:11 0.075)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:30 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 12,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Radius": 10,
+    "Height": 40,
+    "Flutes": 11
+   },
+   "ok": true,
+   "report_hash": "669a4a8674fd344ee4d4e2844dfa65c90edc50a06e2673c8b19a08b16cc18b37",
+   "signature_hash": "dc56d7e3d5e5ef2fad96f6053c80fd15c44d8df384da37385a4e70f9fb7d5a5c",
+   "shape_hash": {
+    "knob": "s1:6466b6b20b4e3417"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7620000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.078 mm (fails: knob face:37 0.078)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 13,
+   "phase": "corner",
+   "fresh": [
+    "size-z"
+   ],
+   "params": {
+    "Radius": 10,
+    "Height": 10,
+    "Flutes": 12
+   },
+   "ok": true,
+   "report_hash": "5e3e1df643b28c05aedeea4c82ff35161ea532ad37675b3d57f203d8882546b3",
+   "signature_hash": "15be233126798406a4a05dd5cbf58d0b0bd35c1e8460572d76a3c41b730d211a",
+   "shape_hash": {
+    "knob": "s1:3a87bc07fe222283"
+   },
+   "failing": [
+    "size-z",
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": -0.08417900000000011,
+     "scale": 0.01,
+     "detail": "size_z of assembly = 9.914821, expected = 10 (tol abs 0.001)"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7620000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.078 mm (fails: knob face:39 0.078)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:34 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 14,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Radius": 30,
+    "Height": 40,
+    "Flutes": 13
+   },
+   "ok": true,
+   "report_hash": "3de0d52b2c91a9a7a344c9dfd0ec07cbb7dba1003539c7395a1d2591cf08e851",
+   "signature_hash": "fe8e108d58b678a8279fb28e85d30e2bf536a2abdf353271300f2650a9fdc4ed",
+   "shape_hash": {
+    "knob": "s1:2d33e5de3137a45c"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7650000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.075 mm (fails: knob face:11 0.075)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 15,
+   "phase": "corner",
+   "fresh": [
+    "size-z"
+   ],
+   "params": {
+    "Radius": 30,
+    "Height": 10,
+    "Flutes": 14
+   },
+   "ok": true,
+   "report_hash": "53e00e995488bdee34e9ff5aea0a381e54ebea65bdd48ff40f2b7e8e8c987570",
+   "signature_hash": "b79f16151318b407d4fa28cc1d3facb3c11d7c36a3bb006916631e623a0c7616",
+   "shape_hash": {
+    "knob": "s1:da0a90a05af661c3"
+   },
+   "failing": [
+    "size-z",
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": -0.005138999999999228,
+     "scale": 0.01,
+     "detail": "size_z of assembly = 9.993861, expected = 10 (tol abs 0.001)"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7650000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.075 mm (fails: knob face:11 0.075)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:38 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 16,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Radius": 10,
+    "Height": 40,
+    "Flutes": 15
+   },
+   "ok": true,
+   "report_hash": "b60b22f41e2c85188c98ecc36a41a2eb572ffcd8908b873a04d2b51c1e8f22f1",
+   "signature_hash": "bb5ae183d5b194ff4bb0868925186256039b804851247ade4984495c93ed3007",
+   "shape_hash": {
+    "knob": "s1:5315eed4241b60c1"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7610000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.079 mm (fails: knob face:46 0.079)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 17,
+   "phase": "corner",
+   "fresh": [
+    "size-z"
+   ],
+   "params": {
+    "Radius": 10,
+    "Height": 10,
+    "Flutes": 16
+   },
+   "ok": true,
+   "report_hash": "a9d8b24ccf83ffaf7edd58cdb2f9e711f59e6483d5af2db3b99fea2b449c2009",
+   "signature_hash": "7085d5ab4a06d07cd2d5c71eeff0314a2ceba24d2aae1a1df39e62a46bc7b2e0",
+   "shape_hash": {
+    "knob": "s1:4c606aa62c26631d"
+   },
+   "failing": [
+    "size-z",
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": -0.08417900000000011,
+     "scale": 0.01,
+     "detail": "size_z of assembly = 9.914821, expected = 10 (tol abs 0.001)"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7620000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.078 mm (fails: knob face:48 0.078)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:42 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 18,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Radius": 30,
+    "Height": 40,
+    "Flutes": 17
+   },
+   "ok": true,
+   "report_hash": "f1f4fd4ad6fcfc72abc2d257c845219716d96b1dcb994a2a1042856719755254",
+   "signature_hash": "fed6cf5510e7723ce452530922b86c658ecf6b7a6204a36b7d9962e576c6ad38",
+   "shape_hash": {
+    "knob": "s1:31b58c9caaaeeabc"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7650000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.075 mm (fails: knob face:11 0.075)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 19,
+   "phase": "corner",
+   "fresh": [
+    "size-z"
+   ],
+   "params": {
+    "Radius": 30,
+    "Height": 10,
+    "Flutes": 18
+   },
+   "ok": true,
+   "report_hash": "78cf00fd51216c4ed0e402559eece54fe1ffcc2a9cafb4e854dc214d2601a73e",
+   "signature_hash": "cd06b2a77fc3c1ff3d769f5aec3bd470cd42a019c9fd8b56973a03bfb9366dbb",
+   "shape_hash": {
+    "knob": "s1:7e084cf97da484dd"
+   },
+   "failing": [
+    "size-z",
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": -0.005138999999999228,
+     "scale": 0.01,
+     "detail": "size_z of assembly = 9.993861, expected = 10 (tol abs 0.001)"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7650000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.075 mm (fails: knob face:11 0.075)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:46 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 20,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Radius": 10,
+    "Height": 40,
+    "Flutes": 19
+   },
+   "ok": true,
+   "report_hash": "8884b395f8152891e47b468c116d592d6c2d1106ed0daa0a6fefd9ce05c4ab5d",
+   "signature_hash": "53d2b44891e6bdcf260cbfdf58dca7983127baa8d6347fd0af818ca87cd4dce3",
+   "shape_hash": {
+    "knob": "s1:b40ef775f385ff02"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7620000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.078 mm (fails: knob face:62 0.078)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 21,
+   "phase": "corner",
+   "fresh": [
+    "size-z"
+   ],
+   "params": {
+    "Radius": 10,
+    "Height": 10,
+    "Flutes": 20
+   },
+   "ok": true,
+   "report_hash": "1091858414f01ec3af36ccf20bfeeee617fd91625ce96c7b775c2525a30215e6",
+   "signature_hash": "3a02fa09d7016472a61b2ec594e394364c37e119c27bbe1eb88b5af36bc2e0de",
+   "shape_hash": {
+    "knob": "s1:aafd03eb788bcb6e"
+   },
+   "failing": [
+    "size-z",
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": -0.08417900000000011,
+     "scale": 0.01,
+     "detail": "size_z of assembly = 9.914821, expected = 10 (tol abs 0.001)"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7610000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.079 mm (fails: knob face:58 0.079)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:50 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 22,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Radius": 30,
+    "Height": 40,
+    "Flutes": 21
+   },
+   "ok": true,
+   "report_hash": "0b633da86ac8a9692960e6e4a6b9cf09fe1cd0e4add9b904a48a446cf4746b64",
+   "signature_hash": "8e11dfadac715fb70c4bda2f82f7cd3d7111223a1e845d11326baa3b3a64eddf",
+   "shape_hash": {
+    "knob": "s1:0ad1a569352492b4"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7650000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.075 mm (fails: knob face:11 0.075)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 23,
+   "phase": "corner",
+   "fresh": [
+    "size-z"
+   ],
+   "params": {
+    "Radius": 30,
+    "Height": 10,
+    "Flutes": 22
+   },
+   "ok": true,
+   "report_hash": "91e766429a8ee9fe36eed505c6513b0f0c516649f2975ec2745f708d955f42e8",
+   "signature_hash": "35187b8cc08d6c6f39b1c93266def9665f2278ec2b8f8b36964cd7f3a6778906",
+   "shape_hash": {
+    "knob": "s1:972e2720eb51caa3"
+   },
+   "failing": [
+    "size-z",
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": -0.005138999999999228,
+     "scale": 0.01,
+     "detail": "size_z of assembly = 9.993861, expected = 10 (tol abs 0.001)"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7650000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.075 mm (fails: knob face:11 0.075)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:54 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 24,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Radius": 10,
+    "Height": 40,
+    "Flutes": 23
+   },
+   "ok": true,
+   "report_hash": "58f0580a20bc08772cc5edb29530483c1ad459829dfd66dd7d0fae987027e363",
+   "signature_hash": "b7984a7041189b6c12e637becaae21b2a4f9ba0f357d75448ae86d7744a9dd4f",
+   "shape_hash": {
+    "knob": "s1:da9ff8033c981ebe"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.8360000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.004 mm (fails: knob face:62 0.004)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 25,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Radius": 10,
+    "Height": 18,
+    "Flutes": 12
+   },
+   "ok": true,
+   "report_hash": "e4652d51682ac31a3bd50da4dff415f60f9cb29ba0b0b1d622a2eebc4a50a693",
+   "signature_hash": "5095a007f4d368a26b93b7061416adac1caa8bedc371935162ea105d480d230c",
+   "shape_hash": {
+    "knob": "s1:17fe3c6e0a7c841e"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.018000000000000002
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7620000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.078 mm (fails: knob face:40 0.078)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 26,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Radius": 30,
+    "Height": 18,
+    "Flutes": 12
+   },
+   "ok": true,
+   "report_hash": "fbb9c20eccc8dae3780151b62e7bc90086382fa3904c96e8c8aa6757fea7ea10",
+   "signature_hash": "5095a007f4d368a26b93b7061416adac1caa8bedc371935162ea105d480d230c",
+   "shape_hash": {
+    "knob": "s1:aced31e1dd47afe3"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.018000000000000002
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7650000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.075 mm (fails: knob face:11 0.075)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 27,
+   "phase": "special",
+   "fresh": [
+    "size-z"
+   ],
+   "params": {
+    "Radius": 16,
+    "Height": 10,
+    "Flutes": 12
+   },
+   "ok": true,
+   "report_hash": "a592e9d60d2d19b7e31b653850aa66e203ffa4cede6dee6cb4eb3a2f7780bdc2",
+   "signature_hash": "15be233126798406a4a05dd5cbf58d0b0bd35c1e8460572d76a3c41b730d211a",
+   "shape_hash": {
+    "knob": "s1:ec82ed41866cf6a7"
+   },
+   "failing": [
+    "size-z",
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": -0.02501899999999979,
+     "scale": 0.01,
+     "detail": "size_z of assembly = 9.973981, expected = 10 (tol abs 0.001)"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7640000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.076 mm (fails: knob face:34 0.076)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:34 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 28,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Radius": 16,
+    "Height": 40,
+    "Flutes": 12
+   },
+   "ok": true,
+   "report_hash": "2068a60342eccbd360c3ed0b83dac24f21c5231d38ac6428c3b4e7cbbfa1dd30",
+   "signature_hash": "5095a007f4d368a26b93b7061416adac1caa8bedc371935162ea105d480d230c",
+   "shape_hash": {
+    "knob": "s1:52534afe148aff7e"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7640000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.076 mm (fails: knob face:34 0.076)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 29,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Radius": 16,
+    "Height": 18,
+    "Flutes": 0
+   },
+   "ok": true,
+   "report_hash": "46eaea9f0d5db4dc449764c855e269f3d7f2451fa6d41ea25e6523109a1a9836",
+   "signature_hash": "4a03a043dcad40a52250be4de3bbd5b0c62ccad6cbb4293df2ab2efedba5f9e8",
+   "shape_hash": {
+    "knob": "s1:adc6160ecf65b5dd"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.018000000000000002
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.0520000000000005,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 30,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Radius": 16,
+    "Height": 18,
+    "Flutes": 1
+   },
+   "ok": true,
+   "report_hash": "577afe773a89c453091afb44305bd692ccca0073601c92a508983327d7d11d6c",
+   "signature_hash": "bba57b6ca9842df0913cb2096872c994c5d5b7fca681eeb82c864ee29a14b1fb",
+   "shape_hash": {
+    "knob": "s1:9381090d995eefda"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.018000000000000002
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7640000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.076 mm (fails: knob face:12 0.076)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 31,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Radius": 16,
+    "Height": 18,
+    "Flutes": 2
+   },
+   "ok": true,
+   "report_hash": "5dfc9d0024d99f4a0b77b152fc1ab586f895c21a0ae79ad23b17cd6bf3017eba",
+   "signature_hash": "5cab5bd05a73d8a5e1de55fda037832299b40d0c3f8bbcc6f63aca5866e02741",
+   "shape_hash": {
+    "knob": "s1:b143000c7fe181e4"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.018000000000000002
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7640000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.076 mm (fails: knob face:14 0.076)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 32,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Radius": 16,
+    "Height": 18,
+    "Flutes": 3
+   },
+   "ok": true,
+   "report_hash": "f18d22114663a588fd461c0a9114072fb2e237f64d6a924fcbbc8299017c6847",
+   "signature_hash": "5cde04d160852372b14d637e7ca3d1b038faaedb41a10fe0fc8c621c3b4d7ec6",
+   "shape_hash": {
+    "knob": "s1:8d287a1d63020f0d"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.018000000000000002
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7640000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.076 mm (fails: knob face:16 0.076)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 33,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Radius": 11.440178,
+    "Height": 31.639654,
+    "Flutes": 13
+   },
+   "ok": true,
+   "report_hash": "65a8e1458c533dd246aa7bf0ef3cc89acab312c0325e707339eefa750d8bee11",
+   "signature_hash": "fe8e108d58b678a8279fb28e85d30e2bf536a2abdf353271300f2650a9fdc4ed",
+   "shape_hash": {
+    "knob": "s1:a60498224cfd336b"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.022880356
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.022880356
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.031639654
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7650000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.075 mm (fails: knob face:42 0.075)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 34,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Radius": 21.440178,
+    "Height": 14.972987,
+    "Flutes": 18
+   },
+   "ok": true,
+   "report_hash": "18cd9d3d54585c9368e8062dbbfbfbd84b95ced548e896f0358751b79aea7e24",
+   "signature_hash": "44cd9ff12e83b9acb70f7f03427fee33375da7d3cf9a2238d741e0ee3908873a",
+   "shape_hash": {
+    "knob": "s1:19ba7da869cdbc9f"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.042880356
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.042880356
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.014972987
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7650000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.075 mm (fails: knob face:11 0.075)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 35,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Radius": 16.440178,
+    "Height": 24.972987,
+    "Flutes": 23
+   },
+   "ok": true,
+   "report_hash": "deac0569952fdf7c8fcbced57db11fab1b8176c7b61c76f171e2967a36ab6381",
+   "signature_hash": "fe5b57201d7cc74aa452d61d0471346170b55c918cf1a729157fc3657d3a92ee",
+   "shape_hash": {
+    "knob": "s1:f9d5b3b9a504bdb7"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032880356
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032880356
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.024972987000000002
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7640000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.076 mm (fails: knob face:56 0.076)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 36,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Radius": 26.440178,
+    "Height": 34.972987,
+    "Flutes": 4
+   },
+   "ok": true,
+   "report_hash": "963efeda175add7d0a667d97d106386176f071f93803d4dd398395636a0537b1",
+   "signature_hash": "1ff0bdeab042d6a86ed329b0d1bde49586b92dfd8d74deccd322139d49e6e6ff",
+   "shape_hash": {
+    "knob": "s1:7b8c4ceaf62c34ff"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.052880356
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.052880356
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.034972987000000004
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7650000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.075 mm (fails: knob face:11 0.075)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 37,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Radius": 13.940178,
+    "Height": 39.417432,
+    "Flutes": 9
+   },
+   "ok": true,
+   "report_hash": "7b604dead2e7026e118875da8a9e62859dcd0a7a913a047935e2a0dc775a454b",
+   "signature_hash": "4659bf574569e8a1459d6c483c19db44055177b8261a568bdf24ddfae6149341",
+   "shape_hash": {
+    "knob": "s1:9e771ef45e8d23e5"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.027880356
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.027880356
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.039417432
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7640000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.076 mm (fails: knob face:28 0.076)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 38,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Radius": 23.940178,
+    "Height": 19.417432,
+    "Flutes": 14
+   },
+   "ok": true,
+   "report_hash": "70f9da4fa2f2062fc410856a0775e0216d0cbf4579064274111cf72903360814",
+   "signature_hash": "2300d763238486bfe3948caf04070f385f7ab1d7743792ca5905b581788c884a",
+   "shape_hash": {
+    "knob": "s1:c4d2a70d97d81a55"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.047880356
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.047880356
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.019417432000000002
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7650000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.075 mm (fails: knob face:11 0.075)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 39,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Radius": 18.940178,
+    "Height": 29.417432,
+    "Flutes": 19
+   },
+   "ok": true,
+   "report_hash": "d3111fa311209435b5c754efc05e3bfc52ed7558ea89663892e850d71a248dc6",
+   "signature_hash": "53d2b44891e6bdcf260cbfdf58dca7983127baa8d6347fd0af818ca87cd4dce3",
+   "shape_hash": {
+    "knob": "s1:98a608d6ed874ef4"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.037880356
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.037880356
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.029417432000000004
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7640000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.076 mm (fails: knob face:48 0.076)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 40,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Radius": 28.940178,
+    "Height": 12.750765,
+    "Flutes": 24
+   },
+   "ok": true,
+   "report_hash": "a9c95beccc3fbaee7c9a905f5ff115a4a616c3bd0c69c6e9167dd28f322ee4a6",
+   "signature_hash": "bc404cf3eb3b98ea628d84b32628035712f9fd372e2bfbc45ac091c320cc3599",
+   "shape_hash": {
+    "knob": "s1:85432059e704379e"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.057880356
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.057880356
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.012750764999999999
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7650000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.075 mm (fails: knob face:11 0.075)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 41,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Radius": 12.690178,
+    "Height": 22.750765,
+    "Flutes": 5
+   },
+   "ok": true,
+   "report_hash": "a5b4304bffe90566f1400fc3d18586889f3e173f318b3913351e02f6ba1b9fd9",
+   "signature_hash": "301f72e5d0d95c2928d9b68d3bb8d10b5cd1f7ea47eb1ff829e295c13abea673",
+   "shape_hash": {
+    "knob": "s1:50657c2d7b88cd28"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.025380356
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.025380356
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.022750765000000003
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7640000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.076 mm (fails: knob face:20 0.076)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 42,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Radius": 22.690178,
+    "Height": 32.750765,
+    "Flutes": 10
+   },
+   "ok": true,
+   "report_hash": "c1822f79500f868d25bf932573723d1ee37315c1848ecc9cae893e0b5ef1d707",
+   "signature_hash": "afec95c54055d5a3fb9e673864370141575ace0f47002634f111d05416fd7d5d",
+   "shape_hash": {
+    "knob": "s1:5d7b98b6ad60d89e"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.045380356
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.045380356
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032750765
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7650000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.075 mm (fails: knob face:11 0.075)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 43,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Radius": 17.690178,
+    "Height": 16.084099,
+    "Flutes": 15
+   },
+   "ok": true,
+   "report_hash": "a85d638c406f983a299d44ea86a93db85c16aecb08c95471581729304a21ef58",
+   "signature_hash": "bb5ae183d5b194ff4bb0868925186256039b804851247ade4984495c93ed3007",
+   "shape_hash": {
+    "knob": "s1:9bb19fee5c32e1e9"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.035380356
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.035380356
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.016084098999999998
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7640000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.076 mm (fails: knob face:40 0.076)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 44,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Radius": 27.690178,
+    "Height": 26.084099,
+    "Flutes": 20
+   },
+   "ok": true,
+   "report_hash": "04dc41014bffd44af891033e4f7ad0aa60eba1ba2bf35add40f440ad5b8569a3",
+   "signature_hash": "37e2e655a8b99c2f5380dd32c1dfa3ecaf4d80ee7d786c8cec0676ebdaf3abe1",
+   "shape_hash": {
+    "knob": "s1:1546ce0c06ef6cf3"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.055380356
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.055380356
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.026084099
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7650000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.075 mm (fails: knob face:11 0.075)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 45,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Radius": 15.190178,
+    "Height": 36.084099,
+    "Flutes": 0
+   },
+   "ok": true,
+   "report_hash": "cad8716a7250d5e4ae1896b85ed4062fdd0f0b7f4cf24b49c47d21bef572aa68",
+   "signature_hash": "4a03a043dcad40a52250be4de3bbd5b0c62ccad6cbb4293df2ab2efedba5f9e8",
+   "shape_hash": {
+    "knob": "s1:d33598d727383214"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.030380356
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.030380356
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.036084099
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 10.58,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 46,
+   "phase": "halton",
+   "fresh": [
+    "size-z"
+   ],
+   "params": {
+    "Radius": 25.190178,
+    "Height": 10.528543,
+    "Flutes": 6
+   },
+   "ok": true,
+   "report_hash": "c3d79af4b261c3f90e6ef9a5cc6af75eb422a80bf4d5a7dac24d5b8f9861195c",
+   "signature_hash": "45aa06e38ad5455296a9ae967c238bfddabfbedaf4ea474eba5b5c4131f028e8",
+   "shape_hash": {
+    "knob": "s1:01dffe724def2bc9"
+   },
+   "failing": [
+    "size-z",
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.050380356
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.050380356
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": -0.008065000000001432,
+     "scale": 0.010528543000000001,
+     "detail": "size_z of assembly = 10.519478, expected = 10.528543 (tol abs 0.001)"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7650000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.075 mm (fails: knob face:11 0.075)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:22 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 47,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Radius": 20.190178,
+    "Height": 20.528543,
+    "Flutes": 11
+   },
+   "ok": true,
+   "report_hash": "6d30ff7a1faf4532f202a44e1ec563030585c11dbfc73ff34019907114300f23",
+   "signature_hash": "dc56d7e3d5e5ef2fad96f6053c80fd15c44d8df384da37385a4e70f9fb7d5a5c",
+   "shape_hash": {
+    "knob": "s1:411f43bb4b9f82ff"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.040380356
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.040380356
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.020528543
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7640000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.076 mm (fails: knob face:32 0.076)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 48,
+   "phase": "shrink",
+   "fresh": [
+    "size-z"
+   ],
+   "params": {
+    "Radius": 16,
+    "Height": 10,
+    "Flutes": 0
+   },
+   "ok": true,
+   "report_hash": "1d12e02525f7f838484779c7329e733de5078ba3320316756b829d60838eb8b3",
+   "signature_hash": "0eaa2f7873dc7c4e8dea2f0e16a5df139581cab83ee28f5afe01785a96669f10",
+   "shape_hash": {
+    "knob": "s1:fce726c14804866c"
+   },
+   "failing": [
+    "size-z",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": -0.02501899999999979,
+     "scale": 0.01,
+     "detail": "size_z of assembly = 9.973981, expected = 10 (tol abs 0.001)"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.7710000000000001,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -1,
+     "scale": 1,
+     "detail": "overhang 45 degrees (knob face:2 45)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 49,
+   "phase": "shrink",
+   "fresh": [],
+   "params": {
+    "Radius": 10,
+    "Height": 18,
+    "Flutes": 0
+   },
+   "ok": true,
+   "report_hash": "3f28b354edb8579791360535a2e6cad9eceb7db8aefc6abad58b32bf32789483",
+   "signature_hash": "4a03a043dcad40a52250be4de3bbd5b0c62ccad6cbb4293df2ab2efedba5f9e8",
+   "shape_hash": {
+    "knob": "s1:adbe2f5323051b80"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.018000000000000002
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 4.642,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 50,
+   "phase": "shrink",
+   "fresh": [
+    "size-z"
+   ],
+   "params": {
+    "Radius": 13,
+    "Height": 10,
+    "Flutes": 0
+   },
+   "ok": true,
+   "report_hash": "647193f612cc7a220eca45ff701393eadecf383fcfb05b64ac974bd03676c473",
+   "signature_hash": "0eaa2f7873dc7c4e8dea2f0e16a5df139581cab83ee28f5afe01785a96669f10",
+   "shape_hash": {
+    "knob": "s1:dfda82e7eb1d52a2"
+   },
+   "failing": [
+    "size-z",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.026000000000000002
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.026000000000000002
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": -0.04230500000000015,
+     "scale": 0.01,
+     "detail": "size_z of assembly = 9.956695, expected = 10 (tol abs 0.001)"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 0.8999999999999999,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -1,
+     "scale": 1,
+     "detail": "overhang 45 degrees (knob face:2 45)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 51,
+   "phase": "shrink",
+   "fresh": [],
+   "params": {
+    "Radius": 10,
+    "Height": 14,
+    "Flutes": 0
+   },
+   "ok": true,
+   "report_hash": "3065adfb24438a7172731d7b44a814e70a7a2b2ff21eec290bd84d90319f081e",
+   "signature_hash": "4a03a043dcad40a52250be4de3bbd5b0c62ccad6cbb4293df2ab2efedba5f9e8",
+   "shape_hash": {
+    "knob": "s1:4e5a7d83efc7090b"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.014
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 0.8119999999999998,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 52,
+   "phase": "shrink",
+   "fresh": [
+    "size-z"
+   ],
+   "params": {
+    "Radius": 10,
+    "Height": 10,
+    "Flutes": 6
+   },
+   "ok": true,
+   "report_hash": "60b0b454087cf30186d3563fefbd1d2056658d04954e56546b6fe0b4a8f30020",
+   "signature_hash": "45aa06e38ad5455296a9ae967c238bfddabfbedaf4ea474eba5b5c4131f028e8",
+   "shape_hash": {
+    "knob": "s1:0624b29477f1aa62"
+   },
+   "failing": [
+    "size-z",
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": -0.08417900000000011,
+     "scale": 0.01,
+     "detail": "size_z of assembly = 9.914821, expected = 10 (tol abs 0.001)"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7610000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.079 mm (fails: knob face:24 0.079)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:22 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 53,
+   "phase": "shrink",
+   "fresh": [],
+   "params": {
+    "Radius": 16,
+    "Height": 14,
+    "Flutes": 0
+   },
+   "ok": true,
+   "report_hash": "49c20681bafe441b01230f3da18e99c9456c38524f6b1b8c43e8753210e36a3f",
+   "signature_hash": "4a03a043dcad40a52250be4de3bbd5b0c62ccad6cbb4293df2ab2efedba5f9e8",
+   "shape_hash": {
+    "knob": "s1:62584d95fe310ee4"
+   },
+   "failing": [
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.014
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 1.051,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 54,
+   "phase": "shrink",
+   "fresh": [
+    "size-z"
+   ],
+   "params": {
+    "Radius": 16,
+    "Height": 10,
+    "Flutes": 6
+   },
+   "ok": true,
+   "report_hash": "e0c5424bda79ec80340909e4e02845fdad1d5bad8fd366b0a5a0cc988ce186de",
+   "signature_hash": "45aa06e38ad5455296a9ae967c238bfddabfbedaf4ea474eba5b5c4131f028e8",
+   "shape_hash": {
+    "knob": "s1:b868d4ef15440e90"
+   },
+   "failing": [
+    "size-z",
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": -0.02501899999999979,
+     "scale": 0.01,
+     "detail": "size_z of assembly = 9.973981, expected = 10 (tol abs 0.001)"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7640000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.076 mm (fails: knob face:22 0.076)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:22 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 55,
+   "phase": "shrink",
+   "fresh": [],
+   "params": {
+    "Radius": 16,
+    "Height": 18,
+    "Flutes": 6
+   },
+   "ok": true,
+   "report_hash": "59fe233a6aa5f6838b9b43c187e62d8f39d031a19711aa11c77485a2c86977de",
+   "signature_hash": "bad642a5856c6161d3f06d2780d665b27db7da8a91834e9bf8500e50a5d2142d",
+   "shape_hash": {
+    "knob": "s1:146cd0a9ca019372"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.018000000000000002
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7640000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.076 mm (fails: knob face:22 0.076)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 56,
+   "phase": "shrink",
+   "fresh": [],
+   "params": {
+    "Radius": 16,
+    "Height": 14,
+    "Flutes": 6
+   },
+   "ok": true,
+   "report_hash": "baa7e5cd45ee3cd7bf39af56b5df4ffe586ed05f27c85e05c5df00570164822c",
+   "signature_hash": "bad642a5856c6161d3f06d2780d665b27db7da8a91834e9bf8500e50a5d2142d",
+   "shape_hash": {
+    "knob": "s1:da448b135cc09337"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.014
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7640000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.076 mm (fails: knob face:22 0.076)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 57,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Radius": 16,
+    "Height": 16,
+    "Flutes": 6
+   },
+   "ok": true,
+   "report_hash": "2ffb69df9bb6c387502bee2f44847ac3e23341140f80a26a24bdf6f91ceaf639",
+   "signature_hash": "bad642a5856c6161d3f06d2780d665b27db7da8a91834e9bf8500e50a5d2142d",
+   "shape_hash": {
+    "knob": "s1:f59cc892f2bbf526"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.016
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7640000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.076 mm (fails: knob face:22 0.076)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 58,
+   "phase": "bisect",
+   "fresh": [
+    "size-z"
+   ],
+   "params": {
+    "Radius": 16,
+    "Height": 12,
+    "Flutes": 6
+   },
+   "ok": true,
+   "report_hash": "5409af9f305016cbdcfa331015fae5a750b70ca23b22e869062f50fe3e214238",
+   "signature_hash": "45aa06e38ad5455296a9ae967c238bfddabfbedaf4ea474eba5b5c4131f028e8",
+   "shape_hash": {
+    "knob": "s1:8e327beb9139c41e"
+   },
+   "failing": [
+    "size-z",
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "size-z",
+     "pass": false,
+     "signed": -0.02501899999999979,
+     "scale": 0.012,
+     "detail": "size_z of assembly = 11.973981, expected = 12 (tol abs 0.001)"
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7640000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.076 mm (fails: knob face:22 0.076)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:22 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 59,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Radius": 16,
+    "Height": 13.5,
+    "Flutes": 6
+   },
+   "ok": true,
+   "report_hash": "6e0ef5632a2e61485240581a8faaaf8df944c2bda3bb1051edca82797087f6fc",
+   "signature_hash": "bad642a5856c6161d3f06d2780d665b27db7da8a91834e9bf8500e50a5d2142d",
+   "shape_hash": {
+    "knob": "s1:7d03e97e8eb1833b"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0135
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7640000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.076 mm (fails: knob face:22 0.076)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 60,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Radius": 16,
+    "Height": 13,
+    "Flutes": 6
+   },
+   "ok": true,
+   "report_hash": "cd6e7bd71058f1ca690ce590814d016656c020210cb2088853b27723b5d35a98",
+   "signature_hash": "bad642a5856c6161d3f06d2780d665b27db7da8a91834e9bf8500e50a5d2142d",
+   "shape_hash": {
+    "knob": "s1:0071d0b0a6f3a45b"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.013000000000000001
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7640000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.076 mm (fails: knob face:22 0.076)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 61,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Radius": 16,
+    "Height": 12.5,
+    "Flutes": 6
+   },
+   "ok": true,
+   "report_hash": "f0b680f43a6aa499ce99ac6d14f85c1f69805da9dd3e81f6682982845a607a1a",
+   "signature_hash": "bad642a5856c6161d3f06d2780d665b27db7da8a91834e9bf8500e50a5d2142d",
+   "shape_hash": {
+    "knob": "s1:a92e64ad668a5fac"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0125
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7640000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.076 mm (fails: knob face:22 0.076)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 62,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Radius": 16,
+    "Height": 12.375,
+    "Flutes": 6
+   },
+   "ok": true,
+   "report_hash": "0ce04d0c3f76d42db7ce6da781d1bfdfc4ae366a9efe47263d0e506b24df5515",
+   "signature_hash": "bad642a5856c6161d3f06d2780d665b27db7da8a91834e9bf8500e50a5d2142d",
+   "shape_hash": {
+    "knob": "s1:c5375b7b89ccef58"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.012375
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7640000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.076 mm (fails: knob face:22 0.076)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 63,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Radius": 16,
+    "Height": 12.25,
+    "Flutes": 6
+   },
+   "ok": true,
+   "report_hash": "ca29a8c40a5a16a3b362f5486dff8e4a145bc4fe8b50bc3347e070eac0cc5e63",
+   "signature_hash": "bad642a5856c6161d3f06d2780d665b27db7da8a91834e9bf8500e50a5d2142d",
+   "shape_hash": {
+    "knob": "s1:fd2c557c415f6107"
+   },
+   "failing": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01225
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": false,
+     "signed": -0.7640000000000001,
+     "scale": 0.04,
+     "detail": "thinnest wall 0.076 mm (fails: knob face:22 0.076)"
+    },
+    {
+     "id": "gate-overhang",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (knob face:8 90)"
+    },
+    {
+     "id": "gate-bed",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  }
+ ]
+}

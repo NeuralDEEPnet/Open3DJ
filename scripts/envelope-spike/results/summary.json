@@ -1,0 +1,8024 @@
+{
+ "platform": "linux-x64",
+ "node": "v24.22.1",
+ "missing_certificates": [],
+ "m1": {
+  "found": 15,
+  "of": 15,
+  "rate": 1,
+  "corners_only": 11,
+  "random_seeds": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "random_found_per_seed": [
+   {
+    "seed": 1,
+    "found": 13
+   },
+   {
+    "seed": 2,
+    "found": 14
+   },
+   {
+    "seed": 3,
+    "found": 13
+   },
+   {
+    "seed": 4,
+    "found": 14
+   },
+   {
+    "seed": 5,
+    "found": 13
+   },
+   {
+    "seed": 6,
+    "found": 14
+   },
+   {
+    "seed": 7,
+    "found": 14
+   },
+   {
+    "seed": 8,
+    "found": 14
+   },
+   {
+    "seed": 9,
+    "found": 9
+   },
+   {
+    "seed": 10,
+    "found": 14
+   }
+  ],
+  "random_mean_found": 13.2,
+  "random_mean_rate": 0.88
+ },
+ "defects": [
+  {
+   "id": "d01-plate-hole-pitch",
+   "region": "end wall W/2 - P/2 - 2.75 <= 0.84, that is Width - Pitch <= 7.18; below 5.5 the holes break out (faces change)",
+   "found": true,
+   "first_found": {
+    "index": 4,
+    "phase": "corner",
+    "params": {
+     "Width": 40,
+     "Pitch": 50,
+     "Thickness": 8
+    },
+    "fresh": [
+     "faces"
+    ]
+   },
+   "corners_only": true,
+   "found_by_phase": [
+    "corner",
+    "special",
+    "halton",
+    "shrink",
+    "bisect"
+   ],
+   "counterexamples": 17,
+   "counterexamples_inside_region": 17,
+   "unexpected_outside_region": [],
+   "shrunk": {
+    "index": 55,
+    "params": {
+     "Width": 40,
+     "Pitch": 36,
+     "Thickness": 6
+    },
+    "fresh": [
+     "faces",
+     "gate-min-wall"
+    ],
+    "inside_region": true
+   },
+   "line": {
+    "pass": 0,
+    "fail": 55,
+    "lo": 0.890625,
+    "hi": 0.9375,
+    "points": [
+     {
+      "index": 0,
+      "t": 0
+     },
+     {
+      "index": 57,
+      "t": 0.25
+     },
+     {
+      "index": 58,
+      "t": 0.5
+     },
+     {
+      "index": 59,
+      "t": 0.75
+     },
+     {
+      "index": 60,
+      "t": 0.8125
+     },
+     {
+      "index": 61,
+      "t": 0.875
+     },
+     {
+      "index": 63,
+      "t": 0.890625
+     },
+     {
+      "index": 62,
+      "t": 0.9375
+     },
+     {
+      "index": 55,
+      "t": 1
+     }
+    ]
+   },
+   "events": 16,
+   "random": [
+    {
+     "seed": 1,
+     "found": true,
+     "first_hit": 14,
+     "outside": []
+    },
+    {
+     "seed": 2,
+     "found": true,
+     "first_hit": 3,
+     "outside": []
+    },
+    {
+     "seed": 3,
+     "found": true,
+     "first_hit": 1,
+     "outside": []
+    },
+    {
+     "seed": 4,
+     "found": true,
+     "first_hit": 2,
+     "outside": []
+    },
+    {
+     "seed": 5,
+     "found": true,
+     "first_hit": 7,
+     "outside": []
+    },
+    {
+     "seed": 6,
+     "found": true,
+     "first_hit": 2,
+     "outside": []
+    },
+    {
+     "seed": 7,
+     "found": true,
+     "first_hit": 6,
+     "outside": []
+    },
+    {
+     "seed": 8,
+     "found": true,
+     "first_hit": 10,
+     "outside": []
+    },
+    {
+     "seed": 9,
+     "found": true,
+     "first_hit": 0,
+     "outside": []
+    },
+    {
+     "seed": 10,
+     "found": true,
+     "first_hit": 17,
+     "outside": []
+    }
+   ],
+   "random_rate": 1
+  },
+  {
+   "id": "d02-blind-pocket",
+   "region": "floor Height - Pocket depth <= 0.84; at 0 and below the pocket runs through (faces change)",
+   "found": true,
+   "first_found": {
+    "index": 4,
+    "phase": "corner",
+    "params": {
+     "Height": 10,
+     "Pocket depth": 12,
+     "Pocket radius": 6
+    },
+    "fresh": [
+     "faces"
+    ]
+   },
+   "corners_only": true,
+   "found_by_phase": [
+    "corner",
+    "halton",
+    "shrink",
+    "bisect"
+   ],
+   "counterexamples": 9,
+   "counterexamples_inside_region": 9,
+   "unexpected_outside_region": [],
+   "shrunk": {
+    "index": 55,
+    "params": {
+     "Height": 10,
+     "Pocket depth": 10,
+     "Pocket radius": 4
+    },
+    "fresh": [
+     "faces"
+    ],
+    "inside_region": true
+   },
+   "line": {
+    "pass": 0,
+    "fail": 55,
+    "lo": 0.953125,
+    "hi": 1,
+    "points": [
+     {
+      "index": 0,
+      "t": 0
+     },
+     {
+      "index": 57,
+      "t": 0.25
+     },
+     {
+      "index": 58,
+      "t": 0.5
+     },
+     {
+      "index": 59,
+      "t": 0.75
+     },
+     {
+      "index": 60,
+      "t": 0.8125
+     },
+     {
+      "index": 61,
+      "t": 0.875
+     },
+     {
+      "index": 62,
+      "t": 0.9375
+     },
+     {
+      "index": 63,
+      "t": 0.953125
+     },
+     {
+      "index": 55,
+      "t": 1
+     }
+    ]
+   },
+   "events": 9,
+   "random": [
+    {
+     "seed": 1,
+     "found": true,
+     "first_hit": 21,
+     "outside": []
+    },
+    {
+     "seed": 2,
+     "found": true,
+     "first_hit": 8,
+     "outside": []
+    },
+    {
+     "seed": 3,
+     "found": true,
+     "first_hit": 61,
+     "outside": []
+    },
+    {
+     "seed": 4,
+     "found": true,
+     "first_hit": 2,
+     "outside": []
+    },
+    {
+     "seed": 5,
+     "found": true,
+     "first_hit": 7,
+     "outside": []
+    },
+    {
+     "seed": 6,
+     "found": true,
+     "first_hit": 2,
+     "outside": []
+    },
+    {
+     "seed": 7,
+     "found": true,
+     "first_hit": 31,
+     "outside": []
+    },
+    {
+     "seed": 8,
+     "found": true,
+     "first_hit": 24,
+     "outside": []
+    },
+    {
+     "seed": 9,
+     "found": false,
+     "first_hit": -1,
+     "outside": []
+    },
+    {
+     "seed": 10,
+     "found": true,
+     "first_hit": 17,
+     "outside": []
+    }
+   ],
+   "random_rate": 0.9
+  },
+  {
+   "id": "d03-fillet-corners",
+   "region": "2 x Corner radius > Width: the two fillets on the short side overlap",
+   "found": true,
+   "first_found": {
+    "index": 4,
+    "phase": "corner",
+    "params": {
+     "Width": 10,
+     "Corner radius": 8,
+     "Height": 20
+    },
+    "fresh": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ]
+   },
+   "corners_only": true,
+   "found_by_phase": [
+    "corner",
+    "halton",
+    "shrink",
+    "bisect"
+   ],
+   "counterexamples": 9,
+   "counterexamples_inside_region": 9,
+   "unexpected_outside_region": [],
+   "shrunk": {
+    "index": 55,
+    "params": {
+     "Width": 10,
+     "Corner radius": 5.5,
+     "Height": 10
+    },
+    "fresh": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ],
+    "inside_region": true
+   },
+   "line": {
+    "pass": 0,
+    "fail": 55,
+    "lo": 0.9375,
+    "hi": 0.953125,
+    "points": [
+     {
+      "index": 0,
+      "t": 0
+     },
+     {
+      "index": 57,
+      "t": 0.25
+     },
+     {
+      "index": 58,
+      "t": 0.5
+     },
+     {
+      "index": 59,
+      "t": 0.75
+     },
+     {
+      "index": 60,
+      "t": 0.8125
+     },
+     {
+      "index": 61,
+      "t": 0.875
+     },
+     {
+      "index": 62,
+      "t": 0.9375
+     },
+     {
+      "index": 63,
+      "t": 0.953125
+     },
+     {
+      "index": 55,
+      "t": 1
+     }
+    ]
+   },
+   "events": 8,
+   "random": [
+    {
+     "seed": 1,
+     "found": true,
+     "first_hit": 21,
+     "outside": []
+    },
+    {
+     "seed": 2,
+     "found": true,
+     "first_hit": 8,
+     "outside": []
+    },
+    {
+     "seed": 3,
+     "found": true,
+     "first_hit": 1,
+     "outside": []
+    },
+    {
+     "seed": 4,
+     "found": true,
+     "first_hit": 2,
+     "outside": []
+    },
+    {
+     "seed": 5,
+     "found": true,
+     "first_hit": 7,
+     "outside": []
+    },
+    {
+     "seed": 6,
+     "found": true,
+     "first_hit": 2,
+     "outside": []
+    },
+    {
+     "seed": 7,
+     "found": true,
+     "first_hit": 14,
+     "outside": []
+    },
+    {
+     "seed": 8,
+     "found": true,
+     "first_hit": 10,
+     "outside": []
+    },
+    {
+     "seed": 9,
+     "found": false,
+     "first_hit": -1,
+     "outside": []
+    },
+    {
+     "seed": 10,
+     "found": true,
+     "first_hit": 17,
+     "outside": []
+    }
+   ],
+   "random_rate": 0.9
+  },
+  {
+   "id": "d04-bolt-circle-count",
+   "region": "web 2 R sin(180/n) - 6.6 <= 0.84 between M6 holes; below 0 neighbouring holes merge (faces change)",
+   "found": true,
+   "first_found": {
+    "index": 12,
+    "phase": "corner",
+    "params": {
+     "Bolt circle radius": 15,
+     "Holes": 14,
+     "Thickness": 12
+    },
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   "corners_only": true,
+   "found_by_phase": [
+    "corner",
+    "shrink",
+    "bisect"
+   ],
+   "counterexamples": 8,
+   "counterexamples_inside_region": 8,
+   "unexpected_outside_region": [],
+   "shrunk": {
+    "index": 49,
+    "params": {
+     "Bolt circle radius": 15,
+     "Holes": 14,
+     "Thickness": 6
+    },
+    "fresh": [
+     "gate-min-wall"
+    ],
+    "inside_region": true
+   },
+   "line": {
+    "pass": 52,
+    "fail": 49,
+    "lo": 0.84375,
+    "hi": 0.84765625,
+    "points": [
+     {
+      "index": 52,
+      "t": 0
+     },
+     {
+      "index": 55,
+      "t": 0.25
+     },
+     {
+      "index": 53,
+      "t": 0.5
+     },
+     {
+      "index": 56,
+      "t": 0.75
+     },
+     {
+      "index": 57,
+      "t": 0.8125
+     },
+     {
+      "index": 60,
+      "t": 0.828125
+     },
+     {
+      "index": 61,
+      "t": 0.84375
+     },
+     {
+      "index": 63,
+      "t": 0.84765625
+     },
+     {
+      "index": 62,
+      "t": 0.859375
+     },
+     {
+      "index": 58,
+      "t": 0.875
+     },
+     {
+      "index": 59,
+      "t": 0.9375
+     },
+     {
+      "index": 49,
+      "t": 1
+     }
+    ]
+   },
+   "events": 31,
+   "random": [
+    {
+     "seed": 1,
+     "found": true,
+     "first_hit": 21,
+     "outside": []
+    },
+    {
+     "seed": 2,
+     "found": true,
+     "first_hit": 8,
+     "outside": []
+    },
+    {
+     "seed": 3,
+     "found": true,
+     "first_hit": 61,
+     "outside": []
+    },
+    {
+     "seed": 4,
+     "found": true,
+     "first_hit": 2,
+     "outside": []
+    },
+    {
+     "seed": 5,
+     "found": true,
+     "first_hit": 7,
+     "outside": []
+    },
+    {
+     "seed": 6,
+     "found": true,
+     "first_hit": 2,
+     "outside": []
+    },
+    {
+     "seed": 7,
+     "found": true,
+     "first_hit": 31,
+     "outside": []
+    },
+    {
+     "seed": 8,
+     "found": true,
+     "first_hit": 24,
+     "outside": []
+    },
+    {
+     "seed": 9,
+     "found": false,
+     "first_hit": -1,
+     "outside": []
+    },
+    {
+     "seed": 10,
+     "found": true,
+     "first_hit": 17,
+     "outside": []
+    }
+   ],
+   "random_rate": 0.9
+  },
+  {
+   "id": "d05-shuttle-post",
+   "region": "the post disc (r 1.5 at (7, Post Y)) overlaps the shuttle (x within 1 of Shuttle X, |y| <= 5)",
+   "found": true,
+   "first_found": {
+    "index": 19,
+    "phase": "halton",
+    "params": {
+     "Shuttle X": 8.070533,
+     "Post Y": 6.200612
+    },
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   "corners_only": false,
+   "found_by_phase": [
+    "halton",
+    "shrink",
+    "bisect"
+   ],
+   "counterexamples": 6,
+   "counterexamples_inside_region": 6,
+   "unexpected_outside_region": [],
+   "shrunk": {
+    "index": 49,
+    "params": {
+     "Shuttle X": 8.070533,
+     "Post Y": 0
+    },
+    "fresh": [
+     "status",
+     "no-clash"
+    ],
+    "inside_region": true
+   },
+   "line": {
+    "pass": 0,
+    "fail": 49,
+    "lo": 0.87109375,
+    "hi": 0.875,
+    "points": [
+     {
+      "index": 0,
+      "t": 0
+     },
+     {
+      "index": 53,
+      "t": 0.25
+     },
+     {
+      "index": 52,
+      "t": 0.5
+     },
+     {
+      "index": 54,
+      "t": 0.75
+     },
+     {
+      "index": 55,
+      "t": 0.8125
+     },
+     {
+      "index": 58,
+      "t": 0.828125
+     },
+     {
+      "index": 59,
+      "t": 0.84375
+     },
+     {
+      "index": 60,
+      "t": 0.859375
+     },
+     {
+      "index": 61,
+      "t": 0.86328125
+     },
+     {
+      "index": 62,
+      "t": 0.8671875
+     },
+     {
+      "index": 63,
+      "t": 0.87109375
+     },
+     {
+      "index": 56,
+      "t": 0.875
+     },
+     {
+      "index": 57,
+      "t": 0.9375
+     },
+     {
+      "index": 49,
+      "t": 1
+     }
+    ]
+   },
+   "events": 6,
+   "random": [
+    {
+     "seed": 1,
+     "found": true,
+     "first_hit": 3,
+     "outside": []
+    },
+    {
+     "seed": 2,
+     "found": true,
+     "first_hit": 38,
+     "outside": []
+    },
+    {
+     "seed": 3,
+     "found": true,
+     "first_hit": 20,
+     "outside": []
+    },
+    {
+     "seed": 4,
+     "found": true,
+     "first_hit": 4,
+     "outside": []
+    },
+    {
+     "seed": 5,
+     "found": true,
+     "first_hit": 22,
+     "outside": []
+    },
+    {
+     "seed": 6,
+     "found": true,
+     "first_hit": 8,
+     "outside": []
+    },
+    {
+     "seed": 7,
+     "found": true,
+     "first_hit": 49,
+     "outside": []
+    },
+    {
+     "seed": 8,
+     "found": true,
+     "first_hit": 2,
+     "outside": []
+    },
+    {
+     "seed": 9,
+     "found": true,
+     "first_hit": 8,
+     "outside": []
+    },
+    {
+     "seed": 10,
+     "found": true,
+     "first_hit": 48,
+     "outside": []
+    }
+   ],
+   "random_rate": 1
+  },
+  {
+   "id": "d06-slot-near-hole",
+   "region": "web between the slot (core segment X +- 3 at Y, radius 2) and the M4 hole (r 2.25 at (10, 0)) <= 0.84, that is the distance from (X, Y) to the segment (7, 0)-(13, 0) <= 5.09; below 4.25 they merge (faces change)",
+   "found": true,
+   "first_found": {
+    "index": 16,
+    "phase": "halton",
+    "params": {
+     "Slot X": 11.820533,
+     "Slot Y": -4.466054
+    },
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   "corners_only": false,
+   "found_by_phase": [
+    "halton",
+    "bisect"
+   ],
+   "counterexamples": 13,
+   "counterexamples_inside_region": 13,
+   "unexpected_outside_region": [],
+   "shrunk": {
+    "index": 16,
+    "params": {
+     "Slot X": 11.820533,
+     "Slot Y": -4.466054
+    },
+    "fresh": [
+     "gate-min-wall"
+    ],
+    "inside_region": true
+   },
+   "line": {
+    "pass": 0,
+    "fail": 16,
+    "lo": 0.890625,
+    "hi": 0.89453125,
+    "points": [
+     {
+      "index": 0,
+      "t": 0
+     },
+     {
+      "index": 52,
+      "t": 0.25
+     },
+     {
+      "index": 53,
+      "t": 0.5
+     },
+     {
+      "index": 54,
+      "t": 0.75
+     },
+     {
+      "index": 55,
+      "t": 0.8125
+     },
+     {
+      "index": 56,
+      "t": 0.875
+     },
+     {
+      "index": 58,
+      "t": 0.890625
+     },
+     {
+      "index": 61,
+      "t": 0.89453125
+     },
+     {
+      "index": 62,
+      "t": 0.8984375
+     },
+     {
+      "index": 63,
+      "t": 0.90234375
+     },
+     {
+      "index": 59,
+      "t": 0.90625
+     },
+     {
+      "index": 60,
+      "t": 0.921875
+     },
+     {
+      "index": 57,
+      "t": 0.9375
+     },
+     {
+      "index": 16,
+      "t": 1
+     }
+    ]
+   },
+   "events": 6,
+   "random": [
+    {
+     "seed": 1,
+     "found": true,
+     "first_hit": 14,
+     "outside": []
+    },
+    {
+     "seed": 2,
+     "found": true,
+     "first_hit": 0,
+     "outside": []
+    },
+    {
+     "seed": 3,
+     "found": true,
+     "first_hit": 6,
+     "outside": []
+    },
+    {
+     "seed": 4,
+     "found": true,
+     "first_hit": 4,
+     "outside": []
+    },
+    {
+     "seed": 5,
+     "found": true,
+     "first_hit": 3,
+     "outside": []
+    },
+    {
+     "seed": 6,
+     "found": true,
+     "first_hit": 34,
+     "outside": []
+    },
+    {
+     "seed": 7,
+     "found": true,
+     "first_hit": 15,
+     "outside": []
+    },
+    {
+     "seed": 8,
+     "found": true,
+     "first_hit": 10,
+     "outside": []
+    },
+    {
+     "seed": 9,
+     "found": true,
+     "first_hit": 2,
+     "outside": []
+    },
+    {
+     "seed": 10,
+     "found": true,
+     "first_hit": 28,
+     "outside": []
+    }
+   ],
+   "random_rate": 1
+  },
+  {
+   "id": "d07-pin-bushing",
+   "region": "running clearance (Bore - Pin) / 2 < 0.05 (a clash when Pin > Bore)",
+   "found": true,
+   "first_found": {
+    "index": 4,
+    "phase": "corner",
+    "params": {
+     "Bore": 6.4,
+     "Pin": 6.6,
+     "Length": 30
+    },
+    "fresh": [
+     "status",
+     "no-clash",
+     "pin-gap"
+    ]
+   },
+   "corners_only": true,
+   "found_by_phase": [
+    "corner",
+    "special",
+    "halton",
+    "shrink",
+    "bisect"
+   ],
+   "counterexamples": 14,
+   "counterexamples_inside_region": 14,
+   "unexpected_outside_region": [],
+   "shrunk": {
+    "index": 55,
+    "params": {
+     "Bore": 6.4,
+     "Pin": 6.4,
+     "Length": 25
+    },
+    "fresh": [
+     "pin-gap"
+    ],
+    "inside_region": true
+   },
+   "line": {
+    "pass": 0,
+    "fail": 55,
+    "lo": 0.765625,
+    "hi": 0.8125,
+    "points": [
+     {
+      "index": 0,
+      "t": 0
+     },
+     {
+      "index": 57,
+      "t": 0.25
+     },
+     {
+      "index": 58,
+      "t": 0.5
+     },
+     {
+      "index": 59,
+      "t": 0.75
+     },
+     {
+      "index": 63,
+      "t": 0.765625
+     },
+     {
+      "index": 60,
+      "t": 0.8125
+     },
+     {
+      "index": 61,
+      "t": 0.875
+     },
+     {
+      "index": 62,
+      "t": 0.9375
+     },
+     {
+      "index": 55,
+      "t": 1
+     }
+    ]
+   },
+   "events": 12,
+   "random": [
+    {
+     "seed": 1,
+     "found": true,
+     "first_hit": 21,
+     "outside": []
+    },
+    {
+     "seed": 2,
+     "found": true,
+     "first_hit": 8,
+     "outside": []
+    },
+    {
+     "seed": 3,
+     "found": true,
+     "first_hit": 25,
+     "outside": []
+    },
+    {
+     "seed": 4,
+     "found": true,
+     "first_hit": 2,
+     "outside": []
+    },
+    {
+     "seed": 5,
+     "found": true,
+     "first_hit": 7,
+     "outside": []
+    },
+    {
+     "seed": 6,
+     "found": true,
+     "first_hit": 2,
+     "outside": []
+    },
+    {
+     "seed": 7,
+     "found": true,
+     "first_hit": 31,
+     "outside": []
+    },
+    {
+     "seed": 8,
+     "found": true,
+     "first_hit": 10,
+     "outside": []
+    },
+    {
+     "seed": 9,
+     "found": false,
+     "first_hit": -1,
+     "outside": []
+    },
+    {
+     "seed": 10,
+     "found": true,
+     "first_hit": 17,
+     "outside": []
+    }
+   ],
+   "random_rate": 0.9
+  },
+  {
+   "id": "d08-vent-bool",
+   "region": "Vents on and Height <= 25.34: the web above the slot (top at z 24.5) Height - 24.5 <= 0.84; below 24.5 the slot opens the rim and its end arcs meet the rim at 37 degrees or less over the declared range (from 24), a knife edge",
+   "found": true,
+   "first_found": {
+    "index": 4,
+    "phase": "corner",
+    "params": {
+     "Height": 24,
+     "Width": 100,
+     "Vents": true
+    },
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   "corners_only": true,
+   "found_by_phase": [
+    "corner",
+    "halton",
+    "shrink",
+    "bisect"
+   ],
+   "counterexamples": 8,
+   "counterexamples_inside_region": 8,
+   "unexpected_outside_region": [],
+   "shrunk": {
+    "index": 49,
+    "params": {
+     "Height": 24,
+     "Width": 70,
+     "Vents": true
+    },
+    "fresh": [
+     "gate-min-wall"
+    ],
+    "inside_region": true
+   },
+   "line": {
+    "pass": 13,
+    "fail": 49,
+    "lo": 0.9140625,
+    "hi": 0.91796875,
+    "points": [
+     {
+      "index": 13,
+      "t": 0
+     },
+     {
+      "index": 53,
+      "t": 0.25
+     },
+     {
+      "index": 52,
+      "t": 0.5
+     },
+     {
+      "index": 54,
+      "t": 0.75
+     },
+     {
+      "index": 55,
+      "t": 0.8125
+     },
+     {
+      "index": 56,
+      "t": 0.875
+     },
+     {
+      "index": 58,
+      "t": 0.890625
+     },
+     {
+      "index": 59,
+      "t": 0.90625
+     },
+     {
+      "index": 61,
+      "t": 0.91015625
+     },
+     {
+      "index": 62,
+      "t": 0.9140625
+     },
+     {
+      "index": 63,
+      "t": 0.91796875
+     },
+     {
+      "index": 60,
+      "t": 0.921875
+     },
+     {
+      "index": 57,
+      "t": 0.9375
+     },
+     {
+      "index": 49,
+      "t": 1
+     }
+    ]
+   },
+   "events": 13,
+   "random": [
+    {
+     "seed": 1,
+     "found": false,
+     "first_hit": -1,
+     "outside": []
+    },
+    {
+     "seed": 2,
+     "found": true,
+     "first_hit": 19,
+     "outside": []
+    },
+    {
+     "seed": 3,
+     "found": false,
+     "first_hit": -1,
+     "outside": []
+    },
+    {
+     "seed": 4,
+     "found": true,
+     "first_hit": 62,
+     "outside": []
+    },
+    {
+     "seed": 5,
+     "found": false,
+     "first_hit": -1,
+     "outside": []
+    },
+    {
+     "seed": 6,
+     "found": true,
+     "first_hit": 2,
+     "outside": []
+    },
+    {
+     "seed": 7,
+     "found": true,
+     "first_hit": 0,
+     "outside": []
+    },
+    {
+     "seed": 8,
+     "found": true,
+     "first_hit": 55,
+     "outside": []
+    },
+    {
+     "seed": 9,
+     "found": false,
+     "first_hit": -1,
+     "outside": []
+    },
+    {
+     "seed": 10,
+     "found": true,
+     "first_hit": 17,
+     "outside": []
+    }
+   ],
+   "random_rate": 0.6
+  },
+  {
+   "id": "d09-rotor-stop",
+   "region": "some arm (angle 360 k / Arms, half-width 1.5) overlaps the stop pin (r 1 at radius 30, Pin angle)",
+   "found": true,
+   "first_found": {
+    "index": 9,
+    "phase": "corner",
+    "params": {
+     "Arms": 11,
+     "Pin angle": 66,
+     "Arm length": 32
+    },
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   "corners_only": true,
+   "found_by_phase": [
+    "corner",
+    "special",
+    "halton",
+    "shrink"
+   ],
+   "counterexamples": 10,
+   "counterexamples_inside_region": 10,
+   "unexpected_outside_region": [],
+   "shrunk": {
+    "index": 53,
+    "params": {
+     "Arms": 11,
+     "Pin angle": 100,
+     "Arm length": 36
+    },
+    "fresh": [
+     "status",
+     "no-clash"
+    ],
+    "inside_region": true
+   },
+   "line": null,
+   "events": 32,
+   "random": [
+    {
+     "seed": 1,
+     "found": true,
+     "first_hit": 3,
+     "outside": []
+    },
+    {
+     "seed": 2,
+     "found": true,
+     "first_hit": 4,
+     "outside": []
+    },
+    {
+     "seed": 3,
+     "found": true,
+     "first_hit": 0,
+     "outside": []
+    },
+    {
+     "seed": 4,
+     "found": true,
+     "first_hit": 4,
+     "outside": []
+    },
+    {
+     "seed": 5,
+     "found": true,
+     "first_hit": 8,
+     "outside": []
+    },
+    {
+     "seed": 6,
+     "found": true,
+     "first_hit": 11,
+     "outside": []
+    },
+    {
+     "seed": 7,
+     "found": true,
+     "first_hit": 9,
+     "outside": []
+    },
+    {
+     "seed": 8,
+     "found": true,
+     "first_hit": 7,
+     "outside": []
+    },
+    {
+     "seed": 9,
+     "found": true,
+     "first_hit": 1,
+     "outside": []
+    },
+    {
+     "seed": 10,
+     "found": true,
+     "first_hit": 2,
+     "outside": []
+    }
+   ],
+   "random_rate": 1
+  },
+  {
+   "id": "d10-screw-boss-choice",
+   "region": "boss wall Boss radius - r <= 0.84, or a floor 0 < Boss height + 3 - pocket length <= 0.84, with the heat-set pocket's r and length for the Screw; a pocket that runs through the plate (floor <= 0) fails nothing in this brief",
+   "found": true,
+   "first_found": {
+    "index": 4,
+    "phase": "corner",
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 4,
+     "Boss height": 20
+    },
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   "corners_only": true,
+   "found_by_phase": [
+    "corner",
+    "halton",
+    "shrink",
+    "bisect"
+   ],
+   "counterexamples": 9,
+   "counterexamples_inside_region": 8,
+   "unexpected_outside_region": [
+    {
+     "index": 58,
+     "phase": "bisect",
+     "params": {
+      "Screw": "M5",
+      "Boss radius": 4.046875,
+      "Boss height": 12
+     },
+     "fresh": [
+      "gate-min-wall"
+     ],
+     "margins": [
+      {
+       "id": "gate-min-wall",
+       "pass": false,
+       "signed": -0.0030000000000001137,
+       "scale": 0.04,
+       "detail": "thinnest wall 0.837 mm (fails: boss_plate face:7 0.837)"
+      }
+     ]
+    }
+   ],
+   "shrunk": {
+    "index": 49,
+    "params": {
+     "Screw": "M5",
+     "Boss radius": 4,
+     "Boss height": 12
+    },
+    "fresh": [
+     "gate-min-wall"
+    ],
+    "inside_region": true
+   },
+   "line": {
+    "pass": 27,
+    "fail": 49,
+    "lo": 0.94921875,
+    "hi": 0.953125,
+    "points": [
+     {
+      "index": 27,
+      "t": 0
+     },
+     {
+      "index": 53,
+      "t": 0.25
+     },
+     {
+      "index": 52,
+      "t": 0.5
+     },
+     {
+      "index": 54,
+      "t": 0.75
+     },
+     {
+      "index": 55,
+      "t": 0.8125
+     },
+     {
+      "index": 56,
+      "t": 0.875
+     },
+     {
+      "index": 57,
+      "t": 0.9375
+     },
+     {
+      "index": 61,
+      "t": 0.94140625
+     },
+     {
+      "index": 62,
+      "t": 0.9453125
+     },
+     {
+      "index": 63,
+      "t": 0.94921875
+     },
+     {
+      "index": 58,
+      "t": 0.953125
+     },
+     {
+      "index": 59,
+      "t": 0.96875
+     },
+     {
+      "index": 60,
+      "t": 0.984375
+     },
+     {
+      "index": 49,
+      "t": 1
+     }
+    ]
+   },
+   "events": 14,
+   "random": [
+    {
+     "seed": 1,
+     "found": true,
+     "first_hit": 0,
+     "outside": []
+    },
+    {
+     "seed": 2,
+     "found": true,
+     "first_hit": 6,
+     "outside": []
+    },
+    {
+     "seed": 3,
+     "found": true,
+     "first_hit": 34,
+     "outside": []
+    },
+    {
+     "seed": 4,
+     "found": true,
+     "first_hit": 15,
+     "outside": []
+    },
+    {
+     "seed": 5,
+     "found": true,
+     "first_hit": 16,
+     "outside": []
+    },
+    {
+     "seed": 6,
+     "found": true,
+     "first_hit": 15,
+     "outside": []
+    },
+    {
+     "seed": 7,
+     "found": true,
+     "first_hit": 7,
+     "outside": []
+    },
+    {
+     "seed": 8,
+     "found": true,
+     "first_hit": 17,
+     "outside": []
+    },
+    {
+     "seed": 9,
+     "found": true,
+     "first_hit": 9,
+     "outside": []
+    },
+    {
+     "seed": 10,
+     "found": true,
+     "first_hit": 6,
+     "outside": []
+    }
+   ],
+   "random_rate": 1
+  },
+  {
+   "id": "d11-hole-diagonal",
+   "region": "web between the hole (r 1.5 at x = 10 + A + B) and the slot (x 61 to 63) <= 0.84, that is A + B in [48.66, 55.34]; inside [49.5, 54.5] they merge (faces change)",
+   "found": true,
+   "first_found": {
+    "index": 6,
+    "phase": "special",
+    "params": {
+     "Offset A": 40,
+     "Offset B": 12
+    },
+    "fresh": [
+     "faces"
+    ]
+   },
+   "corners_only": false,
+   "found_by_phase": [
+    "special",
+    "halton",
+    "bisect"
+   ],
+   "counterexamples": 17,
+   "counterexamples_inside_region": 17,
+   "unexpected_outside_region": [],
+   "shrunk": {
+    "index": 6,
+    "params": {
+     "Offset A": 40,
+     "Offset B": 12
+    },
+    "fresh": [
+     "faces"
+    ],
+    "inside_region": true
+   },
+   "line": {
+    "pass": 0,
+    "fail": 6,
+    "lo": 0.910400390625,
+    "hi": 0.9111328125,
+    "points": [
+     {
+      "index": 0,
+      "t": 0
+     },
+     {
+      "index": 49,
+      "t": 0.25
+     },
+     {
+      "index": 48,
+      "t": 0.5
+     },
+     {
+      "index": 50,
+      "t": 0.75
+     },
+     {
+      "index": 51,
+      "t": 0.8125
+     },
+     {
+      "index": 52,
+      "t": 0.875
+     },
+     {
+      "index": 54,
+      "t": 0.890625
+     },
+     {
+      "index": 55,
+      "t": 0.90625
+     },
+     {
+      "index": 57,
+      "t": 0.91015625
+     },
+     {
+      "index": 63,
+      "t": 0.910400390625
+     },
+     {
+      "index": 60,
+      "t": 0.9111328125
+     },
+     {
+      "index": 61,
+      "t": 0.912109375
+     },
+     {
+      "index": 62,
+      "t": 0.9130859375
+     },
+     {
+      "index": 58,
+      "t": 0.9140625
+     },
+     {
+      "index": 59,
+      "t": 0.91796875
+     },
+     {
+      "index": 56,
+      "t": 0.921875
+     },
+     {
+      "index": 53,
+      "t": 0.9375
+     },
+     {
+      "index": 6,
+      "t": 1
+     }
+    ]
+   },
+   "events": 13,
+   "random": [
+    {
+     "seed": 1,
+     "found": true,
+     "first_hit": 2,
+     "outside": []
+    },
+    {
+     "seed": 2,
+     "found": true,
+     "first_hit": 6,
+     "outside": []
+    },
+    {
+     "seed": 3,
+     "found": true,
+     "first_hit": 2,
+     "outside": []
+    },
+    {
+     "seed": 4,
+     "found": true,
+     "first_hit": 0,
+     "outside": []
+    },
+    {
+     "seed": 5,
+     "found": true,
+     "first_hit": 20,
+     "outside": []
+    },
+    {
+     "seed": 6,
+     "found": true,
+     "first_hit": 5,
+     "outside": []
+    },
+    {
+     "seed": 7,
+     "found": true,
+     "first_hit": 4,
+     "outside": []
+    },
+    {
+     "seed": 8,
+     "found": true,
+     "first_hit": 21,
+     "outside": []
+    },
+    {
+     "seed": 9,
+     "found": true,
+     "first_hit": 5,
+     "outside": []
+    },
+    {
+     "seed": 10,
+     "found": true,
+     "first_hit": 7,
+     "outside": []
+    }
+   ],
+   "random_rate": 1
+  },
+  {
+   "id": "d12-swing-arm",
+   "region": "the arm (half-width 1, length L, at Angle) overlaps the post (r 1 at radius 25, 47 degrees)",
+   "found": true,
+   "first_found": {
+    "index": 23,
+    "phase": "halton",
+    "params": {
+     "Angle": 45.8558,
+     "Arm length": 27.019029
+    },
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   "corners_only": false,
+   "found_by_phase": [
+    "halton",
+    "shrink",
+    "bisect"
+   ],
+   "counterexamples": 10,
+   "counterexamples_inside_region": 10,
+   "unexpected_outside_region": [],
+   "shrunk": {
+    "index": 49,
+    "params": {
+     "Angle": 45.8558,
+     "Arm length": 30
+    },
+    "fresh": [
+     "status",
+     "no-clash"
+    ],
+    "inside_region": true
+   },
+   "line": {
+    "pass": 0,
+    "fail": 49,
+    "lo": 0.86328125,
+    "hi": 0.8671875,
+    "points": [
+     {
+      "index": 0,
+      "t": 0
+     },
+     {
+      "index": 53,
+      "t": 0.25
+     },
+     {
+      "index": 52,
+      "t": 0.5
+     },
+     {
+      "index": 54,
+      "t": 0.75
+     },
+     {
+      "index": 55,
+      "t": 0.8125
+     },
+     {
+      "index": 58,
+      "t": 0.828125
+     },
+     {
+      "index": 59,
+      "t": 0.84375
+     },
+     {
+      "index": 60,
+      "t": 0.859375
+     },
+     {
+      "index": 61,
+      "t": 0.86328125
+     },
+     {
+      "index": 62,
+      "t": 0.8671875
+     },
+     {
+      "index": 63,
+      "t": 0.87109375
+     },
+     {
+      "index": 56,
+      "t": 0.875
+     },
+     {
+      "index": 57,
+      "t": 0.9375
+     },
+     {
+      "index": 49,
+      "t": 1
+     }
+    ]
+   },
+   "events": 6,
+   "random": [
+    {
+     "seed": 1,
+     "found": true,
+     "first_hit": 1,
+     "outside": []
+    },
+    {
+     "seed": 2,
+     "found": true,
+     "first_hit": 3,
+     "outside": []
+    },
+    {
+     "seed": 3,
+     "found": true,
+     "first_hit": 10,
+     "outside": []
+    },
+    {
+     "seed": 4,
+     "found": true,
+     "first_hit": 7,
+     "outside": []
+    },
+    {
+     "seed": 5,
+     "found": true,
+     "first_hit": 20,
+     "outside": []
+    },
+    {
+     "seed": 6,
+     "found": true,
+     "first_hit": 20,
+     "outside": []
+    },
+    {
+     "seed": 7,
+     "found": true,
+     "first_hit": 2,
+     "outside": []
+    },
+    {
+     "seed": 8,
+     "found": true,
+     "first_hit": 10,
+     "outside": []
+    },
+    {
+     "seed": 9,
+     "found": true,
+     "first_hit": 9,
+     "outside": []
+    },
+    {
+     "seed": 10,
+     "found": true,
+     "first_hit": 0,
+     "outside": []
+    }
+   ],
+   "random_rate": 1
+  },
+  {
+   "id": "d13-key-drift",
+   "region": "side gap Clearance - 0.002 (Length - 60) < 0.15",
+   "found": true,
+   "first_found": {
+    "index": 3,
+    "phase": "corner",
+    "params": {
+     "Length": 120,
+     "Clearance": 0.2
+    },
+    "fresh": [
+     "key-gap"
+    ]
+   },
+   "corners_only": true,
+   "found_by_phase": [
+    "corner",
+    "halton",
+    "shrink",
+    "bisect"
+   ],
+   "counterexamples": 12,
+   "counterexamples_inside_region": 12,
+   "unexpected_outside_region": [],
+   "shrunk": {
+    "index": 48,
+    "params": {
+     "Length": 90,
+     "Clearance": 0.2
+    },
+    "fresh": [
+     "key-gap"
+    ],
+    "inside_region": true
+   },
+   "line": {
+    "pass": 0,
+    "fail": 48,
+    "lo": 0.9375,
+    "hi": 0.94140625,
+    "points": [
+     {
+      "index": 0,
+      "t": 0
+     },
+     {
+      "index": 53,
+      "t": 0.25
+     },
+     {
+      "index": 54,
+      "t": 0.5
+     },
+     {
+      "index": 55,
+      "t": 0.75
+     },
+     {
+      "index": 56,
+      "t": 0.8125
+     },
+     {
+      "index": 57,
+      "t": 0.875
+     },
+     {
+      "index": 58,
+      "t": 0.9375
+     },
+     {
+      "index": 62,
+      "t": 0.94140625
+     },
+     {
+      "index": 63,
+      "t": 0.9453125
+     },
+     {
+      "index": 59,
+      "t": 0.953125
+     },
+     {
+      "index": 60,
+      "t": 0.96875
+     },
+     {
+      "index": 61,
+      "t": 0.984375
+     },
+     {
+      "index": 48,
+      "t": 1
+     }
+    ]
+   },
+   "events": 7,
+   "random": [
+    {
+     "seed": 1,
+     "found": true,
+     "first_hit": 0,
+     "outside": []
+    },
+    {
+     "seed": 2,
+     "found": true,
+     "first_hit": 4,
+     "outside": []
+    },
+    {
+     "seed": 3,
+     "found": true,
+     "first_hit": 0,
+     "outside": []
+    },
+    {
+     "seed": 4,
+     "found": true,
+     "first_hit": 16,
+     "outside": []
+    },
+    {
+     "seed": 5,
+     "found": true,
+     "first_hit": 4,
+     "outside": []
+    },
+    {
+     "seed": 6,
+     "found": true,
+     "first_hit": 4,
+     "outside": []
+    },
+    {
+     "seed": 7,
+     "found": true,
+     "first_hit": 18,
+     "outside": []
+    },
+    {
+     "seed": 8,
+     "found": true,
+     "first_hit": 8,
+     "outside": []
+    },
+    {
+     "seed": 9,
+     "found": true,
+     "first_hit": 11,
+     "outside": []
+    },
+    {
+     "seed": 10,
+     "found": true,
+     "first_hit": 5,
+     "outside": []
+    }
+   ],
+   "random_rate": 1
+  },
+  {
+   "id": "d14-side-port",
+   "region": "web above the port Height - (Port height + Port diameter / 2) <= 0.84 (0 only at the corner of the box)",
+   "found": true,
+   "first_found": {
+    "index": 4,
+    "phase": "corner",
+    "params": {
+     "Height": 20,
+     "Port height": 16,
+     "Port diameter": 8,
+     "Width": 80
+    },
+    "fresh": [
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ]
+   },
+   "corners_only": true,
+   "found_by_phase": [
+    "corner",
+    "shrink"
+   ],
+   "counterexamples": 5,
+   "counterexamples_inside_region": 5,
+   "unexpected_outside_region": [],
+   "shrunk": {
+    "index": 51,
+    "params": {
+     "Height": 20,
+     "Port height": 16,
+     "Port diameter": 8,
+     "Width": 60
+    },
+    "fresh": [
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ],
+    "inside_region": true
+   },
+   "line": {
+    "pass": 0,
+    "fail": 51,
+    "lo": 0.9375,
+    "hi": 1,
+    "points": [
+     {
+      "index": 0,
+      "t": 0
+     },
+     {
+      "index": 58,
+      "t": 0.25
+     },
+     {
+      "index": 59,
+      "t": 0.5
+     },
+     {
+      "index": 60,
+      "t": 0.75
+     },
+     {
+      "index": 61,
+      "t": 0.8125
+     },
+     {
+      "index": 62,
+      "t": 0.875
+     },
+     {
+      "index": 63,
+      "t": 0.9375
+     },
+     {
+      "index": 51,
+      "t": 1
+     }
+    ]
+   },
+   "events": 10,
+   "random": [
+    {
+     "seed": 1,
+     "found": false,
+     "first_hit": -1,
+     "outside": []
+    },
+    {
+     "seed": 2,
+     "found": false,
+     "first_hit": -1,
+     "outside": []
+    },
+    {
+     "seed": 3,
+     "found": false,
+     "first_hit": -1,
+     "outside": []
+    },
+    {
+     "seed": 4,
+     "found": false,
+     "first_hit": -1,
+     "outside": []
+    },
+    {
+     "seed": 5,
+     "found": false,
+     "first_hit": -1,
+     "outside": []
+    },
+    {
+     "seed": 6,
+     "found": false,
+     "first_hit": -1,
+     "outside": []
+    },
+    {
+     "seed": 7,
+     "found": false,
+     "first_hit": -1,
+     "outside": []
+    },
+    {
+     "seed": 8,
+     "found": false,
+     "first_hit": -1,
+     "outside": []
+    },
+    {
+     "seed": 9,
+     "found": false,
+     "first_hit": -1,
+     "outside": []
+    },
+    {
+     "seed": 10,
+     "found": false,
+     "first_hit": -1,
+     "outside": []
+    }
+   ],
+   "random_rate": 0
+  },
+  {
+   "id": "d15-wall-boss",
+   "region": "skin under the pocket Boss length + Wall - Pocket depth <= 0.84; at 0 and below the pocket runs through the wall (faces change)",
+   "found": true,
+   "first_found": {
+    "index": 6,
+    "phase": "corner",
+    "params": {
+     "Wall": 6,
+     "Boss length": 4,
+     "Pocket depth": 10
+    },
+    "fresh": [
+     "faces"
+    ]
+   },
+   "corners_only": true,
+   "found_by_phase": [
+    "corner",
+    "halton",
+    "shrink",
+    "bisect"
+   ],
+   "counterexamples": 14,
+   "counterexamples_inside_region": 14,
+   "unexpected_outside_region": [],
+   "shrunk": {
+    "index": 54,
+    "params": {
+     "Wall": 3,
+     "Boss length": 6,
+     "Pocket depth": 10
+    },
+    "fresh": [
+     "faces"
+    ],
+    "inside_region": true
+   },
+   "line": {
+    "pass": 0,
+    "fail": 54,
+    "lo": 0.828125,
+    "hi": 0.875,
+    "points": [
+     {
+      "index": 0,
+      "t": 0
+     },
+     {
+      "index": 57,
+      "t": 0.25
+     },
+     {
+      "index": 58,
+      "t": 0.5
+     },
+     {
+      "index": 59,
+      "t": 0.75
+     },
+     {
+      "index": 60,
+      "t": 0.8125
+     },
+     {
+      "index": 63,
+      "t": 0.828125
+     },
+     {
+      "index": 61,
+      "t": 0.875
+     },
+     {
+      "index": 62,
+      "t": 0.9375
+     },
+     {
+      "index": 54,
+      "t": 1
+     }
+    ]
+   },
+   "events": 12,
+   "random": [
+    {
+     "seed": 1,
+     "found": true,
+     "first_hit": 7,
+     "outside": []
+    },
+    {
+     "seed": 2,
+     "found": true,
+     "first_hit": 6,
+     "outside": []
+    },
+    {
+     "seed": 3,
+     "found": true,
+     "first_hit": 11,
+     "outside": []
+    },
+    {
+     "seed": 4,
+     "found": true,
+     "first_hit": 30,
+     "outside": []
+    },
+    {
+     "seed": 5,
+     "found": true,
+     "first_hit": 16,
+     "outside": []
+    },
+    {
+     "seed": 6,
+     "found": true,
+     "first_hit": 0,
+     "outside": []
+    },
+    {
+     "seed": 7,
+     "found": true,
+     "first_hit": 0,
+     "outside": []
+    },
+    {
+     "seed": 8,
+     "found": true,
+     "first_hit": 6,
+     "outside": []
+    },
+    {
+     "seed": 9,
+     "found": true,
+     "first_hit": 10,
+     "outside": []
+    },
+    {
+     "seed": 10,
+     "found": true,
+     "first_hit": 22,
+     "outside": []
+    }
+   ],
+   "random_rate": 1
+  }
+ ],
+ "controls": [
+  {
+   "id": "c01-plate-center-hole",
+   "nominal_failures": [],
+   "guided_counterexamples": [],
+   "random_counterexamples": [],
+   "smallest_margins": [
+    {
+     "id": "one-solid",
+     "signed": 0,
+     "scale": 1,
+     "normalized": 0,
+     "at": 0
+    },
+    {
+     "id": "faces",
+     "signed": 0,
+     "scale": 1,
+     "normalized": 0,
+     "at": 0
+    },
+    {
+     "id": "gate-min-wall",
+     "signed": 2.16,
+     "scale": 0.04,
+     "normalized": 54,
+     "at": 1
+    }
+   ]
+  },
+  {
+   "id": "c02-blind-pocket-safe",
+   "nominal_failures": [],
+   "guided_counterexamples": [],
+   "random_counterexamples": [],
+   "smallest_margins": [
+    {
+     "id": "one-solid",
+     "signed": 0,
+     "scale": 1,
+     "normalized": 0,
+     "at": 0
+    },
+    {
+     "id": "faces",
+     "signed": 0,
+     "scale": 1,
+     "normalized": 0,
+     "at": 0
+    },
+    {
+     "id": "gate-min-wall",
+     "signed": 3.16,
+     "scale": 0.04,
+     "normalized": 79,
+     "at": 4
+    }
+   ]
+  },
+  {
+   "id": "c03-fillet-safe",
+   "nominal_failures": [],
+   "guided_counterexamples": [],
+   "random_counterexamples": [],
+   "smallest_margins": [
+    {
+     "id": "one-solid",
+     "signed": 0,
+     "scale": 1,
+     "normalized": 0,
+     "at": 0
+    },
+    {
+     "id": "faces",
+     "signed": 0,
+     "scale": 1,
+     "normalized": 0,
+     "at": 0
+    },
+    {
+     "id": "gate-min-wall",
+     "signed": 4.16,
+     "scale": 0.04,
+     "normalized": 104,
+     "at": 1
+    }
+   ]
+  },
+  {
+   "id": "c04-bolt-circle-safe",
+   "nominal_failures": [],
+   "guided_counterexamples": [],
+   "random_counterexamples": [],
+   "smallest_margins": [
+    {
+     "id": "one-solid",
+     "signed": 0,
+     "scale": 1,
+     "normalized": 0,
+     "at": 0
+    },
+    {
+     "id": "faces",
+     "signed": 0,
+     "scale": 1,
+     "normalized": 0,
+     "at": 0
+    },
+    {
+     "id": "gate-min-wall",
+     "signed": 3.16,
+     "scale": 0.04,
+     "normalized": 79,
+     "at": 1
+    }
+   ]
+  },
+  {
+   "id": "c05-shuttle-post-safe",
+   "nominal_failures": [],
+   "guided_counterexamples": [],
+   "random_counterexamples": [],
+   "smallest_margins": [
+    {
+     "id": "occurrences",
+     "signed": 0,
+     "scale": 1,
+     "normalized": 0,
+     "at": 0
+    },
+    {
+     "id": "no-clash",
+     "signed": 0.5,
+     "scale": 0.01,
+     "normalized": 50,
+     "at": 0,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "id": "c06-slot-hole-safe",
+   "nominal_failures": [],
+   "guided_counterexamples": [],
+   "random_counterexamples": [],
+   "smallest_margins": [
+    {
+     "id": "one-solid",
+     "signed": 0,
+     "scale": 1,
+     "normalized": 0,
+     "at": 0
+    },
+    {
+     "id": "faces",
+     "signed": 0,
+     "scale": 1,
+     "normalized": 0,
+     "at": 0
+    },
+    {
+     "id": "gate-min-wall",
+     "signed": 3.16,
+     "scale": 0.04,
+     "normalized": 79,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "id": "c07-pin-bushing-safe",
+   "nominal_failures": [],
+   "guided_counterexamples": [],
+   "random_counterexamples": [],
+   "smallest_margins": [
+    {
+     "id": "occurrences",
+     "signed": 0,
+     "scale": 1,
+     "normalized": 0,
+     "at": 0
+    },
+    {
+     "id": "pin-gap",
+     "signed": 0.05,
+     "scale": 0.01,
+     "normalized": 5,
+     "at": 4
+    },
+    {
+     "id": "no-clash",
+     "signed": 0.1,
+     "scale": 0.01,
+     "normalized": 10,
+     "at": 4
+    }
+   ]
+  },
+  {
+   "id": "c08-vent-bool-safe",
+   "nominal_failures": [],
+   "guided_counterexamples": [],
+   "random_counterexamples": [],
+   "smallest_margins": [
+    {
+     "id": "one-solid",
+     "signed": 0,
+     "scale": 1,
+     "normalized": 0,
+     "at": 0
+    },
+    {
+     "id": "gate-min-wall",
+     "signed": 1.16,
+     "scale": 0.04,
+     "normalized": 28.999999999999996,
+     "at": 0
+    }
+   ]
+  },
+  {
+   "id": "c09-rotor-stop-safe",
+   "nominal_failures": [],
+   "guided_counterexamples": [],
+   "random_counterexamples": [],
+   "smallest_margins": [
+    {
+     "id": "occurrences",
+     "signed": 0,
+     "scale": 1,
+     "normalized": 0,
+     "at": 0
+    },
+    {
+     "id": "no-clash",
+     "signed": 0.5,
+     "scale": 0.01,
+     "normalized": 50,
+     "at": 0,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "id": "c10-key-channel-safe",
+   "nominal_failures": [],
+   "guided_counterexamples": [],
+   "random_counterexamples": [],
+   "smallest_margins": [
+    {
+     "id": "occurrences",
+     "signed": 0,
+     "scale": 1,
+     "normalized": 0,
+     "at": 0
+    },
+    {
+     "id": "key-gap",
+     "signed": 0.05000000000000002,
+     "scale": 0.01,
+     "normalized": 5.000000000000002,
+     "at": 1
+    },
+    {
+     "id": "no-clash",
+     "signed": 0.2,
+     "scale": 0.01,
+     "normalized": 20,
+     "at": 1
+    }
+   ]
+  }
+ ],
+ "m2_m3": {
+  "platform": "linux-x64",
+  "points": 2357,
+  "identical": 2357,
+  "differing": [],
+  "counterexamples": 356,
+  "false_counterexamples": [],
+  "changed_failure_sets": [],
+  "cert_hashes": {
+   "box-with-lid": "38fc65ea2b35565028686726bac0f180cbbc066c1a0a385dc9dac4603cbb7194",
+   "bracket": "07cb905a8ce959318d558bd92a63be3f5ff218863be373676174dccb07055792",
+   "c01-plate-center-hole": "24dced790b1eed68731fef9e79c3d14d35056278db0bb215787f87b9d777fc9f",
+   "c02-blind-pocket-safe": "f187f92fe8ec3f3f1d931253449372a94573db74e5d909fdd80ce6b92c632647",
+   "c03-fillet-safe": "4cc5b670d3f74c3fccc27bcf7306ae61737846ae52d17eae150c7f3bf58079d5",
+   "c04-bolt-circle-safe": "7461766c7a0080bb5c6bf041c2d752d469d29a209add173c80e453525e1b929c",
+   "c05-shuttle-post-safe": "1deb70492cd747dae6802d8b216a78fe18d5f90a22c056068b51cef008db3f7a",
+   "c06-slot-hole-safe": "1c9d9e4e28ca62e68f70286d8f95dddf44387285c2a6a5c9aa801e872ceda44e",
+   "c07-pin-bushing-safe": "d0350c6218b6061fd94e97b1a45d86204353aab52919dc9fb3db17f3a395b901",
+   "c08-vent-bool-safe": "8a58fd54af046b164bc21b98f125e510771175e422fba3b4ea4fcdc2de77aa87",
+   "c09-rotor-stop-safe": "c0a14dd3a855fdfbce46862a47937eb0ee3190a12d8d79e970ff488dc73eb1bb",
+   "c10-key-channel-safe": "1e8b7fd2d20b95d26ecdcd0d3f70d5af5607af06470dbf119d6286c2beb6a935",
+   "d01-plate-hole-pitch": "b933cc2ec5460388126bd7f9faa139c9bb4e7f4f1d72a6e7c069087a43f91a24",
+   "d02-blind-pocket": "5fcf57dc0f171859082ba18a4e8fc7290d05ba6b144b11e66f4b4f01f5831421",
+   "d03-fillet-corners": "d3bae037103ccd3f937e972939a4b9feb5922d5d49f265f0e310336c4b831ca4",
+   "d04-bolt-circle-count": "1350f7b35b4c2d648c1a7795fe1728ba9b728f532f133b92f7aeff06615d2b60",
+   "d05-shuttle-post": "3386c641e7c154833f34441cf6fd1f095728b3c16322723e82f2c642b6b486c0",
+   "d06-slot-near-hole": "c3de9146e069bd1046af0df95f16394c94e5665a1af43580dd8d4b78a2c8d8af",
+   "d07-pin-bushing": "3811ae886a655d189c9fc6a465ddbb5aca49e0de4d5f4973c06f98a3675bdcc8",
+   "d08-vent-bool": "46c0de5fb572824d6f932ee70967f18114e05e914ede1f87a964b343733d530e",
+   "d09-rotor-stop": "f7ec3a2d00ff51730a7094e28cbf760859df727efe9a3053267b948e967032a4",
+   "d10-screw-boss-choice": "356e0084128003a7103aa709c2167c30c8f5b439c0d9362b76aad7384c7247c4",
+   "d11-hole-diagonal": "9e00024e58485e42b6f232be6532cc798e932bae7f2704635e4934977d4c1d02",
+   "d12-swing-arm": "b172ccaa6c4a4a10404759c70a1dd063f8823b37918d1216517e580b5d83e10f",
+   "d13-key-drift": "95129dd54bce825216da122bdac69452c8665b3f2c76cc950265802b9608d86a",
+   "d14-side-port": "3616fc7e389b81bb2c4a78c9b1e37e923d45afd088176804c7250b20230b038b",
+   "d15-wall-boss": "e90110443b603054f797c506d1d87b2ef1b618774817472bab53f5fe56d078ef",
+   "enclosure": "1f34160722a79d973f756906dbb1e2ba2947f35d4f440a1383ce9f2b9226c841",
+   "flange": "1dbebad45faac77120e7dd1b8162e812c0705f40d59a7d2b280000be6bdc423d",
+   "gear-blank": "fd6b5f6a96b527df7b009d4950f37bd854e44d509c93d5ed1ce387f1ebaebb23",
+   "hinge": "6e79697bdd4234a0c3954fd3db16761035433630554d03b0b2442a73431473ee",
+   "knob": "5a0dca9b25692aea79ed87e9c49f12e31a805644a3dee2093a1290423a980a49",
+   "lid-interference": "57ec1dfa67fedbb53013cbf4139f355e8b70d527def90b3137a4f2096cc828bd",
+   "pegboard-hook": "849c0d7b4691df44a7efb73504e56882c1a3b0f65aef1704f3f980bccb148782",
+   "phone-stand": "da9fd59cb3f7ed5316862d7c95c54fd3200111120b2823d7a2508728581b1eb3",
+   "tapered-cup": "504da92f4034423bf3058100a4de780420edaa315717c2ea537c9d05dec6c551",
+   "vented-box": "6c8dd815cc4dfc51383a8a03f9ba1fdb43baaebf07fe9bc198448fb2d66def3a"
+  }
+ },
+ "m4": [
+  {
+   "id": "box-with-lid",
+   "statement": "counterexample: 35 of 64 points fail an assertion that passes at nominal",
+   "nominal_failures": [],
+   "counterexamples": 35,
+   "by_assertion": [
+    {
+     "assertion": "status",
+     "points": 34,
+     "phases": [
+      "corner",
+      "special",
+      "halton",
+      "shrink",
+      "bisect"
+     ],
+     "worst": {
+      "index": 1,
+      "params": {
+       "Width": 40,
+       "Depth": 30,
+       "Height": 15,
+       "Clearance": -1
+      },
+      "signed": null,
+      "scale": 1,
+      "detail": "status warning, expected ok"
+     },
+     "examples": [
+      {
+       "index": 1,
+       "params": {
+        "Width": 40,
+        "Depth": 30,
+        "Height": 15,
+        "Clearance": -1
+       },
+       "margin": {
+        "id": "status",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "status warning, expected ok"
+       }
+      },
+      {
+       "index": 3,
+       "params": {
+        "Width": 150,
+        "Depth": 30,
+        "Height": 15,
+        "Clearance": -1
+       },
+       "margin": {
+        "id": "status",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "status warning, expected ok"
+       }
+      },
+      {
+       "index": 5,
+       "params": {
+        "Width": 40,
+        "Depth": 120,
+        "Height": 15,
+        "Clearance": -1
+       },
+       "margin": {
+        "id": "status",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "status warning, expected ok"
+       }
+      },
+      {
+       "index": 7,
+       "params": {
+        "Width": 150,
+        "Depth": 120,
+        "Height": 15,
+        "Clearance": -1
+       },
+       "margin": {
+        "id": "status",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "status warning, expected ok"
+       }
+      }
+     ]
+    },
+    {
+     "assertion": "no-clash",
+     "points": 34,
+     "phases": [
+      "corner",
+      "special",
+      "halton",
+      "shrink",
+      "bisect"
+     ],
+     "worst": {
+      "index": 7,
+      "params": {
+       "Width": 150,
+       "Depth": 120,
+       "Height": 15,
+       "Clearance": -1
+      },
+      "signed": -12.795277907014704,
+      "scale": 0.01,
+      "detail": "1 clash fit(s) between * / *, expected = 0"
+     },
+     "examples": [
+      {
+       "index": 1,
+       "params": {
+        "Width": 40,
+        "Depth": 30,
+        "Height": 15,
+        "Clearance": -1
+       },
+       "margin": {
+        "id": "no-clash",
+        "pass": false,
+        "signed": -7.9095640882544025,
+        "scale": 0.01,
+        "detail": "1 clash fit(s) between * / *, expected = 0"
+       }
+      },
+      {
+       "index": 3,
+       "params": {
+        "Width": 150,
+        "Depth": 30,
+        "Height": 15,
+        "Clearance": -1
+       },
+       "margin": {
+        "id": "no-clash",
+        "pass": false,
+        "signed": -11.119447154877072,
+        "scale": 0.01,
+        "detail": "1 clash fit(s) between * / *, expected = 0"
+       }
+      },
+      {
+       "index": 5,
+       "params": {
+        "Width": 40,
+        "Depth": 120,
+        "Height": 15,
+        "Clearance": -1
+       },
+       "margin": {
+        "id": "no-clash",
+        "pass": false,
+        "signed": -10.670187643074646,
+        "scale": 0.01,
+        "detail": "1 clash fit(s) between * / *, expected = 0"
+       }
+      },
+      {
+       "index": 7,
+       "params": {
+        "Width": 150,
+        "Depth": 120,
+        "Height": 15,
+        "Clearance": -1
+       },
+       "margin": {
+        "id": "no-clash",
+        "pass": false,
+        "signed": -12.795277907014704,
+        "scale": 0.01,
+        "detail": "1 clash fit(s) between * / *, expected = 0"
+       }
+      }
+     ]
+    },
+    {
+     "assertion": "lip-gap",
+     "points": 35,
+     "phases": [
+      "corner",
+      "special",
+      "halton",
+      "shrink",
+      "bisect"
+     ],
+     "worst": {
+      "index": 1,
+      "params": {
+       "Width": 40,
+       "Depth": 30,
+       "Height": 15,
+       "Clearance": -1
+      },
+      "signed": null,
+      "scale": 0.01,
+      "detail": "0 gap(s) = -1 (tol abs 0.001) between lid / base, expected = 1"
+     },
+     "examples": [
+      {
+       "index": 1,
+       "params": {
+        "Width": 40,
+        "Depth": 30,
+        "Height": 15,
+        "Clearance": -1
+       },
+       "margin": {
+        "id": "lip-gap",
+        "pass": false,
+        "signed": null,
+        "scale": 0.01,
+        "censored": true,
+        "detail": "0 gap(s) = -1 (tol abs 0.001) between lid / base, expected = 1"
+       }
+      },
+      {
+       "index": 3,
+       "params": {
+        "Width": 150,
+        "Depth": 30,
+        "Height": 15,
+        "Clearance": -1
+       },
+       "margin": {
+        "id": "lip-gap",
+        "pass": false,
+        "signed": null,
+        "scale": 0.01,
+        "censored": true,
+        "detail": "0 gap(s) = -1 (tol abs 0.001) between lid / base, expected = 1"
+       }
+      },
+      {
+       "index": 5,
+       "params": {
+        "Width": 40,
+        "Depth": 120,
+        "Height": 15,
+        "Clearance": -1
+       },
+       "margin": {
+        "id": "lip-gap",
+        "pass": false,
+        "signed": null,
+        "scale": 0.01,
+        "censored": true,
+        "detail": "0 gap(s) = -1 (tol abs 0.001) between lid / base, expected = 1"
+       }
+      },
+      {
+       "index": 7,
+       "params": {
+        "Width": 150,
+        "Depth": 120,
+        "Height": 15,
+        "Clearance": -1
+       },
+       "margin": {
+        "id": "lip-gap",
+        "pass": false,
+        "signed": null,
+        "scale": 0.01,
+        "censored": true,
+        "detail": "0 gap(s) = -1 (tol abs 0.001) between lid / base, expected = 1"
+       }
+      }
+     ]
+    }
+   ],
+   "shrunk": {
+    "params": {
+     "Width": 70,
+     "Depth": 50,
+     "Height": 15,
+     "Clearance": -1
+    },
+    "fresh": [
+     "status",
+     "no-clash",
+     "lip-gap"
+    ],
+    "margins": [
+     {
+      "id": "status",
+      "pass": false,
+      "signed": null,
+      "scale": 1,
+      "detail": "status warning, expected ok"
+     },
+     {
+      "id": "no-clash",
+      "pass": false,
+      "signed": -9.636377650666804,
+      "scale": 0.01,
+      "detail": "1 clash fit(s) between * / *, expected = 0"
+     },
+     {
+      "id": "lip-gap",
+      "pass": false,
+      "signed": null,
+      "scale": 0.01,
+      "censored": true,
+      "detail": "0 gap(s) = -1 (tol abs 0.001) between lid / base, expected = 1"
+     }
+    ]
+   },
+   "line": {
+    "lo": 0.1875,
+    "hi": 0.25,
+    "pass": {
+     "Width": 70,
+     "Depth": 50,
+     "Height": 30,
+     "Clearance": 0.25
+    },
+    "fail": {
+     "Width": 70,
+     "Depth": 50,
+     "Height": 15,
+     "Clearance": -1
+    }
+   },
+   "events": [
+    {
+     "kind": "axis",
+     "axis": "Clearance",
+     "between": [
+      24,
+      17
+     ],
+     "from": {
+      "Width": 70,
+      "Depth": 50,
+      "Height": 30,
+      "Clearance": -1
+     },
+     "to": {
+      "Width": 70,
+      "Depth": 50,
+      "Height": 30,
+      "Clearance": 0
+     },
+     "changed": [
+      "fits: base|lid|clash -> ",
+      "status: \"warning\" -> \"ok\""
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Clearance",
+     "between": [
+      17,
+      0
+     ],
+     "from": {
+      "Width": 70,
+      "Depth": 50,
+      "Height": 30,
+      "Clearance": 0
+     },
+     "to": {
+      "Width": 70,
+      "Depth": 50,
+      "Height": 30,
+      "Clearance": 0.25
+     },
+     "changed": [
+      "fits:  -> base|lid|clearance|extra"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Clearance",
+     "between": [
+      55,
+      51
+     ],
+     "from": {
+      "Width": 40,
+      "Depth": 30,
+      "Height": 15,
+      "Clearance": -0.375
+     },
+     "to": {
+      "Width": 40,
+      "Depth": 30,
+      "Height": 15,
+      "Clearance": 0.25
+     },
+     "changed": [
+      "fits: base|lid|clash -> base|lid|clearance|extra",
+      "status: \"warning\" -> \"ok\""
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Clearance",
+     "between": [
+      15,
+      2
+     ],
+     "from": {
+      "Width": 150,
+      "Depth": 120,
+      "Height": 80,
+      "Clearance": -1
+     },
+     "to": {
+      "Width": 150,
+      "Depth": 120,
+      "Height": 80,
+      "Clearance": 1
+     },
+     "changed": [
+      "fits: base|lid|clash -> base|lid|clearance|extra",
+      "status: \"warning\" -> \"ok\""
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Clearance",
+     "between": [
+      3,
+      14
+     ],
+     "from": {
+      "Width": 150,
+      "Depth": 30,
+      "Height": 15,
+      "Clearance": -1
+     },
+     "to": {
+      "Width": 150,
+      "Depth": 30,
+      "Height": 15,
+      "Clearance": 1
+     },
+     "changed": [
+      "fits: base|lid|clash -> base|lid|clearance|extra",
+      "status: \"warning\" -> \"ok\""
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Clearance",
+     "between": [
+      13,
+      4
+     ],
+     "from": {
+      "Width": 40,
+      "Depth": 120,
+      "Height": 80,
+      "Clearance": -1
+     },
+     "to": {
+      "Width": 40,
+      "Depth": 120,
+      "Height": 80,
+      "Clearance": 1
+     },
+     "changed": [
+      "fits: base|lid|clash -> base|lid|clearance|extra",
+      "status: \"warning\" -> \"ok\""
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Clearance",
+     "between": [
+      5,
+      12
+     ],
+     "from": {
+      "Width": 40,
+      "Depth": 120,
+      "Height": 15,
+      "Clearance": -1
+     },
+     "to": {
+      "Width": 40,
+      "Depth": 120,
+      "Height": 15,
+      "Clearance": 1
+     },
+     "changed": [
+      "fits: base|lid|clash -> base|lid|clearance|extra",
+      "status: \"warning\" -> \"ok\""
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Clearance",
+     "between": [
+      11,
+      6
+     ],
+     "from": {
+      "Width": 150,
+      "Depth": 30,
+      "Height": 80,
+      "Clearance": -1
+     },
+     "to": {
+      "Width": 150,
+      "Depth": 30,
+      "Height": 80,
+      "Clearance": 1
+     },
+     "changed": [
+      "fits: base|lid|clash -> base|lid|clearance|extra",
+      "status: \"warning\" -> \"ok\""
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Clearance",
+     "between": [
+      7,
+      10
+     ],
+     "from": {
+      "Width": 150,
+      "Depth": 120,
+      "Height": 15,
+      "Clearance": -1
+     },
+     "to": {
+      "Width": 150,
+      "Depth": 120,
+      "Height": 15,
+      "Clearance": 1
+     },
+     "changed": [
+      "fits: base|lid|clash -> base|lid|clearance|extra",
+      "status: \"warning\" -> \"ok\""
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Clearance",
+     "between": [
+      9,
+      8
+     ],
+     "from": {
+      "Width": 40,
+      "Depth": 30,
+      "Height": 80,
+      "Clearance": -1
+     },
+     "to": {
+      "Width": 40,
+      "Depth": 30,
+      "Height": 80,
+      "Clearance": 1
+     },
+     "changed": [
+      "fits: base|lid|clash -> base|lid|clearance|extra",
+      "status: \"warning\" -> \"ok\""
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Clearance",
+     "between": [
+      57,
+      20
+     ],
+     "from": {
+      "Width": 70,
+      "Depth": 30,
+      "Height": 30,
+      "Clearance": -1
+     },
+     "to": {
+      "Width": 70,
+      "Depth": 30,
+      "Height": 30,
+      "Clearance": 0.25
+     },
+     "changed": [
+      "fits: base|lid|clash -> base|lid|clearance|extra",
+      "status: \"warning\" -> \"ok\""
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Clearance",
+     "between": [
+      56,
+      22
+     ],
+     "from": {
+      "Width": 70,
+      "Depth": 50,
+      "Height": 15,
+      "Clearance": -1
+     },
+     "to": {
+      "Width": 70,
+      "Depth": 50,
+      "Height": 15,
+      "Clearance": 0.25
+     },
+     "changed": [
+      "fits: base|lid|clash -> base|lid|clearance|extra",
+      "status: \"warning\" -> \"ok\""
+     ]
+    }
+   ],
+   "events_total": 13
+  },
+  {
+   "id": "bracket",
+   "statement": "counterexample: 23 of 64 points fail an assertion that passes at nominal",
+   "nominal_failures": [
+    "gate-overhang"
+   ],
+   "counterexamples": 23,
+   "by_assertion": [
+    {
+     "assertion": "builds",
+     "points": 20,
+     "phases": [
+      "corner",
+      "special",
+      "shrink"
+     ],
+     "worst": {
+      "index": 1,
+      "params": {
+       "Width": 24,
+       "Leg": 20,
+       "Thickness": 2,
+       "Screw": "M3"
+      },
+      "signed": null,
+      "scale": 1,
+      "detail": "KERNEL_FILLET_FAILED: fillet failed: operation failed (the kernel named no edge; elements lists the 7 edges asked for)"
+     },
+     "examples": [
+      {
+       "index": 1,
+       "params": {
+        "Width": 24,
+        "Leg": 20,
+        "Thickness": 2,
+        "Screw": "M3"
+       },
+       "margin": {
+        "id": "builds",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "KERNEL_FILLET_FAILED: fillet failed: operation failed (the kernel named no edge; elements lists the 7 edges asked for)"
+       }
+      },
+      {
+       "index": 3,
+       "params": {
+        "Width": 100,
+        "Leg": 20,
+        "Thickness": 2,
+        "Screw": "M5"
+       },
+       "margin": {
+        "id": "builds",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "KERNEL_FILLET_FAILED: fillet failed: operation failed (the kernel named no edge; elements lists the 7 edges asked for)"
+       }
+      },
+      {
+       "index": 5,
+       "params": {
+        "Width": 24,
+        "Leg": 80,
+        "Thickness": 2,
+        "Screw": "M4"
+       },
+       "margin": {
+        "id": "builds",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "KERNEL_FILLET_FAILED: fillet failed: operation failed (the kernel named no edge; elements lists the 7 edges asked for)"
+       }
+      },
+      {
+       "index": 7,
+       "params": {
+        "Width": 100,
+        "Leg": 80,
+        "Thickness": 2,
+        "Screw": "M3"
+       },
+       "margin": {
+        "id": "builds",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "KERNEL_FILLET_FAILED: fillet failed: operation failed (the kernel named no edge; elements lists the 7 edges asked for)"
+       }
+      }
+     ]
+    },
+    {
+     "assertion": "status",
+     "points": 20,
+     "phases": [
+      "corner",
+      "special",
+      "shrink"
+     ],
+     "worst": {
+      "index": 1,
+      "params": {
+       "Width": 24,
+       "Leg": 20,
+       "Thickness": 2,
+       "Screw": "M3"
+      },
+      "signed": null,
+      "scale": 1,
+      "detail": "not evaluated: the run failed"
+     },
+     "examples": [
+      {
+       "index": 1,
+       "params": {
+        "Width": 24,
+        "Leg": 20,
+        "Thickness": 2,
+        "Screw": "M3"
+       },
+       "margin": {
+        "id": "status",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      },
+      {
+       "index": 3,
+       "params": {
+        "Width": 100,
+        "Leg": 20,
+        "Thickness": 2,
+        "Screw": "M5"
+       },
+       "margin": {
+        "id": "status",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      },
+      {
+       "index": 5,
+       "params": {
+        "Width": 24,
+        "Leg": 80,
+        "Thickness": 2,
+        "Screw": "M4"
+       },
+       "margin": {
+        "id": "status",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      },
+      {
+       "index": 7,
+       "params": {
+        "Width": 100,
+        "Leg": 80,
+        "Thickness": 2,
+        "Screw": "M3"
+       },
+       "margin": {
+        "id": "status",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      }
+     ]
+    },
+    {
+     "assertion": "valid",
+     "points": 20,
+     "phases": [
+      "corner",
+      "special",
+      "shrink"
+     ],
+     "worst": {
+      "index": 1,
+      "params": {
+       "Width": 24,
+       "Leg": 20,
+       "Thickness": 2,
+       "Screw": "M3"
+      },
+      "signed": null,
+      "scale": 1,
+      "detail": "not evaluated: the run failed"
+     },
+     "examples": [
+      {
+       "index": 1,
+       "params": {
+        "Width": 24,
+        "Leg": 20,
+        "Thickness": 2,
+        "Screw": "M3"
+       },
+       "margin": {
+        "id": "valid",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      },
+      {
+       "index": 3,
+       "params": {
+        "Width": 100,
+        "Leg": 20,
+        "Thickness": 2,
+        "Screw": "M5"
+       },
+       "margin": {
+        "id": "valid",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      },
+      {
+       "index": 5,
+       "params": {
+        "Width": 24,
+        "Leg": 80,
+        "Thickness": 2,
+        "Screw": "M4"
+       },
+       "margin": {
+        "id": "valid",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      },
+      {
+       "index": 7,
+       "params": {
+        "Width": 100,
+        "Leg": 80,
+        "Thickness": 2,
+        "Screw": "M3"
+       },
+       "margin": {
+        "id": "valid",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      }
+     ]
+    },
+    {
+     "assertion": "one-solid",
+     "points": 20,
+     "phases": [
+      "corner",
+      "special",
+      "shrink"
+     ],
+     "worst": {
+      "index": 1,
+      "params": {
+       "Width": 24,
+       "Leg": 20,
+       "Thickness": 2,
+       "Screw": "M3"
+      },
+      "signed": null,
+      "scale": 1,
+      "detail": "not evaluated: the run failed"
+     },
+     "examples": [
+      {
+       "index": 1,
+       "params": {
+        "Width": 24,
+        "Leg": 20,
+        "Thickness": 2,
+        "Screw": "M3"
+       },
+       "margin": {
+        "id": "one-solid",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      },
+      {
+       "index": 3,
+       "params": {
+        "Width": 100,
+        "Leg": 20,
+        "Thickness": 2,
+        "Screw": "M5"
+       },
+       "margin": {
+        "id": "one-solid",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      },
+      {
+       "index": 5,
+       "params": {
+        "Width": 24,
+        "Leg": 80,
+        "Thickness": 2,
+        "Screw": "M4"
+       },
+       "margin": {
+        "id": "one-solid",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      },
+      {
+       "index": 7,
+       "params": {
+        "Width": 100,
+        "Leg": 80,
+        "Thickness": 2,
+        "Screw": "M3"
+       },
+       "margin": {
+        "id": "one-solid",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      }
+     ]
+    },
+    {
+     "assertion": "size-x",
+     "points": 20,
+     "phases": [
+      "corner",
+      "special",
+      "shrink"
+     ],
+     "worst": {
+      "index": 1,
+      "params": {
+       "Width": 24,
+       "Leg": 20,
+       "Thickness": 2,
+       "Screw": "M3"
+      },
+      "signed": null,
+      "scale": 1,
+      "detail": "not evaluated: the run failed"
+     },
+     "examples": [
+      {
+       "index": 1,
+       "params": {
+        "Width": 24,
+        "Leg": 20,
+        "Thickness": 2,
+        "Screw": "M3"
+       },
+       "margin": {
+        "id": "size-x",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      },
+      {
+       "index": 3,
+       "params": {
+        "Width": 100,
+        "Leg": 20,
+        "Thickness": 2,
+        "Screw": "M5"
+       },
+       "margin": {
+        "id": "size-x",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      },
+      {
+       "index": 5,
+       "params": {
+        "Width": 24,
+        "Leg": 80,
+        "Thickness": 2,
+        "Screw": "M4"
+       },
+       "margin": {
+        "id": "size-x",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      },
+      {
+       "index": 7,
+       "params": {
+        "Width": 100,
+        "Leg": 80,
+        "Thickness": 2,
+        "Screw": "M3"
+       },
+       "margin": {
+        "id": "size-x",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      }
+     ]
+    },
+    {
+     "assertion": "size-y",
+     "points": 20,
+     "phases": [
+      "corner",
+      "special",
+      "shrink"
+     ],
+     "worst": {
+      "index": 1,
+      "params": {
+       "Width": 24,
+       "Leg": 20,
+       "Thickness": 2,
+       "Screw": "M3"
+      },
+      "signed": null,
+      "scale": 1,
+      "detail": "not evaluated: the run failed"
+     },
+     "examples": [
+      {
+       "index": 1,
+       "params": {
+        "Width": 24,
+        "Leg": 20,
+        "Thickness": 2,
+        "Screw": "M3"
+       },
+       "margin": {
+        "id": "size-y",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      },
+      {
+       "index": 3,
+       "params": {
+        "Width": 100,
+        "Leg": 20,
+        "Thickness": 2,
+        "Screw": "M5"
+       },
+       "margin": {
+        "id": "size-y",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      },
+      {
+       "index": 5,
+       "params": {
+        "Width": 24,
+        "Leg": 80,
+        "Thickness": 2,
+        "Screw": "M4"
+       },
+       "margin": {
+        "id": "size-y",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      },
+      {
+       "index": 7,
+       "params": {
+        "Width": 100,
+        "Leg": 80,
+        "Thickness": 2,
+        "Screw": "M3"
+       },
+       "margin": {
+        "id": "size-y",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      }
+     ]
+    },
+    {
+     "assertion": "size-z",
+     "points": 20,
+     "phases": [
+      "corner",
+      "special",
+      "shrink"
+     ],
+     "worst": {
+      "index": 1,
+      "params": {
+       "Width": 24,
+       "Leg": 20,
+       "Thickness": 2,
+       "Screw": "M3"
+      },
+      "signed": null,
+      "scale": 1,
+      "detail": "not evaluated: the run failed"
+     },
+     "examples": [
+      {
+       "index": 1,
+       "params": {
+        "Width": 24,
+        "Leg": 20,
+        "Thickness": 2,
+        "Screw": "M3"
+       },
+       "margin": {
+        "id": "size-z",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      },
+      {
+       "index": 3,
+       "params": {
+        "Width": 100,
+        "Leg": 20,
+        "Thickness": 2,
+        "Screw": "M5"
+       },
+       "margin": {
+        "id": "size-z",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      },
+      {
+       "index": 5,
+       "params": {
+        "Width": 24,
+        "Leg": 80,
+        "Thickness": 2,
+        "Screw": "M4"
+       },
+       "margin": {
+        "id": "size-z",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      },
+      {
+       "index": 7,
+       "params": {
+        "Width": 100,
+        "Leg": 80,
+        "Thickness": 2,
+        "Screw": "M3"
+       },
+       "margin": {
+        "id": "size-z",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      }
+     ]
+    },
+    {
+     "assertion": "faces",
+     "points": 20,
+     "phases": [
+      "corner",
+      "special",
+      "shrink"
+     ],
+     "worst": {
+      "index": 1,
+      "params": {
+       "Width": 24,
+       "Leg": 20,
+       "Thickness": 2,
+       "Screw": "M3"
+      },
+      "signed": null,
+      "scale": 1,
+      "detail": "not evaluated: the run failed"
+     },
+     "examples": [
+      {
+       "index": 1,
+       "params": {
+        "Width": 24,
+        "Leg": 20,
+        "Thickness": 2,
+        "Screw": "M3"
+       },
+       "margin": {
+        "id": "faces",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      },
+      {
+       "index": 3,
+       "params": {
+        "Width": 100,
+        "Leg": 20,
+        "Thickness": 2,
+        "Screw": "M5"
+       },
+       "margin": {
+        "id": "faces",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      },
+      {
+       "index": 5,
+       "params": {
+        "Width": 24,
+        "Leg": 80,
+        "Thickness": 2,
+        "Screw": "M4"
+       },
+       "margin": {
+        "id": "faces",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      },
+      {
+       "index": 7,
+       "params": {
+        "Width": 100,
+        "Leg": 80,
+        "Thickness": 2,
+        "Screw": "M3"
+       },
+       "margin": {
+        "id": "faces",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      }
+     ]
+    },
+    {
+     "assertion": "edges",
+     "points": 22,
+     "phases": [
+      "corner",
+      "special",
+      "shrink"
+     ],
+     "worst": {
+      "index": 1,
+      "params": {
+       "Width": 24,
+       "Leg": 20,
+       "Thickness": 2,
+       "Screw": "M3"
+      },
+      "signed": null,
+      "scale": 1,
+      "detail": "not evaluated: the run failed"
+     },
+     "examples": [
+      {
+       "index": 1,
+       "params": {
+        "Width": 24,
+        "Leg": 20,
+        "Thickness": 2,
+        "Screw": "M3"
+       },
+       "margin": {
+        "id": "edges",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      },
+      {
+       "index": 3,
+       "params": {
+        "Width": 100,
+        "Leg": 20,
+        "Thickness": 2,
+        "Screw": "M5"
+       },
+       "margin": {
+        "id": "edges",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      },
+      {
+       "index": 5,
+       "params": {
+        "Width": 24,
+        "Leg": 80,
+        "Thickness": 2,
+        "Screw": "M4"
+       },
+       "margin": {
+        "id": "edges",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      },
+      {
+       "index": 6,
+       "params": {
+        "Width": 100,
+        "Leg": 20,
+        "Thickness": 10,
+        "Screw": "M5"
+       },
+       "margin": {
+        "id": "edges",
+        "pass": false,
+        "signed": -20,
+        "scale": 1,
+        "detail": "edges of bracket = 84, expected = 64"
+       }
+      }
+     ]
+    },
+    {
+     "assertion": "gate-watertight",
+     "points": 20,
+     "phases": [
+      "corner",
+      "special",
+      "shrink"
+     ],
+     "worst": {
+      "index": 1,
+      "params": {
+       "Width": 24,
+       "Leg": 20,
+       "Thickness": 2,
+       "Screw": "M3"
+      },
+      "signed": null,
+      "scale": 1,
+      "detail": "not evaluated: the run failed"
+     },
+     "examples": [
+      {
+       "index": 1,
+       "params": {
+        "Width": 24,
+        "Leg": 20,
+        "Thickness": 2,
+        "Screw": "M3"
+       },
+       "margin": {
+        "id": "gate-watertight",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      },
+      {
+       "index": 3,
+       "params": {
+        "Width": 100,
+        "Leg": 20,
+        "Thickness": 2,
+        "Screw": "M5"
+       },
+       "margin": {
+        "id": "gate-watertight",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      },
+      {
+       "index": 5,
+       "params": {
+        "Width": 24,
+        "Leg": 80,
+        "Thickness": 2,
+        "Screw": "M4"
+       },
+       "margin": {
+        "id": "gate-watertight",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      },
+      {
+       "index": 7,
+       "params": {
+        "Width": 100,
+        "Leg": 80,
+        "Thickness": 2,
+        "Screw": "M3"
+       },
+       "margin": {
+        "id": "gate-watertight",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      }
+     ]
+    },
+    {
+     "assertion": "gate-min-wall",
+     "points": 22,
+     "phases": [
+      "corner",
+      "special",
+      "shrink"
+     ],
+     "worst": {
+      "index": 1,
+      "params": {
+       "Width": 24,
+       "Leg": 20,
+       "Thickness": 2,
+       "Screw": "M3"
+      },
+      "signed": null,
+      "scale": 1,
+      "detail": "not evaluated: the run failed"
+     },
+     "examples": [
+      {
+       "index": 1,
+       "params": {
+        "Width": 24,
+        "Leg": 20,
+        "Thickness": 2,
+        "Screw": "M3"
+       },
+       "margin": {
+        "id": "gate-min-wall",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      },
+      {
+       "index": 3,
+       "params": {
+        "Width": 100,
+        "Leg": 20,
+        "Thickness": 2,
+        "Screw": "M5"
+       },
+       "margin": {
+        "id": "gate-min-wall",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      },
+      {
+       "index": 5,
+       "params": {
+        "Width": 24,
+        "Leg": 80,
+        "Thickness": 2,
+        "Screw": "M4"
+       },
+       "margin": {
+        "id": "gate-min-wall",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      },
+      {
+       "index": 7,
+       "params": {
+        "Width": 100,
+        "Leg": 80,
+        "Thickness": 2,
+        "Screw": "M3"
+       },
+       "margin": {
+        "id": "gate-min-wall",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      }
+     ]
+    },
+    {
+     "assertion": "gate-bed",
+     "points": 20,
+     "phases": [
+      "corner",
+      "special",
+      "shrink"
+     ],
+     "worst": {
+      "index": 1,
+      "params": {
+       "Width": 24,
+       "Leg": 20,
+       "Thickness": 2,
+       "Screw": "M3"
+      },
+      "signed": null,
+      "scale": 1,
+      "detail": "not evaluated: the run failed"
+     },
+     "examples": [
+      {
+       "index": 1,
+       "params": {
+        "Width": 24,
+        "Leg": 20,
+        "Thickness": 2,
+        "Screw": "M3"
+       },
+       "margin": {
+        "id": "gate-bed",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      },
+      {
+       "index": 3,
+       "params": {
+        "Width": 100,
+        "Leg": 20,
+        "Thickness": 2,
+        "Screw": "M5"
+       },
+       "margin": {
+        "id": "gate-bed",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      },
+      {
+       "index": 5,
+       "params": {
+        "Width": 24,
+        "Leg": 80,
+        "Thickness": 2,
+        "Screw": "M4"
+       },
+       "margin": {
+        "id": "gate-bed",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      },
+      {
+       "index": 7,
+       "params": {
+        "Width": 100,
+        "Leg": 80,
+        "Thickness": 2,
+        "Screw": "M3"
+       },
+       "margin": {
+        "id": "gate-bed",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "not evaluated: the run failed"
+       }
+      }
+     ]
+    }
+   ],
+   "shrunk": {
+    "params": {
+     "Width": 40,
+     "Leg": 35,
+     "Thickness": 2,
+     "Screw": "M3"
+    },
+    "fresh": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "size-x",
+     "size-y",
+     "size-z",
+     "faces",
+     "edges",
+     "gate-watertight",
+     "gate-min-wall",
+     "gate-bed"
+    ],
+    "margins": [
+     {
+      "id": "builds",
+      "pass": false,
+      "signed": null,
+      "scale": 1,
+      "detail": "KERNEL_FILLET_FAILED: fillet failed: operation failed (the kernel named no edge; elements lists the 7 edges asked for)"
+     },
+     {
+      "id": "status",
+      "pass": false,
+      "signed": null,
+      "scale": 1,
+      "detail": "not evaluated: the run failed"
+     },
+     {
+      "id": "valid",
+      "pass": false,
+      "signed": null,
+      "scale": 1,
+      "detail": "not evaluated: the run failed"
+     },
+     {
+      "id": "one-solid",
+      "pass": false,
+      "signed": null,
+      "scale": 1,
+      "detail": "not evaluated: the run failed"
+     },
+     {
+      "id": "size-x",
+      "pass": false,
+      "signed": null,
+      "scale": 1,
+      "detail": "not evaluated: the run failed"
+     },
+     {
+      "id": "size-y",
+      "pass": false,
+      "signed": null,
+      "scale": 1,
+      "detail": "not evaluated: the run failed"
+     },
+     {
+      "id": "size-z",
+      "pass": false,
+      "signed": null,
+      "scale": 1,
+      "detail": "not evaluated: the run failed"
+     },
+     {
+      "id": "faces",
+      "pass": false,
+      "signed": null,
+      "scale": 1,
+      "detail": "not evaluated: the run failed"
+     },
+     {
+      "id": "edges",
+      "pass": false,
+      "signed": null,
+      "scale": 1,
+      "detail": "not evaluated: the run failed"
+     },
+     {
+      "id": "gate-watertight",
+      "pass": false,
+      "signed": null,
+      "scale": 1,
+      "detail": "not evaluated: the run failed"
+     },
+     {
+      "id": "gate-min-wall",
+      "pass": false,
+      "signed": null,
+      "scale": 1,
+      "detail": "not evaluated: the run failed"
+     },
+     {
+      "id": "gate-overhang",
+      "pass": false,
+      "signed": null,
+      "scale": 1,
+      "detail": "not evaluated: the run failed"
+     },
+     {
+      "id": "gate-bed",
+      "pass": false,
+      "signed": null,
+      "scale": 1,
+      "detail": "not evaluated: the run failed"
+     }
+    ]
+   },
+   "line": {
+    "lo": 0.9375,
+    "hi": 1,
+    "pass": {
+     "Width": 40,
+     "Leg": 35,
+     "Thickness": 4,
+     "Screw": "M3"
+    },
+    "fail": {
+     "Width": 40,
+     "Leg": 35,
+     "Thickness": 2,
+     "Screw": "M3"
+    }
+   },
+   "events": [
+    {
+     "kind": "axis",
+     "axis": "Width",
+     "between": [
+      16,
+      6
+     ],
+     "from": {
+      "Width": 24,
+      "Leg": 20,
+      "Thickness": 10,
+      "Screw": "M5"
+     },
+     "to": {
+      "Width": 100,
+      "Leg": 20,
+      "Thickness": 10,
+      "Screw": "M5"
+     },
+     "changed": [
+      "gates: bracket:bed+watertight -> bracket:bed+min_wall+watertight"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Width",
+     "between": [
+      20,
+      10
+     ],
+     "from": {
+      "Width": 24,
+      "Leg": 80,
+      "Thickness": 10,
+      "Screw": "M5"
+     },
+     "to": {
+      "Width": 100,
+      "Leg": 80,
+      "Thickness": 10,
+      "Screw": "M5"
+     },
+     "changed": [
+      "gates: bracket:bed+watertight -> bracket:bed+min_wall+watertight"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Leg",
+     "between": [
+      6,
+      10
+     ],
+     "from": {
+      "Width": 100,
+      "Leg": 20,
+      "Thickness": 10,
+      "Screw": "M5"
+     },
+     "to": {
+      "Width": 100,
+      "Leg": 80,
+      "Thickness": 10,
+      "Screw": "M5"
+     },
+     "changed": [
+      "counts: bracket:1/26/84 -> bracket:1/26/64"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Leg",
+     "between": [
+      16,
+      20
+     ],
+     "from": {
+      "Width": 24,
+      "Leg": 20,
+      "Thickness": 10,
+      "Screw": "M5"
+     },
+     "to": {
+      "Width": 24,
+      "Leg": 80,
+      "Thickness": 10,
+      "Screw": "M5"
+     },
+     "changed": [
+      "counts: bracket:1/26/84 -> bracket:1/26/64"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Thickness",
+     "between": [
+      29,
+      0
+     ],
+     "from": {
+      "Width": 40,
+      "Leg": 35,
+      "Thickness": 2,
+      "Screw": "M4"
+     },
+     "to": {
+      "Width": 40,
+      "Leg": 35,
+      "Thickness": 4,
+      "Screw": "M4"
+     },
+     "changed": [
+      "build error:KERNEL_FILLET_FAILED vs ok",
+      "counts:  -> bracket:1/26/64",
+      "fits:  -> ",
+      "gates:  -> bracket:bed+min_wall+watertight",
+      "status: undefined -> \"ok\""
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Thickness",
+     "between": [
+      1,
+      53
+     ],
+     "from": {
+      "Width": 24,
+      "Leg": 20,
+      "Thickness": 2,
+      "Screw": "M3"
+     },
+     "to": {
+      "Width": 24,
+      "Leg": 20,
+      "Thickness": 3,
+      "Screw": "M3"
+     },
+     "changed": [
+      "build error:KERNEL_FILLET_FAILED vs ok",
+      "counts:  -> bracket:1/26/64",
+      "fits:  -> ",
+      "gates:  -> bracket:bed+min_wall+watertight",
+      "status: undefined -> \"ok\""
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Thickness",
+     "between": [
+      15,
+      2
+     ],
+     "from": {
+      "Width": 100,
+      "Leg": 80,
+      "Thickness": 2,
+      "Screw": "M4"
+     },
+     "to": {
+      "Width": 100,
+      "Leg": 80,
+      "Thickness": 10,
+      "Screw": "M4"
+     },
+     "changed": [
+      "build error:KERNEL_FILLET_FAILED vs ok",
+      "counts:  -> bracket:1/26/64",
+      "fits:  -> ",
+      "gates:  -> bracket:bed+min_wall+watertight",
+      "status: undefined -> \"ok\""
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Thickness",
+     "between": [
+      3,
+      6
+     ],
+     "from": {
+      "Width": 100,
+      "Leg": 20,
+      "Thickness": 2,
+      "Screw": "M5"
+     },
+     "to": {
+      "Width": 100,
+      "Leg": 20,
+      "Thickness": 10,
+      "Screw": "M5"
+     },
+     "changed": [
+      "build error:KERNEL_FILLET_FAILED vs ok",
+      "counts:  -> bracket:1/26/84",
+      "fits:  -> ",
+      "gates:  -> bracket:bed+min_wall+watertight",
+      "status: undefined -> \"ok\""
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Thickness",
+     "between": [
+      21,
+      4
+     ],
+     "from": {
+      "Width": 24,
+      "Leg": 80,
+      "Thickness": 2,
+      "Screw": "M3"
+     },
+     "to": {
+      "Width": 24,
+      "Leg": 80,
+      "Thickness": 10,
+      "Screw": "M3"
+     },
+     "changed": [
+      "build error:KERNEL_FILLET_FAILED vs ok",
+      "counts:  -> bracket:1/26/64",
+      "fits:  -> ",
+      "gates:  -> bracket:bed+min_wall+watertight",
+      "status: undefined -> \"ok\""
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Thickness",
+     "between": [
+      5,
+      12
+     ],
+     "from": {
+      "Width": 24,
+      "Leg": 80,
+      "Thickness": 2,
+      "Screw": "M4"
+     },
+     "to": {
+      "Width": 24,
+      "Leg": 80,
+      "Thickness": 10,
+      "Screw": "M4"
+     },
+     "changed": [
+      "build error:KERNEL_FILLET_FAILED vs ok",
+      "counts:  -> bracket:1/26/64",
+      "fits:  -> ",
+      "gates:  -> bracket:bed+min_wall+watertight",
+      "status: undefined -> \"ok\""
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Thickness",
+     "between": [
+      7,
+      18
+     ],
+     "from": {
+      "Width": 100,
+      "Leg": 80,
+      "Thickness": 2,
+      "Screw": "M3"
+     },
+     "to": {
+      "Width": 100,
+      "Leg": 80,
+      "Thickness": 10,
+      "Screw": "M3"
+     },
+     "changed": [
+      "build error:KERNEL_FILLET_FAILED vs ok",
+      "counts:  -> bracket:1/26/64",
+      "fits:  -> ",
+      "gates:  -> bracket:bed+min_wall+watertight",
+      "status: undefined -> \"ok\""
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Thickness",
+     "between": [
+      9,
+      8
+     ],
+     "from": {
+      "Width": 24,
+      "Leg": 20,
+      "Thickness": 2,
+      "Screw": "M4"
+     },
+     "to": {
+      "Width": 24,
+      "Leg": 20,
+      "Thickness": 10,
+      "Screw": "M4"
+     },
+     "changed": [
+      "build error:KERNEL_FILLET_FAILED vs ok",
+      "counts:  -> bracket:1/26/64",
+      "fits:  -> ",
+      "gates:  -> bracket:bed+min_wall+watertight",
+      "status: undefined -> \"ok\""
+     ]
+    }
+   ],
+   "events_total": 24
+  },
+  {
+   "id": "enclosure",
+   "statement": "holds at 64 points under this model (apart from 2 nominal failure(s))",
+   "nominal_failures": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "counterexamples": 0,
+   "by_assertion": [],
+   "shrunk": null,
+   "line": null,
+   "events": [],
+   "events_total": 0
+  },
+  {
+   "id": "flange",
+   "statement": "counterexample: 20 of 64 points fail an assertion that passes at nominal",
+   "nominal_failures": [],
+   "counterexamples": 20,
+   "by_assertion": [
+    {
+     "assertion": "size-x",
+     "points": 16,
+     "phases": [
+      "corner",
+      "special",
+      "shrink",
+      "bisect"
+     ],
+     "worst": {
+      "index": 4,
+      "params": {
+       "Diameter": 50,
+       "Thickness": 20,
+       "Bolt holes": 6
+      },
+      "signed": -0.2052219999999968,
+      "scale": 0.05,
+      "detail": "size_x of assembly = 49.793778, expected = 50 (tol abs 0.001)"
+     },
+     "examples": [
+      {
+       "index": 1,
+       "params": {
+        "Diameter": 50,
+        "Thickness": 4,
+        "Bolt holes": 3
+       },
+       "margin": {
+        "id": "size-x",
+        "pass": false,
+        "signed": -0.1021109999999984,
+        "scale": 0.05,
+        "detail": "size_x of assembly = 49.896889, expected = 50 (tol abs 0.001)"
+       }
+      },
+      {
+       "index": 4,
+       "params": {
+        "Diameter": 50,
+        "Thickness": 20,
+        "Bolt holes": 6
+       },
+       "margin": {
+        "id": "size-x",
+        "pass": false,
+        "signed": -0.2052219999999968,
+        "scale": 0.05,
+        "detail": "size_x of assembly = 49.793778, expected = 50 (tol abs 0.001)"
+       }
+      },
+      {
+       "index": 5,
+       "params": {
+        "Diameter": 50,
+        "Thickness": 4,
+        "Bolt holes": 7
+       },
+       "margin": {
+        "id": "size-x",
+        "pass": false,
+        "signed": -0.1021109999999984,
+        "scale": 0.05,
+        "detail": "size_x of assembly = 49.896889, expected = 50 (tol abs 0.001)"
+       }
+      },
+      {
+       "index": 8,
+       "params": {
+        "Diameter": 50,
+        "Thickness": 20,
+        "Bolt holes": 10
+       },
+       "margin": {
+        "id": "size-x",
+        "pass": false,
+        "signed": -0.2052219999999968,
+        "scale": 0.05,
+        "detail": "size_x of assembly = 49.793778, expected = 50 (tol abs 0.001)"
+       }
+      }
+     ]
+    },
+    {
+     "assertion": "faces",
+     "points": 16,
+     "phases": [
+      "corner",
+      "special",
+      "shrink",
+      "bisect"
+     ],
+     "worst": {
+      "index": 9,
+      "params": {
+       "Diameter": 50,
+       "Thickness": 4,
+       "Bolt holes": 11
+      },
+      "signed": -10,
+      "scale": 1,
+      "detail": "faces of flange = 30, expected = 20"
+     },
+     "examples": [
+      {
+       "index": 1,
+       "params": {
+        "Diameter": 50,
+        "Thickness": 4,
+        "Bolt holes": 3
+       },
+       "margin": {
+        "id": "faces",
+        "pass": false,
+        "signed": -2,
+        "scale": 1,
+        "detail": "faces of flange = 14, expected = 12"
+       }
+      },
+      {
+       "index": 4,
+       "params": {
+        "Diameter": 50,
+        "Thickness": 20,
+        "Bolt holes": 6
+       },
+       "margin": {
+        "id": "faces",
+        "pass": false,
+        "signed": -5,
+        "scale": 1,
+        "detail": "faces of flange = 20, expected = 15"
+       }
+      },
+      {
+       "index": 5,
+       "params": {
+        "Diameter": 50,
+        "Thickness": 4,
+        "Bolt holes": 7
+       },
+       "margin": {
+        "id": "faces",
+        "pass": false,
+        "signed": -6,
+        "scale": 1,
+        "detail": "faces of flange = 22, expected = 16"
+       }
+      },
+      {
+       "index": 8,
+       "params": {
+        "Diameter": 50,
+        "Thickness": 20,
+        "Bolt holes": 10
+       },
+       "margin": {
+        "id": "faces",
+        "pass": false,
+        "signed": -9,
+        "scale": 1,
+        "detail": "faces of flange = 28, expected = 19"
+       }
+      }
+     ]
+    },
+    {
+     "assertion": "edges",
+     "points": 16,
+     "phases": [
+      "corner",
+      "special",
+      "shrink",
+      "bisect"
+     ],
+     "worst": {
+      "index": 9,
+      "params": {
+       "Diameter": 50,
+       "Thickness": 4,
+       "Bolt holes": 11
+      },
+      "signed": -30,
+      "scale": 1,
+      "detail": "edges of flange = 77, expected = 47"
+     },
+     "examples": [
+      {
+       "index": 1,
+       "params": {
+        "Diameter": 50,
+        "Thickness": 4,
+        "Bolt holes": 3
+       },
+       "margin": {
+        "id": "edges",
+        "pass": false,
+        "signed": -6,
+        "scale": 1,
+        "detail": "edges of flange = 29, expected = 23"
+       }
+      },
+      {
+       "index": 4,
+       "params": {
+        "Diameter": 50,
+        "Thickness": 20,
+        "Bolt holes": 6
+       },
+       "margin": {
+        "id": "edges",
+        "pass": false,
+        "signed": -15,
+        "scale": 1,
+        "detail": "edges of flange = 47, expected = 32"
+       }
+      },
+      {
+       "index": 5,
+       "params": {
+        "Diameter": 50,
+        "Thickness": 4,
+        "Bolt holes": 7
+       },
+       "margin": {
+        "id": "edges",
+        "pass": false,
+        "signed": -18,
+        "scale": 1,
+        "detail": "edges of flange = 53, expected = 35"
+       }
+      },
+      {
+       "index": 8,
+       "params": {
+        "Diameter": 50,
+        "Thickness": 20,
+        "Bolt holes": 10
+       },
+       "margin": {
+        "id": "edges",
+        "pass": false,
+        "signed": -27,
+        "scale": 1,
+        "detail": "edges of flange = 71, expected = 44"
+       }
+      }
+     ]
+    },
+    {
+     "assertion": "gate-min-wall",
+     "points": 20,
+     "phases": [
+      "corner",
+      "special",
+      "shrink",
+      "bisect"
+     ],
+     "worst": {
+      "index": 4,
+      "params": {
+       "Diameter": 50,
+       "Thickness": 20,
+       "Bolt holes": 6
+      },
+      "signed": -0.8350000000000001,
+      "scale": 0.04,
+      "detail": "thinnest wall 0.005 mm (fails: flange face:5 0.005)"
+     },
+     "examples": [
+      {
+       "index": 1,
+       "params": {
+        "Diameter": 50,
+        "Thickness": 4,
+        "Bolt holes": 3
+       },
+       "margin": {
+        "id": "gate-min-wall",
+        "pass": false,
+        "signed": -0.8230000000000001,
+        "scale": 0.04,
+        "detail": "thinnest wall 0.017 mm (fails: flange face:7 0.017)"
+       }
+      },
+      {
+       "index": 4,
+       "params": {
+        "Diameter": 50,
+        "Thickness": 20,
+        "Bolt holes": 6
+       },
+       "margin": {
+        "id": "gate-min-wall",
+        "pass": false,
+        "signed": -0.8350000000000001,
+        "scale": 0.04,
+        "detail": "thinnest wall 0.005 mm (fails: flange face:5 0.005)"
+       }
+      },
+      {
+       "index": 5,
+       "params": {
+        "Diameter": 50,
+        "Thickness": 4,
+        "Bolt holes": 7
+       },
+       "margin": {
+        "id": "gate-min-wall",
+        "pass": false,
+        "signed": -0.8230000000000001,
+        "scale": 0.04,
+        "detail": "thinnest wall 0.017 mm (fails: flange face:9 0.017)"
+       }
+      },
+      {
+       "index": 8,
+       "params": {
+        "Diameter": 50,
+        "Thickness": 20,
+        "Bolt holes": 10
+       },
+       "margin": {
+        "id": "gate-min-wall",
+        "pass": false,
+        "signed": -0.8350000000000001,
+        "scale": 0.04,
+        "detail": "thinnest wall 0.005 mm (fails: flange face:23 0.005)"
+       }
+      }
+     ]
+    },
+    {
+     "assertion": "size-y",
+     "points": 1,
+     "phases": [
+      "corner"
+     ],
+     "worst": {
+      "index": 22,
+      "params": {
+       "Diameter": 50,
+       "Thickness": 20,
+       "Bolt holes": 4
+      },
+      "signed": -0.2052219999999968,
+      "scale": 0.05,
+      "detail": "size_y of assembly = 49.793778, expected = 50 (tol abs 0.001)"
+     },
+     "examples": [
+      {
+       "index": 22,
+       "params": {
+        "Diameter": 50,
+        "Thickness": 20,
+        "Bolt holes": 4
+       },
+       "margin": {
+        "id": "size-y",
+        "pass": false,
+        "signed": -0.2052219999999968,
+        "scale": 0.05,
+        "detail": "size_y of assembly = 49.793778, expected = 50 (tol abs 0.001)"
+       }
+      }
+     ]
+    }
+   ],
+   "shrunk": {
+    "params": {
+     "Diameter": 50,
+     "Thickness": 8,
+     "Bolt holes": 5
+    },
+    "fresh": [
+     "size-x",
+     "faces",
+     "edges",
+     "gate-min-wall"
+    ],
+    "margins": [
+     {
+      "id": "size-x",
+      "pass": false,
+      "signed": -0.1021109999999984,
+      "scale": 0.05,
+      "detail": "size_x of assembly = 49.896889, expected = 50 (tol abs 0.001)"
+     },
+     {
+      "id": "faces",
+      "pass": false,
+      "signed": -4,
+      "scale": 1,
+      "detail": "faces of flange = 18, expected = 14"
+     },
+     {
+      "id": "edges",
+      "pass": false,
+      "signed": -12,
+      "scale": 1,
+      "detail": "edges of flange = 41, expected = 29"
+     },
+     {
+      "id": "gate-min-wall",
+      "pass": false,
+      "signed": -0.8300000000000001,
+      "scale": 0.04,
+      "detail": "thinnest wall 0.01 mm (fails: flange face:11 0.01)"
+     }
+    ]
+   },
+   "line": {
+    "lo": 0.76953125,
+    "hi": 0.78125,
+    "pass": {
+     "Diameter": 80,
+     "Thickness": 8,
+     "Bolt holes": 5
+    },
+    "fail": {
+     "Diameter": 50,
+     "Thickness": 8,
+     "Bolt holes": 5
+    }
+   },
+   "events": [
+    {
+     "kind": "axis",
+     "axis": "Diameter",
+     "between": [
+      25,
+      0
+     ],
+     "from": {
+      "Diameter": 50,
+      "Thickness": 8,
+      "Bolt holes": 6
+     },
+     "to": {
+      "Diameter": 80,
+      "Thickness": 8,
+      "Bolt holes": 6
+     },
+     "changed": [
+      "counts: flange:1/20/47 -> flange:1/15/32",
+      "gates: flange:bed+overhang+watertight -> flange:bed+min_wall+overhang+watertight"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Diameter",
+     "between": [
+      1,
+      50
+     ],
+     "from": {
+      "Diameter": 50,
+      "Thickness": 4,
+      "Bolt holes": 3
+     },
+     "to": {
+      "Diameter": 65,
+      "Thickness": 4,
+      "Bolt holes": 3
+     },
+     "changed": [
+      "counts: flange:1/14/29 -> flange:1/12/23",
+      "gates: flange:bed+overhang+watertight -> flange:bed+min_wall+overhang+watertight"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Diameter",
+     "between": [
+      22,
+      2
+     ],
+     "from": {
+      "Diameter": 50,
+      "Thickness": 20,
+      "Bolt holes": 4
+     },
+     "to": {
+      "Diameter": 160,
+      "Thickness": 20,
+      "Bolt holes": 4
+     },
+     "changed": [
+      "counts: flange:1/16/35 -> flange:1/13/26",
+      "gates: flange:bed+overhang+watertight -> flange:bed+min_wall+overhang+watertight"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Diameter",
+     "between": [
+      23,
+      3
+     ],
+     "from": {
+      "Diameter": 50,
+      "Thickness": 4,
+      "Bolt holes": 5
+     },
+     "to": {
+      "Diameter": 160,
+      "Thickness": 4,
+      "Bolt holes": 5
+     },
+     "changed": [
+      "counts: flange:1/18/41 -> flange:1/14/29",
+      "gates: flange:bed+overhang+watertight -> flange:bed+min_wall+overhang+watertight"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Diameter",
+     "between": [
+      4,
+      28
+     ],
+     "from": {
+      "Diameter": 50,
+      "Thickness": 20,
+      "Bolt holes": 6
+     },
+     "to": {
+      "Diameter": 80,
+      "Thickness": 20,
+      "Bolt holes": 6
+     },
+     "changed": [
+      "counts: flange:1/20/47 -> flange:1/15/32",
+      "gates: flange:bed+overhang+watertight -> flange:bed+min_wall+overhang+watertight"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Diameter",
+     "between": [
+      14,
+      27
+     ],
+     "from": {
+      "Diameter": 50,
+      "Thickness": 4,
+      "Bolt holes": 6
+     },
+     "to": {
+      "Diameter": 80,
+      "Thickness": 4,
+      "Bolt holes": 6
+     },
+     "changed": [
+      "counts: flange:1/20/47 -> flange:1/15/32",
+      "gates: flange:bed+overhang+watertight -> flange:bed+min_wall+overhang+watertight"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Diameter",
+     "between": [
+      49,
+      52
+     ],
+     "from": {
+      "Diameter": 50,
+      "Thickness": 8,
+      "Bolt holes": 3
+     },
+     "to": {
+      "Diameter": 65,
+      "Thickness": 8,
+      "Bolt holes": 3
+     },
+     "changed": [
+      "counts: flange:1/14/29 -> flange:1/12/23",
+      "gates: flange:bed+overhang+watertight -> flange:bed+min_wall+overhang+watertight"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Diameter",
+     "between": [
+      59,
+      58
+     ],
+     "from": {
+      "Diameter": 51.875,
+      "Thickness": 8,
+      "Bolt holes": 5
+     },
+     "to": {
+      "Diameter": 53.75,
+      "Thickness": 8,
+      "Bolt holes": 5
+     },
+     "changed": [
+      "counts: flange:1/18/41 -> flange:1/14/29"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Diameter",
+     "between": [
+      61,
+      63
+     ],
+     "from": {
+      "Diameter": 56.5625,
+      "Thickness": 8,
+      "Bolt holes": 5
+     },
+     "to": {
+      "Diameter": 56.914063,
+      "Thickness": 8,
+      "Bolt holes": 5
+     },
+     "changed": [
+      "gates: flange:bed+overhang+watertight -> flange:bed+min_wall+overhang+watertight"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Bolt holes",
+     "between": [
+      29,
+      30
+     ],
+     "from": {
+      "Diameter": 80,
+      "Thickness": 8,
+      "Bolt holes": 3
+     },
+     "to": {
+      "Diameter": 80,
+      "Thickness": 8,
+      "Bolt holes": 4
+     },
+     "changed": [
+      "counts: flange:1/12/23 -> flange:1/13/26"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Bolt holes",
+     "between": [
+      30,
+      31
+     ],
+     "from": {
+      "Diameter": 80,
+      "Thickness": 8,
+      "Bolt holes": 4
+     },
+     "to": {
+      "Diameter": 80,
+      "Thickness": 8,
+      "Bolt holes": 5
+     },
+     "changed": [
+      "counts: flange:1/13/26 -> flange:1/14/29"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Bolt holes",
+     "between": [
+      31,
+      0
+     ],
+     "from": {
+      "Diameter": 80,
+      "Thickness": 8,
+      "Bolt holes": 5
+     },
+     "to": {
+      "Diameter": 80,
+      "Thickness": 8,
+      "Bolt holes": 6
+     },
+     "changed": [
+      "counts: flange:1/14/29 -> flange:1/15/32"
+     ]
+    }
+   ],
+   "events_total": 39
+  },
+  {
+   "id": "hinge",
+   "statement": "holds at 64 points under this model (apart from 1 nominal failure(s))",
+   "nominal_failures": [
+    "gate-overhang-leaf"
+   ],
+   "counterexamples": 0,
+   "by_assertion": [],
+   "shrunk": null,
+   "line": null,
+   "events": [
+    {
+     "kind": "axis",
+     "axis": "Knuckles",
+     "between": [
+      15,
+      16
+     ],
+     "from": {
+      "Length": 60,
+      "Knuckles": 3
+     },
+     "to": {
+      "Length": 60,
+      "Knuckles": 4
+     },
+     "changed": [
+      "counts: leaf_b:1/22/52 -> leaf_b:1/34/82"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Knuckles",
+     "between": [
+      16,
+      0
+     ],
+     "from": {
+      "Length": 60,
+      "Knuckles": 4
+     },
+     "to": {
+      "Length": 60,
+      "Knuckles": 5
+     },
+     "changed": [
+      "counts: leaf_a:1/34/82 -> leaf_a:1/46/112"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Knuckles",
+     "between": [
+      0,
+      17
+     ],
+     "from": {
+      "Length": 60,
+      "Knuckles": 5
+     },
+     "to": {
+      "Length": 60,
+      "Knuckles": 6
+     },
+     "changed": [
+      "counts: leaf_b:1/34/82 -> leaf_b:1/46/112"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Knuckles",
+     "between": [
+      17,
+      18
+     ],
+     "from": {
+      "Length": 60,
+      "Knuckles": 6
+     },
+     "to": {
+      "Length": 60,
+      "Knuckles": 7
+     },
+     "changed": [
+      "counts: leaf_a:1/46/112 -> leaf_a:1/58/142"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Knuckles",
+     "between": [
+      18,
+      19
+     ],
+     "from": {
+      "Length": 60,
+      "Knuckles": 7
+     },
+     "to": {
+      "Length": 60,
+      "Knuckles": 8
+     },
+     "changed": [
+      "counts: leaf_b:1/46/112 -> leaf_b:1/58/142"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Knuckles",
+     "between": [
+      19,
+      20
+     ],
+     "from": {
+      "Length": 60,
+      "Knuckles": 8
+     },
+     "to": {
+      "Length": 60,
+      "Knuckles": 9
+     },
+     "changed": [
+      "counts: leaf_a:1/58/142 -> leaf_a:1/70/172"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Knuckles",
+     "between": [
+      1,
+      9
+     ],
+     "from": {
+      "Length": 30,
+      "Knuckles": 3
+     },
+     "to": {
+      "Length": 30,
+      "Knuckles": 4
+     },
+     "changed": [
+      "counts: leaf_b:1/22/52 -> leaf_b:1/34/82"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Knuckles",
+     "between": [
+      9,
+      3
+     ],
+     "from": {
+      "Length": 30,
+      "Knuckles": 4
+     },
+     "to": {
+      "Length": 30,
+      "Knuckles": 5
+     },
+     "changed": [
+      "counts: leaf_a:1/34/82 -> leaf_a:1/46/112"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Knuckles",
+     "between": [
+      3,
+      11
+     ],
+     "from": {
+      "Length": 30,
+      "Knuckles": 5
+     },
+     "to": {
+      "Length": 30,
+      "Knuckles": 6
+     },
+     "changed": [
+      "counts: leaf_b:1/34/82 -> leaf_b:1/46/112"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Knuckles",
+     "between": [
+      11,
+      5
+     ],
+     "from": {
+      "Length": 30,
+      "Knuckles": 6
+     },
+     "to": {
+      "Length": 30,
+      "Knuckles": 7
+     },
+     "changed": [
+      "counts: leaf_a:1/46/112 -> leaf_a:1/58/142"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Knuckles",
+     "between": [
+      5,
+      13
+     ],
+     "from": {
+      "Length": 30,
+      "Knuckles": 7
+     },
+     "to": {
+      "Length": 30,
+      "Knuckles": 8
+     },
+     "changed": [
+      "counts: leaf_b:1/46/112 -> leaf_b:1/58/142"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Knuckles",
+     "between": [
+      13,
+      7
+     ],
+     "from": {
+      "Length": 30,
+      "Knuckles": 8
+     },
+     "to": {
+      "Length": 30,
+      "Knuckles": 9
+     },
+     "changed": [
+      "counts: leaf_a:1/58/142 -> leaf_a:1/70/172"
+     ]
+    }
+   ],
+   "events_total": 18
+  },
+  {
+   "id": "knob",
+   "statement": "counterexample: 19 of 64 points fail an assertion that passes at nominal",
+   "nominal_failures": [
+    "gate-min-wall",
+    "gate-overhang"
+   ],
+   "counterexamples": 19,
+   "by_assertion": [
+    {
+     "assertion": "size-z",
+     "points": 19,
+     "phases": [
+      "corner",
+      "special",
+      "halton",
+      "shrink",
+      "bisect"
+     ],
+     "worst": {
+      "index": 1,
+      "params": {
+       "Radius": 10,
+       "Height": 10,
+       "Flutes": 0
+      },
+      "signed": -0.08417900000000011,
+      "scale": 0.01,
+      "detail": "size_z of assembly = 9.914821, expected = 10 (tol abs 0.001)"
+     },
+     "examples": [
+      {
+       "index": 1,
+       "params": {
+        "Radius": 10,
+        "Height": 10,
+        "Flutes": 0
+       },
+       "margin": {
+        "id": "size-z",
+        "pass": false,
+        "signed": -0.08417900000000011,
+        "scale": 0.01,
+        "detail": "size_z of assembly = 9.914821, expected = 10 (tol abs 0.001)"
+       }
+      },
+      {
+       "index": 3,
+       "params": {
+        "Radius": 30,
+        "Height": 10,
+        "Flutes": 2
+       },
+       "margin": {
+        "id": "size-z",
+        "pass": false,
+        "signed": -0.005138999999999228,
+        "scale": 0.01,
+        "detail": "size_z of assembly = 9.993861, expected = 10 (tol abs 0.001)"
+       }
+      },
+      {
+       "index": 5,
+       "params": {
+        "Radius": 10,
+        "Height": 10,
+        "Flutes": 4
+       },
+       "margin": {
+        "id": "size-z",
+        "pass": false,
+        "signed": -0.08417900000000011,
+        "scale": 0.01,
+        "detail": "size_z of assembly = 9.914821, expected = 10 (tol abs 0.001)"
+       }
+      },
+      {
+       "index": 7,
+       "params": {
+        "Radius": 30,
+        "Height": 10,
+        "Flutes": 6
+       },
+       "margin": {
+        "id": "size-z",
+        "pass": false,
+        "signed": -0.005138999999999228,
+        "scale": 0.01,
+        "detail": "size_z of assembly = 9.993861, expected = 10 (tol abs 0.001)"
+       }
+      }
+     ]
+    }
+   ],
+   "shrunk": {
+    "params": {
+     "Radius": 16,
+     "Height": 10,
+     "Flutes": 6
+    },
+    "fresh": [
+     "size-z"
+    ],
+    "margins": [
+     {
+      "id": "size-z",
+      "pass": false,
+      "signed": -0.02501899999999979,
+      "scale": 0.01,
+      "detail": "size_z of assembly = 9.973981, expected = 10 (tol abs 0.001)"
+     },
+     {
+      "id": "gate-min-wall",
+      "pass": false,
+      "signed": -0.7640000000000001,
+      "scale": 0.04,
+      "detail": "thinnest wall 0.076 mm (fails: knob face:22 0.076)"
+     },
+     {
+      "id": "gate-overhang",
+      "pass": false,
+      "signed": -46,
+      "scale": 1,
+      "detail": "overhang 90 degrees (knob face:22 90)"
+     }
+    ]
+   },
+   "line": {
+    "lo": 0.71875,
+    "hi": 0.75,
+    "pass": {
+     "Radius": 16,
+     "Height": 18,
+     "Flutes": 6
+    },
+    "fail": {
+     "Radius": 16,
+     "Height": 10,
+     "Flutes": 6
+    }
+   },
+   "events": [
+    {
+     "kind": "axis",
+     "axis": "Height",
+     "between": [
+      27,
+      0
+     ],
+     "from": {
+      "Radius": 16,
+      "Height": 10,
+      "Flutes": 12
+     },
+     "to": {
+      "Radius": 16,
+      "Height": 18,
+      "Flutes": 12
+     },
+     "changed": [
+      "counts: knob:1/45/106 -> knob:1/46/106"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Height",
+     "between": [
+      1,
+      51
+     ],
+     "from": {
+      "Radius": 10,
+      "Height": 10,
+      "Flutes": 0
+     },
+     "to": {
+      "Radius": 10,
+      "Height": 14,
+      "Flutes": 0
+     },
+     "changed": [
+      "counts: knob:1/9/21 -> knob:1/10/21"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Height",
+     "between": [
+      13,
+      25
+     ],
+     "from": {
+      "Radius": 10,
+      "Height": 10,
+      "Flutes": 12
+     },
+     "to": {
+      "Radius": 10,
+      "Height": 18,
+      "Flutes": 12
+     },
+     "changed": [
+      "counts: knob:1/45/106 -> knob:1/46/106"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Height",
+     "between": [
+      48,
+      53
+     ],
+     "from": {
+      "Radius": 16,
+      "Height": 10,
+      "Flutes": 0
+     },
+     "to": {
+      "Radius": 16,
+      "Height": 14,
+      "Flutes": 0
+     },
+     "changed": [
+      "counts: knob:1/9/21 -> knob:1/10/21"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Height",
+     "between": [
+      58,
+      63
+     ],
+     "from": {
+      "Radius": 16,
+      "Height": 12,
+      "Flutes": 6
+     },
+     "to": {
+      "Radius": 16,
+      "Height": 12.25,
+      "Flutes": 6
+     },
+     "changed": [
+      "counts: knob:1/27/64 -> knob:1/28/64"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Flutes",
+     "between": [
+      29,
+      30
+     ],
+     "from": {
+      "Radius": 16,
+      "Height": 18,
+      "Flutes": 0
+     },
+     "to": {
+      "Radius": 16,
+      "Height": 18,
+      "Flutes": 1
+     },
+     "changed": [
+      "counts: knob:1/10/21 -> knob:1/13/29",
+      "gates: knob:bed+min_wall+watertight -> knob:bed+watertight"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Flutes",
+     "between": [
+      30,
+      31
+     ],
+     "from": {
+      "Radius": 16,
+      "Height": 18,
+      "Flutes": 1
+     },
+     "to": {
+      "Radius": 16,
+      "Height": 18,
+      "Flutes": 2
+     },
+     "changed": [
+      "counts: knob:1/13/29 -> knob:1/16/36"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Flutes",
+     "between": [
+      31,
+      32
+     ],
+     "from": {
+      "Radius": 16,
+      "Height": 18,
+      "Flutes": 2
+     },
+     "to": {
+      "Radius": 16,
+      "Height": 18,
+      "Flutes": 3
+     },
+     "changed": [
+      "counts: knob:1/16/36 -> knob:1/19/43"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Flutes",
+     "between": [
+      32,
+      55
+     ],
+     "from": {
+      "Radius": 16,
+      "Height": 18,
+      "Flutes": 3
+     },
+     "to": {
+      "Radius": 16,
+      "Height": 18,
+      "Flutes": 6
+     },
+     "changed": [
+      "counts: knob:1/19/43 -> knob:1/28/64"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Flutes",
+     "between": [
+      55,
+      0
+     ],
+     "from": {
+      "Radius": 16,
+      "Height": 18,
+      "Flutes": 6
+     },
+     "to": {
+      "Radius": 16,
+      "Height": 18,
+      "Flutes": 12
+     },
+     "changed": [
+      "counts: knob:1/28/64 -> knob:1/46/106"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Flutes",
+     "between": [
+      1,
+      5
+     ],
+     "from": {
+      "Radius": 10,
+      "Height": 10,
+      "Flutes": 0
+     },
+     "to": {
+      "Radius": 10,
+      "Height": 10,
+      "Flutes": 4
+     },
+     "changed": [
+      "counts: knob:1/9/21 -> knob:1/21/50",
+      "gates: knob:bed+min_wall+watertight -> knob:bed+watertight"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Flutes",
+     "between": [
+      5,
+      52
+     ],
+     "from": {
+      "Radius": 10,
+      "Height": 10,
+      "Flutes": 4
+     },
+     "to": {
+      "Radius": 10,
+      "Height": 10,
+      "Flutes": 6
+     },
+     "changed": [
+      "counts: knob:1/21/50 -> knob:1/27/64"
+     ]
+    }
+   ],
+   "events_total": 36
+  },
+  {
+   "id": "lid-interference",
+   "statement": "counterexample: 31 of 64 points fail an assertion that passes at nominal",
+   "nominal_failures": [],
+   "counterexamples": 31,
+   "by_assertion": [
+    {
+     "assertion": "status",
+     "points": 31,
+     "phases": [
+      "corner",
+      "special",
+      "halton",
+      "shrink",
+      "bisect"
+     ],
+     "worst": {
+      "index": 2,
+      "params": {
+       "Width": 150,
+       "Depth": 120,
+       "Height": 80,
+       "Clearance": 1
+      },
+      "signed": null,
+      "scale": 1,
+      "detail": "status ok, expected warning"
+     },
+     "examples": [
+      {
+       "index": 2,
+       "params": {
+        "Width": 150,
+        "Depth": 120,
+        "Height": 80,
+        "Clearance": 1
+       },
+       "margin": {
+        "id": "status",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "status ok, expected warning"
+       }
+      },
+      {
+       "index": 4,
+       "params": {
+        "Width": 40,
+        "Depth": 120,
+        "Height": 80,
+        "Clearance": 1
+       },
+       "margin": {
+        "id": "status",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "status ok, expected warning"
+       }
+      },
+      {
+       "index": 6,
+       "params": {
+        "Width": 150,
+        "Depth": 30,
+        "Height": 80,
+        "Clearance": 1
+       },
+       "margin": {
+        "id": "status",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "status ok, expected warning"
+       }
+      },
+      {
+       "index": 8,
+       "params": {
+        "Width": 40,
+        "Depth": 30,
+        "Height": 80,
+        "Clearance": 1
+       },
+       "margin": {
+        "id": "status",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "status ok, expected warning"
+       }
+      }
+     ]
+    },
+    {
+     "assertion": "clash",
+     "points": 31,
+     "phases": [
+      "corner",
+      "special",
+      "halton",
+      "shrink",
+      "bisect"
+     ],
+     "worst": {
+      "index": 2,
+      "params": {
+       "Width": 150,
+       "Depth": 120,
+       "Height": 80,
+       "Clearance": 1
+      },
+      "signed": null,
+      "scale": 1,
+      "detail": "0 clash fit(s) between lid / base, expected = 1"
+     },
+     "examples": [
+      {
+       "index": 2,
+       "params": {
+        "Width": 150,
+        "Depth": 120,
+        "Height": 80,
+        "Clearance": 1
+       },
+       "margin": {
+        "id": "clash",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "0 clash fit(s) between lid / base, expected = 1"
+       }
+      },
+      {
+       "index": 4,
+       "params": {
+        "Width": 40,
+        "Depth": 120,
+        "Height": 80,
+        "Clearance": 1
+       },
+       "margin": {
+        "id": "clash",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "0 clash fit(s) between lid / base, expected = 1"
+       }
+      },
+      {
+       "index": 6,
+       "params": {
+        "Width": 150,
+        "Depth": 30,
+        "Height": 80,
+        "Clearance": 1
+       },
+       "margin": {
+        "id": "clash",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "0 clash fit(s) between lid / base, expected = 1"
+       }
+      },
+      {
+       "index": 8,
+       "params": {
+        "Width": 40,
+        "Depth": 30,
+        "Height": 80,
+        "Clearance": 1
+       },
+       "margin": {
+        "id": "clash",
+        "pass": false,
+        "signed": null,
+        "scale": 1,
+        "detail": "0 clash fit(s) between lid / base, expected = 1"
+       }
+      }
+     ]
+    }
+   ],
+   "shrunk": {
+    "params": {
+     "Width": 70,
+     "Depth": 50,
+     "Height": 80,
+     "Clearance": 1
+    },
+    "fresh": [
+     "status",
+     "clash"
+    ],
+    "margins": [
+     {
+      "id": "status",
+      "pass": false,
+      "signed": null,
+      "scale": 1,
+      "detail": "status ok, expected warning"
+     },
+     {
+      "id": "clash",
+      "pass": false,
+      "signed": null,
+      "scale": 1,
+      "detail": "0 clash fit(s) between lid / base, expected = 1"
+     }
+    ]
+   },
+   "line": {
+    "lo": 0.1875,
+    "hi": 0.25,
+    "pass": {
+     "Width": 70,
+     "Depth": 50,
+     "Height": 30,
+     "Clearance": -0.3
+    },
+    "fail": {
+     "Width": 70,
+     "Depth": 50,
+     "Height": 80,
+     "Clearance": 1
+    }
+   },
+   "events": [
+    {
+     "kind": "axis",
+     "axis": "Clearance",
+     "between": [
+      0,
+      17
+     ],
+     "from": {
+      "Width": 70,
+      "Depth": 50,
+      "Height": 30,
+      "Clearance": -0.3
+     },
+     "to": {
+      "Width": 70,
+      "Depth": 50,
+      "Height": 30,
+      "Clearance": 0
+     },
+     "changed": [
+      "fits: base|lid|clash -> ",
+      "status: \"warning\" -> \"ok\""
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Clearance",
+     "between": [
+      1,
+      16
+     ],
+     "from": {
+      "Width": 40,
+      "Depth": 30,
+      "Height": 15,
+      "Clearance": -1
+     },
+     "to": {
+      "Width": 40,
+      "Depth": 30,
+      "Height": 15,
+      "Clearance": 1
+     },
+     "changed": [
+      "fits: base|lid|clash -> ",
+      "status: \"warning\" -> \"ok\""
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Clearance",
+     "between": [
+      51,
+      55
+     ],
+     "from": {
+      "Width": 150,
+      "Depth": 120,
+      "Height": 80,
+      "Clearance": -0.3
+     },
+     "to": {
+      "Width": 150,
+      "Depth": 120,
+      "Height": 80,
+      "Clearance": 0.35
+     },
+     "changed": [
+      "fits: base|lid|clash -> base|lid|clearance|extra",
+      "status: \"warning\" -> \"ok\""
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Clearance",
+     "between": [
+      55,
+      2
+     ],
+     "from": {
+      "Width": 150,
+      "Depth": 120,
+      "Height": 80,
+      "Clearance": 0.35
+     },
+     "to": {
+      "Width": 150,
+      "Depth": 120,
+      "Height": 80,
+      "Clearance": 1
+     },
+     "changed": [
+      "fits: base|lid|clearance|extra -> "
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Clearance",
+     "between": [
+      3,
+      14
+     ],
+     "from": {
+      "Width": 150,
+      "Depth": 30,
+      "Height": 15,
+      "Clearance": -1
+     },
+     "to": {
+      "Width": 150,
+      "Depth": 30,
+      "Height": 15,
+      "Clearance": 1
+     },
+     "changed": [
+      "fits: base|lid|clash -> ",
+      "status: \"warning\" -> \"ok\""
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Clearance",
+     "between": [
+      13,
+      4
+     ],
+     "from": {
+      "Width": 40,
+      "Depth": 120,
+      "Height": 80,
+      "Clearance": -1
+     },
+     "to": {
+      "Width": 40,
+      "Depth": 120,
+      "Height": 80,
+      "Clearance": 1
+     },
+     "changed": [
+      "fits: base|lid|clash -> ",
+      "status: \"warning\" -> \"ok\""
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Clearance",
+     "between": [
+      5,
+      12
+     ],
+     "from": {
+      "Width": 40,
+      "Depth": 120,
+      "Height": 15,
+      "Clearance": -1
+     },
+     "to": {
+      "Width": 40,
+      "Depth": 120,
+      "Height": 15,
+      "Clearance": 1
+     },
+     "changed": [
+      "fits: base|lid|clash -> ",
+      "status: \"warning\" -> \"ok\""
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Clearance",
+     "between": [
+      11,
+      6
+     ],
+     "from": {
+      "Width": 150,
+      "Depth": 30,
+      "Height": 80,
+      "Clearance": -1
+     },
+     "to": {
+      "Width": 150,
+      "Depth": 30,
+      "Height": 80,
+      "Clearance": 1
+     },
+     "changed": [
+      "fits: base|lid|clash -> ",
+      "status: \"warning\" -> \"ok\""
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Clearance",
+     "between": [
+      7,
+      10
+     ],
+     "from": {
+      "Width": 150,
+      "Depth": 120,
+      "Height": 15,
+      "Clearance": -1
+     },
+     "to": {
+      "Width": 150,
+      "Depth": 120,
+      "Height": 15,
+      "Clearance": 1
+     },
+     "changed": [
+      "fits: base|lid|clash -> ",
+      "status: \"warning\" -> \"ok\""
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Clearance",
+     "between": [
+      9,
+      8
+     ],
+     "from": {
+      "Width": 40,
+      "Depth": 30,
+      "Height": 80,
+      "Clearance": -1
+     },
+     "to": {
+      "Width": 40,
+      "Depth": 30,
+      "Height": 80,
+      "Clearance": 1
+     },
+     "changed": [
+      "fits: base|lid|clash -> ",
+      "status: \"warning\" -> \"ok\""
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Clearance",
+     "between": [
+      21,
+      57
+     ],
+     "from": {
+      "Width": 70,
+      "Depth": 120,
+      "Height": 30,
+      "Clearance": -0.3
+     },
+     "to": {
+      "Width": 70,
+      "Depth": 120,
+      "Height": 30,
+      "Clearance": 1
+     },
+     "changed": [
+      "fits: base|lid|clash -> ",
+      "status: \"warning\" -> \"ok\""
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Clearance",
+     "between": [
+      23,
+      56
+     ],
+     "from": {
+      "Width": 70,
+      "Depth": 50,
+      "Height": 80,
+      "Clearance": -0.3
+     },
+     "to": {
+      "Width": 70,
+      "Depth": 50,
+      "Height": 80,
+      "Clearance": 1
+     },
+     "changed": [
+      "fits: base|lid|clash -> ",
+      "status: \"warning\" -> \"ok\""
+     ]
+    }
+   ],
+   "events_total": 14
+  },
+  {
+   "id": "phone-stand",
+   "statement": "holds at 64 points under this model (apart from 1 nominal failure(s))",
+   "nominal_failures": [
+    "gate-overhang"
+   ],
+   "counterexamples": 0,
+   "by_assertion": [],
+   "shrunk": null,
+   "line": null,
+   "events": [],
+   "events_total": 0
+  },
+  {
+   "id": "tapered-cup",
+   "statement": "counterexample: 9 of 64 points fail an assertion that passes at nominal",
+   "nominal_failures": [
+    "gate-overhang"
+   ],
+   "counterexamples": 9,
+   "by_assertion": [
+    {
+     "assertion": "gate-min-wall",
+     "points": 9,
+     "phases": [
+      "corner",
+      "special",
+      "halton",
+      "shrink",
+      "bisect"
+     ],
+     "worst": {
+      "index": 3,
+      "params": {
+       "Height": 120,
+       "Wall": 1.2
+      },
+      "signed": -0.30900000000000005,
+      "scale": 0.04,
+      "detail": "thinnest wall 0.531 mm (fails: cup face:7 0.531)"
+     },
+     "examples": [
+      {
+       "index": 1,
+       "params": {
+        "Height": 30,
+        "Wall": 1.2
+       },
+       "margin": {
+        "id": "gate-min-wall",
+        "pass": false,
+        "signed": -0.14700000000000013,
+        "scale": 0.04,
+        "detail": "thinnest wall 0.693 mm (fails: cup face:7 0.693)"
+       }
+      },
+      {
+       "index": 3,
+       "params": {
+        "Height": 120,
+        "Wall": 1.2
+       },
+       "margin": {
+        "id": "gate-min-wall",
+        "pass": false,
+        "signed": -0.30900000000000005,
+        "scale": 0.04,
+        "detail": "thinnest wall 0.531 mm (fails: cup face:7 0.531)"
+       }
+      },
+      {
+       "index": 7,
+       "params": {
+        "Height": 70,
+        "Wall": 1.2
+       },
+       "margin": {
+        "id": "gate-min-wall",
+        "pass": false,
+        "signed": -0.27100000000000013,
+        "scale": 0.04,
+        "detail": "thinnest wall 0.569 mm (fails: cup face:7 0.569)"
+       }
+      },
+      {
+       "index": 22,
+       "params": {
+        "Height": 98.3558,
+        "Wall": 1.266949
+       },
+       "margin": {
+        "id": "gate-min-wall",
+        "pass": false,
+        "signed": -0.20200000000000007,
+        "scale": 0.04,
+        "detail": "thinnest wall 0.638 mm (fails: cup face:7 0.638)"
+       }
+      }
+     ]
+    }
+   ],
+   "shrunk": {
+    "params": {
+     "Height": 65,
+     "Wall": 1.2
+    },
+    "fresh": [
+     "gate-min-wall"
+    ],
+    "margins": [
+     {
+      "id": "gate-min-wall",
+      "pass": false,
+      "signed": -0.2620000000000001,
+      "scale": 0.04,
+      "detail": "thinnest wall 0.578 mm (fails: cup face:7 0.578)"
+     },
+     {
+      "id": "gate-overhang",
+      "pass": false,
+      "signed": -46,
+      "scale": 1,
+      "detail": "overhang 90 degrees (cup face:5 90)"
+     }
+    ]
+   },
+   "line": {
+    "lo": 0.828125,
+    "hi": 0.875,
+    "pass": {
+     "Height": 70,
+     "Wall": 2.5
+    },
+    "fail": {
+     "Height": 65,
+     "Wall": 1.2
+    }
+   },
+   "events": [
+    {
+     "kind": "axis",
+     "axis": "Wall",
+     "between": [
+      7,
+      0
+     ],
+     "from": {
+      "Height": 70,
+      "Wall": 1.2
+     },
+     "to": {
+      "Height": 70,
+      "Wall": 2.5
+     },
+     "changed": [
+      "gates: cup:bed+watertight -> cup:bed+min_wall+watertight"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Wall",
+     "between": [
+      1,
+      49
+     ],
+     "from": {
+      "Height": 30,
+      "Wall": 1.2
+     },
+     "to": {
+      "Height": 30,
+      "Wall": 1.85
+     },
+     "changed": [
+      "gates: cup:bed+watertight -> cup:bed+min_wall+watertight"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Wall",
+     "between": [
+      3,
+      6
+     ],
+     "from": {
+      "Height": 120,
+      "Wall": 1.2
+     },
+     "to": {
+      "Height": 120,
+      "Wall": 2.5
+     },
+     "changed": [
+      "gates: cup:bed+watertight -> cup:bed+min_wall+watertight"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Wall",
+     "between": [
+      48,
+      52
+     ],
+     "from": {
+      "Height": 50,
+      "Wall": 1.2
+     },
+     "to": {
+      "Height": 50,
+      "Wall": 1.85
+     },
+     "changed": [
+      "gates: cup:bed+watertight -> cup:bed+min_wall+watertight"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Wall",
+     "between": [
+      51,
+      55
+     ],
+     "from": {
+      "Height": 60,
+      "Wall": 1.2
+     },
+     "to": {
+      "Height": 60,
+      "Wall": 1.85
+     },
+     "changed": [
+      "gates: cup:bed+watertight -> cup:bed+min_wall+watertight"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Wall",
+     "between": [
+      54,
+      56
+     ],
+     "from": {
+      "Height": 65,
+      "Wall": 1.2
+     },
+     "to": {
+      "Height": 65,
+      "Wall": 2.5
+     },
+     "changed": [
+      "gates: cup:bed+watertight -> cup:bed+min_wall+watertight"
+     ]
+    },
+    {
+     "kind": "line",
+     "between": [
+      63,
+      61
+     ],
+     "from": {
+      "Height": 65.859375,
+      "Wall": 1.423437
+     },
+     "to": {
+      "Height": 65.625,
+      "Wall": 1.3625
+     },
+     "changed": [
+      "gates: cup:bed+min_wall+watertight -> cup:bed+watertight"
+     ]
+    }
+   ],
+   "events_total": 7
+  },
+  {
+   "id": "vented-box",
+   "statement": "counterexample: 30 of 64 points fail an assertion that passes at nominal",
+   "nominal_failures": [
+    "gate-overhang"
+   ],
+   "counterexamples": 30,
+   "by_assertion": [
+    {
+     "assertion": "faces",
+     "points": 19,
+     "phases": [
+      "corner",
+      "special",
+      "halton",
+      "shrink",
+      "bisect"
+     ],
+     "worst": {
+      "index": 1,
+      "params": {
+       "Width": 60,
+       "Depth": 40,
+       "Height": 25
+      },
+      "signed": -49,
+      "scale": 1,
+      "detail": "faces of vented_box = 118, expected = 167"
+     },
+     "examples": [
+      {
+       "index": 1,
+       "params": {
+        "Width": 60,
+        "Depth": 40,
+        "Height": 25
+       },
+       "margin": {
+        "id": "faces",
+        "pass": false,
+        "signed": -49,
+        "scale": 1,
+        "detail": "faces of vented_box = 118, expected = 167"
+       }
+      },
+      {
+       "index": 3,
+       "params": {
+        "Width": 160,
+        "Depth": 40,
+        "Height": 25
+       },
+       "margin": {
+        "id": "faces",
+        "pass": false,
+        "signed": -37,
+        "scale": 1,
+        "detail": "faces of vented_box = 130, expected = 167"
+       }
+      },
+      {
+       "index": 5,
+       "params": {
+        "Width": 60,
+        "Depth": 120,
+        "Height": 25
+       },
+       "margin": {
+        "id": "faces",
+        "pass": false,
+        "signed": -49,
+        "scale": 1,
+        "detail": "faces of vented_box = 118, expected = 167"
+       }
+      },
+      {
+       "index": 7,
+       "params": {
+        "Width": 160,
+        "Depth": 120,
+        "Height": 25
+       },
+       "margin": {
+        "id": "faces",
+        "pass": false,
+        "signed": -37,
+        "scale": 1,
+        "detail": "faces of vented_box = 130, expected = 167"
+       }
+      }
+     ]
+    },
+    {
+     "assertion": "edges",
+     "points": 26,
+     "phases": [
+      "corner",
+      "special",
+      "halton",
+      "shrink",
+      "bisect"
+     ],
+     "worst": {
+      "index": 1,
+      "params": {
+       "Width": 60,
+       "Depth": 40,
+       "Height": 25
+      },
+      "signed": -120,
+      "scale": 1,
+      "detail": "edges of vented_box = 372, expected = 492"
+     },
+     "examples": [
+      {
+       "index": 1,
+       "params": {
+        "Width": 60,
+        "Depth": 40,
+        "Height": 25
+       },
+       "margin": {
+        "id": "edges",
+        "pass": false,
+        "signed": -120,
+        "scale": 1,
+        "detail": "edges of vented_box = 372, expected = 492"
+       }
+      },
+      {
+       "index": 3,
+       "params": {
+        "Width": 160,
+        "Depth": 40,
+        "Height": 25
+       },
+       "margin": {
+        "id": "edges",
+        "pass": false,
+        "signed": -108,
+        "scale": 1,
+        "detail": "edges of vented_box = 384, expected = 492"
+       }
+      },
+      {
+       "index": 4,
+       "params": {
+        "Width": 60,
+        "Depth": 120,
+        "Height": 80
+       },
+       "margin": {
+        "id": "edges",
+        "pass": false,
+        "signed": -48,
+        "scale": 1,
+        "detail": "edges of vented_box = 540, expected = 492"
+       }
+      },
+      {
+       "index": 5,
+       "params": {
+        "Width": 60,
+        "Depth": 120,
+        "Height": 25
+       },
+       "margin": {
+        "id": "edges",
+        "pass": false,
+        "signed": -120,
+        "scale": 1,
+        "detail": "edges of vented_box = 372, expected = 492"
+       }
+      }
+     ]
+    },
+    {
+     "assertion": "gate-min-wall",
+     "points": 16,
+     "phases": [
+      "corner",
+      "special",
+      "halton",
+      "shrink",
+      "bisect"
+     ],
+     "worst": {
+      "index": 47,
+      "params": {
+       "Width": 66.419638,
+       "Depth": 66.100806,
+       "Height": 79.001623
+      },
+      "signed": -0.8190000000000001,
+      "scale": 0.04,
+      "detail": "thinnest wall 0.021 mm (fails: vented_box face:21 0.021)"
+     },
+     "examples": [
+      {
+       "index": 1,
+       "params": {
+        "Width": 60,
+        "Depth": 40,
+        "Height": 25
+       },
+       "margin": {
+        "id": "gate-min-wall",
+        "pass": false,
+        "signed": -0.812,
+        "scale": 0.04,
+        "detail": "thinnest wall 0.028 mm (fails: vented_box face:16 0.028)"
+       }
+      },
+      {
+       "index": 3,
+       "params": {
+        "Width": 160,
+        "Depth": 40,
+        "Height": 25
+       },
+       "margin": {
+        "id": "gate-min-wall",
+        "pass": false,
+        "signed": -0.798,
+        "scale": 0.04,
+        "detail": "thinnest wall 0.042 mm (fails: vented_box face:5 0.042)"
+       }
+      },
+      {
+       "index": 5,
+       "params": {
+        "Width": 60,
+        "Depth": 120,
+        "Height": 25
+       },
+       "margin": {
+        "id": "gate-min-wall",
+        "pass": false,
+        "signed": -0.798,
+        "scale": 0.04,
+        "detail": "thinnest wall 0.042 mm (fails: vented_box face:16 0.042)"
+       }
+      },
+      {
+       "index": 7,
+       "params": {
+        "Width": 160,
+        "Depth": 120,
+        "Height": 25
+       },
+       "margin": {
+        "id": "gate-min-wall",
+        "pass": false,
+        "signed": -0.798,
+        "scale": 0.04,
+        "detail": "thinnest wall 0.042 mm (fails: vented_box face:5 0.042)"
+       }
+      }
+     ]
+    }
+   ],
+   "shrunk": {
+    "params": {
+     "Width": 90,
+     "Depth": 50,
+     "Height": 25
+    },
+    "fresh": [
+     "faces",
+     "edges",
+     "gate-min-wall"
+    ],
+    "margins": [
+     {
+      "id": "faces",
+      "pass": false,
+      "signed": -37,
+      "scale": 1,
+      "detail": "faces of vented_box = 130, expected = 167"
+     },
+     {
+      "id": "edges",
+      "pass": false,
+      "signed": -108,
+      "scale": 1,
+      "detail": "edges of vented_box = 384, expected = 492"
+     },
+     {
+      "id": "gate-min-wall",
+      "pass": false,
+      "signed": -0.812,
+      "scale": 0.04,
+      "detail": "thinnest wall 0.028 mm (fails: vented_box face:5 0.028)"
+     },
+     {
+      "id": "gate-overhang",
+      "pass": false,
+      "signed": -46,
+      "scale": 1,
+      "detail": "overhang 90 degrees (vented_box face:26 90)"
+     }
+    ]
+   },
+   "line": {
+    "lo": 0.5,
+    "hi": 0.515625,
+    "pass": {
+     "Width": 90,
+     "Depth": 60,
+     "Height": 40
+    },
+    "fail": {
+     "Width": 90,
+     "Depth": 50,
+     "Height": 25
+    }
+   },
+   "events": [
+    {
+     "kind": "axis",
+     "axis": "Width",
+     "between": [
+      9,
+      0
+     ],
+     "from": {
+      "Width": 60,
+      "Depth": 60,
+      "Height": 40
+     },
+     "to": {
+      "Width": 90,
+      "Depth": 60,
+      "Height": 40
+     },
+     "changed": [
+      "counts: vented_box:1/167/540 -> vented_box:1/167/492"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Width",
+     "between": [
+      1,
+      51
+     ],
+     "from": {
+      "Width": 60,
+      "Depth": 40,
+      "Height": 25
+     },
+     "to": {
+      "Width": 75,
+      "Depth": 40,
+      "Height": 25
+     },
+     "changed": [
+      "counts: vented_box:1/118/372 -> vented_box:1/130/392"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Width",
+     "between": [
+      51,
+      48
+     ],
+     "from": {
+      "Width": 75,
+      "Depth": 40,
+      "Height": 25
+     },
+     "to": {
+      "Width": 90,
+      "Depth": 40,
+      "Height": 25
+     },
+     "changed": [
+      "counts: vented_box:1/130/392 -> vented_box:1/130/384"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Width",
+     "between": [
+      4,
+      2
+     ],
+     "from": {
+      "Width": 60,
+      "Depth": 120,
+      "Height": 80
+     },
+     "to": {
+      "Width": 160,
+      "Depth": 120,
+      "Height": 80
+     },
+     "changed": [
+      "counts: vented_box:1/167/540 -> vented_box:1/167/492"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Width",
+     "between": [
+      5,
+      7
+     ],
+     "from": {
+      "Width": 60,
+      "Depth": 120,
+      "Height": 25
+     },
+     "to": {
+      "Width": 160,
+      "Depth": 120,
+      "Height": 25
+     },
+     "changed": [
+      "counts: vented_box:1/118/372 -> vented_box:1/130/384"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Width",
+     "between": [
+      8,
+      6
+     ],
+     "from": {
+      "Width": 60,
+      "Depth": 40,
+      "Height": 80
+     },
+     "to": {
+      "Width": 160,
+      "Depth": 40,
+      "Height": 80
+     },
+     "changed": [
+      "counts: vented_box:1/167/540 -> vented_box:1/167/492"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Width",
+     "between": [
+      50,
+      11
+     ],
+     "from": {
+      "Width": 60,
+      "Depth": 40,
+      "Height": 40
+     },
+     "to": {
+      "Width": 90,
+      "Depth": 40,
+      "Height": 40
+     },
+     "changed": [
+      "counts: vented_box:1/167/540 -> vented_box:1/167/492"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Width",
+     "between": [
+      49,
+      13
+     ],
+     "from": {
+      "Width": 60,
+      "Depth": 60,
+      "Height": 25
+     },
+     "to": {
+      "Width": 90,
+      "Depth": 60,
+      "Height": 25
+     },
+     "changed": [
+      "counts: vented_box:1/118/372 -> vented_box:1/130/384"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Width",
+     "between": [
+      52,
+      54
+     ],
+     "from": {
+      "Width": 60,
+      "Depth": 50,
+      "Height": 25
+     },
+     "to": {
+      "Width": 90,
+      "Depth": 50,
+      "Height": 25
+     },
+     "changed": [
+      "counts: vented_box:1/118/372 -> vented_box:1/130/384"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Width",
+     "between": [
+      53,
+      55
+     ],
+     "from": {
+      "Width": 60,
+      "Depth": 40,
+      "Height": 32.5
+     },
+     "to": {
+      "Width": 90,
+      "Depth": 40,
+      "Height": 32.5
+     },
+     "changed": [
+      "counts: vented_box:1/167/540 -> vented_box:1/167/492"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Height",
+     "between": [
+      13,
+      0
+     ],
+     "from": {
+      "Width": 90,
+      "Depth": 60,
+      "Height": 25
+     },
+     "to": {
+      "Width": 90,
+      "Depth": 60,
+      "Height": 40
+     },
+     "changed": [
+      "counts: vented_box:1/130/384 -> vented_box:1/167/492",
+      "gates: vented_box:bed+watertight -> vented_box:bed+min_wall+watertight"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Height",
+     "between": [
+      1,
+      53
+     ],
+     "from": {
+      "Width": 60,
+      "Depth": 40,
+      "Height": 25
+     },
+     "to": {
+      "Width": 60,
+      "Depth": 40,
+      "Height": 32.5
+     },
+     "changed": [
+      "counts: vented_box:1/118/372 -> vented_box:1/167/540",
+      "gates: vented_box:bed+watertight -> vented_box:bed+min_wall+watertight"
+     ]
+    }
+   ],
+   "events_total": 22
+  },
+  {
+   "id": "gear-blank",
+   "statement": "counterexample: 28 of 53 points fail an assertion that passes at nominal",
+   "nominal_failures": [],
+   "counterexamples": 28,
+   "by_assertion": [
+    {
+     "assertion": "size-x",
+     "points": 28,
+     "phases": [
+      "corner",
+      "halton",
+      "bisect"
+     ],
+     "worst": {
+      "index": 46,
+      "params": {
+       "Teeth": 9
+      },
+      "signed": -1.114268999999998,
+      "scale": 0.054,
+      "detail": "size_x of assembly = 52.884731, expected = 54 (tol abs 0.001)"
+     },
+     "examples": [
+      {
+       "index": 2,
+       "params": {
+        "Teeth": 60
+       },
+       "margin": {
+        "id": "size-x",
+        "pass": false,
+        "signed": -0.016767999999996674,
+        "scale": 0.054,
+        "detail": "size_x of assembly = 54.017768, expected = 54 (tol abs 0.001)"
+       }
+      },
+      {
+       "index": 3,
+       "params": {
+        "Teeth": 11
+       },
+       "margin": {
+        "id": "size-x",
+        "pass": false,
+        "signed": -0.6700910000000041,
+        "scale": 0.054,
+        "detail": "size_x of assembly = 53.328909, expected = 54 (tol abs 0.001)"
+       }
+      },
+      {
+       "index": 5,
+       "params": {
+        "Teeth": 25
+       },
+       "margin": {
+        "id": "size-x",
+        "pass": false,
+        "signed": -0.02390299999999479,
+        "scale": 0.054,
+        "detail": "size_x of assembly = 53.975097, expected = 54 (tol abs 0.001)"
+       }
+      },
+      {
+       "index": 6,
+       "params": {
+        "Teeth": 51
+       },
+       "margin": {
+        "id": "size-x",
+        "pass": false,
+        "signed": -0.04013100000000003,
+        "scale": 0.054,
+        "detail": "size_x of assembly = 54.041131, expected = 54 (tol abs 0.001)"
+       }
+      }
+     ]
+    }
+   ],
+   "shrunk": {
+    "params": {
+     "Teeth": 60
+    },
+    "fresh": [
+     "size-x"
+    ],
+    "margins": [
+     {
+      "id": "size-x",
+      "pass": false,
+      "signed": -0.016767999999996674,
+      "scale": 0.054,
+      "detail": "size_x of assembly = 54.017768, expected = 54 (tol abs 0.001)"
+     }
+    ]
+   },
+   "line": {
+    "lo": 0.75,
+    "hi": 0.765625,
+    "pass": {
+     "Teeth": 20
+    },
+    "fail": {
+     "Teeth": 60
+    }
+   },
+   "events": [
+    {
+     "kind": "axis",
+     "axis": "Teeth",
+     "between": [
+      1,
+      46
+     ],
+     "from": {
+      "Teeth": 8
+     },
+     "to": {
+      "Teeth": 9
+     },
+     "changed": [
+      "counts: gear:1/77/190 -> gear:1/85/210"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Teeth",
+     "between": [
+      46,
+      32
+     ],
+     "from": {
+      "Teeth": 9
+     },
+     "to": {
+      "Teeth": 10
+     },
+     "changed": [
+      "counts: gear:1/85/210 -> gear:1/93/230"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Teeth",
+     "between": [
+      32,
+      3
+     ],
+     "from": {
+      "Teeth": 10
+     },
+     "to": {
+      "Teeth": 11
+     },
+     "changed": [
+      "counts: gear:1/93/230 -> gear:1/101/250"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Teeth",
+     "between": [
+      3,
+      47
+     ],
+     "from": {
+      "Teeth": 11
+     },
+     "to": {
+      "Teeth": 12
+     },
+     "changed": [
+      "counts: gear:1/101/250 -> gear:1/109/270"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Teeth",
+     "between": [
+      47,
+      18
+     ],
+     "from": {
+      "Teeth": 12
+     },
+     "to": {
+      "Teeth": 13
+     },
+     "changed": [
+      "counts: gear:1/109/270 -> gear:1/117/290"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Teeth",
+     "between": [
+      18,
+      36
+     ],
+     "from": {
+      "Teeth": 13
+     },
+     "to": {
+      "Teeth": 14
+     },
+     "changed": [
+      "counts: gear:1/117/290 -> gear:1/125/310"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Teeth",
+     "between": [
+      36,
+      11
+     ],
+     "from": {
+      "Teeth": 14
+     },
+     "to": {
+      "Teeth": 15
+     },
+     "changed": [
+      "counts: gear:1/125/310 -> gear:1/133/330"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Teeth",
+     "between": [
+      11,
+      25
+     ],
+     "from": {
+      "Teeth": 15
+     },
+     "to": {
+      "Teeth": 16
+     },
+     "changed": [
+      "counts: gear:1/133/330 -> gear:1/141/350"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Teeth",
+     "between": [
+      25,
+      52
+     ],
+     "from": {
+      "Teeth": 16
+     },
+     "to": {
+      "Teeth": 17
+     },
+     "changed": [
+      "counts: gear:1/141/350 -> gear:1/149/370"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Teeth",
+     "between": [
+      52,
+      7
+     ],
+     "from": {
+      "Teeth": 17
+     },
+     "to": {
+      "Teeth": 18
+     },
+     "changed": [
+      "counts: gear:1/149/370 -> gear:1/157/390"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Teeth",
+     "between": [
+      7,
+      41
+     ],
+     "from": {
+      "Teeth": 18
+     },
+     "to": {
+      "Teeth": 19
+     },
+     "changed": [
+      "counts: gear:1/157/390 -> gear:1/165/410"
+     ]
+    },
+    {
+     "kind": "axis",
+     "axis": "Teeth",
+     "between": [
+      41,
+      0
+     ],
+     "from": {
+      "Teeth": 19
+     },
+     "to": {
+      "Teeth": 20
+     },
+     "changed": [
+      "counts: gear:1/165/410 -> gear:1/173/430"
+     ]
+    }
+   ],
+   "events_total": 61
+  },
+  {
+   "id": "pegboard-hook",
+   "statement": "holds at 64 points under this model (apart from 1 nominal failure(s))",
+   "nominal_failures": [
+    "gate-overhang"
+   ],
+   "counterexamples": 0,
+   "by_assertion": [],
+   "shrunk": null,
+   "line": null,
+   "events": [],
+   "events_total": 0
+  }
+ ],
+ "m5": [
+  {
+   "run": "w1-batch",
+   "files": [
+    "enclosure.brief.json"
+   ],
+   "wall_ms_including_pool_start": 101677,
+   "lane": "batch",
+   "workers": 1,
+   "budget": 64,
+   "seed": 1,
+   "platform": "linux-x64",
+   "node": "v24.22.1",
+   "enclosure": {
+    "wall_ms": 101651,
+    "worker_ms": 101191,
+    "points": 64,
+    "lane": "batch",
+    "workers": 1
+   },
+   "cert_hash": "1f34160722a79d973f756906dbb1e2ba2947f35d4f440a1383ce9f2b9226c841",
+   "same_as_main_cert": true
+  },
+  {
+   "run": "w4-batch",
+   "files": [
+    "enclosure.brief.json"
+   ],
+   "wall_ms_including_pool_start": 42059,
+   "lane": "batch",
+   "workers": 4,
+   "budget": 64,
+   "seed": 1,
+   "platform": "linux-x64",
+   "node": "v24.22.1",
+   "enclosure": {
+    "wall_ms": 42034,
+    "worker_ms": 108716,
+    "points": 64,
+    "lane": "batch",
+    "workers": 4
+   },
+   "cert_hash": "1f34160722a79d973f756906dbb1e2ba2947f35d4f440a1383ce9f2b9226c841",
+   "same_as_main_cert": true
+  },
+  {
+   "run": "w4-interactive",
+   "files": [
+    "enclosure.brief.json"
+   ],
+   "wall_ms_including_pool_start": 33781,
+   "lane": "interactive",
+   "workers": 4,
+   "budget": 64,
+   "seed": 1,
+   "platform": "linux-x64",
+   "node": "v24.22.1",
+   "enclosure": {
+    "wall_ms": 33752,
+    "worker_ms": 114579,
+    "points": 64,
+    "lane": "interactive",
+    "workers": 4
+   },
+   "cert_hash": "1f34160722a79d973f756906dbb1e2ba2947f35d4f440a1383ce9f2b9226c841",
+   "same_as_main_cert": true
+  }
+ ],
+ "certificate_hashes": {
+  "box-with-lid": "38fc65ea2b35565028686726bac0f180cbbc066c1a0a385dc9dac4603cbb7194",
+  "bracket": "07cb905a8ce959318d558bd92a63be3f5ff218863be373676174dccb07055792",
+  "c01-plate-center-hole": "24dced790b1eed68731fef9e79c3d14d35056278db0bb215787f87b9d777fc9f",
+  "c02-blind-pocket-safe": "f187f92fe8ec3f3f1d931253449372a94573db74e5d909fdd80ce6b92c632647",
+  "c03-fillet-safe": "4cc5b670d3f74c3fccc27bcf7306ae61737846ae52d17eae150c7f3bf58079d5",
+  "c04-bolt-circle-safe": "7461766c7a0080bb5c6bf041c2d752d469d29a209add173c80e453525e1b929c",
+  "c05-shuttle-post-safe": "1deb70492cd747dae6802d8b216a78fe18d5f90a22c056068b51cef008db3f7a",
+  "c06-slot-hole-safe": "1c9d9e4e28ca62e68f70286d8f95dddf44387285c2a6a5c9aa801e872ceda44e",
+  "c07-pin-bushing-safe": "d0350c6218b6061fd94e97b1a45d86204353aab52919dc9fb3db17f3a395b901",
+  "c08-vent-bool-safe": "8a58fd54af046b164bc21b98f125e510771175e422fba3b4ea4fcdc2de77aa87",
+  "c09-rotor-stop-safe": "c0a14dd3a855fdfbce46862a47937eb0ee3190a12d8d79e970ff488dc73eb1bb",
+  "c10-key-channel-safe": "1e8b7fd2d20b95d26ecdcd0d3f70d5af5607af06470dbf119d6286c2beb6a935",
+  "d01-plate-hole-pitch": "b933cc2ec5460388126bd7f9faa139c9bb4e7f4f1d72a6e7c069087a43f91a24",
+  "d02-blind-pocket": "5fcf57dc0f171859082ba18a4e8fc7290d05ba6b144b11e66f4b4f01f5831421",
+  "d03-fillet-corners": "d3bae037103ccd3f937e972939a4b9feb5922d5d49f265f0e310336c4b831ca4",
+  "d04-bolt-circle-count": "1350f7b35b4c2d648c1a7795fe1728ba9b728f532f133b92f7aeff06615d2b60",
+  "d05-shuttle-post": "3386c641e7c154833f34441cf6fd1f095728b3c16322723e82f2c642b6b486c0",
+  "d06-slot-near-hole": "c3de9146e069bd1046af0df95f16394c94e5665a1af43580dd8d4b78a2c8d8af",
+  "d07-pin-bushing": "3811ae886a655d189c9fc6a465ddbb5aca49e0de4d5f4973c06f98a3675bdcc8",
+  "d08-vent-bool": "46c0de5fb572824d6f932ee70967f18114e05e914ede1f87a964b343733d530e",
+  "d09-rotor-stop": "f7ec3a2d00ff51730a7094e28cbf760859df727efe9a3053267b948e967032a4",
+  "d10-screw-boss-choice": "356e0084128003a7103aa709c2167c30c8f5b439c0d9362b76aad7384c7247c4",
+  "d11-hole-diagonal": "9e00024e58485e42b6f232be6532cc798e932bae7f2704635e4934977d4c1d02",
+  "d12-swing-arm": "b172ccaa6c4a4a10404759c70a1dd063f8823b37918d1216517e580b5d83e10f",
+  "d13-key-drift": "95129dd54bce825216da122bdac69452c8665b3f2c76cc950265802b9608d86a",
+  "d14-side-port": "3616fc7e389b81bb2c4a78c9b1e37e923d45afd088176804c7250b20230b038b",
+  "d15-wall-boss": "e90110443b603054f797c506d1d87b2ef1b618774817472bab53f5fe56d078ef",
+  "enclosure": "1f34160722a79d973f756906dbb1e2ba2947f35d4f440a1383ce9f2b9226c841",
+  "flange": "1dbebad45faac77120e7dd1b8162e812c0705f40d59a7d2b280000be6bdc423d",
+  "gear-blank": "fd6b5f6a96b527df7b009d4950f37bd854e44d509c93d5ed1ce387f1ebaebb23",
+  "hinge": "6e79697bdd4234a0c3954fd3db16761035433630554d03b0b2442a73431473ee",
+  "knob": "5a0dca9b25692aea79ed87e9c49f12e31a805644a3dee2093a1290423a980a49",
+  "lid-interference": "57ec1dfa67fedbb53013cbf4139f355e8b70d527def90b3137a4f2096cc828bd",
+  "pegboard-hook": "849c0d7b4691df44a7efb73504e56882c1a3b0f65aef1704f3f980bccb148782",
+  "phone-stand": "da9fd59cb3f7ed5316862d7c95c54fd3200111120b2823d7a2508728581b1eb3",
+  "tapered-cup": "504da92f4034423bf3058100a4de780420edaa315717c2ea537c9d05dec6c551",
+  "vented-box": "6c8dd815cc4dfc51383a8a03f9ba1fdb43baaebf07fe9bc198448fb2d66def3a"
+ },
+ "kill": {
+  "m1_below_80": false,
+  "guided_minus_random_points": 12,
+  "guided_less_than_15_points_better": true,
+  "any_false_counterexample": false,
+  "m3_below_99": false
+ }
+}

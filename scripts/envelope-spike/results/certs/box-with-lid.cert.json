@@ -1,0 +1,9290 @@
+{
+ "certificate": "o3dj-envelope-cert/spike-0",
+ "brief": "box-with-lid",
+ "brief_hash": "71c9ed3e9f221ddeea3c9cafc73a6115cdf450906f9e205a1a442ce58afd8222",
+ "script_hash": "935cb53aa7f95d3d918f4c3b75017faf3c116cef0f3480d15afe5599ba35a362",
+ "inputs_hash": "9fed1496d38a3928ad5932f834eee4f750585230d12c25f69f3a1aa01d0b867b",
+ "engine": {
+  "occt_wasm": "5.8.1",
+  "node": "v24.22.1",
+  "analysis": "2"
+ },
+ "platform": "linux-x64",
+ "seed": 1,
+ "budget": 64,
+ "watch_mm": 2,
+ "verdict": "counterexample",
+ "statement": "counterexample: 35 of 64 points fail an assertion that passes at nominal",
+ "nominal_failures": [],
+ "counterexamples": [
+  1,
+  3,
+  5,
+  7,
+  9,
+  11,
+  13,
+  15,
+  17,
+  24,
+  27,
+  28,
+  29,
+  30,
+  34,
+  35,
+  36,
+  37,
+  41,
+  42,
+  43,
+  44,
+  45,
+  48,
+  49,
+  50,
+  52,
+  53,
+  54,
+  55,
+  56,
+  57,
+  58,
+  59,
+  60
+ ],
+ "shrunk": 56,
+ "line": {
+  "pass": 0,
+  "fail": 56,
+  "lo": 0.1875,
+  "hi": 0.25,
+  "points": [
+   {
+    "index": 0,
+    "t": 0
+   },
+   {
+    "index": 61,
+    "t": 0.0625
+   },
+   {
+    "index": 62,
+    "t": 0.125
+   },
+   {
+    "index": 63,
+    "t": 0.1875
+   },
+   {
+    "index": 58,
+    "t": 0.25
+   },
+   {
+    "index": 59,
+    "t": 0.5
+   },
+   {
+    "index": 60,
+    "t": 0.75
+   },
+   {
+    "index": 56,
+    "t": 1
+   }
+  ]
+ },
+ "events": [
+  {
+   "kind": "axis",
+   "axis": "Clearance",
+   "between": [
+    24,
+    17
+   ],
+   "from": {
+    "Width": 70,
+    "Depth": 50,
+    "Height": 30,
+    "Clearance": -1
+   },
+   "to": {
+    "Width": 70,
+    "Depth": 50,
+    "Height": 30,
+    "Clearance": 0
+   },
+   "changed": [
+    "fits: base|lid|clash -> ",
+    "status: \"warning\" -> \"ok\""
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Clearance",
+   "between": [
+    17,
+    0
+   ],
+   "from": {
+    "Width": 70,
+    "Depth": 50,
+    "Height": 30,
+    "Clearance": 0
+   },
+   "to": {
+    "Width": 70,
+    "Depth": 50,
+    "Height": 30,
+    "Clearance": 0.25
+   },
+   "changed": [
+    "fits:  -> base|lid|clearance|extra"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Clearance",
+   "between": [
+    55,
+    51
+   ],
+   "from": {
+    "Width": 40,
+    "Depth": 30,
+    "Height": 15,
+    "Clearance": -0.375
+   },
+   "to": {
+    "Width": 40,
+    "Depth": 30,
+    "Height": 15,
+    "Clearance": 0.25
+   },
+   "changed": [
+    "fits: base|lid|clash -> base|lid|clearance|extra",
+    "status: \"warning\" -> \"ok\""
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Clearance",
+   "between": [
+    15,
+    2
+   ],
+   "from": {
+    "Width": 150,
+    "Depth": 120,
+    "Height": 80,
+    "Clearance": -1
+   },
+   "to": {
+    "Width": 150,
+    "Depth": 120,
+    "Height": 80,
+    "Clearance": 1
+   },
+   "changed": [
+    "fits: base|lid|clash -> base|lid|clearance|extra",
+    "status: \"warning\" -> \"ok\""
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Clearance",
+   "between": [
+    3,
+    14
+   ],
+   "from": {
+    "Width": 150,
+    "Depth": 30,
+    "Height": 15,
+    "Clearance": -1
+   },
+   "to": {
+    "Width": 150,
+    "Depth": 30,
+    "Height": 15,
+    "Clearance": 1
+   },
+   "changed": [
+    "fits: base|lid|clash -> base|lid|clearance|extra",
+    "status: \"warning\" -> \"ok\""
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Clearance",
+   "between": [
+    13,
+    4
+   ],
+   "from": {
+    "Width": 40,
+    "Depth": 120,
+    "Height": 80,
+    "Clearance": -1
+   },
+   "to": {
+    "Width": 40,
+    "Depth": 120,
+    "Height": 80,
+    "Clearance": 1
+   },
+   "changed": [
+    "fits: base|lid|clash -> base|lid|clearance|extra",
+    "status: \"warning\" -> \"ok\""
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Clearance",
+   "between": [
+    5,
+    12
+   ],
+   "from": {
+    "Width": 40,
+    "Depth": 120,
+    "Height": 15,
+    "Clearance": -1
+   },
+   "to": {
+    "Width": 40,
+    "Depth": 120,
+    "Height": 15,
+    "Clearance": 1
+   },
+   "changed": [
+    "fits: base|lid|clash -> base|lid|clearance|extra",
+    "status: \"warning\" -> \"ok\""
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Clearance",
+   "between": [
+    11,
+    6
+   ],
+   "from": {
+    "Width": 150,
+    "Depth": 30,
+    "Height": 80,
+    "Clearance": -1
+   },
+   "to": {
+    "Width": 150,
+    "Depth": 30,
+    "Height": 80,
+    "Clearance": 1
+   },
+   "changed": [
+    "fits: base|lid|clash -> base|lid|clearance|extra",
+    "status: \"warning\" -> \"ok\""
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Clearance",
+   "between": [
+    7,
+    10
+   ],
+   "from": {
+    "Width": 150,
+    "Depth": 120,
+    "Height": 15,
+    "Clearance": -1
+   },
+   "to": {
+    "Width": 150,
+    "Depth": 120,
+    "Height": 15,
+    "Clearance": 1
+   },
+   "changed": [
+    "fits: base|lid|clash -> base|lid|clearance|extra",
+    "status: \"warning\" -> \"ok\""
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Clearance",
+   "between": [
+    9,
+    8
+   ],
+   "from": {
+    "Width": 40,
+    "Depth": 30,
+    "Height": 80,
+    "Clearance": -1
+   },
+   "to": {
+    "Width": 40,
+    "Depth": 30,
+    "Height": 80,
+    "Clearance": 1
+   },
+   "changed": [
+    "fits: base|lid|clash -> base|lid|clearance|extra",
+    "status: \"warning\" -> \"ok\""
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Clearance",
+   "between": [
+    57,
+    20
+   ],
+   "from": {
+    "Width": 70,
+    "Depth": 30,
+    "Height": 30,
+    "Clearance": -1
+   },
+   "to": {
+    "Width": 70,
+    "Depth": 30,
+    "Height": 30,
+    "Clearance": 0.25
+   },
+   "changed": [
+    "fits: base|lid|clash -> base|lid|clearance|extra",
+    "status: \"warning\" -> \"ok\""
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Clearance",
+   "between": [
+    56,
+    22
+   ],
+   "from": {
+    "Width": 70,
+    "Depth": 50,
+    "Height": 15,
+    "Clearance": -1
+   },
+   "to": {
+    "Width": 70,
+    "Depth": 50,
+    "Height": 15,
+    "Clearance": 0.25
+   },
+   "changed": [
+    "fits: base|lid|clash -> base|lid|clearance|extra",
+    "status: \"warning\" -> \"ok\""
+   ]
+  },
+  {
+   "kind": "line",
+   "between": [
+    63,
+    58
+   ],
+   "from": {
+    "Width": 70,
+    "Depth": 50,
+    "Height": 27.1875,
+    "Clearance": 0.015625
+   },
+   "to": {
+    "Width": 70,
+    "Depth": 50,
+    "Height": 26.25,
+    "Clearance": -0.0625
+   },
+   "changed": [
+    "fits: base|lid|clearance|extra -> base|lid|clash",
+    "status: \"ok\" -> \"warning\""
+   ]
+  }
+ ],
+ "smallest_margins": [
+  {
+   "id": "builds",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "status",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 1
+  },
+  {
+   "id": "valid",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "occurrences",
+   "signed": 0,
+   "scale": 1,
+   "normalized": 0,
+   "at": 0
+  },
+  {
+   "id": "definitions",
+   "signed": 0,
+   "scale": 1,
+   "normalized": 0,
+   "at": 0
+  },
+  {
+   "id": "no-clash",
+   "signed": -12.795277907014704,
+   "scale": 0.01,
+   "normalized": -1279.5277907014704,
+   "at": 7
+  },
+  {
+   "id": "lip-gap",
+   "signed": null,
+   "scale": 0.01,
+   "normalized": null,
+   "at": 1,
+   "censored": true
+  },
+  {
+   "id": "size-x",
+   "signed": 0.001,
+   "scale": 0.15,
+   "normalized": 0.006666666666666667,
+   "at": 2
+  },
+  {
+   "id": "size-y",
+   "signed": 0.001,
+   "scale": 0.12,
+   "normalized": 0.008333333333333333,
+   "at": 2
+  },
+  {
+   "id": "size-z",
+   "signed": 0.001,
+   "scale": 0.083,
+   "normalized": 0.012048192771084336,
+   "at": 2
+  },
+  {
+   "id": "gate-watertight-base",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "gate-min-wall-base",
+   "signed": 1.151,
+   "scale": 0.04,
+   "normalized": 28.775,
+   "at": 8
+  },
+  {
+   "id": "gate-overhang-base",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "gate-bed-base",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "gate-watertight-lid",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "gate-min-wall-lid",
+   "signed": 0.75,
+   "scale": 0.04,
+   "normalized": 18.75,
+   "at": 37
+  },
+  {
+   "id": "gate-overhang-lid",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "gate-bed-lid",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  }
+ ],
+ "coverage": {
+  "points": 64,
+  "phases": {
+   "nominal": 1,
+   "corner": 16,
+   "special": 8,
+   "halton": 23,
+   "shrink": 10,
+   "bisect": 6
+  },
+  "corners_planned": 16,
+  "special_planned": 9,
+  "axes": [
+   {
+    "name": "Width",
+    "min_seen": 40,
+    "max_seen": 150,
+    "min": 40,
+    "max": 150
+   },
+   {
+    "name": "Depth",
+    "min_seen": 30,
+    "max_seen": 120,
+    "min": 30,
+    "max": 120
+   },
+   {
+    "name": "Height",
+    "min_seen": 15,
+    "max_seen": 80,
+    "min": 15,
+    "max": 80
+   },
+   {
+    "name": "Clearance",
+    "min_seen": -1,
+    "max_seen": 1,
+    "min": -1,
+    "max": 1
+   }
+  ]
+ },
+ "limits": [
+  "Sampling is not proof: the brief was checked at the points listed under this model, never for all values. A thin band can hide between samples.",
+  "The gates are fdm.v1 rule checks on the kernel's geometry (watertight, 0.8 mm min_wall from rays, 45 degree overhang, bed), never a print simulation.",
+  "Fits are exact OCCT clash, contact and clearance checks within the fit watch distance; a pair with no line inside it is censored, not a measured pass.",
+  "Bit-identical replay is only claimed for the platform named here.",
+  "Fit watch distance 2 mm."
+ ],
+ "points": [
+  {
+   "index": 0,
+   "phase": "nominal",
+   "fresh": [],
+   "params": {
+    "Width": 70,
+    "Depth": 50,
+    "Height": 30,
+    "Clearance": 0.25
+   },
+   "ok": true,
+   "report_hash": "dec19c48908ef44ac517270b80091ed22c74b78a5eebe71aba51829efce480f5",
+   "signature_hash": "9251365651b7f1ac6ba8cd7dd6adf03a5d50701756ab1fe477e6391152b812cd",
+   "shape_hash": {
+    "base": "s1:5e2f3d1d3eb204a0",
+    "lid": "s1:1d550874546ae1ac"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 2,
+     "scale": 0.01,
+     "censored": true
+    },
+    {
+     "id": "lip-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.07
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.033
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.76,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 1,
+   "phase": "corner",
+   "fresh": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "params": {
+    "Width": 40,
+    "Depth": 30,
+    "Height": 15,
+    "Clearance": -1
+   },
+   "ok": true,
+   "report_hash": "5fe5d24d0df23e4033685984d7f85335b949b5d120c04c60391c816efc936704",
+   "signature_hash": "540c0c4cc4e47335d60f4a16a2befe8c9bf562cef857f1e2800e375c92ea6c62",
+   "shape_hash": {
+    "base": "s1:8c83c05f5ab83b30",
+    "lid": "s1:388ce0e6b4fdc210"
+   },
+   "failing": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -7.9095640882544025,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    },
+    {
+     "id": "lip-gap",
+     "pass": false,
+     "signed": null,
+     "scale": 0.01,
+     "censored": true,
+     "detail": "0 gap(s) = -1 (tol abs 0.001) between lid / base, expected = 1"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.03
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.018000000000000002
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.7509999999999999,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 2,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Width": 150,
+    "Depth": 120,
+    "Height": 80,
+    "Clearance": 1
+   },
+   "ok": true,
+   "report_hash": "2fba152d9c509023803f0b79cbda180c56f0e88b3f50f8cc1902429080326964",
+   "signature_hash": "9251365651b7f1ac6ba8cd7dd6adf03a5d50701756ab1fe477e6391152b812cd",
+   "shape_hash": {
+    "base": "s1:20adb6bb539f2800",
+    "lid": "s1:6c57b2e0f23d9bd1"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 2,
+     "scale": 0.01,
+     "censored": true
+    },
+    {
+     "id": "lip-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.15
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.12
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.083
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.76,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 3,
+   "phase": "corner",
+   "fresh": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "params": {
+    "Width": 150,
+    "Depth": 30,
+    "Height": 15,
+    "Clearance": -1
+   },
+   "ok": true,
+   "report_hash": "2e3c2b787bdbecf80c73c7c32182505baaf6303751ed29e3f858840b322a4aeb",
+   "signature_hash": "540c0c4cc4e47335d60f4a16a2befe8c9bf562cef857f1e2800e375c92ea6c62",
+   "shape_hash": {
+    "base": "s1:c71fb46142121808",
+    "lid": "s1:aa86a5d5390a1f5b"
+   },
+   "failing": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -11.119447154877072,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    },
+    {
+     "id": "lip-gap",
+     "pass": false,
+     "signed": null,
+     "scale": 0.01,
+     "censored": true,
+     "detail": "0 gap(s) = -1 (tol abs 0.001) between lid / base, expected = 1"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.15
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.03
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.018000000000000002
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.7509999999999999,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 4,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Width": 40,
+    "Depth": 120,
+    "Height": 80,
+    "Clearance": 1
+   },
+   "ok": true,
+   "report_hash": "d0acbefae26a62c9702d9014ee52b548b8e991ee329f5a653089cd1a97b3401b",
+   "signature_hash": "9251365651b7f1ac6ba8cd7dd6adf03a5d50701756ab1fe477e6391152b812cd",
+   "shape_hash": {
+    "base": "s1:44c7e7cdc7d359bf",
+    "lid": "s1:2f2b7810a937436d"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 2,
+     "scale": 0.01,
+     "censored": true
+    },
+    {
+     "id": "lip-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.12
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.083
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.76,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 5,
+   "phase": "corner",
+   "fresh": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "params": {
+    "Width": 40,
+    "Depth": 120,
+    "Height": 15,
+    "Clearance": -1
+   },
+   "ok": true,
+   "report_hash": "b78880b3a860345da37cf103d26a8975d4ed8acde4c52a0c6571e7ff28ad307e",
+   "signature_hash": "540c0c4cc4e47335d60f4a16a2befe8c9bf562cef857f1e2800e375c92ea6c62",
+   "shape_hash": {
+    "base": "s1:322f41207bfda1c3",
+    "lid": "s1:655f40ec37b9a908"
+   },
+   "failing": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -10.670187643074646,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    },
+    {
+     "id": "lip-gap",
+     "pass": false,
+     "signed": null,
+     "scale": 0.01,
+     "censored": true,
+     "detail": "0 gap(s) = -1 (tol abs 0.001) between lid / base, expected = 1"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.12
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.018000000000000002
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.7509999999999999,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 6,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Width": 150,
+    "Depth": 30,
+    "Height": 80,
+    "Clearance": 1
+   },
+   "ok": true,
+   "report_hash": "2cb72937e2b8e12085e17cb0bf21ae6e88e7351dac0fb37035264416c74e7941",
+   "signature_hash": "9251365651b7f1ac6ba8cd7dd6adf03a5d50701756ab1fe477e6391152b812cd",
+   "shape_hash": {
+    "base": "s1:29a7e7151431ab49",
+    "lid": "s1:61a3f42f18d0857d"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 2,
+     "scale": 0.01,
+     "censored": true
+    },
+    {
+     "id": "lip-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.15
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.03
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.083
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.76,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 7,
+   "phase": "corner",
+   "fresh": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "params": {
+    "Width": 150,
+    "Depth": 120,
+    "Height": 15,
+    "Clearance": -1
+   },
+   "ok": true,
+   "report_hash": "92f33751242eb725bde04d5a127936a9881031b0e6318e02a239b4912f2dce47",
+   "signature_hash": "540c0c4cc4e47335d60f4a16a2befe8c9bf562cef857f1e2800e375c92ea6c62",
+   "shape_hash": {
+    "base": "s1:54dbf64d900b8c1b",
+    "lid": "s1:8a428308316a2c31"
+   },
+   "failing": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -12.795277907014704,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    },
+    {
+     "id": "lip-gap",
+     "pass": false,
+     "signed": null,
+     "scale": 0.01,
+     "censored": true,
+     "detail": "0 gap(s) = -1 (tol abs 0.001) between lid / base, expected = 1"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.15
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.12
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.018000000000000002
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.7509999999999999,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 8,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Width": 40,
+    "Depth": 30,
+    "Height": 80,
+    "Clearance": 1
+   },
+   "ok": true,
+   "report_hash": "aec4951b8db73b16c2ced4995bbf71693b1d94c456f2d0de7da6f1fd5578596a",
+   "signature_hash": "9251365651b7f1ac6ba8cd7dd6adf03a5d50701756ab1fe477e6391152b812cd",
+   "shape_hash": {
+    "base": "s1:ce64a42a0528454d",
+    "lid": "s1:6469fee6bdf1f21a"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 2,
+     "scale": 0.01,
+     "censored": true
+    },
+    {
+     "id": "lip-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.03
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.083
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.151,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.76,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 9,
+   "phase": "corner",
+   "fresh": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "params": {
+    "Width": 40,
+    "Depth": 30,
+    "Height": 80,
+    "Clearance": -1
+   },
+   "ok": true,
+   "report_hash": "79de577230a5241b7d0385f4c610c1506cb05f70ea28bb249b51f9f8522855eb",
+   "signature_hash": "540c0c4cc4e47335d60f4a16a2befe8c9bf562cef857f1e2800e375c92ea6c62",
+   "shape_hash": {
+    "base": "s1:ce64a42a0528454d",
+    "lid": "s1:388ce0e6b4fdc210"
+   },
+   "failing": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -7.9095640882544025,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    },
+    {
+     "id": "lip-gap",
+     "pass": false,
+     "signed": null,
+     "scale": 0.01,
+     "censored": true,
+     "detail": "0 gap(s) = -1 (tol abs 0.001) between lid / base, expected = 1"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.03
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.083
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.151,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.7509999999999999,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 10,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Width": 150,
+    "Depth": 120,
+    "Height": 15,
+    "Clearance": 1
+   },
+   "ok": true,
+   "report_hash": "612966e4f1b5423a5209471f0ef4875c0ee97a4aaeb0b49711db40e226051ff0",
+   "signature_hash": "9251365651b7f1ac6ba8cd7dd6adf03a5d50701756ab1fe477e6391152b812cd",
+   "shape_hash": {
+    "base": "s1:54dbf64d900b8c1b",
+    "lid": "s1:6c57b2e0f23d9bd1"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 2,
+     "scale": 0.01,
+     "censored": true
+    },
+    {
+     "id": "lip-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.15
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.12
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.018000000000000002
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.76,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 11,
+   "phase": "corner",
+   "fresh": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "params": {
+    "Width": 150,
+    "Depth": 30,
+    "Height": 80,
+    "Clearance": -1
+   },
+   "ok": true,
+   "report_hash": "764d407af13a77aeeaae76b7ad95182f7c8190c6f9343b4e33aa94487da34b7b",
+   "signature_hash": "540c0c4cc4e47335d60f4a16a2befe8c9bf562cef857f1e2800e375c92ea6c62",
+   "shape_hash": {
+    "base": "s1:29a7e7151431ab49",
+    "lid": "s1:aa86a5d5390a1f5b"
+   },
+   "failing": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -11.119447154877072,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    },
+    {
+     "id": "lip-gap",
+     "pass": false,
+     "signed": null,
+     "scale": 0.01,
+     "censored": true,
+     "detail": "0 gap(s) = -1 (tol abs 0.001) between lid / base, expected = 1"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.15
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.03
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.083
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.7509999999999999,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 12,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Width": 40,
+    "Depth": 120,
+    "Height": 15,
+    "Clearance": 1
+   },
+   "ok": true,
+   "report_hash": "65ce0a523fd93f4b173d71ab88b1daecf1127a27f148623b1f3f4b5d5bcb80da",
+   "signature_hash": "9251365651b7f1ac6ba8cd7dd6adf03a5d50701756ab1fe477e6391152b812cd",
+   "shape_hash": {
+    "base": "s1:322f41207bfda1c3",
+    "lid": "s1:2f2b7810a937436d"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 2,
+     "scale": 0.01,
+     "censored": true
+    },
+    {
+     "id": "lip-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.12
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.018000000000000002
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.76,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 13,
+   "phase": "corner",
+   "fresh": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "params": {
+    "Width": 40,
+    "Depth": 120,
+    "Height": 80,
+    "Clearance": -1
+   },
+   "ok": true,
+   "report_hash": "a19bdf6da00b460279ad4b0291daa1f8b0c6cc2d982467119cbb476b17bf9c9f",
+   "signature_hash": "540c0c4cc4e47335d60f4a16a2befe8c9bf562cef857f1e2800e375c92ea6c62",
+   "shape_hash": {
+    "base": "s1:44c7e7cdc7d359bf",
+    "lid": "s1:655f40ec37b9a908"
+   },
+   "failing": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -10.670187643074646,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    },
+    {
+     "id": "lip-gap",
+     "pass": false,
+     "signed": null,
+     "scale": 0.01,
+     "censored": true,
+     "detail": "0 gap(s) = -1 (tol abs 0.001) between lid / base, expected = 1"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.12
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.083
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.7509999999999999,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 14,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Width": 150,
+    "Depth": 30,
+    "Height": 15,
+    "Clearance": 1
+   },
+   "ok": true,
+   "report_hash": "545914adf5e4eb1a87bccdff28948b88146ce75783a7dfc7f11732d7154c60f7",
+   "signature_hash": "9251365651b7f1ac6ba8cd7dd6adf03a5d50701756ab1fe477e6391152b812cd",
+   "shape_hash": {
+    "base": "s1:c71fb46142121808",
+    "lid": "s1:61a3f42f18d0857d"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 2,
+     "scale": 0.01,
+     "censored": true
+    },
+    {
+     "id": "lip-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.15
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.03
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.018000000000000002
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.76,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 15,
+   "phase": "corner",
+   "fresh": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "params": {
+    "Width": 150,
+    "Depth": 120,
+    "Height": 80,
+    "Clearance": -1
+   },
+   "ok": true,
+   "report_hash": "a30ac4e59a8a9a6a846f227ede41b059054cf5cd239ad3bec47fa3257313312a",
+   "signature_hash": "540c0c4cc4e47335d60f4a16a2befe8c9bf562cef857f1e2800e375c92ea6c62",
+   "shape_hash": {
+    "base": "s1:20adb6bb539f2800",
+    "lid": "s1:8a428308316a2c31"
+   },
+   "failing": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -12.795277907014704,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    },
+    {
+     "id": "lip-gap",
+     "pass": false,
+     "signed": null,
+     "scale": 0.01,
+     "censored": true,
+     "detail": "0 gap(s) = -1 (tol abs 0.001) between lid / base, expected = 1"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.15
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.12
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.083
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.7509999999999999,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 16,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Width": 40,
+    "Depth": 30,
+    "Height": 15,
+    "Clearance": 1
+   },
+   "ok": true,
+   "report_hash": "15a196a2a05dc2415efe3846ac3e01caeea1e84c8209f5f9080a5b9fd3464acb",
+   "signature_hash": "9251365651b7f1ac6ba8cd7dd6adf03a5d50701756ab1fe477e6391152b812cd",
+   "shape_hash": {
+    "base": "s1:8c83c05f5ab83b30",
+    "lid": "s1:6469fee6bdf1f21a"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 2,
+     "scale": 0.01,
+     "censored": true
+    },
+    {
+     "id": "lip-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.03
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.018000000000000002
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.76,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 17,
+   "phase": "special",
+   "fresh": [
+    "lip-gap"
+   ],
+   "params": {
+    "Width": 70,
+    "Depth": 50,
+    "Height": 30,
+    "Clearance": 0
+   },
+   "ok": true,
+   "report_hash": "a883371c04b97b564a63c62ee094f530e28d75ad2f76b36c75450ab0ac1c451b",
+   "signature_hash": "b62f87518c37d2c8aaad0c1f02426d9f9442edb3b7772b4f1fb4743e7027d9e5",
+   "shape_hash": {
+    "base": "s1:5e2f3d1d3eb204a0",
+    "lid": "s1:cf07efefd4ce2175"
+   },
+   "failing": [
+    "lip-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 2,
+     "scale": 0.01,
+     "censored": true
+    },
+    {
+     "id": "lip-gap",
+     "pass": false,
+     "signed": null,
+     "scale": 0.01,
+     "censored": true,
+     "detail": "0 gap(s) = 0 (tol abs 0.001) between lid / base, expected = 1"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.07
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.033
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.7509999999999999,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 18,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Width": 40,
+    "Depth": 50,
+    "Height": 30,
+    "Clearance": 0.25
+   },
+   "ok": true,
+   "report_hash": "3a6584e8775c3212513d087b4d4dc61a157d39e7a3755b912ac5b3747e00956b",
+   "signature_hash": "9251365651b7f1ac6ba8cd7dd6adf03a5d50701756ab1fe477e6391152b812cd",
+   "shape_hash": {
+    "base": "s1:b1f6a7f86f7e6933",
+    "lid": "s1:7fa3498237cca854"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 2,
+     "scale": 0.01,
+     "censored": true
+    },
+    {
+     "id": "lip-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.033
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.76,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 19,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Width": 150,
+    "Depth": 50,
+    "Height": 30,
+    "Clearance": 0.25
+   },
+   "ok": true,
+   "report_hash": "8f102514c8265b60a017630df5e0c32ae3d6b383ff2d8205723e4fccfca7f0ab",
+   "signature_hash": "9251365651b7f1ac6ba8cd7dd6adf03a5d50701756ab1fe477e6391152b812cd",
+   "shape_hash": {
+    "base": "s1:5359b9a9e5a49879",
+    "lid": "s1:64b34659804c5b0b"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 2,
+     "scale": 0.01,
+     "censored": true
+    },
+    {
+     "id": "lip-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.15
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.033
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.76,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 20,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Width": 70,
+    "Depth": 30,
+    "Height": 30,
+    "Clearance": 0.25
+   },
+   "ok": true,
+   "report_hash": "86055d8800edb6510f17eee2f5e44cbfe928ec05296508ae59fa0ede234ccc42",
+   "signature_hash": "9251365651b7f1ac6ba8cd7dd6adf03a5d50701756ab1fe477e6391152b812cd",
+   "shape_hash": {
+    "base": "s1:b2b50ad172b7a469",
+    "lid": "s1:f2748e6ff3fd3e72"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 2,
+     "scale": 0.01,
+     "censored": true
+    },
+    {
+     "id": "lip-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.07
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.03
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.033
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.76,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 21,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Width": 70,
+    "Depth": 120,
+    "Height": 30,
+    "Clearance": 0.25
+   },
+   "ok": true,
+   "report_hash": "6ebd9133bb303e41a5d01c9affbbb7db88ab254ced7ee4420dd4274cb68f3832",
+   "signature_hash": "9251365651b7f1ac6ba8cd7dd6adf03a5d50701756ab1fe477e6391152b812cd",
+   "shape_hash": {
+    "base": "s1:47c0151655310af5",
+    "lid": "s1:792cbfb500d07006"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 2,
+     "scale": 0.01,
+     "censored": true
+    },
+    {
+     "id": "lip-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.07
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.12
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.033
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.76,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 22,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Width": 70,
+    "Depth": 50,
+    "Height": 15,
+    "Clearance": 0.25
+   },
+   "ok": true,
+   "report_hash": "c443ad7b96fd1fcb75a181f9da7639b6cbf482ab44b0ec95d2cf6d69b5b24681",
+   "signature_hash": "9251365651b7f1ac6ba8cd7dd6adf03a5d50701756ab1fe477e6391152b812cd",
+   "shape_hash": {
+    "base": "s1:1795d1b52bdd9586",
+    "lid": "s1:1d550874546ae1ac"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 2,
+     "scale": 0.01,
+     "censored": true
+    },
+    {
+     "id": "lip-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.07
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.018000000000000002
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.76,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 23,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Width": 70,
+    "Depth": 50,
+    "Height": 80,
+    "Clearance": 0.25
+   },
+   "ok": true,
+   "report_hash": "425bafb091b3ae45ecfeb109b7ac144ac09a02af81fb877edff89c0152ec8cdc",
+   "signature_hash": "9251365651b7f1ac6ba8cd7dd6adf03a5d50701756ab1fe477e6391152b812cd",
+   "shape_hash": {
+    "base": "s1:12de30f341b312e6",
+    "lid": "s1:1d550874546ae1ac"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 2,
+     "scale": 0.01,
+     "censored": true
+    },
+    {
+     "id": "lip-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.07
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.083
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.76,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 24,
+   "phase": "special",
+   "fresh": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "params": {
+    "Width": 70,
+    "Depth": 50,
+    "Height": 30,
+    "Clearance": -1
+   },
+   "ok": true,
+   "report_hash": "339da1a9e72c598cecf9e2faffc89873aaa6479dfd94855340aee95eb28801da",
+   "signature_hash": "540c0c4cc4e47335d60f4a16a2befe8c9bf562cef857f1e2800e375c92ea6c62",
+   "shape_hash": {
+    "base": "s1:5e2f3d1d3eb204a0",
+    "lid": "s1:082d25ab33aa0272"
+   },
+   "failing": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -9.636377650666804,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    },
+    {
+     "id": "lip-gap",
+     "pass": false,
+     "signed": null,
+     "scale": 0.01,
+     "censored": true,
+     "detail": "0 gap(s) = -1 (tol abs 0.001) between lid / base, expected = 1"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.07
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.033
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.7509999999999999,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 25,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 47.920977,
+    "Depth": 94.918962,
+    "Height": 49.7001,
+    "Clearance": 0.436095
+   },
+   "ok": true,
+   "report_hash": "6a677a05af68ad0f31b5f106cf83560a8d8591491a82de3e589542b0a71741f4",
+   "signature_hash": "9251365651b7f1ac6ba8cd7dd6adf03a5d50701756ab1fe477e6391152b812cd",
+   "shape_hash": {
+    "base": "s1:93bef437565b28c3",
+    "lid": "s1:7b26721d952b4a72"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 2,
+     "scale": 0.01,
+     "censored": true
+    },
+    {
+     "id": "lip-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.047920977000000003
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.094918962
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0527001
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.76,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 26,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 102.920977,
+    "Depth": 44.918962,
+    "Height": 62.7001,
+    "Clearance": 0.721809
+   },
+   "ok": true,
+   "report_hash": "35882ee92fd56393106f814489170138c30a63688a4e8235d967f2523ede1990",
+   "signature_hash": "9251365651b7f1ac6ba8cd7dd6adf03a5d50701756ab1fe477e6391152b812cd",
+   "shape_hash": {
+    "base": "s1:11bf6eef02bae9ea",
+    "lid": "s1:bc783800c73aedb0"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 2,
+     "scale": 0.01,
+     "censored": true
+    },
+    {
+     "id": "lip-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.102920977
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.044918962
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.0009999999999857892,
+     "scale": 0.0657001
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.76,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 27,
+   "phase": "halton",
+   "fresh": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "params": {
+    "Width": 75.420977,
+    "Depth": 74.918962,
+    "Height": 75.7001,
+    "Clearance": -0.992477
+   },
+   "ok": true,
+   "report_hash": "522aaa94f72e3f27bcb8389fcc0c50e2c41c97e79cc433d5a5d90d79b7f42b03",
+   "signature_hash": "540c0c4cc4e47335d60f4a16a2befe8c9bf562cef857f1e2800e375c92ea6c62",
+   "shape_hash": {
+    "base": "s1:4931e9edf9f8da7f",
+    "lid": "s1:53e036d9c595ad3e"
+   },
+   "failing": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -10.412422719967237,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    },
+    {
+     "id": "lip-gap",
+     "pass": false,
+     "signed": null,
+     "scale": 0.01,
+     "censored": true,
+     "detail": "0 gap(s) = -0.992477 (tol abs 0.001) between lid / base, expected = 1"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.075420977
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.07491896199999999
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.07870010000000001
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.7509999999999999,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 28,
+   "phase": "halton",
+   "fresh": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "params": {
+    "Width": 130.420977,
+    "Depth": 104.918962,
+    "Height": 26.3001,
+    "Clearance": -0.665946
+   },
+   "ok": true,
+   "report_hash": "1c1bef38f688ccd9e3ead06319c1a6e5722eada8926f5111872fe3c806868f3d",
+   "signature_hash": "540c0c4cc4e47335d60f4a16a2befe8c9bf562cef857f1e2800e375c92ea6c62",
+   "shape_hash": {
+    "base": "s1:d2cf692e1f5a55e2",
+    "lid": "s1:9157bd28e9487ed8"
+   },
+   "failing": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -10.64895923763899,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    },
+    {
+     "id": "lip-gap",
+     "pass": false,
+     "signed": null,
+     "scale": 0.01,
+     "censored": true,
+     "detail": "0 gap(s) = -0.665946 (tol abs 0.001) between lid / base, expected = 1"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.130420977
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.10491896199999999
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.029300100000000003
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.752,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 29,
+   "phase": "halton",
+   "fresh": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "params": {
+    "Width": 61.670977,
+    "Depth": 118.252296,
+    "Height": 39.3001,
+    "Clearance": -0.380232
+   },
+   "ok": true,
+   "report_hash": "771a29b3ec7883dc023f1deb544e7405edfc749ffce3e22e88325c75874dc126",
+   "signature_hash": "540c0c4cc4e47335d60f4a16a2befe8c9bf562cef857f1e2800e375c92ea6c62",
+   "shape_hash": {
+    "base": "s1:178ba56ba4ff91cf",
+    "lid": "s1:dc21d48ad7dbc847"
+   },
+   "failing": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -8.039184513586225,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    },
+    {
+     "id": "lip-gap",
+     "pass": false,
+     "signed": null,
+     "scale": 0.01,
+     "censored": true,
+     "detail": "0 gap(s) = -0.380232 (tol abs 0.001) between lid / base, expected = 1"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.061670977
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.118252296
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0423001
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.7509999999999999,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 30,
+   "phase": "halton",
+   "fresh": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "params": {
+    "Width": 116.670977,
+    "Depth": 58.252296,
+    "Height": 52.3001,
+    "Clearance": -0.094517
+   },
+   "ok": true,
+   "report_hash": "0d053b3d267f034fcd18bf018bfaec894f4e2fd055ed87b5fa2d20b95009b5c3",
+   "signature_hash": "540c0c4cc4e47335d60f4a16a2befe8c9bf562cef857f1e2800e375c92ea6c62",
+   "shape_hash": {
+    "base": "s1:8690b41e867642aa",
+    "lid": "s1:2a49d3ffb82d923c"
+   },
+   "failing": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -5.000410792915578,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    },
+    {
+     "id": "lip-gap",
+     "pass": false,
+     "signed": null,
+     "scale": 0.01,
+     "censored": true,
+     "detail": "0 gap(s) = -0.094517 (tol abs 0.001) between lid / base, expected = 1"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.116670977
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.058252296
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.055300100000000005
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.752,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 31,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 89.170977,
+    "Depth": 88.252296,
+    "Height": 65.3001,
+    "Clearance": 0.191197
+   },
+   "ok": true,
+   "report_hash": "26d0d094a43785fa87a077d53dfc23b0a0cab3632dfe2bd16bbdfbf47ae9170d",
+   "signature_hash": "9251365651b7f1ac6ba8cd7dd6adf03a5d50701756ab1fe477e6391152b812cd",
+   "shape_hash": {
+    "base": "s1:60da096bda2847df",
+    "lid": "s1:ac67e5b8f4b2df53"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 2,
+     "scale": 0.01,
+     "censored": true
+    },
+    {
+     "id": "lip-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.089170977
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.08825229600000001
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0683001
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.76,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 32,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 144.170977,
+    "Depth": 38.252296,
+    "Height": 78.3001,
+    "Clearance": 0.476911
+   },
+   "ok": true,
+   "report_hash": "0269d3c066da4ed9e7c9cf32ab27e5de9ab4813d1acaa8407e208a5c4db01bb0",
+   "signature_hash": "9251365651b7f1ac6ba8cd7dd6adf03a5d50701756ab1fe477e6391152b812cd",
+   "shape_hash": {
+    "base": "s1:f7c79b281d69a434",
+    "lid": "s1:1adb17f2841793c1"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 2,
+     "scale": 0.01,
+     "censored": true
+    },
+    {
+     "id": "lip-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.144170977
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.038252296000000005
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0813001
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.76,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 33,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 54.795977,
+    "Depth": 68.252296,
+    "Height": 28.9001,
+    "Clearance": 0.762626
+   },
+   "ok": true,
+   "report_hash": "e05362bc4a1ace3568883df3d60741f095819a26adaf615aeb00b222b07c7906",
+   "signature_hash": "9251365651b7f1ac6ba8cd7dd6adf03a5d50701756ab1fe477e6391152b812cd",
+   "shape_hash": {
+    "base": "s1:5f7f92347ef32243",
+    "lid": "s1:3555317527531451"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 2,
+     "scale": 0.01,
+     "censored": true
+    },
+    {
+     "id": "lip-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.054795977
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.068252296
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0319001
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.76,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 34,
+   "phase": "halton",
+   "fresh": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "params": {
+    "Width": 109.795977,
+    "Depth": 98.252296,
+    "Height": 41.9001,
+    "Clearance": -0.95166
+   },
+   "ok": true,
+   "report_hash": "578d3c8395a0e02af432f6b6015e7b81d8ce15c712c538de3e577c9e14617c15",
+   "signature_hash": "540c0c4cc4e47335d60f4a16a2befe8c9bf562cef857f1e2800e375c92ea6c62",
+   "shape_hash": {
+    "base": "s1:d23c035914ff481d",
+    "lid": "s1:87e5094a95f313b3"
+   },
+   "failing": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -11.501156135813558,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    },
+    {
+     "id": "lip-gap",
+     "pass": false,
+     "signed": null,
+     "scale": 0.01,
+     "censored": true,
+     "detail": "0 gap(s) = -0.95166 (tol abs 0.001) between lid / base, expected = 1"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.10979597699999999
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.098252296
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.044900100000000005
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.7509999999999999,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 35,
+   "phase": "halton",
+   "fresh": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "params": {
+    "Width": 82.295977,
+    "Depth": 48.252296,
+    "Height": 54.9001,
+    "Clearance": -0.62513
+   },
+   "ok": true,
+   "report_hash": "0fd362c8537b20534c21c29a3dce32d20ac54a9432ceb627e83bcb30e6b65e33",
+   "signature_hash": "540c0c4cc4e47335d60f4a16a2befe8c9bf562cef857f1e2800e375c92ea6c62",
+   "shape_hash": {
+    "base": "s1:eabfcd185f3846d3",
+    "lid": "s1:add1dec42a256d53"
+   },
+   "failing": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -8.477187907201783,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    },
+    {
+     "id": "lip-gap",
+     "pass": false,
+     "signed": null,
+     "scale": 0.01,
+     "censored": true,
+     "detail": "0 gap(s) = -0.62513 (tol abs 0.001) between lid / base, expected = 1"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.08229597699999999
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.048252296
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0579001
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.7509999999999999,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 36,
+   "phase": "halton",
+   "fresh": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "params": {
+    "Width": 137.295977,
+    "Depth": 78.252296,
+    "Height": 67.9001,
+    "Clearance": -0.339415
+   },
+   "ok": true,
+   "report_hash": "2911a9e041a50d83d678df6f093c6cf14235f3cd72dee0ec0d835eeae38f5f36",
+   "signature_hash": "540c0c4cc4e47335d60f4a16a2befe8c9bf562cef857f1e2800e375c92ea6c62",
+   "shape_hash": {
+    "base": "s1:89cb2c7b001cf701",
+    "lid": "s1:0bf7f7cbb4c591d6"
+   },
+   "failing": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -8.244267596656401,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    },
+    {
+     "id": "lip-gap",
+     "pass": false,
+     "signed": null,
+     "scale": 0.01,
+     "censored": true,
+     "detail": "0 gap(s) = -0.339415 (tol abs 0.001) between lid / base, expected = 1"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.13729597699999999
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.078252296
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0709001
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.7509999999999999,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 37,
+   "phase": "halton",
+   "fresh": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "params": {
+    "Width": 68.545977,
+    "Depth": 108.252296,
+    "Height": 15.9001,
+    "Clearance": -0.053701
+   },
+   "ok": true,
+   "report_hash": "2b5fca727d89980adcf5bfbb5651be7682faa4b318ea42c940c19af289f9c810",
+   "signature_hash": "540c0c4cc4e47335d60f4a16a2befe8c9bf562cef857f1e2800e375c92ea6c62",
+   "shape_hash": {
+    "base": "s1:2307950ac763c306",
+    "lid": "s1:b239600aaa20ce7e"
+   },
+   "failing": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -4.156616339088865,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    },
+    {
+     "id": "lip-gap",
+     "pass": false,
+     "signed": null,
+     "scale": 0.01,
+     "censored": true,
+     "detail": "0 gap(s) = -0.053701 (tol abs 0.001) between lid / base, expected = 1"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.068545977
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.108252296
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.0009999999999964473,
+     "scale": 0.018900100000000003
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.75,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 38,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 123.545977,
+    "Depth": 31.585629,
+    "Height": 31.5001,
+    "Clearance": 0.232013
+   },
+   "ok": true,
+   "report_hash": "85da51e54578502cf07ed2c38ad70c98d2ebd26989ab27434c93864a4b53ded0",
+   "signature_hash": "9251365651b7f1ac6ba8cd7dd6adf03a5d50701756ab1fe477e6391152b812cd",
+   "shape_hash": {
+    "base": "s1:bf8a5d309ceec343",
+    "lid": "s1:1e73269bfb1740f9"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 2,
+     "scale": 0.01,
+     "censored": true
+    },
+    {
+     "id": "lip-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.123545977
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.031585629000000004
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.034500100000000006
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.76,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 39,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 96.045977,
+    "Depth": 61.585629,
+    "Height": 44.5001,
+    "Clearance": 0.517728
+   },
+   "ok": true,
+   "report_hash": "730591ad32292221b2d89ea77212d277ebbe51d248fcc211ef8d9b9989072444",
+   "signature_hash": "9251365651b7f1ac6ba8cd7dd6adf03a5d50701756ab1fe477e6391152b812cd",
+   "shape_hash": {
+    "base": "s1:8a4d15329a048313",
+    "lid": "s1:f65b0d15c28fce2f"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 2,
+     "scale": 0.01,
+     "censored": true
+    },
+    {
+     "id": "lip-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.09604597699999999
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.0009989999999954194,
+     "scale": 0.061585628999999996
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0475001
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.76,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 40,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 41.045977,
+    "Depth": 91.585629,
+    "Height": 57.5001,
+    "Clearance": 0.803442
+   },
+   "ok": true,
+   "report_hash": "f1d3d94624df3a71f55d8216976fca5c6353cf67b97ad93c6deb77cbb1cb6105",
+   "signature_hash": "9251365651b7f1ac6ba8cd7dd6adf03a5d50701756ab1fe477e6391152b812cd",
+   "shape_hash": {
+    "base": "s1:473d63b6e01d96a4",
+    "lid": "s1:6458e56329bf3af1"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 2,
+     "scale": 0.01,
+     "censored": true
+    },
+    {
+     "id": "lip-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.041045977000000004
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.091585629
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06050010000000001
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.76,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 41,
+   "phase": "halton",
+   "fresh": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "params": {
+    "Width": 51.358477,
+    "Depth": 41.585629,
+    "Height": 70.5001,
+    "Clearance": -0.910844
+   },
+   "ok": true,
+   "report_hash": "1ec3b96b152155cd826e6946b0a5e9a468dfa0c80a35c2d3c5c58d0fb2049d26",
+   "signature_hash": "540c0c4cc4e47335d60f4a16a2befe8c9bf562cef857f1e2800e375c92ea6c62",
+   "shape_hash": {
+    "base": "s1:85a2fc3f667c85da",
+    "lid": "s1:2da13dea6640ace8"
+   },
+   "failing": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -8.51270144921433,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    },
+    {
+     "id": "lip-gap",
+     "pass": false,
+     "signed": null,
+     "scale": 0.01,
+     "censored": true,
+     "detail": "0 gap(s) = -0.910844 (tol abs 0.001) between lid / base, expected = 1"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.051358477
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.041585629
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0735001
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.752,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 42,
+   "phase": "halton",
+   "fresh": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "params": {
+    "Width": 106.358477,
+    "Depth": 71.585629,
+    "Height": 18.5001,
+    "Clearance": -0.864197
+   },
+   "ok": true,
+   "report_hash": "73596bfeca24f8ecd4a51cb01224afc76b77b93aa18e1f94ba093adf467aae22",
+   "signature_hash": "540c0c4cc4e47335d60f4a16a2befe8c9bf562cef857f1e2800e375c92ea6c62",
+   "shape_hash": {
+    "base": "s1:54522a5efffc51dd",
+    "lid": "s1:0c9afb0eae886ebe"
+   },
+   "failing": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -10.544593973429288,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    },
+    {
+     "id": "lip-gap",
+     "pass": false,
+     "signed": null,
+     "scale": 0.01,
+     "censored": true,
+     "detail": "0 gap(s) = -0.864197 (tol abs 0.001) between lid / base, expected = 1"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.10635847699999999
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.071585629
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0215001
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.752,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 43,
+   "phase": "halton",
+   "fresh": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "params": {
+    "Width": 78.858477,
+    "Depth": 101.585629,
+    "Height": 21.6201,
+    "Clearance": -0.578482
+   },
+   "ok": true,
+   "report_hash": "996bd7103df708a2529e9e79b442b00d09f8fc950b8c6265a6cf021bd6b1a61d",
+   "signature_hash": "540c0c4cc4e47335d60f4a16a2befe8c9bf562cef857f1e2800e375c92ea6c62",
+   "shape_hash": {
+    "base": "s1:264bd1c6aa1bdddd",
+    "lid": "s1:ddfa88bdbe4f4570"
+   },
+   "failing": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -9.26110299764038,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    },
+    {
+     "id": "lip-gap",
+     "pass": false,
+     "signed": null,
+     "scale": 0.01,
+     "censored": true,
+     "detail": "0 gap(s) = -0.578482 (tol abs 0.001) between lid / base, expected = 1"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.078858477
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.101585629
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.024620100000000002
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.7509999999999999,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 44,
+   "phase": "halton",
+   "fresh": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "params": {
+    "Width": 133.858477,
+    "Depth": 51.585629,
+    "Height": 34.6201,
+    "Clearance": -0.292768
+   },
+   "ok": true,
+   "report_hash": "4ffd53c46c278b213a16444184431d2d55949d5f65537a670128e2e2b421e0b9",
+   "signature_hash": "540c0c4cc4e47335d60f4a16a2befe8c9bf562cef857f1e2800e375c92ea6c62",
+   "shape_hash": {
+    "base": "s1:148b41229a2a3ad8",
+    "lid": "s1:ba1a98a30d8257a9"
+   },
+   "failing": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -7.444964385324754,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    },
+    {
+     "id": "lip-gap",
+     "pass": false,
+     "signed": null,
+     "scale": 0.01,
+     "censored": true,
+     "detail": "0 gap(s) = -0.292768 (tol abs 0.001) between lid / base, expected = 1"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.133858477
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.051585629
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.037620100000000004
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.752,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 45,
+   "phase": "halton",
+   "fresh": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "params": {
+    "Width": 65.108477,
+    "Depth": 81.585629,
+    "Height": 47.6201,
+    "Clearance": -0.007054
+   },
+   "ok": true,
+   "report_hash": "f11bcfb137faf224901c50351d2e7bb564de2db89e296b691cebd25261553bdd",
+   "signature_hash": "540c0c4cc4e47335d60f4a16a2befe8c9bf562cef857f1e2800e375c92ea6c62",
+   "shape_hash": {
+    "base": "s1:c0ca262899a02fa1",
+    "lid": "s1:27d5d2e8ae0af0f9"
+   },
+   "failing": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -1.9772870370856102,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    },
+    {
+     "id": "lip-gap",
+     "pass": false,
+     "signed": null,
+     "scale": 0.01,
+     "censored": true,
+     "detail": "0 gap(s) = -0.007054 (tol abs 0.001) between lid / base, expected = 1"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.065108477
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.08158562899999999
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0506201
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.7509999999999999,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 46,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 120.108477,
+    "Depth": 111.585629,
+    "Height": 60.6201,
+    "Clearance": 0.278661
+   },
+   "ok": true,
+   "report_hash": "3e7997f413962414ccfeda21c1cbef7845dccc4d0d64482513bf73071c1a3455",
+   "signature_hash": "9251365651b7f1ac6ba8cd7dd6adf03a5d50701756ab1fe477e6391152b812cd",
+   "shape_hash": {
+    "base": "s1:2801292de904865a",
+    "lid": "s1:72b4a08e7c05ad9a"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 2,
+     "scale": 0.01,
+     "censored": true
+    },
+    {
+     "id": "lip-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.12010847699999999
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.111585629
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0636201
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.76,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 47,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 92.608477,
+    "Depth": 116.030074,
+    "Height": 73.6201,
+    "Clearance": 0.564375
+   },
+   "ok": true,
+   "report_hash": "b0a6e8fa151e84cf12578a83b94f4aa8133342c0f881c8efd3ec2f1caf41eb5c",
+   "signature_hash": "9251365651b7f1ac6ba8cd7dd6adf03a5d50701756ab1fe477e6391152b812cd",
+   "shape_hash": {
+    "base": "s1:19213e48c6dcf9c3",
+    "lid": "s1:ef4851fa7f76ef1d"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 2,
+     "scale": 0.01,
+     "censored": true
+    },
+    {
+     "id": "lip-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.092608477
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.116030074
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0766201
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.76,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 48,
+   "phase": "shrink",
+   "fresh": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "params": {
+    "Width": 70,
+    "Depth": 30,
+    "Height": 15,
+    "Clearance": -1
+   },
+   "ok": true,
+   "report_hash": "5d5538481b55fdabd5369b202ff7b6ab35d7444bf1d92ac0e7e295c17a20de0f",
+   "signature_hash": "540c0c4cc4e47335d60f4a16a2befe8c9bf562cef857f1e2800e375c92ea6c62",
+   "shape_hash": {
+    "base": "s1:a45cd6554ac39de4",
+    "lid": "s1:623bddc18ef9fed7"
+   },
+   "failing": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -9.023935681202921,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    },
+    {
+     "id": "lip-gap",
+     "pass": false,
+     "signed": null,
+     "scale": 0.01,
+     "censored": true,
+     "detail": "0 gap(s) = -1 (tol abs 0.001) between lid / base, expected = 1"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.07
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.03
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.018000000000000002
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.7509999999999999,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 49,
+   "phase": "shrink",
+   "fresh": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "params": {
+    "Width": 40,
+    "Depth": 50,
+    "Height": 15,
+    "Clearance": -1
+   },
+   "ok": true,
+   "report_hash": "6e43b32782c674a828cbd7ab000bd15f9521a19dd107676843d16e785f609bf3",
+   "signature_hash": "540c0c4cc4e47335d60f4a16a2befe8c9bf562cef857f1e2800e375c92ea6c62",
+   "shape_hash": {
+    "base": "s1:c8aaabc336bbfad9",
+    "lid": "s1:ea8b83fa7b46f082"
+   },
+   "failing": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -8.683802393930936,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    },
+    {
+     "id": "lip-gap",
+     "pass": false,
+     "signed": null,
+     "scale": 0.01,
+     "censored": true,
+     "detail": "0 gap(s) = -1 (tol abs 0.001) between lid / base, expected = 1"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.018000000000000002
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.7509999999999999,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 50,
+   "phase": "shrink",
+   "fresh": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "params": {
+    "Width": 40,
+    "Depth": 30,
+    "Height": 30,
+    "Clearance": -1
+   },
+   "ok": true,
+   "report_hash": "1a5aad08536f60d6886e8aafef3821456011ad8af870813d93125fdeca03edc0",
+   "signature_hash": "540c0c4cc4e47335d60f4a16a2befe8c9bf562cef857f1e2800e375c92ea6c62",
+   "shape_hash": {
+    "base": "s1:2097a5ca922c9433",
+    "lid": "s1:388ce0e6b4fdc210"
+   },
+   "failing": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -7.9095640882544025,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    },
+    {
+     "id": "lip-gap",
+     "pass": false,
+     "signed": null,
+     "scale": 0.01,
+     "censored": true,
+     "detail": "0 gap(s) = -1 (tol abs 0.001) between lid / base, expected = 1"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.03
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.033
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.7509999999999999,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 51,
+   "phase": "shrink",
+   "fresh": [],
+   "params": {
+    "Width": 40,
+    "Depth": 30,
+    "Height": 15,
+    "Clearance": 0.25
+   },
+   "ok": true,
+   "report_hash": "e0970da3eb63bf68b2571a6f968721d6aae12b7ab887e0bbc9f1368dbee1b8bc",
+   "signature_hash": "9251365651b7f1ac6ba8cd7dd6adf03a5d50701756ab1fe477e6391152b812cd",
+   "shape_hash": {
+    "base": "s1:8c83c05f5ab83b30",
+    "lid": "s1:f7cf68ee4f777773"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 2,
+     "scale": 0.01,
+     "censored": true
+    },
+    {
+     "id": "lip-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.03
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.018000000000000002
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.76,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 52,
+   "phase": "shrink",
+   "fresh": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "params": {
+    "Width": 55,
+    "Depth": 30,
+    "Height": 15,
+    "Clearance": -1
+   },
+   "ok": true,
+   "report_hash": "d43bf14d743c779f1fe13a1b441b5558b45d9fc4ed8ecdcc2d50e769a88f355c",
+   "signature_hash": "540c0c4cc4e47335d60f4a16a2befe8c9bf562cef857f1e2800e375c92ea6c62",
+   "shape_hash": {
+    "base": "s1:6a9e393704ed27aa",
+    "lid": "s1:21e6d773f68e0932"
+   },
+   "failing": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -8.503259893791075,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    },
+    {
+     "id": "lip-gap",
+     "pass": false,
+     "signed": null,
+     "scale": 0.01,
+     "censored": true,
+     "detail": "0 gap(s) = -1 (tol abs 0.001) between lid / base, expected = 1"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.055
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.03
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.018000000000000002
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.7509999999999999,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 53,
+   "phase": "shrink",
+   "fresh": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "params": {
+    "Width": 40,
+    "Depth": 40,
+    "Height": 15,
+    "Clearance": -1
+   },
+   "ok": true,
+   "report_hash": "60070f48835096af07612818df0795b81fee082e670bc40daa00fee7bb90c74c",
+   "signature_hash": "540c0c4cc4e47335d60f4a16a2befe8c9bf562cef857f1e2800e375c92ea6c62",
+   "shape_hash": {
+    "base": "s1:3a925bdd63666acb",
+    "lid": "s1:6d643ae68e2d85c5"
+   },
+   "failing": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -8.314706847457872,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    },
+    {
+     "id": "lip-gap",
+     "pass": false,
+     "signed": null,
+     "scale": 0.01,
+     "censored": true,
+     "detail": "0 gap(s) = -1 (tol abs 0.001) between lid / base, expected = 1"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.018000000000000002
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.7509999999999999,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 54,
+   "phase": "shrink",
+   "fresh": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "params": {
+    "Width": 40,
+    "Depth": 30,
+    "Height": 22.5,
+    "Clearance": -1
+   },
+   "ok": true,
+   "report_hash": "5b22bb6918a90e8efbf991fbfc9804e4031d5106f814eea6e5fa8128ff1cca92",
+   "signature_hash": "540c0c4cc4e47335d60f4a16a2befe8c9bf562cef857f1e2800e375c92ea6c62",
+   "shape_hash": {
+    "base": "s1:6328f96574336703",
+    "lid": "s1:388ce0e6b4fdc210"
+   },
+   "failing": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -7.9095640882544025,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    },
+    {
+     "id": "lip-gap",
+     "pass": false,
+     "signed": null,
+     "scale": 0.01,
+     "censored": true,
+     "detail": "0 gap(s) = -1 (tol abs 0.001) between lid / base, expected = 1"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.03
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.025500000000000002
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.7509999999999999,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 55,
+   "phase": "shrink",
+   "fresh": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "params": {
+    "Width": 40,
+    "Depth": 30,
+    "Height": 15,
+    "Clearance": -0.375
+   },
+   "ok": true,
+   "report_hash": "1339f3f4c6c5977b73f059b473433371db2fd3bc8797456bb475ef366d4a24de",
+   "signature_hash": "540c0c4cc4e47335d60f4a16a2befe8c9bf562cef857f1e2800e375c92ea6c62",
+   "shape_hash": {
+    "base": "s1:8c83c05f5ab83b30",
+    "lid": "s1:c4c2f5146dda1c8b"
+   },
+   "failing": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -5.673444774268814,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    },
+    {
+     "id": "lip-gap",
+     "pass": false,
+     "signed": null,
+     "scale": 0.01,
+     "censored": true,
+     "detail": "0 gap(s) = -0.375 (tol abs 0.001) between lid / base, expected = 1"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.04
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.03
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.018000000000000002
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.7509999999999999,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 56,
+   "phase": "shrink",
+   "fresh": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "params": {
+    "Width": 70,
+    "Depth": 50,
+    "Height": 15,
+    "Clearance": -1
+   },
+   "ok": true,
+   "report_hash": "14742e93e0de066d371846ccddb393c4c65a80a4bea0cf250107b6f0deb96415",
+   "signature_hash": "540c0c4cc4e47335d60f4a16a2befe8c9bf562cef857f1e2800e375c92ea6c62",
+   "shape_hash": {
+    "base": "s1:1795d1b52bdd9586",
+    "lid": "s1:082d25ab33aa0272"
+   },
+   "failing": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -9.636377650666804,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    },
+    {
+     "id": "lip-gap",
+     "pass": false,
+     "signed": null,
+     "scale": 0.01,
+     "censored": true,
+     "detail": "0 gap(s) = -1 (tol abs 0.001) between lid / base, expected = 1"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.07
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.018000000000000002
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.7509999999999999,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 57,
+   "phase": "shrink",
+   "fresh": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "params": {
+    "Width": 70,
+    "Depth": 30,
+    "Height": 30,
+    "Clearance": -1
+   },
+   "ok": true,
+   "report_hash": "cd532051720403ddf30c0443e8cdda7b11d7a6f79d5b477fc45494121778f112",
+   "signature_hash": "540c0c4cc4e47335d60f4a16a2befe8c9bf562cef857f1e2800e375c92ea6c62",
+   "shape_hash": {
+    "base": "s1:b2b50ad172b7a469",
+    "lid": "s1:623bddc18ef9fed7"
+   },
+   "failing": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -9.023935681202921,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    },
+    {
+     "id": "lip-gap",
+     "pass": false,
+     "signed": null,
+     "scale": 0.01,
+     "censored": true,
+     "detail": "0 gap(s) = -1 (tol abs 0.001) between lid / base, expected = 1"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.07
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.03
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.033
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.7509999999999999,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 58,
+   "phase": "bisect",
+   "fresh": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "params": {
+    "Width": 70,
+    "Depth": 50,
+    "Height": 26.25,
+    "Clearance": -0.0625
+   },
+   "ok": true,
+   "report_hash": "8c8c183d4224c6ef07673c4628b1592acf58f7aaef8dd1039931d6cefefacafc",
+   "signature_hash": "540c0c4cc4e47335d60f4a16a2befe8c9bf562cef857f1e2800e375c92ea6c62",
+   "shape_hash": {
+    "base": "s1:0bece955d133ae9a",
+    "lid": "s1:de285d83249e5d98"
+   },
+   "failing": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -3.8073422218482653,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    },
+    {
+     "id": "lip-gap",
+     "pass": false,
+     "signed": null,
+     "scale": 0.01,
+     "censored": true,
+     "detail": "0 gap(s) = -0.0625 (tol abs 0.001) between lid / base, expected = 1"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.07
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.02925
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.75,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 59,
+   "phase": "bisect",
+   "fresh": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "params": {
+    "Width": 70,
+    "Depth": 50,
+    "Height": 22.5,
+    "Clearance": -0.375
+   },
+   "ok": true,
+   "report_hash": "9410686eabd2e70a6533d5909bd050d59af6bbf6f8fadfa9045009af451b74aa",
+   "signature_hash": "540c0c4cc4e47335d60f4a16a2befe8c9bf562cef857f1e2800e375c92ea6c62",
+   "shape_hash": {
+    "base": "s1:e4fef0eae50feb1b",
+    "lid": "s1:6a89307ed357360e"
+   },
+   "failing": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -6.928640334272638,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    },
+    {
+     "id": "lip-gap",
+     "pass": false,
+     "signed": null,
+     "scale": 0.01,
+     "censored": true,
+     "detail": "0 gap(s) = -0.375 (tol abs 0.001) between lid / base, expected = 1"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.07
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.025500000000000002
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.7509999999999999,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 60,
+   "phase": "bisect",
+   "fresh": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "params": {
+    "Width": 70,
+    "Depth": 50,
+    "Height": 18.75,
+    "Clearance": -0.6875
+   },
+   "ok": true,
+   "report_hash": "62d28950393c010bb4ac1bf308993b3b5c1f0946a23b7ba6c3f2bbd2aaa42acd",
+   "signature_hash": "540c0c4cc4e47335d60f4a16a2befe8c9bf562cef857f1e2800e375c92ea6c62",
+   "shape_hash": {
+    "base": "s1:34a36baeb25b24fc",
+    "lid": "s1:e7d13bc58fca47e4"
+   },
+   "failing": [
+    "status",
+    "no-clash",
+    "lip-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -8.492482825712079,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    },
+    {
+     "id": "lip-gap",
+     "pass": false,
+     "signed": null,
+     "scale": 0.01,
+     "censored": true,
+     "detail": "0 gap(s) = -0.6875 (tol abs 0.001) between lid / base, expected = 1"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.07
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.021750000000000002
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.752,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 61,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Width": 70,
+    "Depth": 50,
+    "Height": 29.0625,
+    "Clearance": 0.171875
+   },
+   "ok": true,
+   "report_hash": "5cb67c06d3eedb9de235bd9852b41ff078a7eca1f2552fd50225b654b9679de5",
+   "signature_hash": "9251365651b7f1ac6ba8cd7dd6adf03a5d50701756ab1fe477e6391152b812cd",
+   "shape_hash": {
+    "base": "s1:89774a6488675f8a",
+    "lid": "s1:b828cee58a47874e"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 2,
+     "scale": 0.01,
+     "censored": true
+    },
+    {
+     "id": "lip-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.07
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0320625
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.76,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 62,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Width": 70,
+    "Depth": 50,
+    "Height": 28.125,
+    "Clearance": 0.09375
+   },
+   "ok": true,
+   "report_hash": "3021c0721a02411afa88eb0a41c75ffb6f0e00cebb6de1debc9d9438eb87d4a9",
+   "signature_hash": "9251365651b7f1ac6ba8cd7dd6adf03a5d50701756ab1fe477e6391152b812cd",
+   "shape_hash": {
+    "base": "s1:b40abae75593ec1c",
+    "lid": "s1:a113e19274973087"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 2,
+     "scale": 0.01,
+     "censored": true
+    },
+    {
+     "id": "lip-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.07
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.031125
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.76,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 63,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Width": 70,
+    "Depth": 50,
+    "Height": 27.1875,
+    "Clearance": 0.015625
+   },
+   "ok": true,
+   "report_hash": "b6a23e9994183a835446b27366cf8c6f07c4d7dd2729f4ecf83da1af2b7f424f",
+   "signature_hash": "9251365651b7f1ac6ba8cd7dd6adf03a5d50701756ab1fe477e6391152b812cd",
+   "shape_hash": {
+    "base": "s1:181641365a34ca72",
+    "lid": "s1:6fc1812f7e36e0f1"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 2,
+     "scale": 0.01,
+     "censored": true
+    },
+    {
+     "id": "lip-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.07
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0301875
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.152,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.754,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  }
+ ]
+}

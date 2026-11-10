@@ -1,0 +1,6070 @@
+[
+ {
+  "brief": "d15-wall-boss",
+  "seed": 1,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Wall": 4.508296,
+     "Boss length": 4.021886,
+     "Pocket depth": 7.164682
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.924204,
+     "Boss length": 11.747023,
+     "Pocket depth": 5.686621
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.451355,
+     "Boss length": 9.765945,
+     "Pocket depth": 6.554782
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.979292,
+     "Boss length": 7.642169,
+     "Pocket depth": 6.93273
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.555734,
+     "Boss length": 7.229958,
+     "Pocket depth": 5.485143
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.617973,
+     "Boss length": 7.913151,
+     "Pocket depth": 4.404219
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.578477,
+     "Boss length": 10.136864,
+     "Pocket depth": 5.71517
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.763494,
+     "Boss length": 4.341838,
+     "Pocket depth": 6.564292
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 4.36153,
+     "Boss length": 10.389474,
+     "Pocket depth": 5.769219
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.821879,
+     "Boss length": 9.265037,
+     "Pocket depth": 7.276494
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.033771,
+     "Boss length": 5.542512,
+     "Pocket depth": 8.325686
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.816544,
+     "Boss length": 10.163311,
+     "Pocket depth": 9.967204
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.957333,
+     "Boss length": 10.05601,
+     "Pocket depth": 4.919626
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.293326,
+     "Boss length": 7.305576,
+     "Pocket depth": 5.495276
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.608353,
+     "Boss length": 9.808839,
+     "Pocket depth": 7.458049
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.508843,
+     "Boss length": 6.117261,
+     "Pocket depth": 4.292341
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.48888,
+     "Boss length": 10.926177,
+     "Pocket depth": 5.430965
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.95751,
+     "Boss length": 9.746441,
+     "Pocket depth": 6.413787
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.209491,
+     "Boss length": 9.41772,
+     "Pocket depth": 9.715789
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.693325,
+     "Boss length": 9.54195,
+     "Pocket depth": 9.513303
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.337687,
+     "Boss length": 11.470706,
+     "Pocket depth": 4.688834
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.157792,
+     "Boss length": 10.949489,
+     "Pocket depth": 5.766856
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.524906,
+     "Boss length": 8.080469,
+     "Pocket depth": 9.615366
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.817581,
+     "Boss length": 5.330057,
+     "Pocket depth": 8.060854
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.795525,
+     "Boss length": 5.055365,
+     "Pocket depth": 9.867295
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.652051,
+     "Boss length": 7.106844,
+     "Pocket depth": 4.705586
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.60497,
+     "Boss length": 6.594599,
+     "Pocket depth": 7.945309
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.036258,
+     "Boss length": 8.252352,
+     "Pocket depth": 4.456675
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.231963,
+     "Boss length": 10.83391,
+     "Pocket depth": 5.636719
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.657076,
+     "Boss length": 6.426052,
+     "Pocket depth": 9.363845
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 3.159758,
+     "Boss length": 5.149833,
+     "Pocket depth": 7.927459
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 4.196244,
+     "Boss length": 6.596937,
+     "Pocket depth": 4.720994
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.565375,
+     "Boss length": 4.539428,
+     "Pocket depth": 5.804962
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.702432,
+     "Boss length": 9.211548,
+     "Pocket depth": 4.701032
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.032682,
+     "Boss length": 8.185894,
+     "Pocket depth": 5.271038
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.168794,
+     "Boss length": 6.018733,
+     "Pocket depth": 9.949923
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.816033,
+     "Boss length": 10.960079,
+     "Pocket depth": 4.022244
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.731884,
+     "Boss length": 4.226805,
+     "Pocket depth": 9.905509
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 3.318871,
+     "Boss length": 9.7654,
+     "Pocket depth": 9.192454
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.37541,
+     "Boss length": 6.004868,
+     "Pocket depth": 9.218615
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 5.180855,
+     "Boss length": 10.334574,
+     "Pocket depth": 5.324838
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.385052,
+     "Boss length": 5.1931,
+     "Pocket depth": 6.451979
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.170218,
+     "Boss length": 6.298365,
+     "Pocket depth": 9.307218
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.248798,
+     "Boss length": 11.272846,
+     "Pocket depth": 9.170539
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.531889,
+     "Boss length": 9.352506,
+     "Pocket depth": 5.407341
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.534599,
+     "Boss length": 6.460151,
+     "Pocket depth": 5.227666
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.05976,
+     "Boss length": 11.447778,
+     "Pocket depth": 9.797485
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.639435,
+     "Boss length": 6.637292,
+     "Pocket depth": 4.459941
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.146378,
+     "Boss length": 10.269084,
+     "Pocket depth": 6.322902
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.974918,
+     "Boss length": 5.187322,
+     "Pocket depth": 8.927081
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 3.231796,
+     "Boss length": 11.139526,
+     "Pocket depth": 7.155269
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.711332,
+     "Boss length": 9.491,
+     "Pocket depth": 6.069033
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.981035,
+     "Boss length": 8.288318,
+     "Pocket depth": 8.574377
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.177339,
+     "Boss length": 4.404616,
+     "Pocket depth": 5.251762
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.526888,
+     "Boss length": 9.167691,
+     "Pocket depth": 4.179474
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.305117,
+     "Boss length": 7.433353,
+     "Pocket depth": 9.22976
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.595257,
+     "Boss length": 6.870066,
+     "Pocket depth": 6.127576
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.405115,
+     "Boss length": 4.108808,
+     "Pocket depth": 9.542101
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 4.160321,
+     "Boss length": 8.544284,
+     "Pocket depth": 7.85526
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.497546,
+     "Boss length": 4.561603,
+     "Pocket depth": 8.885453
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 2.565894,
+     "Boss length": 9.684562,
+     "Pocket depth": 5.658532
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.565901,
+     "Boss length": 6.349126,
+     "Pocket depth": 7.273563
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.702201,
+     "Boss length": 4.577128,
+     "Pocket depth": 4.660901
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.693337,
+     "Boss length": 9.447402,
+     "Pocket depth": 4.272624
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d15-wall-boss",
+  "seed": 2,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Wall": 4.937004,
+     "Boss length": 6.599987,
+     "Pocket depth": 5.711776
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.151821,
+     "Boss length": 11.002304,
+     "Pocket depth": 7.785
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.996806,
+     "Boss length": 6.857957,
+     "Pocket depth": 8.689533
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.456127,
+     "Boss length": 10.286936,
+     "Pocket depth": 5.209272
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.696903,
+     "Boss length": 10.67998,
+     "Pocket depth": 7.487922
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.564027,
+     "Boss length": 9.377818,
+     "Pocket depth": 6.20019
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.886454,
+     "Boss length": 4.313609,
+     "Pocket depth": 9.491187
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 2.248732,
+     "Boss length": 5.024196,
+     "Pocket depth": 5.151602
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.028422,
+     "Boss length": 11.52082,
+     "Pocket depth": 6.712446
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.538609,
+     "Boss length": 11.907283,
+     "Pocket depth": 5.396796
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.871852,
+     "Boss length": 6.785933,
+     "Pocket depth": 4.315817
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.084879,
+     "Boss length": 4.762906,
+     "Pocket depth": 4.346909
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.841171,
+     "Boss length": 10.440214,
+     "Pocket depth": 4.003757
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.928317,
+     "Boss length": 4.580148,
+     "Pocket depth": 9.834238
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 4.109565,
+     "Boss length": 5.558068,
+     "Pocket depth": 8.067353
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.205914,
+     "Boss length": 10.22377,
+     "Pocket depth": 9.469526
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.308522,
+     "Boss length": 7.565354,
+     "Pocket depth": 9.693031
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.284592,
+     "Boss length": 9.712776,
+     "Pocket depth": 9.880178
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.355508,
+     "Boss length": 9.132683,
+     "Pocket depth": 7.14652
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.132542,
+     "Boss length": 10.790198,
+     "Pocket depth": 9.032995
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.19194,
+     "Boss length": 6.500019,
+     "Pocket depth": 9.415466
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.713427,
+     "Boss length": 7.575625,
+     "Pocket depth": 6.095613
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.073792,
+     "Boss length": 11.618645,
+     "Pocket depth": 5.880098
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.753014,
+     "Boss length": 10.393566,
+     "Pocket depth": 9.204262
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.678069,
+     "Boss length": 7.454491,
+     "Pocket depth": 5.242577
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.584897,
+     "Boss length": 8.993377,
+     "Pocket depth": 8.27925
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.7521,
+     "Boss length": 5.641117,
+     "Pocket depth": 5.673074
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.381217,
+     "Boss length": 8.298016,
+     "Pocket depth": 4.16488
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.152353,
+     "Boss length": 10.645402,
+     "Pocket depth": 5.003256
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.107884,
+     "Boss length": 7.155944,
+     "Pocket depth": 6.514793
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.580929,
+     "Boss length": 10.750095,
+     "Pocket depth": 6.853915
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.958028,
+     "Boss length": 6.079483,
+     "Pocket depth": 4.510894
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.832218,
+     "Boss length": 4.164808,
+     "Pocket depth": 8.405481
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 5.127758,
+     "Boss length": 9.179818,
+     "Pocket depth": 5.719842
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.306868,
+     "Boss length": 9.211942,
+     "Pocket depth": 4.645081
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.751602,
+     "Boss length": 9.859469,
+     "Pocket depth": 9.852827
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.521878,
+     "Boss length": 4.912193,
+     "Pocket depth": 7.469873
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.78234,
+     "Boss length": 4.230116,
+     "Pocket depth": 7.468926
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.06601,
+     "Boss length": 9.742205,
+     "Pocket depth": 9.079693
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.700854,
+     "Boss length": 8.088413,
+     "Pocket depth": 4.408477
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.450805,
+     "Boss length": 7.56269,
+     "Pocket depth": 5.360594
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.329822,
+     "Boss length": 7.687329,
+     "Pocket depth": 7.417209
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.083874,
+     "Boss length": 6.427281,
+     "Pocket depth": 5.29085
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.625778,
+     "Boss length": 8.799686,
+     "Pocket depth": 7.118169
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.815208,
+     "Boss length": 5.245798,
+     "Pocket depth": 5.507122
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.287623,
+     "Boss length": 5.513355,
+     "Pocket depth": 9.865495
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.910769,
+     "Boss length": 10.534292,
+     "Pocket depth": 5.934661
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.258908,
+     "Boss length": 9.918545,
+     "Pocket depth": 9.467641
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.489123,
+     "Boss length": 7.242948,
+     "Pocket depth": 8.926225
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.575099,
+     "Boss length": 6.700181,
+     "Pocket depth": 6.572394
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.609032,
+     "Boss length": 11.382027,
+     "Pocket depth": 7.230392
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.336678,
+     "Boss length": 5.152671,
+     "Pocket depth": 6.243748
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.234845,
+     "Boss length": 5.113113,
+     "Pocket depth": 5.865147
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.608013,
+     "Boss length": 6.087757,
+     "Pocket depth": 5.692049
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.522765,
+     "Boss length": 4.949879,
+     "Pocket depth": 5.251034
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.237333,
+     "Boss length": 9.400957,
+     "Pocket depth": 8.092371
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.352153,
+     "Boss length": 10.312275,
+     "Pocket depth": 6.227967
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.433323,
+     "Boss length": 4.45718,
+     "Pocket depth": 8.045042
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.74612,
+     "Boss length": 10.856211,
+     "Pocket depth": 4.985836
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.204325,
+     "Boss length": 5.471899,
+     "Pocket depth": 6.386929
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.479392,
+     "Boss length": 11.061704,
+     "Pocket depth": 7.530469
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.993703,
+     "Boss length": 4.151154,
+     "Pocket depth": 8.060518
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.363545,
+     "Boss length": 11.144685,
+     "Pocket depth": 4.07013
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.03334,
+     "Boss length": 4.834109,
+     "Pocket depth": 9.538069
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   }
+  ]
+ },
+ {
+  "brief": "d15-wall-boss",
+  "seed": 3,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Wall": 4.880907,
+     "Boss length": 4.309297,
+     "Pocket depth": 6.737153
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.299712,
+     "Boss length": 10.104043,
+     "Pocket depth": 6.887083
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.946918,
+     "Boss length": 5.294405,
+     "Pocket depth": 5.579538
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.210429,
+     "Boss length": 5.55933,
+     "Pocket depth": 4.501557
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.85515,
+     "Boss length": 7.813824,
+     "Pocket depth": 8.762392
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.519093,
+     "Boss length": 6.588989,
+     "Pocket depth": 8.143488
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.146988,
+     "Boss length": 9.377123,
+     "Pocket depth": 7.158571
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.326935,
+     "Boss length": 8.319577,
+     "Pocket depth": 4.069636
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.509417,
+     "Boss length": 6.483176,
+     "Pocket depth": 9.620931
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.077477,
+     "Boss length": 7.364642,
+     "Pocket depth": 8.288104
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.617328,
+     "Boss length": 6.943386,
+     "Pocket depth": 8.336196
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.005762,
+     "Boss length": 4.066847,
+     "Pocket depth": 6.869855
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 5.452302,
+     "Boss length": 8.823773,
+     "Pocket depth": 8.092388
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.145251,
+     "Boss length": 8.674881,
+     "Pocket depth": 7.490621
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.283676,
+     "Boss length": 6.978361,
+     "Pocket depth": 7.185585
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.354082,
+     "Boss length": 7.303885,
+     "Pocket depth": 6.783797
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.987042,
+     "Boss length": 8.567051,
+     "Pocket depth": 8.656486
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.421778,
+     "Boss length": 9.316818,
+     "Pocket depth": 6.233734
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.755822,
+     "Boss length": 9.598797,
+     "Pocket depth": 6.797765
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.915219,
+     "Boss length": 11.045996,
+     "Pocket depth": 8.275702
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.708484,
+     "Boss length": 11.620918,
+     "Pocket depth": 8.591018
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.227558,
+     "Boss length": 4.529214,
+     "Pocket depth": 7.225557
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 5.462021,
+     "Boss length": 6.758608,
+     "Pocket depth": 7.241173
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.15972,
+     "Boss length": 7.706345,
+     "Pocket depth": 7.311859
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.311319,
+     "Boss length": 7.128854,
+     "Pocket depth": 8.537251
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.691985,
+     "Boss length": 11.620925,
+     "Pocket depth": 7.858448
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.002642,
+     "Boss length": 10.159838,
+     "Pocket depth": 4.366674
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.649907,
+     "Boss length": 5.237269,
+     "Pocket depth": 8.144251
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 5.095693,
+     "Boss length": 8.969528,
+     "Pocket depth": 9.919817
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.96123,
+     "Boss length": 11.842483,
+     "Pocket depth": 7.496841
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.546125,
+     "Boss length": 11.602665,
+     "Pocket depth": 8.881255
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.264384,
+     "Boss length": 9.005765,
+     "Pocket depth": 9.663691
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.563838,
+     "Boss length": 8.790924,
+     "Pocket depth": 4.84501
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.52413,
+     "Boss length": 8.378697,
+     "Pocket depth": 5.538403
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.524976,
+     "Boss length": 4.392864,
+     "Pocket depth": 9.089293
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 2.35316,
+     "Boss length": 7.395084,
+     "Pocket depth": 9.336854
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 2.116181,
+     "Boss length": 9.362445,
+     "Pocket depth": 4.619156
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.151878,
+     "Boss length": 11.946937,
+     "Pocket depth": 7.140217
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.718201,
+     "Boss length": 4.041269,
+     "Pocket depth": 4.947849
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.594997,
+     "Boss length": 9.041372,
+     "Pocket depth": 8.96633
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.755656,
+     "Boss length": 10.460429,
+     "Pocket depth": 4.752981
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.770628,
+     "Boss length": 5.023058,
+     "Pocket depth": 7.655226
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 4.702073,
+     "Boss length": 8.620276,
+     "Pocket depth": 8.369117
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.273814,
+     "Boss length": 11.605877,
+     "Pocket depth": 4.566024
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.858689,
+     "Boss length": 5.559436,
+     "Pocket depth": 6.299859
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.990237,
+     "Boss length": 7.498964,
+     "Pocket depth": 7.308608
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.11206,
+     "Boss length": 9.368565,
+     "Pocket depth": 4.071945
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.852672,
+     "Boss length": 10.234597,
+     "Pocket depth": 6.020503
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.797971,
+     "Boss length": 6.953207,
+     "Pocket depth": 9.936116
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 2.315325,
+     "Boss length": 4.824279,
+     "Pocket depth": 5.109541
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.506781,
+     "Boss length": 10.942477,
+     "Pocket depth": 8.625677
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.356947,
+     "Boss length": 7.085217,
+     "Pocket depth": 4.386811
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.340714,
+     "Boss length": 6.084246,
+     "Pocket depth": 4.800586
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.509534,
+     "Boss length": 7.296322,
+     "Pocket depth": 5.389551
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.075942,
+     "Boss length": 8.373925,
+     "Pocket depth": 6.783544
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.5376,
+     "Boss length": 11.680676,
+     "Pocket depth": 9.366015
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.610406,
+     "Boss length": 6.328294,
+     "Pocket depth": 5.941843
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.120824,
+     "Boss length": 5.63041,
+     "Pocket depth": 8.601395
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 2.04524,
+     "Boss length": 5.554032,
+     "Pocket depth": 6.26265
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.941393,
+     "Boss length": 6.48294,
+     "Pocket depth": 7.39354
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.659094,
+     "Boss length": 8.757614,
+     "Pocket depth": 8.879479
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.096106,
+     "Boss length": 11.870944,
+     "Pocket depth": 5.881375
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.33941,
+     "Boss length": 4.114069,
+     "Pocket depth": 6.864832
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 4.725559,
+     "Boss length": 10.932973,
+     "Pocket depth": 7.247734
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d15-wall-boss",
+  "seed": 4,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Wall": 5.694545,
+     "Boss length": 6.664367,
+     "Pocket depth": 5.330007
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.327364,
+     "Boss length": 5.871978,
+     "Pocket depth": 7.050981
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.309566,
+     "Boss length": 11.790895,
+     "Pocket depth": 7.732225
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.763262,
+     "Boss length": 10.145169,
+     "Pocket depth": 6.214892
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.92998,
+     "Boss length": 11.007001,
+     "Pocket depth": 7.172613
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.973385,
+     "Boss length": 7.373968,
+     "Pocket depth": 6.942701
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.943654,
+     "Boss length": 11.445786,
+     "Pocket depth": 9.877242
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.885376,
+     "Boss length": 6.78363,
+     "Pocket depth": 8.728543
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.077249,
+     "Boss length": 10.017669,
+     "Pocket depth": 7.165435
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.371477,
+     "Boss length": 7.646857,
+     "Pocket depth": 4.065235
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.941806,
+     "Boss length": 8.320163,
+     "Pocket depth": 8.582907
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.381459,
+     "Boss length": 10.458179,
+     "Pocket depth": 6.425301
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.319016,
+     "Boss length": 8.37747,
+     "Pocket depth": 4.363285
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.495019,
+     "Boss length": 6.226367,
+     "Pocket depth": 7.340948
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.587284,
+     "Boss length": 11.628777,
+     "Pocket depth": 9.115447
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.685093,
+     "Boss length": 6.800217,
+     "Pocket depth": 5.117088
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.634752,
+     "Boss length": 7.989294,
+     "Pocket depth": 4.40509
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.068466,
+     "Boss length": 11.652288,
+     "Pocket depth": 4.024757
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.926634,
+     "Boss length": 11.240426,
+     "Pocket depth": 8.128885
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.220279,
+     "Boss length": 11.863435,
+     "Pocket depth": 5.734712
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.069483,
+     "Boss length": 6.894435,
+     "Pocket depth": 6.788039
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.805676,
+     "Boss length": 4.043295,
+     "Pocket depth": 5.437514
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.018944,
+     "Boss length": 10.300755,
+     "Pocket depth": 9.123165
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.288108,
+     "Boss length": 7.684034,
+     "Pocket depth": 7.826513
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.914756,
+     "Boss length": 8.909472,
+     "Pocket depth": 5.685205
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.83472,
+     "Boss length": 10.159164,
+     "Pocket depth": 5.846902
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.820565,
+     "Boss length": 10.185063,
+     "Pocket depth": 5.087345
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.939739,
+     "Boss length": 7.071061,
+     "Pocket depth": 9.875862
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.731515,
+     "Boss length": 7.663509,
+     "Pocket depth": 4.728601
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.325979,
+     "Boss length": 4.075788,
+     "Pocket depth": 4.683605
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.679392,
+     "Boss length": 4.93618,
+     "Pocket depth": 9.407949
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 5.746433,
+     "Boss length": 9.459531,
+     "Pocket depth": 6.103607
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.530636,
+     "Boss length": 9.360843,
+     "Pocket depth": 9.460461
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.991476,
+     "Boss length": 9.046813,
+     "Pocket depth": 8.379959
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.425161,
+     "Boss length": 10.90843,
+     "Pocket depth": 9.619679
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.846806,
+     "Boss length": 4.876087,
+     "Pocket depth": 7.975149
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.389321,
+     "Boss length": 5.205392,
+     "Pocket depth": 5.69042
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.947488,
+     "Boss length": 7.006671,
+     "Pocket depth": 9.996763
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.669077,
+     "Boss length": 4.243162,
+     "Pocket depth": 8.580793
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.621783,
+     "Boss length": 11.206391,
+     "Pocket depth": 7.056326
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.197241,
+     "Boss length": 9.522232,
+     "Pocket depth": 4.283993
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.596046,
+     "Boss length": 8.898948,
+     "Pocket depth": 7.382861
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.75717,
+     "Boss length": 10.245186,
+     "Pocket depth": 6.311468
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.131566,
+     "Boss length": 11.568819,
+     "Pocket depth": 9.985151
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.337365,
+     "Boss length": 4.663084,
+     "Pocket depth": 8.537204
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 2.299696,
+     "Boss length": 10.614724,
+     "Pocket depth": 5.890882
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.811728,
+     "Boss length": 8.960905,
+     "Pocket depth": 4.847869
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.460708,
+     "Boss length": 7.437956,
+     "Pocket depth": 9.33268
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.099597,
+     "Boss length": 10.378076,
+     "Pocket depth": 9.41269
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.383494,
+     "Boss length": 7.756276,
+     "Pocket depth": 7.286149
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.365459,
+     "Boss length": 7.42588,
+     "Pocket depth": 6.126231
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.893636,
+     "Boss length": 8.658527,
+     "Pocket depth": 7.701638
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.994436,
+     "Boss length": 5.100537,
+     "Pocket depth": 8.508811
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.723932,
+     "Boss length": 8.71683,
+     "Pocket depth": 5.158275
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.456511,
+     "Boss length": 9.503282,
+     "Pocket depth": 6.336626
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.340614,
+     "Boss length": 8.336066,
+     "Pocket depth": 9.311024
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.894971,
+     "Boss length": 9.141689,
+     "Pocket depth": 6.404648
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.302344,
+     "Boss length": 5.529983,
+     "Pocket depth": 6.195953
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.514192,
+     "Boss length": 4.491749,
+     "Pocket depth": 4.496122
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.546811,
+     "Boss length": 5.298571,
+     "Pocket depth": 7.146034
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 4.575617,
+     "Boss length": 7.172483,
+     "Pocket depth": 8.304952
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.645172,
+     "Boss length": 10.017098,
+     "Pocket depth": 7.78803
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.077067,
+     "Boss length": 4.902465,
+     "Pocket depth": 7.530632
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 5.759229,
+     "Boss length": 8.694253,
+     "Pocket depth": 4.22649
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d15-wall-boss",
+  "seed": 5,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Wall": 4.7591,
+     "Boss length": 10.181946,
+     "Pocket depth": 5.318578
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.492715,
+     "Boss length": 4.681098,
+     "Pocket depth": 7.55299
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.880409,
+     "Boss length": 7.664834,
+     "Pocket depth": 9.433729
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.917716,
+     "Boss length": 10.238907,
+     "Pocket depth": 8.443677
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.64224,
+     "Boss length": 4.110571,
+     "Pocket depth": 6.792408
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.20182,
+     "Boss length": 11.172398,
+     "Pocket depth": 5.728695
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.021189,
+     "Boss length": 9.787866,
+     "Pocket depth": 5.521469
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.076073,
+     "Boss length": 10.348066,
+     "Pocket depth": 5.249725
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.090477,
+     "Boss length": 4.986095,
+     "Pocket depth": 6.820466
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.966574,
+     "Boss length": 5.96378,
+     "Pocket depth": 4.485669
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.394372,
+     "Boss length": 6.536194,
+     "Pocket depth": 6.445372
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.94295,
+     "Boss length": 6.175807,
+     "Pocket depth": 6.316615
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.869035,
+     "Boss length": 10.953795,
+     "Pocket depth": 8.334169
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.51525,
+     "Boss length": 8.092423,
+     "Pocket depth": 8.830412
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.596623,
+     "Boss length": 5.117036,
+     "Pocket depth": 7.816285
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.310476,
+     "Boss length": 6.521466,
+     "Pocket depth": 8.673313
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.437672,
+     "Boss length": 4.065015,
+     "Pocket depth": 9.592062
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 3.366077,
+     "Boss length": 6.800876,
+     "Pocket depth": 9.247615
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.99678,
+     "Boss length": 5.401762,
+     "Pocket depth": 9.001996
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 3.115562,
+     "Boss length": 11.986292,
+     "Pocket depth": 4.082353
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.404249,
+     "Boss length": 10.068047,
+     "Pocket depth": 5.885391
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.643034,
+     "Boss length": 4.614213,
+     "Pocket depth": 4.479621
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.939839,
+     "Boss length": 8.197792,
+     "Pocket depth": 5.520619
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.720162,
+     "Boss length": 4.396236,
+     "Pocket depth": 8.408261
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.815495,
+     "Boss length": 6.28179,
+     "Pocket depth": 7.199024
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.426037,
+     "Boss length": 10.774526,
+     "Pocket depth": 7.473359
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.825942,
+     "Boss length": 9.619887,
+     "Pocket depth": 7.241089
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.439616,
+     "Boss length": 6.352387,
+     "Pocket depth": 7.176743
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.620005,
+     "Boss length": 6.016876,
+     "Pocket depth": 8.601174
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 2.55431,
+     "Boss length": 4.640424,
+     "Pocket depth": 5.960161
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.222492,
+     "Boss length": 9.145304,
+     "Pocket depth": 6.475195
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.390412,
+     "Boss length": 6.324112,
+     "Pocket depth": 9.741471
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 3.30582,
+     "Boss length": 9.622235,
+     "Pocket depth": 8.464914
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.408853,
+     "Boss length": 10.268053,
+     "Pocket depth": 9.590307
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.422887,
+     "Boss length": 4.891132,
+     "Pocket depth": 6.170697
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.611918,
+     "Boss length": 4.414847,
+     "Pocket depth": 6.527808
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.671216,
+     "Boss length": 6.490147,
+     "Pocket depth": 8.600871
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.208056,
+     "Boss length": 10.531371,
+     "Pocket depth": 4.603941
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.047773,
+     "Boss length": 10.614877,
+     "Pocket depth": 5.25834
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.385926,
+     "Boss length": 4.807257,
+     "Pocket depth": 6.183004
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.653781,
+     "Boss length": 6.033672,
+     "Pocket depth": 8.087823
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.959339,
+     "Boss length": 6.026497,
+     "Pocket depth": 9.908016
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 4.572509,
+     "Boss length": 7.623309,
+     "Pocket depth": 8.45376
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.154697,
+     "Boss length": 8.947559,
+     "Pocket depth": 7.933992
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.077306,
+     "Boss length": 5.157227,
+     "Pocket depth": 6.001795
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.339642,
+     "Boss length": 9.139039,
+     "Pocket depth": 9.693056
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.373954,
+     "Boss length": 10.948663,
+     "Pocket depth": 8.640325
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.133735,
+     "Boss length": 4.510094,
+     "Pocket depth": 5.020331
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.16632,
+     "Boss length": 5.81626,
+     "Pocket depth": 9.345526
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 3.808085,
+     "Boss length": 4.337322,
+     "Pocket depth": 8.663311
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 4.344879,
+     "Boss length": 6.288644,
+     "Pocket depth": 9.365876
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.098265,
+     "Boss length": 11.762736,
+     "Pocket depth": 5.098405
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.089558,
+     "Boss length": 10.439814,
+     "Pocket depth": 5.644759
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.174928,
+     "Boss length": 10.126516,
+     "Pocket depth": 4.023524
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.633328,
+     "Boss length": 8.242755,
+     "Pocket depth": 5.623737
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.972635,
+     "Boss length": 9.322195,
+     "Pocket depth": 8.857374
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.257211,
+     "Boss length": 8.841938,
+     "Pocket depth": 8.027825
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.704897,
+     "Boss length": 8.551558,
+     "Pocket depth": 5.195494
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.42561,
+     "Boss length": 6.973072,
+     "Pocket depth": 6.976422
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.25156,
+     "Boss length": 8.872376,
+     "Pocket depth": 6.724742
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.8609,
+     "Boss length": 7.072749,
+     "Pocket depth": 7.00299
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.429204,
+     "Boss length": 6.018879,
+     "Pocket depth": 6.609728
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.10502,
+     "Boss length": 9.289183,
+     "Pocket depth": 6.153098
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.980917,
+     "Boss length": 10.320057,
+     "Pocket depth": 4.404762
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d15-wall-boss",
+  "seed": 6,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Wall": 4.102986,
+     "Boss length": 4.018748,
+     "Pocket depth": 7.979029
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 2.808651,
+     "Boss length": 8.336957,
+     "Pocket depth": 4.424583
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.018151,
+     "Boss length": 11.367411,
+     "Pocket depth": 9.823334
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.840211,
+     "Boss length": 11.471971,
+     "Pocket depth": 6.296437
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.089407,
+     "Boss length": 4.412324,
+     "Pocket depth": 6.717975
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 5.136936,
+     "Boss length": 9.050189,
+     "Pocket depth": 6.886282
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.626613,
+     "Boss length": 5.593704,
+     "Pocket depth": 9.927279
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 5.780521,
+     "Boss length": 6.153022,
+     "Pocket depth": 9.669273
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.413551,
+     "Boss length": 11.871611,
+     "Pocket depth": 8.19093
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.777855,
+     "Boss length": 11.693719,
+     "Pocket depth": 9.665892
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.873151,
+     "Boss length": 8.420748,
+     "Pocket depth": 5.232352
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.167242,
+     "Boss length": 5.704101,
+     "Pocket depth": 8.987945
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 3.61975,
+     "Boss length": 8.652897,
+     "Pocket depth": 7.469809
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.541901,
+     "Boss length": 8.570092,
+     "Pocket depth": 9.252621
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.854154,
+     "Boss length": 8.584462,
+     "Pocket depth": 5.635411
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.40864,
+     "Boss length": 10.482903,
+     "Pocket depth": 5.226136
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.677248,
+     "Boss length": 6.897073,
+     "Pocket depth": 7.947976
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.086806,
+     "Boss length": 6.649768,
+     "Pocket depth": 5.752039
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.026401,
+     "Boss length": 6.420612,
+     "Pocket depth": 5.582331
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.491455,
+     "Boss length": 4.723396,
+     "Pocket depth": 6.163304
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.333007,
+     "Boss length": 11.43053,
+     "Pocket depth": 7.002566
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.46084,
+     "Boss length": 7.915668,
+     "Pocket depth": 6.843817
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.221054,
+     "Boss length": 7.54607,
+     "Pocket depth": 8.001543
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.178293,
+     "Boss length": 6.314798,
+     "Pocket depth": 9.559438
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 2.482823,
+     "Boss length": 5.296119,
+     "Pocket depth": 7.520602
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 4.764923,
+     "Boss length": 9.876354,
+     "Pocket depth": 9.387443
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.63525,
+     "Boss length": 8.74144,
+     "Pocket depth": 6.527068
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.904391,
+     "Boss length": 5.195002,
+     "Pocket depth": 5.145744
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.351846,
+     "Boss length": 4.638918,
+     "Pocket depth": 4.608395
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.310785,
+     "Boss length": 6.398519,
+     "Pocket depth": 8.397751
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.01314,
+     "Boss length": 11.035823,
+     "Pocket depth": 8.630592
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.761761,
+     "Boss length": 6.179617,
+     "Pocket depth": 7.157292
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.342875,
+     "Boss length": 8.26931,
+     "Pocket depth": 4.973389
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.489522,
+     "Boss length": 5.530845,
+     "Pocket depth": 6.462245
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.582115,
+     "Boss length": 9.932694,
+     "Pocket depth": 8.374871
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.023744,
+     "Boss length": 8.995568,
+     "Pocket depth": 4.323148
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.609812,
+     "Boss length": 7.377861,
+     "Pocket depth": 8.940933
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.326684,
+     "Boss length": 11.479296,
+     "Pocket depth": 6.362675
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.788138,
+     "Boss length": 4.179977,
+     "Pocket depth": 6.328435
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.579514,
+     "Boss length": 5.670368,
+     "Pocket depth": 8.130665
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.380994,
+     "Boss length": 7.028139,
+     "Pocket depth": 4.508263
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.769271,
+     "Boss length": 10.204351,
+     "Pocket depth": 7.542319
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.000587,
+     "Boss length": 6.196753,
+     "Pocket depth": 9.773948
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 5.725323,
+     "Boss length": 8.304911,
+     "Pocket depth": 7.575808
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.019261,
+     "Boss length": 6.291133,
+     "Pocket depth": 5.573411
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.563847,
+     "Boss length": 8.311646,
+     "Pocket depth": 8.311842
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.406744,
+     "Boss length": 4.872258,
+     "Pocket depth": 5.509485
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.469348,
+     "Boss length": 4.565755,
+     "Pocket depth": 4.763086
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.844895,
+     "Boss length": 8.205962,
+     "Pocket depth": 9.746229
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.324554,
+     "Boss length": 11.296589,
+     "Pocket depth": 6.020401
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.99844,
+     "Boss length": 7.921514,
+     "Pocket depth": 5.909479
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.943616,
+     "Boss length": 7.178742,
+     "Pocket depth": 5.683527
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.406929,
+     "Boss length": 8.04474,
+     "Pocket depth": 7.547571
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.711151,
+     "Boss length": 7.799692,
+     "Pocket depth": 9.959201
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.77555,
+     "Boss length": 10.191236,
+     "Pocket depth": 4.206396
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.081844,
+     "Boss length": 7.246816,
+     "Pocket depth": 7.841875
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.729211,
+     "Boss length": 5.048687,
+     "Pocket depth": 9.38637
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 2.102374,
+     "Boss length": 4.199165,
+     "Pocket depth": 6.579003
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 5.078407,
+     "Boss length": 5.412411,
+     "Pocket depth": 7.823923
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.901461,
+     "Boss length": 6.26365,
+     "Pocket depth": 6.629544
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.413435,
+     "Boss length": 6.248582,
+     "Pocket depth": 6.550484
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.845931,
+     "Boss length": 7.241348,
+     "Pocket depth": 7.151871
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.128057,
+     "Boss length": 6.178552,
+     "Pocket depth": 9.394145
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.05165,
+     "Boss length": 8.50843,
+     "Pocket depth": 4.24205
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d15-wall-boss",
+  "seed": 7,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Wall": 2.046819,
+     "Boss length": 4.495666,
+     "Pocket depth": 9.861446
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 4.796115,
+     "Boss length": 8.171562,
+     "Pocket depth": 6.43313
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.864931,
+     "Boss length": 5.919401,
+     "Pocket depth": 7.319954
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.919288,
+     "Boss length": 6.062524,
+     "Pocket depth": 4.93569
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.05636,
+     "Boss length": 8.14722,
+     "Pocket depth": 5.182824
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.471834,
+     "Boss length": 6.345979,
+     "Pocket depth": 7.208437
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.185321,
+     "Boss length": 11.823569,
+     "Pocket depth": 5.485202
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.511118,
+     "Boss length": 5.526334,
+     "Pocket depth": 4.861944
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.618576,
+     "Boss length": 6.32761,
+     "Pocket depth": 7.287409
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.047495,
+     "Boss length": 4.596145,
+     "Pocket depth": 9.477644
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 4.214843,
+     "Boss length": 8.972999,
+     "Pocket depth": 8.080545
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.863959,
+     "Boss length": 8.995045,
+     "Pocket depth": 9.527229
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.310514,
+     "Boss length": 4.319828,
+     "Pocket depth": 5.049649
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.427924,
+     "Boss length": 7.402526,
+     "Pocket depth": 4.121057
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.352425,
+     "Boss length": 10.144127,
+     "Pocket depth": 6.213816
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.706863,
+     "Boss length": 7.749301,
+     "Pocket depth": 9.677327
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.813124,
+     "Boss length": 9.50638,
+     "Pocket depth": 5.983888
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.425338,
+     "Boss length": 5.11033,
+     "Pocket depth": 4.79976
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.652139,
+     "Boss length": 6.579416,
+     "Pocket depth": 5.142253
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.528835,
+     "Boss length": 6.694167,
+     "Pocket depth": 4.261788
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.737015,
+     "Boss length": 11.370974,
+     "Pocket depth": 7.287236
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.30631,
+     "Boss length": 9.241955,
+     "Pocket depth": 9.519268
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.468166,
+     "Boss length": 8.239433,
+     "Pocket depth": 7.894996
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.56426,
+     "Boss length": 11.683987,
+     "Pocket depth": 9.027745
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.376938,
+     "Boss length": 11.710966,
+     "Pocket depth": 9.805038
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.194273,
+     "Boss length": 10.548144,
+     "Pocket depth": 4.0342
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.064294,
+     "Boss length": 6.624451,
+     "Pocket depth": 8.34563
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.19798,
+     "Boss length": 10.043331,
+     "Pocket depth": 9.861604
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.230213,
+     "Boss length": 10.585276,
+     "Pocket depth": 6.579965
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.569406,
+     "Boss length": 9.908429,
+     "Pocket depth": 7.31018
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.249535,
+     "Boss length": 5.894681,
+     "Pocket depth": 4.055889
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.096291,
+     "Boss length": 11.547175,
+     "Pocket depth": 9.000213
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.522406,
+     "Boss length": 4.11521,
+     "Pocket depth": 7.713376
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.379587,
+     "Boss length": 9.734798,
+     "Pocket depth": 9.969164
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.11199,
+     "Boss length": 11.890202,
+     "Pocket depth": 7.899827
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.21967,
+     "Boss length": 8.995191,
+     "Pocket depth": 8.980833
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.556257,
+     "Boss length": 11.953589,
+     "Pocket depth": 7.04159
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.26756,
+     "Boss length": 5.287058,
+     "Pocket depth": 6.376998
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.842676,
+     "Boss length": 10.508338,
+     "Pocket depth": 9.169404
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.943677,
+     "Boss length": 9.267642,
+     "Pocket depth": 9.941457
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.43724,
+     "Boss length": 9.891641,
+     "Pocket depth": 9.732332
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.956879,
+     "Boss length": 5.838187,
+     "Pocket depth": 7.504046
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.182727,
+     "Boss length": 10.831355,
+     "Pocket depth": 5.139519
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.219584,
+     "Boss length": 7.82164,
+     "Pocket depth": 7.153874
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.720824,
+     "Boss length": 6.00506,
+     "Pocket depth": 6.633785
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.910048,
+     "Boss length": 5.366727,
+     "Pocket depth": 4.019266
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.692611,
+     "Boss length": 4.192843,
+     "Pocket depth": 4.64337
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.50522,
+     "Boss length": 11.862526,
+     "Pocket depth": 4.360719
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.697819,
+     "Boss length": 7.240299,
+     "Pocket depth": 6.993973
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.929337,
+     "Boss length": 6.94598,
+     "Pocket depth": 6.160095
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.166104,
+     "Boss length": 9.685874,
+     "Pocket depth": 8.800685
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.119959,
+     "Boss length": 10.386573,
+     "Pocket depth": 6.472993
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.250546,
+     "Boss length": 6.341169,
+     "Pocket depth": 7.163553
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.105934,
+     "Boss length": 4.640108,
+     "Pocket depth": 5.513187
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.307371,
+     "Boss length": 10.618994,
+     "Pocket depth": 8.648024
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.719319,
+     "Boss length": 6.855296,
+     "Pocket depth": 9.521958
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.005328,
+     "Boss length": 6.891282,
+     "Pocket depth": 6.861788
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.321227,
+     "Boss length": 7.232305,
+     "Pocket depth": 9.847398
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.205126,
+     "Boss length": 7.490516,
+     "Pocket depth": 6.031357
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.148163,
+     "Boss length": 6.346038,
+     "Pocket depth": 9.305143
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.289035,
+     "Boss length": 11.888319,
+     "Pocket depth": 9.046029
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.982544,
+     "Boss length": 7.494453,
+     "Pocket depth": 8.18603
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.724263,
+     "Boss length": 8.405237,
+     "Pocket depth": 7.944227
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.649539,
+     "Boss length": 9.546415,
+     "Pocket depth": 6.344816
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d15-wall-boss",
+  "seed": 8,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Wall": 2.625181,
+     "Boss length": 9.001538,
+     "Pocket depth": 5.803987
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.783817,
+     "Boss length": 8.680073,
+     "Pocket depth": 6.696394
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.275038,
+     "Boss length": 5.910516,
+     "Pocket depth": 7.039706
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.240552,
+     "Boss length": 8.113471,
+     "Pocket depth": 4.440151
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.277819,
+     "Boss length": 5.762878,
+     "Pocket depth": 4.963286
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.818931,
+     "Boss length": 9.547443,
+     "Pocket depth": 4.545975
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.511229,
+     "Boss length": 4.31507,
+     "Pocket depth": 7.335918
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 3.776383,
+     "Boss length": 10.021749,
+     "Pocket depth": 8.645112
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.158686,
+     "Boss length": 7.631592,
+     "Pocket depth": 6.151687
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.001655,
+     "Boss length": 6.568144,
+     "Pocket depth": 7.111337
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.498525,
+     "Boss length": 10.887272,
+     "Pocket depth": 5.943973
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.932457,
+     "Boss length": 11.197367,
+     "Pocket depth": 7.068413
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.739768,
+     "Boss length": 10.035375,
+     "Pocket depth": 7.895426
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.231141,
+     "Boss length": 6.213394,
+     "Pocket depth": 4.624534
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.240588,
+     "Boss length": 11.998938,
+     "Pocket depth": 7.409274
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.613703,
+     "Boss length": 4.383251,
+     "Pocket depth": 6.654171
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.156826,
+     "Boss length": 11.982606,
+     "Pocket depth": 5.499769
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.441985,
+     "Boss length": 4.586052,
+     "Pocket depth": 7.281223
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.143867,
+     "Boss length": 5.426892,
+     "Pocket depth": 6.432311
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.46067,
+     "Boss length": 4.857251,
+     "Pocket depth": 9.965956
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 5.353351,
+     "Boss length": 5.526609,
+     "Pocket depth": 4.135848
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.835839,
+     "Boss length": 8.852084,
+     "Pocket depth": 8.765675
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.600366,
+     "Boss length": 7.560777,
+     "Pocket depth": 4.184554
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.668567,
+     "Boss length": 6.400206,
+     "Pocket depth": 8.213895
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.004445,
+     "Boss length": 10.017926,
+     "Pocket depth": 6.246379
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.025362,
+     "Boss length": 11.865175,
+     "Pocket depth": 9.322405
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.364157,
+     "Boss length": 8.706911,
+     "Pocket depth": 8.020201
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.818598,
+     "Boss length": 6.481404,
+     "Pocket depth": 4.56838
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.338271,
+     "Boss length": 7.174128,
+     "Pocket depth": 6.019895
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.569585,
+     "Boss length": 6.59081,
+     "Pocket depth": 7.293561
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.138035,
+     "Boss length": 9.789599,
+     "Pocket depth": 7.206564
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.612666,
+     "Boss length": 9.918731,
+     "Pocket depth": 7.11176
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.862091,
+     "Boss length": 10.607681,
+     "Pocket depth": 6.181232
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.064001,
+     "Boss length": 11.82301,
+     "Pocket depth": 4.355045
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.366321,
+     "Boss length": 9.470199,
+     "Pocket depth": 5.902511
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.746175,
+     "Boss length": 4.247733,
+     "Pocket depth": 7.474178
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.436757,
+     "Boss length": 9.466222,
+     "Pocket depth": 4.71808
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.762816,
+     "Boss length": 6.06359,
+     "Pocket depth": 8.526653
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 5.010209,
+     "Boss length": 4.880846,
+     "Pocket depth": 7.203892
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.761394,
+     "Boss length": 8.918997,
+     "Pocket depth": 5.599474
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.057187,
+     "Boss length": 8.28126,
+     "Pocket depth": 5.568878
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.405617,
+     "Boss length": 7.777421,
+     "Pocket depth": 5.266553
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.072644,
+     "Boss length": 4.805926,
+     "Pocket depth": 4.168366
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.952755,
+     "Boss length": 4.566088,
+     "Pocket depth": 6.937626
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.493593,
+     "Boss length": 8.90702,
+     "Pocket depth": 6.559053
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.518437,
+     "Boss length": 6.090036,
+     "Pocket depth": 4.716784
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.785313,
+     "Boss length": 8.297144,
+     "Pocket depth": 9.500501
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.690712,
+     "Boss length": 6.406562,
+     "Pocket depth": 9.065406
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 5.539507,
+     "Boss length": 8.502187,
+     "Pocket depth": 7.951542
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.825627,
+     "Boss length": 5.649352,
+     "Pocket depth": 7.806129
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 4.038152,
+     "Boss length": 10.28466,
+     "Pocket depth": 5.337008
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.237988,
+     "Boss length": 11.625421,
+     "Pocket depth": 5.568955
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.608319,
+     "Boss length": 5.244854,
+     "Pocket depth": 5.262481
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.263622,
+     "Boss length": 7.674185,
+     "Pocket depth": 5.415237
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.155334,
+     "Boss length": 10.827322,
+     "Pocket depth": 4.025325
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.050855,
+     "Boss length": 8.701783,
+     "Pocket depth": 7.260265
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.848219,
+     "Boss length": 11.112603,
+     "Pocket depth": 4.071927
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.938399,
+     "Boss length": 6.368523,
+     "Pocket depth": 5.732195
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.5872,
+     "Boss length": 11.196462,
+     "Pocket depth": 5.467356
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.354462,
+     "Boss length": 11.232334,
+     "Pocket depth": 8.703416
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.066957,
+     "Boss length": 7.137943,
+     "Pocket depth": 6.072566
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.281482,
+     "Boss length": 9.213183,
+     "Pocket depth": 7.843162
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.627319,
+     "Boss length": 8.666889,
+     "Pocket depth": 4.693997
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.733621,
+     "Boss length": 11.568796,
+     "Pocket depth": 9.748135
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d15-wall-boss",
+  "seed": 9,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Wall": 2.794916,
+     "Boss length": 10.809686,
+     "Pocket depth": 4.850597
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.286687,
+     "Boss length": 9.790435,
+     "Pocket depth": 8.13317
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.050874,
+     "Boss length": 11.355634,
+     "Pocket depth": 4.78517
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.529162,
+     "Boss length": 9.584126,
+     "Pocket depth": 7.523712
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.133719,
+     "Boss length": 11.502534,
+     "Pocket depth": 5.722135
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.921085,
+     "Boss length": 9.135793,
+     "Pocket depth": 6.20162
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.142185,
+     "Boss length": 11.179507,
+     "Pocket depth": 9.193353
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.821312,
+     "Boss length": 10.989502,
+     "Pocket depth": 5.138896
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.709128,
+     "Boss length": 6.668483,
+     "Pocket depth": 4.288569
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.505248,
+     "Boss length": 5.636291,
+     "Pocket depth": 7.158137
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.976363,
+     "Boss length": 4.59789,
+     "Pocket depth": 9.005357
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 4.8149,
+     "Boss length": 5.574383,
+     "Pocket depth": 4.409988
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.955199,
+     "Boss length": 6.477603,
+     "Pocket depth": 7.952378
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.168607,
+     "Boss length": 8.426803,
+     "Pocket depth": 9.742415
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.271543,
+     "Boss length": 5.281002,
+     "Pocket depth": 7.105236
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.301326,
+     "Boss length": 8.294086,
+     "Pocket depth": 8.798483
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.308266,
+     "Boss length": 8.909548,
+     "Pocket depth": 7.201187
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.626392,
+     "Boss length": 7.974681,
+     "Pocket depth": 5.078508
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.718745,
+     "Boss length": 8.775304,
+     "Pocket depth": 7.84695
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.212018,
+     "Boss length": 9.254266,
+     "Pocket depth": 9.895175
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.669901,
+     "Boss length": 4.171466,
+     "Pocket depth": 8.39051
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.380167,
+     "Boss length": 9.326819,
+     "Pocket depth": 7.840596
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.899353,
+     "Boss length": 9.876129,
+     "Pocket depth": 9.429107
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.17809,
+     "Boss length": 5.858134,
+     "Pocket depth": 8.116727
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.828673,
+     "Boss length": 4.981697,
+     "Pocket depth": 9.649541
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.741603,
+     "Boss length": 10.345398,
+     "Pocket depth": 6.075628
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.076473,
+     "Boss length": 6.582158,
+     "Pocket depth": 8.290194
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.429526,
+     "Boss length": 4.555323,
+     "Pocket depth": 7.501317
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.227456,
+     "Boss length": 6.561416,
+     "Pocket depth": 7.206681
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.13486,
+     "Boss length": 7.903711,
+     "Pocket depth": 5.116772
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.277618,
+     "Boss length": 9.540545,
+     "Pocket depth": 7.428224
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.773539,
+     "Boss length": 10.730099,
+     "Pocket depth": 4.208622
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.860133,
+     "Boss length": 8.766138,
+     "Pocket depth": 8.111847
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.791059,
+     "Boss length": 6.101728,
+     "Pocket depth": 9.365659
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 4.569999,
+     "Boss length": 4.021224,
+     "Pocket depth": 6.765726
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.363836,
+     "Boss length": 5.534164,
+     "Pocket depth": 4.670578
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.706389,
+     "Boss length": 5.533211,
+     "Pocket depth": 5.731824
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.304761,
+     "Boss length": 5.173251,
+     "Pocket depth": 9.131859
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.758835,
+     "Boss length": 10.659971,
+     "Pocket depth": 6.272942
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.792075,
+     "Boss length": 8.250056,
+     "Pocket depth": 9.718569
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.312455,
+     "Boss length": 7.86017,
+     "Pocket depth": 5.516781
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.682829,
+     "Boss length": 11.533555,
+     "Pocket depth": 4.497765
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.436782,
+     "Boss length": 6.765483,
+     "Pocket depth": 9.411474
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 3.742616,
+     "Boss length": 7.348979,
+     "Pocket depth": 8.909999
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.952072,
+     "Boss length": 8.418574,
+     "Pocket depth": 8.960075
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.281035,
+     "Boss length": 4.048425,
+     "Pocket depth": 9.659081
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 5.506246,
+     "Boss length": 11.323644,
+     "Pocket depth": 8.968751
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.534089,
+     "Boss length": 10.231087,
+     "Pocket depth": 9.215668
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.427279,
+     "Boss length": 7.717234,
+     "Pocket depth": 8.88123
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.653644,
+     "Boss length": 7.186322,
+     "Pocket depth": 7.370001
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.087646,
+     "Boss length": 11.120582,
+     "Pocket depth": 4.231301
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.040313,
+     "Boss length": 4.920097,
+     "Pocket depth": 8.328303
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 3.612019,
+     "Boss length": 9.313814,
+     "Pocket depth": 7.775883
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.756312,
+     "Boss length": 6.284969,
+     "Pocket depth": 7.974843
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.262349,
+     "Boss length": 11.146824,
+     "Pocket depth": 4.650316
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.206607,
+     "Boss length": 9.562492,
+     "Pocket depth": 4.107986
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.524333,
+     "Boss length": 5.347901,
+     "Pocket depth": 7.141787
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 5.734747,
+     "Boss length": 7.693061,
+     "Pocket depth": 5.082109
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.86835,
+     "Boss length": 5.97356,
+     "Pocket depth": 8.667433
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.799315,
+     "Boss length": 7.784917,
+     "Pocket depth": 9.446639
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.436387,
+     "Boss length": 5.04408,
+     "Pocket depth": 4.503277
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.808083,
+     "Boss length": 9.065554,
+     "Pocket depth": 8.210493
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.358307,
+     "Boss length": 7.261499,
+     "Pocket depth": 7.681846
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.305275,
+     "Boss length": 4.828427,
+     "Pocket depth": 5.939247
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d15-wall-boss",
+  "seed": 10,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Wall": 4.007968,
+     "Boss length": 11.339894,
+     "Pocket depth": 8.14791
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.208411,
+     "Boss length": 7.659341,
+     "Pocket depth": 6.690077
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.809148,
+     "Boss length": 4.66849,
+     "Pocket depth": 4.204761
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.986874,
+     "Boss length": 11.376758,
+     "Pocket depth": 4.775965
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.571094,
+     "Boss length": 7.104486,
+     "Pocket depth": 6.665888
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.702685,
+     "Boss length": 6.329097,
+     "Pocket depth": 8.848983
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.744166,
+     "Boss length": 5.263117,
+     "Pocket depth": 6.332223
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.781521,
+     "Boss length": 8.164631,
+     "Pocket depth": 6.890821
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.178336,
+     "Boss length": 6.738653,
+     "Pocket depth": 6.303942
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.068904,
+     "Boss length": 4.366899,
+     "Pocket depth": 7.076256
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.15396,
+     "Boss length": 4.594528,
+     "Pocket depth": 5.224283
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.586128,
+     "Boss length": 4.680774,
+     "Pocket depth": 4.857761
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.07025,
+     "Boss length": 7.870258,
+     "Pocket depth": 6.507771
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.518556,
+     "Boss length": 10.360867,
+     "Pocket depth": 4.947056
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.77862,
+     "Boss length": 11.34327,
+     "Pocket depth": 5.426477
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.158792,
+     "Boss length": 9.472836,
+     "Pocket depth": 4.806202
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.390124,
+     "Boss length": 11.036423,
+     "Pocket depth": 7.576386
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.062528,
+     "Boss length": 9.933703,
+     "Pocket depth": 8.316028
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.468257,
+     "Boss length": 10.403686,
+     "Pocket depth": 7.336869
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.555348,
+     "Boss length": 6.524961,
+     "Pocket depth": 8.515002
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.482014,
+     "Boss length": 7.108118,
+     "Pocket depth": 5.323867
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.232191,
+     "Boss length": 11.018119,
+     "Pocket depth": 6.647599
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.776094,
+     "Boss length": 5.26664,
+     "Pocket depth": 9.276743
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 3.695268,
+     "Boss length": 10.939158,
+     "Pocket depth": 9.583943
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.27267,
+     "Boss length": 5.306492,
+     "Pocket depth": 5.802988
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.938059,
+     "Boss length": 11.634311,
+     "Pocket depth": 7.328813
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.003187,
+     "Boss length": 5.626957,
+     "Pocket depth": 5.943032
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.961859,
+     "Boss length": 11.020811,
+     "Pocket depth": 9.1207
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.379878,
+     "Boss length": 6.610728,
+     "Pocket depth": 5.22452
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.17164,
+     "Boss length": 11.821516,
+     "Pocket depth": 9.415698
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.766239,
+     "Boss length": 10.191824,
+     "Pocket depth": 7.018592
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.639192,
+     "Boss length": 5.86745,
+     "Pocket depth": 5.554182
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.474188,
+     "Boss length": 6.816769,
+     "Pocket depth": 8.655533
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.116148,
+     "Boss length": 8.353075,
+     "Pocket depth": 9.271348
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.202522,
+     "Boss length": 8.033289,
+     "Pocket depth": 6.535327
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.237724,
+     "Boss length": 11.165776,
+     "Pocket depth": 6.886726
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.882089,
+     "Boss length": 6.072381,
+     "Pocket depth": 4.306494
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.572124,
+     "Boss length": 6.496933,
+     "Pocket depth": 8.108699
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.651135,
+     "Boss length": 8.384407,
+     "Pocket depth": 5.691438
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.392447,
+     "Boss length": 6.403064,
+     "Pocket depth": 7.488484
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.837933,
+     "Boss length": 9.471938,
+     "Pocket depth": 5.699676
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.943039,
+     "Boss length": 11.603575,
+     "Pocket depth": 7.595546
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.515874,
+     "Boss length": 4.283203,
+     "Pocket depth": 5.052331
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.230052,
+     "Boss length": 7.821174,
+     "Pocket depth": 8.0627
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.707599,
+     "Boss length": 10.404723,
+     "Pocket depth": 4.17155
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.080433,
+     "Boss length": 6.31464,
+     "Pocket depth": 7.008635
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.285462,
+     "Boss length": 6.021536,
+     "Pocket depth": 5.176884
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.622995,
+     "Boss length": 10.061352,
+     "Pocket depth": 9.107918
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.569247,
+     "Boss length": 5.742053,
+     "Pocket depth": 6.205464
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 5.213333,
+     "Boss length": 11.418323,
+     "Pocket depth": 5.205511
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.970373,
+     "Boss length": 7.935688,
+     "Pocket depth": 5.779013
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.908998,
+     "Boss length": 11.034166,
+     "Pocket depth": 4.98162
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.441962,
+     "Boss length": 5.273028,
+     "Pocket depth": 9.105547
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 5.728445,
+     "Boss length": 9.989455,
+     "Pocket depth": 8.966498
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.577113,
+     "Boss length": 4.811597,
+     "Pocket depth": 8.959583
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Wall": 5.457749,
+     "Boss length": 8.361034,
+     "Pocket depth": 5.906577
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.701316,
+     "Boss length": 8.199662,
+     "Pocket depth": 5.205211
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.028537,
+     "Boss length": 6.595327,
+     "Pocket depth": 7.191327
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.276202,
+     "Boss length": 4.433288,
+     "Pocket depth": 4.287514
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 4.151715,
+     "Boss length": 7.700137,
+     "Pocket depth": 6.866481
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.557454,
+     "Boss length": 7.735605,
+     "Pocket depth": 8.988731
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.807837,
+     "Boss length": 8.428301,
+     "Pocket depth": 9.22114
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 3.624063,
+     "Boss length": 11.530245,
+     "Pocket depth": 7.457711
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Wall": 2.20676,
+     "Boss length": 5.438422,
+     "Pocket depth": 6.076009
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ }
+]

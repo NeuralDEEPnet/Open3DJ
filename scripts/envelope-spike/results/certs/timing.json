@@ -1,0 +1,309 @@
+{
+ "c03-fillet-safe": {
+  "wall_ms": 8479,
+  "worker_ms": 5925,
+  "points": 64,
+  "lane": "interactive",
+  "workers": 4
+ },
+ "c02-blind-pocket-safe": {
+  "wall_ms": 8564,
+  "worker_ms": 4727,
+  "points": 64,
+  "lane": "interactive",
+  "workers": 4
+ },
+ "c01-plate-center-hole": {
+  "wall_ms": 9179,
+  "worker_ms": 5079,
+  "points": 64,
+  "lane": "interactive",
+  "workers": 4
+ },
+ "c05-shuttle-post-safe": {
+  "wall_ms": 798,
+  "worker_ms": 1067,
+  "points": 64,
+  "lane": "interactive",
+  "workers": 4
+ },
+ "c04-bolt-circle-safe": {
+  "wall_ms": 11876,
+  "worker_ms": 17634,
+  "points": 64,
+  "lane": "interactive",
+  "workers": 4
+ },
+ "c06-slot-hole-safe": {
+  "wall_ms": 3895,
+  "worker_ms": 9163,
+  "points": 64,
+  "lane": "interactive",
+  "workers": 4
+ },
+ "c08-vent-bool-safe": {
+  "wall_ms": 9236,
+  "worker_ms": 15848,
+  "points": 64,
+  "lane": "interactive",
+  "workers": 4
+ },
+ "c09-rotor-stop-safe": {
+  "wall_ms": 8356,
+  "worker_ms": 12290,
+  "points": 64,
+  "lane": "interactive",
+  "workers": 4
+ },
+ "c07-pin-bushing-safe": {
+  "wall_ms": 11156,
+  "worker_ms": 2082,
+  "points": 64,
+  "lane": "interactive",
+  "workers": 4
+ },
+ "c10-key-channel-safe": {
+  "wall_ms": 13200,
+  "worker_ms": 3696,
+  "points": 64,
+  "lane": "interactive",
+  "workers": 4
+ },
+ "d01-plate-hole-pitch": {
+  "wall_ms": 7255,
+  "worker_ms": 7048,
+  "points": 64,
+  "lane": "interactive",
+  "workers": 4
+ },
+ "d02-blind-pocket": {
+  "wall_ms": 5644,
+  "worker_ms": 5165,
+  "points": 64,
+  "lane": "interactive",
+  "workers": 4
+ },
+ "d03-fillet-corners": {
+  "wall_ms": 5565,
+  "worker_ms": 4902,
+  "points": 64,
+  "lane": "interactive",
+  "workers": 4
+ },
+ "d05-shuttle-post": {
+  "wall_ms": 7388,
+  "worker_ms": 1392,
+  "points": 64,
+  "lane": "interactive",
+  "workers": 4
+ },
+ "d07-pin-bushing": {
+  "wall_ms": 8186,
+  "worker_ms": 1999,
+  "points": 64,
+  "lane": "interactive",
+  "workers": 4
+ },
+ "d06-slot-near-hole": {
+  "wall_ms": 9107,
+  "worker_ms": 10455,
+  "points": 64,
+  "lane": "interactive",
+  "workers": 4
+ },
+ "d04-bolt-circle-count": {
+  "wall_ms": 14253,
+  "worker_ms": 19416,
+  "points": 64,
+  "lane": "interactive",
+  "workers": 4
+ },
+ "d09-rotor-stop": {
+  "wall_ms": 10456,
+  "worker_ms": 13567,
+  "points": 64,
+  "lane": "interactive",
+  "workers": 4
+ },
+ "d08-vent-bool": {
+  "wall_ms": 11591,
+  "worker_ms": 16519,
+  "points": 64,
+  "lane": "interactive",
+  "workers": 4
+ },
+ "d10-screw-boss-choice": {
+  "wall_ms": 10024,
+  "worker_ms": 5529,
+  "points": 64,
+  "lane": "interactive",
+  "workers": 4
+ },
+ "d11-hole-diagonal": {
+  "wall_ms": 7352,
+  "worker_ms": 6638,
+  "points": 64,
+  "lane": "interactive",
+  "workers": 4
+ },
+ "d12-swing-arm": {
+  "wall_ms": 4095,
+  "worker_ms": 1437,
+  "points": 64,
+  "lane": "interactive",
+  "workers": 4
+ },
+ "d13-key-drift": {
+  "wall_ms": 5484,
+  "worker_ms": 3442,
+  "points": 64,
+  "lane": "interactive",
+  "workers": 4
+ },
+ "d14-side-port": {
+  "wall_ms": 8298,
+  "worker_ms": 8826,
+  "points": 64,
+  "lane": "interactive",
+  "workers": 4
+ },
+ "d15-wall-boss": {
+  "wall_ms": 24312,
+  "worker_ms": 5930,
+  "points": 64,
+  "lane": "interactive",
+  "workers": 4
+ },
+ "box-with-lid": {
+  "wall_ms": 42396,
+  "worker_ms": 42570,
+  "points": 64,
+  "lane": "interactive",
+  "workers": 4
+ },
+ "bracket": {
+  "wall_ms": 43372,
+  "worker_ms": 14957,
+  "points": 64,
+  "lane": "interactive",
+  "workers": 4
+ },
+ "flange": {
+  "wall_ms": 57221,
+  "worker_ms": 21257,
+  "points": 64,
+  "lane": "interactive",
+  "workers": 4
+ },
+ "enclosure": {
+  "wall_ms": 75738,
+  "worker_ms": 112855,
+  "points": 64,
+  "lane": "interactive",
+  "workers": 4
+ },
+ "gear-blank": {
+  "wall_ms": 50459,
+  "worker_ms": 44995,
+  "points": 53,
+  "lane": "interactive",
+  "workers": 4
+ },
+ "lid-interference": {
+  "wall_ms": 12709,
+  "worker_ms": 12472,
+  "points": 64,
+  "lane": "interactive",
+  "workers": 4
+ },
+ "knob": {
+  "wall_ms": 17313,
+  "worker_ms": 28477,
+  "points": 64,
+  "lane": "interactive",
+  "workers": 4
+ },
+ "hinge": {
+  "wall_ms": 67530,
+  "worker_ms": 88347,
+  "points": 64,
+  "lane": "interactive",
+  "workers": 4
+ },
+ "pegboard-hook": {
+  "wall_ms": 20350,
+  "worker_ms": 15366,
+  "points": 64,
+  "lane": "interactive",
+  "workers": 4
+ },
+ "phone-stand": {
+  "wall_ms": 24980,
+  "worker_ms": 23067,
+  "points": 64,
+  "lane": "interactive",
+  "workers": 4
+ },
+ "tapered-cup": {
+  "wall_ms": 30037,
+  "worker_ms": 37710,
+  "points": 64,
+  "lane": "interactive",
+  "workers": 4
+ },
+ "vented-box": {
+  "wall_ms": 20633,
+  "worker_ms": 59470,
+  "points": 64,
+  "lane": "interactive",
+  "workers": 4
+ },
+ "_last_command": {
+  "files": [
+   "c01-plate-center-hole.brief.json",
+   "c02-blind-pocket-safe.brief.json",
+   "c03-fillet-safe.brief.json",
+   "c04-bolt-circle-safe.brief.json",
+   "c05-shuttle-post-safe.brief.json",
+   "c06-slot-hole-safe.brief.json",
+   "c07-pin-bushing-safe.brief.json",
+   "c08-vent-bool-safe.brief.json",
+   "c09-rotor-stop-safe.brief.json",
+   "c10-key-channel-safe.brief.json",
+   "d01-plate-hole-pitch.brief.json",
+   "d02-blind-pocket.brief.json",
+   "d03-fillet-corners.brief.json",
+   "d04-bolt-circle-count.brief.json",
+   "d05-shuttle-post.brief.json",
+   "d06-slot-near-hole.brief.json",
+   "d07-pin-bushing.brief.json",
+   "d08-vent-bool.brief.json",
+   "d09-rotor-stop.brief.json",
+   "d10-screw-boss-choice.brief.json",
+   "d11-hole-diagonal.brief.json",
+   "d12-swing-arm.brief.json",
+   "d13-key-drift.brief.json",
+   "d14-side-port.brief.json",
+   "d15-wall-boss.brief.json",
+   "box-with-lid.brief.json",
+   "bracket.brief.json",
+   "enclosure.brief.json",
+   "flange.brief.json",
+   "gear-blank.brief.json",
+   "hinge.brief.json",
+   "knob.brief.json",
+   "lid-interference.brief.json",
+   "pegboard-hook.brief.json",
+   "phone-stand.brief.json",
+   "tapered-cup.brief.json",
+   "vented-box.brief.json"
+  ],
+  "wall_ms_including_pool_start": 181847,
+  "lane": "interactive",
+  "workers": 4,
+  "budget": 64,
+  "seed": 1,
+  "platform": "linux-x64",
+  "node": "v24.22.1"
+ }
+}

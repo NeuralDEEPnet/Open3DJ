@@ -1,0 +1,6 @@
+{
+ "note": "M5: wall time of the whole certify process for the enclosure brief at budget 64, seed 1, measured from the shell around each process (pool start included), run one after the other on an otherwise idle 4-core Linux x64 container under Node v24.22.1. With 4 workers the batch lane leaves slot 0 to the interactive lane, so it runs on 3 workers.",
+ "w1-batch": { "workers": 1, "lane": "batch", "process_wall_s": 101.84 },
+ "w4-batch": { "workers": 4, "lane": "batch", "usable_workers": 3, "process_wall_s": 42.22 },
+ "w4-interactive": { "workers": 4, "lane": "interactive", "process_wall_s": 33.94 }
+}

@@ -1,0 +1,4021 @@
+{
+ "certificate": "o3dj-envelope-cert/spike-0",
+ "brief": "c03-fillet-safe",
+ "brief_hash": "f230700261e98a6457e3e7ab2b1325629ea301a318f8805bb6992d91bce83dbf",
+ "script_hash": "e8281f66e5e9d0b35f99657bac72a3a25dfb41fcd7f2eb55a85367ffdb6177a3",
+ "inputs_hash": "c245006038472299a5b243d7c119f227df1b0dba54846963122334699b369b2f",
+ "engine": {
+  "occt_wasm": "5.8.1",
+  "node": "v24.22.1",
+  "analysis": "2"
+ },
+ "platform": "linux-x64",
+ "seed": 1,
+ "budget": 64,
+ "watch_mm": 0.5,
+ "verdict": "holds",
+ "statement": "holds at 64 points under this model",
+ "nominal_failures": [],
+ "counterexamples": [],
+ "compass_on": "gate-min-wall",
+ "events": [],
+ "smallest_margins": [
+  {
+   "id": "builds",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "status",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "valid",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "one-solid",
+   "signed": 0,
+   "scale": 1,
+   "normalized": 0,
+   "at": 0
+  },
+  {
+   "id": "faces",
+   "signed": 0,
+   "scale": 1,
+   "normalized": 0,
+   "at": 0
+  },
+  {
+   "id": "gate-watertight",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "gate-min-wall",
+   "signed": 4.16,
+   "scale": 0.04,
+   "normalized": 104,
+   "at": 1
+  }
+ ],
+ "coverage": {
+  "points": 64,
+  "phases": {
+   "nominal": 1,
+   "corner": 8,
+   "special": 6,
+   "halton": 33,
+   "compass": 16
+  },
+  "corners_planned": 8,
+  "special_planned": 6,
+  "axes": [
+   {
+    "name": "Width",
+    "min_seen": 20,
+    "max_seen": 40,
+    "min": 20,
+    "max": 40
+   },
+   {
+    "name": "Corner radius",
+    "min_seen": 1,
+    "max_seen": 8,
+    "min": 1,
+    "max": 8
+   },
+   {
+    "name": "Height",
+    "min_seen": 5,
+    "max_seen": 20,
+    "min": 5,
+    "max": 20
+   }
+  ]
+ },
+ "limits": [
+  "Sampling is not proof: the brief was checked at the points listed under this model, never for all values. A thin band can hide between samples.",
+  "The gates are fdm.v1 rule checks on the kernel's geometry (watertight, 0.8 mm min_wall from rays, 45 degree overhang, bed), never a print simulation.",
+  "Fits are exact OCCT clash, contact and clearance checks within the fit watch distance; a pair with no line inside it is censored, not a measured pass.",
+  "Bit-identical replay is only claimed for the platform named here.",
+  "Fit watch distance 0.5 mm."
+ ],
+ "points": [
+  {
+   "index": 0,
+   "phase": "nominal",
+   "fresh": [],
+   "params": {
+    "Width": 28,
+    "Corner radius": 3,
+    "Height": 10
+   },
+   "ok": true,
+   "report_hash": "001e7ec5a6bee0da0ecd78b3560ed866f80a20a8f0011d65e0ca48cb1bdf989a",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:ec68dd4ac07e8920"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 9.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 1,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Width": 20,
+    "Corner radius": 1,
+    "Height": 5
+   },
+   "ok": true,
+   "report_hash": "e79770a4dfb7c55d329be6bb37d57b00321962c5b37e2e28f5e8f39902cb1582",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:537adb54221440e7"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 4.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 2,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Width": 40,
+    "Corner radius": 8,
+    "Height": 20
+   },
+   "ok": true,
+   "report_hash": "5aa1dd1c9495325aa0cb50c739b8306f653d3baf130539ecdeb9cea715f74bb4",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:e7c2b35754977000"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 19.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 3,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Width": 40,
+    "Corner radius": 1,
+    "Height": 5
+   },
+   "ok": true,
+   "report_hash": "13a262c70f6b3e675ddeaa130d8770a530583925bd370ffb3ae48128be02f85a",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:75e121c5f7156b92"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 4.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 4,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Width": 20,
+    "Corner radius": 8,
+    "Height": 20
+   },
+   "ok": true,
+   "report_hash": "64d340e6d79c15194a0b8ab5bd733d070d30b2be6dd14abd87530b7aa144a680",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:d2dae17e9d63a695"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 19.156,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 5,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Width": 20,
+    "Corner radius": 8,
+    "Height": 5
+   },
+   "ok": true,
+   "report_hash": "342c097cc0791d7fa935a51340b7eb8349e16ecd35fe238a8e0530dd5e4533bb",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:b1a8309710523ee6"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 4.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 6,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Width": 40,
+    "Corner radius": 1,
+    "Height": 20
+   },
+   "ok": true,
+   "report_hash": "7b1b9b986b96da0b010bc5fd60e8faff4ef4fa03ef3a6f3d27593a6c115bd786",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:e6c59db88b8b4fa7"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 19.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 7,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Width": 40,
+    "Corner radius": 8,
+    "Height": 5
+   },
+   "ok": true,
+   "report_hash": "999029f314c2f6c50494c48f8dc1565372b6709b128b8f89d37853e65cc8061c",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:2440471169434c7e"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 4.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 8,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Width": 20,
+    "Corner radius": 1,
+    "Height": 20
+   },
+   "ok": true,
+   "report_hash": "576731ad7a76e33aa71537492ba009741750931299a170153f8d970edec2d49f",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:238f9a4c978532be"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 19.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 9,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Width": 20,
+    "Corner radius": 3,
+    "Height": 10
+   },
+   "ok": true,
+   "report_hash": "9a8ae454ff897860b95606377ab6eb16b1b9b38c7cd069fa9b994a1268d4a6a2",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:561ee1a8d4897bbd"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 9.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 10,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Width": 40,
+    "Corner radius": 3,
+    "Height": 10
+   },
+   "ok": true,
+   "report_hash": "45c06bc67c4bd7a21685f051ca624d3b246d4e223cd48577f135327fc5a002c5",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:6fecfa6482661a8f"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 9.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 11,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Width": 28,
+    "Corner radius": 1,
+    "Height": 10
+   },
+   "ok": true,
+   "report_hash": "94f87a59a63b9dc768e70094c05ea1ad917d37ec1b5fc3fdeba07a890f5b3461",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:a12170527b4832ea"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 9.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 12,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Width": 28,
+    "Corner radius": 8,
+    "Height": 10
+   },
+   "ok": true,
+   "report_hash": "f67e0c2310511f9a8ea5a089db1e8bc09f58571d9169588d904d7544709743ae",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:24b8c1f0b88f0a75"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 9.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 13,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Width": 28,
+    "Corner radius": 3,
+    "Height": 5
+   },
+   "ok": true,
+   "report_hash": "fdbc322a9831b5dabc8c0ce1530a05ff0b91c9fb204b8f6134b745b36eb5aee2",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:88c72495d0a6a515"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 4.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 14,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Width": 28,
+    "Corner radius": 3,
+    "Height": 20
+   },
+   "ok": true,
+   "report_hash": "0ec33f960f97c6f17b0c97bac57e1822ba403ef1a81337825c7ca82909c92051",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:7e10ec6da14e1201"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 19.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 15,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 21.440178,
+    "Corner radius": 6.049253,
+    "Height": 13.007715
+   },
+   "ok": true,
+   "report_hash": "345c0e8d56368493ad164dfdd394d64af6d752c95a8fc26d1c5ecfa0a93c6b5d",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:718fa8f7f45d3de8"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 12.168,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 16,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 31.440178,
+    "Corner radius": 2.160364,
+    "Height": 16.007715
+   },
+   "ok": true,
+   "report_hash": "b64f468a3432da2bab1ca755c054e437e708fa3e24e3a4b14e2ca33fbcd5c476",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:a0becde3e9e83fbc"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 15.168,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 17,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 26.440178,
+    "Corner radius": 4.493697,
+    "Height": 19.007715
+   },
+   "ok": true,
+   "report_hash": "16bf5d658f279dd79f09145ed2bf4246fbf57b6ef15bd79ef91e85604c57f40b",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:af1ab1b25f41a674"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 18.168,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 18,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 36.440178,
+    "Corner radius": 6.82703,
+    "Height": 7.607715
+   },
+   "ok": true,
+   "report_hash": "2b4d3f42aa25c09379c3befc9fa573582b9f94bee314f9888059c743845e9334",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:582ac5daf1b6f4e7"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 6.768,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 19,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 23.940178,
+    "Corner radius": 7.864067,
+    "Height": 10.607715
+   },
+   "ok": true,
+   "report_hash": "28bcab8c8e1d5c91fe30bc658eb68e89f74fda54790b15f755030fcb8c520828",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:993cd519e8e04344"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 9.768,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 20,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 33.940178,
+    "Corner radius": 3.197401,
+    "Height": 13.607715
+   },
+   "ok": true,
+   "report_hash": "78f5924c8748e5d272eecddd5e102b9b4b52c6618a113d32633f9bbd70c620c3",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:81e2fa95ea29e3ea"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 12.768,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 21,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 28.940178,
+    "Corner radius": 5.530734,
+    "Height": 16.607715
+   },
+   "ok": true,
+   "report_hash": "e3919c9e08fdd1907a5b0a742c3ad167ce38da84809db0d639d706dda39f789f",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:26f679da44f78e8c"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 15.768,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 22,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 38.940178,
+    "Corner radius": 1.641845,
+    "Height": 19.607715
+   },
+   "ok": true,
+   "report_hash": "c8454b3efc073ebbd6ba6eaccc31282f84628c3b01e90b393da60471d91e1bf6",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:6cc0918b6bb62a96"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 18.768,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 23,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 22.690178,
+    "Corner radius": 3.975179,
+    "Height": 8.207715
+   },
+   "ok": true,
+   "report_hash": "65fde2560924e67ebb8dfbf8483691ad1090aedd6e6b96ef161fbaee381284d1",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:cdea913e802eb06c"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 7.368,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 24,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 32.690178,
+    "Corner radius": 6.308512,
+    "Height": 11.207715
+   },
+   "ok": true,
+   "report_hash": "bc3a5c8abba7d20a21422467b27f46c0cd2bd5cb7aa96d5158d457698b1f18dc",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:c33ebc4947163815"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 10.368,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 25,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 27.690178,
+    "Corner radius": 2.419623,
+    "Height": 14.207715
+   },
+   "ok": true,
+   "report_hash": "f76e4b96f208746be87741f3b2d984049d233c60f3bd6e6b77cc08775ef61638",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:5ee1d9839e182b06"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 13.368,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 26,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 37.690178,
+    "Corner radius": 4.752956,
+    "Height": 17.207715
+   },
+   "ok": true,
+   "report_hash": "db53e2b18ab7b995fddec2f3a18bee2a6c9abcfea2ed24976b0db016bb63bb11",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:7908adf9a74603b4"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 16.368,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 27,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 25.190178,
+    "Corner radius": 7.08629,
+    "Height": 5.207715
+   },
+   "ok": true,
+   "report_hash": "e0863032086cbdf8ce0b53804d3e823a07b3e64e11939f9a72732f3ce2db90cd",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:b4fc41eee986807f"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 4.368,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 28,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 35.190178,
+    "Corner radius": 1.123327,
+    "Height": 8.807715
+   },
+   "ok": true,
+   "report_hash": "ce9bd839fcb4bd3c3d9ed8eb24d482641296d403b05a48b6a368b9ee84b00c9a",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:d1a503fb764d855a"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 7.968,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 29,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 30.190178,
+    "Corner radius": 3.45666,
+    "Height": 11.807715
+   },
+   "ok": true,
+   "report_hash": "0ab0dee4c10fb9b898c817ce38fedbaf776b117cc6a05088c2d32499330add85",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:e4e2c69b139ef822"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 10.968,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 30,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 20.190178,
+    "Corner radius": 5.789993,
+    "Height": 14.807715
+   },
+   "ok": true,
+   "report_hash": "1c02b3da6ae9c580d24cfdc7394441cee50129f9e9250fdd4d6ba1f9e96b609f",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:d31affe9dfed6acb"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 13.968,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 31,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 22.065178,
+    "Corner radius": 1.901104,
+    "Height": 17.807715
+   },
+   "ok": true,
+   "report_hash": "5856515ec483ea2c510fd0c83b50b75391e6f6f7d381a80659b2308404298922",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:9e5de9752ae8af82"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 16.968,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 32,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 32.065178,
+    "Corner radius": 4.234438,
+    "Height": 5.807715
+   },
+   "ok": true,
+   "report_hash": "5beac5b0d803708169cb1d0afc5c72fb4a35b37954e3710d3fe33586e18b7014",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:2cb2da30fff96fb9"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 4.968,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 33,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 27.065178,
+    "Corner radius": 6.567771,
+    "Height": 6.527715
+   },
+   "ok": true,
+   "report_hash": "8717a34a76f093900894e702dbebcb959a9f6e9763c6532c5254b14da20efe86",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:87636b2e6804c167"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.688,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 34,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 37.065178,
+    "Corner radius": 2.678882,
+    "Height": 9.527715
+   },
+   "ok": true,
+   "report_hash": "ec16e8496a58391b67eb704e9d13a181ea406cd52d1eb890212abe72609a8beb",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:49835ebcb1b1220b"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 8.688,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 35,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 24.565178,
+    "Corner radius": 5.012216,
+    "Height": 12.527715
+   },
+   "ok": true,
+   "report_hash": "45d7bcf67792557c596e6ee6dc31430e750503d70ebdd55a7028491097a853b4",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:889ac78e41bfebd5"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 11.688,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 36,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 34.565178,
+    "Corner radius": 7.345549,
+    "Height": 15.527715
+   },
+   "ok": true,
+   "report_hash": "0c4b5c0bad341281a5888818be7ad5b7812eda6aa773444ba57c554e4dd7c827",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:7311c7e49a7d4bd8"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 14.688,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 37,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 29.565178,
+    "Corner radius": 7.691228,
+    "Height": 18.527715
+   },
+   "ok": true,
+   "report_hash": "6cc1d03d41441ffc180046927087c9a9460646565aecce0be5ba1d6eebb9bf3d",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:bb20e6d0e6a9700e"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 17.688,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 38,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 39.565178,
+    "Corner radius": 3.024561,
+    "Height": 7.127715
+   },
+   "ok": true,
+   "report_hash": "0fdadb326b689e7c02e2ccec12cdc8965bd98dab4c2207f5db90341527b5a0d5",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:2dcf0b4a32b39098"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 6.288,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 39,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 23.315178,
+    "Corner radius": 5.357895,
+    "Height": 10.127715
+   },
+   "ok": true,
+   "report_hash": "92610a3adb1666e7d0a5913100a39e2c9dab465f8eae44e0d0a51850f59d2b86",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:9543f1297ec591a3"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 9.288,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 40,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 33.315178,
+    "Corner radius": 1.469006,
+    "Height": 13.127715
+   },
+   "ok": true,
+   "report_hash": "76ed7c7aafb7394c3cb8defd65ffc94bc739943cb97eebd690c8890bb1f23f14",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:62fb5f8ceddefc08"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 12.288,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 41,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 28.315178,
+    "Corner radius": 3.802339,
+    "Height": 16.127715
+   },
+   "ok": true,
+   "report_hash": "639709b606945a919028dd8ceb934853ac2fd2e514c4c5ce696c24782a634e76",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:f87cbd46b84e5f4b"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 15.288,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 42,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 38.315178,
+    "Corner radius": 6.135672,
+    "Height": 19.127715
+   },
+   "ok": true,
+   "report_hash": "18807685067c9a242158c4a9237dd56f2414d52655c14917b078e178f32802c6",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:13679a38c0cdf5d1"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 18.288,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 43,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 25.815178,
+    "Corner radius": 2.246784,
+    "Height": 7.727715
+   },
+   "ok": true,
+   "report_hash": "e6ed2dbb2cf29fd1941eccf0e1f7215aca1789ebe18450825f33bf8d129610b8",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:264771bbc002655d"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 6.888,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 44,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 35.815178,
+    "Corner radius": 4.580117,
+    "Height": 10.727715
+   },
+   "ok": true,
+   "report_hash": "42a7f7c0a9bbd00d017b4131c36811f355cda0cbf03180104f5b2e1fd1247b42",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:2b4629f396904082"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 9.888,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 45,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 30.815178,
+    "Corner radius": 6.91345,
+    "Height": 13.727715
+   },
+   "ok": true,
+   "report_hash": "a58ca99899a6b77fc20001f403168189198ec5e0bf3cdb5d7f8799b1e37700ba",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:bdf780d82f8e19fc"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 12.888,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 46,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 20.815178,
+    "Corner radius": 7.950487,
+    "Height": 16.727715
+   },
+   "ok": true,
+   "report_hash": "4d46cea70492481d22b82053a576d65745f71694c529b4635432245781f7d7ec",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:3272cdc4d96756fd"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 15.888000000000002,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 47,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 21.283928,
+    "Corner radius": 3.283821,
+    "Height": 19.727715
+   },
+   "ok": true,
+   "report_hash": "c1fe6eb6f2d42bc4eaa9af44a7b78dfca2e928f18c4cc992963f028803123e9e",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:7ac2dd26c1dfa15e"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 18.888,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 48,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 25,
+    "Corner radius": 1,
+    "Height": 5
+   },
+   "ok": true,
+   "report_hash": "ea07c6c74107fe390e38d01b821da4021d83eb02e5e41c45513ab1463e6c63dd",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:61c5a42964ed7fdd"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 4.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 49,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 20,
+    "Corner radius": 2.75,
+    "Height": 5
+   },
+   "ok": true,
+   "report_hash": "ae27b03480514b2a37362cefca2eb4acc5beb85ff941a400854d2d7190fb2329",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:851abbf43c2f4e3a"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 4.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 50,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 20,
+    "Corner radius": 1,
+    "Height": 8.75
+   },
+   "ok": true,
+   "report_hash": "8434bc0d7f0435b24118b98bb7004f0eff6d371f571090380f46ba94d2ac9824",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:a7b52aa9cc64d6a5"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 7.91,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 51,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 22.5,
+    "Corner radius": 1,
+    "Height": 5
+   },
+   "ok": true,
+   "report_hash": "fe662d0393fb68afdc0ead1053ad7cd1dac362c2c8f8b95b62ab2cd469e1be06",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:820f7f3cbe1cffcb"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 4.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 52,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 20,
+    "Corner radius": 1.875,
+    "Height": 5
+   },
+   "ok": true,
+   "report_hash": "f7c037ff59492244b2fb9b4f665c9acbd636dd029575a662c8f6d0090f9c22dc",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:2184a7b2ac37c166"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 4.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 53,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 20,
+    "Corner radius": 1,
+    "Height": 6.875
+   },
+   "ok": true,
+   "report_hash": "2181821c97780b0ea63b81022d3bc2dc5fdc63313afd7f62ae246aa8bb3116a4",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:17c4f75059495b06"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 6.035,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 54,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 21.25,
+    "Corner radius": 1,
+    "Height": 5
+   },
+   "ok": true,
+   "report_hash": "6a6e863048ccb516fb3979e458ac49aff45b9d3fc50061a11451c9e95bb692f1",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:3acabe89b74c4a61"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 4.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 55,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 20,
+    "Corner radius": 1.4375,
+    "Height": 5
+   },
+   "ok": true,
+   "report_hash": "daf8c0d41c2b480efc67b0aef7e4c757a6cb155658d457543606479e98360359",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:c78018c95b45ad4d"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 4.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 56,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 20,
+    "Corner radius": 1,
+    "Height": 5.9375
+   },
+   "ok": true,
+   "report_hash": "f4b4d65e82fa35c52780d4d163f09024f4005f69a41d63f3de8345b62f5497c4",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:2cf041e892db4554"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.097,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 57,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 20.625,
+    "Corner radius": 1,
+    "Height": 5
+   },
+   "ok": true,
+   "report_hash": "7379070540bbecc87d2fbfb3cb859c66dfd9854240177bbd2606bdac54be1c12",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:a14d2cc011b4ed30"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 4.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 58,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 20,
+    "Corner radius": 1.21875,
+    "Height": 5
+   },
+   "ok": true,
+   "report_hash": "af85d240c1d98efc79269bb60888518596a9c9d41c8e10d51fae6e37606552b9",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:d3d3298beb9609db"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 4.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 59,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 20,
+    "Corner radius": 1,
+    "Height": 5.46875
+   },
+   "ok": true,
+   "report_hash": "715788ef8e3d26d104ea6f0f33eecbd0f63b3d811580756aa277e3557eb3dbbd",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:a36c26ba6e56d35b"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 4.6290000000000004,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 60,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 20.3125,
+    "Corner radius": 1,
+    "Height": 5
+   },
+   "ok": true,
+   "report_hash": "4a7337975cb85f73d217958b6879f8bf38688cec38760bbfbe83f6ad9df82019",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:e59e4ee19f8bc83d"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 4.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 61,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 20,
+    "Corner radius": 1.109375,
+    "Height": 5
+   },
+   "ok": true,
+   "report_hash": "b0d249e087de47263f53d2680804417a1e72cbf174aedcdfa959f21b4df5d7ab",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:fc5280ee43c86b1c"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 4.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 62,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 20,
+    "Corner radius": 1,
+    "Height": 5.234375
+   },
+   "ok": true,
+   "report_hash": "a69f641c94c0d37059c57b0a3de7a465c3cb5933fa7437c6d359ec86269181db",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:1ca546f9c7303f85"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 4.394,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 63,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 20.15625,
+    "Corner radius": 1,
+    "Height": 5
+   },
+   "ok": true,
+   "report_hash": "dfc80c063c4e99357216c72a11b5f98b64cc115e3ceca29af2f96f5df57ebcab",
+   "signature_hash": "7d04e53f27c98d88a12c4bd457cb111af020f0292d7c33d0fd967b0ab9958afb",
+   "shape_hash": {
+    "block": "s1:7f3099dffb26a29d"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 4.16,
+     "scale": 0.04
+    }
+   ]
+  }
+ ]
+}

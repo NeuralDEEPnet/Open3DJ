@@ -1,0 +1,21 @@
+{
+ "enclosure": {
+  "wall_ms": 33752,
+  "worker_ms": 114579,
+  "points": 64,
+  "lane": "interactive",
+  "workers": 4
+ },
+ "_last_command": {
+  "files": [
+   "enclosure.brief.json"
+  ],
+  "wall_ms_including_pool_start": 33781,
+  "lane": "interactive",
+  "workers": 4,
+  "budget": 64,
+  "seed": 1,
+  "platform": "linux-x64",
+  "node": "v24.22.1"
+ }
+}

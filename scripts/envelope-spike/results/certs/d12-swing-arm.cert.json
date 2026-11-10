@@ -1,0 +1,3299 @@
+{
+ "certificate": "o3dj-envelope-cert/spike-0",
+ "brief": "d12-swing-arm",
+ "brief_hash": "47190eb8592251654b080aaedacb1a05ff84630faee4c93ac0d7a20b9e1c7377",
+ "script_hash": "fee4356300d642f01d4bda7eaf3b6855a18fae66edc58ccfe26fa28c28f59d3f",
+ "inputs_hash": "a9674e4169fef5d44a1fe217144399f3f79b89fb5d3c5473f504343ea9f646e4",
+ "engine": {
+  "occt_wasm": "5.8.1",
+  "node": "v24.22.1",
+  "analysis": "2"
+ },
+ "platform": "linux-x64",
+ "seed": 1,
+ "budget": 64,
+ "watch_mm": 0.5,
+ "verdict": "counterexample",
+ "statement": "counterexample: 10 of 64 points fail an assertion that passes at nominal",
+ "nominal_failures": [],
+ "counterexamples": [
+  23,
+  31,
+  39,
+  42,
+  49,
+  51,
+  56,
+  57,
+  62,
+  63
+ ],
+ "shrunk": 49,
+ "line": {
+  "pass": 0,
+  "fail": 49,
+  "lo": 0.86328125,
+  "hi": 0.8671875,
+  "points": [
+   {
+    "index": 0,
+    "t": 0
+   },
+   {
+    "index": 53,
+    "t": 0.25
+   },
+   {
+    "index": 52,
+    "t": 0.5
+   },
+   {
+    "index": 54,
+    "t": 0.75
+   },
+   {
+    "index": 55,
+    "t": 0.8125
+   },
+   {
+    "index": 58,
+    "t": 0.828125
+   },
+   {
+    "index": 59,
+    "t": 0.84375
+   },
+   {
+    "index": 60,
+    "t": 0.859375
+   },
+   {
+    "index": 61,
+    "t": 0.86328125
+   },
+   {
+    "index": 62,
+    "t": 0.8671875
+   },
+   {
+    "index": 63,
+    "t": 0.87109375
+   },
+   {
+    "index": 56,
+    "t": 0.875
+   },
+   {
+    "index": 57,
+    "t": 0.9375
+   },
+   {
+    "index": 49,
+    "t": 1
+   }
+  ]
+ },
+ "events": [
+  {
+   "kind": "axis",
+   "axis": "Angle",
+   "between": [
+    55,
+    58
+   ],
+   "from": {
+    "Angle": 41.007838,
+    "Arm length": 30
+   },
+   "to": {
+    "Angle": 41.411834,
+    "Arm length": 30
+   },
+   "changed": [
+    "fits:  -> arm|post|clearance"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Angle",
+   "between": [
+    61,
+    62
+   ],
+   "from": {
+    "Angle": 42.320827,
+    "Arm length": 30
+   },
+   "to": {
+    "Angle": 42.421827,
+    "Arm length": 30
+   },
+   "changed": [
+    "fits: arm|post|clearance -> arm|post|clash",
+    "status: \"ok\" -> \"warning\""
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Angle",
+   "between": [
+    49,
+    6
+   ],
+   "from": {
+    "Angle": 45.8558,
+    "Arm length": 30
+   },
+   "to": {
+    "Angle": 90,
+    "Arm length": 30
+   },
+   "changed": [
+    "fits: arm|post|clash -> ",
+    "status: \"warning\" -> \"ok\""
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Angle",
+   "between": [
+    50,
+    23
+   ],
+   "from": {
+    "Angle": 32.9279,
+    "Arm length": 27.019029
+   },
+   "to": {
+    "Angle": 45.8558,
+    "Arm length": 27.019029
+   },
+   "changed": [
+    "fits:  -> arm|post|clash",
+    "status: \"ok\" -> \"warning\""
+   ]
+  },
+  {
+   "kind": "line",
+   "between": [
+    55,
+    58
+   ],
+   "from": {
+    "Angle": 41.007838,
+    "Arm length": 30
+   },
+   "to": {
+    "Angle": 41.411834,
+    "Arm length": 30
+   },
+   "changed": [
+    "fits:  -> arm|post|clearance"
+   ]
+  },
+  {
+   "kind": "line",
+   "between": [
+    61,
+    62
+   ],
+   "from": {
+    "Angle": 42.320827,
+    "Arm length": 30
+   },
+   "to": {
+    "Angle": 42.421827,
+    "Arm length": 30
+   },
+   "changed": [
+    "fits: arm|post|clearance -> arm|post|clash",
+    "status: \"ok\" -> \"warning\""
+   ]
+  }
+ ],
+ "smallest_margins": [
+  {
+   "id": "builds",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "status",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 23
+  },
+  {
+   "id": "valid",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "occurrences",
+   "signed": 0,
+   "scale": 1,
+   "normalized": 0,
+   "at": 0
+  },
+  {
+   "id": "no-clash",
+   "signed": -2.329660409655803,
+   "scale": 0.01,
+   "normalized": -232.9660409655803,
+   "at": 23
+  }
+ ],
+ "coverage": {
+  "points": 64,
+  "phases": {
+   "nominal": 1,
+   "corner": 4,
+   "special": 4,
+   "halton": 39,
+   "shrink": 5,
+   "bisect": 11
+  },
+  "corners_planned": 4,
+  "special_planned": 4,
+  "axes": [
+   {
+    "name": "Angle",
+    "min_seen": 0,
+    "max_seen": 90,
+    "min": 0,
+    "max": 90
+   },
+   {
+    "name": "Arm length",
+    "min_seen": 20,
+    "max_seen": 40,
+    "min": 20,
+    "max": 40
+   }
+  ]
+ },
+ "limits": [
+  "Sampling is not proof: the brief was checked at the points listed under this model, never for all values. A thin band can hide between samples.",
+  "The gates are fdm.v1 rule checks on the kernel's geometry (watertight, 0.8 mm min_wall from rays, 45 degree overhang, bed), never a print simulation.",
+  "Fits are exact OCCT clash, contact and clearance checks within the fit watch distance; a pair with no line inside it is censored, not a measured pass.",
+  "Bit-identical replay is only claimed for the platform named here.",
+  "Fit watch distance 0.5 mm."
+ ],
+ "points": [
+  {
+   "index": 0,
+   "phase": "nominal",
+   "fresh": [],
+   "params": {
+    "Angle": 20,
+    "Arm length": 30
+   },
+   "ok": true,
+   "report_hash": "d28f220fea0ad35af77fdc676758bb373d5ef3280283e680c9920f6ef859c064",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 1,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Angle": 0,
+    "Arm length": 20
+   },
+   "ok": true,
+   "report_hash": "3ceec00cccc154797ffb3c027decc55958fd1be6448665a95095564a0d824c46",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 2,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Angle": 90,
+    "Arm length": 40
+   },
+   "ok": true,
+   "report_hash": "ea84af5c403f994d2d21f7ab9f1e766c20873226cc6e5f04d966950e19d2c66b",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 3,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Angle": 90,
+    "Arm length": 20
+   },
+   "ok": true,
+   "report_hash": "2fe28f4fd8d6fe2a6683ccd88da30a1ab2024ec80476bc34c23ccc56fc460d30",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 4,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Angle": 0,
+    "Arm length": 40
+   },
+   "ok": true,
+   "report_hash": "1bc0d198f2d7f367ba62ed9191f2904d2cadb379c5b3c8276222fd19875cb83c",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 5,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Angle": 0,
+    "Arm length": 30
+   },
+   "ok": true,
+   "report_hash": "d7df4dab6e6dbe3442575efc03184592531670d4c467371ec84c6603530f690f",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 6,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Angle": 90,
+    "Arm length": 30
+   },
+   "ok": true,
+   "report_hash": "a36628d33a4a3d411687cc47b8989703d400336fe047cd7892989a8b66257fc3",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 7,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Angle": 20,
+    "Arm length": 20
+   },
+   "ok": true,
+   "report_hash": "aac646895045dec32207fd49f3ba408626dd411dd673153469d6339a5ef71ef9",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 8,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Angle": 20,
+    "Arm length": 40
+   },
+   "ok": true,
+   "report_hash": "45f77f0232a2f6673d374c25028e523b4bb9060708f841a9727d9f1c3a13ad85",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 9,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Angle": 6.4808,
+    "Arm length": 34.426436
+   },
+   "ok": true,
+   "report_hash": "d7b3eaf921a0ce90d925d2d0bc3c67e85fe1c83fa395d07b3015929e8872ef56",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 10,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Angle": 51.4808,
+    "Arm length": 23.315325
+   },
+   "ok": true,
+   "report_hash": "dd808a82881035095fc9724709e0effa263358664680e1573ab48d944f5d5877",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 11,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Angle": 28.9808,
+    "Arm length": 29.981992
+   },
+   "ok": true,
+   "report_hash": "77e0542d9b1ca03bd713b5e5f62f9759d5a2da0ff87fc1b24b745c80b80dd876",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 12,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Angle": 73.9808,
+    "Arm length": 36.648658
+   },
+   "ok": true,
+   "report_hash": "47329ca964037a78e0669928024d46c7cda0d211ab3e630e348efb98d81debe4",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 13,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Angle": 17.7308,
+    "Arm length": 39.611621
+   },
+   "ok": true,
+   "report_hash": "82405f1c99f191ee45f5cdf9902813989a81d2081044b55d4e958d7472a3f908",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 14,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Angle": 62.7308,
+    "Arm length": 26.278288
+   },
+   "ok": true,
+   "report_hash": "47dd751a51baf93eb55b90cba139b63f78280a520a5d1d3d010a88f3e13a3939",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 15,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Angle": 40.2308,
+    "Arm length": 32.944955
+   },
+   "ok": true,
+   "report_hash": "2489d90e73309efcbd9b029ae492928ccf624892eb93ed4060eaf62976c7ac55",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 16,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Angle": 85.2308,
+    "Arm length": 21.833844
+   },
+   "ok": true,
+   "report_hash": "35bb228e3d55a1add18ac4a55c56a2e337052f0b0edda394dcfdeb4598c9f1f9",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 17,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Angle": 12.1058,
+    "Arm length": 28.50051
+   },
+   "ok": true,
+   "report_hash": "ab4eb541780f3c6f1da459ca5da611ebed129a1f2502b291a0b5db54336ce0dc",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 18,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Angle": 57.1058,
+    "Arm length": 35.167177
+   },
+   "ok": true,
+   "report_hash": "4aa5d932e24f1901d735a63f789bfc29f281469cd7dcb69b1a3bfa8567e88946",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 19,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Angle": 34.6058,
+    "Arm length": 24.056066
+   },
+   "ok": true,
+   "report_hash": "606ca9b864c5e20ac2498c71bcff11a732cfe35d7effb22e3cd80b5465a1e288",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 20,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Angle": 79.6058,
+    "Arm length": 30.722732
+   },
+   "ok": true,
+   "report_hash": "4e18383ecade00575efdef8ad3785876046a14af2e8af44dcffe266aa3d134bd",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 21,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Angle": 23.3558,
+    "Arm length": 37.389399
+   },
+   "ok": true,
+   "report_hash": "234badf670f88757713d1ae562f1bca6a08ddee10d327763bd1d11d1a3220c1a",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 22,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Angle": 68.3558,
+    "Arm length": 20.352362
+   },
+   "ok": true,
+   "report_hash": "103d451adb7f9d319999129cdd3c344a8e9bbc5c147c6318523a9e173142bc36",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 23,
+   "phase": "halton",
+   "fresh": [
+    "status",
+    "no-clash"
+   ],
+   "params": {
+    "Angle": 45.8558,
+    "Arm length": 27.019029
+   },
+   "ok": true,
+   "report_hash": "bc3ad0df67b9f00b0993997de32c0f8566cdcdb797e9f1e9be182e3135a9382f",
+   "signature_hash": "134cb10f6300b8ec3904e517815886df8ff4e9074eff2b15ff04146c8173eee7",
+   "failing": [
+    "status",
+    "no-clash"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -2.329660409655803,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    }
+   ]
+  },
+  {
+   "index": 24,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Angle": 0.8558,
+    "Arm length": 33.685695
+   },
+   "ok": true,
+   "report_hash": "a018fa7f205bc46a64e9b6334c6caf3cb2e84d56d99fad66aa60118c27b722ba",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 25,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Angle": 9.2933,
+    "Arm length": 22.574584
+   },
+   "ok": true,
+   "report_hash": "a18b4775dd7d26f21948e89b9798bf7cc167b3de1e134e682e41847c7d66a70f",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 26,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Angle": 54.2933,
+    "Arm length": 29.241251
+   },
+   "ok": true,
+   "report_hash": "7166d57c8a37c2dcaf2d78b1de70e06940109ad064e0b10fc81db362fbf486f7",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 27,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Angle": 31.7933,
+    "Arm length": 35.907918
+   },
+   "ok": true,
+   "report_hash": "8d58f44412992b49425c1f8ccbeb238d774929139f0a133a1eeace8641750d3e",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 28,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Angle": 76.7933,
+    "Arm length": 24.796806
+   },
+   "ok": true,
+   "report_hash": "08c95457cb561efe484a1bced998b82fce0ab8ea8bd91c2e99bb16397f0e6622",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 29,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Angle": 20.5433,
+    "Arm length": 31.463473
+   },
+   "ok": true,
+   "report_hash": "36eaccc1ea893dc0aed728764d6e5a260d255e1d0f6acf7456936dd0c17957cd",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 30,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Angle": 65.5433,
+    "Arm length": 38.13014
+   },
+   "ok": true,
+   "report_hash": "28a56f82ce160a53bc9b361cc9c3a5d5495da0ee6c2f6bc3bbb919b7f8e59f7d",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 31,
+   "phase": "halton",
+   "fresh": [
+    "status",
+    "no-clash"
+   ],
+   "params": {
+    "Angle": 43.0433,
+    "Arm length": 39.117794
+   },
+   "ok": true,
+   "report_hash": "acb23e7df9365ceeb5020a1f5189b62860f92ad90706c40f648f41e3efa22c31",
+   "signature_hash": "134cb10f6300b8ec3904e517815886df8ff4e9074eff2b15ff04146c8173eee7",
+   "failing": [
+    "status",
+    "no-clash"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -1.0918552698114226,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    }
+   ]
+  },
+  {
+   "index": 32,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Angle": 88.0433,
+    "Arm length": 25.784461
+   },
+   "ok": true,
+   "report_hash": "33d99c832fb9f45ce0232957c756747553f093c906cfef578b900b315a2c2c41",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 33,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Angle": 14.9183,
+    "Arm length": 32.451127
+   },
+   "ok": true,
+   "report_hash": "b4f2e96322f6baffb6a91d6646c88ab9cf490bd794db7ddd7cb042edc20fd3d5",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 34,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Angle": 59.9183,
+    "Arm length": 21.340016
+   },
+   "ok": true,
+   "report_hash": "103de8adbbbe29367ec84ee471e712cbc610ea33417cda9f229cee6dbb78b65f",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 35,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Angle": 37.4183,
+    "Arm length": 28.006683
+   },
+   "ok": true,
+   "report_hash": "cd35f946644df05fdab88d307f4efaea811a2b86a21bc1e49659a76e8b40a953",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 36,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Angle": 82.4183,
+    "Arm length": 34.67335
+   },
+   "ok": true,
+   "report_hash": "47dad46b88b39a29ab2947613579878b281911c0ddd2a7e6843de850019410c7",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 37,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Angle": 26.1683,
+    "Arm length": 23.562239
+   },
+   "ok": true,
+   "report_hash": "bec44001bb2959427fefa43756f0443707f321ec53e4516d4a44b69867d6c464",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 38,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Angle": 71.1683,
+    "Arm length": 30.228905
+   },
+   "ok": true,
+   "report_hash": "62aab6aeb273e0f02a555942f407861ea3c28c85ffc15d6ce291486a1563cf46",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 39,
+   "phase": "halton",
+   "fresh": [
+    "status",
+    "no-clash"
+   ],
+   "params": {
+    "Angle": 48.6683,
+    "Arm length": 36.895572
+   },
+   "ok": true,
+   "report_hash": "0bb6f7add77b07bdb5614679b5203c6ed0af2962efa822699703e22bf623648b",
+   "signature_hash": "134cb10f6300b8ec3904e517815886df8ff4e9074eff2b15ff04146c8173eee7",
+   "failing": [
+    "status",
+    "no-clash"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -2.192654010808414,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    }
+   ]
+  },
+  {
+   "index": 40,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Angle": 3.6683,
+    "Arm length": 39.858535
+   },
+   "ok": true,
+   "report_hash": "69c866bac514abdffca6123ebd198e51224a66a67b36ea2cda1f768e3ae2da40",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 41,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Angle": 5.777675,
+    "Arm length": 26.525202
+   },
+   "ok": true,
+   "report_hash": "3f31af5d3536ea4626f0bc1156e36cc173b30d34fb0bc822e453796f2947ae02",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 42,
+   "phase": "halton",
+   "fresh": [
+    "status",
+    "no-clash"
+   ],
+   "params": {
+    "Angle": 50.777675,
+    "Arm length": 33.191868
+   },
+   "ok": true,
+   "report_hash": "be8e2a483bd997f4252050a56d02321c194dad435559c9a08b7495313320c2ea",
+   "signature_hash": "134cb10f6300b8ec3904e517815886df8ff4e9074eff2b15ff04146c8173eee7",
+   "failing": [
+    "status",
+    "no-clash"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -1.231599479070688,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    }
+   ]
+  },
+  {
+   "index": 43,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Angle": 28.277675,
+    "Arm length": 22.080757
+   },
+   "ok": true,
+   "report_hash": "7abe01c9512428b51a99aebc3a71bc9af6d7d6b568aa21a4fd5183fed3384370",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 44,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Angle": 73.277675,
+    "Arm length": 28.747424
+   },
+   "ok": true,
+   "report_hash": "92ff4e1f4d5f6a92358d254a3f291565e65d2ba4bd64312f9a167d023b7decfc",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 45,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Angle": 17.027675,
+    "Arm length": 35.41409
+   },
+   "ok": true,
+   "report_hash": "490282532f32276571b25f5f3a799580d13524197f2555dd21fac437aeccca39",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 46,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Angle": 62.027675,
+    "Arm length": 24.302979
+   },
+   "ok": true,
+   "report_hash": "3951ba6b3eaec340586e63c797b9c85775f2eb5b7189884a7d33061c14b05935",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 47,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Angle": 39.527675,
+    "Arm length": 30.969646
+   },
+   "ok": true,
+   "report_hash": "c77bc38aa442d31a813c388f8d800fb362380550223698f5a39a8aa5a9f7fe95",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 48,
+   "phase": "shrink",
+   "fresh": [],
+   "params": {
+    "Angle": 20,
+    "Arm length": 27.019029
+   },
+   "ok": true,
+   "report_hash": "416046cffa843aa07a0ddb580d4592012ebcf3bcdc6ac4226fc6053cdc5ad2ea",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 49,
+   "phase": "shrink",
+   "fresh": [
+    "status",
+    "no-clash"
+   ],
+   "params": {
+    "Angle": 45.8558,
+    "Arm length": 30
+   },
+   "ok": true,
+   "report_hash": "776653a39b2e84471c38f5972c7ed4699e34687eb3826076d7025f748d9b04a5",
+   "signature_hash": "134cb10f6300b8ec3904e517815886df8ff4e9074eff2b15ff04146c8173eee7",
+   "failing": [
+    "status",
+    "no-clash"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -2.329660409655803,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    }
+   ]
+  },
+  {
+   "index": 50,
+   "phase": "shrink",
+   "fresh": [],
+   "params": {
+    "Angle": 32.9279,
+    "Arm length": 27.019029
+   },
+   "ok": true,
+   "report_hash": "5ce3d2bb5854d745e517e50e86ef6f6bdf3697982690d14739a3bd42e461f8ab",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 51,
+   "phase": "shrink",
+   "fresh": [
+    "status",
+    "no-clash"
+   ],
+   "params": {
+    "Angle": 45.8558,
+    "Arm length": 28.509515
+   },
+   "ok": true,
+   "report_hash": "a1b545a203f4f94420b9baf9cbb5ed8a7039ce170ed6e78ab474162cd735599f",
+   "signature_hash": "134cb10f6300b8ec3904e517815886df8ff4e9074eff2b15ff04146c8173eee7",
+   "failing": [
+    "status",
+    "no-clash"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -2.329660409655803,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    }
+   ]
+  },
+  {
+   "index": 52,
+   "phase": "shrink",
+   "fresh": [],
+   "params": {
+    "Angle": 32.9279,
+    "Arm length": 30
+   },
+   "ok": true,
+   "report_hash": "085e2c668c65329908e0cb02f35e8fa84cbeb952edde559357e5995bc11f10d9",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 53,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Angle": 26.46395,
+    "Arm length": 30
+   },
+   "ok": true,
+   "report_hash": "fb248ae8bdfbfbb650a6230d378c0ae95037d0fccf3e932cbe6b3306e29fa8a2",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 54,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Angle": 39.39185,
+    "Arm length": 30
+   },
+   "ok": true,
+   "report_hash": "28ab141ff71e284f51d5ba1137a8eeeb1eed174aecc9971b6d398f5e07528255",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 55,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Angle": 41.007838,
+    "Arm length": 30
+   },
+   "ok": true,
+   "report_hash": "2c8726da5178e2143f3073e987dfd3044399ce561d7cec17696e78b0213484e5",
+   "signature_hash": "49df890a5000f424e8312f515d22db6c5755dbcc6f18d85a578c6896349b393a",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.5,
+     "scale": 0.01,
+     "censored": true
+    }
+   ]
+  },
+  {
+   "index": 56,
+   "phase": "bisect",
+   "fresh": [
+    "status",
+    "no-clash"
+   ],
+   "params": {
+    "Angle": 42.623825,
+    "Arm length": 30
+   },
+   "ok": true,
+   "report_hash": "b4bf6b7ed3a73c806262c23c5bff2ccf6bcd420997a2cd424c2516bd7270bd08",
+   "signature_hash": "134cb10f6300b8ec3904e517815886df8ff4e9074eff2b15ff04146c8173eee7",
+   "failing": [
+    "status",
+    "no-clash"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -0.6391190679397409,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    }
+   ]
+  },
+  {
+   "index": 57,
+   "phase": "bisect",
+   "fresh": [
+    "status",
+    "no-clash"
+   ],
+   "params": {
+    "Angle": 44.239812,
+    "Arm length": 30
+   },
+   "ok": true,
+   "report_hash": "adb371cbda944e6379cc26851cf4e90def909f7ffc0ee7014326eecef524f99c",
+   "signature_hash": "134cb10f6300b8ec3904e517815886df8ff4e9074eff2b15ff04146c8173eee7",
+   "failing": [
+    "status",
+    "no-clash"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -1.7997184744893624,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    }
+   ]
+  },
+  {
+   "index": 58,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Angle": 41.411834,
+    "Arm length": 30
+   },
+   "ok": true,
+   "report_hash": "c61273f49e66d31444f36ab7a70c37c38ee5e729dba39d56568be56d054721ec",
+   "signature_hash": "12770bd374336b5cf5a328b38ef9b39b062f3aeee2b1e65730c26b372ccd6653",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.434434,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 59,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Angle": 41.815831,
+    "Arm length": 30
+   },
+   "ok": true,
+   "report_hash": "e9bc881218ddfcb465a4f20f05d480638f96c5196b59ae2ee2c329dd5a231e55",
+   "signature_hash": "12770bd374336b5cf5a328b38ef9b39b062f3aeee2b1e65730c26b372ccd6653",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.258935,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 60,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Angle": 42.219828,
+    "Arm length": 30
+   },
+   "ok": true,
+   "report_hash": "635c053669ade58a8b7b9bee3fecfb750e5810f59d8c928327920ea903cfdfe0",
+   "signature_hash": "12770bd374336b5cf5a328b38ef9b39b062f3aeee2b1e65730c26b372ccd6653",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.083325,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 61,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Angle": 42.320827,
+    "Arm length": 30
+   },
+   "ok": true,
+   "report_hash": "462f04a053e0f925e60679b882ae8c208f52233c8d72c8bd1ee8090f19b55bfb",
+   "signature_hash": "12770bd374336b5cf5a328b38ef9b39b062f3aeee2b1e65730c26b372ccd6653",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.039406,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 62,
+   "phase": "bisect",
+   "fresh": [
+    "status",
+    "no-clash"
+   ],
+   "params": {
+    "Angle": 42.421827,
+    "Arm length": 30
+   },
+   "ok": true,
+   "report_hash": "51227ce2bfeb38bc06cf467f2e5c139730a798305697e6b883e9c30935266369",
+   "signature_hash": "134cb10f6300b8ec3904e517815886df8ff4e9074eff2b15ff04146c8173eee7",
+   "failing": [
+    "status",
+    "no-clash"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -0.14199523888023918,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    }
+   ]
+  },
+  {
+   "index": 63,
+   "phase": "bisect",
+   "fresh": [
+    "status",
+    "no-clash"
+   ],
+   "params": {
+    "Angle": 42.522826,
+    "Arm length": 30
+   },
+   "ok": true,
+   "report_hash": "ab6e0277e608e3e607da14f9214bf1ffc36476c1ce386ebe72e20dffd3ecce18",
+   "signature_hash": "134cb10f6300b8ec3904e517815886df8ff4e9074eff2b15ff04146c8173eee7",
+   "failing": [
+    "status",
+    "no-clash"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": false,
+     "signed": null,
+     "scale": 1,
+     "detail": "status warning, expected ok"
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": false,
+     "signed": -0.46387557355310044,
+     "scale": 0.01,
+     "detail": "1 clash fit(s) between * / *, expected = 0"
+    }
+   ]
+  }
+ ]
+}

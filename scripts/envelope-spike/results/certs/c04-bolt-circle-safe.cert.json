@@ -1,0 +1,4545 @@
+{
+ "certificate": "o3dj-envelope-cert/spike-0",
+ "brief": "c04-bolt-circle-safe",
+ "brief_hash": "66d01ffa3b822ed496eef1f4710a9739d6dea195ac8f96d41b565ed5b9ca252d",
+ "script_hash": "c7ad695c51f5177c624de250ec82664414272f701dc7a77a8edf1ad76fb3a819",
+ "inputs_hash": "832804e3c550540f817bd2d1f1feb45f101fee4fc225d726247a573237fc8375",
+ "engine": {
+  "occt_wasm": "5.8.1",
+  "node": "v24.22.1",
+  "analysis": "2"
+ },
+ "platform": "linux-x64",
+ "seed": 1,
+ "budget": 64,
+ "watch_mm": 0.5,
+ "verdict": "holds",
+ "statement": "holds at 64 points under this model",
+ "nominal_failures": [],
+ "counterexamples": [],
+ "compass_on": "gate-min-wall",
+ "events": [
+  {
+   "kind": "axis",
+   "axis": "Holes",
+   "between": [
+    29,
+    30
+   ],
+   "from": {
+    "Bolt circle radius": 30,
+    "Holes": 3,
+    "Thickness": 6
+   },
+   "to": {
+    "Bolt circle radius": 30,
+    "Holes": 4,
+    "Thickness": 6
+   },
+   "changed": [
+    "counts: ring:1/7/15 -> ring:1/8/18"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Holes",
+   "between": [
+    30,
+    31
+   ],
+   "from": {
+    "Bolt circle radius": 30,
+    "Holes": 4,
+    "Thickness": 6
+   },
+   "to": {
+    "Bolt circle radius": 30,
+    "Holes": 5,
+    "Thickness": 6
+   },
+   "changed": [
+    "counts: ring:1/8/18 -> ring:1/9/21"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Holes",
+   "between": [
+    31,
+    0
+   ],
+   "from": {
+    "Bolt circle radius": 30,
+    "Holes": 5,
+    "Thickness": 6
+   },
+   "to": {
+    "Bolt circle radius": 30,
+    "Holes": 6,
+    "Thickness": 6
+   },
+   "changed": [
+    "counts: ring:1/9/21 -> ring:1/10/24"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Holes",
+   "between": [
+    0,
+    32
+   ],
+   "from": {
+    "Bolt circle radius": 30,
+    "Holes": 6,
+    "Thickness": 6
+   },
+   "to": {
+    "Bolt circle radius": 30,
+    "Holes": 7,
+    "Thickness": 6
+   },
+   "changed": [
+    "counts: ring:1/10/24 -> ring:1/11/27"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Holes",
+   "between": [
+    1,
+    20
+   ],
+   "from": {
+    "Bolt circle radius": 25,
+    "Holes": 3,
+    "Thickness": 4
+   },
+   "to": {
+    "Bolt circle radius": 25,
+    "Holes": 4,
+    "Thickness": 4
+   },
+   "changed": [
+    "counts: ring:1/7/15 -> ring:1/8/18"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Holes",
+   "between": [
+    20,
+    15
+   ],
+   "from": {
+    "Bolt circle radius": 25,
+    "Holes": 4,
+    "Thickness": 4
+   },
+   "to": {
+    "Bolt circle radius": 25,
+    "Holes": 5,
+    "Thickness": 4
+   },
+   "changed": [
+    "counts: ring:1/8/18 -> ring:1/9/21"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Holes",
+   "between": [
+    15,
+    10
+   ],
+   "from": {
+    "Bolt circle radius": 25,
+    "Holes": 5,
+    "Thickness": 4
+   },
+   "to": {
+    "Bolt circle radius": 25,
+    "Holes": 6,
+    "Thickness": 4
+   },
+   "changed": [
+    "counts: ring:1/9/21 -> ring:1/10/24"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Holes",
+   "between": [
+    10,
+    5
+   ],
+   "from": {
+    "Bolt circle radius": 25,
+    "Holes": 6,
+    "Thickness": 4
+   },
+   "to": {
+    "Bolt circle radius": 25,
+    "Holes": 7,
+    "Thickness": 4
+   },
+   "changed": [
+    "counts: ring:1/10/24 -> ring:1/11/27"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Holes",
+   "between": [
+    5,
+    24
+   ],
+   "from": {
+    "Bolt circle radius": 25,
+    "Holes": 7,
+    "Thickness": 4
+   },
+   "to": {
+    "Bolt circle radius": 25,
+    "Holes": 8,
+    "Thickness": 4
+   },
+   "changed": [
+    "counts: ring:1/11/27 -> ring:1/12/30"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Holes",
+   "between": [
+    7,
+    2
+   ],
+   "from": {
+    "Bolt circle radius": 40,
+    "Holes": 3,
+    "Thickness": 12
+   },
+   "to": {
+    "Bolt circle radius": 40,
+    "Holes": 4,
+    "Thickness": 12
+   },
+   "changed": [
+    "counts: ring:1/7/15 -> ring:1/8/18"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Holes",
+   "between": [
+    2,
+    21
+   ],
+   "from": {
+    "Bolt circle radius": 40,
+    "Holes": 4,
+    "Thickness": 12
+   },
+   "to": {
+    "Bolt circle radius": 40,
+    "Holes": 5,
+    "Thickness": 12
+   },
+   "changed": [
+    "counts: ring:1/8/18 -> ring:1/9/21"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Holes",
+   "between": [
+    21,
+    16
+   ],
+   "from": {
+    "Bolt circle radius": 40,
+    "Holes": 5,
+    "Thickness": 12
+   },
+   "to": {
+    "Bolt circle radius": 40,
+    "Holes": 6,
+    "Thickness": 12
+   },
+   "changed": [
+    "counts: ring:1/9/21 -> ring:1/10/24"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Holes",
+   "between": [
+    16,
+    11
+   ],
+   "from": {
+    "Bolt circle radius": 40,
+    "Holes": 6,
+    "Thickness": 12
+   },
+   "to": {
+    "Bolt circle radius": 40,
+    "Holes": 7,
+    "Thickness": 12
+   },
+   "changed": [
+    "counts: ring:1/10/24 -> ring:1/11/27"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Holes",
+   "between": [
+    11,
+    6
+   ],
+   "from": {
+    "Bolt circle radius": 40,
+    "Holes": 7,
+    "Thickness": 12
+   },
+   "to": {
+    "Bolt circle radius": 40,
+    "Holes": 8,
+    "Thickness": 12
+   },
+   "changed": [
+    "counts: ring:1/11/27 -> ring:1/12/30"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Holes",
+   "between": [
+    13,
+    8
+   ],
+   "from": {
+    "Bolt circle radius": 40,
+    "Holes": 3,
+    "Thickness": 4
+   },
+   "to": {
+    "Bolt circle radius": 40,
+    "Holes": 4,
+    "Thickness": 4
+   },
+   "changed": [
+    "counts: ring:1/7/15 -> ring:1/8/18"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Holes",
+   "between": [
+    8,
+    3
+   ],
+   "from": {
+    "Bolt circle radius": 40,
+    "Holes": 4,
+    "Thickness": 4
+   },
+   "to": {
+    "Bolt circle radius": 40,
+    "Holes": 5,
+    "Thickness": 4
+   },
+   "changed": [
+    "counts: ring:1/8/18 -> ring:1/9/21"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Holes",
+   "between": [
+    3,
+    22
+   ],
+   "from": {
+    "Bolt circle radius": 40,
+    "Holes": 5,
+    "Thickness": 4
+   },
+   "to": {
+    "Bolt circle radius": 40,
+    "Holes": 6,
+    "Thickness": 4
+   },
+   "changed": [
+    "counts: ring:1/9/21 -> ring:1/10/24"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Holes",
+   "between": [
+    22,
+    17
+   ],
+   "from": {
+    "Bolt circle radius": 40,
+    "Holes": 6,
+    "Thickness": 4
+   },
+   "to": {
+    "Bolt circle radius": 40,
+    "Holes": 7,
+    "Thickness": 4
+   },
+   "changed": [
+    "counts: ring:1/10/24 -> ring:1/11/27"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Holes",
+   "between": [
+    17,
+    12
+   ],
+   "from": {
+    "Bolt circle radius": 40,
+    "Holes": 7,
+    "Thickness": 4
+   },
+   "to": {
+    "Bolt circle radius": 40,
+    "Holes": 8,
+    "Thickness": 4
+   },
+   "changed": [
+    "counts: ring:1/11/27 -> ring:1/12/30"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Holes",
+   "between": [
+    19,
+    14
+   ],
+   "from": {
+    "Bolt circle radius": 25,
+    "Holes": 3,
+    "Thickness": 12
+   },
+   "to": {
+    "Bolt circle radius": 25,
+    "Holes": 4,
+    "Thickness": 12
+   },
+   "changed": [
+    "counts: ring:1/7/15 -> ring:1/8/18"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Holes",
+   "between": [
+    14,
+    9
+   ],
+   "from": {
+    "Bolt circle radius": 25,
+    "Holes": 4,
+    "Thickness": 12
+   },
+   "to": {
+    "Bolt circle radius": 25,
+    "Holes": 5,
+    "Thickness": 12
+   },
+   "changed": [
+    "counts: ring:1/8/18 -> ring:1/9/21"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Holes",
+   "between": [
+    9,
+    4
+   ],
+   "from": {
+    "Bolt circle radius": 25,
+    "Holes": 5,
+    "Thickness": 12
+   },
+   "to": {
+    "Bolt circle radius": 25,
+    "Holes": 6,
+    "Thickness": 12
+   },
+   "changed": [
+    "counts: ring:1/9/21 -> ring:1/10/24"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Holes",
+   "between": [
+    4,
+    23
+   ],
+   "from": {
+    "Bolt circle radius": 25,
+    "Holes": 6,
+    "Thickness": 12
+   },
+   "to": {
+    "Bolt circle radius": 25,
+    "Holes": 7,
+    "Thickness": 12
+   },
+   "changed": [
+    "counts: ring:1/10/24 -> ring:1/11/27"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Holes",
+   "between": [
+    23,
+    18
+   ],
+   "from": {
+    "Bolt circle radius": 25,
+    "Holes": 7,
+    "Thickness": 12
+   },
+   "to": {
+    "Bolt circle radius": 25,
+    "Holes": 8,
+    "Thickness": 12
+   },
+   "changed": [
+    "counts: ring:1/11/27 -> ring:1/12/30"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Holes",
+   "between": [
+    49,
+    25
+   ],
+   "from": {
+    "Bolt circle radius": 25,
+    "Holes": 3,
+    "Thickness": 6
+   },
+   "to": {
+    "Bolt circle radius": 25,
+    "Holes": 6,
+    "Thickness": 6
+   },
+   "changed": [
+    "counts: ring:1/7/15 -> ring:1/10/24"
+   ]
+  }
+ ],
+ "smallest_margins": [
+  {
+   "id": "builds",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "status",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "valid",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "one-solid",
+   "signed": 0,
+   "scale": 1,
+   "normalized": 0,
+   "at": 0
+  },
+  {
+   "id": "faces",
+   "signed": 0,
+   "scale": 1,
+   "normalized": 0,
+   "at": 0
+  },
+  {
+   "id": "gate-watertight",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "gate-min-wall",
+   "signed": 3.16,
+   "scale": 0.04,
+   "normalized": 79,
+   "at": 1
+  }
+ ],
+ "coverage": {
+  "points": 64,
+  "phases": {
+   "nominal": 1,
+   "corner": 24,
+   "special": 8,
+   "halton": 15,
+   "compass": 16
+  },
+  "corners_planned": 24,
+  "special_planned": 9,
+  "axes": [
+   {
+    "name": "Bolt circle radius",
+    "min_seen": 25,
+    "max_seen": 40,
+    "min": 25,
+    "max": 40
+   },
+   {
+    "name": "Holes",
+    "values_seen": 6,
+    "values": 6
+   },
+   {
+    "name": "Thickness",
+    "min_seen": 4,
+    "max_seen": 12,
+    "min": 4,
+    "max": 12
+   }
+  ]
+ },
+ "limits": [
+  "Sampling is not proof: the brief was checked at the points listed under this model, never for all values. A thin band can hide between samples.",
+  "The gates are fdm.v1 rule checks on the kernel's geometry (watertight, 0.8 mm min_wall from rays, 45 degree overhang, bed), never a print simulation.",
+  "Fits are exact OCCT clash, contact and clearance checks within the fit watch distance; a pair with no line inside it is censored, not a measured pass.",
+  "Bit-identical replay is only claimed for the platform named here.",
+  "Fit watch distance 0.5 mm."
+ ],
+ "points": [
+  {
+   "index": 0,
+   "phase": "nominal",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 30,
+    "Holes": 6,
+    "Thickness": 6
+   },
+   "ok": true,
+   "report_hash": "f907346fea062e01ebcb4ab98e038e0599616674dcac289946a0c4b2215c9cfd",
+   "signature_hash": "420f10b46c1275989ca02878ae7e4c10da17fe86018f960c6d77cef5df7be402",
+   "shape_hash": {
+    "ring": "s1:181dd6b6ce7adc7b"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 1,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 25,
+    "Holes": 3,
+    "Thickness": 4
+   },
+   "ok": true,
+   "report_hash": "2077e93ed26ace3b946789e87b7b3ef492d8964369ac69bd65086c920376ca09",
+   "signature_hash": "6f8e6b501e75f3fd089893ca56261176d0517ecf4ecbdaa427de9d8f8b7b68d8",
+   "shape_hash": {
+    "ring": "s1:003ed98550299daf"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 2,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 40,
+    "Holes": 4,
+    "Thickness": 12
+   },
+   "ok": true,
+   "report_hash": "f7bc013e03340e4c3bcf4f0946722afa960d7fb87692d91b25fec80e212fba5a",
+   "signature_hash": "01c7597ae8341ae1c27f20c39e7633b2ab812fc7d057e5b8a0b8cd67e9ec1273",
+   "shape_hash": {
+    "ring": "s1:3e97fba4ebb38c1e"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.8500000000000005,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 3,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 40,
+    "Holes": 5,
+    "Thickness": 4
+   },
+   "ok": true,
+   "report_hash": "08212ae9683204f72a7eaf4d53ecba86453edaf1a3eb2534c6c4664e48bb2aea",
+   "signature_hash": "9def303a1e159571fb7a538de5eda660297094a015a742a7ba9981d73b6062c4",
+   "shape_hash": {
+    "ring": "s1:030ec1a5e8de1126"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 4,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 25,
+    "Holes": 6,
+    "Thickness": 12
+   },
+   "ok": true,
+   "report_hash": "c187443714b26f7253cfca7afe13099fad3364c56180fe00148dab02be61b537",
+   "signature_hash": "420f10b46c1275989ca02878ae7e4c10da17fe86018f960c6d77cef5df7be402",
+   "shape_hash": {
+    "ring": "s1:4a6077f70e8dee71"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.86,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 5,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 25,
+    "Holes": 7,
+    "Thickness": 4
+   },
+   "ok": true,
+   "report_hash": "d8876ad952ed5ab6e206f6ccdb2655e817b646c3ded6205c891c53281b774bec",
+   "signature_hash": "2c8277870382b047d357709608d2ed9201504135a236c33c9bc6a775c494e72e",
+   "shape_hash": {
+    "ring": "s1:90841cee0954a2ce"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 6,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 40,
+    "Holes": 8,
+    "Thickness": 12
+   },
+   "ok": true,
+   "report_hash": "3f0a80da5c21d35df3b41814f9cc57d41f19cf1bb2eac4d6824295c4088eaa25",
+   "signature_hash": "345e9f4a0a44cecf14ab4e3b560b9c2244ba5a2334f442b50834d26911aeb27d",
+   "shape_hash": {
+    "ring": "s1:fba81b27a9508479"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.851,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 7,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 40,
+    "Holes": 3,
+    "Thickness": 12
+   },
+   "ok": true,
+   "report_hash": "5f951413d0dd8d875f7e040e9694ce6f1bae381f361297a38d688b38bbea8cf0",
+   "signature_hash": "6f8e6b501e75f3fd089893ca56261176d0517ecf4ecbdaa427de9d8f8b7b68d8",
+   "shape_hash": {
+    "ring": "s1:26d0811c6d668cd9"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.851,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 8,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 40,
+    "Holes": 4,
+    "Thickness": 4
+   },
+   "ok": true,
+   "report_hash": "37114d5bbe29887d2a981f7cea13bfcb344ce035febf910ab93b038e831f29bf",
+   "signature_hash": "01c7597ae8341ae1c27f20c39e7633b2ab812fc7d057e5b8a0b8cd67e9ec1273",
+   "shape_hash": {
+    "ring": "s1:2b6910d9d8136383"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 9,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 25,
+    "Holes": 5,
+    "Thickness": 12
+   },
+   "ok": true,
+   "report_hash": "f49268b21e50406e03511b45e184d22384b19cf9a991bda30e63297dc8b5728c",
+   "signature_hash": "9def303a1e159571fb7a538de5eda660297094a015a742a7ba9981d73b6062c4",
+   "shape_hash": {
+    "ring": "s1:7220f2c500e6852e"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.851,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 10,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 25,
+    "Holes": 6,
+    "Thickness": 4
+   },
+   "ok": true,
+   "report_hash": "0395029731cfffb9167bcc90e1774357ee24f699226833f9c192758f7f1f3bf8",
+   "signature_hash": "420f10b46c1275989ca02878ae7e4c10da17fe86018f960c6d77cef5df7be402",
+   "shape_hash": {
+    "ring": "s1:abf8e88fec9e7388"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 11,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 40,
+    "Holes": 7,
+    "Thickness": 12
+   },
+   "ok": true,
+   "report_hash": "697e6dd1bd12ae4c3e38e0cc9f9e45344c9e0dde08d2b2acb3fd41c3c4d6409c",
+   "signature_hash": "2c8277870382b047d357709608d2ed9201504135a236c33c9bc6a775c494e72e",
+   "shape_hash": {
+    "ring": "s1:feb422dc2501f4fc"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.851,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 12,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 40,
+    "Holes": 8,
+    "Thickness": 4
+   },
+   "ok": true,
+   "report_hash": "1d17d03b0f18ae9601544b4f12b1bb78987ace7658abfadfe1a6e12d6359e836",
+   "signature_hash": "345e9f4a0a44cecf14ab4e3b560b9c2244ba5a2334f442b50834d26911aeb27d",
+   "shape_hash": {
+    "ring": "s1:73e8592001679f80"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 13,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 40,
+    "Holes": 3,
+    "Thickness": 4
+   },
+   "ok": true,
+   "report_hash": "09e930ae1d297d55de80101b873d2620372767159efc5f59e7110458d7e4cfad",
+   "signature_hash": "6f8e6b501e75f3fd089893ca56261176d0517ecf4ecbdaa427de9d8f8b7b68d8",
+   "shape_hash": {
+    "ring": "s1:cddfab05de47943d"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 14,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 25,
+    "Holes": 4,
+    "Thickness": 12
+   },
+   "ok": true,
+   "report_hash": "0e424eec4d109a2f5e0cf23255ba8252a1ea9fde1a941705416c4c1a0a41301b",
+   "signature_hash": "01c7597ae8341ae1c27f20c39e7633b2ab812fc7d057e5b8a0b8cd67e9ec1273",
+   "shape_hash": {
+    "ring": "s1:28bd15ea8855a3c7"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.86,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 15,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 25,
+    "Holes": 5,
+    "Thickness": 4
+   },
+   "ok": true,
+   "report_hash": "5e628cc13e2e6ab1268b131264699475853909f72a161e7ddb4c8791d0cf817a",
+   "signature_hash": "9def303a1e159571fb7a538de5eda660297094a015a742a7ba9981d73b6062c4",
+   "shape_hash": {
+    "ring": "s1:461f6c59de9638b6"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 16,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 40,
+    "Holes": 6,
+    "Thickness": 12
+   },
+   "ok": true,
+   "report_hash": "16eae7aa2dcc570dcf23e2531076f092cab8c32870f7e0bb799c332500b59352",
+   "signature_hash": "420f10b46c1275989ca02878ae7e4c10da17fe86018f960c6d77cef5df7be402",
+   "shape_hash": {
+    "ring": "s1:a806211eece73d3e"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.852,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 17,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 40,
+    "Holes": 7,
+    "Thickness": 4
+   },
+   "ok": true,
+   "report_hash": "7e40d71f387f2ca2606404b9060892e91b2890b6ac03aeb727ce1cb02467128b",
+   "signature_hash": "2c8277870382b047d357709608d2ed9201504135a236c33c9bc6a775c494e72e",
+   "shape_hash": {
+    "ring": "s1:ab1428727773292e"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 18,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 25,
+    "Holes": 8,
+    "Thickness": 12
+   },
+   "ok": true,
+   "report_hash": "447be68a8c86159ad1a06e759875206011b7bb81b6eacbf89893988914cd17dc",
+   "signature_hash": "345e9f4a0a44cecf14ab4e3b560b9c2244ba5a2334f442b50834d26911aeb27d",
+   "shape_hash": {
+    "ring": "s1:73dbdce0223320fe"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.8500000000000005,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 19,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 25,
+    "Holes": 3,
+    "Thickness": 12
+   },
+   "ok": true,
+   "report_hash": "825087c5da869c3fe7ea8ad93d319ffecd633a54333793a4a9a70adf9a9214db",
+   "signature_hash": "6f8e6b501e75f3fd089893ca56261176d0517ecf4ecbdaa427de9d8f8b7b68d8",
+   "shape_hash": {
+    "ring": "s1:4ab11b2729138b16"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.86,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 20,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 25,
+    "Holes": 4,
+    "Thickness": 4
+   },
+   "ok": true,
+   "report_hash": "08a1f15188cfe129169c5f61d38e65f682f19b099a328395fc4ba73530c3a0d7",
+   "signature_hash": "01c7597ae8341ae1c27f20c39e7633b2ab812fc7d057e5b8a0b8cd67e9ec1273",
+   "shape_hash": {
+    "ring": "s1:191bc767756ac7ad"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 21,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 40,
+    "Holes": 5,
+    "Thickness": 12
+   },
+   "ok": true,
+   "report_hash": "1dd67d3c89a789ba391b7f3c593cdf36aa9b68303b20db8da74405090e690977",
+   "signature_hash": "9def303a1e159571fb7a538de5eda660297094a015a742a7ba9981d73b6062c4",
+   "shape_hash": {
+    "ring": "s1:523cba97f5c3455e"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.851,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 22,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 40,
+    "Holes": 6,
+    "Thickness": 4
+   },
+   "ok": true,
+   "report_hash": "f37d20de4764405072b5b9bd52a8317d094d35440a2098d5e8d2be9dce69bc91",
+   "signature_hash": "420f10b46c1275989ca02878ae7e4c10da17fe86018f960c6d77cef5df7be402",
+   "shape_hash": {
+    "ring": "s1:7789c92c82554198"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 23,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 25,
+    "Holes": 7,
+    "Thickness": 12
+   },
+   "ok": true,
+   "report_hash": "57457042a229a207eae2d089a4b74cdf6d2086bb6f6ddcf3509888a74371aee7",
+   "signature_hash": "2c8277870382b047d357709608d2ed9201504135a236c33c9bc6a775c494e72e",
+   "shape_hash": {
+    "ring": "s1:232649aab40ee706"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.851,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 24,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 25,
+    "Holes": 8,
+    "Thickness": 4
+   },
+   "ok": true,
+   "report_hash": "0bdc44bd277f175ab06700afc4edb716205a922d0ea7ab62e7aeedc998da616e",
+   "signature_hash": "345e9f4a0a44cecf14ab4e3b560b9c2244ba5a2334f442b50834d26911aeb27d",
+   "shape_hash": {
+    "ring": "s1:56712d5e4fe6fa9b"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 25,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 25,
+    "Holes": 6,
+    "Thickness": 6
+   },
+   "ok": true,
+   "report_hash": "e7d44d7739115121c6acc3db54fa4ed2a64f7c8d030d2904f40ac543994bdcd3",
+   "signature_hash": "420f10b46c1275989ca02878ae7e4c10da17fe86018f960c6d77cef5df7be402",
+   "shape_hash": {
+    "ring": "s1:401be81862e0e0e7"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 26,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 40,
+    "Holes": 6,
+    "Thickness": 6
+   },
+   "ok": true,
+   "report_hash": "52308f74e2b87587ef244c789a75a2e02e9d4e0f46232ff484d343062ef9a9e2",
+   "signature_hash": "420f10b46c1275989ca02878ae7e4c10da17fe86018f960c6d77cef5df7be402",
+   "shape_hash": {
+    "ring": "s1:60db3edc8a0a9ba8"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 27,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 30,
+    "Holes": 6,
+    "Thickness": 4
+   },
+   "ok": true,
+   "report_hash": "88dc999b64244b35e4cebc1b3d30dbec837cee1d73e5cbe0faf19d3a6296c6a6",
+   "signature_hash": "420f10b46c1275989ca02878ae7e4c10da17fe86018f960c6d77cef5df7be402",
+   "shape_hash": {
+    "ring": "s1:e84488da0fae5b90"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 28,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 30,
+    "Holes": 6,
+    "Thickness": 12
+   },
+   "ok": true,
+   "report_hash": "8744f82e443974b6e56a5c9a0de3f89e962f393289f92e950f2cc252fcf2ea21",
+   "signature_hash": "420f10b46c1275989ca02878ae7e4c10da17fe86018f960c6d77cef5df7be402",
+   "shape_hash": {
+    "ring": "s1:398203abcbc617b4"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.8500000000000005,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 29,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 30,
+    "Holes": 3,
+    "Thickness": 6
+   },
+   "ok": true,
+   "report_hash": "d9f27639ec83de5cdf06dd0562463212a195563d2e7da512afe203db58bc6471",
+   "signature_hash": "6f8e6b501e75f3fd089893ca56261176d0517ecf4ecbdaa427de9d8f8b7b68d8",
+   "shape_hash": {
+    "ring": "s1:9a2057a349765491"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 30,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 30,
+    "Holes": 4,
+    "Thickness": 6
+   },
+   "ok": true,
+   "report_hash": "d956ba4bb3cd9f91bcd49002d41408a18ff414d6b663213c93dab16001413237",
+   "signature_hash": "01c7597ae8341ae1c27f20c39e7633b2ab812fc7d057e5b8a0b8cd67e9ec1273",
+   "shape_hash": {
+    "ring": "s1:519360d79ca5e93c"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 31,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 30,
+    "Holes": 5,
+    "Thickness": 6
+   },
+   "ok": true,
+   "report_hash": "befa7281fa82efb05c7e863aeb8d6949e27ba00710d1912bd25fd247f8875643",
+   "signature_hash": "9def303a1e159571fb7a538de5eda660297094a015a742a7ba9981d73b6062c4",
+   "shape_hash": {
+    "ring": "s1:9962a0f5b7b146db"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 32,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 30,
+    "Holes": 7,
+    "Thickness": 6
+   },
+   "ok": true,
+   "report_hash": "bd052c5885fa27cffd42db5513042f651aa2448ae41b764be2525b89ac03cce9",
+   "signature_hash": "2c8277870382b047d357709608d2ed9201504135a236c33c9bc6a775c494e72e",
+   "shape_hash": {
+    "ring": "s1:f14ebbbad3705609"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 33,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 26.080133,
+    "Holes": 7,
+    "Thickness": 8.270781
+   },
+   "ok": true,
+   "report_hash": "307cb9f6b0e3b72b76b3ad5fa6a02143e639426f3382a6d7ca8916b5e9e0021c",
+   "signature_hash": "2c8277870382b047d357709608d2ed9201504135a236c33c9bc6a775c494e72e",
+   "shape_hash": {
+    "ring": "s1:8eca02c5390e013e"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.851,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 34,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 33.580133,
+    "Holes": 3,
+    "Thickness": 9.870781
+   },
+   "ok": true,
+   "report_hash": "5b8288dbceb455e232f013475b9853bde4e73840b581b668851fa0f746718efa",
+   "signature_hash": "6f8e6b501e75f3fd089893ca56261176d0517ecf4ecbdaa427de9d8f8b7b68d8",
+   "shape_hash": {
+    "ring": "s1:66db91150a80c6cc"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.86,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 35,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 29.830133,
+    "Holes": 5,
+    "Thickness": 11.470781
+   },
+   "ok": true,
+   "report_hash": "38da37f9f5888db4a5a7b2794f2e7137d2c389c6f573dc468d93b29ed12e3d6e",
+   "signature_hash": "9def303a1e159571fb7a538de5eda660297094a015a742a7ba9981d73b6062c4",
+   "shape_hash": {
+    "ring": "s1:de6cb810bb7a1113"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.851,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 36,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 37.330133,
+    "Holes": 7,
+    "Thickness": 5.390781
+   },
+   "ok": true,
+   "report_hash": "b1a18e70834734f93c83879be3d699b4267528c6482dd269231c9223cb5f3430",
+   "signature_hash": "2c8277870382b047d357709608d2ed9201504135a236c33c9bc6a775c494e72e",
+   "shape_hash": {
+    "ring": "s1:c8ff696e95b1d2ac"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 4.551,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 37,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 27.955133,
+    "Holes": 8,
+    "Thickness": 6.990781
+   },
+   "ok": true,
+   "report_hash": "0ab8c8395c2740a698af26e5a0e9f8cd1c731d02749818cbb7c2059dc0cdbf99",
+   "signature_hash": "345e9f4a0a44cecf14ab4e3b560b9c2244ba5a2334f442b50834d26911aeb27d",
+   "shape_hash": {
+    "ring": "s1:65ab51929d37444b"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.851,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 38,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 35.455133,
+    "Holes": 4,
+    "Thickness": 8.590781
+   },
+   "ok": true,
+   "report_hash": "a6fb618645222e37099943f387123efe0e77e472fcf5395875a47f3556cf4946",
+   "signature_hash": "01c7597ae8341ae1c27f20c39e7633b2ab812fc7d057e5b8a0b8cd67e9ec1273",
+   "shape_hash": {
+    "ring": "s1:75322fdcc33b6f37"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.851,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 39,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 31.705133,
+    "Holes": 6,
+    "Thickness": 10.190781
+   },
+   "ok": true,
+   "report_hash": "0a774bb88518d936f8cfc544867b935cd935dab2e250b74f24691e01e1fb74c5",
+   "signature_hash": "420f10b46c1275989ca02878ae7e4c10da17fe86018f960c6d77cef5df7be402",
+   "shape_hash": {
+    "ring": "s1:ba5f218c132fc01e"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.86,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 40,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 39.205133,
+    "Holes": 3,
+    "Thickness": 11.790781
+   },
+   "ok": true,
+   "report_hash": "194a94e22cc493b6f1e09076634cb249d6601037d86fcc778cf9ae1a019cd60b",
+   "signature_hash": "6f8e6b501e75f3fd089893ca56261176d0517ecf4ecbdaa427de9d8f8b7b68d8",
+   "shape_hash": {
+    "ring": "s1:b6410683ff38ccc5"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.86,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 41,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 27.017633,
+    "Holes": 5,
+    "Thickness": 5.710781
+   },
+   "ok": true,
+   "report_hash": "dc0fe35cc82403701eb6e4311bff0100360b296f0a56dc45ca7305be4b1879c9",
+   "signature_hash": "9def303a1e159571fb7a538de5eda660297094a015a742a7ba9981d73b6062c4",
+   "shape_hash": {
+    "ring": "s1:f4a188c11a12b9c6"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 4.871,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 42,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 34.517633,
+    "Holes": 7,
+    "Thickness": 7.310781
+   },
+   "ok": true,
+   "report_hash": "db823a5f96608907dd4f56afb904e715a4e8348aceb0bf31009cea65448095d5",
+   "signature_hash": "2c8277870382b047d357709608d2ed9201504135a236c33c9bc6a775c494e72e",
+   "shape_hash": {
+    "ring": "s1:ac555eb405fe94cf"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.851,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 43,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 30.767633,
+    "Holes": 4,
+    "Thickness": 8.910781
+   },
+   "ok": true,
+   "report_hash": "c94398710887ed9baeca6ec7b2b2fdf306981e9e6f89f9763c52901cf5639a6d",
+   "signature_hash": "01c7597ae8341ae1c27f20c39e7633b2ab812fc7d057e5b8a0b8cd67e9ec1273",
+   "shape_hash": {
+    "ring": "s1:7ee1fd901e3986bf"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.851,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 44,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 38.267633,
+    "Holes": 6,
+    "Thickness": 10.510781
+   },
+   "ok": true,
+   "report_hash": "555d41b8ec2c000e47b236ab05934b69713da8d3f7747b2f134d0373be8a33c8",
+   "signature_hash": "420f10b46c1275989ca02878ae7e4c10da17fe86018f960c6d77cef5df7be402",
+   "shape_hash": {
+    "ring": "s1:c8b13c3fa86e4f87"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.851,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 45,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 28.892633,
+    "Holes": 8,
+    "Thickness": 4.110781
+   },
+   "ok": true,
+   "report_hash": "2acab0297e5c77e4f8c4d932dd24b24df2416f0ce1fa0f9baa800c3803a9dd36",
+   "signature_hash": "345e9f4a0a44cecf14ab4e3b560b9c2244ba5a2334f442b50834d26911aeb27d",
+   "shape_hash": {
+    "ring": "s1:e01ca546987da473"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.271,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 46,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 36.392633,
+    "Holes": 3,
+    "Thickness": 6.030781
+   },
+   "ok": true,
+   "report_hash": "5c126112ef5d728aa2027b0f29cec6f6949f3f0cf626659180e94c89d45092e6",
+   "signature_hash": "6f8e6b501e75f3fd089893ca56261176d0517ecf4ecbdaa427de9d8f8b7b68d8",
+   "shape_hash": {
+    "ring": "s1:cc453dbe916b946f"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.191,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 47,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 32.642633,
+    "Holes": 5,
+    "Thickness": 7.630781
+   },
+   "ok": true,
+   "report_hash": "0c27165827a58a47804a82c5ab3600e688215cfacd2b3048af8b5dec8597c630",
+   "signature_hash": "9def303a1e159571fb7a538de5eda660297094a015a742a7ba9981d73b6062c4",
+   "shape_hash": {
+    "ring": "s1:f5f95281bd156a74"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.851,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 48,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 28.75,
+    "Holes": 3,
+    "Thickness": 4
+   },
+   "ok": true,
+   "report_hash": "682f83b19a29a50be9b5d5c3c958767636aeef96060b87427c0ce6c70d23d5cf",
+   "signature_hash": "6f8e6b501e75f3fd089893ca56261176d0517ecf4ecbdaa427de9d8f8b7b68d8",
+   "shape_hash": {
+    "ring": "s1:002b9a0edde62b3a"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 49,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 25,
+    "Holes": 3,
+    "Thickness": 6
+   },
+   "ok": true,
+   "report_hash": "c0277d941ed1aeb066c7af8a65c003a79d31830f7b6e230ae31277005a0a0f0f",
+   "signature_hash": "6f8e6b501e75f3fd089893ca56261176d0517ecf4ecbdaa427de9d8f8b7b68d8",
+   "shape_hash": {
+    "ring": "s1:2b5bd297606b58a7"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 5.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 50,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 26.875,
+    "Holes": 3,
+    "Thickness": 4
+   },
+   "ok": true,
+   "report_hash": "dcbaed75c96fae3bc043f6fc3ffa5387dfdbf86ee4bbebc11151674cf6788261",
+   "signature_hash": "6f8e6b501e75f3fd089893ca56261176d0517ecf4ecbdaa427de9d8f8b7b68d8",
+   "shape_hash": {
+    "ring": "s1:c546a39d775a73a7"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 51,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 25,
+    "Holes": 3,
+    "Thickness": 5
+   },
+   "ok": true,
+   "report_hash": "af0c71a0f8390c2c20c189c07b60cc732df7aded4c5be4b0c7a9b641868aa4b7",
+   "signature_hash": "6f8e6b501e75f3fd089893ca56261176d0517ecf4ecbdaa427de9d8f8b7b68d8",
+   "shape_hash": {
+    "ring": "s1:e5098ca12cec8e5c"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 4.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 52,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 25.9375,
+    "Holes": 3,
+    "Thickness": 4
+   },
+   "ok": true,
+   "report_hash": "1113a19f99a3a2df33b3a3dbbb1084b3eab12dcc51ab6a8fa20f460e6a2c4a9d",
+   "signature_hash": "6f8e6b501e75f3fd089893ca56261176d0517ecf4ecbdaa427de9d8f8b7b68d8",
+   "shape_hash": {
+    "ring": "s1:722e4fadb34f4650"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 53,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 25,
+    "Holes": 3,
+    "Thickness": 4.5
+   },
+   "ok": true,
+   "report_hash": "af11472da8d6223f43c2e1f09b5fbef11f9a3b68d7d71ca9175163824033cd95",
+   "signature_hash": "6f8e6b501e75f3fd089893ca56261176d0517ecf4ecbdaa427de9d8f8b7b68d8",
+   "shape_hash": {
+    "ring": "s1:5fdcf8713bdb196c"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.66,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 54,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 25.46875,
+    "Holes": 3,
+    "Thickness": 4
+   },
+   "ok": true,
+   "report_hash": "768dff0ba32c80344f4994ddba45b2ee7b68a60e5d899eb559170af4a205d507",
+   "signature_hash": "6f8e6b501e75f3fd089893ca56261176d0517ecf4ecbdaa427de9d8f8b7b68d8",
+   "shape_hash": {
+    "ring": "s1:34d1e36afe859cbf"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 55,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 25,
+    "Holes": 3,
+    "Thickness": 4.25
+   },
+   "ok": true,
+   "report_hash": "83c908807b8a8e195ae568c7d696ec4252d73be830d7ae2cd5ecd56719406df0",
+   "signature_hash": "6f8e6b501e75f3fd089893ca56261176d0517ecf4ecbdaa427de9d8f8b7b68d8",
+   "shape_hash": {
+    "ring": "s1:7e61304bfcd1c117"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.41,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 56,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 25.234375,
+    "Holes": 3,
+    "Thickness": 4
+   },
+   "ok": true,
+   "report_hash": "948f2c5116afec4a925226dbefb4d70df4c70cbafd9b029d64d3646d9cc99057",
+   "signature_hash": "6f8e6b501e75f3fd089893ca56261176d0517ecf4ecbdaa427de9d8f8b7b68d8",
+   "shape_hash": {
+    "ring": "s1:abef1ddccd28e4a3"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 57,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 25,
+    "Holes": 3,
+    "Thickness": 4.125
+   },
+   "ok": true,
+   "report_hash": "9e7288e2be8de71debd7588ef1b96a9f461bb297d377675b4ab5e9540b2e37bc",
+   "signature_hash": "6f8e6b501e75f3fd089893ca56261176d0517ecf4ecbdaa427de9d8f8b7b68d8",
+   "shape_hash": {
+    "ring": "s1:a9d1aa78933747c8"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.285,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 58,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 25.117188,
+    "Holes": 3,
+    "Thickness": 4
+   },
+   "ok": true,
+   "report_hash": "37a8167a7b775e10590a3d1c176bdc70ef991e1870a55672f2090377374a7f28",
+   "signature_hash": "6f8e6b501e75f3fd089893ca56261176d0517ecf4ecbdaa427de9d8f8b7b68d8",
+   "shape_hash": {
+    "ring": "s1:8159f79a5ccfcb7b"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 59,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 25,
+    "Holes": 3,
+    "Thickness": 4.0625
+   },
+   "ok": true,
+   "report_hash": "1c7e821badc4dbbe13d53103bc9b4244e8fa97b22a54da268164abc5e6c55098",
+   "signature_hash": "6f8e6b501e75f3fd089893ca56261176d0517ecf4ecbdaa427de9d8f8b7b68d8",
+   "shape_hash": {
+    "ring": "s1:03ab2f063b3ec41b"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.2220000000000004,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 60,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 25.058594,
+    "Holes": 3,
+    "Thickness": 4
+   },
+   "ok": true,
+   "report_hash": "7e16be22269242844d801f72d94b77ff7f2d538bceab0d30d7955c35171aee38",
+   "signature_hash": "6f8e6b501e75f3fd089893ca56261176d0517ecf4ecbdaa427de9d8f8b7b68d8",
+   "shape_hash": {
+    "ring": "s1:0d84320f77cf0f1a"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 61,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 25,
+    "Holes": 3,
+    "Thickness": 4.03125
+   },
+   "ok": true,
+   "report_hash": "169ba51a4d320aaa10399223ac9750ef1e783e185e580de01d56726ac91e2223",
+   "signature_hash": "6f8e6b501e75f3fd089893ca56261176d0517ecf4ecbdaa427de9d8f8b7b68d8",
+   "shape_hash": {
+    "ring": "s1:39c98a2fe8d231ba"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.191,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 62,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 25.029297,
+    "Holes": 3,
+    "Thickness": 4
+   },
+   "ok": true,
+   "report_hash": "2635847d7169584cde25aa982c1c6684f275c3b5f88e863ba9de80f1cb024240",
+   "signature_hash": "6f8e6b501e75f3fd089893ca56261176d0517ecf4ecbdaa427de9d8f8b7b68d8",
+   "shape_hash": {
+    "ring": "s1:b14e45e75f62fb9a"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.16,
+     "scale": 0.04
+    }
+   ]
+  },
+  {
+   "index": 63,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Bolt circle radius": 25,
+    "Holes": 3,
+    "Thickness": 4.015625
+   },
+   "ok": true,
+   "report_hash": "652bd5e0bb976feba6570a6fe9ffd45ccd72f05628be87fa265881f0fc51446e",
+   "signature_hash": "6f8e6b501e75f3fd089893ca56261176d0517ecf4ecbdaa427de9d8f8b7b68d8",
+   "shape_hash": {
+    "ring": "s1:6f37eb9453b9eb77"
+   },
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "one-solid",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "faces",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall",
+     "pass": true,
+     "signed": 3.176,
+     "scale": 0.04
+    }
+   ]
+  }
+ ]
+}

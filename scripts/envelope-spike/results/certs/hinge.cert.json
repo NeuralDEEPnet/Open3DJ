@@ -1,0 +1,8516 @@
+{
+ "certificate": "o3dj-envelope-cert/spike-0",
+ "brief": "hinge",
+ "brief_hash": "6da0d5690338511f7a59cdab4a800207ae42278c71b0aea7eff1d8900576a33e",
+ "script_hash": "26974fbe4a038dcabb56dd56465e59fe7e580a250b32804fdd56afc3e6820522",
+ "inputs_hash": "35062951f3e02c3e12a8998629893f02d369a76a94a1a500655242403801782c",
+ "engine": {
+  "occt_wasm": "5.8.1",
+  "node": "v24.22.1",
+  "analysis": "2"
+ },
+ "platform": "linux-x64",
+ "seed": 1,
+ "budget": 64,
+ "watch_mm": 0.8,
+ "verdict": "holds",
+ "statement": "holds at 64 points under this model (apart from 1 nominal failure(s))",
+ "nominal_failures": [
+  "gate-overhang-leaf"
+ ],
+ "counterexamples": [],
+ "compass_on": "size-x",
+ "events": [
+  {
+   "kind": "axis",
+   "axis": "Knuckles",
+   "between": [
+    15,
+    16
+   ],
+   "from": {
+    "Length": 60,
+    "Knuckles": 3
+   },
+   "to": {
+    "Length": 60,
+    "Knuckles": 4
+   },
+   "changed": [
+    "counts: leaf_b:1/22/52 -> leaf_b:1/34/82"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Knuckles",
+   "between": [
+    16,
+    0
+   ],
+   "from": {
+    "Length": 60,
+    "Knuckles": 4
+   },
+   "to": {
+    "Length": 60,
+    "Knuckles": 5
+   },
+   "changed": [
+    "counts: leaf_a:1/34/82 -> leaf_a:1/46/112"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Knuckles",
+   "between": [
+    0,
+    17
+   ],
+   "from": {
+    "Length": 60,
+    "Knuckles": 5
+   },
+   "to": {
+    "Length": 60,
+    "Knuckles": 6
+   },
+   "changed": [
+    "counts: leaf_b:1/34/82 -> leaf_b:1/46/112"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Knuckles",
+   "between": [
+    17,
+    18
+   ],
+   "from": {
+    "Length": 60,
+    "Knuckles": 6
+   },
+   "to": {
+    "Length": 60,
+    "Knuckles": 7
+   },
+   "changed": [
+    "counts: leaf_a:1/46/112 -> leaf_a:1/58/142"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Knuckles",
+   "between": [
+    18,
+    19
+   ],
+   "from": {
+    "Length": 60,
+    "Knuckles": 7
+   },
+   "to": {
+    "Length": 60,
+    "Knuckles": 8
+   },
+   "changed": [
+    "counts: leaf_b:1/46/112 -> leaf_b:1/58/142"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Knuckles",
+   "between": [
+    19,
+    20
+   ],
+   "from": {
+    "Length": 60,
+    "Knuckles": 8
+   },
+   "to": {
+    "Length": 60,
+    "Knuckles": 9
+   },
+   "changed": [
+    "counts: leaf_a:1/58/142 -> leaf_a:1/70/172"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Knuckles",
+   "between": [
+    1,
+    9
+   ],
+   "from": {
+    "Length": 30,
+    "Knuckles": 3
+   },
+   "to": {
+    "Length": 30,
+    "Knuckles": 4
+   },
+   "changed": [
+    "counts: leaf_b:1/22/52 -> leaf_b:1/34/82"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Knuckles",
+   "between": [
+    9,
+    3
+   ],
+   "from": {
+    "Length": 30,
+    "Knuckles": 4
+   },
+   "to": {
+    "Length": 30,
+    "Knuckles": 5
+   },
+   "changed": [
+    "counts: leaf_a:1/34/82 -> leaf_a:1/46/112"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Knuckles",
+   "between": [
+    3,
+    11
+   ],
+   "from": {
+    "Length": 30,
+    "Knuckles": 5
+   },
+   "to": {
+    "Length": 30,
+    "Knuckles": 6
+   },
+   "changed": [
+    "counts: leaf_b:1/34/82 -> leaf_b:1/46/112"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Knuckles",
+   "between": [
+    11,
+    5
+   ],
+   "from": {
+    "Length": 30,
+    "Knuckles": 6
+   },
+   "to": {
+    "Length": 30,
+    "Knuckles": 7
+   },
+   "changed": [
+    "counts: leaf_a:1/46/112 -> leaf_a:1/58/142"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Knuckles",
+   "between": [
+    5,
+    13
+   ],
+   "from": {
+    "Length": 30,
+    "Knuckles": 7
+   },
+   "to": {
+    "Length": 30,
+    "Knuckles": 8
+   },
+   "changed": [
+    "counts: leaf_b:1/46/112 -> leaf_b:1/58/142"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Knuckles",
+   "between": [
+    13,
+    7
+   ],
+   "from": {
+    "Length": 30,
+    "Knuckles": 8
+   },
+   "to": {
+    "Length": 30,
+    "Knuckles": 9
+   },
+   "changed": [
+    "counts: leaf_a:1/58/142 -> leaf_a:1/70/172"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Knuckles",
+   "between": [
+    8,
+    2
+   ],
+   "from": {
+    "Length": 120,
+    "Knuckles": 3
+   },
+   "to": {
+    "Length": 120,
+    "Knuckles": 4
+   },
+   "changed": [
+    "counts: leaf_b:1/22/52 -> leaf_b:1/34/82"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Knuckles",
+   "between": [
+    2,
+    10
+   ],
+   "from": {
+    "Length": 120,
+    "Knuckles": 4
+   },
+   "to": {
+    "Length": 120,
+    "Knuckles": 5
+   },
+   "changed": [
+    "counts: leaf_a:1/34/82 -> leaf_a:1/46/112"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Knuckles",
+   "between": [
+    10,
+    4
+   ],
+   "from": {
+    "Length": 120,
+    "Knuckles": 5
+   },
+   "to": {
+    "Length": 120,
+    "Knuckles": 6
+   },
+   "changed": [
+    "counts: leaf_b:1/34/82 -> leaf_b:1/46/112"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Knuckles",
+   "between": [
+    4,
+    12
+   ],
+   "from": {
+    "Length": 120,
+    "Knuckles": 6
+   },
+   "to": {
+    "Length": 120,
+    "Knuckles": 7
+   },
+   "changed": [
+    "counts: leaf_a:1/46/112 -> leaf_a:1/58/142"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Knuckles",
+   "between": [
+    12,
+    6
+   ],
+   "from": {
+    "Length": 120,
+    "Knuckles": 7
+   },
+   "to": {
+    "Length": 120,
+    "Knuckles": 8
+   },
+   "changed": [
+    "counts: leaf_b:1/46/112 -> leaf_b:1/58/142"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Knuckles",
+   "between": [
+    6,
+    14
+   ],
+   "from": {
+    "Length": 120,
+    "Knuckles": 8
+   },
+   "to": {
+    "Length": 120,
+    "Knuckles": 9
+   },
+   "changed": [
+    "counts: leaf_a:1/58/142 -> leaf_a:1/70/172"
+   ]
+  }
+ ],
+ "smallest_margins": [
+  {
+   "id": "builds",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "status",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "valid",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "occurrences",
+   "signed": 0,
+   "scale": 1,
+   "normalized": 0,
+   "at": 0
+  },
+  {
+   "id": "no-clash",
+   "signed": 0.2,
+   "scale": 0.01,
+   "normalized": 20,
+   "at": 0
+  },
+  {
+   "id": "no-contact",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "leaf-gap",
+   "signed": 0.001,
+   "scale": 0.01,
+   "normalized": 0.1,
+   "at": 0
+  },
+  {
+   "id": "pin-clearance",
+   "signed": 0.001,
+   "scale": 0.01,
+   "normalized": 0.1,
+   "at": 0
+  },
+  {
+   "id": "size-x",
+   "signed": 0.0009990000000025248,
+   "scale": 0.11992309500000001,
+   "normalized": 0.008330338705839144,
+   "at": 63
+  },
+  {
+   "id": "gate-watertight-leaf",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "gate-min-wall-leaf",
+   "signed": 0.026999999999999913,
+   "scale": 0.04,
+   "normalized": 0.6749999999999978,
+   "at": 28
+  },
+  {
+   "id": "gate-bed-leaf",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "gate-watertight-pin",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "gate-min-wall-pin",
+   "signed": 2.141,
+   "scale": 0.04,
+   "normalized": 53.525,
+   "at": 0
+  },
+  {
+   "id": "gate-overhang-pin",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "gate-bed-pin",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  }
+ ],
+ "coverage": {
+  "points": 64,
+  "phases": {
+   "nominal": 1,
+   "corner": 14,
+   "special": 6,
+   "halton": 27,
+   "compass": 16
+  },
+  "corners_planned": 14,
+  "special_planned": 8,
+  "axes": [
+   {
+    "name": "Length",
+    "min_seen": 30,
+    "max_seen": 120,
+    "min": 30,
+    "max": 120
+   },
+   {
+    "name": "Knuckles",
+    "values_seen": 7,
+    "values": 7
+   }
+  ]
+ },
+ "limits": [
+  "Sampling is not proof: the brief was checked at the points listed under this model, never for all values. A thin band can hide between samples.",
+  "The gates are fdm.v1 rule checks on the kernel's geometry (watertight, 0.8 mm min_wall from rays, 45 degree overhang, bed), never a print simulation.",
+  "Fits are exact OCCT clash, contact and clearance checks within the fit watch distance; a pair with no line inside it is censored, not a measured pass.",
+  "Bit-identical replay is only claimed for the platform named here.",
+  "Fit watch distance 0.8 mm."
+ ],
+ "points": [
+  {
+   "index": 0,
+   "phase": "nominal",
+   "fresh": [],
+   "params": {
+    "Length": 60,
+    "Knuckles": 5
+   },
+   "ok": true,
+   "report_hash": "b0945f51fc25a09c877b2705b9925aea179372c2b14a74a176780a2f9417b2f8",
+   "signature_hash": "bcb3c37aae269b8a20fb2ddb9cad93a4c63f43a1a517bdc5d2563e38f5528a5b",
+   "shape_hash": {
+    "leaf_a": "s1:486a196c1e26036d",
+    "leaf_b": "s1:380c7cdda206ec69",
+    "pin": "s1:136279a57efc19fd"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.04499999999999993,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 1,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Length": 30,
+    "Knuckles": 3
+   },
+   "ok": true,
+   "report_hash": "294385c11e98c0a389bb7f9e8a30f690ec9aa24ce70ac3972ad3c49a00cdd65b",
+   "signature_hash": "15d6e2135f2ab7893841b32b19a44c0d62b39c427e7319001cc064e628552707",
+   "shape_hash": {
+    "leaf_a": "s1:db5e983a04e56143",
+    "leaf_b": "s1:130dc87bb86f42a9",
+    "pin": "s1:ecda1590c438e1e5"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.03
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.08099999999999996,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 2,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Length": 120,
+    "Knuckles": 4
+   },
+   "ok": true,
+   "report_hash": "64d2d576f1b746e9370ee3d603c6f5cfcaf129e865c878ea4d861e16c1ec157e",
+   "signature_hash": "79c6f9b9845453517e0e38bf76e8d717dac4a5538675eda101bd18bcb1d44f5b",
+   "shape_hash": {
+    "leaf_a": "s1:4ddfa8a660fabff0",
+    "leaf_b": "s1:f789ed6c128e40a5",
+    "pin": "s1:b7ccc48302a9a892"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.12
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.052999999999999936,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 3,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Length": 30,
+    "Knuckles": 5
+   },
+   "ok": true,
+   "report_hash": "e29334a013cf72f244e9b24d06041fdf9a6ef59f73471e66fdce764688f47ffe",
+   "signature_hash": "bcb3c37aae269b8a20fb2ddb9cad93a4c63f43a1a517bdc5d2563e38f5528a5b",
+   "shape_hash": {
+    "leaf_a": "s1:bacbee1dc55fb4e7",
+    "leaf_b": "s1:8186c5d609cf56ad",
+    "pin": "s1:ecda1590c438e1e5"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.03
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.08099999999999996,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 4,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Length": 120,
+    "Knuckles": 6
+   },
+   "ok": true,
+   "report_hash": "3995fdb4ec037ca358c69f2c46c313593308ee2ee7499b7faf585edc83032408",
+   "signature_hash": "7b3ce9593e4c11478ba507ae342e403c075436a2590f23fc72c28d1ea84bc558",
+   "shape_hash": {
+    "leaf_a": "s1:816223ae5982ee35",
+    "leaf_b": "s1:a55de26592e50ba2",
+    "pin": "s1:b7ccc48302a9a892"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.12
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.052999999999999936,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 5,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Length": 30,
+    "Knuckles": 7
+   },
+   "ok": true,
+   "report_hash": "2e1a24d939c43f8a6f955b8e1c33bd5fc3fb01fa17cbebedc2c7bf21e45512c6",
+   "signature_hash": "20289f799425e0f04a38223d5d63fa513f12bbc0b8aa401f82f921503c4daa09",
+   "shape_hash": {
+    "leaf_a": "s1:b19edce12987d59a",
+    "leaf_b": "s1:7221dae0a12df3b6",
+    "pin": "s1:ecda1590c438e1e5"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.03
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.08099999999999996,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 6,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Length": 120,
+    "Knuckles": 8
+   },
+   "ok": true,
+   "report_hash": "296f707ab0a38817fb6e7a269e196a20276a62a39b13792ed6820718621067f4",
+   "signature_hash": "a7197f51ed0b13eb4bd71d16787011b6bce9a490cdde1666fa2ff61d57463747",
+   "shape_hash": {
+    "leaf_a": "s1:3259e893270345d2",
+    "leaf_b": "s1:ba595e8b4a8098c9",
+    "pin": "s1:b7ccc48302a9a892"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.12
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.052999999999999936,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 7,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Length": 30,
+    "Knuckles": 9
+   },
+   "ok": true,
+   "report_hash": "05e8a2c7a19d9b542e63eadd808b4f886ac4eecb16b83b678f5968f86bee7e56",
+   "signature_hash": "5b7ab82d836f07f256244bc2f9bd5b737d90beb251b46ee9b46d8765989c8ce5",
+   "shape_hash": {
+    "leaf_a": "s1:74d4172a45921b83",
+    "leaf_b": "s1:7f1671d744edfa98",
+    "pin": "s1:ecda1590c438e1e5"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.03
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.08099999999999996,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 8,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Length": 120,
+    "Knuckles": 3
+   },
+   "ok": true,
+   "report_hash": "29f274595b515efac65c9c83607b834faecb43f15eb66fbdcfd385a4c11d9041",
+   "signature_hash": "15d6e2135f2ab7893841b32b19a44c0d62b39c427e7319001cc064e628552707",
+   "shape_hash": {
+    "leaf_a": "s1:2cb66885194748cb",
+    "leaf_b": "s1:514ba53f840feafc",
+    "pin": "s1:b7ccc48302a9a892"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.12
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.052999999999999936,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 9,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Length": 30,
+    "Knuckles": 4
+   },
+   "ok": true,
+   "report_hash": "cb16a4641d23467b93466944ad665646d0e4b9cf4e5dd787d58702858bc3675c",
+   "signature_hash": "79c6f9b9845453517e0e38bf76e8d717dac4a5538675eda101bd18bcb1d44f5b",
+   "shape_hash": {
+    "leaf_a": "s1:a9456ba218899178",
+    "leaf_b": "s1:526c434c351428a8",
+    "pin": "s1:ecda1590c438e1e5"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.03
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.08099999999999996,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 10,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Length": 120,
+    "Knuckles": 5
+   },
+   "ok": true,
+   "report_hash": "7c1c2ffa769ba7624e94ae7cb1d9e29cfa8d7de419c9f92b3c231f1fdedbf68b",
+   "signature_hash": "bcb3c37aae269b8a20fb2ddb9cad93a4c63f43a1a517bdc5d2563e38f5528a5b",
+   "shape_hash": {
+    "leaf_a": "s1:b0199be754644a16",
+    "leaf_b": "s1:ccc2b59e94fc28e2",
+    "pin": "s1:b7ccc48302a9a892"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.12
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.052999999999999936,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 11,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Length": 30,
+    "Knuckles": 6
+   },
+   "ok": true,
+   "report_hash": "175042eeafb3fcf776e7007bfaf2ca357b6f90b1707dc29deba05dbcc1151fdf",
+   "signature_hash": "7b3ce9593e4c11478ba507ae342e403c075436a2590f23fc72c28d1ea84bc558",
+   "shape_hash": {
+    "leaf_a": "s1:9d126515cdd86490",
+    "leaf_b": "s1:cdf9d7714b1aacb6",
+    "pin": "s1:ecda1590c438e1e5"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.03
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.08099999999999996,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 12,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Length": 120,
+    "Knuckles": 7
+   },
+   "ok": true,
+   "report_hash": "5681d0a9c03ee6055fe1ddbe20798fb8f8dfd2d688ccfaebe6c5b8b5b9eb07a0",
+   "signature_hash": "20289f799425e0f04a38223d5d63fa513f12bbc0b8aa401f82f921503c4daa09",
+   "shape_hash": {
+    "leaf_a": "s1:1f4329ffb70ac61e",
+    "leaf_b": "s1:527e0839e58226a7",
+    "pin": "s1:b7ccc48302a9a892"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.12
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.052999999999999936,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 13,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Length": 30,
+    "Knuckles": 8
+   },
+   "ok": true,
+   "report_hash": "7967f3805d84cd7c31f1df7c15a823757301c1d68e435abeb2ccc05a5a87f5aa",
+   "signature_hash": "a7197f51ed0b13eb4bd71d16787011b6bce9a490cdde1666fa2ff61d57463747",
+   "shape_hash": {
+    "leaf_a": "s1:823752d1e2d7af16",
+    "leaf_b": "s1:ff0ad94e74df1f1a",
+    "pin": "s1:ecda1590c438e1e5"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.03
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.08099999999999996,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 14,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Length": 120,
+    "Knuckles": 9
+   },
+   "ok": true,
+   "report_hash": "5dc485f4efa1dd567e2b101956079a19ef43a6e148b30cc56970a84b0149b2c3",
+   "signature_hash": "5b7ab82d836f07f256244bc2f9bd5b737d90beb251b46ee9b46d8765989c8ce5",
+   "shape_hash": {
+    "leaf_a": "s1:fa6a6618b0265a20",
+    "leaf_b": "s1:a6ddd1bbd19fa7b9",
+    "pin": "s1:b7ccc48302a9a892"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.12
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.052999999999999936,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 15,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Length": 60,
+    "Knuckles": 3
+   },
+   "ok": true,
+   "report_hash": "831f16eaa1e36007fdc93f4fb2804e36187fc0af3c21ff334055f7986b448f35",
+   "signature_hash": "15d6e2135f2ab7893841b32b19a44c0d62b39c427e7319001cc064e628552707",
+   "shape_hash": {
+    "leaf_a": "s1:63a8c3194f00dc5f",
+    "leaf_b": "s1:40ca556d70eebc1f",
+    "pin": "s1:136279a57efc19fd"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.04499999999999993,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 16,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Length": 60,
+    "Knuckles": 4
+   },
+   "ok": true,
+   "report_hash": "3c9996b1c83ade3238d211b41d67e516dde4c84c48afba8dbf56268e78ff7544",
+   "signature_hash": "79c6f9b9845453517e0e38bf76e8d717dac4a5538675eda101bd18bcb1d44f5b",
+   "shape_hash": {
+    "leaf_a": "s1:ee9c27e369c4ac63",
+    "leaf_b": "s1:c4c98b351fa8f04d",
+    "pin": "s1:136279a57efc19fd"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.04499999999999993,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 17,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Length": 60,
+    "Knuckles": 6
+   },
+   "ok": true,
+   "report_hash": "f8d32884ba1e64099b01bc04f041e8c3a9fd04c07a1911a7834668060a0f1be4",
+   "signature_hash": "7b3ce9593e4c11478ba507ae342e403c075436a2590f23fc72c28d1ea84bc558",
+   "shape_hash": {
+    "leaf_a": "s1:8c2d8334f3e0e9d7",
+    "leaf_b": "s1:74d4f49292dfd417",
+    "pin": "s1:136279a57efc19fd"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.04499999999999993,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 18,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Length": 60,
+    "Knuckles": 7
+   },
+   "ok": true,
+   "report_hash": "505d6ac1cebbf000ed2649ef35e5cf68ca77ccc1647a4e7d0cff5ac6455ee645",
+   "signature_hash": "20289f799425e0f04a38223d5d63fa513f12bbc0b8aa401f82f921503c4daa09",
+   "shape_hash": {
+    "leaf_a": "s1:094cac1b9eac8ad4",
+    "leaf_b": "s1:47c4e24997eb79db",
+    "pin": "s1:136279a57efc19fd"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.04499999999999993,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 19,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Length": 60,
+    "Knuckles": 8
+   },
+   "ok": true,
+   "report_hash": "cc198e58ac7c9a6d6a840f8e2dc66d02535dfc6001feacdc88119ed1c69247ca",
+   "signature_hash": "a7197f51ed0b13eb4bd71d16787011b6bce9a490cdde1666fa2ff61d57463747",
+   "shape_hash": {
+    "leaf_a": "s1:87181002af984d77",
+    "leaf_b": "s1:3c31fc900ddf7ae7",
+    "pin": "s1:136279a57efc19fd"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.04499999999999993,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 20,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Length": 60,
+    "Knuckles": 9
+   },
+   "ok": true,
+   "report_hash": "724c45bcc8c8db0f30d97cde52902d95fb27b449408da9cc2e8e122eaee38ee0",
+   "signature_hash": "5b7ab82d836f07f256244bc2f9bd5b737d90beb251b46ee9b46d8765989c8ce5",
+   "shape_hash": {
+    "leaf_a": "s1:3990340391de6513",
+    "leaf_b": "s1:cbf59d42989018fb",
+    "pin": "s1:136279a57efc19fd"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.04499999999999993,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 21,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 36.4808,
+    "Knuckles": 8
+   },
+   "ok": true,
+   "report_hash": "e1510c6d4c9079943691553d392df1a76eac21db137d2ca91f9725f88c8ac274",
+   "signature_hash": "a7197f51ed0b13eb4bd71d16787011b6bce9a490cdde1666fa2ff61d57463747",
+   "shape_hash": {
+    "leaf_a": "s1:a4fe3d47aceb057e",
+    "leaf_b": "s1:fc4e46a0bccac044",
+    "pin": "s1:1b92331bdcf2f1e1"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0364808
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.06399999999999995,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 22,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 81.4808,
+    "Knuckles": 4
+   },
+   "ok": true,
+   "report_hash": "688eeb76f702253b42adcbde77b3aab7202cb168dc0926678112c8b1c1c5d536",
+   "signature_hash": "79c6f9b9845453517e0e38bf76e8d717dac4a5538675eda101bd18bcb1d44f5b",
+   "shape_hash": {
+    "leaf_a": "s1:19047c4c1fa972bb",
+    "leaf_b": "s1:baaedb92f488ee67",
+    "pin": "s1:b5b93dd3fc4a8de2"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0814808
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.04799999999999993,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 23,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 58.9808,
+    "Knuckles": 6
+   },
+   "ok": true,
+   "report_hash": "12507ab45801ade8ff2728fa679fb6a9e5db3420861665d585d53d74acf1604d",
+   "signature_hash": "7b3ce9593e4c11478ba507ae342e403c075436a2590f23fc72c28d1ea84bc558",
+   "shape_hash": {
+    "leaf_a": "s1:c8d427b698c508bb",
+    "leaf_b": "s1:f60b6cf00f5a012c",
+    "pin": "s1:288b8f71cb46ddef"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0589808
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.04499999999999993,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 24,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 103.9808,
+    "Knuckles": 8
+   },
+   "ok": true,
+   "report_hash": "348992c3b9886891de3631952b335c0faca3a3416f0f9372ba8a7bd012ed5f63",
+   "signature_hash": "a7197f51ed0b13eb4bd71d16787011b6bce9a490cdde1666fa2ff61d57463747",
+   "shape_hash": {
+    "leaf_a": "s1:b9f4028abc92dd9d",
+    "leaf_b": "s1:16b9c16f1f075a3f",
+    "pin": "s1:a467d23efabdea90"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.1039808
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.03499999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 25,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 47.7308,
+    "Knuckles": 9
+   },
+   "ok": true,
+   "report_hash": "421043f82ae3ee922f3ea5773f32e58bc501161a3edd92795f51cec333c349f3",
+   "signature_hash": "5b7ab82d836f07f256244bc2f9bd5b737d90beb251b46ee9b46d8765989c8ce5",
+   "shape_hash": {
+    "leaf_a": "s1:5a6549eab33f5cc7",
+    "leaf_b": "s1:7f4de8ee5f4e25fe",
+    "pin": "s1:c95a1b625bbc69a3"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.047730800000000004
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.061999999999999944,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 26,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 92.7308,
+    "Knuckles": 5
+   },
+   "ok": true,
+   "report_hash": "d7c7f2b8b9852546c23b8cbfb56156f9dc575af6d4a9de1706ae7dd0ae8c0be4",
+   "signature_hash": "bcb3c37aae269b8a20fb2ddb9cad93a4c63f43a1a517bdc5d2563e38f5528a5b",
+   "shape_hash": {
+    "leaf_a": "s1:a77945deeb060061",
+    "leaf_b": "s1:7c4dabda4923589e",
+    "pin": "s1:7753171a34bd17f2"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0927308
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.040999999999999925,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 27,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 70.2308,
+    "Knuckles": 7
+   },
+   "ok": true,
+   "report_hash": "89c9683d76d08b98a191fdc531f35d5a673785f48f3139c44aad353d9b1c65c4",
+   "signature_hash": "20289f799425e0f04a38223d5d63fa513f12bbc0b8aa401f82f921503c4daa09",
+   "shape_hash": {
+    "leaf_a": "s1:548873c2f99c1845",
+    "leaf_b": "s1:4ba529bb31ecb0c6",
+    "pin": "s1:8c25df1941cc35ed"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.07023080000000001
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.05699999999999994,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 28,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 115.2308,
+    "Knuckles": 3
+   },
+   "ok": true,
+   "report_hash": "f8eb79725db6072716036a58299d32edf82b2c7424c261ba497e7c23fa21b856",
+   "signature_hash": "15d6e2135f2ab7893841b32b19a44c0d62b39c427e7319001cc064e628552707",
+   "shape_hash": {
+    "leaf_a": "s1:e0837b8b04030dcd",
+    "leaf_b": "s1:a28c922fabc1f63f",
+    "pin": "s1:2fb7408b60ac2e64"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.11523080000000001
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.026999999999999913,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 29,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 42.1058,
+    "Knuckles": 5
+   },
+   "ok": true,
+   "report_hash": "8ca48eaaf2abc2a0b053cfb13d1c8ee978fcba399c6cb93e414a7b58f1a5928e",
+   "signature_hash": "bcb3c37aae269b8a20fb2ddb9cad93a4c63f43a1a517bdc5d2563e38f5528a5b",
+   "shape_hash": {
+    "leaf_a": "s1:4a2ceac6b967e1b4",
+    "leaf_b": "s1:0b3f7ac675ee32a9",
+    "pin": "s1:793712e72e6dfa9c"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.042105800000000006
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.07299999999999995,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 30,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 87.1058,
+    "Knuckles": 8
+   },
+   "ok": true,
+   "report_hash": "c3b6f9b95b26cda81861fa3f58bd48c9ec9cc8e5541cbcdb2cc9f43971016fe7",
+   "signature_hash": "a7197f51ed0b13eb4bd71d16787011b6bce9a490cdde1666fa2ff61d57463747",
+   "shape_hash": {
+    "leaf_a": "s1:5fcf04fe5b90c648",
+    "leaf_b": "s1:28cb3442cc7b829b",
+    "pin": "s1:f370b4df260993e7"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0871058
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.04399999999999993,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 31,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 64.6058,
+    "Knuckles": 4
+   },
+   "ok": true,
+   "report_hash": "d5c04cfa71e45b6d7e54ee8d08ee94e57caacdf8bca3d0ff56ff1af8e7e240ae",
+   "signature_hash": "79c6f9b9845453517e0e38bf76e8d717dac4a5538675eda101bd18bcb1d44f5b",
+   "shape_hash": {
+    "leaf_a": "s1:9c469a2352c95789",
+    "leaf_b": "s1:f08b3089246d5a15",
+    "pin": "s1:b6b97674178adf9f"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0646058
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.038999999999999924,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 32,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 109.6058,
+    "Knuckles": 6
+   },
+   "ok": true,
+   "report_hash": "cff6b383e07872111611322f210989cf00155cd8d4320595f463c5ef240a300d",
+   "signature_hash": "7b3ce9593e4c11478ba507ae342e403c075436a2590f23fc72c28d1ea84bc558",
+   "shape_hash": {
+    "leaf_a": "s1:a9d271269b6754b9",
+    "leaf_b": "s1:ec83bec4235e0cc5",
+    "pin": "s1:d0023b2437ab6795"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.1096058
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.028999999999999915,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 33,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 53.3558,
+    "Knuckles": 9
+   },
+   "ok": true,
+   "report_hash": "a53719b40615207bf7c4c08ac29bbc9c5d5556e967e2cad794691a3a107683a5",
+   "signature_hash": "5b7ab82d836f07f256244bc2f9bd5b737d90beb251b46ee9b46d8765989c8ce5",
+   "shape_hash": {
+    "leaf_a": "s1:26ed8f81c444393b",
+    "leaf_b": "s1:bf429fa890992049",
+    "pin": "s1:46eb824008f969e3"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0533558
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.052999999999999936,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 34,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 98.3558,
+    "Knuckles": 3
+   },
+   "ok": true,
+   "report_hash": "65770e09b6315403d1369b4f33ed6e83e7a8026edc6ae58dbd4b52e3d1173466",
+   "signature_hash": "15d6e2135f2ab7893841b32b19a44c0d62b39c427e7319001cc064e628552707",
+   "shape_hash": {
+    "leaf_a": "s1:e59343480e309b5e",
+    "leaf_b": "s1:342b08397454989e",
+    "pin": "s1:01dd14066feb5a17"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.09835580000000001
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.03699999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 35,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 75.8558,
+    "Knuckles": 5
+   },
+   "ok": true,
+   "report_hash": "5d0569f42ce0717f79c6f93bce96df6eb83d3a16017cf5d0d1003d115dbdfd36",
+   "signature_hash": "bcb3c37aae269b8a20fb2ddb9cad93a4c63f43a1a517bdc5d2563e38f5528a5b",
+   "shape_hash": {
+    "leaf_a": "s1:14e23f9a27ec41be",
+    "leaf_b": "s1:271c5e3c9d195a63",
+    "pin": "s1:a795b9e6803c9e4e"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0758558
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.051999999999999935,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 36,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 30.8558,
+    "Knuckles": 7
+   },
+   "ok": true,
+   "report_hash": "22aaf47d2167c8906aaf48277a2d5c121179156db511a1a5af67f296c9f3df44",
+   "signature_hash": "20289f799425e0f04a38223d5d63fa513f12bbc0b8aa401f82f921503c4daa09",
+   "shape_hash": {
+    "leaf_a": "s1:66d00ec23da79976",
+    "leaf_b": "s1:18b42f8cf431dacb",
+    "pin": "s1:b2661f0f25561a80"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0308558
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.07999999999999996,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 37,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 39.2933,
+    "Knuckles": 3
+   },
+   "ok": true,
+   "report_hash": "781e5ba460850ebe85d99922c9df2e11640aebaafe91191e339e1e332baf0b1b",
+   "signature_hash": "15d6e2135f2ab7893841b32b19a44c0d62b39c427e7319001cc064e628552707",
+   "shape_hash": {
+    "leaf_a": "s1:be67f0c6fc45db85",
+    "leaf_b": "s1:43e63979175b3eed",
+    "pin": "s1:7e85563c46c64c50"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0392933
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.051999999999999935,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 38,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 84.2933,
+    "Knuckles": 6
+   },
+   "ok": true,
+   "report_hash": "c188c739de56bff7231e29ea226810185c07adef4d766d5ee87614c1a0e432c8",
+   "signature_hash": "7b3ce9593e4c11478ba507ae342e403c075436a2590f23fc72c28d1ea84bc558",
+   "shape_hash": {
+    "leaf_a": "s1:4d6a339378c26df7",
+    "leaf_b": "s1:5fbcacfb5a7e0f16",
+    "pin": "s1:3519ef52ebb594e8"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0842933
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.04399999999999993,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 39,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 61.7933,
+    "Knuckles": 8
+   },
+   "ok": true,
+   "report_hash": "a76c2b0964f25267fcae092e0d5b294d7e17292a5fe5f200d666da79607126f6",
+   "signature_hash": "a7197f51ed0b13eb4bd71d16787011b6bce9a490cdde1666fa2ff61d57463747",
+   "shape_hash": {
+    "leaf_a": "s1:69c4bbf514d3b0ab",
+    "leaf_b": "s1:572fac3a33b586fa",
+    "pin": "s1:15285a5daaa620fe"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0617933
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.038999999999999924,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 40,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 106.7933,
+    "Knuckles": 4
+   },
+   "ok": true,
+   "report_hash": "30ed8e56a65db5f4893b621245d094ff6271b4deccce94f2ccdc7a7dbf869fa3",
+   "signature_hash": "79c6f9b9845453517e0e38bf76e8d717dac4a5538675eda101bd18bcb1d44f5b",
+   "shape_hash": {
+    "leaf_a": "s1:72b55737bd346954",
+    "leaf_b": "s1:7cfdc817eb2e9840",
+    "pin": "s1:7784289b0c2ef4ee"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.10679330000000001
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.03199999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 41,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 50.5433,
+    "Knuckles": 7
+   },
+   "ok": true,
+   "report_hash": "ded3bcd24b0d7554f0827a50906c2ec511d96c8f6c40b805fbcad655b00fa201",
+   "signature_hash": "20289f799425e0f04a38223d5d63fa513f12bbc0b8aa401f82f921503c4daa09",
+   "shape_hash": {
+    "leaf_a": "s1:bb9c6fbd59c8fc26",
+    "leaf_b": "s1:b2ca741828360fa4",
+    "pin": "s1:53059aa3e6f22512"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.050543300000000006
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.05399999999999994,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 42,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 95.5433,
+    "Knuckles": 9
+   },
+   "ok": true,
+   "report_hash": "1d7f5fe1392f73f5ecdfc0454962e521cdc8db67cacb3fa9fedbea880560516f",
+   "signature_hash": "5b7ab82d836f07f256244bc2f9bd5b737d90beb251b46ee9b46d8765989c8ce5",
+   "shape_hash": {
+    "leaf_a": "s1:88c5c613273a282c",
+    "leaf_b": "s1:b2a2d1ece0387e17",
+    "pin": "s1:54cbeaee58684f77"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0955433
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.03699999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 43,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 73.0433,
+    "Knuckles": 9
+   },
+   "ok": true,
+   "report_hash": "c98721ec6b4e19faa05b76d63c51066e1a4c6f136cd54c9beffaa032f74abe3c",
+   "signature_hash": "5b7ab82d836f07f256244bc2f9bd5b737d90beb251b46ee9b46d8765989c8ce5",
+   "shape_hash": {
+    "leaf_a": "s1:5d52dfb4c9773e74",
+    "leaf_b": "s1:8eb0af4e484896b1",
+    "pin": "s1:9557d3eaca804694"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0730433
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.05699999999999994,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 44,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 118.0433,
+    "Knuckles": 5
+   },
+   "ok": true,
+   "report_hash": "5338adb8dd8d5efe3a8243924d4669620c00fc9cd2eb258aafbbb4d296f745d4",
+   "signature_hash": "bcb3c37aae269b8a20fb2ddb9cad93a4c63f43a1a517bdc5d2563e38f5528a5b",
+   "shape_hash": {
+    "leaf_a": "s1:54cfa315ebd696c6",
+    "leaf_b": "s1:aed6119c65d7cbc5",
+    "pin": "s1:1706919c87f3f02a"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.1180433
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.026999999999999913,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 45,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 44.9183,
+    "Knuckles": 7
+   },
+   "ok": true,
+   "report_hash": "608709c5abdd2f843bfdb0976c271024e532b2882855b6ebf3ffc81df6d2f591",
+   "signature_hash": "20289f799425e0f04a38223d5d63fa513f12bbc0b8aa401f82f921503c4daa09",
+   "shape_hash": {
+    "leaf_a": "s1:a9fad1cb19b665ae",
+    "leaf_b": "s1:00ee09d3149dd17f",
+    "pin": "s1:d56151ef0a2c320e"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0449183
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.06299999999999994,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 46,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 89.9183,
+    "Knuckles": 3
+   },
+   "ok": true,
+   "report_hash": "7bc09fb7c3534c11351358abeec193f0ff349ce18c06292f40160d3d95040615",
+   "signature_hash": "15d6e2135f2ab7893841b32b19a44c0d62b39c427e7319001cc064e628552707",
+   "shape_hash": {
+    "leaf_a": "s1:1d9067b05044677b",
+    "leaf_b": "s1:f92a6ec851a8af72",
+    "pin": "s1:23e6045555766ea7"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0899183
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.039999999999999925,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 47,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 67.4183,
+    "Knuckles": 5
+   },
+   "ok": true,
+   "report_hash": "2163492cb77ad6b10e4853da56b300fce69eececa3ac733ac212bd7139e0aaa1",
+   "signature_hash": "bcb3c37aae269b8a20fb2ddb9cad93a4c63f43a1a517bdc5d2563e38f5528a5b",
+   "shape_hash": {
+    "leaf_a": "s1:969bab8dd6d8aad5",
+    "leaf_b": "s1:ce50551299bd19a3",
+    "pin": "s1:4c7156bd0ed1ba6f"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0674183
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.06299999999999994,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 48,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Length": 97.5,
+    "Knuckles": 4
+   },
+   "ok": true,
+   "report_hash": "dbc7c637205005e9fe1144bab2d7db858b74b0ab591ee4804108edeb16530fac",
+   "signature_hash": "79c6f9b9845453517e0e38bf76e8d717dac4a5538675eda101bd18bcb1d44f5b",
+   "shape_hash": {
+    "leaf_a": "s1:2d5c085c0f12b520",
+    "leaf_b": "s1:0ac78d90f80e7f3c",
+    "pin": "s1:9b6225b4a8eeea82"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0975
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.03699999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 49,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Length": 108.75,
+    "Knuckles": 4
+   },
+   "ok": true,
+   "report_hash": "7fa98d885f22ac2448488f6f2f532c510809158d38218a975e785f7830adb6df",
+   "signature_hash": "79c6f9b9845453517e0e38bf76e8d717dac4a5538675eda101bd18bcb1d44f5b",
+   "shape_hash": {
+    "leaf_a": "s1:02649c8c2e4adecb",
+    "leaf_b": "s1:5cb60bce4f48ccc0",
+    "pin": "s1:66ef72bb9d621c7e"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.10875
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.03199999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 50,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Length": 114.375,
+    "Knuckles": 4
+   },
+   "ok": true,
+   "report_hash": "d4313e5f8175eb9ffe3ecd3555df720eb5066e9a99cc74fd39fb61cbc5947390",
+   "signature_hash": "79c6f9b9845453517e0e38bf76e8d717dac4a5538675eda101bd18bcb1d44f5b",
+   "shape_hash": {
+    "leaf_a": "s1:2b2799e25fd3b5f7",
+    "leaf_b": "s1:805394632edf0868",
+    "pin": "s1:3eedd76884bcc0b4"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.114375
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.029999999999999916,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 51,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Length": 117.1875,
+    "Knuckles": 4
+   },
+   "ok": true,
+   "report_hash": "21d01e619452a2aa9c660945210aa0ce751fada9d09033c36a880d9e33f7c826",
+   "signature_hash": "79c6f9b9845453517e0e38bf76e8d717dac4a5538675eda101bd18bcb1d44f5b",
+   "shape_hash": {
+    "leaf_a": "s1:6d61b3c09d886e0d",
+    "leaf_b": "s1:813914c5926c875c",
+    "pin": "s1:66a8a49aabba14ce"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.1171875
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.026999999999999913,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 52,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Length": 118.59375,
+    "Knuckles": 4
+   },
+   "ok": true,
+   "report_hash": "bb021ee5c5d13b25e9d74ddc6b21dfa777f249f49f4fb4d295c58e25c602f7d7",
+   "signature_hash": "79c6f9b9845453517e0e38bf76e8d717dac4a5538675eda101bd18bcb1d44f5b",
+   "shape_hash": {
+    "leaf_a": "s1:a68d61cdf45bf6e1",
+    "leaf_b": "s1:ff269358b1368657",
+    "pin": "s1:7848e3d2b1f43971"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.11859375
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.051999999999999935,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 53,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Length": 119.296875,
+    "Knuckles": 4
+   },
+   "ok": true,
+   "report_hash": "aa5b79d485fcb32880887c1b6fe99cd18679619a43724ac314aa19dbfcb0f88d",
+   "signature_hash": "79c6f9b9845453517e0e38bf76e8d717dac4a5538675eda101bd18bcb1d44f5b",
+   "shape_hash": {
+    "leaf_a": "s1:d123f2f390efac4b",
+    "leaf_b": "s1:3251d27ca644e718",
+    "pin": "s1:ea7025af386bf8b3"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.119296875
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.051999999999999935,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 54,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Length": 119.648438,
+    "Knuckles": 4
+   },
+   "ok": true,
+   "report_hash": "aa39f876f23cb64d1da9786d03918186d7117891bdb7427a04ff8a4f01b37a4d",
+   "signature_hash": "79c6f9b9845453517e0e38bf76e8d717dac4a5538675eda101bd18bcb1d44f5b",
+   "shape_hash": {
+    "leaf_a": "s1:d6c3f488680a2923",
+    "leaf_b": "s1:4208218dc70bf21f",
+    "pin": "s1:d2301a7f32f35bfd"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.119648438
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.051999999999999935,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 55,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Length": 119.824219,
+    "Knuckles": 4
+   },
+   "ok": true,
+   "report_hash": "eb5643ddc84bc0678bcfe23cd514de3a1c15bc9768e768b78127339f615e4c29",
+   "signature_hash": "79c6f9b9845453517e0e38bf76e8d717dac4a5538675eda101bd18bcb1d44f5b",
+   "shape_hash": {
+    "leaf_a": "s1:2b2aafdb56533015",
+    "leaf_b": "s1:e8c9db4b1e853c5d",
+    "pin": "s1:bddcd87c2c77880e"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.119824219
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.052999999999999936,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 56,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Length": 119.912109,
+    "Knuckles": 4
+   },
+   "ok": true,
+   "report_hash": "7dec7b75d113e3bfb4d0390e45947f68180d8b5ae16d45a85e22b9ccc358f33d",
+   "signature_hash": "79c6f9b9845453517e0e38bf76e8d717dac4a5538675eda101bd18bcb1d44f5b",
+   "shape_hash": {
+    "leaf_a": "s1:c40ed2bda34635ea",
+    "leaf_b": "s1:c44ed3ee73c09cd5",
+    "pin": "s1:c577c76cc5944cd4"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.119912109
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.052999999999999936,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 57,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Length": 119.824218,
+    "Knuckles": 4
+   },
+   "ok": true,
+   "report_hash": "6e39f4830dd05c41b55c093b0484b551d7bdd9b3da3be4b97704b125f6277740",
+   "signature_hash": "79c6f9b9845453517e0e38bf76e8d717dac4a5538675eda101bd18bcb1d44f5b",
+   "shape_hash": {
+    "leaf_a": "s1:eb18c1c1cd852db3",
+    "leaf_b": "s1:c43515de630c12e5",
+    "pin": "s1:722011d2ab0f41b1"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.11982421800000001
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.052999999999999936,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 58,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Length": 119.868164,
+    "Knuckles": 4
+   },
+   "ok": true,
+   "report_hash": "7023c043c74d5a2ebb9921e5ea3586b1fd768a01821c4013ac3381a71674dccd",
+   "signature_hash": "79c6f9b9845453517e0e38bf76e8d717dac4a5538675eda101bd18bcb1d44f5b",
+   "shape_hash": {
+    "leaf_a": "s1:7c0024e71e6a44e0",
+    "leaf_b": "s1:cfd4ca656a2f2708",
+    "pin": "s1:beb77288106476af"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.119868164
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.052999999999999936,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 59,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Length": 119.956054,
+    "Knuckles": 4
+   },
+   "ok": true,
+   "report_hash": "3e28543f2154c947d2b4d91d7485f00bd72ff8d5815f1e27138079949e8ba000",
+   "signature_hash": "79c6f9b9845453517e0e38bf76e8d717dac4a5538675eda101bd18bcb1d44f5b",
+   "shape_hash": {
+    "leaf_a": "s1:b098a83435dc0d31",
+    "leaf_b": "s1:7ca42230f0af4be0",
+    "pin": "s1:f627f15ab2ab232d"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.11995605399999999
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.052999999999999936,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 60,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Length": 119.890136,
+    "Knuckles": 4
+   },
+   "ok": true,
+   "report_hash": "4f5191c1e78ec06c09c705e221e517ace6b08fc9d32819a7f943c5a9eb615274",
+   "signature_hash": "79c6f9b9845453517e0e38bf76e8d717dac4a5538675eda101bd18bcb1d44f5b",
+   "shape_hash": {
+    "leaf_a": "s1:4c8ad9033744c167",
+    "leaf_b": "s1:9ce0d6973a3cffd7",
+    "pin": "s1:3299870c79cccdcd"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.119890136
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.052999999999999936,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 61,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Length": 119.934082,
+    "Knuckles": 4
+   },
+   "ok": true,
+   "report_hash": "8f0d7f9281f054c9c236fa8244d0c5709355a972dc0b3c5f3a9b5aa037f513e9",
+   "signature_hash": "79c6f9b9845453517e0e38bf76e8d717dac4a5538675eda101bd18bcb1d44f5b",
+   "shape_hash": {
+    "leaf_a": "s1:b5c8039d64967757",
+    "leaf_b": "s1:706eb5ee7c09444b",
+    "pin": "s1:9bdd07db406069c5"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.11993408200000001
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.052999999999999936,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 62,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Length": 119.901123,
+    "Knuckles": 4
+   },
+   "ok": true,
+   "report_hash": "0dc09a539802650358e6da204e89003cbbdd47f28dcae1ccff8f766676fc1d52",
+   "signature_hash": "79c6f9b9845453517e0e38bf76e8d717dac4a5538675eda101bd18bcb1d44f5b",
+   "shape_hash": {
+    "leaf_a": "s1:74929bca36afb9b7",
+    "leaf_b": "s1:eeef098e445757ca",
+    "pin": "s1:ee1896549e62dce6"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.119901123
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.052999999999999936,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 63,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Length": 119.923095,
+    "Knuckles": 4
+   },
+   "ok": true,
+   "report_hash": "b416ee572753fa913e6689a054aa54df083c5f51e2cd07eb445bdd57350811da",
+   "signature_hash": "79c6f9b9845453517e0e38bf76e8d717dac4a5538675eda101bd18bcb1d44f5b",
+   "shape_hash": {
+    "leaf_a": "s1:29f1d6635fee9f8a",
+    "leaf_b": "s1:348f159ffca261b0",
+    "pin": "s1:cdb1037775e3da9f"
+   },
+   "failing": [
+    "gate-overhang-leaf"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "no-contact",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "leaf-gap",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "pin-clearance",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.01
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.11992309500000001
+    },
+    {
+     "id": "gate-watertight-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-leaf",
+     "pass": true,
+     "signed": 0.052999999999999936,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-leaf",
+     "pass": false,
+     "signed": -46,
+     "scale": 1,
+     "detail": "overhang 90 degrees (leaf_a face:5 90, leaf_b face:5 90)"
+    },
+    {
+     "id": "gate-bed-leaf",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-pin",
+     "pass": true,
+     "signed": 2.141,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-pin",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  }
+ ]
+}

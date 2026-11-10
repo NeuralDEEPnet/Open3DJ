@@ -1,0 +1,3634 @@
+{
+ "certificate": "o3dj-envelope-cert/spike-0",
+ "brief": "d13-key-drift",
+ "brief_hash": "f28fa450a1c8b17d7ba1c26542ead390661c362178d5eca88fee956b609889c1",
+ "script_hash": "8112d4c8df80d492bc822782ce87c9eae9786969a97adb778bb78e85f7f5431c",
+ "inputs_hash": "e387f7f707ea8dfa8bdd16f38d21d48e7938fdcaf3a4edad54c914b0b84e61bc",
+ "engine": {
+  "occt_wasm": "5.8.1",
+  "node": "v24.22.1",
+  "analysis": "2"
+ },
+ "platform": "linux-x64",
+ "seed": 1,
+ "budget": 64,
+ "watch_mm": 0.5,
+ "verdict": "counterexample",
+ "statement": "counterexample: 12 of 64 points fail an assertion that passes at nominal",
+ "nominal_failures": [],
+ "counterexamples": [
+  3,
+  16,
+  22,
+  32,
+  34,
+  48,
+  49,
+  59,
+  60,
+  61,
+  62,
+  63
+ ],
+ "shrunk": 48,
+ "line": {
+  "pass": 0,
+  "fail": 48,
+  "lo": 0.9375,
+  "hi": 0.94140625,
+  "points": [
+   {
+    "index": 0,
+    "t": 0
+   },
+   {
+    "index": 53,
+    "t": 0.25
+   },
+   {
+    "index": 54,
+    "t": 0.5
+   },
+   {
+    "index": 55,
+    "t": 0.75
+   },
+   {
+    "index": 56,
+    "t": 0.8125
+   },
+   {
+    "index": 57,
+    "t": 0.875
+   },
+   {
+    "index": 58,
+    "t": 0.9375
+   },
+   {
+    "index": 62,
+    "t": 0.94140625
+   },
+   {
+    "index": 63,
+    "t": 0.9453125
+   },
+   {
+    "index": 59,
+    "t": 0.953125
+   },
+   {
+    "index": 60,
+    "t": 0.96875
+   },
+   {
+    "index": 61,
+    "t": 0.984375
+   },
+   {
+    "index": 48,
+    "t": 1
+   }
+  ]
+ },
+ "events": [
+  {
+   "kind": "axis",
+   "axis": "Length",
+   "between": [
+    5,
+    0
+   ],
+   "from": {
+    "Length": 40,
+    "Clearance": 0.3
+   },
+   "to": {
+    "Length": 60,
+    "Clearance": 0.3
+   },
+   "changed": [
+    "fits: channel|key|clearance|extra -> "
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Length",
+   "between": [
+    0,
+    50
+   ],
+   "from": {
+    "Length": 60,
+    "Clearance": 0.3
+   },
+   "to": {
+    "Length": 90,
+    "Clearance": 0.3
+   },
+   "changed": [
+    "fits:  -> channel|key|clearance|extra"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Length",
+   "between": [
+    1,
+    7
+   ],
+   "from": {
+    "Length": 40,
+    "Clearance": 0.2
+   },
+   "to": {
+    "Length": 60,
+    "Clearance": 0.2
+   },
+   "changed": [
+    "fits: channel|key|clearance|extra -> "
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Length",
+   "between": [
+    7,
+    51
+   ],
+   "from": {
+    "Length": 60,
+    "Clearance": 0.2
+   },
+   "to": {
+    "Length": 75,
+    "Clearance": 0.2
+   },
+   "changed": [
+    "fits:  -> channel|key|clearance|extra"
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Length",
+   "between": [
+    4,
+    8
+   ],
+   "from": {
+    "Length": 40,
+    "Clearance": 0.4
+   },
+   "to": {
+    "Length": 60,
+    "Clearance": 0.4
+   },
+   "changed": [
+    "fits: channel|key|clearance|extra -> "
+   ]
+  },
+  {
+   "kind": "axis",
+   "axis": "Length",
+   "between": [
+    8,
+    2
+   ],
+   "from": {
+    "Length": 60,
+    "Clearance": 0.4
+   },
+   "to": {
+    "Length": 120,
+    "Clearance": 0.4
+   },
+   "changed": [
+    "fits:  -> channel|key|clearance|extra"
+   ]
+  },
+  {
+   "kind": "line",
+   "between": [
+    0,
+    53
+   ],
+   "from": {
+    "Length": 60,
+    "Clearance": 0.3
+   },
+   "to": {
+    "Length": 67.5,
+    "Clearance": 0.275
+   },
+   "changed": [
+    "fits:  -> channel|key|clearance|extra"
+   ]
+  }
+ ],
+ "smallest_margins": [
+  {
+   "id": "builds",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "status",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "valid",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "occurrences",
+   "signed": 0,
+   "scale": 1,
+   "normalized": 0,
+   "at": 0
+  },
+  {
+   "id": "no-clash",
+   "signed": 0.08,
+   "scale": 0.01,
+   "normalized": 8,
+   "at": 3
+  },
+  {
+   "id": "key-gap",
+   "signed": -0.06999999999999999,
+   "scale": 0.01,
+   "normalized": -6.999999999999999,
+   "at": 3
+  }
+ ],
+ "coverage": {
+  "points": 64,
+  "phases": {
+   "nominal": 1,
+   "corner": 4,
+   "special": 4,
+   "halton": 39,
+   "shrink": 5,
+   "bisect": 11
+  },
+  "corners_planned": 4,
+  "special_planned": 4,
+  "axes": [
+   {
+    "name": "Length",
+    "min_seen": 40,
+    "max_seen": 120,
+    "min": 40,
+    "max": 120
+   },
+   {
+    "name": "Clearance",
+    "min_seen": 0.2,
+    "max_seen": 0.4,
+    "min": 0.2,
+    "max": 0.4
+   }
+  ]
+ },
+ "limits": [
+  "Sampling is not proof: the brief was checked at the points listed under this model, never for all values. A thin band can hide between samples.",
+  "The gates are fdm.v1 rule checks on the kernel's geometry (watertight, 0.8 mm min_wall from rays, 45 degree overhang, bed), never a print simulation.",
+  "Fits are exact OCCT clash, contact and clearance checks within the fit watch distance; a pair with no line inside it is censored, not a measured pass.",
+  "Bit-identical replay is only claimed for the platform named here.",
+  "Fit watch distance 0.5 mm."
+ ],
+ "points": [
+  {
+   "index": 0,
+   "phase": "nominal",
+   "fresh": [],
+   "params": {
+    "Length": 60,
+    "Clearance": 0.3
+   },
+   "ok": true,
+   "report_hash": "dc935810c50b67405a6217e8f7d8e0788e42cb242de33fa3f4e5958f5141e92e",
+   "signature_hash": "bada747390cea61a2ef36fbdbc378e870e658ccd4df81dfc3293380efbd4a155",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.3,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.15,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 1,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Length": 40,
+    "Clearance": 0.2
+   },
+   "ok": true,
+   "report_hash": "f83d7c306da59805123ba4ad9d94310701947268a0c73527bfe0337e89e4026e",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.05000000000000002,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 2,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Length": 120,
+    "Clearance": 0.4
+   },
+   "ok": true,
+   "report_hash": "c773e5d2d0f2c823296e1524a0c15d4f2d4049b698227e8e698d5a1fdd7cbbfd",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.28,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.13000000000000003,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 3,
+   "phase": "corner",
+   "fresh": [
+    "key-gap"
+   ],
+   "params": {
+    "Length": 120,
+    "Clearance": 0.2
+   },
+   "ok": true,
+   "report_hash": "d9dbd1eec4a468a2a11b8f76a8cb05c6ec50c5e9a673e7c03aa53ec82a97b3c4",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [
+    "key-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.08,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": false,
+     "signed": -0.06999999999999999,
+     "scale": 0.01,
+     "detail": "channel / key: clearance distance 0.08, expected >= 0.15"
+    }
+   ]
+  },
+  {
+   "index": 4,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Length": 40,
+    "Clearance": 0.4
+   },
+   "ok": true,
+   "report_hash": "4abce9b1fa10ea6120a42d152ceeb8f41398e1cff717f416a99adf7d0cd6c265",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.4,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.25,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 5,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Length": 40,
+    "Clearance": 0.3
+   },
+   "ok": true,
+   "report_hash": "47d74ffd3861a9bcc9f174c78e377b3e8e51dffbed8c25c04f40d122f0f5e0d8",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.3,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.15,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 6,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Length": 120,
+    "Clearance": 0.3
+   },
+   "ok": true,
+   "report_hash": "4eb6c099aae9d996d47c94866ae9065a61e7cf61f72c7875c0b5f6183725f8e4",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.18,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.03,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 7,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Length": 60,
+    "Clearance": 0.2
+   },
+   "ok": true,
+   "report_hash": "8be25ef85b855e5fc27c25abf69d2b42b987cb9efcf4599de5b4857c7dbba86f",
+   "signature_hash": "bada747390cea61a2ef36fbdbc378e870e658ccd4df81dfc3293380efbd4a155",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.2,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.05000000000000002,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 8,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Length": 60,
+    "Clearance": 0.4
+   },
+   "ok": true,
+   "report_hash": "87168aa75ca7635ea3a44e74103bd50e96c22a4b7067f5efa61f0ce0371effed",
+   "signature_hash": "bada747390cea61a2ef36fbdbc378e870e658ccd4df81dfc3293380efbd4a155",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.4,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.25,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 9,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 45.760711,
+    "Clearance": 0.344264
+   },
+   "ok": true,
+   "report_hash": "7cd17dc949f21316630cf9edf4bf3222d9d1f595675bf4a000e98672921bb216",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.344264,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.19426400000000002,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 10,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 85.760711,
+    "Clearance": 0.233153
+   },
+   "ok": true,
+   "report_hash": "13232ead5df253dfe0cda26b33b728d4d1f3b220c4787d14ffeb9994332c5d72",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.181632,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.03163199999999999,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 11,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 65.760711,
+    "Clearance": 0.29982
+   },
+   "ok": true,
+   "report_hash": "e1c292c2d91b2c3bd87af84e6cd44ff342bb34233e52f5a3d22e27cde3790173",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.288299,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.13829900000000003,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 12,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 105.760711,
+    "Clearance": 0.366487
+   },
+   "ok": true,
+   "report_hash": "f90e47b6d69e6cb77d1a71a4435b5b428064a35d5cd481ab40e300c4b816524c",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.274966,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.124966,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 13,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 55.760711,
+    "Clearance": 0.396116
+   },
+   "ok": true,
+   "report_hash": "d1c8ebcbb49ec403279da01051ef96044d0587f0a6636f93be8e3d0c03fdac5d",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.396116,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.24611600000000003,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 14,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 95.760711,
+    "Clearance": 0.262783
+   },
+   "ok": true,
+   "report_hash": "543eb9a54f8e8839bf492544cde9db4ecf8b15cee9ec9c051a34fc8206a4f96c",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.191262,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.04126199999999999,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 15,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 75.760711,
+    "Clearance": 0.32945
+   },
+   "ok": true,
+   "report_hash": "7d43ffa3bcd224311c07678f0f308568b9ef5cc4f384f62fce1e18961de09009",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.297929,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.147929,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 16,
+   "phase": "halton",
+   "fresh": [
+    "key-gap"
+   ],
+   "params": {
+    "Length": 115.760711,
+    "Clearance": 0.218338
+   },
+   "ok": true,
+   "report_hash": "1bc4713e69938f1d305d1f57e5d5086eabfac26f4cfebf1836f0c12d4c6411ca",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [
+    "key-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.106817,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": false,
+     "signed": -0.043183,
+     "scale": 0.01,
+     "detail": "channel / key: clearance distance 0.106817, expected >= 0.15"
+    }
+   ]
+  },
+  {
+   "index": 17,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 50.760711,
+    "Clearance": 0.285005
+   },
+   "ok": true,
+   "report_hash": "da41d702459e91020e9c16737731199022ebe2210d5f6bc7054fee51b023cb91",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.285005,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.13500500000000001,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 18,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 90.760711,
+    "Clearance": 0.351672
+   },
+   "ok": true,
+   "report_hash": "fb2cbd0b60128fd65d043d6e526e52643718db45e085e5f2b15a4ff397a14c90",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.290151,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.140151,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 19,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 70.760711,
+    "Clearance": 0.240561
+   },
+   "ok": true,
+   "report_hash": "6bf68da20f3dfa2c500be1efb4e6134e31dd3da7304bb3da9b73d9d8fbcfdef4",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.21904,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.06904000000000002,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 20,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 110.760711,
+    "Clearance": 0.307227
+   },
+   "ok": true,
+   "report_hash": "acefd5ab56cb4270151b0965a0b30c9049c849e0ff602750341330fcd343c6a4",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.205706,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.055706000000000006,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 21,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 60.760711,
+    "Clearance": 0.373894
+   },
+   "ok": true,
+   "report_hash": "3ef7df317e10cc4180c9542738e92942666ae53c0d7d1a13808ae7cf9e49a8d6",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.372373,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.22237300000000002,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 22,
+   "phase": "halton",
+   "fresh": [
+    "key-gap"
+   ],
+   "params": {
+    "Length": 100.760711,
+    "Clearance": 0.203524
+   },
+   "ok": true,
+   "report_hash": "5b73942f25b80436378fc71753e4f8f20f57addb1b50c4074d6fcf0fce69abf5",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [
+    "key-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.122003,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": false,
+     "signed": -0.027996999999999994,
+     "scale": 0.01,
+     "detail": "channel / key: clearance distance 0.122003, expected >= 0.15"
+    }
+   ]
+  },
+  {
+   "index": 23,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 80.760711,
+    "Clearance": 0.27019
+   },
+   "ok": true,
+   "report_hash": "c2188164c81872bc181dd555e80f891ae76d6353d6209d16b43d4153a5746e03",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.228669,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.07866900000000002,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 24,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 40.760711,
+    "Clearance": 0.336857
+   },
+   "ok": true,
+   "report_hash": "a01871bb90202cc6d87ec548decd06bc75167fc18177f273f505c08a7bac1d1a",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.336857,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.18685700000000002,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 25,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 48.260711,
+    "Clearance": 0.225746
+   },
+   "ok": true,
+   "report_hash": "962bc535df79f5d2e58a1767e8d13ed29255440d7e20dc523dab57807a496bc0",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.225746,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.07574600000000001,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 26,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 88.260711,
+    "Clearance": 0.292413
+   },
+   "ok": true,
+   "report_hash": "1d2ee875cd504d355897838cb79658be4a1802c8bea5ba784ad10654759bad63",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.235892,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.085892,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 27,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 68.260711,
+    "Clearance": 0.359079
+   },
+   "ok": true,
+   "report_hash": "1be40fef17b31a8341a9aee36af59e46e6acbe5772369fd16ef294770581af2e",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.342558,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.19255799999999998,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 28,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 108.260711,
+    "Clearance": 0.247968
+   },
+   "ok": true,
+   "report_hash": "6eb2f105c84ebce382214f6c31444339da4672aae149375fac1b8293ff339c3f",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.151447,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.0014470000000000038,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 29,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 58.260711,
+    "Clearance": 0.314635
+   },
+   "ok": true,
+   "report_hash": "383f37e450764ce45b6617ca9cfaee22538a6db6c60676c61a38ff40a677f517",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.314635,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.164635,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 30,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 98.260711,
+    "Clearance": 0.381301
+   },
+   "ok": true,
+   "report_hash": "7bfe908a09801402bd3c84392eb21241f89d45b377be1ca555fd544cf06c9e24",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.30478,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.15478,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 31,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 78.260711,
+    "Clearance": 0.391178
+   },
+   "ok": true,
+   "report_hash": "73264409c077de8a14a272684e3b4268dca043a5fa51a758ea2e5165fa19116c",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.354657,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.204657,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 32,
+   "phase": "halton",
+   "fresh": [
+    "key-gap"
+   ],
+   "params": {
+    "Length": 118.260711,
+    "Clearance": 0.257845
+   },
+   "ok": true,
+   "report_hash": "db28889667f5fa3bb6abd1620970b855c677cad58ba277512d6684991107fce3",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [
+    "key-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.141324,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": false,
+     "signed": -0.00867599999999999,
+     "scale": 0.01,
+     "detail": "channel / key: clearance distance 0.141324, expected >= 0.15"
+    }
+   ]
+  },
+  {
+   "index": 33,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 53.260711,
+    "Clearance": 0.324511
+   },
+   "ok": true,
+   "report_hash": "bde15fae49c9cb886d0e5e1c9307e143165a47f084d4ac9036a72b56b2c1816b",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.324511,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.174511,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 34,
+   "phase": "halton",
+   "fresh": [
+    "key-gap"
+   ],
+   "params": {
+    "Length": 93.260711,
+    "Clearance": 0.2134
+   },
+   "ok": true,
+   "report_hash": "b84e5d29e235dc664d35952f51367d1a2493c4a8bea3cdf77c36d75d70cbd9ac",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [
+    "key-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.146879,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": false,
+     "signed": -0.003120999999999985,
+     "scale": 0.01,
+     "detail": "channel / key: clearance distance 0.146879, expected >= 0.15"
+    }
+   ]
+  },
+  {
+   "index": 35,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 73.260711,
+    "Clearance": 0.280067
+   },
+   "ok": true,
+   "report_hash": "d29a07135158d29de235280af0900829a4b28dd080a9d1f2f5f9eb96d4325551",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.253546,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.103546,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 36,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 113.260711,
+    "Clearance": 0.346733
+   },
+   "ok": true,
+   "report_hash": "558618de5f8ad5679124d8ff7346fd32e74a1f8382f595914f816bf8ea9dcefb",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.240212,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.09021200000000001,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 37,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 63.260711,
+    "Clearance": 0.235622
+   },
+   "ok": true,
+   "report_hash": "65ecf837f02a55de0f777e18b287aa84b73038d50d2cd63b6d6a5e29f12d645d",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.229101,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.079101,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 38,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 103.260711,
+    "Clearance": 0.302289
+   },
+   "ok": true,
+   "report_hash": "faa7e9683762b481e8b4227efbf00e0485bb6139de2202e81f8fd9a4f850155f",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.215768,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.065768,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 39,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 83.260711,
+    "Clearance": 0.368956
+   },
+   "ok": true,
+   "report_hash": "cfdddaed51aac82a82c6d28d633b4b8d8629fc66b89f11f63db27f9997899ce9",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.322435,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.17243500000000003,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 40,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 43.260711,
+    "Clearance": 0.398585
+   },
+   "ok": true,
+   "report_hash": "4f93d76e248d0350da07b04b2ba21498ba481c76a928af2d08f40d6d54d2c695",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.398585,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.24858500000000003,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 41,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 45.135711,
+    "Clearance": 0.265252
+   },
+   "ok": true,
+   "report_hash": "18fc7cbb008dc34f85cb7092564a4fef16e347df79c951c8e48de6a562109c89",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.265252,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.115252,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 42,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 85.135711,
+    "Clearance": 0.331919
+   },
+   "ok": true,
+   "report_hash": "d05e64fac695918e99e5118d1b1d8a16e1a4d2554b1edcbbf4597279e6a8c4d0",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.281648,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.13164800000000002,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 43,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 65.135711,
+    "Clearance": 0.220808
+   },
+   "ok": true,
+   "report_hash": "ad6e2828e76c6dc94cdfb8457abd8383121f94f206240567cd59fc1d94997537",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.210537,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.06053700000000001,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 44,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 105.135711,
+    "Clearance": 0.287474
+   },
+   "ok": true,
+   "report_hash": "f22d635ce90a9eee96a5a708c2180ff540f779796aab827cb0ace22594be842b",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.197203,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.047202999999999995,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 45,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 55.135711,
+    "Clearance": 0.354141
+   },
+   "ok": true,
+   "report_hash": "23df847d83e00ee5731ed3029acabb327cd1666263f82b123ec47292970841d2",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.354141,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.204141,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 46,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 95.135711,
+    "Clearance": 0.24303
+   },
+   "ok": true,
+   "report_hash": "85b2abf2dba8e2c181dea66d943c5b763db0bc39674842789dcccbe1ff92bca1",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.172759,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.022759,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 47,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Length": 75.135711,
+    "Clearance": 0.309696
+   },
+   "ok": true,
+   "report_hash": "569c31c47909548385b89492ce0bec2ff863d767e93c0bfc2fcfeff538a4e128",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.279425,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.12942499999999998,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 48,
+   "phase": "shrink",
+   "fresh": [
+    "key-gap"
+   ],
+   "params": {
+    "Length": 90,
+    "Clearance": 0.2
+   },
+   "ok": true,
+   "report_hash": "52f591fca978b440d62d2a1039a4a14a6fdfbde7ebb639aa214f3455a24716f3",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [
+    "key-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.14,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": false,
+     "signed": -0.009999999999999981,
+     "scale": 0.01,
+     "detail": "channel / key: clearance distance 0.14, expected >= 0.15"
+    }
+   ]
+  },
+  {
+   "index": 49,
+   "phase": "shrink",
+   "fresh": [
+    "key-gap"
+   ],
+   "params": {
+    "Length": 120,
+    "Clearance": 0.25
+   },
+   "ok": true,
+   "report_hash": "489ba59a16abdcc450049f4de2716b361b91c35f6a21a2c716ea213a4fd1b4fd",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [
+    "key-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.13,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": false,
+     "signed": -0.01999999999999999,
+     "scale": 0.01,
+     "detail": "channel / key: clearance distance 0.13, expected >= 0.15"
+    }
+   ]
+  },
+  {
+   "index": 50,
+   "phase": "shrink",
+   "fresh": [],
+   "params": {
+    "Length": 90,
+    "Clearance": 0.3
+   },
+   "ok": true,
+   "report_hash": "e7805fa8df93fdcfc92403a6316ba74127ffb88d712a34dcfe74318085bd8898",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.24,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.09,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 51,
+   "phase": "shrink",
+   "fresh": [],
+   "params": {
+    "Length": 75,
+    "Clearance": 0.2
+   },
+   "ok": true,
+   "report_hash": "ab6f88f1100fb105fd3d18608b5b6b78e3f36a6911b6e676cfe76fee0923b635",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.17,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.020000000000000018,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 52,
+   "phase": "shrink",
+   "fresh": [],
+   "params": {
+    "Length": 90,
+    "Clearance": 0.25
+   },
+   "ok": true,
+   "report_hash": "0e2173a3a22882a3d7449e94c6c1c2e3f2c049d54497ddba9229615b6a6aa971",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.19,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.04000000000000001,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 53,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Length": 67.5,
+    "Clearance": 0.275
+   },
+   "ok": true,
+   "report_hash": "5e4fd21f3a1608b0aec3bd17d836430d26d39e8dffb456e797f7a1861ad34a8b",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.26,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.11000000000000001,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 54,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Length": 75,
+    "Clearance": 0.25
+   },
+   "ok": true,
+   "report_hash": "15741766e3e62cdad54a1b9460ca16134899fd7b9a9a7f5a0d34e1ebe1ae8cfb",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.22,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.07,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 55,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Length": 82.5,
+    "Clearance": 0.225
+   },
+   "ok": true,
+   "report_hash": "513a2397e8649ff18c6571b53488c4733d6c55205d19e85cb9200f9ffbcd5ff7",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.18,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.03,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 56,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Length": 84.375,
+    "Clearance": 0.21875
+   },
+   "ok": true,
+   "report_hash": "e4bbda338696b6476c3c3a17228db516a3ad233e06087ef67d50aaee841ac2e7",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.17,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.020000000000000018,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 57,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Length": 86.25,
+    "Clearance": 0.2125
+   },
+   "ok": true,
+   "report_hash": "626a25288d33d18b25e406406bb021fc733e3af5a1d26d4dfebc2316c7e2bdf5",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.16,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0.010000000000000009,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 58,
+   "phase": "bisect",
+   "fresh": [],
+   "params": {
+    "Length": 88.125,
+    "Clearance": 0.20625
+   },
+   "ok": true,
+   "report_hash": "e887b83e404a6d3d23bf7ea9220756fbb9a913f5801da7a8f784e4954b76b7ab",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.15,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    }
+   ]
+  },
+  {
+   "index": 59,
+   "phase": "bisect",
+   "fresh": [
+    "key-gap"
+   ],
+   "params": {
+    "Length": 88.59375,
+    "Clearance": 0.204688
+   },
+   "ok": true,
+   "report_hash": "8e92e3fab7b25cba908edae51dd57b87438ba92dbca468a7cf1bbace795f66bb",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [
+    "key-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.1475,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": false,
+     "signed": -0.0025000000000000022,
+     "scale": 0.01,
+     "detail": "channel / key: clearance distance 0.1475, expected >= 0.15"
+    }
+   ]
+  },
+  {
+   "index": 60,
+   "phase": "bisect",
+   "fresh": [
+    "key-gap"
+   ],
+   "params": {
+    "Length": 89.0625,
+    "Clearance": 0.203125
+   },
+   "ok": true,
+   "report_hash": "4efd777d9525966dfdb171bd668928f20d5e0956650bb0e6db3d211cdf9b4423",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [
+    "key-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.145,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": false,
+     "signed": -0.0050000000000000044,
+     "scale": 0.01,
+     "detail": "channel / key: clearance distance 0.145, expected >= 0.15"
+    }
+   ]
+  },
+  {
+   "index": 61,
+   "phase": "bisect",
+   "fresh": [
+    "key-gap"
+   ],
+   "params": {
+    "Length": 89.53125,
+    "Clearance": 0.201563
+   },
+   "ok": true,
+   "report_hash": "b7f195470888a8bacb3d6c02a6ee6c98529046a67361409252cc8d372e0be335",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [
+    "key-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.142501,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": false,
+     "signed": -0.007499000000000006,
+     "scale": 0.01,
+     "detail": "channel / key: clearance distance 0.142501, expected >= 0.15"
+    }
+   ]
+  },
+  {
+   "index": 62,
+   "phase": "bisect",
+   "fresh": [
+    "key-gap"
+   ],
+   "params": {
+    "Length": 88.242188,
+    "Clearance": 0.205859
+   },
+   "ok": true,
+   "report_hash": "8a2677cd22fc1e1408dd4bb8b1f189b410f0d1bce8ceb8d84e1ab09c116fa759",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [
+    "key-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.149375,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": false,
+     "signed": -0.0006249999999999867,
+     "scale": 0.01,
+     "detail": "channel / key: clearance distance 0.149375, expected >= 0.15"
+    }
+   ]
+  },
+  {
+   "index": 63,
+   "phase": "bisect",
+   "fresh": [
+    "key-gap"
+   ],
+   "params": {
+    "Length": 88.359375,
+    "Clearance": 0.205469
+   },
+   "ok": true,
+   "report_hash": "da299a0ca233728d752cfe7824b207e0d9f2a89495e37f08783aa20ee52053e7",
+   "signature_hash": "9a7d9b63f59fdfc8825c3200b7413fc2fe9b17e8ac7d0a9939ac6ba44a449e21",
+   "failing": [
+    "key-gap"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0.14875,
+     "scale": 0.01
+    },
+    {
+     "id": "key-gap",
+     "pass": false,
+     "signed": -0.0012500000000000011,
+     "scale": 0.01,
+     "detail": "channel / key: clearance distance 0.14875, expected >= 0.15"
+    }
+   ]
+  }
+ ]
+}

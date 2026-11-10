@@ -1,0 +1,6322 @@
+[
+ {
+  "brief": "d03-fillet-corners",
+  "seed": 1,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Width": 28.812218,
+     "Corner radius": 1.01915,
+     "Height": 12.911706
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 39.431529,
+     "Corner radius": 7.778645,
+     "Height": 9.216553
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 28.385166,
+     "Corner radius": 6.045202,
+     "Height": 11.386954
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 39.844688,
+     "Corner radius": 4.186898,
+     "Height": 12.331825
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 14.168008,
+     "Corner radius": 3.826213,
+     "Height": 8.712858
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 14.634794,
+     "Corner radius": 4.424007,
+     "Height": 6.010548
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 21.838579,
+     "Corner radius": 6.369756,
+     "Height": 9.287925
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 15.726207,
+     "Corner radius": 1.299108,
+     "Height": 11.410729
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 27.711475,
+     "Corner radius": 6.59079,
+     "Height": 9.423048
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 16.164094,
+     "Corner radius": 5.606908,
+     "Height": 13.191235
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 32.753285,
+     "Corner radius": 2.349698,
+     "Height": 15.814216
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 23.62408,
+     "Corner radius": 6.392897,
+     "Height": 19.91801
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 17.18,
+     "Corner radius": 6.299009,
+     "Height": 7.299064
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 19.699949,
+     "Corner radius": 3.892379,
+     "Height": 8.73819
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 14.562648,
+     "Corner radius": 6.082734,
+     "Height": 13.645122
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 13.816326,
+     "Corner radius": 2.852603,
+     "Height": 5.730852
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 28.666601,
+     "Corner radius": 7.060404,
+     "Height": 8.577413
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 39.681325,
+     "Corner radius": 6.028136,
+     "Height": 11.034468
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 19.071185,
+     "Corner radius": 5.740505,
+     "Height": 19.289472
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 37.699935,
+     "Corner radius": 5.849206,
+     "Height": 18.783257
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 35.032656,
+     "Corner radius": 7.536868,
+     "Height": 6.722085
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 11.18344,
+     "Corner radius": 7.080803,
+     "Height": 9.417139
+    },
+    "failing": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 36.436796,
+     "Corner radius": 4.57041,
+     "Height": 19.038414
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 31.131861,
+     "Corner radius": 2.1638,
+     "Height": 15.152135
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 38.466436,
+     "Corner radius": 1.923444,
+     "Height": 19.668239
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 14.890384,
+     "Corner radius": 3.718489,
+     "Height": 6.763964
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 22.037277,
+     "Corner radius": 3.270274,
+     "Height": 14.863272
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 25.271935,
+     "Corner radius": 4.720808,
+     "Height": 6.141687
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 34.239723,
+     "Corner radius": 6.979671,
+     "Height": 9.091798
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 14.928069,
+     "Corner radius": 3.122796,
+     "Height": 18.409612
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 18.698182,
+     "Corner radius": 2.006104,
+     "Height": 14.818649
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 26.471827,
+     "Corner radius": 3.27232,
+     "Height": 6.802484
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 14.240311,
+     "Corner radius": 1.471999,
+     "Height": 9.512404
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 30.26824,
+     "Corner radius": 5.560104,
+     "Height": 6.75258
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 25.245116,
+     "Corner radius": 4.662657,
+     "Height": 8.177596
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 33.765955,
+     "Corner radius": 2.766392,
+     "Height": 19.874808
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 38.620249,
+     "Corner radius": 7.090069,
+     "Height": 5.055609
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 15.489132,
+     "Corner radius": 1.198454,
+     "Height": 19.763772
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 19.891534,
+     "Corner radius": 6.044725,
+     "Height": 17.981135
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 12.815577,
+     "Corner radius": 2.75426,
+     "Height": 18.046537
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 33.856414,
+     "Corner radius": 6.542752,
+     "Height": 8.312094
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 12.88789,
+     "Corner radius": 2.043962,
+     "Height": 11.129948
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 26.276633,
+     "Corner radius": 3.011069,
+     "Height": 18.268045
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 19.365985,
+     "Corner radius": 7.36374,
+     "Height": 17.926347
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 28.989165,
+     "Corner radius": 5.683443,
+     "Height": 8.518353
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 21.509493,
+     "Corner radius": 3.152632,
+     "Height": 8.069166
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 17.948201,
+     "Corner radius": 7.516806,
+     "Height": 19.493712
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 14.795765,
+     "Corner radius": 3.307631,
+     "Height": 6.149853
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 11.097835,
+     "Corner radius": 6.485449,
+     "Height": 10.807255
+    },
+    "failing": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 17.311885,
+     "Corner radius": 2.038907,
+     "Height": 17.317702
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 19.238466,
+     "Corner radius": 7.247085,
+     "Height": 12.888171
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 22.834993,
+     "Corner radius": 5.804625,
+     "Height": 10.172584
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 17.357759,
+     "Corner radius": 4.752278,
+     "Height": 16.435941
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 33.83004,
+     "Corner radius": 1.354039,
+     "Height": 8.129406
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 28.951661,
+     "Corner radius": 5.52173,
+     "Height": 5.448686
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 19.788375,
+     "Corner radius": 4.004184,
+     "Height": 18.0744
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 29.464425,
+     "Corner radius": 3.511308,
+     "Height": 10.318941
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 28.038359,
+     "Corner radius": 1.095207,
+     "Height": 18.855252
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 26.202406,
+     "Corner radius": 4.976249,
+     "Height": 14.63815
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 13.731592,
+     "Corner radius": 1.491402,
+     "Height": 17.213633
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 14.244205,
+     "Corner radius": 5.973992,
+     "Height": 9.146331
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 29.244261,
+     "Corner radius": 3.055485,
+     "Height": 13.183907
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 37.76651,
+     "Corner radius": 1.504987,
+     "Height": 6.652252
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 15.200026,
+     "Corner radius": 5.766477,
+     "Height": 5.68156
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d03-fillet-corners",
+  "seed": 2,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Width": 32.027528,
+     "Corner radius": 3.274989,
+     "Height": 9.279441
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 26.138655,
+     "Corner radius": 7.127016,
+     "Height": 14.4625
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 24.976047,
+     "Corner radius": 3.500713,
+     "Height": 16.723834
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 13.420952,
+     "Corner radius": 6.501069,
+     "Height": 8.02318
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 22.72677,
+     "Corner radius": 6.844982,
+     "Height": 13.719806
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 14.230201,
+     "Corner radius": 5.705591,
+     "Height": 10.500474
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 39.148403,
+     "Corner radius": 1.274408,
+     "Height": 18.727967
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 11.865493,
+     "Corner radius": 1.896171,
+     "Height": 7.879004
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 10.213167,
+     "Corner radius": 7.580717,
+     "Height": 11.781116
+    },
+    "failing": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 29.039565,
+     "Corner radius": 7.918873,
+     "Height": 8.49199
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 24.038891,
+     "Corner radius": 3.437691,
+     "Height": 5.789541
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 25.636595,
+     "Corner radius": 1.667543,
+     "Height": 5.867272
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 38.808782,
+     "Corner radius": 6.635187,
+     "Height": 5.009392
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 39.46238,
+     "Corner radius": 1.507629,
+     "Height": 19.585596
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 25.821736,
+     "Corner radius": 2.36331,
+     "Height": 15.168381
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 11.544358,
+     "Corner radius": 6.445799,
+     "Height": 18.673814
+    },
+    "failing": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 34.813913,
+     "Corner radius": 4.119684,
+     "Height": 19.232577
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 12.13444,
+     "Corner radius": 5.998679,
+     "Height": 19.700445
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 35.16631,
+     "Corner radius": 5.491098,
+     "Height": 12.866299
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 10.994065,
+     "Corner radius": 6.941423,
+     "Height": 17.582488
+    },
+    "failing": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 26.439551,
+     "Corner radius": 3.187517,
+     "Height": 18.538665
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 37.850703,
+     "Corner radius": 4.128672,
+     "Height": 10.239033
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 10.553442,
+     "Corner radius": 7.666315,
+     "Height": 9.700246
+    },
+    "failing": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 23.147603,
+     "Corner radius": 6.59437,
+     "Height": 18.010654
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 37.585518,
+     "Corner radius": 4.02268,
+     "Height": 8.106442
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 29.386728,
+     "Corner radius": 5.369205,
+     "Height": 15.698126
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 38.140746,
+     "Corner radius": 2.435978,
+     "Height": 9.182686
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 20.359125,
+     "Corner radius": 4.760764,
+     "Height": 5.4122
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 18.642644,
+     "Corner radius": 6.814727,
+     "Height": 7.508139
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 33.309129,
+     "Corner radius": 3.761451,
+     "Height": 11.286982
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 21.856965,
+     "Corner radius": 6.906333,
+     "Height": 12.134787
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 39.685213,
+     "Corner radius": 2.819548,
+     "Height": 6.277235
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 31.241632,
+     "Corner radius": 1.144207,
+     "Height": 16.013704
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 33.458181,
+     "Corner radius": 5.53234,
+     "Height": 9.299605
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 19.801511,
+     "Corner radius": 5.560449,
+     "Height": 6.612702
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 15.637015,
+     "Corner radius": 6.127036,
+     "Height": 19.632067
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 28.914084,
+     "Corner radius": 1.798169,
+     "Height": 13.674683
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 38.36755,
+     "Corner radius": 1.201352,
+     "Height": 13.672315
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 25.495074,
+     "Corner radius": 6.024429,
+     "Height": 17.699231
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 22.756402,
+     "Corner radius": 4.577362,
+     "Height": 6.021192
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 35.88104,
+     "Corner radius": 4.117354,
+     "Height": 8.401485
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 27.473665,
+     "Corner radius": 4.226413,
+     "Height": 13.543023
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 25.629053,
+     "Corner radius": 3.123871,
+     "Height": 8.227126
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 37.193338,
+     "Corner radius": 5.199725,
+     "Height": 12.795422
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 16.114057,
+     "Corner radius": 2.090074,
+     "Height": 8.767806
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 34.65717,
+     "Corner radius": 2.324185,
+     "Height": 19.663739
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 16.830769,
+     "Corner radius": 6.717506,
+     "Height": 9.836652
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 19.44181,
+     "Corner radius": 6.178727,
+     "Height": 18.669102
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 21.168422,
+     "Corner radius": 3.83758,
+     "Height": 17.315563
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 36.813243,
+     "Corner radius": 3.362659,
+     "Height": 11.430984
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 37.067737,
+     "Corner radius": 7.459273,
+     "Height": 13.07598
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 35.025087,
+     "Corner radius": 2.008587,
+     "Height": 10.609371
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 19.261338,
+     "Corner radius": 1.973974,
+     "Height": 9.662868
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 37.060095,
+     "Corner radius": 2.826787,
+     "Height": 9.230123
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 36.42074,
+     "Corner radius": 1.831144,
+     "Height": 8.127586
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 11.779997,
+     "Corner radius": 5.725837,
+     "Height": 15.230927
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 27.641146,
+     "Corner radius": 6.523241,
+     "Height": 10.569917
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 35.749925,
+     "Corner radius": 1.400032,
+     "Height": 15.112605
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 30.595896,
+     "Corner radius": 6.999185,
+     "Height": 7.464591
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 26.532439,
+     "Corner radius": 2.287912,
+     "Height": 10.967321
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 21.095443,
+     "Corner radius": 7.178991,
+     "Height": 13.826173
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 32.452774,
+     "Corner radius": 1.13226,
+     "Height": 15.151296
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 12.726589,
+     "Corner radius": 7.251599,
+     "Height": 5.175325
+    },
+    "failing": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 17.750052,
+     "Corner radius": 1.729846,
+     "Height": 18.845171
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d03-fillet-corners",
+  "seed": 3,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Width": 31.606804,
+     "Corner radius": 1.270635,
+     "Height": 11.842883
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 12.24784,
+     "Corner radius": 6.341038,
+     "Height": 12.217706
+    },
+    "failing": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 24.601887,
+     "Corner radius": 2.132604,
+     "Height": 8.948844
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 26.578217,
+     "Corner radius": 2.364414,
+     "Height": 6.253893
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 31.413622,
+     "Corner radius": 4.337096,
+     "Height": 16.905981
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 36.3932,
+     "Corner radius": 3.265366,
+     "Height": 15.358721
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 18.602412,
+     "Corner radius": 5.704983,
+     "Height": 12.896429
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 34.952015,
+     "Corner radius": 4.77963,
+     "Height": 5.174089
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 36.320631,
+     "Corner radius": 3.172779,
+     "Height": 19.052327
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 33.081077,
+     "Corner radius": 3.944062,
+     "Height": 15.720261
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 14.629959,
+     "Corner radius": 3.575463,
+     "Height": 15.84049
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 10.043218,
+     "Corner radius": 1.058491,
+     "Height": 12.174638
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 35.892267,
+     "Corner radius": 5.220801,
+     "Height": 15.230971
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 33.589381,
+     "Corner radius": 5.090521,
+     "Height": 13.726552
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 12.127569,
+     "Corner radius": 3.606066,
+     "Height": 12.963961
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 35.155617,
+     "Corner radius": 3.890899,
+     "Height": 11.959494
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 24.902819,
+     "Corner radius": 4.996169,
+     "Height": 16.641216
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 35.663333,
+     "Corner radius": 5.652215,
+     "Height": 10.584336
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 30.668666,
+     "Corner radius": 5.898947,
+     "Height": 11.994413
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 39.364144,
+     "Corner radius": 7.165246,
+     "Height": 15.689256
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 30.313631,
+     "Corner radius": 7.668303,
+     "Height": 16.477544
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 11.706682,
+     "Corner radius": 1.463063,
+     "Height": 13.063893
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 35.965157,
+     "Corner radius": 3.413782,
+     "Height": 13.102933
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 18.697898,
+     "Corner radius": 4.243052,
+     "Height": 13.279649
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 27.334893,
+     "Corner radius": 3.737748,
+     "Height": 16.343127
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 15.18989,
+     "Corner radius": 7.668309,
+     "Height": 14.646121
+    },
+    "failing": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 32.519816,
+     "Corner radius": 6.389858,
+     "Height": 5.916686
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 22.374305,
+     "Corner radius": 2.08261,
+     "Height": 15.360627
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 33.217694,
+     "Corner radius": 5.348337,
+     "Height": 19.799542
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 39.709221,
+     "Corner radius": 7.862172,
+     "Height": 13.742102
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 36.59594,
+     "Corner radius": 7.652331,
+     "Height": 17.203138
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 19.482882,
+     "Corner radius": 5.380044,
+     "Height": 19.159228
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 21.728783,
+     "Corner radius": 5.192059,
+     "Height": 7.112524
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 28.930976,
+     "Corner radius": 4.83136,
+     "Height": 8.846007
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 36.43732,
+     "Corner radius": 1.343756,
+     "Height": 17.723231
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 12.648703,
+     "Corner radius": 3.970699,
+     "Height": 18.342134
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 10.871358,
+     "Corner radius": 5.69214,
+     "Height": 6.547891
+    },
+    "failing": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 18.639086,
+     "Corner radius": 7.95357,
+     "Height": 12.850542
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 15.386508,
+     "Corner radius": 1.036111,
+     "Height": 7.369622
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 29.462479,
+     "Corner radius": 5.4112,
+     "Height": 17.415826
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 30.667421,
+     "Corner radius": 6.652875,
+     "Height": 6.882453
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 15.779713,
+     "Corner radius": 1.895176,
+     "Height": 14.138065
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 30.265548,
+     "Corner radius": 5.042742,
+     "Height": 15.922793
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 19.553604,
+     "Corner radius": 7.655142,
+     "Height": 6.415061
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 38.940166,
+     "Corner radius": 2.364506,
+     "Height": 10.749647
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 24.926778,
+     "Corner radius": 4.061593,
+     "Height": 13.271519
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 18.340447,
+     "Corner radius": 5.697494,
+     "Height": 5.179863
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 23.895042,
+     "Corner radius": 6.455272,
+     "Height": 10.051257
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 23.484782,
+     "Corner radius": 3.584056,
+     "Height": 19.840289
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 12.364936,
+     "Corner radius": 1.721244,
+     "Height": 7.773853
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 13.800858,
+     "Corner radius": 7.074668,
+     "Height": 16.564194
+    },
+    "failing": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 35.177104,
+     "Corner radius": 3.699565,
+     "Height": 5.967026
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 20.055352,
+     "Corner radius": 2.823715,
+     "Height": 7.001465
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 13.821503,
+     "Corner radius": 3.884282,
+     "Height": 8.473877
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 10.569563,
+     "Corner radius": 4.827184,
+     "Height": 11.958861
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 21.532003,
+     "Corner radius": 7.720591,
+     "Height": 18.415038
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 37.078047,
+     "Corner radius": 3.037258,
+     "Height": 9.854608
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 18.406178,
+     "Corner radius": 2.426609,
+     "Height": 16.503488
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 10.339302,
+     "Corner radius": 2.359778,
+     "Height": 10.656626
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 39.560451,
+     "Corner radius": 3.172573,
+     "Height": 13.483849
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 14.943202,
+     "Corner radius": 5.162912,
+     "Height": 17.198698
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 10.720796,
+     "Corner radius": 7.887076,
+     "Height": 9.703438
+    },
+    "failing": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 12.545574,
+     "Corner radius": 1.099811,
+     "Height": 12.16208
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 30.441692,
+     "Corner radius": 7.066351,
+     "Height": 13.119335
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d03-fillet-corners",
+  "seed": 4,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Width": 37.709086,
+     "Corner radius": 3.331321,
+     "Height": 8.325019
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 12.455231,
+     "Corner radius": 2.637981,
+     "Height": 12.627453
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 12.321745,
+     "Corner radius": 7.817033,
+     "Height": 14.330562
+    },
+    "failing": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 30.724463,
+     "Corner radius": 6.377023,
+     "Height": 10.53723
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 31.974847,
+     "Corner radius": 7.131125,
+     "Height": 12.931532
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 32.300385,
+     "Corner radius": 3.952222,
+     "Height": 12.356752
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 32.077404,
+     "Corner radius": 7.515063,
+     "Height": 19.693105
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 24.140323,
+     "Corner radius": 3.435676,
+     "Height": 16.821357
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 18.079365,
+     "Corner radius": 6.26546,
+     "Height": 12.913588
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 20.286076,
+     "Corner radius": 4.191,
+     "Height": 5.163089
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 24.563547,
+     "Corner radius": 4.780142,
+     "Height": 16.457267
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 12.860945,
+     "Corner radius": 6.650907,
+     "Height": 11.063252
+    },
+    "failing": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 19.892619,
+     "Corner radius": 4.830287,
+     "Height": 5.908212
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 28.712645,
+     "Corner radius": 2.948071,
+     "Height": 13.35237
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 14.404631,
+     "Corner radius": 7.67518,
+     "Height": 17.788617
+    },
+    "failing": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 37.638197,
+     "Corner radius": 3.45019,
+     "Height": 7.79272
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 29.760643,
+     "Corner radius": 4.490632,
+     "Height": 6.012724
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 33.013492,
+     "Corner radius": 7.695752,
+     "Height": 5.061892
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 24.449753,
+     "Corner radius": 7.335372,
+     "Height": 15.322212
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 26.652094,
+     "Corner radius": 7.880506,
+     "Height": 9.33678
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 33.021123,
+     "Corner radius": 3.53263,
+     "Height": 11.970098
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 31.04257,
+     "Corner radius": 1.037883,
+     "Height": 8.593785
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 25.14208,
+     "Corner radius": 6.513161,
+     "Height": 17.807914
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 12.16081,
+     "Corner radius": 4.223529,
+     "Height": 14.566282
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 39.360673,
+     "Corner radius": 5.295788,
+     "Height": 9.213012
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 31.260401,
+     "Corner radius": 6.389269,
+     "Height": 9.617254
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 38.654241,
+     "Corner radius": 6.41193,
+     "Height": 7.718362
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 39.548041,
+     "Corner radius": 3.687178,
+     "Height": 19.689654
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 37.986364,
+     "Corner radius": 4.20557,
+     "Height": 6.821501
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 12.44484,
+     "Corner radius": 1.066315,
+     "Height": 6.709011
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 30.095444,
+     "Corner radius": 1.819158,
+     "Height": 18.519873
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 38.098245,
+     "Corner radius": 5.77709,
+     "Height": 10.259017
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 21.479768,
+     "Corner radius": 5.690738,
+     "Height": 18.651152
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 17.436073,
+     "Corner radius": 5.415962,
+     "Height": 15.949899
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 28.188708,
+     "Corner radius": 7.044876,
+     "Height": 19.049198
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 31.351041,
+     "Corner radius": 1.766576,
+     "Height": 14.937872
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 35.419908,
+     "Corner radius": 2.054718,
+     "Height": 9.226049
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 32.106159,
+     "Corner radius": 3.630837,
+     "Height": 19.991908
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 37.518079,
+     "Corner radius": 1.212767,
+     "Height": 16.451981
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 22.163372,
+     "Corner radius": 7.305592,
+     "Height": 12.640815
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 11.479304,
+     "Corner radius": 5.831953,
+     "Height": 5.709982
+    },
+    "failing": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 36.970346,
+     "Corner radius": 5.286579,
+     "Height": 13.457152
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 23.178774,
+     "Corner radius": 6.464537,
+     "Height": 10.778671
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 18.486745,
+     "Corner radius": 7.622717,
+     "Height": 19.962877
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 20.030235,
+     "Corner radius": 1.580198,
+     "Height": 16.34301
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 12.247718,
+     "Corner radius": 6.787883,
+     "Height": 9.727205
+    },
+    "failing": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 23.587957,
+     "Corner radius": 5.340792,
+     "Height": 7.119671
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 35.955309,
+     "Corner radius": 4.008212,
+     "Height": 18.3317
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 33.246977,
+     "Corner radius": 6.580817,
+     "Height": 18.531726
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 20.376206,
+     "Corner radius": 4.286742,
+     "Height": 13.215373
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 27.74094,
+     "Corner radius": 3.997645,
+     "Height": 10.315577
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 24.202268,
+     "Corner radius": 5.076211,
+     "Height": 14.254094
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 32.458272,
+     "Corner radius": 1.96297,
+     "Height": 16.272027
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 37.92949,
+     "Corner radius": 5.127226,
+     "Height": 7.895687
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 20.92383,
+     "Corner radius": 5.815372,
+     "Height": 10.841564
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 20.054602,
+     "Corner radius": 4.794058,
+     "Height": 18.27756
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 24.212284,
+     "Corner radius": 5.498978,
+     "Height": 11.01162
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 34.76758,
+     "Corner radius": 2.338735,
+     "Height": 10.489882
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 36.356437,
+     "Corner radius": 1.43028,
+     "Height": 6.240304
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 14.10108,
+     "Corner radius": 2.136249,
+     "Height": 12.865084
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 29.317128,
+     "Corner radius": 3.775922,
+     "Height": 15.76238
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 14.838789,
+     "Corner radius": 6.264961,
+     "Height": 14.470074
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 10.578006,
+     "Corner radius": 1.789657,
+     "Height": 13.826581
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 38.194215,
+     "Corner radius": 5.107471,
+     "Height": 5.566225
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d03-fillet-corners",
+  "seed": 5,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Width": 30.693247,
+     "Corner radius": 6.409203,
+     "Height": 8.296445
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 28.695365,
+     "Corner radius": 1.59596,
+     "Height": 13.882474
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 31.603067,
+     "Corner radius": 4.206729,
+     "Height": 18.584323
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 16.882869,
+     "Corner radius": 6.459044,
+     "Height": 16.109192
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 29.816802,
+     "Corner radius": 1.09675,
+     "Height": 11.981021
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 19.013652,
+     "Corner radius": 7.275848,
+     "Height": 9.321738
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 32.658915,
+     "Corner radius": 6.064383,
+     "Height": 8.803671
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 10.570551,
+     "Corner radius": 6.554558,
+     "Height": 8.124312
+    },
+    "failing": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 18.178579,
+     "Corner radius": 1.862833,
+     "Height": 12.051164
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 39.749302,
+     "Corner radius": 2.718308,
+     "Height": 6.214173
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 35.457793,
+     "Corner radius": 3.21917,
+     "Height": 11.11343
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 39.572122,
+     "Corner radius": 2.903831,
+     "Height": 10.791536
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 16.51776,
+     "Corner radius": 7.084571,
+     "Height": 15.835421
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 36.364374,
+     "Corner radius": 4.58087,
+     "Height": 17.076029
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 29.47467,
+     "Corner radius": 1.977406,
+     "Height": 14.540714
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 27.32857,
+     "Corner radius": 3.206283,
+     "Height": 16.683284
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 28.282543,
+     "Corner radius": 1.056888,
+     "Height": 18.980154
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 20.245579,
+     "Corner radius": 3.450766,
+     "Height": 18.119037
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 17.475852,
+     "Corner radius": 2.226542,
+     "Height": 17.504989
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 18.366717,
+     "Corner radius": 7.988006,
+     "Height": 5.205883
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 20.531866,
+     "Corner radius": 6.309541,
+     "Height": 9.713477
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 29.822755,
+     "Corner radius": 1.537436,
+     "Height": 6.199053
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 32.048794,
+     "Corner radius": 4.673068,
+     "Height": 8.801549
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 37.901215,
+     "Corner radius": 1.346707,
+     "Height": 16.020653
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 38.616214,
+     "Corner radius": 2.996566,
+     "Height": 12.997559
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 35.695279,
+     "Corner radius": 6.92771,
+     "Height": 13.683398
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 38.694563,
+     "Corner radius": 5.917401,
+     "Height": 13.102721
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 13.297122,
+     "Corner radius": 3.058339,
+     "Height": 12.941859
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 14.650037,
+     "Corner radius": 2.764767,
+     "Height": 16.502935
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 14.157322,
+     "Corner radius": 1.560371,
+     "Height": 9.900403
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 34.168687,
+     "Corner radius": 5.502141,
+     "Height": 11.187988
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 12.928092,
+     "Corner radius": 3.033598,
+     "Height": 19.353677
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 19.793651,
+     "Corner radius": 5.919456,
+     "Height": 16.162286
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 13.066397,
+     "Corner radius": 6.484547,
+     "Height": 18.975767
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 28.171655,
+     "Corner radius": 1.77974,
+     "Height": 10.426743
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 22.089385,
+     "Corner radius": 1.362991,
+     "Height": 11.319519
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 37.534122,
+     "Corner radius": 3.178879,
+     "Height": 16.502178
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 11.560423,
+     "Corner radius": 6.71495,
+     "Height": 6.509852
+    },
+    "failing": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 25.358298,
+     "Corner radius": 6.788017,
+     "Height": 8.145849
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 27.894449,
+     "Corner radius": 1.70635,
+     "Height": 10.457509
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 29.903357,
+     "Corner radius": 2.779463,
+     "Height": 15.219558
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 17.195044,
+     "Corner radius": 2.773185,
+     "Height": 19.77004
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 29.293816,
+     "Corner radius": 4.170395,
+     "Height": 16.134399
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 11.16023,
+     "Corner radius": 5.329114,
+     "Height": 14.834979
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 10.579798,
+     "Corner radius": 2.012574,
+     "Height": 10.004486
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 20.047317,
+     "Corner radius": 5.496659,
+     "Height": 19.232639
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 27.804657,
+     "Corner radius": 7.08008,
+     "Height": 16.600813
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 18.50301,
+     "Corner radius": 1.446332,
+     "Height": 7.550828
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 11.247397,
+     "Corner radius": 2.589228,
+     "Height": 18.363814
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 23.560638,
+     "Corner radius": 1.295157,
+     "Height": 16.658278
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 27.586594,
+     "Corner radius": 3.002564,
+     "Height": 18.41469
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 33.236991,
+     "Corner radius": 7.792394,
+     "Height": 7.746013
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 18.171686,
+     "Corner radius": 6.634837,
+     "Height": 9.111896
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 18.811958,
+     "Corner radius": 6.360701,
+     "Height": 5.058811
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 29.749958,
+     "Corner radius": 4.712411,
+     "Height": 9.059343
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 17.294761,
+     "Corner radius": 5.656921,
+     "Height": 17.143436
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 26.929084,
+     "Corner radius": 5.236696,
+     "Height": 15.069562
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 22.786727,
+     "Corner radius": 4.982613,
+     "Height": 7.988736
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 13.192072,
+     "Corner radius": 3.601438,
+     "Height": 12.441055
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 11.8867,
+     "Corner radius": 5.263329,
+     "Height": 11.811855
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 23.956747,
+     "Corner radius": 3.688656,
+     "Height": 12.507474
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 20.719029,
+     "Corner radius": 2.766519,
+     "Height": 11.524321
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 25.787647,
+     "Corner radius": 5.628035,
+     "Height": 10.382746
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 17.356874,
+     "Corner radius": 6.53005,
+     "Height": 6.011906
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d03-fillet-corners",
+  "seed": 6,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Width": 25.772398,
+     "Corner radius": 1.016405,
+     "Height": 14.947571
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 16.064881,
+     "Corner radius": 4.794837,
+     "Height": 6.061458
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 10.136135,
+     "Corner radius": 7.446485,
+     "Height": 19.558335
+    },
+    "failing": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 16.301586,
+     "Corner radius": 7.537975,
+     "Height": 10.741091
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 10.670555,
+     "Corner radius": 1.360783,
+     "Height": 11.794938
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 33.527023,
+     "Corner radius": 5.418915,
+     "Height": 12.215704
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 22.199594,
+     "Corner radius": 2.394491,
+     "Height": 19.818197
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 38.353908,
+     "Corner radius": 2.883894,
+     "Height": 19.173181
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 35.601634,
+     "Corner radius": 7.88766,
+     "Height": 15.477325
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 38.333911,
+     "Corner radius": 7.732004,
+     "Height": 19.164731
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 16.548632,
+     "Corner radius": 4.868155,
+     "Height": 8.08088
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 18.754317,
+     "Corner radius": 2.491088,
+     "Height": 17.469864
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 22.148123,
+     "Corner radius": 5.071285,
+     "Height": 13.674521
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 36.564261,
+     "Corner radius": 4.99883,
+     "Height": 18.131553
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 31.406154,
+     "Corner radius": 5.011404,
+     "Height": 9.088527
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 35.564802,
+     "Corner radius": 6.672541,
+     "Height": 8.065341
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 22.579361,
+     "Corner radius": 3.534939,
+     "Height": 14.86994
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 10.651042,
+     "Corner radius": 3.318547,
+     "Height": 9.380098
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 17.698008,
+     "Corner radius": 3.118035,
+     "Height": 8.955828
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 21.185914,
+     "Corner radius": 1.632971,
+     "Height": 10.408261
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 12.497549,
+     "Corner radius": 7.501714,
+     "Height": 12.506414
+    },
+    "failing": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 13.456301,
+     "Corner radius": 4.426209,
+     "Height": 12.109543
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 11.657906,
+     "Corner radius": 4.102811,
+     "Height": 15.003858
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 18.837196,
+     "Corner radius": 3.025448,
+     "Height": 18.898594
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 13.621176,
+     "Corner radius": 2.134104,
+     "Height": 13.801505
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 30.736926,
+     "Corner radius": 6.14181,
+     "Height": 18.468608
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 14.764374,
+     "Corner radius": 5.14876,
+     "Height": 11.317669
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 31.782933,
+     "Corner radius": 2.045627,
+     "Height": 7.86436
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 35.138844,
+     "Corner radius": 1.559053,
+     "Height": 6.520987
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 27.330889,
+     "Corner radius": 3.098704,
+     "Height": 15.994377
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 25.09855,
+     "Corner radius": 7.156345,
+     "Height": 16.576481
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 15.713205,
+     "Corner radius": 2.907165,
+     "Height": 12.893231
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 20.071565,
+     "Corner radius": 4.735646,
+     "Height": 7.433472
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 13.671416,
+     "Corner radius": 2.339489,
+     "Height": 11.155612
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 14.365864,
+     "Corner radius": 6.191107,
+     "Height": 15.937177
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 10.17808,
+     "Corner radius": 5.371122,
+     "Height": 5.807871
+    },
+    "failing": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 37.073593,
+     "Corner radius": 3.955628,
+     "Height": 17.352334
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 34.950128,
+     "Corner radius": 7.544384,
+     "Height": 10.906688
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 30.911038,
+     "Corner radius": 1.15748,
+     "Height": 10.821087
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 36.846354,
+     "Corner radius": 2.461572,
+     "Height": 15.326663
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 12.857457,
+     "Corner radius": 3.649622,
+     "Height": 6.270658
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 15.769535,
+     "Corner radius": 6.428807,
+     "Height": 13.855798
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 25.004403,
+     "Corner radius": 2.922159,
+     "Height": 19.434869
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 37.939924,
+     "Corner radius": 4.766798,
+     "Height": 13.93952
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 32.644457,
+     "Corner radius": 3.004741,
+     "Height": 8.933527
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 21.728851,
+     "Corner radius": 4.77269,
+     "Height": 15.779606
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 35.55058,
+     "Corner radius": 1.763226,
+     "Height": 8.773712
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 36.020106,
+     "Corner radius": 1.495035,
+     "Height": 6.907714
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 31.336715,
+     "Corner radius": 4.680216,
+     "Height": 19.365572
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 12.434156,
+     "Corner radius": 7.384515,
+     "Height": 10.051002
+    },
+    "failing": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 24.988297,
+     "Corner radius": 4.431325,
+     "Height": 9.773698
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 17.07712,
+     "Corner radius": 3.781399,
+     "Height": 9.208818
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 20.55197,
+     "Corner radius": 4.539148,
+     "Height": 13.868928
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 37.833633,
+     "Corner radius": 4.324731,
+     "Height": 19.898004
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 38.316623,
+     "Corner radius": 6.417332,
+     "Height": 5.515991
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 25.613829,
+     "Corner radius": 3.840964,
+     "Height": 14.604688
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 22.969085,
+     "Corner radius": 1.917601,
+     "Height": 18.465926
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 10.767802,
+     "Corner radius": 1.174269,
+     "Height": 11.447506
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 33.088049,
+     "Corner radius": 2.23586,
+     "Height": 14.559808
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 39.260961,
+     "Corner radius": 2.980694,
+     "Height": 11.573861
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 20.600765,
+     "Corner radius": 2.967509,
+     "Height": 11.376211
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 38.844483,
+     "Corner radius": 3.83618,
+     "Height": 12.879676
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 33.46043,
+     "Corner radius": 2.906233,
+     "Height": 18.485363
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 10.387377,
+     "Corner radius": 4.944876,
+     "Height": 5.605124
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d03-fillet-corners",
+  "seed": 7,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Width": 10.351143,
+     "Corner radius": 1.433708,
+     "Height": 19.653614
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 30.970861,
+     "Corner radius": 4.650117,
+     "Height": 11.082825
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 23.986979,
+     "Corner radius": 2.679476,
+     "Height": 13.299884
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 31.894663,
+     "Corner radius": 2.804709,
+     "Height": 7.339225
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 32.922697,
+     "Corner radius": 4.628818,
+     "Height": 7.957059
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 21.038758,
+     "Corner radius": 3.052731,
+     "Height": 13.021093
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 18.889907,
+     "Corner radius": 7.845623,
+     "Height": 8.713004
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 36.333388,
+     "Corner radius": 2.335542,
+     "Height": 7.154861
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 14.639321,
+     "Corner radius": 3.036658,
+     "Height": 13.218521
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 32.856211,
+     "Corner radius": 1.521627,
+     "Height": 18.694111
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 26.611322,
+     "Corner radius": 5.351374,
+     "Height": 15.201364
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 38.979691,
+     "Corner radius": 5.370665,
+     "Height": 18.818073
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 34.828855,
+     "Corner radius": 1.279849,
+     "Height": 7.624123
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 20.70943,
+     "Corner radius": 3.97721,
+     "Height": 5.302642
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 12.643187,
+     "Corner radius": 6.376111,
+     "Height": 10.53454
+    },
+    "failing": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 22.801471,
+     "Corner radius": 4.280638,
+     "Height": 19.193318
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 31.098433,
+     "Corner radius": 5.818082,
+     "Height": 9.959719
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 20.690036,
+     "Corner radius": 1.971538,
+     "Height": 6.999399
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 37.391046,
+     "Corner radius": 3.256989,
+     "Height": 7.855633
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 28.966262,
+     "Corner radius": 3.357397,
+     "Height": 5.65447
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 30.527613,
+     "Corner radius": 7.449602,
+     "Height": 13.21809
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 34.797326,
+     "Corner radius": 5.586711,
+     "Height": 18.79817
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 13.511242,
+     "Corner radius": 4.709504,
+     "Height": 14.73749
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 36.731947,
+     "Corner radius": 7.723489,
+     "Height": 17.569362
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 27.827037,
+     "Corner radius": 7.747096,
+     "Height": 19.512595
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 26.457048,
+     "Corner radius": 6.729626,
+     "Height": 5.085499
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 25.482205,
+     "Corner radius": 3.296395,
+     "Height": 15.864074
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 26.484853,
+     "Corner radius": 6.287914,
+     "Height": 19.654009
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 26.7266,
+     "Corner radius": 6.762116,
+     "Height": 11.449912
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 29.270542,
+     "Corner radius": 6.169876,
+     "Height": 13.275451
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 19.371515,
+     "Corner radius": 2.657846,
+     "Height": 5.139722
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 10.722184,
+     "Corner radius": 7.603778,
+     "Height": 17.500534
+    },
+    "failing": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 28.918042,
+     "Corner radius": 1.100809,
+     "Height": 14.283441
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 27.846899,
+     "Corner radius": 6.017948,
+     "Height": 19.92291
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 18.339922,
+     "Corner radius": 7.903927,
+     "Height": 14.749566
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 34.147523,
+     "Corner radius": 5.370792,
+     "Height": 17.452084
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 14.171925,
+     "Corner radius": 7.95939,
+     "Height": 12.603975
+    },
+    "failing": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 27.006697,
+     "Corner radius": 2.126176,
+     "Height": 10.942494
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 16.320071,
+     "Corner radius": 6.694796,
+     "Height": 17.92351
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 32.077579,
+     "Corner radius": 5.609186,
+     "Height": 19.853643
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 28.279299,
+     "Corner radius": 6.155186,
+     "Height": 19.330829
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 24.676594,
+     "Corner radius": 2.608413,
+     "Height": 13.760116
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 33.870449,
+     "Corner radius": 6.977436,
+     "Height": 7.848797
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 26.646879,
+     "Corner radius": 4.343935,
+     "Height": 12.884686
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 15.406177,
+     "Corner radius": 2.754427,
+     "Height": 11.584462
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 24.32536,
+     "Corner radius": 2.195886,
+     "Height": 5.048166
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 15.194583,
+     "Corner radius": 1.168738,
+     "Height": 6.608425
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 36.289152,
+     "Corner radius": 7.87971,
+     "Height": 5.901797
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 15.233642,
+     "Corner radius": 3.835262,
+     "Height": 12.484933
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 31.970029,
+     "Corner radius": 3.577733,
+     "Height": 10.400238
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 33.745779,
+     "Corner radius": 5.975139,
+     "Height": 17.001714
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 25.899695,
+     "Corner radius": 6.588251,
+     "Height": 11.182483
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 26.879096,
+     "Corner radius": 3.048523,
+     "Height": 12.908883
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 33.294504,
+     "Corner radius": 1.560094,
+     "Height": 8.782967
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 34.805281,
+     "Corner radius": 6.79162,
+     "Height": 16.620061
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 22.894895,
+     "Corner radius": 3.498384,
+     "Height": 18.804895
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 17.539962,
+     "Corner radius": 3.529872,
+     "Height": 12.154471
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 34.909205,
+     "Corner radius": 3.828267,
+     "Height": 19.618495
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 26.538442,
+     "Corner radius": 4.054202,
+     "Height": 10.078394
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 26.111219,
+     "Corner radius": 3.052783,
+     "Height": 18.262858
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 27.167762,
+     "Corner radius": 7.902279,
+     "Height": 17.615072
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 24.869081,
+     "Corner radius": 4.057646,
+     "Height": 15.465075
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 37.931973,
+     "Corner radius": 4.854582,
+     "Height": 14.860568
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 14.871542,
+     "Corner radius": 5.853113,
+     "Height": 10.862041
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d03-fillet-corners",
+  "seed": 8,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Width": 14.688855,
+     "Corner radius": 5.376346,
+     "Height": 9.509969
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 30.878629,
+     "Corner radius": 5.095064,
+     "Height": 11.740985
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 34.562787,
+     "Corner radius": 2.671702,
+     "Height": 12.599265
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 11.804142,
+     "Corner radius": 4.599287,
+     "Height": 6.100376
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 27.08364,
+     "Corner radius": 2.542518,
+     "Height": 7.408214
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 38.641979,
+     "Corner radius": 5.854012,
+     "Height": 6.364937
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 13.834216,
+     "Corner radius": 1.275687,
+     "Height": 13.339796
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 23.322875,
+     "Corner radius": 6.26903,
+     "Height": 16.612781
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 11.190143,
+     "Corner radius": 4.177643,
+     "Height": 10.379217
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 25.012411,
+     "Corner radius": 3.247126,
+     "Height": 12.778343
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 13.738934,
+     "Corner radius": 7.026363,
+     "Height": 9.859933
+    },
+    "failing": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 31.993427,
+     "Corner radius": 7.297696,
+     "Height": 12.671033
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 30.548258,
+     "Corner radius": 6.280953,
+     "Height": 14.738566
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 19.233559,
+     "Corner radius": 2.93672,
+     "Height": 6.561334
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 19.30441,
+     "Corner radius": 7.99907,
+     "Height": 13.523186
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 22.102775,
+     "Corner radius": 1.335344,
+     "Height": 11.635426
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 33.676193,
+     "Corner radius": 7.98478,
+     "Height": 8.749422
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 35.81489,
+     "Corner radius": 1.512796,
+     "Height": 13.203058
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 26.079,
+     "Corner radius": 2.248531,
+     "Height": 11.080776
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 13.455026,
+     "Corner radius": 1.750095,
+     "Height": 19.91489
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 35.15013,
+     "Corner radius": 2.335783,
+     "Height": 5.33962
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 38.768791,
+     "Corner radius": 5.245574,
+     "Height": 16.914188
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 22.002743,
+     "Corner radius": 4.11568,
+     "Height": 5.461385
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 22.514251,
+     "Corner radius": 3.10018,
+     "Height": 15.534738
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 10.033341,
+     "Corner radius": 6.265685,
+     "Height": 10.615947
+    },
+    "failing": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 17.690219,
+     "Corner radius": 7.882028,
+     "Height": 18.306011
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 35.231174,
+     "Corner radius": 5.118547,
+     "Height": 15.050502
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 38.639488,
+     "Corner radius": 3.171229,
+     "Height": 6.420951
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 27.537033,
+     "Corner radius": 3.777362,
+     "Height": 10.049738
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 36.771886,
+     "Corner radius": 3.266959,
+     "Height": 13.233903
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 18.535265,
+     "Corner radius": 6.065899,
+     "Height": 13.01641
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 22.094996,
+     "Corner radius": 6.17889,
+     "Height": 12.779401
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 31.465685,
+     "Corner radius": 6.781721,
+     "Height": 10.453081
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 17.980006,
+     "Corner radius": 7.845134,
+     "Height": 5.887613
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 12.747406,
+     "Corner radius": 5.786424,
+     "Height": 9.756277
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 38.096313,
+     "Corner radius": 1.216767,
+     "Height": 13.685445
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 20.775674,
+     "Corner radius": 5.782944,
+     "Height": 6.795199
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 15.72112,
+     "Corner radius": 2.805641,
+     "Height": 16.316631
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 32.576567,
+     "Corner radius": 1.77074,
+     "Height": 13.00973
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 23.210452,
+     "Corner radius": 5.304122,
+     "Height": 8.998686
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 17.928904,
+     "Corner radius": 4.746102,
+     "Height": 8.922195
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 13.042126,
+     "Corner radius": 4.305243,
+     "Height": 8.166383
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 25.544827,
+     "Corner radius": 1.705185,
+     "Height": 5.420914
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 32.145666,
+     "Corner radius": 1.495327,
+     "Height": 12.344064
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 36.201944,
+     "Corner radius": 5.293643,
+     "Height": 11.397632
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 28.888275,
+     "Corner radius": 2.828781,
+     "Height": 6.791959
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 30.889849,
+     "Corner radius": 4.760001,
+     "Height": 18.751252
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 15.180339,
+     "Corner radius": 3.105742,
+     "Height": 17.663515
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 36.5463,
+     "Corner radius": 4.939414,
+     "Height": 14.878855
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 16.192202,
+     "Corner radius": 2.443183,
+     "Height": 14.515323
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 25.286143,
+     "Corner radius": 6.499078,
+     "Height": 8.342519
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 19.28491,
+     "Corner radius": 7.672244,
+     "Height": 8.922387
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 37.062396,
+     "Corner radius": 2.089247,
+     "Height": 8.156202
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 11.977164,
+     "Corner radius": 4.214912,
+     "Height": 8.538091
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 18.665002,
+     "Corner radius": 6.973906,
+     "Height": 5.063313
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 10.381412,
+     "Corner radius": 5.114061,
+     "Height": 13.150661
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 31.361642,
+     "Corner radius": 7.223527,
+     "Height": 5.179818
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 17.037989,
+     "Corner radius": 3.072457,
+     "Height": 9.330486
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 29.404004,
+     "Corner radius": 7.296904,
+     "Height": 8.66839
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 20.158464,
+     "Corner radius": 7.328292,
+     "Height": 16.758539
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 10.502179,
+     "Corner radius": 3.7457,
+     "Height": 10.181414
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 27.111113,
+     "Corner radius": 5.561535,
+     "Height": 14.607906
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 37.204891,
+     "Corner radius": 5.083528,
+     "Height": 6.734991
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 15.502156,
+     "Corner radius": 7.622697,
+     "Height": 19.370336
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d03-fillet-corners",
+  "seed": 9,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Width": 15.961868,
+     "Corner radius": 6.958476,
+     "Height": 7.126492
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 34.650152,
+     "Corner radius": 6.066631,
+     "Height": 15.332924
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 17.881553,
+     "Corner radius": 7.43618,
+     "Height": 6.962925
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 28.968716,
+     "Corner radius": 5.88611,
+     "Height": 13.809281
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 18.502893,
+     "Corner radius": 7.564717,
+     "Height": 9.305337
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 31.908139,
+     "Corner radius": 5.493819,
+     "Height": 10.504051
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 26.066387,
+     "Corner radius": 7.282068,
+     "Height": 17.983383
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 23.659839,
+     "Corner radius": 7.115814,
+     "Height": 7.84724
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 30.318461,
+     "Corner radius": 3.334923,
+     "Height": 5.721424
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 36.289356,
+     "Corner radius": 2.431755,
+     "Height": 12.895343
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 24.822726,
+     "Corner radius": 1.523154,
+     "Height": 17.513393
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 31.111748,
+     "Corner radius": 2.377585,
+     "Height": 6.024971
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 24.663989,
+     "Corner radius": 3.167903,
+     "Height": 14.880946
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 18.764555,
+     "Corner radius": 4.873453,
+     "Height": 19.356038
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 27.036576,
+     "Corner radius": 2.120877,
+     "Height": 12.76309
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 19.759944,
+     "Corner radius": 4.757325,
+     "Height": 16.996207
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 27.311997,
+     "Corner radius": 5.295855,
+     "Height": 13.002968
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 29.697943,
+     "Corner radius": 4.477846,
+     "Height": 7.696271
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 37.890588,
+     "Corner radius": 5.178391,
+     "Height": 14.617375
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 26.590135,
+     "Corner radius": 5.597483,
+     "Height": 19.737937
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 37.52426,
+     "Corner radius": 1.150033,
+     "Height": 15.976275
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 12.851254,
+     "Corner radius": 5.660967,
+     "Height": 14.601491
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 39.245151,
+     "Corner radius": 6.141613,
+     "Height": 18.572768
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 33.835675,
+     "Corner radius": 2.625867,
+     "Height": 15.291816
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 38.715045,
+     "Corner radius": 1.858984,
+     "Height": 19.123853
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 30.562023,
+     "Corner radius": 6.552223,
+     "Height": 10.18907
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 33.073544,
+     "Corner radius": 3.259388,
+     "Height": 15.725485
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 35.721447,
+     "Corner radius": 1.485908,
+     "Height": 13.753293
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 26.705924,
+     "Corner radius": 3.241239,
+     "Height": 13.016702
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 18.511451,
+     "Corner radius": 4.415747,
+     "Height": 7.791931
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 34.582133,
+     "Corner radius": 5.847977,
+     "Height": 13.57056
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 38.301539,
+     "Corner radius": 6.888837,
+     "Height": 5.521554
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 16.450999,
+     "Corner radius": 5.170371,
+     "Height": 15.279619
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 15.932942,
+     "Corner radius": 2.839012,
+     "Height": 18.414147
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 29.274992,
+     "Corner radius": 1.018571,
+     "Height": 11.914314
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 12.728769,
+     "Corner radius": 2.342394,
+     "Height": 6.676446
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 15.29792,
+     "Corner radius": 2.341559,
+     "Height": 9.329559
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 34.785707,
+     "Corner radius": 2.026595,
+     "Height": 17.829648
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 30.691265,
+     "Corner radius": 6.827475,
+     "Height": 10.682355
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 38.44056,
+     "Corner radius": 4.718799,
+     "Height": 19.296422
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 34.843416,
+     "Corner radius": 4.377649,
+     "Height": 8.791952
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 37.621218,
+     "Corner radius": 7.591861,
+     "Height": 6.244413
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 20.775864,
+     "Corner radius": 3.419798,
+     "Height": 18.528684
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 23.06962,
+     "Corner radius": 3.930357,
+     "Height": 17.274996
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 32.140537,
+     "Corner radius": 4.866252,
+     "Height": 17.400188
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 12.107765,
+     "Corner radius": 1.042371,
+     "Height": 19.147703
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 36.296846,
+     "Corner radius": 7.408189,
+     "Height": 17.421878
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 36.505664,
+     "Corner radius": 6.452201,
+     "Height": 18.03917
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 20.704596,
+     "Corner radius": 4.25258,
+     "Height": 17.203075
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 14.902329,
+     "Corner radius": 3.788032,
+     "Height": 13.425003
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 25.657345,
+     "Corner radius": 7.230509,
+     "Height": 5.578254
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 25.302345,
+     "Corner radius": 1.805085,
+     "Height": 15.820757
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 22.09014,
+     "Corner radius": 5.649587,
+     "Height": 14.439707
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 15.672343,
+     "Corner radius": 2.999348,
+     "Height": 14.937107
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 19.467619,
+     "Corner radius": 7.253471,
+     "Height": 6.62579
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 26.549553,
+     "Corner radius": 5.86718,
+     "Height": 5.269966
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 13.932501,
+     "Corner radius": 2.179413,
+     "Height": 12.854469
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 38.010606,
+     "Corner radius": 4.231428,
+     "Height": 7.705273
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 24.012624,
+     "Corner radius": 2.726865,
+     "Height": 16.668583
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 38.494863,
+     "Corner radius": 4.311803,
+     "Height": 18.616597
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 28.272901,
+     "Corner radius": 1.91357,
+     "Height": 6.258192
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 16.060626,
+     "Corner radius": 5.432359,
+     "Height": 15.526232
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 27.687303,
+     "Corner radius": 3.853812,
+     "Height": 14.204616
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 34.789559,
+     "Corner radius": 1.724874,
+     "Height": 9.848117
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d03-fillet-corners",
+  "seed": 10,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Width": 25.05976,
+     "Corner radius": 7.422408,
+     "Height": 15.369775
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 34.06308,
+     "Corner radius": 4.201923,
+     "Height": 11.725193
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 16.068609,
+     "Corner radius": 1.584929,
+     "Height": 5.511902
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 39.901558,
+     "Corner radius": 7.454663,
+     "Height": 6.939912
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 21.783201,
+     "Corner radius": 3.716426,
+     "Height": 11.664719
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 37.770134,
+     "Corner radius": 3.03796,
+     "Height": 17.122458
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 38.081244,
+     "Corner radius": 2.105228,
+     "Height": 10.830558
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 30.861409,
+     "Corner radius": 4.644052,
+     "Height": 12.227053
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 18.837517,
+     "Corner radius": 3.396321,
+     "Height": 10.759855
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 25.516782,
+     "Corner radius": 1.321037,
+     "Height": 12.69064
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 11.154701,
+     "Corner radius": 1.520212,
+     "Height": 8.060707
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 14.395958,
+     "Corner radius": 1.595678,
+     "Height": 7.144403
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 33.026876,
+     "Corner radius": 4.386476,
+     "Height": 11.269427
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 28.889167,
+     "Corner radius": 6.565758,
+     "Height": 7.367639
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 23.339653,
+     "Corner radius": 7.425362,
+     "Height": 8.566191
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 33.690937,
+     "Corner radius": 5.788732,
+     "Height": 7.015505
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 27.925932,
+     "Corner radius": 7.15687,
+     "Height": 13.940964
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 10.46896,
+     "Corner radius": 6.19199,
+     "Height": 15.790071
+    },
+    "failing": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 28.511931,
+     "Corner radius": 6.603225,
+     "Height": 13.342172
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 21.665112,
+     "Corner radius": 3.209341,
+     "Height": 16.287506
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 13.615102,
+     "Corner radius": 3.719604,
+     "Height": 8.309669
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 11.741432,
+     "Corner radius": 7.140854,
+     "Height": 11.618998
+    },
+    "failing": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "builds",
+     "status",
+     "valid",
+     "one-solid",
+     "faces",
+     "gate-watertight",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Width": 23.320703,
+     "Corner radius": 2.10831,
+     "Height": 18.191857
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 22.714508,
+     "Corner radius": 7.071763,
+     "Height": 18.959859
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 12.045023,
+     "Corner radius": 2.143181,
+     "Height": 9.507469
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 39.535441,
+     "Corner radius": 7.680022,
+     "Height": 13.322031
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 10.023905,
+     "Corner radius": 2.423587,
+     "Height": 9.85758
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 32.213942,
+     "Corner radius": 7.143209,
+     "Height": 17.80175
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 35.349087,
+     "Corner radius": 3.284387,
+     "Height": 8.0613
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 18.7873,
+     "Corner radius": 7.843826,
+     "Height": 18.539246
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 30.746791,
+     "Corner radius": 6.417846,
+     "Height": 12.54648
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 22.293937,
+     "Corner radius": 2.634019,
+     "Height": 8.885455
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 28.556407,
+     "Corner radius": 3.464673,
+     "Height": 16.638833
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 10.87111,
+     "Corner radius": 4.80894,
+     "Height": 18.17837
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 34.018914,
+     "Corner radius": 4.529128,
+     "Height": 11.338318
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 34.282932,
+     "Corner radius": 7.270054,
+     "Height": 12.216816
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 16.615664,
+     "Corner radius": 2.813333,
+     "Height": 5.766236
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 36.790933,
+     "Corner radius": 3.184817,
+     "Height": 15.271746
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 29.883511,
+     "Corner radius": 4.836356,
+     "Height": 9.228595
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 20.443352,
+     "Corner radius": 3.102681,
+     "Height": 13.72121
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 23.784498,
+     "Corner radius": 5.787946,
+     "Height": 9.249189
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 32.072794,
+     "Corner radius": 7.653128,
+     "Height": 13.988865
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 13.869058,
+     "Corner radius": 1.247803,
+     "Height": 7.630829
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 34.225391,
+     "Corner radius": 4.343527,
+     "Height": 15.15675
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 30.306994,
+     "Corner radius": 6.604133,
+     "Height": 5.428876
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 25.603246,
+     "Corner radius": 3.02531,
+     "Height": 12.521587
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 12.140963,
+     "Corner radius": 2.768844,
+     "Height": 7.942209
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 37.172463,
+     "Corner radius": 6.303683,
+     "Height": 17.769795
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 21.769355,
+     "Corner radius": 2.524296,
+     "Height": 10.513661
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 34.099997,
+     "Corner radius": 7.491032,
+     "Height": 8.013778
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 17.277796,
+     "Corner radius": 4.443727,
+     "Height": 9.447533
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 31.817487,
+     "Corner radius": 7.154895,
+     "Height": 7.45405
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 20.814716,
+     "Corner radius": 2.1139,
+     "Height": 17.763867
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 37.96334,
+     "Corner radius": 6.240773,
+     "Height": 17.416246
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 21.828344,
+     "Corner radius": 1.710147,
+     "Height": 17.398957
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 35.933117,
+     "Corner radius": 4.815904,
+     "Height": 9.766443
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 15.259874,
+     "Corner radius": 4.674704,
+     "Height": 8.013027
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 25.214027,
+     "Corner radius": 3.270911,
+     "Height": 12.978316
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 27.071517,
+     "Corner radius": 1.379127,
+     "Height": 5.718785
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 26.137865,
+     "Corner radius": 4.23762,
+     "Height": 12.166203
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 21.680905,
+     "Corner radius": 4.268654,
+     "Height": 17.471828
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 16.058778,
+     "Corner radius": 4.874764,
+     "Height": 18.052849
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 22.180471,
+     "Corner radius": 7.588964,
+     "Height": 13.644278
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Width": 11.550699,
+     "Corner radius": 2.25862,
+     "Height": 10.190022
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ }
+]

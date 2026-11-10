@@ -1,0 +1,5540 @@
+[
+ {
+  "brief": "d11-hole-diagonal",
+  "seed": 1,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Offset A": 25.082958,
+     "Offset B": 0.109429
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 21.097882,
+     "Offset B": 39.242039
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 38.735116,
+     "Offset B": 11.24414
+    },
+    "failing": [
+     "faces",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "faces",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 24.513554,
+     "Offset B": 28.829726
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 17.031878,
+     "Offset B": 39.792918
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 18.210845,
+     "Offset B": 19.551533
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 5.557343,
+     "Offset B": 16.149791
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 9.900956,
+     "Offset B": 6.179725
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 19.565756,
+     "Offset B": 2.694795
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 15.784773,
+     "Offset B": 30.684321
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 11.434467,
+     "Offset B": 7.634943
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 1.709188,
+     "Offset B": 17.095278
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 23.6153,
+     "Offset B": 31.947369
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 11.794795,
+     "Offset B": 8.218791
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 26.325186,
+     "Offset B": 21.843294
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 30.337714,
+     "Offset B": 7.712561
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 28.837909,
+     "Offset B": 18.165441
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 30.816553,
+     "Offset B": 39.78136
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 9.573333,
+     "Offset B": 30.280052
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 6.130838,
+     "Offset B": 12.933265
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 16.527879,
+     "Offset B": 9.968506
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 6.083531,
+     "Offset B": 29.044193
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 23.053658,
+     "Offset B": 5.088435
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 10.586305,
+     "Offset B": 1.948939
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 24.888802,
+     "Offset B": 34.630883
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 9.539768,
+     "Offset B": 39.5751
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 28.732205,
+     "Offset B": 16.091916
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 12.094914,
+     "Offset B": 27.088598
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 38.105258,
+     "Offset B": 36.933247
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 27.709751,
+     "Offset B": 36.755351
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 33.376875,
+     "Offset B": 37.353532
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 4.592226,
+     "Offset B": 1.57792
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 34.747446,
+     "Offset B": 11.779037
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 35.249061,
+     "Offset B": 20.402345
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 37.43577,
+     "Offset B": 28.175815
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 6.650287,
+     "Offset B": 27.07236
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 37.955249,
+     "Offset B": 5.276823
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 39.115303,
+     "Offset B": 6.520513
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 15.534221,
+     "Offset B": 4.703905
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 16.049703,
+     "Offset B": 12.972997
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 26.302059,
+     "Offset B": 20.36258
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 21.261761,
+     "Offset B": 3.044498
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 32.31963,
+     "Offset B": 34.169548
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 10.911462,
+     "Offset B": 6.570759
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 12.13026,
+     "Offset B": 35.758966
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 11.597576,
+     "Offset B": 5.749165
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 26.183063,
+     "Offset B": 21.962436
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 12.984684,
+     "Offset B": 4.806625
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 5.653748,
+     "Offset B": 2.697138
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 12.033077,
+     "Offset B": 27.02432
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 26.057738,
+     "Offset B": 4.673546
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 20.326821,
+     "Offset B": 20.929469
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 8.473589,
+     "Offset B": 31.68794
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 10.093666,
+     "Offset B": 39.666154
+    },
+    "failing": [
+     "faces",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "faces",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 38.160332,
+     "Offset B": 34.800396
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 0.14829,
+     "Offset B": 7.318842
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 1.134024,
+     "Offset B": 39.370058
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 13.188712,
+     "Offset B": 28.826999
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 34.61636,
+     "Offset B": 3.754102
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 10.024341,
+     "Offset B": 34.790765
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 31.808552,
+     "Offset B": 31.672869
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 8.83225,
+     "Offset B": 3.85052
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 5.965498,
+     "Offset B": 16.346528
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 21.702177,
+     "Offset B": 11.491824
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d11-hole-diagonal",
+  "seed": 2,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Offset A": 29.370038,
+     "Offset B": 12.999937
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 11.411842,
+     "Offset B": 21.518206
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 35.011518,
+     "Offset B": 25.233334
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 19.968063,
+     "Offset B": 14.289786
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 31.263556,
+     "Offset B": 4.561269
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 31.43468,
+     "Offset B": 8.061814
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 16.969027,
+     "Offset B": 33.399898
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 23.252816,
+     "Offset B": 5.640268
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 26.889089,
+     "Offset B": 14.667931
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 38.864538,
+     "Offset B": 1.568045
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 36.607911,
+     "Offset B": 2.487324
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 5.120979,
+     "Offset B": 7.677345
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 0.284223,
+     "Offset B": 37.6041
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 18.082975,
+     "Offset B": 25.386087
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 39.536416,
+     "Offset B": 9.311974
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 18.718521,
+     "Offset B": 13.929663
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 2.105444,
+     "Offset B": 20.848793
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 3.81453,
+     "Offset B": 2.312726
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 38.41171,
+     "Offset B": 32.201068
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 0.025045,
+     "Offset B": 39.283173
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 2.900738,
+     "Offset B": 38.894922
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 21.095648,
+     "Offset B": 7.790342
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 27.115684,
+     "Offset B": 2.059144
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 31.118852,
+     "Offset B": 36.463505
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 33.085217,
+     "Offset B": 17.826768
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 37.953539,
+     "Offset B": 2.845921
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 28.563881,
+     "Offset B": 39.201186
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 33.55508,
+     "Offset B": 25.663417
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 20.976798,
+     "Offset B": 1.32542
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 33.950988,
+     "Offset B": 33.553301
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 21.919401,
+     "Offset B": 12.500095
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 36.103106,
+     "Offset B": 37.13427
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 17.878127,
+     "Offset B": 13.970755
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 0.737923,
+     "Offset B": 38.093226
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 12.533989,
+     "Offset B": 17.530137
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 31.967831,
+     "Offset B": 34.695078
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 36.780691,
+     "Offset B": 17.272456
+    },
+    "failing": [
+     "faces",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "faces",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 8.283844,
+     "Offset B": 25.848971
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 24.966886,
+     "Offset B": 28.528336
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 37.520995,
+     "Offset B": 8.205586
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 11.153829,
+     "Offset B": 13.812167
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 21.490078,
+     "Offset B": 1.099199
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 11.523526,
+     "Offset B": 33.22701
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 6.688371,
+     "Offset B": 31.078838
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 15.779721,
+     "Offset B": 16.765287
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 15.809287,
+     "Offset B": 33.750476
+    },
+    "failing": [
+     "faces",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "faces",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 19.026097,
+     "Offset B": 39.580284
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 10.397416,
+     "Offset B": 3.405961
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 28.322176,
+     "Offset B": 0.82404
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 29.369876,
+     "Offset B": 31.277575
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 25.899088,
+     "Offset B": 11.465614
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 13.068681,
+     "Offset B": 26.059711
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 4.300539,
+     "Offset B": 7.516019
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 29.297346,
+     "Offset B": 39.018845
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 25.218778,
+     "Offset B": 4.560963
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 23.132489,
+     "Offset B": 37.8234
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 1.150581,
+     "Offset B": 23.126174
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 20.660098,
+     "Offset B": 28.711025
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 33.864617,
+     "Offset B": 17.008536
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 20.442067,
+     "Offset B": 2.72318
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 34.508054,
+     "Offset B": 17.813452
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 9.070627,
+     "Offset B": 23.29822
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 18.436647,
+     "Offset B": 22.781394
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 20.838737,
+     "Offset B": 12.136405
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d11-hole-diagonal",
+  "seed": 3,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Offset A": 28.809071,
+     "Offset B": 1.546486
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 18.247688,
+     "Offset B": 2.99712
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 30.520216,
+     "Offset B": 19.247217
+    },
+    "failing": [
+     "faces",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "faces",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 19.469183,
+     "Offset B": 6.472023
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 10.530251,
+     "Offset B": 22.104289
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 7.79665,
+     "Offset B": 3.343715
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 28.551496,
+     "Offset B": 19.069122
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 31.749282,
+     "Offset B": 35.190933
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 12.944947,
+     "Offset B": 27.623256
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 11.469883,
+     "Offset B": 26.885617
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 21.057143,
+     "Offset B": 33.269354
+    },
+    "failing": [
+     "faces",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "faces",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 21.597885,
+     "Offset B": 0.464238
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 35.094175,
+     "Offset B": 12.41588
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 37.472872,
+     "Offset B": 30.774769
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 16.823211,
+     "Offset B": 28.587363
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 6.173278,
+     "Offset B": 14.716931
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 28.907973,
+     "Offset B": 0.057624
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 0.334233,
+     "Offset B": 19.132368
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 34.523023,
+     "Offset B": 24.118865
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 27.28259,
+     "Offset B": 31.452508
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 23.374406,
+     "Offset B": 23.270806
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 2.836758,
+     "Offset B": 14.891806
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 21.23723,
+     "Offset B": 33.540822
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 16.519425,
+     "Offset B": 18.55865
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 19.870425,
+     "Offset B": 22.835253
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 31.043243,
+     "Offset B": 34.217778
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 26.584088,
+     "Offset B": 14.891562
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 27.558221,
+     "Offset B": 27.993986
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 18.651767,
+     "Offset B": 39.152191
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 35.229979,
+     "Offset B": 28.504683
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 27.084841,
+     "Offset B": 38.104589
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 30.606784,
+     "Offset B": 2.275576
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 2.646072,
+     "Offset B": 21.503715
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 34.62021,
+     "Offset B": 13.793039
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 21.607822,
+     "Offset B": 11.597197
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 18.531724,
+     "Offset B": 22.079063
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 23.113191,
+     "Offset B": 15.644272
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 30.248338,
+     "Offset B": 6.919854
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 38.104624,
+     "Offset B": 25.722989
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 30.026422,
+     "Offset B": 30.799188
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 2.444495,
+     "Offset B": 16.499073
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 6.186345,
+     "Offset B": 27.628337
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 30.956925,
+     "Offset B": 24.847641
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 39.465444,
+     "Offset B": 39.612295
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 39.212413,
+     "Offset B": 23.312271
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 35.461254,
+     "Offset B": 38.013323
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 32.541702,
+     "Offset B": 12.643842
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 25.028825,
+     "Offset B": 37.757941
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 15.638377,
+     "Offset B": 23.954622
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 5.633398,
+     "Offset B": 25.241301
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 21.893483,
+     "Offset B": 10.256018
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 35.24976,
+     "Offset B": 1.964322
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 33.928617,
+     "Offset B": 3.531604
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 16.97542,
+     "Offset B": 35.579024
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 1.16181,
+     "Offset B": 26.812226
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 4.127708,
+     "Offset B": 11.518782
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 39.734683,
+     "Offset B": 20.934778
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 7.182011,
+     "Offset B": 0.206346
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 6.318991,
+     "Offset B": 25.949972
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 25.206858,
+     "Offset B": 33.108869
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 27.556561,
+     "Offset B": 32.302145
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 5.019875,
+     "Offset B": 7.706283
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 5.115289,
+     "Offset B": 24.368172
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 27.020731,
+     "Offset B": 23.101381
+    },
+    "failing": [
+     "faces",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "faces",
+     "gate-min-wall"
+    ]
+   }
+  ]
+ },
+ {
+  "brief": "d11-hole-diagonal",
+  "seed": 4,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Offset A": 36.945448,
+     "Offset B": 13.321835
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 8.866716,
+     "Offset B": 3.273641
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 9.35989,
+     "Offset B": 20.339874
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 3.09566,
+     "Offset B": 38.954477
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 24.881499,
+     "Offset B": 27.632618
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 30.725844,
+     "Offset B": 14.765947
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 29.299796,
+     "Offset B": 35.035003
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 21.150751,
+     "Offset B": 29.733846
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 16.869841,
+     "Offset B": 19.618006
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 29.436539,
+     "Offset B": 37.228931
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 39.181613,
+     "Offset B": 18.853763
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 13.918151,
+     "Offset B": 31.523619
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 10.772486,
+     "Offset B": 30.088344
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 21.102901,
+     "Offset B": 13.714768
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 18.234285,
+     "Offset B": 0.434903
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 19.418062,
+     "Offset B": 21.600814
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 30.552711,
+     "Offset B": 3.814593
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 32.290897,
+     "Offset B": 16.168672
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 13.190159,
+     "Offset B": 21.887351
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 2.421898,
+     "Offset B": 24.950193
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 11.131834,
+     "Offset B": 22.272988
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 5.872842,
+     "Offset B": 38.143885
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 34.102977,
+     "Offset B": 36.850929
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 14.001087,
+     "Offset B": 7.447254
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 26.347523,
+     "Offset B": 19.946468
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 2.700598,
+     "Offset B": 30.684656
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 38.261441,
+     "Offset B": 0.165044
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 19.266338,
+     "Offset B": 36.202128
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 27.5259,
+     "Offset B": 22.202792
+    },
+    "failing": [
+     "faces",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "faces",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 39.317177,
+     "Offset B": 11.564747
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 30.69483,
+     "Offset B": 14.472173
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 18.586927,
+     "Offset B": 28.05676
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 0.216475,
+     "Offset B": 9.583427
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 20.18944,
+     "Offset B": 31.503774
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 34.154436,
+     "Offset B": 2.881079
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 18.420168,
+     "Offset B": 25.510084
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 39.147564,
+     "Offset B": 24.547358
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 11.234699,
+     "Offset B": 28.347202
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 30.795821,
+     "Offset B": 12.312678
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 38.205655,
+     "Offset B": 30.925313
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 7.248965,
+     "Offset B": 39.397388
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 15.355305,
+     "Offset B": 39.17241
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 37.315152,
+     "Offset B": 18.317545
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 4.857337,
+     "Offset B": 3.259787
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 0.378941,
+     "Offset B": 4.557364
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 26.793925,
+     "Offset B": 4.680902
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 36.052995,
+     "Offset B": 37.464327
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 27.297657,
+     "Offset B": 14.024044
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 15.306357,
+     "Offset B": 26.804216
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 36.403071,
+     "Offset B": 9.914764
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 25.234066,
+     "Offset B": 29.19973
+    },
+    "failing": [
+     "faces",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "faces",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 24.251611,
+     "Offset B": 34.542149
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 37.464529,
+     "Offset B": 28.468055
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 4.380433,
+     "Offset B": 26.500991
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 33.893211,
+     "Offset B": 6.026958
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 11.269465,
+     "Offset B": 29.474878
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 15.033353,
+     "Offset B": 39.978422
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 36.690772,
+     "Offset B": 1.21581
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 30.538617,
+     "Offset B": 16.21783
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 36.031955,
+     "Offset B": 20.375507
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 1.972406,
+     "Offset B": 27.611158
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 1.893287,
+     "Offset B": 35.960462
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 24.494739,
+     "Offset B": 22.552404
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 17.571699,
+     "Offset B": 31.225928
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   }
+  ]
+ },
+ {
+  "brief": "d11-hole-diagonal",
+  "seed": 5,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Offset A": 27.590996,
+     "Offset B": 30.909731
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 8.79052,
+     "Offset B": 24.927153
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 3.405488,
+     "Offset B": 23.686598
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 28.80409,
+     "Offset B": 18.324169
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 36.22486,
+     "Offset B": 9.177159
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 31.194537,
+     "Offset B": 29.624513
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 26.422402,
+     "Offset B": 0.552857
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 18.616056,
+     "Offset B": 12.018203
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 35.861991,
+     "Offset B": 11.524635
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 30.211887,
+     "Offset B": 28.939332
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 10.143124,
+     "Offset B": 0.760735
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 31.74033,
+     "Offset B": 8.331499
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 10.904773,
+     "Offset B": 4.930477
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 18.803105,
+     "Offset B": 39.665736
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 9.8189,
+     "Offset B": 3.237795
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 33.943724,
+     "Offset B": 12.68097
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 16.302481,
+     "Offset B": 39.429496
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 10.879035,
+     "Offset B": 15.444097
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 8.690347,
+     "Offset B": 34.768976
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 28.894457,
+     "Offset B": 35.152499
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 20.462116,
+     "Offset B": 32.202745
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 25.966227,
+     "Offset B": 5.585179
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 25.441903,
+     "Offset B": 23.10476
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 12.607332,
+     "Offset B": 31.155423
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 24.376724,
+     "Offset B": 0.325076
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 37.280412,
+     "Offset B": 13.660772
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 14.004378,
+     "Offset B": 34.984098
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 9.967802,
+     "Offset B": 7.008811
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 33.346638,
+     "Offset B": 11.155623
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 39.931462,
+     "Offset B": 0.549021
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 14.042488,
+     "Offset B": 30.340235
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 12.569271,
+     "Offset B": 26.430341
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 3.071063,
+     "Offset B": 3.197475
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 29.398392,
+     "Offset B": 20.988962
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 10.137463,
+     "Offset B": 37.20162
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 1.98118,
+     "Offset B": 29.388408
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 38.154952,
+     "Offset B": 11.408951
+    },
+    "failing": [
+     "faces",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "faces",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 21.326824,
+     "Offset B": 34.260373
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 33.87263,
+     "Offset B": 23.155727
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 38.259417,
+     "Offset B": 28.099436
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 21.607257,
+     "Offset B": 4.396163
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 11.761936,
+     "Offset B": 21.17829
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 6.200049,
+     "Offset B": 10.084381
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 30.674493,
+     "Offset B": 5.543096
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 3.202119,
+     "Offset B": 13.067741
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 32.224916,
+     "Offset B": 25.726519
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 16.501302,
+     "Offset B": 3.904123
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 11.620562,
+     "Offset B": 38.276473
+    },
+    "failing": [
+     "faces",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "faces",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 13.058201,
+     "Offset B": 28.111177
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 29.766095,
+     "Offset B": 4.088529
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 31.340266,
+     "Offset B": 37.268713
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 24.228873,
+     "Offset B": 4.45566
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 14.471313,
+     "Offset B": 16.11918
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 2.074235,
+     "Offset B": 16.85205
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 36.712162,
+     "Offset B": 12.450737
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 30.672474,
+     "Offset B": 2.080564
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 32.656857,
+     "Offset B": 4.026271
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 20.477731,
+     "Offset B": 33.074385
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 8.388931,
+     "Offset B": 23.859265
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 4.036286,
+     "Offset B": 14.553358
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 26.537809,
+     "Offset B": 10.168358
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 27.252155,
+     "Offset B": 9.593392
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 10.132485,
+     "Offset B": 39.386774
+    },
+    "failing": [
+     "faces",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "faces",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 25.725088,
+     "Offset B": 18.116543
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d11-hole-diagonal",
+  "seed": 6,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Offset A": 21.029864,
+     "Offset B": 0.093742
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 26.526857,
+     "Offset B": 8.086508
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 21.684784,
+     "Offset B": 2.830555
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 0.181514,
+     "Offset B": 36.837056
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 38.822226,
+     "Offset B": 8.402114
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 37.359856,
+     "Offset B": 15.309577
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 0.894073,
+     "Offset B": 2.06162
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 18.119835,
+     "Offset B": 31.369364
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 25.250945,
+     "Offset B": 19.241878
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 16.266125,
+     "Offset B": 7.968519
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 39.515192,
+     "Offset B": 37.80521
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 10.765109,
+     "Offset B": 37.795151
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 34.135512,
+     "Offset B": 39.358056
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 27.939533,
+     "Offset B": 37.778547
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 38.468596,
+     "Offset B": 37.772616
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 8.731509,
+     "Offset B": 22.10374
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 8.21568,
+     "Offset B": 11.672423
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 8.520505,
+     "Offset B": 33.25297
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 16.197497,
+     "Offset B": 23.264485
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 23.132057,
+     "Offset B": 35.419015
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 22.850458,
+     "Offset B": 35.017474
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 28.541538,
+     "Offset B": 22.922309
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 10.90274,
+     "Offset B": 34.086402
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 32.414517,
+     "Offset B": 8.174242
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 16.772481,
+     "Offset B": 14.485366
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 26.319841,
+     "Offset B": 0.868056
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 13.248841,
+     "Offset B": 11.680262
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 10.26401,
+     "Offset B": 12.103058
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 10.548875,
+     "Offset B": 14.914551
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 3.616978,
+     "Offset B": 14.422029
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 3.330066,
+     "Offset B": 37.152652
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 20.017105,
+     "Offset B": 4.608402
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 19.578339,
+     "Offset B": 18.95878
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 2.210542,
+     "Offset B": 17.730351
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 26.676954,
+     "Offset B": 11.782929
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 11.57399,
+     "Offset B": 37.062919
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 4.828234,
+     "Offset B": 6.480594
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 23.47068,
+     "Offset B": 27.649235
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 29.381771,
+     "Offset B": 35.916289
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 6.352499,
+     "Offset B": 23.707199
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 16.847118,
+     "Offset B": 29.043911
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 5.975012,
+     "Offset B": 7.638294
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 33.518459,
+     "Offset B": 3.194589
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 4.055966,
+     "Offset B": 23.107852
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 11.992595,
+     "Offset B": 29.318339
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 20.131401,
+     "Offset B": 35.179113
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 30.870616,
+     "Offset B": 7.617606
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 10.898084,
+     "Offset B": 21.048616
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 13.428754,
+     "Offset B": 21.346549
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 6.489258,
+     "Offset B": 4.895221
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 7.654223,
+     "Offset B": 16.414966
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 5.821152,
+     "Offset B": 29.66347
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 29.165806,
+     "Offset B": 0.237441
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 24.97784,
+     "Offset B": 2.154322
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 36.098124,
+     "Offset B": 16.889303
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 32.939556,
+     "Offset B": 33.266837
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 37.396479,
+     "Offset B": 15.751168
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 27.881384,
+     "Offset B": 0.899886
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 15.5229,
+     "Offset B": 35.795138
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 8.35184,
+     "Offset B": 27.537768
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 3.809943,
+     "Offset B": 15.140697
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 3.388421,
+     "Offset B": 7.692713
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 31.021753,
+     "Offset B": 23.615461
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 20.005871,
+     "Offset B": 10.983764
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d11-hole-diagonal",
+  "seed": 7,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Offset A": 0.46819,
+     "Offset B": 2.47833
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 39.076305,
+     "Offset B": 27.961148
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 20.857811,
+     "Offset B": 16.220868
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 18.649305,
+     "Offset B": 9.597007
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 22.133024,
+     "Offset B": 29.192884
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 10.312622,
+     "Offset B": 6.237935
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 30.563595,
+     "Offset B": 20.736102
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 7.88549,
+     "Offset B": 14.718344
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 11.729894,
+     "Offset B": 21.389581
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 11.85321,
+     "Offset B": 39.117844
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 9.901344,
+     "Offset B": 35.111184
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 7.631668,
+     "Offset B": 5.746295
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 6.185761,
+     "Offset B": 11.638049
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 21.916057,
+     "Offset B": 30.474948
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 2.980724,
+     "Offset B": 36.517628
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 22.14843,
+     "Offset B": 24.864993
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 27.203636,
+     "Offset B": 38.639588
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 24.975226,
+     "Offset B": 36.848194
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 33.105139,
+     "Offset B": 1.599139
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 6.997662,
+     "Offset B": 14.279241
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 17.012629,
+     "Offset B": 0.807045
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 3.524249,
+     "Offset B": 30.720634
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 14.758772,
+     "Offset B": 17.068628
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 18.746505,
+     "Offset B": 37.848847
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 28.131243,
+     "Offset B": 27.531899
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 13.225917,
+     "Offset B": 14.253381
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 5.551648,
+     "Offset B": 5.33173
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 36.521395,
+     "Offset B": 12.897079
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 7.615021,
+     "Offset B": 25.28835
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 13.470837,
+     "Offset B": 1.745253
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 27.370151,
+     "Offset B": 36.854871
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 21.914906,
+     "Offset B": 33.063101
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 26.209775,
+     "Offset B": 36.79512
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 4.681656,
+     "Offset B": 21.197164
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 25.966641,
+     "Offset B": 35.642596
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 38.419936,
+     "Offset B": 33.518299
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 23.769383,
+     "Offset B": 38.554832
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 38.700253,
+     "Offset B": 21.942731
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 32.74072,
+     "Offset B": 0.227998
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 20.64294,
+     "Offset B": 13.122255
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 28.970864,
+     "Offset B": 21.979804
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 30.216654,
+     "Offset B": 39.077358
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 22.302133,
+     "Offset B": 32.926379
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 17.199765,
+     "Offset B": 25.694056
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 29.542147,
+     "Offset B": 22.067868
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 12.495353,
+     "Offset B": 9.473407
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 0.372593,
+     "Offset B": 0.962912
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 37.735876,
+     "Offset B": 33.334757
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 25.224056,
+     "Offset B": 0.576049
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 24.755843,
+     "Offset B": 23.795865
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 28.67399,
+     "Offset B": 39.794425
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 11.119896,
+     "Offset B": 39.451011
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 25.998843,
+     "Offset B": 32.196698
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 24.975957,
+     "Offset B": 33.205556
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 5.562566,
+     "Offset B": 39.767945
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 20.277267,
+     "Offset B": 22.675597
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 6.43529,
+     "Offset B": 15.846651
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 8.426762,
+     "Offset B": 32.541689
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 34.462692,
+     "Offset B": 29.436772
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 26.338208,
+     "Offset B": 39.609716
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 24.372399,
+     "Offset B": 29.458205
+    },
+    "failing": [
+     "faces",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "faces",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 38.215545,
+     "Offset B": 19.568792
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 9.190934,
+     "Offset B": 23.360308
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 31.827266,
+     "Offset B": 34.156776
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d11-hole-diagonal",
+  "seed": 8,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Offset A": 6.251807,
+     "Offset B": 25.00769
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 12.026583,
+     "Offset B": 27.838171
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 23.400364,
+     "Offset B": 17.97596
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 32.750382,
+     "Offset B": 9.552582
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 20.264707,
+     "Offset B": 2.405523
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 20.567357,
+     "Offset B": 2.934337
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 22.778186,
+     "Offset B": 8.814391
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 6.421905,
+     "Offset B": 38.189306
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 27.737213,
+     "Offset B": 3.639832
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 5.112288,
+     "Offset B": 1.575352
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 22.239456,
+     "Offset B": 17.763833
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 30.108745,
+     "Offset B": 30.967416
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 1.586857,
+     "Offset B": 18.157958
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 14.34458,
+     "Offset B": 20.016548
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 12.840719,
+     "Offset B": 20.742249
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 4.985246,
+     "Offset B": 34.436361
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 12.95982,
+     "Offset B": 29.324569
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 35.986835,
+     "Offset B": 20.456089
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 27.397678,
+     "Offset B": 30.176874
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 25.969508,
+     "Offset B": 12.311412
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 11.066971,
+     "Offset B": 4.163557
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 12.40588,
+     "Offset B": 39.994688
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 22.728495,
+     "Offset B": 16.137033
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 1.916253,
+     "Offset B": 17.694471
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 31.568258,
+     "Offset B": 39.913031
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 9.998459,
+     "Offset B": 34.419854
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 2.930262,
+     "Offset B": 21.874822
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 21.438667,
+     "Offset B": 7.134462
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 16.215403,
+     "Offset B": 4.606701
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 4.286257,
+     "Offset B": 39.773039
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 33.533507,
+     "Offset B": 7.633046
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 0.905653,
+     "Offset B": 38.358387
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 24.260421,
+     "Offset B": 31.771167
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 16.003657,
+     "Offset B": 17.803885
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 1.230359,
+     "Offset B": 16.685669
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 12.001028,
+     "Offset B": 28.092636
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 0.044455,
+     "Offset B": 30.08963
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 14.97586,
+     "Offset B": 10.253625
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 39.325873,
+     "Offset B": 35.482697
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 33.641566,
+     "Offset B": 23.534556
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 26.801339,
+     "Offset B": 38.185984
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 12.407022,
+     "Offset B": 3.789203
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 23.382711,
+     "Offset B": 15.87064
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 13.465967,
+     "Offset B": 35.695848
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 12.954049,
+     "Offset B": 21.957073
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 11.380353,
+     "Offset B": 28.947995
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 21.377095,
+     "Offset B": 16.126661
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 29.593655,
+     "Offset B": 20.74507
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 28.620913,
+     "Offset B": 33.038404
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 14.54155,
+     "Offset B": 10.640007
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 39.11505,
+     "Offset B": 2.366967
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 3.663208,
+     "Offset B": 27.350993
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 12.683405,
+     "Offset B": 37.46175
+    },
+    "failing": [
+     "faces",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "faces",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 1.238667,
+     "Offset B": 23.161187
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 14.367566,
+     "Offset B": 27.331111
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 4.787197,
+     "Offset B": 7.62816
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 10.317949,
+     "Offset B": 30.177683
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 30.102089,
+     "Offset B": 4.40423
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 21.359281,
+     "Offset B": 17.613936
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 24.594984,
+     "Offset B": 10.663163
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 10.571872,
+     "Offset B": 21.406299
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 10.459187,
+     "Offset B": 4.056168
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 18.887104,
+     "Offset B": 8.443687
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 20.726436,
+     "Offset B": 4.029629
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d11-hole-diagonal",
+  "seed": 9,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Offset A": 7.949157,
+     "Offset B": 34.048432
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 5.670644,
+     "Offset B": 32.866869
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 28.952176,
+     "Offset B": 27.554464
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 10.508737,
+     "Offset B": 36.77817
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 5.234466,
+     "Offset B": 25.291621
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 27.920631,
+     "Offset B": 23.491416
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 11.337191,
+     "Offset B": 37.512669
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 11.480899,
+     "Offset B": 29.210852
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 25.678964,
+     "Offset B": 14.677469
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 21.421849,
+     "Offset B": 35.897533
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 34.622354,
+     "Offset B": 18.213119
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 34.947509,
+     "Offset B": 7.592639
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 27.091281,
+     "Offset B": 13.342417
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 1.923796,
+     "Offset B": 35.052475
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 8.181455,
+     "Offset B": 21.054249
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 19.763634,
+     "Offset B": 2.989452
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 33.369048,
+     "Offset B": 28.148997
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 7.871917,
+     "Offset B": 2.733256
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 19.551985,
+     "Offset B": 12.388016
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 26.349188,
+     "Offset B": 11.686074
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 22.134015,
+     "Offset B": 38.282768
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 22.715434,
+     "Offset B": 6.405011
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 20.701573,
+     "Offset B": 13.013259
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 21.470431,
+     "Offset B": 31.989886
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 23.082662,
+     "Offset B": 24.547741
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 21.341248,
+     "Offset B": 26.263924
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 19.873405,
+     "Offset B": 7.190056
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 37.187451,
+     "Offset B": 23.876521
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 25.646333,
+     "Offset B": 22.12018
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 26.271332,
+     "Offset B": 39.301164
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 36.699014,
+     "Offset B": 0.857332
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 29.270068,
+     "Offset B": 3.801673
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 26.634097,
+     "Offset B": 25.603976
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 38.993535,
+     "Offset B": 29.380645
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 36.194048,
+     "Offset B": 31.7809
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 9.290671,
+     "Offset B": 27.444844
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 38.286726,
+     "Offset B": 4.908483
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 37.663608,
+     "Offset B": 27.416031
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 31.72699,
+     "Offset B": 13.83752
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 30.764726,
+     "Offset B": 12.910788
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 28.601293,
+     "Offset B": 34.295262
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 2.776616,
+     "Offset B": 23.342114
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 22.274565,
+     "Offset B": 12.807081
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 21.377872,
+     "Offset B": 11.348602
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 19.518554,
+     "Offset B": 7.445148
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 32.776178,
+     "Offset B": 27.702727
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 22.854827,
+     "Offset B": 37.735385
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 33.650495,
+     "Offset B": 1.390812
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 8.601332,
+     "Offset B": 23.830692
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 27.412317,
+     "Offset B": 7.910589
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 10.508638,
+     "Offset B": 35.771059
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 25.699989,
+     "Offset B": 0.106119
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 18.438172,
+     "Offset B": 3.638359
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 7.67082,
+     "Offset B": 4.470523
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 7.063894,
+     "Offset B": 7.666054
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 11.54549,
+     "Offset B": 33.047609
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 5.866256,
+     "Offset B": 34.212395
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 27.588354,
+     "Offset B": 33.299856
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 15.152947,
+     "Offset B": 37.920747
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 21.250279,
+     "Offset B": 38.123791
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 33.124555,
+     "Offset B": 19.300851
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 10.111872,
+     "Offset B": 36.828291
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 37.667775,
+     "Offset B": 3.318434
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 14.367818,
+     "Offset B": 13.827417
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d11-hole-diagonal",
+  "seed": 10,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Offset A": 20.07968,
+     "Offset B": 36.699472
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 27.652732,
+     "Offset B": 32.084107
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 18.296706,
+     "Offset B": 17.933848
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 8.091478,
+     "Offset B": 3.342451
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 1.365073,
+     "Offset B": 39.868744
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 36.883789,
+     "Offset B": 5.173098
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 15.710935,
+     "Offset B": 15.522432
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 17.772585,
+     "Offset B": 37.026846
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 11.645484,
+     "Offset B": 32.326556
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 37.441659,
+     "Offset B": 6.315587
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 15.548156,
+     "Offset B": 27.815212
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 20.823153,
+     "Offset B": 19.272142
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 11.783355,
+     "Offset B": 13.693265
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 15.359613,
+     "Offset B": 20.689043
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 1.834496,
+     "Offset B": 20.508373
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 1.539601,
+     "Offset B": 2.972639
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 8.161886,
+     "Offset B": 5.861277
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 3.403872,
+     "Offset B": 5.718408
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 30.702501,
+     "Offset B": 19.351292
+    },
+    "failing": [
+     "faces",
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "faces",
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 16.718473,
+     "Offset B": 25.185556
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 31.804333,
+     "Offset B": 6.313704
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 17.786205,
+     "Offset B": 36.716351
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 9.509844,
+     "Offset B": 31.587916
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 27.364182,
+     "Offset B": 5.374679
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 23.901242,
+     "Offset B": 35.182114
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 23.842571,
+     "Offset B": 0.62528
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 29.668513,
+     "Offset B": 28.773523
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 24.682575,
+     "Offset B": 32.018429
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 22.245791,
+     "Offset B": 15.553483
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 12.624804,
+     "Offset B": 30.100015
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 4.820136,
+     "Offset B": 15.540592
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 8.825783,
+     "Offset B": 2.32191
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 35.090595,
+     "Offset B": 17.650662
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 17.760937,
+     "Offset B": 6.333201
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 35.178285,
+     "Offset B": 16.952678
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 34.695788,
+     "Offset B": 37.22629
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 2.726698,
+     "Offset B": 6.532462
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 12.019919,
+     "Offset B": 39.380588
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 38.171553,
+     "Offset B": 22.192084
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 0.031874,
+     "Offset B": 8.134785
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 12.953547,
+     "Offset B": 29.61859
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 35.104054,
+     "Offset B": 34.138
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 33.798783,
+     "Offset B": 13.053638
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 8.163466,
+     "Offset B": 11.7164
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 39.107578,
+     "Offset B": 36.104655
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 27.662389,
+     "Offset B": 30.959119
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 20.123945,
+     "Offset B": 16.391916
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 9.337249,
+     "Offset B": 10.361214
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 24.741876,
+     "Offset B": 14.083844
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 31.036887,
+     "Offset B": 1.16148
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 21.765374,
+     "Offset B": 35.142319
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 32.025219,
+     "Offset B": 20.166443
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 16.902181,
+     "Offset B": 32.377243
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 35.828881,
+     "Offset B": 19.244843
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Offset A": 8.820885,
+     "Offset B": 10.361905
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 2.043297,
+     "Offset B": 35.721243
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 12.484666,
+     "Offset B": 27.391324
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 26.511348,
+     "Offset B": 21.922035
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 11.276254,
+     "Offset B": 13.924469
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 12.01532,
+     "Offset B": 23.256559
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 18.379331,
+     "Offset B": 27.359692
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 11.331171,
+     "Offset B": 29.430392
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 38.017877,
+     "Offset B": 23.970307
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Offset A": 5.158744,
+     "Offset B": 1.416014
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ }
+]

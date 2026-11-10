@@ -1,0 +1,9868 @@
+{
+ "certificate": "o3dj-envelope-cert/spike-0",
+ "brief": "enclosure",
+ "brief_hash": "d34320bccb64e3bdbe8a3f5976e022c1c86bee1cf983a855bb333c8d91ccf634",
+ "script_hash": "9b29a9cf988580824287d23cc7e732e21e38df4362f2edf64f855b7254dfe4e3",
+ "inputs_hash": "ea6b213b6d94058c043878dace2fee0e2484d332380f4447d33ad4ad3ac6ba72",
+ "engine": {
+  "occt_wasm": "5.8.1",
+  "node": "v24.22.1",
+  "analysis": "2"
+ },
+ "platform": "linux-x64",
+ "seed": 1,
+ "budget": 64,
+ "watch_mm": 1,
+ "verdict": "holds",
+ "statement": "holds at 64 points under this model (apart from 2 nominal failure(s))",
+ "nominal_failures": [
+  "shank-in-pocket",
+  "gate-overhang-base"
+ ],
+ "counterexamples": [],
+ "compass_on": "size-x",
+ "events": [],
+ "smallest_margins": [
+  {
+   "id": "builds",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "status",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "valid",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "occurrences",
+   "signed": 0,
+   "scale": 1,
+   "normalized": 0,
+   "at": 0
+  },
+  {
+   "id": "definitions",
+   "signed": 0,
+   "scale": 1,
+   "normalized": 0,
+   "at": 0
+  },
+  {
+   "id": "screws",
+   "signed": 0,
+   "scale": 1,
+   "normalized": 0,
+   "at": 0
+  },
+  {
+   "id": "screw-clones",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "no-clash",
+   "signed": 0,
+   "scale": 0.01,
+   "normalized": 0,
+   "at": 0
+  },
+  {
+   "id": "heads-seated",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "size-x",
+   "signed": 0.001,
+   "scale": 0.18,
+   "normalized": 0.005555555555555556,
+   "at": 2
+  },
+  {
+   "id": "size-y",
+   "signed": 0.001,
+   "scale": 0.14,
+   "normalized": 0.007142857142857143,
+   "at": 2
+  },
+  {
+   "id": "size-z",
+   "signed": 0.001,
+   "scale": 0.084,
+   "normalized": 0.011904761904761904,
+   "at": 2
+  },
+  {
+   "id": "gate-watertight-base",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "gate-min-wall-base",
+   "signed": 1.1699999999999997,
+   "scale": 0.04,
+   "normalized": 29.249999999999993,
+   "at": 1
+  },
+  {
+   "id": "gate-bed-base",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "gate-watertight-lid",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "gate-min-wall-lid",
+   "signed": 0.15999999999999992,
+   "scale": 0.04,
+   "normalized": 3.999999999999998,
+   "at": 0
+  },
+  {
+   "id": "gate-overhang-lid",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  },
+  {
+   "id": "gate-bed-lid",
+   "signed": null,
+   "scale": 1,
+   "normalized": null,
+   "at": 0
+  }
+ ],
+ "coverage": {
+  "points": 64,
+  "phases": {
+   "nominal": 1,
+   "corner": 8,
+   "special": 6,
+   "halton": 33,
+   "compass": 16
+  },
+  "corners_planned": 8,
+  "special_planned": 6,
+  "axes": [
+   {
+    "name": "Width",
+    "min_seen": 60,
+    "max_seen": 180,
+    "min": 60,
+    "max": 180
+   },
+   {
+    "name": "Depth",
+    "min_seen": 50,
+    "max_seen": 140,
+    "min": 50,
+    "max": 140
+   },
+   {
+    "name": "Height",
+    "min_seen": 20,
+    "max_seen": 80,
+    "min": 20,
+    "max": 80
+   }
+  ]
+ },
+ "limits": [
+  "Sampling is not proof: the brief was checked at the points listed under this model, never for all values. A thin band can hide between samples.",
+  "The gates are fdm.v1 rule checks on the kernel's geometry (watertight, 0.8 mm min_wall from rays, 45 degree overhang, bed), never a print simulation.",
+  "Fits are exact OCCT clash, contact and clearance checks within the fit watch distance; a pair with no line inside it is censored, not a measured pass.",
+  "Bit-identical replay is only claimed for the platform named here.",
+  "Fit watch distance 1 mm."
+ ],
+ "points": [
+  {
+   "index": 0,
+   "phase": "nominal",
+   "fresh": [],
+   "params": {
+    "Width": 100,
+    "Depth": 70,
+    "Height": 32
+   },
+   "ok": true,
+   "report_hash": "01c3c45b8acd3f1303b754a2bf819346db49485a97c0398eea9f67938bf55bb0",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:63c46807a9e569be",
+    "lid": "s1:56323e3f2ab2cff4"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.1
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.07
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.036000000000000004
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 1,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Width": 60,
+    "Depth": 50,
+    "Height": 20
+   },
+   "ok": true,
+   "report_hash": "3f33e4504efb9b0ad4c837be59de84f5515c72bfcfdaf5275f5752b2a55a2815",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:9cfb7c4c18073c2c",
+    "lid": "s1:b7d15b35068d98a3"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.024
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.1699999999999997,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 2,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Width": 180,
+    "Depth": 140,
+    "Height": 80
+   },
+   "ok": true,
+   "report_hash": "c552b774488001c4ce2ec33eec5e58386b8c9ec9f11992b8dc8df19e12b736ea",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:d4a456881da8bd86",
+    "lid": "s1:9c5cb463c4e4ee5f"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.18
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.14
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.084
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 3,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Width": 180,
+    "Depth": 50,
+    "Height": 20
+   },
+   "ok": true,
+   "report_hash": "dc1f8efdfe9356279331308f72a11b9bb9e5f0e24d631cdfbcc1504b79415bb6",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:caa96328679343dd",
+    "lid": "s1:499761223206e580"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.18
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.024
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.1699999999999997,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 4,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Width": 60,
+    "Depth": 140,
+    "Height": 80
+   },
+   "ok": true,
+   "report_hash": "6277e46567390c6060781839f546e7483e29dd1eea79a216c98be4e9b9a47402",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:d4cd48ddf4d413cb",
+    "lid": "s1:b556ca51b6c492cb"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.14
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.084
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 5,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Width": 60,
+    "Depth": 140,
+    "Height": 20
+   },
+   "ok": true,
+   "report_hash": "f6790e57e3af29bf941240b989b5293d4866800322aea500bb26533f06b74a91",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:eb5a7a831354c22e",
+    "lid": "s1:b556ca51b6c492cb"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.14
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.024
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.1699999999999997,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 6,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Width": 180,
+    "Depth": 50,
+    "Height": 80
+   },
+   "ok": true,
+   "report_hash": "a8666cd3f088e2fc98ec75aabea800cf8592370fca312989f2c48acc187a2909",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:3821114316400e8d",
+    "lid": "s1:499761223206e580"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.18
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.084
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 7,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Width": 180,
+    "Depth": 140,
+    "Height": 20
+   },
+   "ok": true,
+   "report_hash": "7fd8bdc43b78f2deb70b6e6f8cd4980ccc4630d88da9af817403eb2218042629",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:d289566fdacd30d5",
+    "lid": "s1:9c5cb463c4e4ee5f"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.18
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.14
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.024
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.1699999999999997,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 8,
+   "phase": "corner",
+   "fresh": [],
+   "params": {
+    "Width": 60,
+    "Depth": 50,
+    "Height": 80
+   },
+   "ok": true,
+   "report_hash": "49e6f97951d5d5ca23b4fd035686231c69edc4765cd9de657c5ae936973f49fb",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:8b7b4328f4b1fd98",
+    "lid": "s1:b7d15b35068d98a3"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.084
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 9,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Width": 60,
+    "Depth": 70,
+    "Height": 32
+   },
+   "ok": true,
+   "report_hash": "f97be1ab90e1adb3ed703a746e535da1c26a7327365f2a90a7b7f25dcf9d93d7",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:611f93e9cbdb0720",
+    "lid": "s1:a8589b4945ac39f1"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.07
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.036000000000000004
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 10,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Width": 180,
+    "Depth": 70,
+    "Height": 32
+   },
+   "ok": true,
+   "report_hash": "2fcc702ca6df381ea63783e040287432f1132b656167b5cbd2695def754ba319",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:ad0f8f083675de5b",
+    "lid": "s1:c5d113361495ac3e"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.18
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.07
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.036000000000000004
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 11,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Width": 100,
+    "Depth": 50,
+    "Height": 32
+   },
+   "ok": true,
+   "report_hash": "afb4f39a7b086af1b1ff3d0b5b115ae86306b8457eaa858ce9ffb2843ba21e54",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:97f11a4f4ebe1868",
+    "lid": "s1:3d00d05930e21162"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.1
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.05
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.036000000000000004
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 12,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Width": 100,
+    "Depth": 140,
+    "Height": 32
+   },
+   "ok": true,
+   "report_hash": "ea8e72c777e12ce8869a787fee73e2173acb1f9a8f3a8e2698ae4648d0aba6da",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:20cf155464669ff7",
+    "lid": "s1:342bf76d3fcd4862"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.1
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.14
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.036000000000000004
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 13,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Width": 100,
+    "Depth": 70,
+    "Height": 20
+   },
+   "ok": true,
+   "report_hash": "7ffd3adf68770a2572fc898a3caa544fac52d521a1435727a4a620d834fd028e",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:8a0b3d5bb9ccd0f0",
+    "lid": "s1:56323e3f2ab2cff4"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.1
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.07
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.024
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.1699999999999997,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 14,
+   "phase": "special",
+   "fresh": [],
+   "params": {
+    "Width": 100,
+    "Depth": 70,
+    "Height": 80
+   },
+   "ok": true,
+   "report_hash": "97ca1646b014b5a94bcaab241361c7aee27fac36d3e68ca2bf813e82d4a5f437",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:58e4c45660c4f2f8",
+    "lid": "s1:56323e3f2ab2cff4"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.1
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.07
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.084
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 15,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 68.641066,
+    "Depth": 114.918962,
+    "Height": 52.030861
+   },
+   "ok": true,
+   "report_hash": "662954b09b6a5e70f32f7e4e9026b4fe104abc3663ad8d1b5682a9d15bbdb02b",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:475c87858d273de5",
+    "lid": "s1:e6a569c063197b91"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.068641066
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.114918962
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.056030861
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 16,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 128.641066,
+    "Depth": 64.918962,
+    "Height": 64.030861
+   },
+   "ok": true,
+   "report_hash": "e542f2b3473b9dec5fb1cbb03acac23f6317c229abf216eb77b24529139b2f55",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:799fd25124108da6",
+    "lid": "s1:e0b30272bd441f1a"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.128641066
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.064918962
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.068030861
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 17,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 98.641066,
+    "Depth": 94.918962,
+    "Height": 76.030861
+   },
+   "ok": true,
+   "report_hash": "b2a4d79f9a65c5259957afc70736ddf38370634e9cd02943465edfb9d6eafa0a",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:dfe80b6147916bf4",
+    "lid": "s1:7517e08e82b171ce"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.098641066
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.094918962
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.08003086100000001
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 18,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 158.641066,
+    "Depth": 124.918962,
+    "Height": 30.430861
+   },
+   "ok": true,
+   "report_hash": "25fc21a627424b2271340e95baedf859ca5290bc1c61cc54a0d95c6c2d790b49",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:4609503a55f4109c",
+    "lid": "s1:c273fc235fc9b6e3"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.158641066
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.124918962
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.034430861
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 19,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 83.641066,
+    "Depth": 138.252296,
+    "Height": 42.430861
+   },
+   "ok": true,
+   "report_hash": "578c70e0cd3a848824fdbd11601199d2f1245872f3c4f76f09e284563768ec8d",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:0e3af44eef619b6b",
+    "lid": "s1:71ed0f28611f634c"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.083641066
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.138252296
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.046430861000000004
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 20,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 143.641066,
+    "Depth": 78.252296,
+    "Height": 54.430861
+   },
+   "ok": true,
+   "report_hash": "8ce6f77585dfeef0609122428371970157aa2497efde8eddc82198eb952b1208",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:d654a565adee9893",
+    "lid": "s1:6c7d5ec2345986d4"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.143641066
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.078252296
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.058430861
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 21,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 113.641066,
+    "Depth": 108.252296,
+    "Height": 66.430861
+   },
+   "ok": true,
+   "report_hash": "2a533c5bf9ffa6fe3c126f9280303ca6c55eb8e50b0fb8e48f82846fa55391d2",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:251537d75f511bd7",
+    "lid": "s1:bc0216aeedd7a0bb"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.113641066
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.108252296
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.070430861
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 22,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 173.641066,
+    "Depth": 58.252296,
+    "Height": 78.430861
+   },
+   "ok": true,
+   "report_hash": "53ade2241b9543db135d5174f1bf569d3823d44b99dfe9eecf0356d7d29ba717",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:c313c0b028796629",
+    "lid": "s1:c844acd5500ec7ef"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.173641066
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.058252296
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.082430861
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 23,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 76.141066,
+    "Depth": 88.252296,
+    "Height": 32.830861
+   },
+   "ok": true,
+   "report_hash": "6b35d02ff69008fd961a3473947b092692c5264da05812d433f734e85484bfd5",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:2704e86faf76a799",
+    "lid": "s1:fcf5f1f6f83e3321"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.076141066
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.08825229600000001
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.036830861
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 24,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 136.141066,
+    "Depth": 118.252296,
+    "Height": 44.830861
+   },
+   "ok": true,
+   "report_hash": "ce1f6423dae339a0574ce16a7c57c7f583dc476f3d2edb46b63744d0a9b79aec",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:9cf91ac1ca371cd0",
+    "lid": "s1:2e11e442601d3291"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.136141066
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.118252296
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.048830861
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 25,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 106.141066,
+    "Depth": 68.252296,
+    "Height": 56.830861
+   },
+   "ok": true,
+   "report_hash": "3bc6a7076775354f606173ac2b3a13b18c6f67a941523cdaea7b7996c7373e7b",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:e185df66ed8be460",
+    "lid": "s1:b43646dea554100d"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.10614106599999999
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.068252296
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.060830861
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 26,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 166.141066,
+    "Depth": 98.252296,
+    "Height": 68.830861
+   },
+   "ok": true,
+   "report_hash": "6ff76a12d86f7350d996dde2f5991c4c22d9176e9b689b6beb2ed4fb86cd2996",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:330a96afa71d388e",
+    "lid": "s1:b70d81650b4cc435"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.166141066
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.098252296
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.072830861
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 27,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 91.141066,
+    "Depth": 128.252296,
+    "Height": 20.830861
+   },
+   "ok": true,
+   "report_hash": "05d0b3e0c9f603f271edcb9f874544b1eefe70a0a9ca5770b4e51fb4c31b9fb1",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:84cd61d2c91d159b",
+    "lid": "s1:cc68b67eee1339d1"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.09114106599999999
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.12825229600000002
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.024830861
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 28,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 151.141066,
+    "Depth": 51.585629,
+    "Height": 35.230861
+   },
+   "ok": true,
+   "report_hash": "86098671f8e24e8f4cfd5e701a35a380affad4b80f1061a6c0116b19e8206916",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:465bc67f1028799a",
+    "lid": "s1:ba546e58a4ea06fd"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.151141066
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.051585629
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.039230861
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 29,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 121.141066,
+    "Depth": 81.585629,
+    "Height": 47.230861
+   },
+   "ok": true,
+   "report_hash": "1b90a47cf8f2bcb10dc96fe5ade527b00fdd2614287cd23d2b5fa234f7fa5cee",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:19ea6a6255842b2b",
+    "lid": "s1:f946f5e744563d93"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.12114106599999999
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.08158562899999999
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.051230860999999996
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 30,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 61.141066,
+    "Depth": 111.585629,
+    "Height": 59.230861
+   },
+   "ok": true,
+   "report_hash": "217d3ae8b3e40c9790625def25e90c2231a9b35c2ef05964f517574b58c554b5",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:838daa8667c4a1fe",
+    "lid": "s1:de665b110b45bb2d"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.061141066
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.111585629
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.063230861
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 31,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 72.391066,
+    "Depth": 61.585629,
+    "Height": 71.230861
+   },
+   "ok": true,
+   "report_hash": "2610449385226d6d7e3df47154cb5ed65bb95d3ee8c91190690cb94fc039256e",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:12b3c82d1587adb7",
+    "lid": "s1:2262dac934c1313e"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.07239106599999999
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.061585628999999996
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.07523086100000001
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 32,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 132.391066,
+    "Depth": 91.585629,
+    "Height": 23.230861
+   },
+   "ok": true,
+   "report_hash": "c876b3a5588db258650cef1d27754d3434ea5931007236a07227be3532a5913d",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:f544883fc9120871",
+    "lid": "s1:e684cb56f74b250d"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.132391066
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.091585629
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.027230861000000002
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 33,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 102.391066,
+    "Depth": 121.585629,
+    "Height": 26.110861
+   },
+   "ok": true,
+   "report_hash": "55242417a9a5bf6af9f15e00343da1eb444b21c1f00da16c6e6f5dc743d39b2a",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:adac5d25b053448f",
+    "lid": "s1:a3d9e9314c142423"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.102391066
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.121585629
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.030110861
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 34,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 162.391066,
+    "Depth": 71.585629,
+    "Height": 38.110861
+   },
+   "ok": true,
+   "report_hash": "a838055d7faa9fe67766ebe75d912e9a32c89ea2e9b888d8fd2a22188d53ac3d",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:7cdd1efc9c250ce6",
+    "lid": "s1:343916d1ffcc5585"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.162391066
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.071585629
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.042110861
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 35,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 87.391066,
+    "Depth": 101.585629,
+    "Height": 50.110861
+   },
+   "ok": true,
+   "report_hash": "15fcfb123ce0f30e16e6edf75d9f6f09c78ab03e9e4f496b4f87cfe19a0c2af4",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:d47999a26449d8c8",
+    "lid": "s1:32c9d4ce56e4076f"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.087391066
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.101585629
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.054110861
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 36,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 147.391066,
+    "Depth": 131.585629,
+    "Height": 62.110861
+   },
+   "ok": true,
+   "report_hash": "5a80b2f5653e3e99558ac7bd739a0248369a33096d370296562fa8149a809577",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:4fc4b538c7ee1004",
+    "lid": "s1:cfaac36304b2d16f"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.147391066
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.131585629
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.066110861
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 37,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 117.391066,
+    "Depth": 136.030074,
+    "Height": 74.110861
+   },
+   "ok": true,
+   "report_hash": "51b5b7d78a188f137defcd7aecaef99b647b08e5774915879d1c954c61124d39",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:6222b36aaa10dd1a",
+    "lid": "s1:d84d986c60eebcc1"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.117391066
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.13603007400000003
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.078110861
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 38,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 177.391066,
+    "Depth": 76.030074,
+    "Height": 28.510861
+   },
+   "ok": true,
+   "report_hash": "bf0ded6276c98ccfa1bd0680c52bf2c9d34b5a049ce4eeb29051de0db7b4bd11",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:9a2bc124ab7050b4",
+    "lid": "s1:507ce73de6e92a54"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.177391066
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.076030074
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.032510861
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 39,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 79.891066,
+    "Depth": 106.030074,
+    "Height": 40.510861
+   },
+   "ok": true,
+   "report_hash": "bc95cb95f8384cbf70bfdec85d01fa935b51f67c2bac0362b48ab594fdaab705",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:272c61bcf5956c1c",
+    "lid": "s1:1849393a1a459285"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.079891066
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.106030074
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.044510861
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 40,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 139.891066,
+    "Depth": 56.030074,
+    "Height": 52.510861
+   },
+   "ok": true,
+   "report_hash": "7fc1544f8ef700376f35f7df0daafcaddb3cf94925f8de6ccba089e589db846e",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:3a473ed9e7f4b412",
+    "lid": "s1:d12677df8cf04f62"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.139891066
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.056030074
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.056510861
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 41,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 109.891066,
+    "Depth": 86.030074,
+    "Height": 64.510861
+   },
+   "ok": true,
+   "report_hash": "d2d1831178195ef35edccc23b952060f313f762d9e137e4ac0b05a3d59f22f5d",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:d9d8b918670a58f7",
+    "lid": "s1:0e7fe66fc9d2ac80"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.109891066
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.086030074
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.068510861
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 42,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 169.891066,
+    "Depth": 116.030074,
+    "Height": 76.510861
+   },
+   "ok": true,
+   "report_hash": "552b3c62a7ff87fa670d8bfe2265b95ada22874e74ae85dc801a985b0ab0e2b2",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:5fcfcd110776a869",
+    "lid": "s1:5f26cff0e183f281"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.169891066
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.116030074
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.080510861
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 43,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 94.891066,
+    "Depth": 66.030074,
+    "Height": 30.910861
+   },
+   "ok": true,
+   "report_hash": "6a72a77ef7467d46db4dae552cf31752d6e982cd8334bce9225a01d21c445352",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:14243416fd4df79c",
+    "lid": "s1:ca135d45ec4db779"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.094891066
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.066030074
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.034910860999999994
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 44,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 154.891066,
+    "Depth": 96.030074,
+    "Height": 42.910861
+   },
+   "ok": true,
+   "report_hash": "13acb01d46f444aa8ff2c60898217715d769dd277cd5061983ba8b4f71a70016",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:be121c63260a299f",
+    "lid": "s1:27de3c79021a3f6c"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.154891066
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.096030074
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.046910861
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 45,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 124.891066,
+    "Depth": 126.030074,
+    "Height": 54.910861
+   },
+   "ok": true,
+   "report_hash": "bcb95b41d2a31f59f617273217219cc8be0a0e9d3edb7b67b501b02c2f9f4c7a",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:d5cc24661d654d5c",
+    "lid": "s1:77968f5a97488c35"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.124891066
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.126030074
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.058910860999999995
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 46,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 64.891066,
+    "Depth": 139.363407,
+    "Height": 66.910861
+   },
+   "ok": true,
+   "report_hash": "4fec59009564c53648e000723ad5a25a8f7c7321c8391a70dc8a88b8c22c393a",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:2c9549d4bff4bb3e",
+    "lid": "s1:c5e3f5cb78214bec"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.064891066
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.139363407
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.07091086099999999
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 47,
+   "phase": "halton",
+   "fresh": [],
+   "params": {
+    "Width": 67.703566,
+    "Depth": 79.363407,
+    "Height": 78.910861
+   },
+   "ok": true,
+   "report_hash": "6936102f3e185e6aee2315481d37097620ec1c1403051b83e077bc49de6eefd0",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:7ac9c033e374253e",
+    "lid": "s1:eed62de0c45cbdc3"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.06770356599999999
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.0009990000000025248,
+     "scale": 0.079363407
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.082910861
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 48,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 150,
+    "Depth": 140,
+    "Height": 80
+   },
+   "ok": true,
+   "report_hash": "0c155c6d79c4da506c37f6832e0f60686974de5fe9d001cd801171929e0d1733",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:a199cc99c6810ee0",
+    "lid": "s1:7d18f3fe3bb70375"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.15
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.14
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.084
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 49,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 180,
+    "Depth": 117.5,
+    "Height": 80
+   },
+   "ok": true,
+   "report_hash": "77f642896d9f553018a55a37b470a108338b2a9df1dedaa85750db8f9b002bfb",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:7c0a528017e2f606",
+    "lid": "s1:f874d6687b1d87cb"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.18
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.11750000000000001
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.084
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 50,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 180,
+    "Depth": 140,
+    "Height": 65
+   },
+   "ok": true,
+   "report_hash": "f78e545cca31ac5ed54b17923fb9fd50102fce63a88498c465138fe8c78956c1",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:0ffa53da54f1d84f",
+    "lid": "s1:9c5cb463c4e4ee5f"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.18
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.14
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.069
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 51,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 165,
+    "Depth": 140,
+    "Height": 80
+   },
+   "ok": true,
+   "report_hash": "01d3f9f156face6bc35c44bfff65717b98520bd8e5df1f2bda87c9d81e942c3f",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:1c5c11c7c23cd842",
+    "lid": "s1:1df44d1ae1788c2a"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.165
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.14
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.084
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 52,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 180,
+    "Depth": 128.75,
+    "Height": 80
+   },
+   "ok": true,
+   "report_hash": "1038ad500b47a3b835e5a2ad1b806cc44115c908887f4f2e49bf9f64d3dfb05f",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:a77c2d208b26a8ce",
+    "lid": "s1:d1da1d02ec363195"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.18
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.12875
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.084
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 53,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 180,
+    "Depth": 140,
+    "Height": 72.5
+   },
+   "ok": true,
+   "report_hash": "407367687243381116237faa6b0411bd5dc465a669468a09f7500b82ba7aed31",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:21a779a251d3b838",
+    "lid": "s1:9c5cb463c4e4ee5f"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.18
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.14
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0765
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 54,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 172.5,
+    "Depth": 140,
+    "Height": 80
+   },
+   "ok": true,
+   "report_hash": "873f1b676d7a6e6fb235837e107867f876b885c4bf666e95b67e70d95bdb61f6",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:4aae4721c867416f",
+    "lid": "s1:49c7125989ab01ac"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.17250000000000001
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.14
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.084
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 55,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 180,
+    "Depth": 134.375,
+    "Height": 80
+   },
+   "ok": true,
+   "report_hash": "9879dd20441fbeaa287cdee794127183dac1dcb1a6d49fea9a5572600dcf9294",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:188855e37850365c",
+    "lid": "s1:2dfac23238c21528"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.18
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.134375
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.084
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 56,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 180,
+    "Depth": 140,
+    "Height": 76.25
+   },
+   "ok": true,
+   "report_hash": "68cebe255327a6ab9d02cd32b37fd7ee71043a8523030e493a20314fa709df6d",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:e375cd791ff3376b",
+    "lid": "s1:9c5cb463c4e4ee5f"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.18
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.14
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.08025
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 57,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 176.25,
+    "Depth": 140,
+    "Height": 80
+   },
+   "ok": true,
+   "report_hash": "69c0052513a827aadd076966fb80b34b94580475bdd42f2e7e8613d934a4480b",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:a351d21f23b48dda",
+    "lid": "s1:c022841eebaedcd3"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.17625
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.14
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.084
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 58,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 180,
+    "Depth": 137.1875,
+    "Height": 80
+   },
+   "ok": true,
+   "report_hash": "2b2ef242344c02dbda1415c2a3b06f787da6c38fcd7d0818d5fdd4efcd53c33d",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:01acafceb436ad16",
+    "lid": "s1:6a94a14399239adc"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.18
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.1371875
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.084
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 59,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 180,
+    "Depth": 140,
+    "Height": 78.125
+   },
+   "ok": true,
+   "report_hash": "1b803ad266cf73b034e8c61b406ab01b3df98b1d7a0e87073e1d697acf7c05e8",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:974cb1959e899086",
+    "lid": "s1:9c5cb463c4e4ee5f"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.18
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.14
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.082125
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 60,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 178.125,
+    "Depth": 140,
+    "Height": 80
+   },
+   "ok": true,
+   "report_hash": "c2afbf3faa548dd1aba134b66f35afe08017c5a9821866e2d9ec1ab2a909bfc9",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:1ec616cb67ea2451",
+    "lid": "s1:d14fc08958be7cde"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.178125
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.14
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.084
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 61,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 180,
+    "Depth": 138.59375,
+    "Height": 80
+   },
+   "ok": true,
+   "report_hash": "bebfba0416e9239306f6c9ff99cd7a250de50b1c6824f8225d1d4e9b6d536c14",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:21e26138704969ef",
+    "lid": "s1:86e3ecd76643a4c5"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.18
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.13859375000000002
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.084
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 62,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 180,
+    "Depth": 140,
+    "Height": 79.0625
+   },
+   "ok": true,
+   "report_hash": "de1175d679b83e3a9fde72964303ddb51b059a86cc0dd261777aea24a98ae7ae",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:c5493d366e80e211",
+    "lid": "s1:9c5cb463c4e4ee5f"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.18
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.14
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.0830625
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  },
+  {
+   "index": 63,
+   "phase": "compass",
+   "fresh": [],
+   "params": {
+    "Width": 179.0625,
+    "Depth": 140,
+    "Height": 80
+   },
+   "ok": true,
+   "report_hash": "77aa31474861d94064cedba62230bfc8f4afbb999a11e8f421f87b95aa309d41",
+   "signature_hash": "dae873b1dcf41380c7a0d4c495714dfa53c3d579bf12cbf7b450deb6ae262a88",
+   "shape_hash": {
+    "base": "s1:b9fb353e7d685e59",
+    "lid": "s1:5201a9235ae0561c"
+   },
+   "failing": [
+    "shank-in-pocket",
+    "gate-overhang-base"
+   ],
+   "margins": [
+    {
+     "id": "builds",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "status",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "valid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "occurrences",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "definitions",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screws",
+     "pass": true,
+     "signed": 0,
+     "scale": 1
+    },
+    {
+     "id": "screw-clones",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "no-clash",
+     "pass": true,
+     "signed": 0,
+     "scale": 0.01
+    },
+    {
+     "id": "heads-seated",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "shank-in-pocket",
+     "pass": false,
+     "signed": -0.499,
+     "scale": 0.01,
+     "detail": "base / screw#1: clearance distance 0.7, expected = 0.5 (tol abs 0.001)"
+    },
+    {
+     "id": "size-x",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.1790625
+    },
+    {
+     "id": "size-y",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.14
+    },
+    {
+     "id": "size-z",
+     "pass": true,
+     "signed": 0.001,
+     "scale": 0.084
+    },
+    {
+     "id": "gate-watertight-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-base",
+     "pass": true,
+     "signed": 1.551,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-base",
+     "pass": false,
+     "signed": -42,
+     "scale": 1,
+     "detail": "overhang 86 degrees (base face:27 86)"
+    },
+    {
+     "id": "gate-bed-base",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-watertight-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-min-wall-lid",
+     "pass": true,
+     "signed": 0.15999999999999992,
+     "scale": 0.04
+    },
+    {
+     "id": "gate-overhang-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    },
+    {
+     "id": "gate-bed-lid",
+     "pass": true,
+     "signed": null,
+     "scale": 1
+    }
+   ]
+  }
+ ]
+}

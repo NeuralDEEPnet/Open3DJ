@@ -1,0 +1,5842 @@
+[
+ {
+  "brief": "c07-pin-bushing-safe",
+  "seed": 1,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Bore": 7.176244,
+     "Pin": 5.602736,
+     "Length": 21.494047
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.388631,
+     "Pin": 6.568378,
+     "Length": 17.059863
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.167703,
+     "Pin": 6.320743,
+     "Length": 19.664345
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.396894,
+     "Pin": 6.055271,
+     "Length": 20.79819
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.88336,
+     "Pin": 6.003745,
+     "Length": 16.45543
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.892696,
+     "Pin": 6.089144,
+     "Length": 13.212658
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.036772,
+     "Pin": 6.367108,
+     "Length": 17.14551
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.914524,
+     "Pin": 5.64273,
+     "Length": 19.692875
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.154229,
+     "Pin": 6.398684,
+     "Length": 17.307658
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.923282,
+     "Pin": 6.25813,
+     "Length": 21.829483
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.255066,
+     "Pin": 5.792814,
+     "Length": 24.977059
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.072482,
+     "Pin": 6.370414,
+     "Length": 29.901612
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.9436,
+     "Pin": 6.357001,
+     "Length": 14.758877
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.993999,
+     "Pin": 6.013197,
+     "Length": 16.485828
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.891253,
+     "Pin": 6.326105,
+     "Length": 22.374146
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.876327,
+     "Pin": 5.864658,
+     "Length": 12.877022
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.173332,
+     "Pin": 6.465772,
+     "Length": 16.292896
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.393626,
+     "Pin": 6.318305,
+     "Length": 19.241362
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.981424,
+     "Pin": 6.277215,
+     "Length": 29.147366
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.353999,
+     "Pin": 6.292744,
+     "Length": 28.539908
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.300653,
+     "Pin": 6.533838,
+     "Length": 14.066502
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.823669,
+     "Pin": 6.468686,
+     "Length": 17.300567
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.328736,
+     "Pin": 6.110059,
+     "Length": 28.846097
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.222637,
+     "Pin": 5.766257,
+     "Length": 24.182562
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.369329,
+     "Pin": 5.731921,
+     "Length": 29.601886
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.897808,
+     "Pin": 5.988356,
+     "Length": 14.116757
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.040746,
+     "Pin": 5.924325,
+     "Length": 23.835926
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.105439,
+     "Pin": 6.131544,
+     "Length": 13.370024
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.284794,
+     "Pin": 6.454239,
+     "Length": 16.910158
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.898561,
+     "Pin": 5.903257,
+     "Length": 28.091535
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.973964,
+     "Pin": 5.743729,
+     "Length": 23.782378
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.129437,
+     "Pin": 5.924617,
+     "Length": 14.162981
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.884806,
+     "Pin": 5.667428,
+     "Length": 17.414885
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.205365,
+     "Pin": 6.251443,
+     "Length": 14.103096
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.104902,
+     "Pin": 6.123237,
+     "Length": 15.813115
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.275319,
+     "Pin": 5.852342,
+     "Length": 29.849769
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.372405,
+     "Pin": 6.47001,
+     "Length": 12.066731
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.909783,
+     "Pin": 5.628351,
+     "Length": 29.716526
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.997831,
+     "Pin": 6.320675,
+     "Length": 27.577362
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.856312,
+     "Pin": 5.850609,
+     "Length": 27.655844
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.277128,
+     "Pin": 6.391822,
+     "Length": 15.974513
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.857758,
+     "Pin": 5.749137,
+     "Length": 19.355938
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.125533,
+     "Pin": 5.887296,
+     "Length": 27.921655
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.98732,
+     "Pin": 6.509106,
+     "Length": 27.511616
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.179783,
+     "Pin": 6.269063,
+     "Length": 16.222023
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.03019,
+     "Pin": 5.907519,
+     "Length": 15.682999
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.958964,
+     "Pin": 6.530972,
+     "Length": 29.392454
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.895915,
+     "Pin": 5.929662,
+     "Length": 13.379824
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.821957,
+     "Pin": 6.383636,
+     "Length": 18.968706
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.946238,
+     "Pin": 5.748415,
+     "Length": 26.781243
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.984769,
+     "Pin": 6.492441,
+     "Length": 21.465806
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.0567,
+     "Pin": 6.286375,
+     "Length": 18.2071
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.947155,
+     "Pin": 6.13604,
+     "Length": 25.72313
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.276601,
+     "Pin": 5.650577,
+     "Length": 15.755287
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.179033,
+     "Pin": 6.245961,
+     "Length": 12.538423
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.995767,
+     "Pin": 6.029169,
+     "Length": 27.68928
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.189288,
+     "Pin": 5.958758,
+     "Length": 18.382729
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.160767,
+     "Pin": 5.613601,
+     "Length": 28.626302
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.124048,
+     "Pin": 6.168036,
+     "Length": 23.56578
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.874632,
+     "Pin": 5.6702,
+     "Length": 26.656359
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.884884,
+     "Pin": 6.31057,
+     "Length": 16.975597
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.184885,
+     "Pin": 5.893641,
+     "Length": 21.820688
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.35533,
+     "Pin": 5.672141,
+     "Length": 13.982702
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.904001,
+     "Pin": 6.280925,
+     "Length": 12.817871
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "c07-pin-bushing-safe",
+  "seed": 2,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Bore": 7.240551,
+     "Pin": 5.924998,
+     "Length": 17.135329
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.122773,
+     "Pin": 6.475288,
+     "Length": 23.355
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.099521,
+     "Pin": 5.957245,
+     "Length": 26.0686
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.868419,
+     "Pin": 6.385867,
+     "Length": 15.627816
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.054535,
+     "Pin": 6.434997,
+     "Length": 22.463767
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.884604,
+     "Pin": 6.272227,
+     "Length": 18.600569
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.382968,
+     "Pin": 5.639201,
+     "Length": 28.47356
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.83731,
+     "Pin": 5.728024,
+     "Length": 15.454805
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.804263,
+     "Pin": 6.540102,
+     "Length": 20.137339
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.180791,
+     "Pin": 6.58841,
+     "Length": 16.190388
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.080778,
+     "Pin": 5.948242,
+     "Length": 12.94745
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.112732,
+     "Pin": 5.695363,
+     "Length": 13.040726
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.376176,
+     "Pin": 6.405027,
+     "Length": 12.01127
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.389248,
+     "Pin": 5.672518,
+     "Length": 29.502715
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.116435,
+     "Pin": 5.794759,
+     "Length": 24.202058
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.830887,
+     "Pin": 6.377971,
+     "Length": 28.408577
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.296278,
+     "Pin": 6.045669,
+     "Length": 29.079093
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.842689,
+     "Pin": 6.314097,
+     "Length": 29.640534
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.303326,
+     "Pin": 6.241585,
+     "Length": 21.439559
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.819881,
+     "Pin": 6.448775,
+     "Length": 27.098985
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.128791,
+     "Pin": 5.912502,
+     "Length": 28.246398
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.357014,
+     "Pin": 6.046953,
+     "Length": 18.28684
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.811069,
+     "Pin": 6.552331,
+     "Length": 17.640295
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.062952,
+     "Pin": 6.399196,
+     "Length": 27.612785
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.35171,
+     "Pin": 6.031811,
+     "Length": 15.72773
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.187735,
+     "Pin": 6.224172,
+     "Length": 24.837751
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.362815,
+     "Pin": 5.80514,
+     "Length": 17.019223
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.007183,
+     "Pin": 6.137252,
+     "Length": 12.49464
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.972853,
+     "Pin": 6.430675,
+     "Length": 15.009767
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.266183,
+     "Pin": 5.994493,
+     "Length": 19.544379
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.037139,
+     "Pin": 6.443762,
+     "Length": 20.561744
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.393704,
+     "Pin": 5.859935,
+     "Length": 13.532682
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.224833,
+     "Pin": 5.620601,
+     "Length": 25.216444
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.269164,
+     "Pin": 6.247477,
+     "Length": 17.159526
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.99603,
+     "Pin": 6.251493,
+     "Length": 13.935243
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.91274,
+     "Pin": 6.332434,
+     "Length": 29.55848
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.178282,
+     "Pin": 5.714024,
+     "Length": 22.40962
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.367351,
+     "Pin": 5.628765,
+     "Length": 22.406778
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.109901,
+     "Pin": 6.317776,
+     "Length": 27.239078
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.055128,
+     "Pin": 6.111052,
+     "Length": 13.225431
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.317621,
+     "Pin": 6.045336,
+     "Length": 16.081782
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.149473,
+     "Pin": 6.060916,
+     "Length": 22.251627
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.112581,
+     "Pin": 5.90341,
+     "Length": 15.872551
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.343867,
+     "Pin": 6.199961,
+     "Length": 21.354506
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.922281,
+     "Pin": 5.755725,
+     "Length": 16.521367
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.293143,
+     "Pin": 5.789169,
+     "Length": 29.596486
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.936615,
+     "Pin": 6.416787,
+     "Length": 17.803983
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.988836,
+     "Pin": 6.339818,
+     "Length": 28.402922
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.023368,
+     "Pin": 6.005369,
+     "Length": 26.778676
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.336265,
+     "Pin": 5.937523,
+     "Length": 19.717181
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.341355,
+     "Pin": 6.522753,
+     "Length": 21.691176
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.300502,
+     "Pin": 5.744084,
+     "Length": 18.731245
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.985227,
+     "Pin": 5.739139,
+     "Length": 17.595442
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.341202,
+     "Pin": 5.86097,
+     "Length": 17.076147
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.328415,
+     "Pin": 5.718735,
+     "Length": 15.753103
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.8356,
+     "Pin": 6.27512,
+     "Length": 24.277112
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.152823,
+     "Pin": 6.389034,
+     "Length": 18.683901
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.314998,
+     "Pin": 5.657147,
+     "Length": 24.135126
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.211918,
+     "Pin": 6.457026,
+     "Length": 14.957509
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.130649,
+     "Pin": 5.783987,
+     "Length": 19.160786
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.021909,
+     "Pin": 6.482713,
+     "Length": 22.591407
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.249055,
+     "Pin": 5.618894,
+     "Length": 24.181555
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.854532,
+     "Pin": 6.493086,
+     "Length": 12.21039
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.955001,
+     "Pin": 5.704264,
+     "Length": 28.614206
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "c07-pin-bushing-safe",
+  "seed": 3,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Bore": 7.232136,
+     "Pin": 5.638662,
+     "Length": 20.211459
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.844957,
+     "Pin": 6.363005,
+     "Length": 20.661248
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.092038,
+     "Pin": 5.761801,
+     "Length": 16.738613
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.131564,
+     "Pin": 5.794916,
+     "Length": 13.504672
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.228272,
+     "Pin": 6.076728,
+     "Length": 26.287177
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.327864,
+     "Pin": 5.923624,
+     "Length": 24.430465
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.972048,
+     "Pin": 6.27214,
+     "Length": 21.475714
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.29904,
+     "Pin": 6.139947,
+     "Length": 12.208907
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.326413,
+     "Pin": 5.910397,
+     "Length": 28.862793
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.261622,
+     "Pin": 6.02058,
+     "Length": 24.864313
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.892599,
+     "Pin": 5.967923,
+     "Length": 25.008588
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.800864,
+     "Pin": 5.608356,
+     "Length": 20.609566
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.317845,
+     "Pin": 6.202972,
+     "Length": 24.277165
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.271788,
+     "Pin": 6.18436,
+     "Length": 22.471863
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.842551,
+     "Pin": 5.972295,
+     "Length": 21.556754
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.303112,
+     "Pin": 6.012986,
+     "Length": 20.351392
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.098056,
+     "Pin": 6.170881,
+     "Length": 25.969459
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.313267,
+     "Pin": 6.264602,
+     "Length": 18.701203
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.213373,
+     "Pin": 6.29985,
+     "Length": 20.393295
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.387283,
+     "Pin": 6.480749,
+     "Length": 24.827107
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.206273,
+     "Pin": 6.552615,
+     "Length": 25.773053
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.834134,
+     "Pin": 5.666152,
+     "Length": 21.676672
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.319303,
+     "Pin": 5.944826,
+     "Length": 21.72352
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.973958,
+     "Pin": 6.063293,
+     "Length": 21.935578
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.146698,
+     "Pin": 5.991107,
+     "Length": 25.611752
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.903798,
+     "Pin": 6.552616,
+     "Length": 23.575345
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.250396,
+     "Pin": 6.36998,
+     "Length": 13.100023
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.047486,
+     "Pin": 5.754659,
+     "Length": 24.432752
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.264354,
+     "Pin": 6.221191,
+     "Length": 29.75945
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.394184,
+     "Pin": 6.58031,
+     "Length": 22.490522
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.331919,
+     "Pin": 6.550333,
+     "Length": 26.643766
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.989658,
+     "Pin": 6.225721,
+     "Length": 28.991074
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.034576,
+     "Pin": 6.198866,
+     "Length": 14.535029
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.17862,
+     "Pin": 6.147337,
+     "Length": 16.615208
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.328746,
+     "Pin": 5.649108,
+     "Length": 27.267878
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.852974,
+     "Pin": 6.024386,
+     "Length": 28.010561
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.817427,
+     "Pin": 6.270306,
+     "Length": 13.857469
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.972782,
+     "Pin": 6.593367,
+     "Length": 21.42065
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.90773,
+     "Pin": 5.605159,
+     "Length": 14.843546
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.18925,
+     "Pin": 6.230171,
+     "Length": 26.898991
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.213348,
+     "Pin": 6.407554,
+     "Length": 14.258944
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.915594,
+     "Pin": 5.727882,
+     "Length": 22.965678
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.205311,
+     "Pin": 6.177535,
+     "Length": 25.107352
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.991072,
+     "Pin": 6.550735,
+     "Length": 13.698073
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.378803,
+     "Pin": 5.794929,
+     "Length": 18.899576
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.098536,
+     "Pin": 6.03737,
+     "Length": 21.925823
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.966809,
+     "Pin": 6.271071,
+     "Length": 12.215836
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.077901,
+     "Pin": 6.379325,
+     "Length": 18.061508
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.069696,
+     "Pin": 5.969151,
+     "Length": 29.808347
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.847299,
+     "Pin": 5.703035,
+     "Length": 15.328624
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.876017,
+     "Pin": 6.46781,
+     "Length": 25.877032
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.303542,
+     "Pin": 5.985652,
+     "Length": 13.160432
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.001107,
+     "Pin": 5.860531,
+     "Length": 14.401758
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.87643,
+     "Pin": 6.01204,
+     "Length": 16.168653
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.811391,
+     "Pin": 6.146741,
+     "Length": 20.350633
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.03064,
+     "Pin": 6.560084,
+     "Length": 28.098046
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.341561,
+     "Pin": 5.891037,
+     "Length": 17.825529
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.968124,
+     "Pin": 5.803801,
+     "Length": 25.804185
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.806786,
+     "Pin": 5.794254,
+     "Length": 18.787951
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.391209,
+     "Pin": 5.910368,
+     "Length": 22.180619
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.898864,
+     "Pin": 6.194702,
+     "Length": 26.638438
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.814416,
+     "Pin": 6.583868,
+     "Length": 17.644125
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.850911,
+     "Pin": 5.614259,
+     "Length": 20.594496
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.208834,
+     "Pin": 6.466622,
+     "Length": 21.743202
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "c07-pin-bushing-safe",
+  "seed": 4,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Bore": 7.354182,
+     "Pin": 5.933046,
+     "Length": 15.990022
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.849105,
+     "Pin": 5.833997,
+     "Length": 21.152943
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.846435,
+     "Pin": 6.573862,
+     "Length": 23.196675
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.214489,
+     "Pin": 6.368146,
+     "Length": 18.644676
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.239497,
+     "Pin": 6.475875,
+     "Length": 21.517838
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.246008,
+     "Pin": 6.021746,
+     "Length": 20.828103
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.241548,
+     "Pin": 6.530723,
+     "Length": 29.631726
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.082806,
+     "Pin": 5.947954,
+     "Length": 26.185628
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.961587,
+     "Pin": 6.352209,
+     "Length": 21.496305
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.005722,
+     "Pin": 6.055857,
+     "Length": 12.195706
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.091271,
+     "Pin": 6.14002,
+     "Length": 25.74872
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.857219,
+     "Pin": 6.407272,
+     "Length": 19.275902
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.997852,
+     "Pin": 6.147184,
+     "Length": 13.089854
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.174253,
+     "Pin": 5.878296,
+     "Length": 22.022844
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.888093,
+     "Pin": 6.553597,
+     "Length": 27.34634
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.352764,
+     "Pin": 5.950027,
+     "Length": 15.351264
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.195213,
+     "Pin": 6.098662,
+     "Length": 13.215269
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.26027,
+     "Pin": 6.556536,
+     "Length": 12.07427
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.088995,
+     "Pin": 6.505053,
+     "Length": 24.386655
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.133042,
+     "Pin": 6.582929,
+     "Length": 17.204136
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.260422,
+     "Pin": 5.961804,
+     "Length": 20.364117
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.220851,
+     "Pin": 5.605412,
+     "Length": 16.312542
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.102842,
+     "Pin": 6.387594,
+     "Length": 27.369496
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.843216,
+     "Pin": 6.060504,
+     "Length": 23.479538
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.387213,
+     "Pin": 6.213684,
+     "Length": 17.055615
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.225208,
+     "Pin": 6.369896,
+     "Length": 17.540705
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.373085,
+     "Pin": 6.373133,
+     "Length": 15.262034
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.390961,
+     "Pin": 5.983883,
+     "Length": 29.627585
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.359727,
+     "Pin": 6.057939,
+     "Length": 14.185802
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.848897,
+     "Pin": 5.609474,
+     "Length": 14.050814
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.201909,
+     "Pin": 5.717023,
+     "Length": 28.223848
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.361965,
+     "Pin": 6.282441,
+     "Length": 18.31082
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.029595,
+     "Pin": 6.270105,
+     "Length": 28.381382
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.948721,
+     "Pin": 6.230852,
+     "Length": 25.139878
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.163774,
+     "Pin": 6.463554,
+     "Length": 28.859038
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.227021,
+     "Pin": 5.709511,
+     "Length": 23.925446
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.308398,
+     "Pin": 5.750674,
+     "Length": 17.071259
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.242123,
+     "Pin": 5.975834,
+     "Length": 29.99029
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.350362,
+     "Pin": 5.630395,
+     "Length": 25.742378
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.043267,
+     "Pin": 6.500799,
+     "Length": 21.168978
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.829586,
+     "Pin": 6.290279,
+     "Length": 12.851979
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.339407,
+     "Pin": 6.212368,
+     "Length": 22.148582
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.063575,
+     "Pin": 6.380648,
+     "Length": 18.934405
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.969735,
+     "Pin": 6.546102,
+     "Length": 29.955453
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.000605,
+     "Pin": 5.682885,
+     "Length": 25.611612
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.844954,
+     "Pin": 6.42684,
+     "Length": 17.672646
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.071759,
+     "Pin": 6.220113,
+     "Length": 14.543606
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.319106,
+     "Pin": 6.029745,
+     "Length": 27.99804
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.26494,
+     "Pin": 6.39726,
+     "Length": 28.238071
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.007524,
+     "Pin": 6.069535,
+     "Length": 21.858447
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.154819,
+     "Pin": 6.028235,
+     "Length": 18.378692
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.084045,
+     "Pin": 6.182316,
+     "Length": 23.104913
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.249165,
+     "Pin": 5.737567,
+     "Length": 25.526432
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.35859,
+     "Pin": 6.189604,
+     "Length": 15.474825
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.018477,
+     "Pin": 6.28791,
+     "Length": 19.009877
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.001092,
+     "Pin": 6.142008,
+     "Length": 27.933072
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.084246,
+     "Pin": 6.242711,
+     "Length": 19.213944
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.295352,
+     "Pin": 5.791248,
+     "Length": 18.587859
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.327129,
+     "Pin": 5.661469,
+     "Length": 13.488365
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.882022,
+     "Pin": 5.762321,
+     "Length": 21.438101
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.186343,
+     "Pin": 5.99656,
+     "Length": 24.914856
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.896776,
+     "Pin": 6.352137,
+     "Length": 23.364089
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.81156,
+     "Pin": 5.712808,
+     "Length": 22.591897
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.363884,
+     "Pin": 6.186782,
+     "Length": 12.67947
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "c07-pin-bushing-safe",
+  "seed": 5,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Bore": 7.213865,
+     "Pin": 6.372743,
+     "Length": 15.955734
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.173907,
+     "Pin": 5.685137,
+     "Length": 22.658969
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.232061,
+     "Pin": 6.058104,
+     "Length": 28.301187
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.937657,
+     "Pin": 6.379863,
+     "Length": 25.331031
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.196336,
+     "Pin": 5.613821,
+     "Length": 20.377225
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.980273,
+     "Pin": 6.49655,
+     "Length": 17.186086
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.253178,
+     "Pin": 6.323483,
+     "Length": 16.564406
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.811411,
+     "Pin": 6.393508,
+     "Length": 15.749174
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.963572,
+     "Pin": 5.723262,
+     "Length": 20.461397
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.394986,
+     "Pin": 5.845473,
+     "Length": 13.457008
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.309156,
+     "Pin": 5.917024,
+     "Length": 19.336117
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.391442,
+     "Pin": 5.871976,
+     "Length": 18.949844
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.930355,
+     "Pin": 6.469224,
+     "Length": 25.002506
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.327287,
+     "Pin": 6.111553,
+     "Length": 26.491235
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.189493,
+     "Pin": 5.739629,
+     "Length": 23.448856
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.146571,
+     "Pin": 5.915183,
+     "Length": 26.01994
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.165651,
+     "Pin": 5.608127,
+     "Length": 28.776185
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.004912,
+     "Pin": 5.950109,
+     "Length": 27.742844
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.949517,
+     "Pin": 5.77522,
+     "Length": 27.005987
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.967334,
+     "Pin": 6.598287,
+     "Length": 12.247059
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.010637,
+     "Pin": 6.358506,
+     "Length": 17.656172
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.196455,
+     "Pin": 5.676777,
+     "Length": 13.438864
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.240976,
+     "Pin": 6.124724,
+     "Length": 16.561858
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.358024,
+     "Pin": 5.64953,
+     "Length": 25.224783
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.372324,
+     "Pin": 5.885224,
+     "Length": 21.597071
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.313906,
+     "Pin": 6.446816,
+     "Length": 22.420077
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.373891,
+     "Pin": 6.302486,
+     "Length": 21.723266
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.865942,
+     "Pin": 5.894048,
+     "Length": 21.53023
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.893001,
+     "Pin": 5.85211,
+     "Length": 25.803522
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.883146,
+     "Pin": 5.680053,
+     "Length": 17.880484
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.283374,
+     "Pin": 6.243163,
+     "Length": 19.425586
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.858562,
+     "Pin": 5.890514,
+     "Length": 29.224413
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.995873,
+     "Pin": 6.302779,
+     "Length": 25.394743
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.861328,
+     "Pin": 6.383507,
+     "Length": 28.770921
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.163433,
+     "Pin": 5.711391,
+     "Length": 18.512091
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.041788,
+     "Pin": 5.651856,
+     "Length": 19.583423
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.350682,
+     "Pin": 5.911268,
+     "Length": 25.802613
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.831208,
+     "Pin": 6.416421,
+     "Length": 13.811822
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.107166,
+     "Pin": 6.42686,
+     "Length": 15.775019
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.157889,
+     "Pin": 5.700907,
+     "Length": 18.549011
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.198067,
+     "Pin": 5.854209,
+     "Length": 24.26347
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.943901,
+     "Pin": 5.853312,
+     "Length": 29.724048
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.185876,
+     "Pin": 6.052914,
+     "Length": 25.361279
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.823205,
+     "Pin": 6.218445,
+     "Length": 23.801975
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.811596,
+     "Pin": 5.744653,
+     "Length": 18.005384
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.000946,
+     "Pin": 6.24238,
+     "Length": 29.079167
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.156093,
+     "Pin": 6.468583,
+     "Length": 25.920976
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.97006,
+     "Pin": 5.663762,
+     "Length": 15.060994
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.824948,
+     "Pin": 5.827033,
+     "Length": 28.036577
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.071213,
+     "Pin": 5.642165,
+     "Length": 25.989934
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.151732,
+     "Pin": 5.886081,
+     "Length": 28.097628
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.26474,
+     "Pin": 6.570342,
+     "Length": 15.295216
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.963434,
+     "Pin": 6.404977,
+     "Length": 16.934276
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.976239,
+     "Pin": 6.365814,
+     "Length": 12.070573
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.194999,
+     "Pin": 6.130344,
+     "Length": 16.871212
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.945895,
+     "Pin": 6.265274,
+     "Length": 26.572123
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.138582,
+     "Pin": 6.205242,
+     "Length": 24.083475
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.055735,
+     "Pin": 6.168945,
+     "Length": 15.586483
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.863841,
+     "Pin": 5.971634,
+     "Length": 20.929266
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.837734,
+     "Pin": 6.209047,
+     "Length": 20.174226
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.079135,
+     "Pin": 5.984094,
+     "Length": 21.008969
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.014381,
+     "Pin": 5.85236,
+     "Length": 19.829185
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.115753,
+     "Pin": 6.261148,
+     "Length": 18.459295
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.947137,
+     "Pin": 6.390007,
+     "Length": 13.214287
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "c07-pin-bushing-safe",
+  "seed": 6,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Bore": 7.115448,
+     "Pin": 5.602344,
+     "Length": 23.937086
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.921298,
+     "Pin": 6.14212,
+     "Length": 13.27375
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.802723,
+     "Pin": 6.520926,
+     "Length": 29.470002
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.926032,
+     "Pin": 6.533996,
+     "Length": 18.88931
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.813411,
+     "Pin": 5.65154,
+     "Length": 20.153926
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.27054,
+     "Pin": 6.231274,
+     "Length": 20.658845
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.043992,
+     "Pin": 5.799213,
+     "Length": 29.781837
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.367078,
+     "Pin": 5.869128,
+     "Length": 29.007818
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.312033,
+     "Pin": 6.583951,
+     "Length": 24.57279
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.366678,
+     "Pin": 6.561715,
+     "Length": 28.997677
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.930973,
+     "Pin": 6.152594,
+     "Length": 15.697056
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.975086,
+     "Pin": 5.813013,
+     "Length": 26.963836
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.042962,
+     "Pin": 6.181612,
+     "Length": 22.409426
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.331285,
+     "Pin": 6.171261,
+     "Length": 27.757863
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.228123,
+     "Pin": 6.173058,
+     "Length": 16.906233
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.311296,
+     "Pin": 6.410363,
+     "Length": 15.678409
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.051587,
+     "Pin": 5.962134,
+     "Length": 23.843929
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.813021,
+     "Pin": 5.931221,
+     "Length": 17.256118
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.95396,
+     "Pin": 5.902576,
+     "Length": 16.746994
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.023718,
+     "Pin": 5.690424,
+     "Length": 18.489913
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.849951,
+     "Pin": 6.528816,
+     "Length": 21.007697
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.869126,
+     "Pin": 6.089458,
+     "Length": 20.531451
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.833158,
+     "Pin": 6.043259,
+     "Length": 24.004629
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.976744,
+     "Pin": 5.88935,
+     "Length": 28.678313
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.872424,
+     "Pin": 5.762015,
+     "Length": 22.561806
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.214739,
+     "Pin": 6.334544,
+     "Length": 28.16233
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.895287,
+     "Pin": 6.19268,
+     "Length": 19.581203
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.235659,
+     "Pin": 5.749375,
+     "Length": 15.437232
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.302777,
+     "Pin": 5.679865,
+     "Length": 13.825185
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.146618,
+     "Pin": 5.899815,
+     "Length": 25.193252
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.101971,
+     "Pin": 6.479478,
+     "Length": 25.891777
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.914264,
+     "Pin": 5.872452,
+     "Length": 21.471877
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.001431,
+     "Pin": 6.133664,
+     "Length": 14.920166
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.873428,
+     "Pin": 5.791356,
+     "Length": 19.386735
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.887317,
+     "Pin": 6.341587,
+     "Length": 25.124613
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.803562,
+     "Pin": 6.224446,
+     "Length": 12.969445
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.341472,
+     "Pin": 6.022233,
+     "Length": 26.8228
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.299003,
+     "Pin": 6.534912,
+     "Length": 19.088025
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.218221,
+     "Pin": 5.622497,
+     "Length": 18.985305
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.336927,
+     "Pin": 5.808796,
+     "Length": 24.391996
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.857149,
+     "Pin": 5.978517,
+     "Length": 13.524789
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.915391,
+     "Pin": 6.375544,
+     "Length": 22.626958
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.100088,
+     "Pin": 5.874594,
+     "Length": 29.321843
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.358798,
+     "Pin": 6.138114,
+     "Length": 22.727424
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.252889,
+     "Pin": 5.886392,
+     "Length": 16.720233
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.034577,
+     "Pin": 6.138956,
+     "Length": 24.935527
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.311012,
+     "Pin": 5.709032,
+     "Length": 16.528455
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.320402,
+     "Pin": 5.670719,
+     "Length": 14.289257
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.226734,
+     "Pin": 6.125745,
+     "Length": 29.238686
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.848683,
+     "Pin": 6.512074,
+     "Length": 18.061203
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.099766,
+     "Pin": 6.090189,
+     "Length": 17.728437
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.941542,
+     "Pin": 5.997343,
+     "Length": 17.050582
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.011039,
+     "Pin": 6.105593,
+     "Length": 22.642713
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.356673,
+     "Pin": 6.074962,
+     "Length": 29.877604
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.366332,
+     "Pin": 6.373905,
+     "Length": 12.619189
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.112277,
+     "Pin": 6.005852,
+     "Length": 23.525626
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.059382,
+     "Pin": 5.731086,
+     "Length": 28.159111
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.815356,
+     "Pin": 5.624896,
+     "Length": 19.737008
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.261761,
+     "Pin": 5.776551,
+     "Length": 23.47177
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.385219,
+     "Pin": 5.882956,
+     "Length": 19.888633
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.012015,
+     "Pin": 5.881073,
+     "Length": 19.651453
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.37689,
+     "Pin": 6.005169,
+     "Length": 21.455612
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.269209,
+     "Pin": 5.872319,
+     "Length": 28.182436
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.807748,
+     "Pin": 6.163554,
+     "Length": 12.726149
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "c07-pin-bushing-safe",
+  "seed": 7,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Bore": 6.807023,
+     "Pin": 5.661958,
+     "Length": 29.584337
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.219417,
+     "Pin": 6.121445,
+     "Length": 19.29939
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.07974,
+     "Pin": 5.839925,
+     "Length": 21.959861
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.237893,
+     "Pin": 5.857816,
+     "Length": 14.807071
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.258454,
+     "Pin": 6.118403,
+     "Length": 15.548471
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.020775,
+     "Pin": 5.893247,
+     "Length": 21.625311
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.977798,
+     "Pin": 6.577946,
+     "Length": 16.455605
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.326668,
+     "Pin": 5.790792,
+     "Length": 14.585833
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.892786,
+     "Pin": 5.890951,
+     "Length": 21.862226
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.257124,
+     "Pin": 5.674518,
+     "Length": 28.432933
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.132226,
+     "Pin": 6.221625,
+     "Length": 24.241636
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.379594,
+     "Pin": 6.224381,
+     "Length": 28.581687
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.296577,
+     "Pin": 5.639978,
+     "Length": 15.148948
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.014189,
+     "Pin": 6.025316,
+     "Length": 12.36317
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.852864,
+     "Pin": 6.368016,
+     "Length": 18.641447
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.056029,
+     "Pin": 6.068663,
+     "Length": 29.031981
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.221969,
+     "Pin": 6.288297,
+     "Length": 17.951663
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.013801,
+     "Pin": 5.738791,
+     "Length": 14.399279
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.347821,
+     "Pin": 5.922427,
+     "Length": 15.426759
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.179325,
+     "Pin": 5.936771,
+     "Length": 12.785364
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.210552,
+     "Pin": 6.521372,
+     "Length": 21.861708
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.295947,
+     "Pin": 6.255244,
+     "Length": 28.557804
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.870225,
+     "Pin": 6.129929,
+     "Length": 23.684988
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.334639,
+     "Pin": 6.560498,
+     "Length": 27.083235
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.156541,
+     "Pin": 6.563871,
+     "Length": 29.415114
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.129141,
+     "Pin": 6.418518,
+     "Length": 12.102599
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.109644,
+     "Pin": 5.928056,
+     "Length": 25.036889
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.129697,
+     "Pin": 6.355416,
+     "Length": 29.584811
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.134532,
+     "Pin": 6.423159,
+     "Length": 19.739894
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.185411,
+     "Pin": 6.338554,
+     "Length": 21.930541
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.98743,
+     "Pin": 5.836835,
+     "Length": 12.167667
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.814444,
+     "Pin": 6.543397,
+     "Length": 27.00064
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.178361,
+     "Pin": 5.614401,
+     "Length": 23.140129
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.156938,
+     "Pin": 6.31685,
+     "Length": 29.907491
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.966798,
+     "Pin": 6.586275,
+     "Length": 23.69948
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.28295,
+     "Pin": 6.224399,
+     "Length": 26.9425
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.883438,
+     "Pin": 6.594199,
+     "Length": 21.12477
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.140134,
+     "Pin": 5.760882,
+     "Length": 19.130993
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.926401,
+     "Pin": 6.413542,
+     "Length": 27.508212
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.241552,
+     "Pin": 6.258455,
+     "Length": 29.824372
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.165586,
+     "Pin": 6.336455,
+     "Length": 29.196995
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.093532,
+     "Pin": 5.829773,
+     "Length": 22.512139
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.277409,
+     "Pin": 6.453919,
+     "Length": 15.418556
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.132938,
+     "Pin": 6.077705,
+     "Length": 21.461623
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.908124,
+     "Pin": 5.850632,
+     "Length": 19.901354
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.086507,
+     "Pin": 5.770841,
+     "Length": 12.057799
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.903892,
+     "Pin": 5.624105,
+     "Length": 13.93011
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.325783,
+     "Pin": 6.582816,
+     "Length": 13.082156
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.904673,
+     "Pin": 6.005037,
+     "Length": 20.98192
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.239401,
+     "Pin": 5.968248,
+     "Length": 18.480285
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.274916,
+     "Pin": 6.310734,
+     "Length": 26.402056
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.117994,
+     "Pin": 6.398322,
+     "Length": 19.418979
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.137582,
+     "Pin": 5.892646,
+     "Length": 21.490659
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.26589,
+     "Pin": 5.680013,
+     "Length": 16.539561
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.296106,
+     "Pin": 6.427374,
+     "Length": 25.944073
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.057898,
+     "Pin": 5.956912,
+     "Length": 28.565874
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.950799,
+     "Pin": 5.96141,
+     "Length": 20.585365
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.298184,
+     "Pin": 6.004038,
+     "Length": 29.542194
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.130769,
+     "Pin": 6.036315,
+     "Length": 18.094072
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.122224,
+     "Pin": 5.893255,
+     "Length": 27.915429
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.143355,
+     "Pin": 6.58604,
+     "Length": 27.138087
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.097382,
+     "Pin": 6.036807,
+     "Length": 24.55809
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.358639,
+     "Pin": 6.150655,
+     "Length": 23.832681
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.897431,
+     "Pin": 6.293302,
+     "Length": 19.034449
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "c07-pin-bushing-safe",
+  "seed": 8,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Bore": 6.893777,
+     "Pin": 6.225192,
+     "Length": 17.411962
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.217573,
+     "Pin": 6.185009,
+     "Length": 20.089182
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.291256,
+     "Pin": 5.838815,
+     "Length": 21.119118
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.836083,
+     "Pin": 6.114184,
+     "Length": 13.320452
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.141673,
+     "Pin": 5.82036,
+     "Length": 14.889857
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.37284,
+     "Pin": 6.29343,
+     "Length": 13.637924
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.876684,
+     "Pin": 5.639384,
+     "Length": 22.007755
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.066457,
+     "Pin": 6.352719,
+     "Length": 25.935337
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.823803,
+     "Pin": 6.053949,
+     "Length": 18.455061
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.100248,
+     "Pin": 5.921018,
+     "Length": 21.334012
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.874779,
+     "Pin": 6.460909,
+     "Length": 17.831919
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.239869,
+     "Pin": 6.499671,
+     "Length": 21.20524
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.210965,
+     "Pin": 6.354422,
+     "Length": 23.686279
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.984671,
+     "Pin": 5.876674,
+     "Length": 13.873601
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.986088,
+     "Pin": 6.599867,
+     "Length": 22.227823
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.042055,
+     "Pin": 5.647906,
+     "Length": 19.962512
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.273524,
+     "Pin": 6.597826,
+     "Length": 16.499307
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.316298,
+     "Pin": 5.673257,
+     "Length": 21.84367
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.12158,
+     "Pin": 5.778362,
+     "Length": 19.296932
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.869101,
+     "Pin": 5.707156,
+     "Length": 29.897868
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.303003,
+     "Pin": 5.790826,
+     "Length": 12.407544
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.375376,
+     "Pin": 6.206511,
+     "Length": 26.297025
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.040055,
+     "Pin": 6.045097,
+     "Length": 12.553662
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.050285,
+     "Pin": 5.900026,
+     "Length": 24.641686
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.800667,
+     "Pin": 6.352241,
+     "Length": 18.739137
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.953804,
+     "Pin": 6.583147,
+     "Length": 27.967214
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.304623,
+     "Pin": 6.188364,
+     "Length": 24.060602
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.37279,
+     "Pin": 5.910176,
+     "Length": 13.705141
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.150741,
+     "Pin": 5.996766,
+     "Length": 18.059685
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.335438,
+     "Pin": 5.923851,
+     "Length": 21.880683
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.970705,
+     "Pin": 6.3237,
+     "Length": 21.619693
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.0419,
+     "Pin": 6.339841,
+     "Length": 21.335281
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.229314,
+     "Pin": 6.42596,
+     "Length": 18.543697
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.9596,
+     "Pin": 6.577876,
+     "Length": 13.065135
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.854948,
+     "Pin": 6.283775,
+     "Length": 17.707532
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.361926,
+     "Pin": 5.630967,
+     "Length": 22.422534
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.015513,
+     "Pin": 6.283278,
+     "Length": 14.154239
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.914422,
+     "Pin": 5.857949,
+     "Length": 25.579958
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.251531,
+     "Pin": 5.710106,
+     "Length": 21.611676
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.064209,
+     "Pin": 6.214875,
+     "Length": 16.798423
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.958578,
+     "Pin": 6.135157,
+     "Length": 16.706634
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.860843,
+     "Pin": 6.072178,
+     "Length": 15.799659
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.110897,
+     "Pin": 5.700741,
+     "Length": 12.505097
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.242913,
+     "Pin": 5.670761,
+     "Length": 20.812877
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.324039,
+     "Pin": 6.213378,
+     "Length": 19.677159
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.177766,
+     "Pin": 5.861254,
+     "Length": 14.150351
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.217797,
+     "Pin": 6.137143,
+     "Length": 28.501503
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.903607,
+     "Pin": 5.90082,
+     "Length": 27.196218
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.330926,
+     "Pin": 6.162773,
+     "Length": 23.854626
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.923844,
+     "Pin": 5.806169,
+     "Length": 23.418387
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.105723,
+     "Pin": 6.385583,
+     "Length": 16.011023
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.985698,
+     "Pin": 6.553178,
+     "Length": 16.706865
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.341248,
+     "Pin": 5.755607,
+     "Length": 15.787442
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.839543,
+     "Pin": 6.059273,
+     "Length": 16.24571
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.9733,
+     "Pin": 6.453415,
+     "Length": 12.075976
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.807628,
+     "Pin": 6.187723,
+     "Length": 21.780794
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.227233,
+     "Pin": 6.489075,
+     "Length": 12.215782
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.94076,
+     "Pin": 5.896065,
+     "Length": 17.196584
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.18808,
+     "Pin": 6.499558,
+     "Length": 16.402068
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.003169,
+     "Pin": 6.504042,
+     "Length": 26.110247
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.810044,
+     "Pin": 5.992243,
+     "Length": 18.217697
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.142222,
+     "Pin": 6.251648,
+     "Length": 23.529487
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.344098,
+     "Pin": 6.183361,
+     "Length": 14.08199
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.910043,
+     "Pin": 6.5461,
+     "Length": 29.244404
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "c07-pin-bushing-safe",
+  "seed": 9,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Bore": 6.919237,
+     "Pin": 6.451211,
+     "Length": 14.55179
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.293003,
+     "Pin": 6.323804,
+     "Length": 24.399509
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.957631,
+     "Pin": 6.519454,
+     "Length": 14.35551
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.179374,
+     "Pin": 6.298016,
+     "Length": 22.571137
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.970058,
+     "Pin": 6.537817,
+     "Length": 17.166405
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.238163,
+     "Pin": 6.241974,
+     "Length": 18.604861
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.121328,
+     "Pin": 6.497438,
+     "Length": 27.580059
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.073197,
+     "Pin": 6.473688,
+     "Length": 15.416688
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.206369,
+     "Pin": 5.93356,
+     "Length": 12.865708
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.325787,
+     "Pin": 5.804536,
+     "Length": 21.474412
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.096455,
+     "Pin": 5.674736,
+     "Length": 27.016072
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.222235,
+     "Pin": 5.796798,
+     "Length": 13.229965
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.09328,
+     "Pin": 5.9097,
+     "Length": 23.857135
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.975291,
+     "Pin": 6.15335,
+     "Length": 29.227245
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.140732,
+     "Pin": 5.760125,
+     "Length": 21.315708
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.995199,
+     "Pin": 6.136761,
+     "Length": 26.395449
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.14624,
+     "Pin": 6.213694,
+     "Length": 21.603562
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.193959,
+     "Pin": 6.096835,
+     "Length": 15.235525
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.357812,
+     "Pin": 6.196913,
+     "Length": 23.54085
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.131803,
+     "Pin": 6.256783,
+     "Length": 29.685524
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.350485,
+     "Pin": 5.621433,
+     "Length": 25.17153
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.857025,
+     "Pin": 6.265852,
+     "Length": 23.521789
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.384903,
+     "Pin": 6.334516,
+     "Length": 28.287322
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.276714,
+     "Pin": 5.832267,
+     "Length": 24.35018
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.374301,
+     "Pin": 5.722712,
+     "Length": 28.948623
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.21124,
+     "Pin": 6.393175,
+     "Length": 18.226884
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.261471,
+     "Pin": 5.92277,
+     "Length": 24.870582
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.314429,
+     "Pin": 5.669415,
+     "Length": 22.503951
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.134118,
+     "Pin": 5.920177,
+     "Length": 21.620042
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.970229,
+     "Pin": 6.087964,
+     "Length": 15.350317
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.291643,
+     "Pin": 6.292568,
+     "Length": 22.284672
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.366031,
+     "Pin": 6.441262,
+     "Length": 12.625865
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.92902,
+     "Pin": 6.195767,
+     "Length": 24.335542
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.918659,
+     "Pin": 5.862716,
+     "Length": 28.096977
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.1855,
+     "Pin": 5.602653,
+     "Length": 20.297177
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.854575,
+     "Pin": 5.791771,
+     "Length": 14.011735
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.905958,
+     "Pin": 5.791651,
+     "Length": 17.195471
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.295714,
+     "Pin": 5.746656,
+     "Length": 27.395578
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.213825,
+     "Pin": 6.432496,
+     "Length": 18.818826
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.368811,
+     "Pin": 6.131257,
+     "Length": 29.155706
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.296868,
+     "Pin": 6.082521,
+     "Length": 16.550343
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.352424,
+     "Pin": 6.541694,
+     "Length": 13.493295
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.015517,
+     "Pin": 5.945685,
+     "Length": 28.234421
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.061392,
+     "Pin": 6.018622,
+     "Length": 26.729996
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.242811,
+     "Pin": 6.152322,
+     "Length": 26.880226
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.842155,
+     "Pin": 5.606053,
+     "Length": 28.977244
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.325937,
+     "Pin": 6.515456,
+     "Length": 26.906254
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.330113,
+     "Pin": 6.378886,
+     "Length": 27.647005
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.014092,
+     "Pin": 6.064654,
+     "Length": 26.64369
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.898047,
+     "Pin": 5.99829,
+     "Length": 22.110003
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.113147,
+     "Pin": 6.490073,
+     "Length": 12.693904
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.106047,
+     "Pin": 5.715012,
+     "Length": 24.984909
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.041803,
+     "Pin": 6.264227,
+     "Length": 23.327648
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.913447,
+     "Pin": 5.885621,
+     "Length": 23.924529
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.989352,
+     "Pin": 6.493353,
+     "Length": 13.950948
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.130991,
+     "Pin": 6.295311,
+     "Length": 12.323959
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.87865,
+     "Pin": 5.768488,
+     "Length": 21.425362
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.360212,
+     "Pin": 6.061633,
+     "Length": 15.246328
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.080252,
+     "Pin": 5.846695,
+     "Length": 26.002299
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.369897,
+     "Pin": 6.073115,
+     "Length": 28.339917
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.165458,
+     "Pin": 5.73051,
+     "Length": 13.50983
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.921213,
+     "Pin": 6.233194,
+     "Length": 24.631478
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.153746,
+     "Pin": 6.007687,
+     "Length": 23.045539
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.295791,
+     "Pin": 5.703553,
+     "Length": 17.81774
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "c07-pin-bushing-safe",
+  "seed": 10,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Bore": 7.101195,
+     "Pin": 6.517487,
+     "Length": 24.44373
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.281262,
+     "Pin": 6.057418,
+     "Length": 20.070231
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.921372,
+     "Pin": 5.683561,
+     "Length": 12.614283
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.398031,
+     "Pin": 6.522095,
+     "Length": 14.327894
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.035664,
+     "Pin": 5.988061,
+     "Length": 19.997663
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.355403,
+     "Pin": 5.891137,
+     "Length": 26.54695
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.361625,
+     "Pin": 5.75789,
+     "Length": 18.99667
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.217228,
+     "Pin": 6.120579,
+     "Length": 20.672464
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.97675,
+     "Pin": 5.942332,
+     "Length": 18.911826
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.110336,
+     "Pin": 5.645862,
+     "Length": 21.228768
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.823094,
+     "Pin": 5.674316,
+     "Length": 15.672849
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.887919,
+     "Pin": 5.685097,
+     "Length": 14.573283
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.260538,
+     "Pin": 6.083782,
+     "Length": 19.523313
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.177783,
+     "Pin": 6.395108,
+     "Length": 14.841167
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.066793,
+     "Pin": 6.517909,
+     "Length": 16.27943
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.273819,
+     "Pin": 6.284105,
+     "Length": 14.418606
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.158519,
+     "Pin": 6.479553,
+     "Length": 22.729157
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.809379,
+     "Pin": 6.341713,
+     "Length": 24.948085
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.170239,
+     "Pin": 6.400461,
+     "Length": 22.010606
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.033302,
+     "Pin": 5.91562,
+     "Length": 25.545007
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.872302,
+     "Pin": 5.988515,
+     "Length": 15.971602
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.834829,
+     "Pin": 6.477265,
+     "Length": 19.942798
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.066414,
+     "Pin": 5.75833,
+     "Length": 27.830228
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.05429,
+     "Pin": 6.467395,
+     "Length": 28.75183
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.8409,
+     "Pin": 5.763312,
+     "Length": 17.408963
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.390709,
+     "Pin": 6.554289,
+     "Length": 21.986438
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.800478,
+     "Pin": 5.80337,
+     "Length": 17.829096
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.244279,
+     "Pin": 6.477601,
+     "Length": 27.3621
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.306982,
+     "Pin": 5.926341,
+     "Length": 15.67356
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.975746,
+     "Pin": 6.577689,
+     "Length": 28.247095
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.214936,
+     "Pin": 6.373978,
+     "Length": 21.055775
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.045879,
+     "Pin": 5.833431,
+     "Length": 16.662546
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.171128,
+     "Pin": 5.952096,
+     "Length": 25.966599
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.817422,
+     "Pin": 6.144134,
+     "Length": 27.814044
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.280378,
+     "Pin": 6.104161,
+     "Length": 19.605981
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.285659,
+     "Pin": 6.495722,
+     "Length": 20.660179
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.932313,
+     "Pin": 5.859048,
+     "Length": 12.919483
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.335819,
+     "Pin": 5.912117,
+     "Length": 24.326096
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.19767,
+     "Pin": 6.148051,
+     "Length": 17.074314
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.008867,
+     "Pin": 5.900383,
+     "Length": 22.465452
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.07569,
+     "Pin": 6.283992,
+     "Length": 17.099027
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.241456,
+     "Pin": 6.550447,
+     "Length": 22.786638
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.877381,
+     "Pin": 5.6354,
+     "Length": 15.156994
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.284508,
+     "Pin": 6.077647,
+     "Length": 24.1881
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.20614,
+     "Pin": 6.40059,
+     "Length": 12.514651
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.112065,
+     "Pin": 5.88933,
+     "Length": 21.025905
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.842819,
+     "Pin": 5.852692,
+     "Length": 15.530651
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.343449,
+     "Pin": 6.357669,
+     "Length": 27.323754
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.035387,
+     "Pin": 5.817757,
+     "Length": 18.616393
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.282,
+     "Pin": 6.52729,
+     "Length": 15.616534
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.945556,
+     "Pin": 6.091961,
+     "Length": 17.337039
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.23635,
+     "Pin": 6.479271,
+     "Length": 14.94486
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.016294,
+     "Pin": 5.759129,
+     "Length": 27.31664
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.359267,
+     "Pin": 6.348682,
+     "Length": 26.899495
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.036567,
+     "Pin": 5.70145,
+     "Length": 26.878748
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.318662,
+     "Pin": 6.145129,
+     "Length": 17.719731
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.905197,
+     "Pin": 6.124958,
+     "Length": 15.615633
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.104281,
+     "Pin": 5.924416,
+     "Length": 21.57398
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.14143,
+     "Pin": 5.654161,
+     "Length": 12.862542
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.122757,
+     "Pin": 6.062517,
+     "Length": 20.599444
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.033618,
+     "Pin": 6.066951,
+     "Length": 26.966194
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.921176,
+     "Pin": 6.153538,
+     "Length": 27.663419
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 7.043609,
+     "Pin": 6.541281,
+     "Length": 22.373134
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Bore": 6.831014,
+     "Pin": 5.779803,
+     "Length": 18.228026
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ }
+]

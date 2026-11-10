@@ -1,0 +1,46 @@
+{
+  "note": "Manual classification of the counterexamples the guided search found in the 12 natural briefs (summary.json m4 and certs/), made by reading the failing points, the event intervals and the scripts after the run. 'design' means the script really misbehaves inside its own declared range; 'brief' means the pre-registered brief (78d3b57) asserted something that is not true of a correct part, so the counterexample is an error in the brief, not in the design. Formulas marked analytic were checked against the measured value; mechanisms marked unverified were not.",
+  "known_before_the_spike": {
+    "flange": {
+      "class": "design",
+      "found": "breakout (faces, edges, size-x, size-y) and min_wall",
+      "measured": "event guard: counts change between Diameter 51.875 and 53.75 (analytic breakout 53.2); min_wall verdict changes between 56.5625 (margin -0.008 mm) and 56.914 (+0.080 mm), analytic 56.56 for the 0.84 mm fail line",
+      "params_example": { "Diameter": 50, "Thickness": 20, "Bolt holes": 6, "min_wall": "0.005 mm" }
+    },
+    "box-with-lid": {
+      "class": "design",
+      "found": "Clearance below 0 clashes (status warning, no-clash, lip-gap); Clearance 0 lists no gap line (mated contact exempt), so lip-gap fails",
+      "measured": "bisection between Clearance 0.0156 (pass) and -0.0625 (fail); the special value Clearance 0 fails lip-gap alone",
+      "not_found": "with the watch distance raised to 2 mm by the spike, Clearance 0.6 to 1 lists its gap and passes; the 0.5 mm watch-distance blind spot does not appear under the spike's settings"
+    }
+  },
+  "new_design_defects": {
+    "bracket": [
+      { "found": "builds fails (KERNEL_FILLET_FAILED) at Thickness 2, the bottom of the declared range 2..10, for every Screw, Width and Leg tried (20 points)", "boundary": "event between Thickness 2 (error) and 2.125 (builds), Width 40, Leg 35, M3; 2.11 with M4 also builds" },
+      { "found": "the base holes cut into the upright, and the wall holes into the base, at short Leg with thick Thickness and M5", "params_example": { "Width": 100, "Leg": 20, "Thickness": 10, "Screw": "M5" }, "measured": "edges 84, expected 64", "analytic": "hole centre at 0.62 x Leg = 12.4, M5 radius 2.75, so the hole reaches y 9.65 < Thickness 10" },
+      { "found": "min_wall 0.751 mm between the holes and the side edges at narrow Width with thick Thickness and M5", "params_example": { "Width": 24, "Leg": 80, "Thickness": 10, "Screw": "M5" }, "analytic": "hole centre at W/4 + T/4 = 8.5, edge at 11.25, side at 12: 0.75 mm" }
+    ],
+    "knob": [
+      { "found": "size-z fails for Height 12 and below: the 12 mm deep D-bore (z -1 to 12) opens the dome top", "measured": "event between Height 12 (fails, faces 27) and 12.25 (passes, faces 28); size_z 9.915 at Height 10", "masked": "just above 12 the skin over the bore is thin (Height - 12 mm), but min_wall already fails at nominal (a nominal failure), so the envelope cannot report it" }
+    ],
+    "tapered-cup": [
+      { "found": "min_wall fails for Wall below about 1.42 mm (declared range 1.2..5)", "measured": "bisection: Wall 1.4234 at Height 65.86 passes, Wall 1.3625 at Height 65.63 fails (0.793 mm); 0.531 mm at Height 120, Wall 1.2 (face 7)", "mechanism": "unverified; the thinnest wall is well under the declared Wall, so it is not the side wall itself (perhaps the 3 mm base fillet against the cavity corner)" }
+    ],
+    "vented-box": [
+      { "found": "the top vent row (z 28.5 to 31.5) thins and then cuts the rim for Height below about 32.3 (declared 25..80)", "measured": "Height 32.27 min_wall 0.766 mm, Height 31.56 0.062 mm; Height 25 changes faces 167 to 118 or 130", "analytic": "web Height - 31.5 <= 0.84 mm below Height 32.34" },
+      { "found": "the outer vent columns (x 15 to 33) run into the rounded corners for Width below about 78, and into the end walls below about 70 (declared 60..160)", "measured": "edges 540 or 588 instead of 492 at Width 60 to 76.6; min_wall 0.021 mm at Width 66.4, 0.072 mm at Width 70.3", "analytic": "the straight part of the long walls ends at W/2 - 6 and the inner end wall is at W/2 - 2" }
+    ]
+  },
+  "brief_errors": {
+    "gear-blank": { "found": "size-x fails for every odd tooth count (9 to 59) and for 57 to 60 teeth", "why": "the brief pre-registered size_x = 54 for every Teeth value; an odd-toothed gear has a gap, not a tooth tip, on the -x side (52.88 at 9 teeth), and from 57 teeth a neighbouring tooth corner reaches past x = 27 (54.008 to 54.048). The whole box (53 integer values) was enumerated, so the gear blank was checked at every allowed value; its brief, not its geometry, is wrong." },
+    "lid-interference": { "found": "status and clash fail for Clearance 0 and above", "why": "a negative test that must clash; its declared range (-1..1, copied from box-with-lid) includes non-clashing values. Bisection boundary between Clearance -0.056 and 0.025." },
+    "enclosure": { "found": "no counterexample, but shank-in-pocket fails at nominal", "why": "the spike raises the fit watch distance to 2 x the largest gap bound (1 mm here); that exposes a further 0.7 mm gap between base and screw, and the bench distance check bounds every gap of a counted pair, so an assertion that holds at the default 0.5 mm watch distance fails. A problem of the spike's watch-distance rule, not of the design." }
+  },
+  "held": {
+    "enclosure": "holds at 64 points apart from 2 nominal failures (shank-in-pocket above, gate-overhang-base predicted in the brief)",
+    "hinge": "holds at 64 points apart from 1 nominal failure (gate-overhang-leaf)",
+    "phone-stand": "holds at 64 points apart from 1 nominal failure (gate-overhang)",
+    "pegboard-hook": "holds at 64 points apart from 1 nominal failure (gate-overhang)"
+  },
+  "count": "4 of 12 natural scripts have design defects beyond the 2 known cases (bracket 3 modes, knob 1, tapered-cup 1, vented-box 2); 3 briefs were wrong (gear-blank, lid-interference, enclosure nominal); 4 hold apart from nominal failures."
+}

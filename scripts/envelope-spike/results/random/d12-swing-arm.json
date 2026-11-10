@@ -1,0 +1,5514 @@
+[
+ {
+  "brief": "d12-swing-arm",
+  "seed": 1,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Angle": 56.436655,
+     "Arm length": 20.054714
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 47.470234,
+     "Arm length": 39.621019
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 87.154011,
+     "Arm length": 25.62207
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 55.155497,
+     "Arm length": 34.414863
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 38.321726,
+     "Arm length": 39.896459
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 40.974401,
+     "Arm length": 29.775766
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 12.504023,
+     "Arm length": 28.074895
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 22.277151,
+     "Arm length": 23.089863
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 44.022951,
+     "Arm length": 21.347398
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 35.515738,
+     "Arm length": 35.342161
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 25.727551,
+     "Arm length": 23.817472
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 3.845674,
+     "Arm length": 28.547639
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 53.134424,
+     "Arm length": 35.973684
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 26.538288,
+     "Arm length": 24.109396
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 59.231668,
+     "Arm length": 30.921647
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 68.259856,
+     "Arm length": 23.856281
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 64.885296,
+     "Arm length": 29.08272
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 69.337244,
+     "Arm length": 39.89068
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 21.539999,
+     "Arm length": 35.140026
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 13.794385,
+     "Arm length": 26.466632
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 37.187728,
+     "Arm length": 24.984253
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 13.687944,
+     "Arm length": 34.522097
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 51.87073,
+     "Arm length": 22.544217
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 23.819186,
+     "Arm length": 20.974469
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 55.999804,
+     "Arm length": 37.315441
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 21.464479,
+     "Arm length": 39.78755
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 64.647461,
+     "Arm length": 28.045958
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 27.213556,
+     "Arm length": 33.544299
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 85.73683,
+     "Arm length": 38.466624
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 62.34694,
+     "Arm length": 38.377675
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 75.097968,
+     "Arm length": 38.676766
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 10.332509,
+     "Arm length": 20.78896
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 78.181753,
+     "Arm length": 25.889518
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 79.310388,
+     "Arm length": 30.201173
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 84.230483,
+     "Arm length": 34.087907
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 14.963146,
+     "Arm length": 33.53618
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 85.399309,
+     "Arm length": 22.638412
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 88.009432,
+     "Arm length": 23.260256
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 34.951997,
+     "Arm length": 22.351953
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 36.111832,
+     "Arm length": 26.486498
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 59.179632,
+     "Arm length": 30.18129
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 47.838962,
+     "Arm length": 21.522249
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 72.719169,
+     "Arm length": 37.084774
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 24.550789,
+     "Arm length": 23.285379
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 27.293086,
+     "Arm length": 37.879483
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 26.094547,
+     "Arm length": 22.874583
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 58.911891,
+     "Arm length": 30.981218
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 29.215538,
+     "Arm length": 22.403313
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 12.720934,
+     "Arm length": 21.348569
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 27.074423,
+     "Arm length": 33.51216
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 58.62991,
+     "Arm length": 22.336773
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 45.735348,
+     "Arm length": 30.464735
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 19.065576,
+     "Arm length": 35.84397
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 22.710748,
+     "Arm length": 39.833077
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 85.860747,
+     "Arm length": 37.400198
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 0.333654,
+     "Arm length": 23.659421
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 2.551554,
+     "Arm length": 39.685029
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 29.674602,
+     "Arm length": 34.413499
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 77.88681,
+     "Arm length": 21.877051
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 22.554767,
+     "Arm length": 37.395383
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 71.569243,
+     "Arm length": 35.836435
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 19.872563,
+     "Arm length": 21.92526
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 13.42237,
+     "Arm length": 28.173264
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 48.829898,
+     "Arm length": 25.745912
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   }
+  ]
+ },
+ {
+  "brief": "d12-swing-arm",
+  "seed": 2,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Angle": 66.082585,
+     "Arm length": 26.499969
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 25.676645,
+     "Arm length": 30.759103
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 78.775915,
+     "Arm length": 32.616667
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 44.928142,
+     "Arm length": 27.144893
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 70.343002,
+     "Arm length": 22.280634
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 70.728029,
+     "Arm length": 24.030907
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 38.18031,
+     "Arm length": 36.699949
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 52.318837,
+     "Arm length": 22.820134
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 60.500451,
+     "Arm length": 27.333965
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 87.44521,
+     "Arm length": 20.784023
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 82.367801,
+     "Arm length": 21.243662
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 11.522203,
+     "Arm length": 23.838672
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 0.639501,
+     "Arm length": 38.80205
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 40.686694,
+     "Arm length": 32.693044
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 88.956936,
+     "Arm length": 24.655987
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 42.116673,
+     "Arm length": 26.964832
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 4.737248,
+     "Arm length": 30.424397
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 8.582693,
+     "Arm length": 21.156363
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 86.426347,
+     "Arm length": 36.100534
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 0.056351,
+     "Arm length": 39.641587
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 6.52666,
+     "Arm length": 39.447461
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 47.465207,
+     "Arm length": 23.895171
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 61.010288,
+     "Arm length": 21.029572
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 70.017418,
+     "Arm length": 38.231752
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 74.441739,
+     "Arm length": 28.913384
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 85.395463,
+     "Arm length": 21.42296
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 64.268731,
+     "Arm length": 39.600593
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 75.49893,
+     "Arm length": 32.831709
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 47.197795,
+     "Arm length": 20.66271
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 76.389723,
+     "Arm length": 36.77665
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 49.318653,
+     "Arm length": 26.250047
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 81.231988,
+     "Arm length": 38.567135
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 40.225785,
+     "Arm length": 26.985378
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 1.660326,
+     "Arm length": 39.046613
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 28.201476,
+     "Arm length": 28.765069
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 71.927619,
+     "Arm length": 37.347539
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 82.756554,
+     "Arm length": 28.636228
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 18.63865,
+     "Arm length": 32.924486
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 56.175494,
+     "Arm length": 34.264168
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 84.422239,
+     "Arm length": 24.102793
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 25.096114,
+     "Arm length": 26.906083
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 48.352677,
+     "Arm length": 20.549599
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 25.927933,
+     "Arm length": 36.613505
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 15.048834,
+     "Arm length": 35.539419
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 35.504372,
+     "Arm length": 28.382643
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 35.570896,
+     "Arm length": 36.875238
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 42.808719,
+     "Arm length": 39.790142
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 23.394186,
+     "Arm length": 21.70298
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 63.724896,
+     "Arm length": 20.41202
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 66.082221,
+     "Arm length": 35.638788
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 58.272948,
+     "Arm length": 25.732807
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 29.404532,
+     "Arm length": 33.029855
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 9.676213,
+     "Arm length": 23.75801
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 65.919028,
+     "Arm length": 39.509423
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 56.742251,
+     "Arm length": 22.280482
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 52.0481,
+     "Arm length": 38.9117
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 2.588807,
+     "Arm length": 31.563087
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 46.485221,
+     "Arm length": 34.355512
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 76.195388,
+     "Arm length": 28.504268
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 45.994651,
+     "Arm length": 21.36159
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 77.64312,
+     "Arm length": 28.906726
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 20.40891,
+     "Arm length": 31.64911
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 41.482456,
+     "Arm length": 31.390697
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 46.887159,
+     "Arm length": 26.068203
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   }
+  ]
+ },
+ {
+  "brief": "d12-swing-arm",
+  "seed": 3,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Angle": 64.820411,
+     "Arm length": 20.773243
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 41.057297,
+     "Arm length": 21.49856
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 68.670485,
+     "Arm length": 29.623608
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 43.805662,
+     "Arm length": 23.236011
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 23.693064,
+     "Arm length": 31.052144
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 17.542463,
+     "Arm length": 21.671858
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 64.240865,
+     "Arm length": 29.534561
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 71.435885,
+     "Arm length": 37.595467
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 29.12613,
+     "Arm length": 33.811628
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 25.807236,
+     "Arm length": 33.442808
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 47.378572,
+     "Arm length": 36.634677
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 48.59524,
+     "Arm length": 20.232119
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 78.961893,
+     "Arm length": 26.20794
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 84.313963,
+     "Arm length": 35.387385
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 37.852225,
+     "Arm length": 34.293682
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 13.889876,
+     "Arm length": 27.358466
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 65.042939,
+     "Arm length": 20.028812
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 0.752024,
+     "Arm length": 29.566184
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 77.676801,
+     "Arm length": 32.059432
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 61.385827,
+     "Arm length": 35.726254
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 52.592414,
+     "Arm length": 31.635403
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 6.382706,
+     "Arm length": 27.445903
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 47.783768,
+     "Arm length": 36.770411
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 37.168706,
+     "Arm length": 29.279325
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 44.708456,
+     "Arm length": 31.417626
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 69.847296,
+     "Arm length": 37.108889
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 59.814199,
+     "Arm length": 27.445781
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 62.005997,
+     "Arm length": 33.996993
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 41.966476,
+     "Arm length": 39.576096
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 79.267452,
+     "Arm length": 34.252342
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 60.940892,
+     "Arm length": 39.052294
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 68.865265,
+     "Arm length": 21.137788
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 5.953662,
+     "Arm length": 30.751858
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 77.895471,
+     "Arm length": 26.89652
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 48.6176,
+     "Arm length": 25.798598
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 41.696378,
+     "Arm length": 31.039531
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 52.004679,
+     "Arm length": 27.822136
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 68.058761,
+     "Arm length": 23.459927
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 85.735405,
+     "Arm length": 32.861494
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 67.559449,
+     "Arm length": 35.399594
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 5.500113,
+     "Arm length": 28.249537
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 13.919275,
+     "Arm length": 33.814169
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 69.653082,
+     "Arm length": 32.423821
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 88.797249,
+     "Arm length": 39.806148
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 88.22793,
+     "Arm length": 31.656135
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 79.787821,
+     "Arm length": 39.006661
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 73.21883,
+     "Arm length": 26.321921
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 56.314855,
+     "Arm length": 38.878971
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 35.186348,
+     "Arm length": 31.977311
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 12.675145,
+     "Arm length": 32.620651
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 49.260337,
+     "Arm length": 25.128009
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 79.31196,
+     "Arm length": 20.982161
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 76.339389,
+     "Arm length": 21.765802
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 38.194695,
+     "Arm length": 37.789512
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 2.614073,
+     "Arm length": 33.406113
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 9.287344,
+     "Arm length": 25.759391
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 89.403037,
+     "Arm length": 30.467389
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 16.159524,
+     "Arm length": 20.103173
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 14.217731,
+     "Arm length": 32.974986
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 56.715431,
+     "Arm length": 36.554434
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 62.002262,
+     "Arm length": 36.151072
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 11.294718,
+     "Arm length": 23.853142
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 11.5094,
+     "Arm length": 32.184086
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 60.796645,
+     "Arm length": 31.550691
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d12-swing-arm",
+  "seed": 4,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Angle": 83.127258,
+     "Arm length": 26.660918
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 19.950111,
+     "Arm length": 21.63682
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 21.059752,
+     "Arm length": 30.169937
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 6.965234,
+     "Arm length": 39.477238
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 55.983373,
+     "Arm length": 33.816309
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 69.133149,
+     "Arm length": 27.382974
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 65.924542,
+     "Arm length": 37.517501
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 47.589189,
+     "Arm length": 34.866923
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 37.957141,
+     "Arm length": 29.809003
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 66.232213,
+     "Arm length": 38.614465
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 88.158629,
+     "Arm length": 29.426882
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 31.315839,
+     "Arm length": 35.761809
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 24.238094,
+     "Arm length": 35.044172
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 47.481527,
+     "Arm length": 26.857384
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 41.027142,
+     "Arm length": 20.217451
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 43.69064,
+     "Arm length": 30.800407
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 68.743599,
+     "Arm length": 21.907297
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 72.654517,
+     "Arm length": 28.084336
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 29.677857,
+     "Arm length": 30.943676
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 5.449271,
+     "Arm length": 32.475096
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 25.046626,
+     "Arm length": 31.136494
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 13.213894,
+     "Arm length": 39.071942
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 76.731699,
+     "Arm length": 38.425465
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 31.502446,
+     "Arm length": 23.723627
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 59.281928,
+     "Arm length": 29.973234
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 6.076346,
+     "Arm length": 35.342328
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 86.088242,
+     "Arm length": 20.082522
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 43.34926,
+     "Arm length": 38.101064
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 61.933274,
+     "Arm length": 31.101396
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 88.463649,
+     "Arm length": 25.782374
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 69.063368,
+     "Arm length": 27.236086
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 41.820585,
+     "Arm length": 34.02838
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 0.487068,
+     "Arm length": 24.791713
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 45.42624,
+     "Arm length": 35.751887
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 76.847482,
+     "Arm length": 21.44054
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 41.445379,
+     "Arm length": 32.755042
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 88.08202,
+     "Arm length": 32.273679
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 25.278073,
+     "Arm length": 34.173601
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 69.290597,
+     "Arm length": 26.156339
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 85.962723,
+     "Arm length": 35.462656
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 16.310172,
+     "Arm length": 39.698694
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 34.549436,
+     "Arm length": 39.586205
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 83.959092,
+     "Arm length": 29.158773
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 10.929008,
+     "Arm length": 21.629893
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 0.852616,
+     "Arm length": 22.278682
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 60.286331,
+     "Arm length": 22.340451
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 81.119238,
+     "Arm length": 38.732164
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 61.419729,
+     "Arm length": 27.012022
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 34.439303,
+     "Arm length": 33.402108
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 81.906909,
+     "Arm length": 24.957382
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 56.776649,
+     "Arm length": 34.599865
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 54.566124,
+     "Arm length": 37.271074
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 84.29519,
+     "Arm length": 34.234028
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 9.855974,
+     "Arm length": 33.250495
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 76.259725,
+     "Arm length": 23.013479
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 25.356297,
+     "Arm length": 34.737439
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 33.825045,
+     "Arm length": 39.989211
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 82.554238,
+     "Arm length": 20.607905
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 68.711888,
+     "Arm length": 28.108915
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 81.071898,
+     "Arm length": 30.187753
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 4.437913,
+     "Arm length": 33.805579
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 4.259895,
+     "Arm length": 37.980231
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 55.113164,
+     "Arm length": 31.276202
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 39.536323,
+     "Arm length": 35.612964
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d12-swing-arm",
+  "seed": 5,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Angle": 62.079742,
+     "Arm length": 35.454865
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 19.778671,
+     "Arm length": 32.463576
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 7.662348,
+     "Arm length": 31.843299
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 64.809202,
+     "Arm length": 29.162084
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 81.505935,
+     "Arm length": 24.588579
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 70.187707,
+     "Arm length": 34.812256
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 59.450405,
+     "Arm length": 20.276428
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 41.886127,
+     "Arm length": 26.009101
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 80.68948,
+     "Arm length": 25.762318
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 67.976745,
+     "Arm length": 34.469666
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 22.822029,
+     "Arm length": 20.380367
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 71.415742,
+     "Arm length": 24.165749
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 24.535738,
+     "Arm length": 22.465239
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 42.306987,
+     "Arm length": 39.832868
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 22.092526,
+     "Arm length": 21.618897
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 76.373378,
+     "Arm length": 26.340485
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 36.680583,
+     "Arm length": 39.714748
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 24.477829,
+     "Arm length": 27.722049
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 19.55328,
+     "Arm length": 37.384488
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 65.012529,
+     "Arm length": 37.576249
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 46.039762,
+     "Arm length": 36.101372
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 58.42401,
+     "Arm length": 22.79259
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 57.244281,
+     "Arm length": 31.55238
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 28.366497,
+     "Arm length": 35.577712
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 54.847629,
+     "Arm length": 20.162538
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 83.880926,
+     "Arm length": 26.830386
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 31.50985,
+     "Arm length": 37.492049
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 22.427555,
+     "Arm length": 23.504406
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 75.029935,
+     "Arm length": 25.577811
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 89.84579,
+     "Arm length": 20.27451
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 31.595599,
+     "Arm length": 35.170118
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 28.28086,
+     "Arm length": 33.21517
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 6.909892,
+     "Arm length": 21.598738
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 66.146383,
+     "Arm length": 30.494481
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 22.809292,
+     "Arm length": 38.60081
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 4.457656,
+     "Arm length": 34.694204
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 85.848642,
+     "Arm length": 25.704476
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 47.985354,
+     "Arm length": 37.130186
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 76.213418,
+     "Arm length": 31.577864
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 86.083689,
+     "Arm length": 34.049718
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 48.616328,
+     "Arm length": 22.198082
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 26.464356,
+     "Arm length": 30.589145
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 13.950111,
+     "Arm length": 25.042191
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 69.017608,
+     "Arm length": 22.771548
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 7.204767,
+     "Arm length": 26.533871
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 72.506062,
+     "Arm length": 32.863259
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 37.12793,
+     "Arm length": 21.952062
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 26.146266,
+     "Arm length": 39.138236
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 29.380953,
+     "Arm length": 34.055588
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 66.973713,
+     "Arm length": 22.044264
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 70.5156,
+     "Arm length": 38.634356
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 54.514965,
+     "Arm length": 22.22783
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 32.560455,
+     "Arm length": 28.05959
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 4.667029,
+     "Arm length": 28.426025
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 82.602365,
+     "Arm length": 26.225368
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 69.013067,
+     "Arm length": 21.040282
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 73.477928,
+     "Arm length": 22.013135
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 46.074894,
+     "Arm length": 36.537192
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 18.875094,
+     "Arm length": 31.929632
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 9.081644,
+     "Arm length": 27.276679
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 59.71007,
+     "Arm length": 25.084179
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 61.317348,
+     "Arm length": 24.796696
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 22.79809,
+     "Arm length": 39.693387
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 57.881449,
+     "Arm length": 29.058272
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d12-swing-arm",
+  "seed": 6,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Angle": 47.317195,
+     "Arm length": 20.046871
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 59.685428,
+     "Arm length": 24.043254
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 48.790763,
+     "Arm length": 21.415277
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 0.408406,
+     "Arm length": 38.418528
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 87.350008,
+     "Arm length": 24.201057
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 84.059675,
+     "Arm length": 27.654789
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 2.011665,
+     "Arm length": 21.03081
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 40.769629,
+     "Arm length": 35.684682
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 56.814625,
+     "Arm length": 29.620939
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 36.598782,
+     "Arm length": 23.98426
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 88.909183,
+     "Arm length": 38.902605
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 24.221496,
+     "Arm length": 38.897575
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 76.804903,
+     "Arm length": 39.679028
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 62.863949,
+     "Arm length": 38.889274
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 86.554341,
+     "Arm length": 38.886308
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 19.645896,
+     "Arm length": 31.05187
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 18.485281,
+     "Arm length": 25.836212
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 19.171137,
+     "Arm length": 36.626485
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 36.444369,
+     "Arm length": 31.632243
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 52.047128,
+     "Arm length": 37.709507
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 51.413532,
+     "Arm length": 37.508737
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 64.218461,
+     "Arm length": 31.461155
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 24.531164,
+     "Arm length": 37.043201
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 72.932664,
+     "Arm length": 24.087121
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 37.738083,
+     "Arm length": 27.242683
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 59.219643,
+     "Arm length": 20.434028
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 29.809893,
+     "Arm length": 25.840131
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 23.094023,
+     "Arm length": 26.051529
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 23.734969,
+     "Arm length": 27.457276
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 8.138201,
+     "Arm length": 27.211015
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 7.492648,
+     "Arm length": 38.576326
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 45.038485,
+     "Arm length": 22.304201
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 44.051262,
+     "Arm length": 29.47939
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 4.973719,
+     "Arm length": 28.865176
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 60.023147,
+     "Arm length": 25.891464
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 26.041477,
+     "Arm length": 38.531459
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 10.863527,
+     "Arm length": 23.240297
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 52.80903,
+     "Arm length": 33.824617
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 66.108985,
+     "Arm length": 37.958144
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 14.293123,
+     "Arm length": 31.853599
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 37.906016,
+     "Arm length": 34.521956
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 13.443777,
+     "Arm length": 23.819147
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 75.416532,
+     "Arm length": 21.597294
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 9.125925,
+     "Arm length": 31.553926
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 26.983339,
+     "Arm length": 34.659169
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 45.295651,
+     "Arm length": 37.589557
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 69.458885,
+     "Arm length": 23.808803
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 24.52069,
+     "Arm length": 30.524308
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 30.214696,
+     "Arm length": 30.673275
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 14.600831,
+     "Arm length": 22.44761
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 17.222002,
+     "Arm length": 28.207483
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 13.097592,
+     "Arm length": 34.831735
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 65.623063,
+     "Arm length": 20.11872
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 56.200139,
+     "Arm length": 21.077161
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 81.22078,
+     "Arm length": 28.444652
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 74.114002,
+     "Arm length": 36.633418
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 84.142078,
+     "Arm length": 27.875584
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 62.733115,
+     "Arm length": 20.449943
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 34.926525,
+     "Arm length": 37.897569
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 18.791641,
+     "Arm length": 33.768884
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 8.572372,
+     "Arm length": 27.570349
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 7.623947,
+     "Arm length": 23.846357
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 69.798944,
+     "Arm length": 31.807731
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 45.01321,
+     "Arm length": 25.491882
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   }
+  ]
+ },
+ {
+  "brief": "d12-swing-arm",
+  "seed": 7,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Angle": 1.053428,
+     "Arm length": 21.239165
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 87.921687,
+     "Arm length": 33.980574
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 46.930074,
+     "Arm length": 28.110434
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 41.960937,
+     "Arm length": 24.798504
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 49.799304,
+     "Arm length": 34.596442
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 23.2034,
+     "Arm length": 23.118967
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 68.76809,
+     "Arm length": 30.368051
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 17.742353,
+     "Arm length": 27.359172
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 26.39226,
+     "Arm length": 30.694791
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 26.669722,
+     "Arm length": 39.558922
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 22.278023,
+     "Arm length": 37.555592
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 17.171254,
+     "Arm length": 22.873148
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 13.917963,
+     "Arm length": 25.819024
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 49.311129,
+     "Arm length": 35.237474
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 6.706628,
+     "Arm length": 38.258814
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 49.833967,
+     "Arm length": 32.432497
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 61.208182,
+     "Arm length": 39.319794
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 56.194258,
+     "Arm length": 38.424097
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 74.486564,
+     "Arm length": 20.799569
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 15.744739,
+     "Arm length": 27.13962
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 38.278415,
+     "Arm length": 20.403522
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 7.929561,
+     "Arm length": 35.360317
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 33.207237,
+     "Arm length": 28.534314
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 42.179637,
+     "Arm length": 38.924423
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 63.295298,
+     "Arm length": 33.765949
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 29.758313,
+     "Arm length": 27.12669
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 12.491208,
+     "Arm length": 22.665865
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 82.173138,
+     "Arm length": 26.448539
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 17.133797,
+     "Arm length": 32.644175
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 30.309384,
+     "Arm length": 20.872627
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 61.58284,
+     "Arm length": 38.427435
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 49.308538,
+     "Arm length": 36.53155
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 58.971994,
+     "Arm length": 38.39756
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 10.533725,
+     "Arm length": 30.598582
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 58.424942,
+     "Arm length": 37.821298
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 86.444855,
+     "Arm length": 36.75915
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 53.481112,
+     "Arm length": 39.277416
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 87.075569,
+     "Arm length": 30.971365
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 73.666619,
+     "Arm length": 20.113999
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 46.446614,
+     "Arm length": 26.561127
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 65.184444,
+     "Arm length": 30.989902
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 67.987472,
+     "Arm length": 39.538679
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 50.179799,
+     "Arm length": 36.46319
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 38.699472,
+     "Arm length": 32.847028
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 66.46983,
+     "Arm length": 31.033934
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 28.114544,
+     "Arm length": 24.736704
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 0.838334,
+     "Arm length": 20.481456
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 84.905722,
+     "Arm length": 36.667378
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 56.754127,
+     "Arm length": 20.288024
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 55.700646,
+     "Arm length": 31.897933
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 64.516478,
+     "Arm length": 39.897213
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 25.019766,
+     "Arm length": 39.725505
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 58.497398,
+     "Arm length": 36.098349
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 56.195902,
+     "Arm length": 36.602778
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 12.515774,
+     "Arm length": 39.883972
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 45.62385,
+     "Arm length": 31.337798
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 14.479402,
+     "Arm length": 27.923326
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 18.960214,
+     "Arm length": 36.270844
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 77.541058,
+     "Arm length": 34.718386
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 59.260968,
+     "Arm length": 39.804858
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 54.837897,
+     "Arm length": 34.729103
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 85.984976,
+     "Arm length": 29.784396
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 20.679602,
+     "Arm length": 31.680154
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 71.611348,
+     "Arm length": 37.078388
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d12-swing-arm",
+  "seed": 8,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Angle": 14.066565,
+     "Arm length": 32.503845
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 27.059812,
+     "Arm length": 33.919086
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 52.650819,
+     "Arm length": 28.98798
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 73.68836,
+     "Arm length": 24.776291
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 45.59559,
+     "Arm length": 21.202761
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 46.276552,
+     "Arm length": 21.467169
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 51.250919,
+     "Arm length": 24.407196
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 14.449286,
+     "Arm length": 39.094653
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 62.408729,
+     "Arm length": 21.819916
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 11.502648,
+     "Arm length": 20.787676
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 50.038777,
+     "Arm length": 28.881916
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 67.744677,
+     "Arm length": 35.483708
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 3.570428,
+     "Arm length": 29.078979
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 32.275305,
+     "Arm length": 30.008274
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 28.891619,
+     "Arm length": 30.371124
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 11.216803,
+     "Arm length": 37.21818
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 29.159596,
+     "Arm length": 34.662285
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 80.970379,
+     "Arm length": 30.228045
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 61.644774,
+     "Arm length": 35.088437
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 58.431393,
+     "Arm length": 26.155706
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 24.900685,
+     "Arm length": 22.081779
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 27.913229,
+     "Arm length": 39.997344
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 51.139114,
+     "Arm length": 28.068517
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 4.311569,
+     "Arm length": 28.847235
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 71.02858,
+     "Arm length": 39.956515
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 22.496534,
+     "Arm length": 37.209927
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 6.593089,
+     "Arm length": 30.937411
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 48.237,
+     "Arm length": 23.567231
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 36.484658,
+     "Arm length": 22.30335
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 9.644078,
+     "Arm length": 39.886519
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 75.450391,
+     "Arm length": 23.816523
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 2.037719,
+     "Arm length": 39.179194
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 54.585947,
+     "Arm length": 35.885584
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 36.008228,
+     "Arm length": 28.901943
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 2.768308,
+     "Arm length": 28.342834
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 27.002313,
+     "Arm length": 34.046318
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 0.100023,
+     "Arm length": 35.044815
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 33.695684,
+     "Arm length": 25.126812
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 88.483213,
+     "Arm length": 37.741348
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 75.693523,
+     "Arm length": 31.767278
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 60.303012,
+     "Arm length": 39.092992
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 27.915799,
+     "Arm length": 21.894601
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 52.6111,
+     "Arm length": 27.93532
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 30.298425,
+     "Arm length": 37.847924
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 29.14661,
+     "Arm length": 30.978537
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 25.605794,
+     "Arm length": 34.473997
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 48.098463,
+     "Arm length": 28.063331
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 66.585723,
+     "Arm length": 30.372535
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 64.397054,
+     "Arm length": 36.519202
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 32.718487,
+     "Arm length": 25.320004
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 88.008862,
+     "Arm length": 21.183484
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 8.242219,
+     "Arm length": 33.675497
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 28.53766,
+     "Arm length": 38.730875
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 2.787002,
+     "Arm length": 31.580593
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 32.327022,
+     "Arm length": 33.665555
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 10.771194,
+     "Arm length": 23.81408
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 23.215385,
+     "Arm length": 35.088842
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 67.729701,
+     "Arm length": 22.202115
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 48.058382,
+     "Arm length": 28.806968
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 55.338713,
+     "Arm length": 25.331581
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 23.786713,
+     "Arm length": 30.70315
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 23.53317,
+     "Arm length": 22.028084
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 42.495984,
+     "Arm length": 24.221843
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 46.634481,
+     "Arm length": 22.014814
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d12-swing-arm",
+  "seed": 9,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Angle": 17.885603,
+     "Arm length": 37.024216
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 12.75895,
+     "Arm length": 36.433434
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 65.142396,
+     "Arm length": 33.777232
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 23.644659,
+     "Arm length": 38.389085
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 11.777549,
+     "Arm length": 32.64581
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 62.82142,
+     "Arm length": 31.745708
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 25.50868,
+     "Arm length": 38.756334
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 25.832023,
+     "Arm length": 34.605426
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 57.777668,
+     "Arm length": 27.338735
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 48.199161,
+     "Arm length": 37.948766
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 77.900297,
+     "Arm length": 29.10656
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 78.631895,
+     "Arm length": 23.79632
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 60.955383,
+     "Arm length": 26.671209
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 4.328541,
+     "Arm length": 37.526238
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 18.408274,
+     "Arm length": 30.527124
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 44.468177,
+     "Arm length": 21.494726
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 75.080358,
+     "Arm length": 34.074498
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 17.711813,
+     "Arm length": 21.366628
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 43.991967,
+     "Arm length": 26.194008
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 59.285673,
+     "Arm length": 25.843037
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 49.801534,
+     "Arm length": 39.141384
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 51.109727,
+     "Arm length": 23.202505
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 46.578539,
+     "Arm length": 26.506629
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 48.308469,
+     "Arm length": 35.994943
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 51.935991,
+     "Arm length": 32.27387
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 48.017808,
+     "Arm length": 33.131962
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 44.715161,
+     "Arm length": 23.595028
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 83.671765,
+     "Arm length": 31.938261
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 57.704249,
+     "Arm length": 31.06009
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 59.110496,
+     "Arm length": 39.650582
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 82.572781,
+     "Arm length": 20.428666
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 65.857652,
+     "Arm length": 21.900836
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 59.926717,
+     "Arm length": 32.801988
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 87.735453,
+     "Arm length": 34.690322
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 81.436608,
+     "Arm length": 35.89045
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 20.904009,
+     "Arm length": 33.722422
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 86.145134,
+     "Arm length": 22.454241
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 84.743117,
+     "Arm length": 33.708015
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 71.385727,
+     "Arm length": 26.91876
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 69.220633,
+     "Arm length": 26.455394
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 64.352909,
+     "Arm length": 37.147631
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 6.247385,
+     "Arm length": 31.671057
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 50.117771,
+     "Arm length": 26.40354
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 48.100212,
+     "Arm length": 25.674301
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 43.916747,
+     "Arm length": 23.722574
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 73.7464,
+     "Arm length": 33.851364
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 51.423361,
+     "Arm length": 38.867693
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 75.713614,
+     "Arm length": 20.695406
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 19.352997,
+     "Arm length": 31.915346
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 61.677712,
+     "Arm length": 23.955294
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 23.644436,
+     "Arm length": 37.88553
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 57.824976,
+     "Arm length": 20.05306
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 41.485886,
+     "Arm length": 21.81918
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 17.259346,
+     "Arm length": 22.235261
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 15.893761,
+     "Arm length": 23.833027
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 25.977353,
+     "Arm length": 36.523805
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 13.199077,
+     "Arm length": 37.106198
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 62.073796,
+     "Arm length": 36.649928
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 34.094132,
+     "Arm length": 38.960373
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 47.813128,
+     "Arm length": 39.061895
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 74.530248,
+     "Arm length": 29.650425
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 22.751713,
+     "Arm length": 38.414145
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 84.752493,
+     "Arm length": 21.659217
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 32.327591,
+     "Arm length": 26.913708
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d12-swing-arm",
+  "seed": 10,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Angle": 45.179281,
+     "Arm length": 38.349736
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 62.218648,
+     "Arm length": 36.042054
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 41.167587,
+     "Arm length": 28.966924
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 18.205826,
+     "Arm length": 21.671226
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 3.071415,
+     "Arm length": 39.934372
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 82.988525,
+     "Arm length": 22.586549
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 35.349604,
+     "Arm length": 27.761216
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 39.988316,
+     "Arm length": 38.513423
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 26.20234,
+     "Arm length": 36.163278
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 84.243733,
+     "Arm length": 23.157793
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 34.983351,
+     "Arm length": 33.907606
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 46.852094,
+     "Arm length": 29.636071
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 26.51255,
+     "Arm length": 26.846633
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 34.559129,
+     "Arm length": 30.344521
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 4.127616,
+     "Arm length": 30.254187
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 3.464102,
+     "Arm length": 21.486319
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 18.364244,
+     "Arm length": 22.930638
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 7.658711,
+     "Arm length": 22.859204
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 69.080628,
+     "Arm length": 29.675646
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 37.616565,
+     "Arm length": 32.592778
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 71.55975,
+     "Arm length": 23.156852
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 40.01896,
+     "Arm length": 38.358176
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 21.397149,
+     "Arm length": 35.793958
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 61.56941,
+     "Arm length": 22.68734
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 53.777795,
+     "Arm length": 37.591057
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 53.645784,
+     "Arm length": 20.31264
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 66.754154,
+     "Arm length": 34.386762
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 55.535794,
+     "Arm length": 36.009215
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 50.053029,
+     "Arm length": 27.776742
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 28.405808,
+     "Arm length": 35.050007
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 10.845306,
+     "Arm length": 27.770296
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 19.858011,
+     "Arm length": 21.160955
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 78.953838,
+     "Arm length": 28.825331
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 39.962108,
+     "Arm length": 23.1666
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 79.15114,
+     "Arm length": 28.476339
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 78.065523,
+     "Arm length": 38.613145
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 6.13507,
+     "Arm length": 23.266231
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 27.044817,
+     "Arm length": 39.690294
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 85.885994,
+     "Arm length": 31.096042
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 0.071716,
+     "Arm length": 24.067393
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 29.145481,
+     "Arm length": 34.809295
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 78.984122,
+     "Arm length": 37.069
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 76.047261,
+     "Arm length": 26.526819
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 18.367798,
+     "Arm length": 25.8582
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 87.99205,
+     "Arm length": 38.052328
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 62.240374,
+     "Arm length": 35.47956
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 45.278877,
+     "Arm length": 28.195958
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 21.00881,
+     "Arm length": 25.180607
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 55.669222,
+     "Arm length": 27.041922
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 69.832995,
+     "Arm length": 20.58074
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 48.972092,
+     "Arm length": 37.57116
+    },
+    "failing": [
+     "status",
+     "no-clash"
+    ],
+    "fresh": [
+     "status",
+     "no-clash"
+    ]
+   },
+   {
+    "params": {
+     "Angle": 72.056743,
+     "Arm length": 30.083222
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 38.029907,
+     "Arm length": 36.188622
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 80.614983,
+     "Arm length": 29.622422
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 19.846992,
+     "Arm length": 25.180953
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 4.597417,
+     "Arm length": 37.860622
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 28.090499,
+     "Arm length": 33.695662
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 59.650534,
+     "Arm length": 30.961017
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 25.371572,
+     "Arm length": 26.962235
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 27.03447,
+     "Arm length": 31.62828
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 41.353494,
+     "Arm length": 33.679846
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 25.495135,
+     "Arm length": 34.715196
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 85.540223,
+     "Arm length": 31.985153
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Angle": 11.607174,
+     "Arm length": 20.708007
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ }
+]

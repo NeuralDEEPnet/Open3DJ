@@ -1,0 +1,5914 @@
+[
+ {
+  "brief": "d02-blind-pocket",
+  "seed": 1,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Height": 22.541479,
+     "Pocket depth": 3.024621,
+     "Pocket radius": 4.346065
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 29.621019,
+     "Pocket depth": 11.715401,
+     "Pocket radius": 3.483862
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 22.256777,
+     "Pocket depth": 9.486688,
+     "Pocket radius": 3.990289
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 29.896459,
+     "Pocket depth": 7.09744,
+     "Pocket radius": 4.210759
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 12.778672,
+     "Pocket depth": 6.633703,
+     "Pocket radius": 3.366334
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 13.089863,
+     "Pocket depth": 7.402295,
+     "Pocket radius": 2.735795
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 17.892386,
+     "Pocket depth": 9.903972,
+     "Pocket radius": 3.500516
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 13.817472,
+     "Pocket depth": 3.384567,
+     "Pocket radius": 3.995837
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 21.80765,
+     "Pocket depth": 10.188158,
+     "Pocket radius": 3.532045
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 14.109396,
+     "Pocket depth": 8.923167,
+     "Pocket radius": 4.411288
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 25.168857,
+     "Pocket depth": 4.735326,
+     "Pocket radius": 5.023317
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 19.08272,
+     "Pocket depth": 9.933724,
+     "Pocket radius": 5.980869
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 14.786666,
+     "Pocket depth": 9.813012,
+     "Pocket radius": 3.036448
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 16.466632,
+     "Pocket depth": 6.718773,
+     "Pocket radius": 3.372244
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 13.041765,
+     "Pocket depth": 9.534943,
+     "Pocket radius": 4.517195
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 12.544217,
+     "Pocket depth": 5.381919,
+     "Pocket radius": 2.670532
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 22.444401,
+     "Pocket depth": 10.791949,
+     "Pocket radius": 3.33473
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 29.78755,
+     "Pocket depth": 9.464746,
+     "Pocket radius": 3.908043
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 16.047457,
+     "Pocket depth": 9.094935,
+     "Pocket radius": 5.83421
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.466624,
+     "Pocket depth": 9.234694,
+     "Pocket radius": 5.716093
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 26.688437,
+     "Pocket depth": 11.404545,
+     "Pocket radius": 2.90182
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 10.78896,
+     "Pocket depth": 10.818175,
+     "Pocket radius": 3.530666
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Height": 27.624531,
+     "Pocket depth": 7.590528,
+     "Pocket radius": 5.77563
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 24.087907,
+     "Pocket depth": 4.496315,
+     "Pocket radius": 4.868832
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.977624,
+     "Pocket depth": 4.187285,
+     "Pocket radius": 5.922589
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 13.260256,
+     "Pocket depth": 6.4952,
+     "Pocket radius": 2.911592
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 18.024852,
+     "Pocket depth": 5.918924,
+     "Pocket radius": 4.80143
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 20.18129,
+     "Pocket depth": 7.783896,
+     "Pocket radius": 2.766394
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 26.159815,
+     "Pocket depth": 10.688148,
+     "Pocket radius": 3.454753
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 13.285379,
+     "Pocket depth": 5.729309,
+     "Pocket radius": 5.62891
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 15.798788,
+     "Pocket depth": 4.293562,
+     "Pocket radius": 4.791018
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 20.981218,
+     "Pocket depth": 5.921554,
+     "Pocket radius": 2.92058
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 12.826874,
+     "Pocket depth": 3.606856,
+     "Pocket radius": 3.552894
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 23.51216,
+     "Pocket depth": 8.862991,
+     "Pocket radius": 2.908935
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 20.163411,
+     "Pocket depth": 7.709131,
+     "Pocket radius": 3.241439
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 25.84397,
+     "Pocket depth": 5.271075,
+     "Pocket radius": 5.970788
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 29.080166,
+     "Pocket depth": 10.830089,
+     "Pocket radius": 2.512975
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 13.659421,
+     "Pocket depth": 3.255155,
+     "Pocket radius": 5.94488
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 16.594356,
+     "Pocket depth": 9.486075,
+     "Pocket radius": 5.528931
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 11.877051,
+     "Pocket depth": 5.255477,
+     "Pocket radius": 5.544192
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 25.904276,
+     "Pocket depth": 10.126396,
+     "Pocket radius": 3.272822
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 11.92526,
+     "Pocket depth": 4.342237,
+     "Pocket radius": 3.930321
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 20.851088,
+     "Pocket depth": 5.58566,
+     "Pocket radius": 5.595877
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 16.24399,
+     "Pocket depth": 11.181952,
+     "Pocket radius": 5.516148
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 22.659443,
+     "Pocket depth": 9.021569,
+     "Pocket radius": 3.320949
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 17.672995,
+     "Pocket depth": 5.76767,
+     "Pocket radius": 3.216139
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 15.298801,
+     "Pocket depth": 11.37875,
+     "Pocket radius": 5.881866
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 13.197177,
+     "Pocket depth": 5.966954,
+     "Pocket radius": 2.768299
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 10.73189,
+     "Pocket depth": 10.05272,
+     "Pocket radius": 3.855026
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Height": 14.87459,
+     "Pocket depth": 4.335738,
+     "Pocket radius": 5.37413
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 16.158978,
+     "Pocket depth": 11.031966,
+     "Pocket radius": 4.340573
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 18.556662,
+     "Pocket depth": 9.177375,
+     "Pocket radius": 3.706936
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 14.905173,
+     "Pocket depth": 7.824358,
+     "Pocket radius": 5.168386
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 25.886693,
+     "Pocket depth": 3.455193,
+     "Pocket radius": 3.230195
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 22.634441,
+     "Pocket depth": 8.813653,
+     "Pocket radius": 2.604693
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 16.525583,
+     "Pocket depth": 6.862522,
+     "Pocket radius": 5.550693
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 22.976283,
+     "Pocket depth": 6.228825,
+     "Pocket radius": 3.741086
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 22.025573,
+     "Pocket depth": 3.122409,
+     "Pocket radius": 5.732892
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 20.801604,
+     "Pocket depth": 8.11232,
+     "Pocket radius": 4.748902
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 12.487728,
+     "Pocket depth": 3.631803,
+     "Pocket radius": 5.349848
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 12.82947,
+     "Pocket depth": 9.395132,
+     "Pocket radius": 3.467477
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 22.829507,
+     "Pocket depth": 5.642766,
+     "Pocket radius": 4.409578
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.511007,
+     "Pocket depth": 3.649269,
+     "Pocket radius": 2.885525
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 13.466684,
+     "Pocket depth": 9.128327,
+     "Pocket radius": 2.659031
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d02-blind-pocket",
+  "seed": 2,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Height": 24.685019,
+     "Pocket depth": 5.924986,
+     "Pocket radius": 3.498536
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 20.759103,
+     "Pocket depth": 10.877592,
+     "Pocket radius": 4.707917
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 19.984031,
+     "Pocket depth": 6.215202,
+     "Pocket radius": 5.235561
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 12.280634,
+     "Pocket depth": 10.072803,
+     "Pocket radius": 3.205409
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 18.484513,
+     "Pocket depth": 10.514977,
+     "Pocket radius": 4.534621
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 12.820134,
+     "Pocket depth": 9.050045,
+     "Pocket radius": 3.783444
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 29.432269,
+     "Pocket depth": 3.35281,
+     "Pocket radius": 5.703192
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 11.243662,
+     "Pocket depth": 4.15222,
+     "Pocket radius": 3.171768
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 10.142111,
+     "Pocket depth": 11.460922,
+     "Pocket radius": 4.08226
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Height": 22.693044,
+     "Pocket depth": 11.895694,
+     "Pocket radius": 3.314798
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 19.359261,
+     "Pocket depth": 6.134174,
+     "Pocket radius": 2.684226
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 20.424397,
+     "Pocket depth": 3.858269,
+     "Pocket radius": 2.702363
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 29.205855,
+     "Pocket depth": 10.24524,
+     "Pocket radius": 2.502191
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 29.641587,
+     "Pocket depth": 3.652666,
+     "Pocket radius": 5.903306
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 20.547824,
+     "Pocket depth": 4.752827,
+     "Pocket radius": 4.872622
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 11.029572,
+     "Pocket depth": 10.001742,
+     "Pocket radius": 5.690557
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 26.542609,
+     "Pocket depth": 7.011023,
+     "Pocket radius": 5.820935
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 11.42296,
+     "Pocket depth": 9.426873,
+     "Pocket radius": 5.930104
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 26.77754,
+     "Pocket depth": 8.774269,
+     "Pocket radius": 4.33547
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 10.66271,
+     "Pocket depth": 10.638972,
+     "Pocket radius": 5.435914
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Height": 20.959701,
+     "Pocket depth": 5.812521,
+     "Pocket radius": 5.659022
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.567135,
+     "Pocket depth": 7.022578,
+     "Pocket radius": 3.722441
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 10.368961,
+     "Pocket depth": 11.570976,
+     "Pocket radius": 3.596724
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Height": 18.765069,
+     "Pocket depth": 10.192762,
+     "Pocket radius": 5.535819
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.390345,
+     "Pocket depth": 6.886303,
+     "Pocket radius": 3.224836
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 22.924486,
+     "Pocket depth": 8.617549,
+     "Pocket radius": 4.996229
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.760498,
+     "Pocket depth": 4.846257,
+     "Pocket radius": 3.47596
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 16.906083,
+     "Pocket depth": 7.835268,
+     "Pocket radius": 2.59618
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 15.761763,
+     "Pocket depth": 10.476077,
+     "Pocket radius": 3.085232
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 25.539419,
+     "Pocket depth": 6.550437,
+     "Pocket radius": 3.966963
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 17.904643,
+     "Pocket depth": 10.593857,
+     "Pocket radius": 4.164784
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 29.790142,
+     "Pocket depth": 5.339419,
+     "Pocket radius": 2.798022
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 24.161088,
+     "Pocket depth": 3.185409,
+     "Pocket radius": 5.069864
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 25.638788,
+     "Pocket depth": 8.827295,
+     "Pocket radius": 3.503241
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 16.53434,
+     "Pocket depth": 8.863435,
+     "Pocket radius": 2.876297
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 13.75801,
+     "Pocket depth": 9.591903,
+     "Pocket radius": 5.914149
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 22.609389,
+     "Pocket depth": 4.026217,
+     "Pocket radius": 4.524093
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.9117,
+     "Pocket depth": 3.258881,
+     "Pocket radius": 4.52354
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 20.330049,
+     "Pocket depth": 9.459981,
+     "Pocket radius": 5.463154
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 18.504268,
+     "Pocket depth": 7.599465,
+     "Pocket radius": 2.738278
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 27.254027,
+     "Pocket depth": 7.008027,
+     "Pocket radius": 3.29368
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 21.64911,
+     "Pocket depth": 7.148246,
+     "Pocket radius": 4.493372
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 20.419369,
+     "Pocket depth": 5.730691,
+     "Pocket radius": 3.252996
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.128892,
+     "Pocket depth": 8.399647,
+     "Pocket radius": 4.318932
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 14.076038,
+     "Pocket depth": 4.401523,
+     "Pocket radius": 3.379155
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 26.438113,
+     "Pocket depth": 4.702524,
+     "Pocket radius": 5.921539
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 14.553846,
+     "Pocket depth": 10.351079,
+     "Pocket radius": 3.628552
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 16.29454,
+     "Pocket depth": 9.658364,
+     "Pocket radius": 5.689457
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 17.445615,
+     "Pocket depth": 6.648317,
+     "Pocket radius": 5.373631
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 27.875496,
+     "Pocket depth": 6.037704,
+     "Pocket radius": 4.000563
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.045158,
+     "Pocket depth": 11.30478,
+     "Pocket radius": 4.384395
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 26.683391,
+     "Pocket depth": 4.296755,
+     "Pocket radius": 3.808853
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 16.174225,
+     "Pocket depth": 4.252252,
+     "Pocket radius": 3.588003
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.040063,
+     "Pocket depth": 5.348726,
+     "Pocket radius": 3.487029
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 27.613827,
+     "Pocket depth": 4.068614,
+     "Pocket radius": 3.22977
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 11.186664,
+     "Pocket depth": 9.076076,
+     "Pocket radius": 4.887216
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 21.760764,
+     "Pocket depth": 10.101309,
+     "Pocket radius": 3.799647
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 27.166616,
+     "Pocket depth": 3.514327,
+     "Pocket radius": 4.859608
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 23.730598,
+     "Pocket depth": 10.713238,
+     "Pocket radius": 3.075071
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 21.021626,
+     "Pocket depth": 4.655886,
+     "Pocket radius": 3.892375
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 17.396962,
+     "Pocket depth": 10.944418,
+     "Pocket radius": 4.55944
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 24.968516,
+     "Pocket depth": 3.170048,
+     "Pocket radius": 4.868636
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 11.817726,
+     "Pocket depth": 11.03777,
+     "Pocket radius": 2.540909
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Height": 15.166702,
+     "Pocket depth": 3.938373,
+     "Pocket radius": 5.73054
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d02-blind-pocket",
+  "seed": 3,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Height": 24.404536,
+     "Pocket depth": 3.347959,
+     "Pocket radius": 4.096673
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 11.49856,
+     "Pocket depth": 9.867049,
+     "Pocket radius": 4.184131
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 19.734591,
+     "Pocket depth": 4.456205,
+     "Pocket radius": 3.421397
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 21.052144,
+     "Pocket depth": 4.754246,
+     "Pocket radius": 2.792575
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 24.275748,
+     "Pocket depth": 7.290552,
+     "Pocket radius": 5.278062
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 27.595467,
+     "Pocket depth": 5.912613,
+     "Pocket radius": 4.917035
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 15.734941,
+     "Pocket depth": 9.049264,
+     "Pocket radius": 4.3425
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 26.634677,
+     "Pocket depth": 7.859524,
+     "Pocket radius": 2.540621
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 27.547087,
+     "Pocket depth": 5.793573,
+     "Pocket radius": 5.778876
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 25.387385,
+     "Pocket depth": 6.785223,
+     "Pocket radius": 5.001394
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 13.086639,
+     "Pocket depth": 6.31131,
+     "Pocket radius": 5.029448
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 10.028812,
+     "Pocket depth": 3.075202,
+     "Pocket radius": 4.174082
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 27.261511,
+     "Pocket depth": 8.426745,
+     "Pocket radius": 4.887227
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 25.726254,
+     "Pocket depth": 8.259241,
+     "Pocket radius": 4.536195
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 11.418379,
+     "Pocket depth": 6.350656,
+     "Pocket radius": 4.358258
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 26.770411,
+     "Pocket depth": 6.716871,
+     "Pocket radius": 4.123882
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 19.935212,
+     "Pocket depth": 8.137932,
+     "Pocket radius": 5.216284
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 27.108889,
+     "Pocket depth": 8.98142,
+     "Pocket radius": 3.803012
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 23.77911,
+     "Pocket depth": 9.298647,
+     "Pocket radius": 4.13203
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 29.576096,
+     "Pocket depth": 10.926745,
+     "Pocket radius": 4.99416
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 23.54242,
+     "Pocket depth": 11.573532,
+     "Pocket radius": 5.178094
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 11.137788,
+     "Pocket depth": 3.595366,
+     "Pocket radius": 4.381575
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 27.310105,
+     "Pocket depth": 6.103434,
+     "Pocket radius": 4.390684
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 15.798598,
+     "Pocket depth": 7.169638,
+     "Pocket radius": 4.431918
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 21.556595,
+     "Pocket depth": 6.519961,
+     "Pocket radius": 5.14673
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 13.459927,
+     "Pocket depth": 11.57354,
+     "Pocket radius": 4.750761
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 25.013211,
+     "Pocket depth": 9.929817,
+     "Pocket radius": 2.713893
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 18.249537,
+     "Pocket depth": 4.391928,
+     "Pocket radius": 4.91748
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 25.478463,
+     "Pocket depth": 8.590719,
+     "Pocket radius": 5.953226
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 29.806148,
+     "Pocket depth": 11.822793,
+     "Pocket radius": 4.539824
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 27.730627,
+     "Pocket depth": 11.552998,
+     "Pocket radius": 5.347399
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 16.321921,
+     "Pocket depth": 8.631486,
+     "Pocket radius": 5.80382
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 17.819188,
+     "Pocket depth": 8.38979,
+     "Pocket radius": 2.992922
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 22.620651,
+     "Pocket depth": 7.926034,
+     "Pocket radius": 3.397402
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 27.62488,
+     "Pocket depth": 3.441972,
+     "Pocket radius": 5.468754
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 11.765802,
+     "Pocket depth": 6.81947,
+     "Pocket radius": 5.613165
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 10.580905,
+     "Pocket depth": 9.032751,
+     "Pocket radius": 2.861174
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 15.759391,
+     "Pocket depth": 11.940304,
+     "Pocket radius": 4.331793
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 13.591005,
+     "Pocket depth": 3.046428,
+     "Pocket radius": 3.052912
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 22.974986,
+     "Pocket depth": 8.671543,
+     "Pocket radius": 5.397026
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 23.77828,
+     "Pocket depth": 10.267983,
+     "Pocket radius": 2.939239
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 13.853142,
+     "Pocket depth": 4.15094,
+     "Pocket radius": 4.632215
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 23.510366,
+     "Pocket depth": 8.197811,
+     "Pocket radius": 5.048652
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 16.369069,
+     "Pocket depth": 11.556612,
+     "Pocket radius": 2.830181
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 29.293444,
+     "Pocket depth": 4.754365,
+     "Pocket radius": 3.841584
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 19.951185,
+     "Pocket depth": 6.936334,
+     "Pocket radius": 4.430021
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 15.560298,
+     "Pocket depth": 9.039635,
+     "Pocket radius": 2.541968
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 19.263361,
+     "Pocket depth": 10.013922,
+     "Pocket radius": 3.678627
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 18.989855,
+     "Pocket depth": 6.322358,
+     "Pocket radius": 5.962734
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 11.576624,
+     "Pocket depth": 3.927314,
+     "Pocket radius": 3.147232
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 12.533905,
+     "Pocket depth": 10.810287,
+     "Pocket radius": 5.198312
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 26.784736,
+     "Pocket depth": 6.470869,
+     "Pocket radius": 2.725639
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 16.703568,
+     "Pocket depth": 5.344776,
+     "Pocket radius": 2.967008
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 12.547669,
+     "Pocket depth": 6.708362,
+     "Pocket radius": 3.310571
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 10.379709,
+     "Pocket depth": 7.920665,
+     "Pocket radius": 4.123734
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 17.688002,
+     "Pocket depth": 11.64076,
+     "Pocket radius": 5.630176
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.052031,
+     "Pocket depth": 5.619331,
+     "Pocket radius": 3.632742
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 15.604118,
+     "Pocket depth": 4.834212,
+     "Pocket radius": 5.184147
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 10.226201,
+     "Pocket depth": 4.748286,
+     "Pocket radius": 3.819879
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 29.706967,
+     "Pocket depth": 5.793308,
+     "Pocket radius": 4.479565
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 13.295468,
+     "Pocket depth": 8.352315,
+     "Pocket radius": 5.346363
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 10.480531,
+     "Pocket depth": 11.854812,
+     "Pocket radius": 3.597469
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Height": 11.69705,
+     "Pocket depth": 3.128328,
+     "Pocket radius": 4.171152
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 23.627795,
+     "Pocket depth": 10.799595,
+     "Pocket radius": 4.394511
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d02-blind-pocket",
+  "seed": 4,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Height": 28.472724,
+     "Pocket depth": 5.997413,
+     "Pocket radius": 3.275838
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 11.63682,
+     "Pocket depth": 5.105975,
+     "Pocket radius": 4.279739
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 11.54783,
+     "Pocket depth": 11.764757,
+     "Pocket radius": 4.677131
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Height": 23.816309,
+     "Pocket depth": 9.913315,
+     "Pocket radius": 3.79202
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 24.649898,
+     "Pocket depth": 10.882876,
+     "Pocket radius": 4.350691
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 24.866923,
+     "Pocket depth": 6.795714,
+     "Pocket radius": 4.216576
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 24.71827,
+     "Pocket depth": 11.376509,
+     "Pocket radius": 5.928391
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 19.426882,
+     "Pocket depth": 6.131584,
+     "Pocket radius": 5.258317
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 15.386243,
+     "Pocket depth": 9.769877,
+     "Pocket radius": 4.346504
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 16.857384,
+     "Pocket depth": 7.102714,
+     "Pocket radius": 2.538054
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 19.709031,
+     "Pocket depth": 7.860183,
+     "Pocket radius": 5.173362
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 11.907297,
+     "Pocket depth": 10.265452,
+     "Pocket radius": 3.914759
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 16.595079,
+     "Pocket depth": 7.924654,
+     "Pocket radius": 2.711916
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 22.475096,
+     "Pocket depth": 5.504663,
+     "Pocket radius": 4.448886
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 12.936421,
+     "Pocket depth": 11.582374,
+     "Pocket radius": 5.484011
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.425465,
+     "Pocket depth": 6.150245,
+     "Pocket radius": 3.151635
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 23.173762,
+     "Pocket depth": 7.487955,
+     "Pocket radius": 2.736302
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 25.342328,
+     "Pocket depth": 11.608824,
+     "Pocket radius": 2.514441
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 19.633169,
+     "Pocket depth": 11.145479,
+     "Pocket radius": 4.908516
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 21.101396,
+     "Pocket depth": 11.846365,
+     "Pocket radius": 3.511915
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 25.347415,
+     "Pocket depth": 6.256239,
+     "Pocket radius": 4.126356
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 24.02838,
+     "Pocket depth": 3.048707,
+     "Pocket radius": 3.33855
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 20.09472,
+     "Pocket depth": 10.088349,
+     "Pocket radius": 5.488513
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 11.44054,
+     "Pocket depth": 7.144538,
+     "Pocket radius": 4.732132
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 29.573782,
+     "Pocket depth": 8.523155,
+     "Pocket radius": 3.483036
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 24.173601,
+     "Pocket depth": 9.92906,
+     "Pocket radius": 3.577359
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 29.102827,
+     "Pocket depth": 9.958195,
+     "Pocket radius": 3.134284
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 29.698694,
+     "Pocket depth": 6.454944,
+     "Pocket radius": 5.927586
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.657576,
+     "Pocket depth": 7.121448,
+     "Pocket radius": 2.925017
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 11.629893,
+     "Pocket depth": 3.085262,
+     "Pocket radius": 2.898769
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 23.396962,
+     "Pocket depth": 4.053203,
+     "Pocket radius": 5.654637
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.732164,
+     "Pocket depth": 9.141973,
+     "Pocket radius": 3.727104
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 17.653178,
+     "Pocket depth": 9.030949,
+     "Pocket radius": 5.685269
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 14.957382,
+     "Pocket depth": 8.677665,
+     "Pocket radius": 5.054976
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 22.125805,
+     "Pocket depth": 10.771983,
+     "Pocket radius": 5.778146
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 24.234028,
+     "Pocket depth": 3.985597,
+     "Pocket radius": 4.818837
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 26.946605,
+     "Pocket depth": 4.356066,
+     "Pocket radius": 3.486078
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 24.737439,
+     "Pocket depth": 6.382504,
+     "Pocket radius": 5.998112
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.345386,
+     "Pocket depth": 3.273557,
+     "Pocket radius": 5.172129
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 18.108915,
+     "Pocket depth": 11.10719,
+     "Pocket radius": 4.282857
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 10.986203,
+     "Pocket depth": 9.21251,
+     "Pocket radius": 2.665663
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 27.980231,
+     "Pocket depth": 8.511316,
+     "Pocket radius": 4.473335
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 18.78585,
+     "Pocket depth": 10.025834,
+     "Pocket radius": 3.848357
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 15.65783,
+     "Pocket depth": 11.514921,
+     "Pocket radius": 5.991338
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 16.686823,
+     "Pocket depth": 3.745969,
+     "Pocket radius": 5.146702
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 11.498479,
+     "Pocket depth": 10.441564,
+     "Pocket radius": 3.603015
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 19.058638,
+     "Pocket depth": 8.581018,
+     "Pocket radius": 2.99459
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 27.303539,
+     "Pocket depth": 6.867701,
+     "Pocket radius": 5.61073
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 25.497985,
+     "Pocket depth": 10.175336,
+     "Pocket radius": 5.657403
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 16.917471,
+     "Pocket depth": 7.225811,
+     "Pocket radius": 4.41692
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 21.827293,
+     "Pocket depth": 6.854115,
+     "Pocket radius": 3.740301
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 19.468179,
+     "Pocket depth": 8.240843,
+     "Pocket radius": 4.659289
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 24.972181,
+     "Pocket depth": 4.238104,
+     "Pocket radius": 5.13014
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.61966,
+     "Pocket depth": 8.306433,
+     "Pocket radius": 3.17566
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 17.282553,
+     "Pocket depth": 9.191192,
+     "Pocket radius": 3.863032
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 16.703068,
+     "Pocket depth": 7.878074,
+     "Pocket radius": 5.598097
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 19.474856,
+     "Pocket depth": 8.7844,
+     "Pocket radius": 3.902711
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 26.51172,
+     "Pocket depth": 4.72123,
+     "Pocket radius": 3.780973
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 27.570958,
+     "Pocket depth": 3.553218,
+     "Pocket radius": 2.789404
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 12.734053,
+     "Pocket depth": 4.460892,
+     "Pocket radius": 4.335186
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 22.878085,
+     "Pocket depth": 6.569043,
+     "Pocket radius": 5.011222
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 13.225859,
+     "Pocket depth": 9.769235,
+     "Pocket radius": 4.709684
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 10.385337,
+     "Pocket depth": 4.015273,
+     "Pocket radius": 4.559536
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.796144,
+     "Pocket depth": 8.281034,
+     "Pocket radius": 2.632119
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d02-blind-pocket",
+  "seed": 5,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Height": 23.795498,
+     "Pocket depth": 9.954689,
+     "Pocket radius": 3.269171
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 22.463576,
+     "Pocket depth": 3.766235,
+     "Pocket radius": 4.572577
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 24.402045,
+     "Pocket depth": 7.122938,
+     "Pocket radius": 5.669675
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 14.588579,
+     "Pocket depth": 10.018771,
+     "Pocket radius": 5.092145
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 23.211201,
+     "Pocket depth": 3.124393,
+     "Pocket radius": 4.128905
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 16.009101,
+     "Pocket depth": 11.068948,
+     "Pocket radius": 3.508406
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 25.105943,
+     "Pocket depth": 9.51135,
+     "Pocket radius": 3.387523
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 10.380367,
+     "Pocket depth": 10.141574,
+     "Pocket radius": 3.229006
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Height": 15.452386,
+     "Pocket depth": 4.109357,
+     "Pocket radius": 4.145272
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 29.832868,
+     "Pocket depth": 5.209253,
+     "Pocket radius": 2.783307
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 26.971862,
+     "Pocket depth": 5.853218,
+     "Pocket radius": 3.926467
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 29.714748,
+     "Pocket depth": 5.447783,
+     "Pocket radius": 3.851359
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 14.345173,
+     "Pocket depth": 10.823019,
+     "Pocket radius": 5.028265
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 27.576249,
+     "Pocket depth": 7.603976,
+     "Pocket radius": 5.31774
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 22.983113,
+     "Pocket depth": 4.256665,
+     "Pocket radius": 4.726166
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 21.55238,
+     "Pocket depth": 5.83665,
+     "Pocket radius": 5.2261
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 22.188362,
+     "Pocket depth": 3.073142,
+     "Pocket radius": 5.762036
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 16.830386,
+     "Pocket depth": 6.150985,
+     "Pocket radius": 5.561109
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 14.983901,
+     "Pocket depth": 4.576983,
+     "Pocket radius": 5.417831
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 15.577811,
+     "Pocket depth": 11.984579,
+     "Pocket radius": 2.548039
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 17.021244,
+     "Pocket depth": 9.826553,
+     "Pocket radius": 3.599811
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 23.21517,
+     "Pocket depth": 3.690989,
+     "Pocket radius": 2.779779
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 24.699196,
+     "Pocket depth": 7.722516,
+     "Pocket radius": 3.387028
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.60081,
+     "Pocket depth": 3.445766,
+     "Pocket radius": 5.071486
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 29.077476,
+     "Pocket depth": 5.567014,
+     "Pocket radius": 4.366097
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 27.130186,
+     "Pocket depth": 10.621342,
+     "Pocket radius": 4.526126
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 29.129709,
+     "Pocket depth": 9.322373,
+     "Pocket radius": 4.390635
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 12.198082,
+     "Pocket depth": 5.646436,
+     "Pocket radius": 4.3531
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 13.100025,
+     "Pocket depth": 5.268986,
+     "Pocket radius": 5.184018
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 12.771548,
+     "Pocket depth": 3.720477,
+     "Pocket radius": 3.643427
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 26.112458,
+     "Pocket depth": 8.788467,
+     "Pocket radius": 3.943864
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 11.952062,
+     "Pocket depth": 5.614627,
+     "Pocket radius": 5.849191
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 16.529101,
+     "Pocket depth": 9.325015,
+     "Pocket radius": 5.104533
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 12.044264,
+     "Pocket depth": 10.05156,
+     "Pocket radius": 5.761012
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 22.114437,
+     "Pocket depth": 4.002523,
+     "Pocket radius": 3.76624
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 18.05959,
+     "Pocket depth": 3.466703,
+     "Pocket radius": 3.974554
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.356081,
+     "Pocket depth": 5.801416,
+     "Pocket radius": 5.183841
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 11.040282,
+     "Pocket depth": 10.347793,
+     "Pocket radius": 2.852299
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Height": 20.238865,
+     "Pocket depth": 10.441737,
+     "Pocket radius": 3.234031
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 21.929632,
+     "Pocket depth": 3.908164,
+     "Pocket radius": 3.773419
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 23.268904,
+     "Pocket depth": 5.287881,
+     "Pocket radius": 4.884564
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 14.796696,
+     "Pocket depth": 5.279809,
+     "Pocket radius": 5.946343
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 22.862544,
+     "Pocket depth": 7.076222,
+     "Pocket radius": 5.098026
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 10.773487,
+     "Pocket depth": 8.566004,
+     "Pocket radius": 4.794828
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 10.386532,
+     "Pocket depth": 4.301881,
+     "Pocket radius": 3.667713
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 16.698211,
+     "Pocket depth": 8.781419,
+     "Pocket radius": 5.820949
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 21.869771,
+     "Pocket depth": 10.817246,
+     "Pocket radius": 5.206856
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 15.668674,
+     "Pocket depth": 3.573856,
+     "Pocket radius": 3.095193
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 10.831598,
+     "Pocket depth": 5.043293,
+     "Pocket radius": 5.618223
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 19.040425,
+     "Pocket depth": 3.379487,
+     "Pocket radius": 5.220265
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 21.724396,
+     "Pocket depth": 5.574725,
+     "Pocket radius": 5.630094
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 25.491327,
+     "Pocket depth": 11.733079,
+     "Pocket radius": 3.140736
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 15.447791,
+     "Pocket depth": 10.244791,
+     "Pocket radius": 3.459442
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 15.874638,
+     "Pocket depth": 9.89233,
+     "Pocket radius": 2.513722
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 23.166639,
+     "Pocket depth": 7.7731,
+     "Pocket radius": 3.44718
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 14.863174,
+     "Pocket depth": 8.98747,
+     "Pocket radius": 5.333468
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 21.286056,
+     "Pocket depth": 8.447181,
+     "Pocket radius": 4.849565
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 18.524485,
+     "Pocket depth": 8.120503,
+     "Pocket radius": 3.197372
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 12.128048,
+     "Pocket depth": 6.344706,
+     "Pocket radius": 4.236246
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 11.2578,
+     "Pocket depth": 8.481423,
+     "Pocket radius": 4.089433
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 19.304498,
+     "Pocket depth": 6.456843,
+     "Pocket radius": 4.251744
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 17.146019,
+     "Pocket depth": 5.271239,
+     "Pocket radius": 4.022342
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 20.525098,
+     "Pocket depth": 8.950331,
+     "Pocket radius": 3.755974
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 14.904583,
+     "Pocket depth": 10.110064,
+     "Pocket radius": 2.736111
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d02-blind-pocket",
+  "seed": 6,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Height": 20.514932,
+     "Pocket depth": 3.021092,
+     "Pocket radius": 4.8211
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 14.043254,
+     "Pocket depth": 7.879076,
+     "Pocket radius": 2.747674
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 10.090757,
+     "Pocket depth": 11.288338,
+     "Pocket radius": 5.896945
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Height": 14.201057,
+     "Pocket depth": 11.405968,
+     "Pocket radius": 3.839588
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 10.447037,
+     "Pocket depth": 3.463864,
+     "Pocket radius": 4.085486
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 25.684682,
+     "Pocket depth": 8.681463,
+     "Pocket radius": 4.183664
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 18.133063,
+     "Pocket depth": 4.792917,
+     "Pocket radius": 5.957579
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.902605,
+     "Pocket depth": 5.42215,
+     "Pocket radius": 5.807076
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 27.067756,
+     "Pocket depth": 11.855563,
+     "Pocket radius": 4.944709
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.889274,
+     "Pocket depth": 11.655434,
+     "Pocket radius": 5.805104
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 14.365755,
+     "Pocket depth": 7.973342,
+     "Pocket radius": 3.218872
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 15.836212,
+     "Pocket depth": 4.917114,
+     "Pocket radius": 5.409635
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 18.098749,
+     "Pocket depth": 8.234509,
+     "Pocket radius": 4.524055
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 27.709507,
+     "Pocket depth": 8.141353,
+     "Pocket radius": 5.564029
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 24.270769,
+     "Pocket depth": 8.15752,
+     "Pocket radius": 3.45399
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 27.043201,
+     "Pocket depth": 10.293266,
+     "Pocket radius": 3.215246
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 18.386241,
+     "Pocket depth": 6.259207,
+     "Pocket radius": 4.802986
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 10.434028,
+     "Pocket depth": 5.980989,
+     "Pocket radius": 3.522023
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 15.132005,
+     "Pocket depth": 5.723188,
+     "Pocket radius": 3.423027
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 17.457276,
+     "Pocket depth": 3.81382,
+     "Pocket radius": 3.761928
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 11.665033,
+     "Pocket depth": 11.359347,
+     "Pocket radius": 4.251497
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Height": 12.304201,
+     "Pocket depth": 7.405126,
+     "Pocket radius": 4.158893
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 11.105271,
+     "Pocket depth": 6.989329,
+     "Pocket radius": 4.834233
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 15.891464,
+     "Pocket depth": 5.604148,
+     "Pocket radius": 5.743005
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 12.414117,
+     "Pocket depth": 4.458134,
+     "Pocket radius": 4.553685
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 23.824617,
+     "Pocket depth": 9.610898,
+     "Pocket radius": 5.642675
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 13.176249,
+     "Pocket depth": 8.33412,
+     "Pocket radius": 3.974123
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 24.521956,
+     "Pocket depth": 4.344378,
+     "Pocket radius": 3.168351
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 26.759229,
+     "Pocket depth": 3.718782,
+     "Pocket radius": 2.854897
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 21.553926,
+     "Pocket depth": 5.698334,
+     "Pocket radius": 5.065355
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 20.0657,
+     "Pocket depth": 10.9153,
+     "Pocket radius": 5.201179
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 13.808803,
+     "Pocket depth": 5.452069,
+     "Pocket radius": 4.341754
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 16.714377,
+     "Pocket depth": 7.802974,
+     "Pocket radius": 3.06781
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 12.44761,
+     "Pocket depth": 4.7222,
+     "Pocket radius": 3.93631
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 12.910576,
+     "Pocket depth": 9.674281,
+     "Pocket radius": 5.052008
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 10.11872,
+     "Pocket depth": 8.620014,
+     "Pocket radius": 2.688503
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.049062,
+     "Pocket depth": 6.800093,
+     "Pocket radius": 5.382211
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 26.633418,
+     "Pocket depth": 11.414208,
+     "Pocket radius": 3.878227
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 23.940692,
+     "Pocket depth": 3.202474,
+     "Pocket radius": 3.858254
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 27.897569,
+     "Pocket depth": 4.879164,
+     "Pocket radius": 4.909555
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 11.904972,
+     "Pocket depth": 6.406657,
+     "Pocket radius": 2.796487
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 13.846357,
+     "Pocket depth": 9.979894,
+     "Pocket radius": 4.566353
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 20.002936,
+     "Pocket depth": 5.471347,
+     "Pocket radius": 5.868136
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.626616,
+     "Pocket depth": 7.843025,
+     "Pocket radius": 4.585888
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 25.096305,
+     "Pocket depth": 5.577524,
+     "Pocket radius": 3.417823
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 17.819234,
+     "Pocket depth": 7.850601,
+     "Pocket radius": 5.015241
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 27.03372,
+     "Pocket depth": 3.98129,
+     "Pocket radius": 3.380533
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 27.346738,
+     "Pocket depth": 3.636474,
+     "Pocket radius": 2.945133
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 24.224477,
+     "Pocket depth": 7.731707,
+     "Pocket radius": 5.851967
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 11.622771,
+     "Pocket depth": 11.208662,
+     "Pocket radius": 3.678567
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Height": 19.992198,
+     "Pocket depth": 7.411704,
+     "Pocket radius": 3.613863
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 14.71808,
+     "Pocket depth": 6.576085,
+     "Pocket radius": 3.482058
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 17.034647,
+     "Pocket depth": 7.550333,
+     "Pocket radius": 4.569417
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.555755,
+     "Pocket depth": 7.274654,
+     "Pocket radius": 5.976201
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.877748,
+     "Pocket depth": 9.965141,
+     "Pocket radius": 2.620398
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 20.409219,
+     "Pocket depth": 6.652668,
+     "Pocket radius": 4.741094
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 18.646056,
+     "Pocket depth": 4.179773,
+     "Pocket radius": 5.642049
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 10.511868,
+     "Pocket depth": 3.22406,
+     "Pocket radius": 4.004418
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 25.392033,
+     "Pocket depth": 4.588963,
+     "Pocket radius": 4.730622
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 29.507307,
+     "Pocket depth": 5.546606,
+     "Pocket radius": 4.033901
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 17.067176,
+     "Pocket depth": 5.529655,
+     "Pocket radius": 3.987782
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 29.229655,
+     "Pocket depth": 6.646517,
+     "Pocket radius": 4.338591
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 25.640287,
+     "Pocket depth": 5.450871,
+     "Pocket radius": 5.646585
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 10.258251,
+     "Pocket depth": 8.071984,
+     "Pocket radius": 2.641196
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d02-blind-pocket",
+  "seed": 7,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Height": 10.234095,
+     "Pocket depth": 3.557624,
+     "Pocket radius": 5.919177
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 23.980574,
+     "Pocket depth": 7.693007,
+     "Pocket radius": 3.919326
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 19.324653,
+     "Pocket depth": 5.159327,
+     "Pocket radius": 4.43664
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 24.596442,
+     "Pocket depth": 5.32034,
+     "Pocket radius": 3.045819
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 25.281798,
+     "Pocket depth": 7.665623,
+     "Pocket radius": 3.18998
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 17.359172,
+     "Pocket depth": 5.639226,
+     "Pocket radius": 4.371588
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 15.926605,
+     "Pocket depth": 11.801515,
+     "Pocket radius": 3.366368
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 27.555592,
+     "Pocket depth": 4.717125,
+     "Pocket radius": 3.002801
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 13.092881,
+     "Pocket depth": 5.618561,
+     "Pocket radius": 4.417655
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 25.237474,
+     "Pocket depth": 3.670663,
+     "Pocket radius": 5.695292
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 21.074215,
+     "Pocket depth": 8.594624,
+     "Pocket radius": 4.880318
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 29.319794,
+     "Pocket depth": 8.619426,
+     "Pocket radius": 5.724217
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 26.55257,
+     "Pocket depth": 3.359806,
+     "Pocket radius": 3.112295
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 17.13962,
+     "Pocket depth": 6.827842,
+     "Pocket radius": 2.570616
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 11.762125,
+     "Pocket depth": 9.912143,
+     "Pocket radius": 3.791393
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 18.534314,
+     "Pocket depth": 7.217964,
+     "Pocket radius": 5.811774
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 24.065622,
+     "Pocket depth": 9.194677,
+     "Pocket radius": 3.657268
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 17.12669,
+     "Pocket depth": 4.249121,
+     "Pocket radius": 2.966526
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.260697,
+     "Pocket depth": 5.901843,
+     "Pocket radius": 3.166314
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 22.644175,
+     "Pocket depth": 6.030938,
+     "Pocket radius": 2.65271
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 23.685076,
+     "Pocket depth": 11.292346,
+     "Pocket radius": 4.417554
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 26.53155,
+     "Pocket depth": 8.897199,
+     "Pocket radius": 5.719573
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 12.340828,
+     "Pocket depth": 7.769362,
+     "Pocket radius": 4.772081
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 27.821298,
+     "Pocket depth": 11.644486,
+     "Pocket radius": 5.432851
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 21.884692,
+     "Pocket depth": 11.674837,
+     "Pocket radius": 5.886272
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 20.971365,
+     "Pocket depth": 10.366662,
+     "Pocket radius": 2.51995
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 20.32147,
+     "Pocket depth": 5.952507,
+     "Pocket radius": 5.034951
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 20.989902,
+     "Pocket depth": 9.798747,
+     "Pocket radius": 5.919269
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 21.151066,
+     "Pocket depth": 10.408435,
+     "Pocket radius": 4.004979
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 22.847028,
+     "Pocket depth": 9.646983,
+     "Pocket radius": 4.430938
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 16.247677,
+     "Pocket depth": 5.131517,
+     "Pocket radius": 2.532602
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 10.481456,
+     "Pocket depth": 11.490572,
+     "Pocket radius": 5.416791
+    },
+    "failing": [
+     "faces"
+    ],
+    "fresh": [
+     "faces"
+    ]
+   },
+   {
+    "params": {
+     "Height": 22.612028,
+     "Pocket depth": 3.129611,
+     "Pocket radius": 4.666136
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 21.897933,
+     "Pocket depth": 9.451648,
+     "Pocket radius": 5.982012
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 15.559948,
+     "Pocket depth": 11.876477,
+     "Pocket radius": 4.774899
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 26.098349,
+     "Pocket depth": 8.61959,
+     "Pocket radius": 5.405486
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 12.781283,
+     "Pocket depth": 11.947788,
+     "Pocket radius": 4.274261
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Height": 21.337798,
+     "Pocket depth": 4.44794,
+     "Pocket radius": 3.886582
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 14.213381,
+     "Pocket depth": 10.32188,
+     "Pocket radius": 5.515486
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 24.718386,
+     "Pocket depth": 8.926097,
+     "Pocket radius": 5.96585
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 22.186199,
+     "Pocket depth": 9.628096,
+     "Pocket radius": 5.84386
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 19.784396,
+     "Pocket depth": 5.06796,
+     "Pocket radius": 4.544027
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 25.913633,
+     "Pocket depth": 10.685275,
+     "Pocket radius": 3.164719
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 21.09792,
+     "Pocket depth": 7.299344,
+     "Pocket radius": 4.33976
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 13.604118,
+     "Pocket depth": 5.255692,
+     "Pocket radius": 4.036374
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 19.55024,
+     "Pocket depth": 4.537568,
+     "Pocket radius": 2.511239
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 13.463055,
+     "Pocket depth": 3.216949,
+     "Pocket radius": 2.875299
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 27.526101,
+     "Pocket depth": 11.845342,
+     "Pocket radius": 2.710419
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 13.489095,
+     "Pocket depth": 6.645337,
+     "Pocket radius": 4.246484
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 24.646686,
+     "Pocket depth": 6.314228,
+     "Pocket radius": 3.760055
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 25.830519,
+     "Pocket depth": 9.396608,
+     "Pocket radius": 5.3004
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 20.599797,
+     "Pocket depth": 10.184894,
+     "Pocket radius": 3.942579
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 21.25273,
+     "Pocket depth": 5.633815,
+     "Pocket radius": 4.345406
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 25.529669,
+     "Pocket depth": 3.720121,
+     "Pocket radius": 3.382692
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 26.536854,
+     "Pocket depth": 10.446369,
+     "Pocket radius": 5.211348
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 18.596597,
+     "Pocket depth": 6.212208,
+     "Pocket radius": 5.721142
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 15.026642,
+     "Pocket depth": 6.252692,
+     "Pocket radius": 4.169376
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 26.606137,
+     "Pocket depth": 6.636344,
+     "Pocket radius": 5.910982
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 21.025628,
+     "Pocket depth": 6.926831,
+     "Pocket radius": 3.684958
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 20.740813,
+     "Pocket depth": 5.639293,
+     "Pocket radius": 5.594667
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 21.445174,
+     "Pocket depth": 11.874359,
+     "Pocket radius": 5.443517
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 19.912721,
+     "Pocket depth": 6.931259,
+     "Pocket radius": 4.941851
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.621315,
+     "Pocket depth": 7.955891,
+     "Pocket radius": 4.800799
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 13.247695,
+     "Pocket depth": 9.239717,
+     "Pocket radius": 3.86781
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d02-blind-pocket",
+  "seed": 8,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Height": 13.125903,
+     "Pocket depth": 8.62673,
+     "Pocket radius": 3.552326
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 23.919086,
+     "Pocket depth": 8.265082,
+     "Pocket radius": 4.072897
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 26.375191,
+     "Pocket depth": 5.149331,
+     "Pocket radius": 4.273162
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 11.202761,
+     "Pocket depth": 7.627655,
+     "Pocket radius": 2.756755
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 21.389093,
+     "Pocket depth": 4.983238,
+     "Pocket radius": 3.061917
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 29.094653,
+     "Pocket depth": 9.240873,
+     "Pocket radius": 2.818485
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 12.556144,
+     "Pocket depth": 3.354454,
+     "Pocket radius": 4.445952
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 18.881916,
+     "Pocket depth": 9.774468,
+     "Pocket radius": 5.209649
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 10.793428,
+     "Pocket depth": 7.085541,
+     "Pocket radius": 3.755151
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 20.008274,
+     "Pocket depth": 5.889162,
+     "Pocket radius": 4.314947
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 12.492623,
+     "Pocket depth": 10.748181,
+     "Pocket radius": 3.633984
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 24.662285,
+     "Pocket depth": 11.097038,
+     "Pocket radius": 4.289908
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 23.698839,
+     "Pocket depth": 9.789797,
+     "Pocket radius": 4.772332
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 16.155706,
+     "Pocket depth": 5.490068,
+     "Pocket radius": 2.864311
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 16.20294,
+     "Pocket depth": 11.998805,
+     "Pocket radius": 4.488743
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 18.068517,
+     "Pocket depth": 3.431157,
+     "Pocket radius": 4.048266
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 25.784129,
+     "Pocket depth": 11.980432,
+     "Pocket radius": 3.374865
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 27.209927,
+     "Pocket depth": 3.659309,
+     "Pocket radius": 4.414047
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 20.719333,
+     "Pocket depth": 4.605254,
+     "Pocket radius": 3.918848
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 12.30335,
+     "Pocket depth": 3.964408,
+     "Pocket radius": 5.980141
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 26.766754,
+     "Pocket depth": 4.717435,
+     "Pocket radius": 2.579245
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 29.179194,
+     "Pocket depth": 8.458595,
+     "Pocket radius": 5.279977
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 18.001829,
+     "Pocket depth": 7.005874,
+     "Pocket radius": 2.607656
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 18.342834,
+     "Pocket depth": 5.700231,
+     "Pocket radius": 4.958106
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 10.022227,
+     "Pocket depth": 9.770167,
+     "Pocket radius": 3.810388
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Height": 15.126812,
+     "Pocket depth": 11.848321,
+     "Pocket radius": 5.604736
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 26.820783,
+     "Pocket depth": 8.295275,
+     "Pocket radius": 4.845117
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 29.092992,
+     "Pocket depth": 5.79158,
+     "Pocket radius": 2.831555
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 21.691356,
+     "Pocket depth": 6.570894,
+     "Pocket radius": 3.678272
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 27.847924,
+     "Pocket depth": 5.914661,
+     "Pocket radius": 4.421244
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 15.690176,
+     "Pocket depth": 9.513299,
+     "Pocket radius": 4.370496
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 18.063331,
+     "Pocket depth": 9.658572,
+     "Pocket radius": 4.315194
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 24.310457,
+     "Pocket depth": 10.433641,
+     "Pocket radius": 3.772386
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 15.320004,
+     "Pocket depth": 11.800886,
+     "Pocket radius": 2.70711
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 11.831604,
+     "Pocket depth": 9.153974,
+     "Pocket radius": 3.609798
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.730875,
+     "Pocket depth": 3.2787,
+     "Pocket radius": 4.526604
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 17.183783,
+     "Pocket depth": 9.1495,
+     "Pocket radius": 2.91888
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 13.81408,
+     "Pocket depth": 5.321538,
+     "Pocket radius": 5.140547
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 25.051045,
+     "Pocket depth": 3.990952,
+     "Pocket radius": 4.368937
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 18.806968,
+     "Pocket depth": 8.533871,
+     "Pocket radius": 3.433027
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 15.285936,
+     "Pocket depth": 7.816417,
+     "Pocket radius": 3.415179
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 12.028084,
+     "Pocket depth": 7.249598,
+     "Pocket radius": 3.238823
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 20.363218,
+     "Pocket depth": 3.906666,
+     "Pocket radius": 2.598213
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 24.763777,
+     "Pocket depth": 3.636849,
+     "Pocket radius": 4.213615
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 27.467963,
+     "Pocket depth": 8.520398,
+     "Pocket radius": 3.992781
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 22.592183,
+     "Pocket depth": 5.35129,
+     "Pocket radius": 2.918124
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 23.926566,
+     "Pocket depth": 7.834287,
+     "Pocket radius": 5.708626
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 13.453559,
+     "Pocket depth": 5.707382,
+     "Pocket radius": 5.45482
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 27.697533,
+     "Pocket depth": 8.064961,
+     "Pocket radius": 4.805066
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 14.128135,
+     "Pocket depth": 4.855521,
+     "Pocket radius": 4.720242
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 20.190762,
+     "Pocket depth": 10.070243,
+     "Pocket radius": 3.279921
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 16.18994,
+     "Pocket depth": 11.578599,
+     "Pocket radius": 3.415224
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.041597,
+     "Pocket depth": 4.40046,
+     "Pocket radius": 3.236447
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 11.31811,
+     "Pocket depth": 7.133458,
+     "Pocket radius": 3.325555
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 15.776668,
+     "Pocket depth": 10.680737,
+     "Pocket radius": 2.514773
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 10.254275,
+     "Pocket depth": 8.289506,
+     "Pocket radius": 4.401821
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 24.241095,
+     "Pocket depth": 11.001678,
+     "Pocket radius": 2.541958
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 14.691993,
+     "Pocket depth": 5.664588,
+     "Pocket radius": 3.510447
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 22.936002,
+     "Pocket depth": 11.09602,
+     "Pocket radius": 3.355958
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 16.77231,
+     "Pocket depth": 11.136376,
+     "Pocket radius": 5.243659
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 10.334786,
+     "Pocket depth": 6.530186,
+     "Pocket radius": 3.708997
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 21.407409,
+     "Pocket depth": 8.864831,
+     "Pocket radius": 4.741845
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.136594,
+     "Pocket depth": 8.25025,
+     "Pocket radius": 2.904831
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 13.668104,
+     "Pocket depth": 11.514896,
+     "Pocket radius": 5.853079
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d02-blind-pocket",
+  "seed": 9,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Height": 13.974578,
+     "Pocket depth": 10.660897,
+     "Pocket radius": 2.996181
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 26.433434,
+     "Pocket depth": 9.51424,
+     "Pocket radius": 4.911016
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 15.254369,
+     "Pocket depth": 11.275088,
+     "Pocket radius": 2.958016
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 22.64581,
+     "Pocket depth": 9.282142,
+     "Pocket radius": 4.555499
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 15.668596,
+     "Pocket depth": 11.440351,
+     "Pocket radius": 3.504579
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 24.605426,
+     "Pocket depth": 8.777767,
+     "Pocket radius": 3.784279
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 20.710925,
+     "Pocket depth": 11.076945,
+     "Pocket radius": 5.529456
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 19.10656,
+     "Pocket depth": 10.86319,
+     "Pocket radius": 3.164356
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 23.545641,
+     "Pocket depth": 6.002044,
+     "Pocket radius": 2.668332
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 27.526238,
+     "Pocket depth": 4.840827,
+     "Pocket radius": 4.342247
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 19.881817,
+     "Pocket depth": 3.672627,
+     "Pocket radius": 5.419792
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 24.074498,
+     "Pocket depth": 4.771181,
+     "Pocket radius": 2.73916
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 19.775993,
+     "Pocket depth": 5.787304,
+     "Pocket radius": 4.805554
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 15.843037,
+     "Pocket depth": 7.980153,
+     "Pocket radius": 5.849742
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 21.357717,
+     "Pocket depth": 4.441127,
+     "Pocket radius": 4.311388
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 16.506629,
+     "Pocket depth": 7.830847,
+     "Pocket radius": 5.299115
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 21.541331,
+     "Pocket depth": 8.523242,
+     "Pocket radius": 4.367359
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 23.131962,
+     "Pocket depth": 7.471516,
+     "Pocket radius": 3.12913
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.593725,
+     "Pocket depth": 8.372217,
+     "Pocket radius": 4.744054
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 21.06009,
+     "Pocket depth": 8.91105,
+     "Pocket radius": 5.938852
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.349507,
+     "Pocket depth": 3.1929,
+     "Pocket radius": 5.061131
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 11.900836,
+     "Pocket depth": 8.992672,
+     "Pocket radius": 4.740348
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 29.496767,
+     "Pocket depth": 9.610645,
+     "Pocket radius": 5.666979
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 25.89045,
+     "Pocket depth": 5.090401,
+     "Pocket radius": 4.901424
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 29.143363,
+     "Pocket depth": 4.104409,
+     "Pocket radius": 5.795566
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 23.708015,
+     "Pocket depth": 10.138573,
+     "Pocket radius": 3.710783
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 25.382363,
+     "Pocket depth": 5.904927,
+     "Pocket radius": 5.002613
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 27.147631,
+     "Pocket depth": 3.624739,
+     "Pocket radius": 4.542435
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 21.137282,
+     "Pocket depth": 5.881593,
+     "Pocket radius": 4.370564
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 15.674301,
+     "Pocket depth": 7.391675,
+     "Pocket radius": 3.15145
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 26.388089,
+     "Pocket depth": 9.233114,
+     "Pocket radius": 4.499797
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.867693,
+     "Pocket depth": 10.571361,
+     "Pocket radius": 2.621696
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 14.300666,
+     "Pocket depth": 8.361906,
+     "Pocket radius": 4.898578
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 13.955294,
+     "Pocket depth": 5.364444,
+     "Pocket radius": 5.629968
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 22.849995,
+     "Pocket depth": 3.023877,
+     "Pocket radius": 4.11334
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 11.81918,
+     "Pocket depth": 4.725935,
+     "Pocket radius": 2.891171
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 13.531947,
+     "Pocket depth": 4.724862,
+     "Pocket radius": 3.51023
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 26.523805,
+     "Pocket depth": 4.319908,
+     "Pocket radius": 5.493585
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 23.794177,
+     "Pocket depth": 10.492468,
+     "Pocket radius": 3.825883
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.960373,
+     "Pocket depth": 7.781313,
+     "Pocket radius": 5.835832
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 26.562277,
+     "Pocket depth": 7.342691,
+     "Pocket radius": 3.384789
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.414145,
+     "Pocket depth": 11.475249,
+     "Pocket radius": 2.790363
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 17.183909,
+     "Pocket depth": 6.111169,
+     "Pocket radius": 5.656693
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 18.71308,
+     "Pocket depth": 6.767602,
+     "Pocket radius": 5.364166
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 24.760358,
+     "Pocket depth": 7.970896,
+     "Pocket radius": 5.393377
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 11.405177,
+     "Pocket depth": 3.054478,
+     "Pocket radius": 5.801131
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 27.531231,
+     "Pocket depth": 11.2391,
+     "Pocket radius": 5.398438
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 27.670443,
+     "Pocket depth": 10.009973,
+     "Pocket radius": 5.542473
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 17.136397,
+     "Pocket depth": 7.181889,
+     "Pocket radius": 5.347384
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 13.268219,
+     "Pocket depth": 6.584613,
+     "Pocket radius": 4.465834
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 20.43823,
+     "Pocket depth": 11.010655,
+     "Pocket radius": 2.634926
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 20.201563,
+     "Pocket depth": 4.035109,
+     "Pocket radius": 5.024843
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 18.060093,
+     "Pocket depth": 8.97804,
+     "Pocket radius": 4.702598
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 13.781562,
+     "Pocket depth": 5.570591,
+     "Pocket radius": 4.818658
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 16.311746,
+     "Pocket depth": 11.040177,
+     "Pocket radius": 2.879351
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 21.033035,
+     "Pocket depth": 9.257803,
+     "Pocket radius": 2.562992
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 12.621667,
+     "Pocket depth": 4.516388,
+     "Pocket radius": 4.332709
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.673737,
+     "Pocket depth": 7.154693,
+     "Pocket radius": 3.13123
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 19.341749,
+     "Pocket depth": 5.220255,
+     "Pocket radius": 5.222669
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.996575,
+     "Pocket depth": 7.258032,
+     "Pocket radius": 5.677206
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 22.181934,
+     "Pocket depth": 4.17459,
+     "Pocket radius": 2.793578
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 14.040417,
+     "Pocket depth": 8.698748,
+     "Pocket radius": 4.956121
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 21.791535,
+     "Pocket depth": 6.669187,
+     "Pocket radius": 4.647744
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 26.526373,
+     "Pocket depth": 3.931981,
+     "Pocket radius": 3.631227
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ },
+ {
+  "brief": "d02-blind-pocket",
+  "seed": 10,
+  "budget": 64,
+  "nominal_failures": [],
+  "points": [
+   {
+    "params": {
+     "Height": 20.03984,
+     "Pocket depth": 11.257381,
+     "Pocket radius": 4.919614
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 26.042054,
+     "Pocket depth": 7.116759,
+     "Pocket radius": 4.069212
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 14.045739,
+     "Pocket depth": 3.752052,
+     "Pocket radius": 2.619444
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 29.934372,
+     "Pocket depth": 11.298852,
+     "Pocket radius": 2.952646
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 17.855468,
+     "Pocket depth": 6.492547,
+     "Pocket radius": 4.055101
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.513423,
+     "Pocket depth": 5.620234,
+     "Pocket radius": 5.328574
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.72083,
+     "Pocket depth": 4.421007,
+     "Pocket radius": 3.860464
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 23.907606,
+     "Pocket depth": 7.685209,
+     "Pocket radius": 4.186312
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 15.891678,
+     "Pocket depth": 6.080985,
+     "Pocket radius": 3.843966
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 20.344521,
+     "Pocket depth": 3.412762,
+     "Pocket radius": 4.294483
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 10.7698,
+     "Pocket depth": 3.668844,
+     "Pocket radius": 3.214165
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 12.930638,
+     "Pocket depth": 3.765871,
+     "Pocket radius": 3.000361
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 25.351251,
+     "Pocket depth": 7.354041,
+     "Pocket radius": 3.962866
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 22.592778,
+     "Pocket depth": 10.155975,
+     "Pocket radius": 3.052449
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 18.893102,
+     "Pocket depth": 11.261179,
+     "Pocket radius": 3.332111
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 25.793958,
+     "Pocket depth": 9.156941,
+     "Pocket radius": 2.970284
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 21.950621,
+     "Pocket depth": 10.915976,
+     "Pocket radius": 4.586225
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 10.31264,
+     "Pocket depth": 9.675415,
+     "Pocket radius": 5.017683
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Height": 22.341287,
+     "Pocket depth": 10.204147,
+     "Pocket radius": 4.446507
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 17.776742,
+     "Pocket depth": 5.840581,
+     "Pocket radius": 5.133751
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 12.410068,
+     "Pocket depth": 6.496633,
+     "Pocket radius": 3.272256
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 11.160955,
+     "Pocket depth": 10.895384,
+     "Pocket radius": 4.044433
+    },
+    "failing": [
+     "gate-min-wall"
+    ],
+    "fresh": [
+     "gate-min-wall"
+    ]
+   },
+   {
+    "params": {
+     "Height": 18.880468,
+     "Pocket depth": 4.42497,
+     "Pocket radius": 5.5781
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 18.476339,
+     "Pocket depth": 10.806552,
+     "Pocket radius": 5.7573
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 11.363349,
+     "Pocket depth": 4.469804,
+     "Pocket radius": 3.551743
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 29.690294,
+     "Pocket depth": 11.588599,
+     "Pocket radius": 4.441807
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 10.015937,
+     "Pocket depth": 4.830327,
+     "Pocket radius": 3.633435
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 24.809295,
+     "Pocket depth": 10.898412,
+     "Pocket radius": 5.487075
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 26.899391,
+     "Pocket depth": 5.937068,
+     "Pocket radius": 3.214303
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 15.8582,
+     "Pocket depth": 11.799205,
+     "Pocket radius": 5.659157
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 23.831194,
+     "Pocket depth": 9.965802,
+     "Pocket radius": 4.260845
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 18.195958,
+     "Pocket depth": 5.100881,
+     "Pocket radius": 3.406606
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 22.370938,
+     "Pocket depth": 6.168865,
+     "Pocket radius": 5.215728
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 10.58074,
+     "Pocket depth": 7.897209,
+     "Pocket radius": 5.574953
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 26.01261,
+     "Pocket depth": 7.53745,
+     "Pocket radius": 3.978941
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 26.188622,
+     "Pocket depth": 11.061498,
+     "Pocket radius": 4.183924
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 14.410443,
+     "Pocket depth": 5.331429,
+     "Pocket radius": 2.678788
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 27.860622,
+     "Pocket depth": 5.80905,
+     "Pocket radius": 4.896741
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 23.255674,
+     "Pocket depth": 7.932458,
+     "Pocket radius": 3.486672
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 16.962235,
+     "Pocket depth": 5.703447,
+     "Pocket radius": 4.534949
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 19.189665,
+     "Pocket depth": 9.155931,
+     "Pocket radius": 3.491477
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 24.715196,
+     "Pocket depth": 11.554022,
+     "Pocket radius": 4.597402
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 12.579372,
+     "Pocket depth": 3.318603,
+     "Pocket radius": 3.11386
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 26.15026,
+     "Pocket depth": 7.298821,
+     "Pocket radius": 4.869908
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 23.537996,
+     "Pocket depth": 10.205313,
+     "Pocket radius": 2.600071
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 20.402164,
+     "Pocket depth": 5.60397,
+     "Pocket radius": 4.255037
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 11.427309,
+     "Pocket depth": 5.274228,
+     "Pocket radius": 3.186516
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.114975,
+     "Pocket depth": 9.819021,
+     "Pocket radius": 5.479619
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 17.846237,
+     "Pocket depth": 4.95981,
+     "Pocket radius": 3.786521
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 26.066665,
+     "Pocket depth": 11.345613,
+     "Pocket radius": 3.203215
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 14.851864,
+     "Pocket depth": 7.427649,
+     "Pocket radius": 3.537758
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 24.544991,
+     "Pocket depth": 10.913437,
+     "Pocket radius": 3.072612
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 17.209811,
+     "Pocket depth": 4.432157,
+     "Pocket radius": 5.478236
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 28.642226,
+     "Pocket depth": 9.738137,
+     "Pocket radius": 5.397124
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 17.885563,
+     "Pocket depth": 3.913046,
+     "Pocket radius": 5.39309
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 27.288744,
+     "Pocket depth": 7.906163,
+     "Pocket radius": 3.61217
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 13.506582,
+     "Pocket depth": 7.72462,
+     "Pocket radius": 3.20304
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 20.142685,
+     "Pocket depth": 5.919743,
+     "Pocket radius": 4.361607
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 21.381012,
+     "Pocket depth": 3.48745,
+     "Pocket radius": 2.667716
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 20.758577,
+     "Pocket depth": 7.162654,
+     "Pocket radius": 4.172114
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 17.78727,
+     "Pocket depth": 7.202555,
+     "Pocket radius": 5.410093
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 14.039185,
+     "Pocket depth": 7.981839,
+     "Pocket radius": 5.545665
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 18.120314,
+     "Pocket depth": 11.471525,
+     "Pocket radius": 4.516998
+    },
+    "failing": [],
+    "fresh": []
+   },
+   {
+    "params": {
+     "Height": 11.033799,
+     "Pocket depth": 4.618225,
+     "Pocket radius": 3.711005
+    },
+    "failing": [],
+    "fresh": []
+   }
+  ]
+ }
+]
