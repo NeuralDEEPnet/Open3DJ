@@ -2,7 +2,7 @@ import type {
   AssemblyFile, ComputeBlock, ComputeMode, DeviceInventory, FileRef, GateRun, GeometryReport, ParamValue, Rev, ScriptError,
 } from "@open3dj/schemas";
 import type { SandboxLimits, ScriptLog } from "@open3dj/sandbox";
-import type { ArtifactFormat, ExportArtifact, GateOptions } from "@open3dj/assembly";
+import type { ArtifactFormat, ExportArtifact, FitOptions, GateOptions } from "@open3dj/assembly";
 import type { RenderImage, RenderOptions } from "@open3dj/render";
 
 export type { ArtifactFormat, ExportArtifact, GateOptions, RenderImage, RenderOptions };
@@ -38,6 +38,8 @@ export interface JobRequest {
    * report. Only inspect fields=[gates] sets it, because it reads nothing but the gates.
    */
   fits?: false;
+  /** Envelope spike: options for the exact fit check, such as a larger watch distance. */
+  fitOptions?: FitOptions;
   /** Root definition id of the assembly. Default "root". */
   rootName?: string;
   /**

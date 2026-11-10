@@ -136,7 +136,7 @@ function bindRunner(kernel: Kernel): JobRunner & { rebind(): void; dispose(): vo
         const out = dsl.collect(run.value);
         checkCancel();
         const asm = buildAssembly(kernel, out, { ...(job.rootName ? { rootName: job.rootName } : {}), ...(job.previous ? { previous: job.previous } : {}) });
-        const fits = job.fits === false ? [] : computeFits(kernel, asm);
+        const fits = job.fits === false ? [] : computeFits(kernel, asm, job.fitOptions);
         const geometry = report(kernel, asm, { rev: job.rev, compute, fits, ...(job.detail ? { detail: job.detail } : {}) });
         const base = { ok: true as const, report: geometry, assembly: asm.file, params: out.params };
         if (job.kind === "run") {
