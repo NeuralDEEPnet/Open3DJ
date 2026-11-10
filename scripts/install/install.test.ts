@@ -207,6 +207,7 @@ for (const ps of shells.length ? shells : ["PowerShell"]) {
         trees: { name: string; linked: boolean; removed: boolean; siblingKept: boolean }[];
         linkTargetKept: boolean;
         busy?: { renameFailed: boolean; threw: boolean; markerKept: boolean; removedAfterClose: boolean };
+        briefly?: { heldAtStart: boolean; threw: boolean; removed: boolean };
         refsOk: string[];
         refsBad: string[];
         inside: boolean[];
@@ -222,6 +223,7 @@ for (const ps of shells.length ? shells : ["PowerShell"]) {
       assert.ok(out.linkTargetKept, "Remove-Tree followed a link and deleted its target");
       if (process.platform === "win32") {
         assert.deepEqual(out.busy, { renameFailed: true, threw: true, markerKept: true, removedAfterClose: true });
+        assert.deepEqual(out.briefly, { heldAtStart: true, threw: false, removed: true }, "Remove-Tree gave up on a file held for a moment");
         assert.deepEqual(out.run, { output: '["hello"]', exitCode: 0 });
       }
       assert.equal(out.refsOk.length, 5);
