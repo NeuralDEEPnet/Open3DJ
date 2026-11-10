@@ -7,5 +7,6 @@ Start from [0000-template.md](0000-template.md). Open an issue labeled `rfc` fir
 | RFC | Title | Status |
 |---|---|---|
 | 0001 | Prompt Open3DJ from the viewer page (the agent panel) | under discussion in #31 |
+| 0002 | Certified envelopes, killed by their spike; a corner-first range sweep instead | draft on the `experiment/envelope-spike` branch; [experiment write-up](experiments/2026-11-09-certified-envelopes.md) |
 
 Experiments do not need an RFC. Their write-ups go in `rfcs/experiments/`, tracked with the `experiment` label.
