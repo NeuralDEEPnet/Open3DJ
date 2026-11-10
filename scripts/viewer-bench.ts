@@ -297,7 +297,7 @@ async function benchCase(browser: Browser, c: Case): Promise<Row[]> {
     await server.close();
     handlers.shutdown();
     await pool.close();
-    rmSync(root, { recursive: true, force: true });
+    rmSync(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
   return rows;
 }

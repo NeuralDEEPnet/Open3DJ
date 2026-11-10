@@ -70,7 +70,7 @@ const withRoot = async (fn: (root: string) => Promise<void>) => {
   try {
     await fn(root);
   } finally {
-    rmSync(root, { recursive: true, force: true });
+    rmSync(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 };
 
