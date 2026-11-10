@@ -76,7 +76,7 @@ test("export: artifacts and evidence, and files written under the project root",
     const evidence = JSON.parse(await readFile(join(root, "out/r_test/plate.evidence.json"), "utf8")) as { rev?: string };
     assert.equal(evidence.rev, "r_test");
   } finally {
-    await rm(root, { recursive: true, force: true });
+    await rm(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 });
 
@@ -88,7 +88,7 @@ test("export: a dir outside the project is refused by the path policy", async ()
     if (r.ok) return;
     assert.equal(r.error.code, "PATH_REFUSED");
   } finally {
-    await rm(root, { recursive: true, force: true });
+    await rm(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 });
 

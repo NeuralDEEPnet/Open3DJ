@@ -32,7 +32,7 @@ function setup(): Ctx {
   const root = mkdtempSync(join(tmpdir(), "o3j-waivers-"));
   const pool = fakePool();
   const h = createHandlers({ pool, inventory: FAKE_INVENTORY, place: fakePlace, root, now: () => new Date("2026-11-04T12:00:00Z"), interactiveMs: 5_000 });
-  return { root, pool, h, done: () => rmSync(root, { recursive: true, force: true }) };
+  return { root, pool, h, done: () => rmSync(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 }) };
 }
 
 const valid = (tool: ToolName, output: unknown) => {
@@ -370,7 +370,7 @@ test("the store refuses to write a waivers file it could not read back", () => {
     store.saveWaivers([w]);
     assert.deepEqual(store.waivers(), [w]);
   } finally {
-    rmSync(root, { recursive: true, force: true });
+    rmSync(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 });
 

@@ -191,7 +191,7 @@ before(async () => {
 });
 after(() => {
   server.close();
-  rmSync(work, { recursive: true, force: true });
+  rmSync(work, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
 });
 beforeEach(reset);
 

@@ -22,7 +22,7 @@ test("an fs error names only the last path segment and its code", async () => {
     assert.match(out.message, /x\.o3j/);
     assert.ok(out.hint);
   } finally {
-    await rm(root, { recursive: true, force: true });
+    await rm(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 });
 

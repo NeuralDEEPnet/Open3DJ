@@ -155,6 +155,6 @@ test("a pinned call runs through callTool on the fake pool, and a refused one ne
     assert.equal(pool.calls.filter((j) => j.kind === "export").length, 0, "no export job ran");
     h.shutdown();
   } finally {
-    rmSync(root, { recursive: true, force: true });
+    rmSync(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 });

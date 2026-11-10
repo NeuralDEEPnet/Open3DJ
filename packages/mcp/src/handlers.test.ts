@@ -30,7 +30,7 @@ function setup(options: { interactiveMs?: number; slowMs?: number } = {}): Ctx {
   const pool = fakePool(options.slowMs === undefined ? {} : { slowMs: options.slowMs });
   const deps = { pool, inventory: FAKE_INVENTORY, place: fakePlace, root, now: () => new Date("2026-10-28T12:00:00Z"), interactiveMs: options.interactiveMs ?? 5_000 };
   const h = createHandlers(deps);
-  return { root, pool, h, done: () => rmSync(root, { recursive: true, force: true }) };
+  return { root, pool, h, done: () => rmSync(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 }) };
 }
 
 const valid = (tool: ToolName, output: unknown) => {
@@ -703,7 +703,7 @@ test("reads refuse symlinked folders below the project, not only symlinked files
     mkdirSync(outside);
     const rec = readJson(join(dir, "revisions", "r_0001.json"));
     writeFileSync(join(outside, "r_0001.json"), JSON.stringify({ ...rec, script: "SECRET SCRIPT FROM OUTSIDE", report: { ...(rec.report as object), refs: [{ name: "OUTSIDE", state: "exact" }] } }));
-    rmSync(join(dir, "revisions"), { recursive: true });
+    rmSync(join(dir, "revisions"), { recursive: true, maxRetries: 5, retryDelay: 200 });
     if (!trySymlink(outside, join(dir, "revisions"), "dir")) return;
     const ins = await c.h.inspect({ project: "p.o3j", fields: ["tree", "refs"] });
     assert.equal(ins.status, "error");

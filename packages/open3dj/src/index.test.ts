@@ -97,7 +97,7 @@ test("the CLI tool schema dump equals tools/list of the MCP server", async () =>
     assert.deepEqual(JSON.parse(JSON.stringify(listed)), dumped);
   } finally {
     await client.close();
-    rmSync(root, { recursive: true, force: true });
+    rmSync(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 });
 
@@ -178,7 +178,7 @@ test("end to end on the real pool: new, run, render, export, inspect, and the ex
     assert.equal(asmOut.report.assembly.definitions, 3, "four screw clones share one definition");
     assert.ok(!asmOut.report.fits.some((f) => f.kind === "clash"), "the template has no clashes");
   } finally {
-    rmSync(dir, { recursive: true, force: true });
+    rmSync(dir, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 });
 
@@ -222,7 +222,7 @@ test("--param says when it saved the working copy, and --no-save-params leaves i
     assert.ok(parsed.cmd === "run" && parsed.input.save_params === false);
     assert.ok(validate("tool-run-input", { ...(parsed.cmd === "run" ? parsed.input : {}), script: "return box(1,1,1)" }).valid);
   } finally {
-    rmSync(dir, { recursive: true, force: true });
+    rmSync(dir, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 });
 
@@ -247,7 +247,7 @@ test("inspect --fields refs lists named faces and edges with element addresses a
     assert.equal(await main(["inspect", join(dir, "plate.o3j"), "--fields", "refs"], text.io), 0);
     assert.match(text.text(), /part\.hole {2}exact {2}face:\d+/);
   } finally {
-    rmSync(dir, { recursive: true, force: true });
+    rmSync(dir, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 });
 
@@ -270,7 +270,7 @@ test("inspect --fields gates runs the fdm.v1 print checks in a worker: a 0.6 mm 
     assert.match(text.text(), /FAIL overhang/, "upside down, the floor hangs over the open top");
     assert.match(text.text(), /not a print simulation/);
   } finally {
-    rmSync(dir, { recursive: true, force: true });
+    rmSync(dir, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 });
 
@@ -314,7 +314,7 @@ test("open3dj run prints every collapsed fit line to a person, contacts first", 
     assert.equal([...r.text().matchAll(/^ {2}contact {4}block/gm)].length, 9, r.text());
     assert.doesNotMatch(r.text(), /more fits not listed/);
   } finally {
-    rmSync(dir, { recursive: true, force: true });
+    rmSync(dir, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 });
 
@@ -375,7 +375,7 @@ test("waivers on the real pool: a waived min_wall passes inspect and the export 
     assert.equal(await main(["export", project, "--format", "3mf"], again.io), 0, again.errText());
     assert.match(again.text(), /gates fdm\.v1: fail, 1 open, 0 waived/);
   } finally {
-    rmSync(dir, { recursive: true, force: true });
+    rmSync(dir, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 });
 
@@ -440,6 +440,6 @@ test("waivers on the real pool: a moved hole that thins a new wall reopens the w
     assert.equal(back.rev, "r_0003");
     assert.deepEqual([back.gates.status, back.gates.open, back.gates.waived], ["pass", 0, 1]);
   } finally {
-    rmSync(dir, { recursive: true, force: true });
+    rmSync(dir, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 });

@@ -98,6 +98,6 @@ test("installContext reads the installers' install.json when there is no .git fo
     writeFileSync(join(dir, "install.json"), JSON.stringify({ commit: "not a hash", source: "local" }));
     assert.deepEqual(installContext(app), { install: "installer (a local folder)" });
   } finally {
-    rmSync(dir, { recursive: true, force: true });
+    rmSync(dir, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 });

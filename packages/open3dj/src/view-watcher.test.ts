@@ -141,7 +141,7 @@ async function bench(o: BenchOptions): Promise<Bench> {
       await b.server.close();
       viewer.shutdown();
       agent.shutdown();
-      rmSync(root, { recursive: true, force: true });
+      rmSync(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
     },
   };
   return b;
@@ -394,7 +394,7 @@ test("script mode: after the project folder is deleted, the next save makes a ne
     writeFileSync(b.file, S1b);
     await until("the save to run", () => b.head() === "r_0002");
     // The person starts over: the project goes, the script stays.
-    rmSync(b.projectDir, { recursive: true, force: true });
+    rmSync(b.projectDir, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
     await sleep(SETTLE_MS);
     const S1c = S1.replace("box(40, 20, 4)", "box(40, 20, 3)");
     writeFileSync(b.file, S1c);
@@ -419,7 +419,7 @@ test("script mode: a project made again by an agent never has its script written
     const S1b = S1.replace("box(40, 20, 4)", "box(40, 20, 5)");
     writeFileSync(b.file, S1b);
     await until("the save to run", () => b.head() === "r_0002");
-    rmSync(b.projectDir, { recursive: true, force: true });
+    rmSync(b.projectDir, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
     // The agent starts a new project at once.
     assert.equal((await b.agent.run({ project: "part.o3j", script: S2 })).rev, "r_0001");
     await until("a conflict notice", () => conflicts(b).length === 1);
@@ -572,6 +572,6 @@ test("replaceFile writes only over the text it expects, keeps the mode, and neve
     assert.equal(readFileSync(f, "utf8"), S2);
     assert.deepEqual(readdirSync(d).sort(), ["link.o3j.js", "part.o3j.js"], "no temporary file is left");
   } finally {
-    rmSync(d, { recursive: true, force: true });
+    rmSync(d, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 });

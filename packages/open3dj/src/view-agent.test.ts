@@ -184,6 +184,6 @@ test("a face clicked in the viewer reaches the agent over MCP, and the agent's h
     await server?.close();
     handlers.shutdown();
     await pool.close();
-    rmSync(root, { recursive: true, force: true });
+    rmSync(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 });

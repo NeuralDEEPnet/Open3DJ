@@ -52,7 +52,7 @@ after(async () => {
   await server?.close();
   handlers?.shutdown();
   await pool?.close();
-  rmSync(dir, { recursive: true, force: true });
+  rmSync(dir, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
 });
 
 /** A request to the main server with its session cookie (unless headers name another). */
@@ -147,7 +147,7 @@ test("selection and link writes are rate limited, each in its own bucket", async
     assert.equal(links[2]!.body.toString().trim(), "refused: too many new links; try again in 100 seconds");
   } finally {
     await s.close();
-    rmSync(d, { recursive: true, force: true });
+    rmSync(d, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 });
 
@@ -229,7 +229,7 @@ test("at most 3 one-time links wait at a time, each expires after 10 minutes, an
     await login(s, inProcess);
   } finally {
     await s.close();
-    rmSync(d, { recursive: true, force: true });
+    rmSync(d, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
   }
 });
 
