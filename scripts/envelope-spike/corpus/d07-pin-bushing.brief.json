@@ -1,0 +1,90 @@
+{
+  "brief": "o3dj-envelope-brief/spike-0",
+  "id": "d07-pin-bushing",
+  "script": "scripts/envelope-spike/corpus/d07-pin-bushing.o3j.js",
+  "role": "defect",
+  "sources": [
+    "Seeded envelope defect D07 (clearance sign flip): a pin that runs in a bushing bore. Two parts. A large pin in a small bore turns the running clearance into a press fit, then a clash. Original test part for the Open3DJ envelope spike, MIT. Units are mm, Z is up."
+  ],
+  "params": [
+    {
+      "name": "Bore",
+      "type": "number",
+      "default": 6.9,
+      "min": 6.4,
+      "max": 7.4,
+      "unit": "mm"
+    },
+    {
+      "name": "Pin",
+      "type": "number",
+      "default": 6.4,
+      "min": 5.6,
+      "max": 6.6,
+      "unit": "mm"
+    },
+    {
+      "name": "Length",
+      "type": "number",
+      "default": 20,
+      "min": 12,
+      "max": 30,
+      "unit": "mm"
+    }
+  ],
+  "gates": [],
+  "assertions": [
+    {
+      "id": "builds",
+      "kind": "builds"
+    },
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "occurrences",
+      "kind": "count",
+      "quantity": "occurrences",
+      "expect": {
+        "eq": 2
+      }
+    },
+    {
+      "id": "no-clash",
+      "kind": "fits",
+      "fit": "clash",
+      "expect": {
+        "eq": 0
+      }
+    },
+    {
+      "id": "pin-gap",
+      "kind": "fits",
+      "fit": "clearance",
+      "a": "pin",
+      "b": "bushing",
+      "gap": {
+        "min": 0.05,
+        "max": 1
+      },
+      "expect": {
+        "eq": 1
+      },
+      "from": "a running clearance of at least 0.05 mm"
+    }
+  ],
+  "defect": {
+    "fails": [
+      "pin-gap"
+    ],
+    "region": "scripts/envelope-spike/corpus/regions.ts REGIONS[\"d07-pin-bushing\"]"
+  }
+}

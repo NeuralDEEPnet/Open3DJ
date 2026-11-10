@@ -1,0 +1,75 @@
+{
+  "brief": "o3dj-envelope-brief/spike-0",
+  "id": "c10-key-channel-safe",
+  "script": "scripts/envelope-spike/corpus/c10-key-channel-safe.o3j.js",
+  "role": "control",
+  "sources": [
+    "Seeded envelope control C10: a key sliding in a channel with the side gap equal to the clearance at every length (no drift), so it never drops below 0.2 mm. Two parts. Original test part for the Open3DJ envelope spike, MIT. Units are mm, Z is up."
+  ],
+  "params": [
+    {
+      "name": "Length",
+      "type": "number",
+      "default": 60,
+      "min": 40,
+      "max": 120,
+      "unit": "mm"
+    },
+    {
+      "name": "Clearance",
+      "type": "number",
+      "default": 0.3,
+      "min": 0.2,
+      "max": 0.4,
+      "unit": "mm"
+    }
+  ],
+  "gates": [],
+  "assertions": [
+    {
+      "id": "builds",
+      "kind": "builds"
+    },
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "occurrences",
+      "kind": "count",
+      "quantity": "occurrences",
+      "expect": {
+        "eq": 2
+      }
+    },
+    {
+      "id": "no-clash",
+      "kind": "fits",
+      "fit": "clash",
+      "expect": {
+        "eq": 0
+      }
+    },
+    {
+      "id": "key-gap",
+      "kind": "fits",
+      "fit": "clearance",
+      "a": "key",
+      "b": "channel",
+      "expect": {
+        "eq": 1
+      },
+      "distance": {
+        "min": 0.15
+      },
+      "from": "the key slides with at least 0.15 mm on every side"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "brief": "o3dj-envelope-brief/spike-0",
+  "id": "d12-swing-arm",
+  "script": "scripts/envelope-spike/corpus/d12-swing-arm.o3j.js",
+  "role": "defect",
+  "sources": [
+    "Seeded envelope defect D12 (a narrow angle band): an arm turned about Z next to a fixed post. Two parts. The arm hits the post only within a few degrees of the post's angle, and only when it is long enough to reach it. Original test part for the Open3DJ envelope spike, MIT. Units are mm, Z is up."
+  ],
+  "params": [
+    {
+      "name": "Angle",
+      "type": "number",
+      "default": 20,
+      "min": 0,
+      "max": 90,
+      "unit": "deg"
+    },
+    {
+      "name": "Arm length",
+      "type": "number",
+      "default": 30,
+      "min": 20,
+      "max": 40,
+      "unit": "mm"
+    }
+  ],
+  "gates": [],
+  "assertions": [
+    {
+      "id": "builds",
+      "kind": "builds"
+    },
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "occurrences",
+      "kind": "count",
+      "quantity": "occurrences",
+      "expect": {
+        "eq": 2
+      }
+    },
+    {
+      "id": "no-clash",
+      "kind": "fits",
+      "fit": "clash",
+      "expect": {
+        "eq": 0
+      }
+    }
+  ],
+  "defect": {
+    "fails": [
+      "no-clash"
+    ],
+    "region": "scripts/envelope-spike/corpus/regions.ts REGIONS[\"d12-swing-arm\"]"
+  }
+}

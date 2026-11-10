@@ -1,0 +1,89 @@
+{
+  "brief": "o3dj-envelope-brief/spike-0",
+  "id": "d08-vent-bool",
+  "script": "scripts/envelope-spike/corpus/d08-vent-bool.o3j.js",
+  "role": "defect",
+  "sources": [
+    "Seeded envelope defect D08 (a switch that only fails with a small size): a shelled cover with optional vent slots in the long walls. With vents on, a low cover leaves a thin web above the slots, then opens the rim. The range starts at 24 mm, where the opened rim still meets the slot at a knife edge. Original test part for the Open3DJ envelope spike, MIT. Units are mm, Z is up."
+  ],
+  "params": [
+    {
+      "name": "Height",
+      "type": "number",
+      "default": 40,
+      "min": 24,
+      "max": 60,
+      "unit": "mm"
+    },
+    {
+      "name": "Width",
+      "type": "number",
+      "default": 70,
+      "min": 50,
+      "max": 100,
+      "unit": "mm"
+    },
+    {
+      "name": "Vents",
+      "type": "bool",
+      "default": false
+    }
+  ],
+  "gates": [
+    {
+      "targets": [
+        "cover"
+      ],
+      "build": [
+        0,
+        0,
+        1
+      ],
+      "build_source": "as modelled"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "builds",
+      "kind": "builds"
+    },
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "one-solid",
+      "kind": "count",
+      "quantity": "solids",
+      "target": "cover",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "gate-watertight",
+      "kind": "gate",
+      "gate": "watertight",
+      "target": "cover"
+    },
+    {
+      "id": "gate-min-wall",
+      "kind": "gate",
+      "gate": "min_wall",
+      "target": "cover"
+    }
+  ],
+  "defect": {
+    "fails": [
+      "gate-min-wall"
+    ],
+    "region": "scripts/envelope-spike/corpus/regions.ts REGIONS[\"d08-vent-bool\"]"
+  }
+}

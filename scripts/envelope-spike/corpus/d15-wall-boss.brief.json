@@ -1,0 +1,102 @@
+{
+  "brief": "o3dj-envelope-brief/spike-0",
+  "id": "d15-wall-boss",
+  "script": "scripts/envelope-spike/corpus/d15-wall-boss.o3j.js",
+  "role": "defect",
+  "sources": [
+    "Seeded envelope defect D15 (a boss pocket through the wall): a wall plate with a boss on its outside face and a pocket drilled into the boss towards the wall. A deep pocket in a short boss on a thin wall leaves a thin skin, then breaks through. Original test part for the Open3DJ envelope spike, MIT. Units are mm, Z is up."
+  ],
+  "params": [
+    {
+      "name": "Wall",
+      "type": "number",
+      "default": 3,
+      "min": 2,
+      "max": 6,
+      "unit": "mm"
+    },
+    {
+      "name": "Boss length",
+      "type": "number",
+      "default": 8,
+      "min": 4,
+      "max": 12,
+      "unit": "mm"
+    },
+    {
+      "name": "Pocket depth",
+      "type": "number",
+      "default": 6,
+      "min": 4,
+      "max": 10,
+      "unit": "mm"
+    }
+  ],
+  "gates": [
+    {
+      "targets": [
+        "wall"
+      ],
+      "build": [
+        0,
+        0,
+        1
+      ],
+      "build_source": "as modelled"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "builds",
+      "kind": "builds"
+    },
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "one-solid",
+      "kind": "count",
+      "quantity": "solids",
+      "target": "wall",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "faces",
+      "kind": "count",
+      "quantity": "faces",
+      "target": "wall",
+      "expect": {
+        "eq": 10
+      }
+    },
+    {
+      "id": "gate-watertight",
+      "kind": "gate",
+      "gate": "watertight",
+      "target": "wall"
+    },
+    {
+      "id": "gate-min-wall",
+      "kind": "gate",
+      "gate": "min_wall",
+      "target": "wall"
+    }
+  ],
+  "defect": {
+    "fails": [
+      "gate-min-wall",
+      "faces"
+    ],
+    "region": "scripts/envelope-spike/corpus/regions.ts REGIONS[\"d15-wall-boss\"]"
+  }
+}

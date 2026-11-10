@@ -1,0 +1,102 @@
+{
+  "brief": "o3dj-envelope-brief/spike-0",
+  "id": "d04-bolt-circle-count",
+  "script": "scripts/envelope-spike/corpus/d04-bolt-circle-count.o3j.js",
+  "role": "defect",
+  "sources": [
+    "Seeded envelope defect D04 (pattern overlap at the maximum count): a ring with a circular pattern of M6 clearance holes. Many holes on a small bolt circle leave thin webs between them, then merge. Original test part for the Open3DJ envelope spike, MIT. Units are mm, Z is up."
+  ],
+  "params": [
+    {
+      "name": "Bolt circle radius",
+      "type": "number",
+      "default": 26,
+      "min": 15,
+      "max": 40,
+      "unit": "mm"
+    },
+    {
+      "name": "Holes",
+      "type": "number",
+      "default": 6,
+      "min": 3,
+      "max": 16,
+      "integer": true
+    },
+    {
+      "name": "Thickness",
+      "type": "number",
+      "default": 6,
+      "min": 4,
+      "max": 12,
+      "unit": "mm"
+    }
+  ],
+  "gates": [
+    {
+      "targets": [
+        "ring"
+      ],
+      "build": [
+        0,
+        0,
+        1
+      ],
+      "build_source": "as modelled"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "builds",
+      "kind": "builds"
+    },
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "one-solid",
+      "kind": "count",
+      "quantity": "solids",
+      "target": "ring",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "faces",
+      "kind": "count",
+      "quantity": "faces",
+      "target": "ring",
+      "expect": {
+        "eq": "4 + $Holes"
+      }
+    },
+    {
+      "id": "gate-watertight",
+      "kind": "gate",
+      "gate": "watertight",
+      "target": "ring"
+    },
+    {
+      "id": "gate-min-wall",
+      "kind": "gate",
+      "gate": "min_wall",
+      "target": "ring"
+    }
+  ],
+  "defect": {
+    "fails": [
+      "gate-min-wall",
+      "faces"
+    ],
+    "region": "scripts/envelope-spike/corpus/regions.ts REGIONS[\"d04-bolt-circle-count\"]"
+  }
+}

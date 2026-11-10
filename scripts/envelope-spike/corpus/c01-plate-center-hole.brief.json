@@ -1,0 +1,87 @@
+{
+  "brief": "o3dj-envelope-brief/spike-0",
+  "id": "c01-plate-center-hole",
+  "script": "scripts/envelope-spike/corpus/c01-plate-center-hole.o3j.js",
+  "role": "control",
+  "sources": [
+    "Seeded envelope control C01: a mounting plate with one centred M5 clearance hole. Every wall stays at least 12 mm thick across the declared box. Original test part for the Open3DJ envelope spike, MIT. Units are mm, Z is up."
+  ],
+  "params": [
+    {
+      "name": "Width",
+      "type": "number",
+      "default": 50,
+      "min": 30,
+      "max": 80,
+      "unit": "mm"
+    },
+    {
+      "name": "Thickness",
+      "type": "number",
+      "default": 4,
+      "min": 3,
+      "max": 8,
+      "unit": "mm"
+    }
+  ],
+  "gates": [
+    {
+      "targets": [
+        "plate"
+      ],
+      "build": [
+        0,
+        0,
+        1
+      ],
+      "build_source": "as modelled"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "builds",
+      "kind": "builds"
+    },
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "one-solid",
+      "kind": "count",
+      "quantity": "solids",
+      "target": "plate",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "faces",
+      "kind": "count",
+      "quantity": "faces",
+      "target": "plate",
+      "expect": {
+        "eq": 7
+      }
+    },
+    {
+      "id": "gate-watertight",
+      "kind": "gate",
+      "gate": "watertight",
+      "target": "plate"
+    },
+    {
+      "id": "gate-min-wall",
+      "kind": "gate",
+      "gate": "min_wall",
+      "target": "plate"
+    }
+  ]
+}

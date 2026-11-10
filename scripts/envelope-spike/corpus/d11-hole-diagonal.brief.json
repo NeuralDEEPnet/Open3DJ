@@ -1,0 +1,94 @@
+{
+  "brief": "o3dj-envelope-brief/spike-0",
+  "id": "d11-hole-diagonal",
+  "script": "scripts/envelope-spike/corpus/d11-hole-diagonal.o3j.js",
+  "role": "defect",
+  "sources": [
+    "Seeded envelope defect D11 (a diagonal band inside the range): a slider plate whose hole sits at the sum of two offsets, next to a fixed slot. The web fails only where the two offsets add up to a band in the middle. Original test part for the Open3DJ envelope spike, MIT. Units are mm, Z is up."
+  ],
+  "params": [
+    {
+      "name": "Offset A",
+      "type": "number",
+      "default": 12,
+      "min": 0,
+      "max": 40,
+      "unit": "mm"
+    },
+    {
+      "name": "Offset B",
+      "type": "number",
+      "default": 12,
+      "min": 0,
+      "max": 40,
+      "unit": "mm"
+    }
+  ],
+  "gates": [
+    {
+      "targets": [
+        "slider"
+      ],
+      "build": [
+        0,
+        0,
+        1
+      ],
+      "build_source": "as modelled"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "builds",
+      "kind": "builds"
+    },
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "one-solid",
+      "kind": "count",
+      "quantity": "solids",
+      "target": "slider",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "faces",
+      "kind": "count",
+      "quantity": "faces",
+      "target": "slider",
+      "expect": {
+        "eq": 11
+      }
+    },
+    {
+      "id": "gate-watertight",
+      "kind": "gate",
+      "gate": "watertight",
+      "target": "slider"
+    },
+    {
+      "id": "gate-min-wall",
+      "kind": "gate",
+      "gate": "min_wall",
+      "target": "slider"
+    }
+  ],
+  "defect": {
+    "fails": [
+      "gate-min-wall",
+      "faces"
+    ],
+    "region": "scripts/envelope-spike/corpus/regions.ts REGIONS[\"d11-hole-diagonal\"]"
+  }
+}

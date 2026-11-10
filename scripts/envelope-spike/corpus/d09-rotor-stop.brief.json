@@ -1,0 +1,75 @@
+{
+  "brief": "o3dj-envelope-brief/spike-0",
+  "id": "d09-rotor-stop",
+  "script": "scripts/envelope-spike/corpus/d09-rotor-stop.o3j.js",
+  "role": "defect",
+  "sources": [
+    "Seeded envelope defect D09 (integer values inside the range): a hub with N radial arms and a fixed stop pin at an angle. Two parts. An arm hits the pin only for some arm counts at some pin angles. Original test part for the Open3DJ envelope spike, MIT. Units are mm, Z is up."
+  ],
+  "params": [
+    {
+      "name": "Arms",
+      "type": "number",
+      "default": 6,
+      "min": 3,
+      "max": 12,
+      "integer": true
+    },
+    {
+      "name": "Pin angle",
+      "type": "number",
+      "default": 100,
+      "min": 66,
+      "max": 114,
+      "unit": "deg"
+    },
+    {
+      "name": "Arm length",
+      "type": "number",
+      "default": 36,
+      "min": 32,
+      "max": 40,
+      "unit": "mm"
+    }
+  ],
+  "gates": [],
+  "assertions": [
+    {
+      "id": "builds",
+      "kind": "builds"
+    },
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "occurrences",
+      "kind": "count",
+      "quantity": "occurrences",
+      "expect": {
+        "eq": 2
+      }
+    },
+    {
+      "id": "no-clash",
+      "kind": "fits",
+      "fit": "clash",
+      "expect": {
+        "eq": 0
+      }
+    }
+  ],
+  "defect": {
+    "fails": [
+      "no-clash"
+    ],
+    "region": "scripts/envelope-spike/corpus/regions.ts REGIONS[\"d09-rotor-stop\"]"
+  }
+}

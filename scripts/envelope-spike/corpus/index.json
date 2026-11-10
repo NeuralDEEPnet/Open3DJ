@@ -1,0 +1,49 @@
+{
+  "note": "Pre-registered seeded corpus of the Certified Envelopes spike: 15 defects (d01-d15) that pass at their nominal values and fail inside the declared box, and 10 controls (c01-c10) that hold everywhere. Original MIT test parts. Committed after the corpus lint (nominal, the analytic points inside each region and the points just outside it) and before any envelope search or random sampling.",
+  "format": "Each NAME.o3j.js has NAME.brief.json in the briefs format (o3dj-envelope-brief/spike-0, see ../briefs/index.json) plus role (defect or control) and, for a defect, defect.fails (the assertions the corpus lint expects to fail inside the region). regions.ts holds each defect's analytic failure region as a predicate, with the formula in words, points inside it and points just outside it.",
+  "defects": [
+    "d01-plate-hole-pitch",
+    "d02-blind-pocket",
+    "d03-fillet-corners",
+    "d04-bolt-circle-count",
+    "d05-shuttle-post",
+    "d06-slot-near-hole",
+    "d07-pin-bushing",
+    "d08-vent-bool",
+    "d09-rotor-stop",
+    "d10-screw-boss-choice",
+    "d11-hole-diagonal",
+    "d12-swing-arm",
+    "d13-key-drift",
+    "d14-side-port",
+    "d15-wall-boss"
+  ],
+  "controls": [
+    "c01-plate-center-hole",
+    "c02-blind-pocket-safe",
+    "c03-fillet-safe",
+    "c04-bolt-circle-safe",
+    "c05-shuttle-post-safe",
+    "c06-slot-hole-safe",
+    "c07-pin-bushing-safe",
+    "c08-vent-bool-safe",
+    "c09-rotor-stop-safe",
+    "c10-key-channel-safe"
+  ],
+  "scoring": {
+    "budget": 64,
+    "counterexample": "a point where some brief assertion fails that passes at the nominal values; assertions that fail at nominal are nominal failures, not counterexamples",
+    "found": "a defect is found when the search evaluates at least one counterexample inside REGIONS[id] (any failing assertion counts, not only defect.fails)",
+    "unexpected": "a counterexample outside the region of a defect, or any counterexample on a control, is listed as unexpected: either the analytic region is wrong or the geometry fails where the corpus says it holds",
+    "corners_only": "the corner points of the guided run alone: every continuous axis at min or max crossed with every discrete value, as the guided search orders and caps them",
+    "random_baseline": "uniform random points over the declared box (continuous axes uniform, integer, choice and bool axes uniform over their values), 64 per run, seeds 1 to 10",
+    "guided_seed": 1,
+    "false_counterexample": "a counterexample that does not fail again when re-run in a new process on a fresh kernel"
+  },
+  "expected_from_region_shares": {
+    "how": "node scripts/envelope-spike/corpus/regions.ts: the share of each region in the box, and (1 - share)^64, the chance that 64 uniform points miss it",
+    "uniform_random_expected_detection": "87.2% (15 minus the sum of the miss chances, 1.918, over 15)",
+    "consequence": "the kill line 'guided less than 15 points better than random' cannot be cleared on this corpus even by a search that finds all 15 defects (100 - 87.2 = 12.8 points). Recorded here before any search; the corpus was not reshaped to change it.",
+    "corners_reach": "a corner point lies inside 11 of the 15 regions; d05, d06, d11 and d12 are reachable only from inside the box"
+  }
+}

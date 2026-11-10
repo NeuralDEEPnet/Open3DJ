@@ -1,0 +1,109 @@
+{
+  "brief": "o3dj-envelope-brief/spike-0",
+  "id": "d14-side-port",
+  "script": "scripts/envelope-spike/corpus/d14-side-port.o3j.js",
+  "role": "defect",
+  "sources": [
+    "Seeded envelope defect D14 (every parameter at its extreme at once): a shelled tray with a round cable port in one end wall. Only a low tray with a high, wide port leaves a thin web to the rim. Original test part for the Open3DJ envelope spike, MIT. Units are mm, Z is up."
+  ],
+  "params": [
+    {
+      "name": "Height",
+      "type": "number",
+      "default": 30,
+      "min": 20,
+      "max": 40,
+      "unit": "mm"
+    },
+    {
+      "name": "Port height",
+      "type": "number",
+      "default": 10,
+      "min": 8,
+      "max": 16,
+      "unit": "mm"
+    },
+    {
+      "name": "Port diameter",
+      "type": "number",
+      "default": 5,
+      "min": 3,
+      "max": 8,
+      "unit": "mm"
+    },
+    {
+      "name": "Width",
+      "type": "number",
+      "default": 60,
+      "min": 40,
+      "max": 80,
+      "unit": "mm"
+    }
+  ],
+  "gates": [
+    {
+      "targets": [
+        "tray"
+      ],
+      "build": [
+        0,
+        0,
+        1
+      ],
+      "build_source": "as modelled"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "builds",
+      "kind": "builds"
+    },
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "one-solid",
+      "kind": "count",
+      "quantity": "solids",
+      "target": "tray",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "faces",
+      "kind": "count",
+      "quantity": "faces",
+      "target": "tray",
+      "expect": {
+        "eq": 12
+      }
+    },
+    {
+      "id": "gate-watertight",
+      "kind": "gate",
+      "gate": "watertight",
+      "target": "tray"
+    },
+    {
+      "id": "gate-min-wall",
+      "kind": "gate",
+      "gate": "min_wall",
+      "target": "tray"
+    }
+  ],
+  "defect": {
+    "fails": [
+      "gate-min-wall"
+    ],
+    "region": "scripts/envelope-spike/corpus/regions.ts REGIONS[\"d14-side-port\"]"
+  }
+}

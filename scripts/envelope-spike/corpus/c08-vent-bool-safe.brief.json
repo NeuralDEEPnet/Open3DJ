@@ -1,0 +1,83 @@
+{
+  "brief": "o3dj-envelope-brief/spike-0",
+  "id": "c08-vent-bool-safe",
+  "script": "scripts/envelope-spike/corpus/c08-vent-bool-safe.o3j.js",
+  "role": "control",
+  "sources": [
+    "Seeded envelope control C08: the vented cover of D08 with a minimum height of 30 mm, so the web above the vent slots stays at least 5.5 mm. Original test part for the Open3DJ envelope spike, MIT. Units are mm, Z is up."
+  ],
+  "params": [
+    {
+      "name": "Height",
+      "type": "number",
+      "default": 40,
+      "min": 30,
+      "max": 60,
+      "unit": "mm"
+    },
+    {
+      "name": "Width",
+      "type": "number",
+      "default": 70,
+      "min": 50,
+      "max": 100,
+      "unit": "mm"
+    },
+    {
+      "name": "Vents",
+      "type": "bool",
+      "default": false
+    }
+  ],
+  "gates": [
+    {
+      "targets": [
+        "cover"
+      ],
+      "build": [
+        0,
+        0,
+        1
+      ],
+      "build_source": "as modelled"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "builds",
+      "kind": "builds"
+    },
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "one-solid",
+      "kind": "count",
+      "quantity": "solids",
+      "target": "cover",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "gate-watertight",
+      "kind": "gate",
+      "gate": "watertight",
+      "target": "cover"
+    },
+    {
+      "id": "gate-min-wall",
+      "kind": "gate",
+      "gate": "min_wall",
+      "target": "cover"
+    }
+  ]
+}

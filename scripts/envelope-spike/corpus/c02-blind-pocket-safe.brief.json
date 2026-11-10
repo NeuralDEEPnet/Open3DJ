@@ -1,0 +1,95 @@
+{
+  "brief": "o3dj-envelope-brief/spike-0",
+  "id": "c02-blind-pocket-safe",
+  "script": "scripts/envelope-spike/corpus/c02-blind-pocket-safe.o3j.js",
+  "role": "control",
+  "sources": [
+    "Seeded envelope control C02: a sensor block with a blind pocket whose floor stays at least 4 mm thick across the declared box. Original test part for the Open3DJ envelope spike, MIT. Units are mm, Z is up."
+  ],
+  "params": [
+    {
+      "name": "Height",
+      "type": "number",
+      "default": 20,
+      "min": 14,
+      "max": 30,
+      "unit": "mm"
+    },
+    {
+      "name": "Pocket depth",
+      "type": "number",
+      "default": 6,
+      "min": 3,
+      "max": 10,
+      "unit": "mm"
+    },
+    {
+      "name": "Pocket radius",
+      "type": "number",
+      "default": 4,
+      "min": 2.5,
+      "max": 6,
+      "unit": "mm"
+    }
+  ],
+  "gates": [
+    {
+      "targets": [
+        "block"
+      ],
+      "build": [
+        0,
+        0,
+        1
+      ],
+      "build_source": "as modelled"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "builds",
+      "kind": "builds"
+    },
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "one-solid",
+      "kind": "count",
+      "quantity": "solids",
+      "target": "block",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "faces",
+      "kind": "count",
+      "quantity": "faces",
+      "target": "block",
+      "expect": {
+        "eq": 8
+      }
+    },
+    {
+      "id": "gate-watertight",
+      "kind": "gate",
+      "gate": "watertight",
+      "target": "block"
+    },
+    {
+      "id": "gate-min-wall",
+      "kind": "gate",
+      "gate": "min_wall",
+      "target": "block"
+    }
+  ]
+}

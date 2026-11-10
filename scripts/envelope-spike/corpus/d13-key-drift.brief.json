@@ -1,0 +1,81 @@
+{
+  "brief": "o3dj-envelope-brief/spike-0",
+  "id": "d13-key-drift",
+  "script": "scripts/envelope-spike/corpus/d13-key-drift.o3j.js",
+  "role": "defect",
+  "sources": [
+    "Seeded envelope defect D13 (a clearance that drifts with size): a key sliding in a channel. Two parts. The key's width carries a correction scaled from the channel length, so the side gap shrinks as the channel gets longer. Original test part for the Open3DJ envelope spike, MIT. Units are mm, Z is up."
+  ],
+  "params": [
+    {
+      "name": "Length",
+      "type": "number",
+      "default": 60,
+      "min": 40,
+      "max": 120,
+      "unit": "mm"
+    },
+    {
+      "name": "Clearance",
+      "type": "number",
+      "default": 0.3,
+      "min": 0.2,
+      "max": 0.4,
+      "unit": "mm"
+    }
+  ],
+  "gates": [],
+  "assertions": [
+    {
+      "id": "builds",
+      "kind": "builds"
+    },
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "occurrences",
+      "kind": "count",
+      "quantity": "occurrences",
+      "expect": {
+        "eq": 2
+      }
+    },
+    {
+      "id": "no-clash",
+      "kind": "fits",
+      "fit": "clash",
+      "expect": {
+        "eq": 0
+      }
+    },
+    {
+      "id": "key-gap",
+      "kind": "fits",
+      "fit": "clearance",
+      "a": "key",
+      "b": "channel",
+      "expect": {
+        "eq": 1
+      },
+      "distance": {
+        "min": 0.15
+      },
+      "from": "the key slides with at least 0.15 mm on every side"
+    }
+  ],
+  "defect": {
+    "fails": [
+      "key-gap"
+    ],
+    "region": "scripts/envelope-spike/corpus/regions.ts REGIONS[\"d13-key-drift\"]"
+  }
+}

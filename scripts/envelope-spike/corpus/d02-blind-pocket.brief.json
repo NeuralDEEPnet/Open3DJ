@@ -1,0 +1,102 @@
+{
+  "brief": "o3dj-envelope-brief/spike-0",
+  "id": "d02-blind-pocket",
+  "script": "scripts/envelope-spike/corpus/d02-blind-pocket.o3j.js",
+  "role": "defect",
+  "sources": [
+    "Seeded envelope defect D02 (pocket through the floor): a sensor block with a blind pocket from the top. A deep pocket in a short block leaves a thin floor, then breaks through. Original test part for the Open3DJ envelope spike, MIT. Units are mm, Z is up."
+  ],
+  "params": [
+    {
+      "name": "Height",
+      "type": "number",
+      "default": 20,
+      "min": 10,
+      "max": 30,
+      "unit": "mm"
+    },
+    {
+      "name": "Pocket depth",
+      "type": "number",
+      "default": 8,
+      "min": 3,
+      "max": 12,
+      "unit": "mm"
+    },
+    {
+      "name": "Pocket radius",
+      "type": "number",
+      "default": 4,
+      "min": 2.5,
+      "max": 6,
+      "unit": "mm"
+    }
+  ],
+  "gates": [
+    {
+      "targets": [
+        "block"
+      ],
+      "build": [
+        0,
+        0,
+        1
+      ],
+      "build_source": "as modelled"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "builds",
+      "kind": "builds"
+    },
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "one-solid",
+      "kind": "count",
+      "quantity": "solids",
+      "target": "block",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "faces",
+      "kind": "count",
+      "quantity": "faces",
+      "target": "block",
+      "expect": {
+        "eq": 8
+      }
+    },
+    {
+      "id": "gate-watertight",
+      "kind": "gate",
+      "gate": "watertight",
+      "target": "block"
+    },
+    {
+      "id": "gate-min-wall",
+      "kind": "gate",
+      "gate": "min_wall",
+      "target": "block"
+    }
+  ],
+  "defect": {
+    "fails": [
+      "gate-min-wall",
+      "faces"
+    ],
+    "region": "scripts/envelope-spike/corpus/regions.ts REGIONS[\"d02-blind-pocket\"]"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "brief": "o3dj-envelope-brief/spike-0",
+  "id": "c09-rotor-stop-safe",
+  "script": "scripts/envelope-spike/corpus/c09-rotor-stop-safe.o3j.js",
+  "role": "control",
+  "sources": [
+    "Seeded envelope control C09: the rotor and stop pin of D09 with arms at most 28 mm long, so no arm reaches the pin at 30 mm. Two parts. Original test part for the Open3DJ envelope spike, MIT. Units are mm, Z is up."
+  ],
+  "params": [
+    {
+      "name": "Arms",
+      "type": "number",
+      "default": 6,
+      "min": 3,
+      "max": 12,
+      "integer": true
+    },
+    {
+      "name": "Pin angle",
+      "type": "number",
+      "default": 100,
+      "min": 66,
+      "max": 114,
+      "unit": "deg"
+    },
+    {
+      "name": "Arm length",
+      "type": "number",
+      "default": 24,
+      "min": 20,
+      "max": 28,
+      "unit": "mm"
+    }
+  ],
+  "gates": [],
+  "assertions": [
+    {
+      "id": "builds",
+      "kind": "builds"
+    },
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "occurrences",
+      "kind": "count",
+      "quantity": "occurrences",
+      "expect": {
+        "eq": 2
+      }
+    },
+    {
+      "id": "no-clash",
+      "kind": "fits",
+      "fit": "clash",
+      "expect": {
+        "eq": 0
+      }
+    }
+  ]
+}

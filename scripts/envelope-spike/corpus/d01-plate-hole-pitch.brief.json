@@ -1,0 +1,102 @@
+{
+  "brief": "o3dj-envelope-brief/spike-0",
+  "id": "d01-plate-hole-pitch",
+  "script": "scripts/envelope-spike/corpus/d01-plate-hole-pitch.o3j.js",
+  "role": "defect",
+  "sources": [
+    "Seeded envelope defect D01 (hole breakout): a mounting plate with two M5 clearance holes on a pitch. A wide pitch on a narrow plate leaves a thin wall to the plate's end, then breaks out. Original test part for the Open3DJ envelope spike, MIT. Units are mm, Z is up."
+  ],
+  "params": [
+    {
+      "name": "Width",
+      "type": "number",
+      "default": 60,
+      "min": 40,
+      "max": 90,
+      "unit": "mm"
+    },
+    {
+      "name": "Pitch",
+      "type": "number",
+      "default": 36,
+      "min": 20,
+      "max": 50,
+      "unit": "mm"
+    },
+    {
+      "name": "Thickness",
+      "type": "number",
+      "default": 4,
+      "min": 3,
+      "max": 8,
+      "unit": "mm"
+    }
+  ],
+  "gates": [
+    {
+      "targets": [
+        "plate"
+      ],
+      "build": [
+        0,
+        0,
+        1
+      ],
+      "build_source": "as modelled"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "builds",
+      "kind": "builds"
+    },
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "one-solid",
+      "kind": "count",
+      "quantity": "solids",
+      "target": "plate",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "faces",
+      "kind": "count",
+      "quantity": "faces",
+      "target": "plate",
+      "expect": {
+        "eq": 8
+      }
+    },
+    {
+      "id": "gate-watertight",
+      "kind": "gate",
+      "gate": "watertight",
+      "target": "plate"
+    },
+    {
+      "id": "gate-min-wall",
+      "kind": "gate",
+      "gate": "min_wall",
+      "target": "plate"
+    }
+  ],
+  "defect": {
+    "fails": [
+      "gate-min-wall",
+      "faces"
+    ],
+    "region": "scripts/envelope-spike/corpus/regions.ts REGIONS[\"d01-plate-hole-pitch\"]"
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "brief": "o3dj-envelope-brief/spike-0",
+  "id": "d10-screw-boss-choice",
+  "script": "scripts/envelope-spike/corpus/d10-screw-boss-choice.o3j.js",
+  "role": "defect",
+  "sources": [
+    "Seeded envelope defect D10 (one choice fails with a small size): a plate with a boss and a heat-set pocket for the chosen screw. The large sizes leave a thin boss wall or a thin floor under the pocket. Original test part for the Open3DJ envelope spike, MIT. Units are mm, Z is up."
+  ],
+  "params": [
+    {
+      "name": "Screw",
+      "type": "choice",
+      "default": "M3",
+      "options": [
+        "M2.5",
+        "M3",
+        "M4",
+        "M5",
+        "M6"
+      ]
+    },
+    {
+      "name": "Boss radius",
+      "type": "number",
+      "default": 5,
+      "min": 4,
+      "max": 8,
+      "unit": "mm"
+    },
+    {
+      "name": "Boss height",
+      "type": "number",
+      "default": 12,
+      "min": 8,
+      "max": 20,
+      "unit": "mm"
+    }
+  ],
+  "gates": [
+    {
+      "targets": [
+        "boss_plate"
+      ],
+      "build": [
+        0,
+        0,
+        1
+      ],
+      "build_source": "as modelled"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "builds",
+      "kind": "builds"
+    },
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "one-solid",
+      "kind": "count",
+      "quantity": "solids",
+      "target": "boss_plate",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "gate-watertight",
+      "kind": "gate",
+      "gate": "watertight",
+      "target": "boss_plate"
+    },
+    {
+      "id": "gate-min-wall",
+      "kind": "gate",
+      "gate": "min_wall",
+      "target": "boss_plate"
+    }
+  ],
+  "defect": {
+    "fails": [
+      "gate-min-wall"
+    ],
+    "region": "scripts/envelope-spike/corpus/regions.ts REGIONS[\"d10-screw-boss-choice\"]"
+  }
+}

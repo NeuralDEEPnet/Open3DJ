@@ -1,0 +1,67 @@
+{
+  "brief": "o3dj-envelope-brief/spike-0",
+  "id": "d05-shuttle-post",
+  "script": "scripts/envelope-spike/corpus/d05-shuttle-post.o3j.js",
+  "role": "defect",
+  "sources": [
+    "Seeded envelope defect D05 (a clash band inside the range): a thin shuttle plate slides along X past a fixed stop post whose Y position is a parameter. Two parts. The shuttle hits the post only in a band of X near the post. Original test part for the Open3DJ envelope spike, MIT. Units are mm, Z is up."
+  ],
+  "params": [
+    {
+      "name": "Shuttle X",
+      "type": "number",
+      "default": -20,
+      "min": -30,
+      "max": 30,
+      "unit": "mm"
+    },
+    {
+      "name": "Post Y",
+      "type": "number",
+      "default": 0,
+      "min": -12,
+      "max": 12,
+      "unit": "mm"
+    }
+  ],
+  "gates": [],
+  "assertions": [
+    {
+      "id": "builds",
+      "kind": "builds"
+    },
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "occurrences",
+      "kind": "count",
+      "quantity": "occurrences",
+      "expect": {
+        "eq": 2
+      }
+    },
+    {
+      "id": "no-clash",
+      "kind": "fits",
+      "fit": "clash",
+      "expect": {
+        "eq": 0
+      }
+    }
+  ],
+  "defect": {
+    "fails": [
+      "no-clash"
+    ],
+    "region": "scripts/envelope-spike/corpus/regions.ts REGIONS[\"d05-shuttle-post\"]"
+  }
+}

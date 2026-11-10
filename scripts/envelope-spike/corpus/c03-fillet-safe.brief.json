@@ -1,0 +1,95 @@
+{
+  "brief": "o3dj-envelope-brief/spike-0",
+  "id": "c03-fillet-safe",
+  "script": "scripts/envelope-spike/corpus/c03-fillet-safe.o3j.js",
+  "role": "control",
+  "sources": [
+    "Seeded envelope control C03: a block with its four vertical edges rounded; the block is at least 20 mm wide and the radius at most 8, so the fillets never meet. Original test part for the Open3DJ envelope spike, MIT. Units are mm, Z is up."
+  ],
+  "params": [
+    {
+      "name": "Width",
+      "type": "number",
+      "default": 28,
+      "min": 20,
+      "max": 40,
+      "unit": "mm"
+    },
+    {
+      "name": "Corner radius",
+      "type": "number",
+      "default": 3,
+      "min": 1,
+      "max": 8,
+      "unit": "mm"
+    },
+    {
+      "name": "Height",
+      "type": "number",
+      "default": 10,
+      "min": 5,
+      "max": 20,
+      "unit": "mm"
+    }
+  ],
+  "gates": [
+    {
+      "targets": [
+        "block"
+      ],
+      "build": [
+        0,
+        0,
+        1
+      ],
+      "build_source": "as modelled"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "builds",
+      "kind": "builds"
+    },
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "one-solid",
+      "kind": "count",
+      "quantity": "solids",
+      "target": "block",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "faces",
+      "kind": "count",
+      "quantity": "faces",
+      "target": "block",
+      "expect": {
+        "eq": 10
+      }
+    },
+    {
+      "id": "gate-watertight",
+      "kind": "gate",
+      "gate": "watertight",
+      "target": "block"
+    },
+    {
+      "id": "gate-min-wall",
+      "kind": "gate",
+      "gate": "min_wall",
+      "target": "block"
+    }
+  ]
+}

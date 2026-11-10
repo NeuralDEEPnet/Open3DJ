@@ -1,0 +1,94 @@
+{
+  "brief": "o3dj-envelope-brief/spike-0",
+  "id": "d06-slot-near-hole",
+  "script": "scripts/envelope-spike/corpus/d06-slot-near-hole.o3j.js",
+  "role": "defect",
+  "sources": [
+    "Seeded envelope defect D06 (slots that merge, inside the range): a plate with a fixed M4 hole and an adjustment slot placed by two parameters. The slot leaves a thin web, then merges, only when it comes near the hole. Original test part for the Open3DJ envelope spike, MIT. Units are mm, Z is up."
+  ],
+  "params": [
+    {
+      "name": "Slot X",
+      "type": "number",
+      "default": -20,
+      "min": -30,
+      "max": 30,
+      "unit": "mm"
+    },
+    {
+      "name": "Slot Y",
+      "type": "number",
+      "default": 8,
+      "min": -12,
+      "max": 12,
+      "unit": "mm"
+    }
+  ],
+  "gates": [
+    {
+      "targets": [
+        "plate"
+      ],
+      "build": [
+        0,
+        0,
+        1
+      ],
+      "build_source": "as modelled"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "builds",
+      "kind": "builds"
+    },
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "one-solid",
+      "kind": "count",
+      "quantity": "solids",
+      "target": "plate",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "faces",
+      "kind": "count",
+      "quantity": "faces",
+      "target": "plate",
+      "expect": {
+        "eq": 13
+      }
+    },
+    {
+      "id": "gate-watertight",
+      "kind": "gate",
+      "gate": "watertight",
+      "target": "plate"
+    },
+    {
+      "id": "gate-min-wall",
+      "kind": "gate",
+      "gate": "min_wall",
+      "target": "plate"
+    }
+  ],
+  "defect": {
+    "fails": [
+      "gate-min-wall",
+      "faces"
+    ],
+    "region": "scripts/envelope-spike/corpus/regions.ts REGIONS[\"d06-slot-near-hole\"]"
+  }
+}

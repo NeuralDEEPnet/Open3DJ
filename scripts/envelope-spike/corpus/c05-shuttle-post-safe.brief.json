@@ -1,0 +1,61 @@
+{
+  "brief": "o3dj-envelope-brief/spike-0",
+  "id": "c05-shuttle-post-safe",
+  "script": "scripts/envelope-spike/corpus/c05-shuttle-post-safe.o3j.js",
+  "role": "control",
+  "sources": [
+    "Seeded envelope control C05: the shuttle and post of D05 with the shuttle's travel stopping 6 mm short of the post. Two parts that never touch. Original test part for the Open3DJ envelope spike, MIT. Units are mm, Z is up."
+  ],
+  "params": [
+    {
+      "name": "Shuttle X",
+      "type": "number",
+      "default": -20,
+      "min": -30,
+      "max": 0,
+      "unit": "mm"
+    },
+    {
+      "name": "Post Y",
+      "type": "number",
+      "default": 0,
+      "min": -12,
+      "max": 12,
+      "unit": "mm"
+    }
+  ],
+  "gates": [],
+  "assertions": [
+    {
+      "id": "builds",
+      "kind": "builds"
+    },
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "occurrences",
+      "kind": "count",
+      "quantity": "occurrences",
+      "expect": {
+        "eq": 2
+      }
+    },
+    {
+      "id": "no-clash",
+      "kind": "fits",
+      "fit": "clash",
+      "expect": {
+        "eq": 0
+      }
+    }
+  ]
+}

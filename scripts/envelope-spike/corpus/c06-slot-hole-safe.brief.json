@@ -1,0 +1,87 @@
+{
+  "brief": "o3dj-envelope-brief/spike-0",
+  "id": "c06-slot-hole-safe",
+  "script": "scripts/envelope-spike/corpus/c06-slot-hole-safe.o3j.js",
+  "role": "control",
+  "sources": [
+    "Seeded envelope control C06: a plate with a fixed M4 hole and an adjustment slot whose travel keeps it at least 20 mm from the hole. Original test part for the Open3DJ envelope spike, MIT. Units are mm, Z is up."
+  ],
+  "params": [
+    {
+      "name": "Slot X",
+      "type": "number",
+      "default": -20,
+      "min": -30,
+      "max": -10,
+      "unit": "mm"
+    },
+    {
+      "name": "Slot Y",
+      "type": "number",
+      "default": 4,
+      "min": -12,
+      "max": 12,
+      "unit": "mm"
+    }
+  ],
+  "gates": [
+    {
+      "targets": [
+        "plate"
+      ],
+      "build": [
+        0,
+        0,
+        1
+      ],
+      "build_source": "as modelled"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "builds",
+      "kind": "builds"
+    },
+    {
+      "id": "status",
+      "kind": "status",
+      "in": [
+        "ok"
+      ]
+    },
+    {
+      "id": "valid",
+      "kind": "valid"
+    },
+    {
+      "id": "one-solid",
+      "kind": "count",
+      "quantity": "solids",
+      "target": "plate",
+      "expect": {
+        "eq": 1
+      }
+    },
+    {
+      "id": "faces",
+      "kind": "count",
+      "quantity": "faces",
+      "target": "plate",
+      "expect": {
+        "eq": 13
+      }
+    },
+    {
+      "id": "gate-watertight",
+      "kind": "gate",
+      "gate": "watertight",
+      "target": "plate"
+    },
+    {
+      "id": "gate-min-wall",
+      "kind": "gate",
+      "gate": "min_wall",
+      "target": "plate"
+    }
+  ]
+}
