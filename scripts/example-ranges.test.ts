@@ -75,6 +75,23 @@ const CASES: RangeCase[] = [
     issue: 65,
     points: corners({ Height: ["min", "max"], Wall: ["min", "max"] }),
   },
+  // Fixed vent positions on a box whose size varies: the top row thinned and then cut the rim
+  // below Height 32.34, and the outer columns ran into the corner radii below Width 78. At
+  // Width 60 the slots cut right through the corners and leave no thin wall, so the corners
+  // alone miss it: the thinnest wall (0.028 mm) was at Width 66.4. The corners, points inside
+  // the Width range, and the points where the number of rows or columns changes.
+  {
+    example: "vented-box",
+    issue: 66,
+    points: [
+      ...corners({ Width: ["min", "max"], Depth: ["min", "max"], Height: ["min", "max"] }),
+      { Width: 66.4 },
+      { Width: 72 },
+      { Width: 77 },
+      { Width: 83, Height: 34 },
+      { Width: 84, Height: 34.5 },
+    ],
+  },
 ];
 
 /** The min or max of a Param.number declaration in the script; throws when there is none. */
