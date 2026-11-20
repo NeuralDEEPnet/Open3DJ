@@ -3,6 +3,7 @@
 // OpenSCAD or three.js. The hint names the identifier from the script line and suggests the
 // nearest DSL entry, so the next try can be right.
 import type { ScriptError } from "@open3dj/schemas";
+import { notImplementedHint } from "./not-implemented.ts";
 import { PRELUDE } from "./prelude.ts";
 
 /** Names from other CAD tools and the DSL entry that does the same. */
@@ -32,8 +33,10 @@ const JS_METHODS = new Set(("map forEach filter reduce push pop shift unshift sl
 const GLOBALS = new Set<string>(["Param", "lib", "connector", ...[...PRELUDE.matchAll(/^ {2}(\w+): /gm)].map((m) => m[1]!)]);
 const METHODS = new Set<string>([...PRELUDE.matchAll(/^ {2}(\w+)\([^)]*\) \{/gm)].map((m) => m[1]!));
 const KNOWN = new Set<string>([...GLOBALS, ...METHODS]);
-/** Every global and method name the prelude defines, for checks on hints that name DSL calls. */
-export const DSL_NAMES: ReadonlySet<string> = KNOWN;
+/** The shape, sketch and path method names the prelude defines, for checks on hints that name them. */
+export const DSL_METHODS: ReadonlySet<string> = METHODS;
+/** The members of the guest's lib object, implemented or not. */
+const LIB = new Set<string>([.../const lib = freeze\(\{\n([\s\S]*?)\n\}\);/.exec(PRELUDE)![1]!.matchAll(/^ {2}(\w+):/gm)].map((m) => m[1]!));
 
 /** The hint for a runtime error caused by an unknown name, or undefined when it is something else. */
 export function runtimeHint(error: ScriptError, source: string): string | undefined {
@@ -46,6 +49,11 @@ export function runtimeHint(error: ScriptError, source: string): string | undefi
     // The first called name on that line that the DSL does not define.
     for (const m of line.matchAll(/(\.?)([A-Za-z_$][\w$]*)\s*\(/g)) {
       const id = m[2]!;
+      // lib.<name>(: a lib member is known; any other name gets the lib hint.
+      if (m[1] === "." && /(?:^|[^\w$.])lib\s*$/.test(line.slice(0, m.index))) {
+        if (LIB.has(id)) continue;
+        return `"lib.${id}" is not in lib. ${notImplementedHint(`lib.${id}`)}`;
+      }
       const unknown = m[1] === "."
         ? !METHODS.has(id) && !JS_METHODS.has(id)
         : !GLOBALS.has(id) && !JS_GLOBALS.has(id) && !/^(if|for|while|switch|function|return|catch)$/.test(id) && !declared(source, id);

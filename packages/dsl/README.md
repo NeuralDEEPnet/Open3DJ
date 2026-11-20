@@ -23,7 +23,7 @@ dsl.dispose();                                 // only before disposing a short-
 - The guest sees small integer ids. The host table maps them to kernel handles plus metadata: name, colour, named references, connectors, clone lineage and body identity.
 - Booleans, fillet, chamfer, shell, extrude, revolve and loft run through the kernel adapter, which checks validity after each. Twisted and tapered extrusions use brepjs sweeps and are checked the same way.
 - Kernel failures reach the script as errors with code `KERNEL_<code>`, the faulty elements (`edge:3`, `face:2`) and a hint. Uncaught, they become the run's `ScriptError` at the user's line.
-- Entries that are not in S1 throw `DSL_NOT_IMPLEMENTED` with the entry name.
+- Entries that are not in S1 throw `DSL_NOT_IMPLEMENTED` with the entry name and a hint that names a working alternative (`src/not-implemented.ts`).
 
 ## Semantics we chose (3dj publishes none)
 
