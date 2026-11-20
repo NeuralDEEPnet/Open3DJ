@@ -59,6 +59,15 @@ const CASES: RangeCase[] = [
     points: corners({ Width: ["min", "max"], Leg: ["min", "max"], Thickness: ["min", "max"], Screw: ["M5"] }),
     sameCounts: true,
   },
+  // At Height 12 and below the 12 mm D-bore opened the top of the dome: one face fewer, and
+  // the knob came out lower than its Height, with no check failing. Flutes stay at the
+  // default, since their count changes the faces.
+  {
+    example: "knob",
+    issue: 64,
+    points: corners({ Radius: ["min", "max"], Height: ["min", "max"] }),
+    sameCounts: true,
+  },
 ];
 
 /** The min or max of a Param.number declaration in the script; throws when there is none. */

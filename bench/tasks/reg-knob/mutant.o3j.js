@@ -17,6 +17,8 @@ if (flutes > 0) {
   const flute = cylinder(H - 6, 1.6).translate(R + 0.6, 0, 2);
   knob = knob.subtract(circularPattern(flute, flutes));
 }
-// D bore: a 6 mm circle with a flat 1.5 mm from the axis, 12 mm deep from the bottom.
-const dBore = cylinder(13, 3).translateZ(-1); // MUTANT: a round bore without the D flat
+// D bore: a 6 mm circle with a flat 1.5 mm from the axis, 12 mm deep from the bottom, or
+// H - 2 on a short knob, so the dome keeps a skin over it.
+const boreDepth = Math.min(12, H - 2);
+const dBore = cylinder(boreDepth + 1, 3).translateZ(-1); // MUTANT: a round bore without the D flat
 return knob.subtract(dBore).name("Knob").color("#2a9d8f");
