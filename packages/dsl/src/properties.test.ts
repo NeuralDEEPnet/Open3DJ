@@ -3,8 +3,9 @@
 // property draws its inputs from mulberry32 with a fixed seed, runs every case in one script
 // and reads each case's measures back from its console.log line. A failure message names the
 // seed and the case as DSL code (for example `ngon(7, 12.5).rotate(-30)`), so it can be pasted
-// into a script and replayed. Relative tolerances: 1e-9 for boxes, polygons and rigid
-// transforms, 1e-6 where a profile has a curved edge.
+// into a script and replayed. Relative tolerances: 1e-9 for boxes, polygons, rigid transforms
+// and bounds (the kernel's precise bounding box, curved edges included); 1e-6 for the area and
+// volume of a profile with a curved edge. The worst deviation seen at SEED is about 1e-13.
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { harness, near, vecNear } from "./testing.ts";
@@ -61,8 +62,10 @@ interface Profile {
 }
 
 const KINDS = ["rect", "circle2d", "ngon", "roundedRect", "slot", "ellipse"] as const;
+/** The mirror property adds a sketch boolean result, which the DSL mirrors as a kernel face. */
+const MIRROR_KINDS = [...KINDS, "plate"] as const;
 
-function profile(g: Gen, kind: (typeof KINDS)[number]): Profile {
+function profile(g: Gen, kind: (typeof MIRROR_KINDS)[number]): Profile {
   const PI = Math.PI;
   switch (kind) {
     case "rect": {
@@ -92,6 +95,13 @@ function profile(g: Gen, kind: (typeof KINDS)[number]): Profile {
       const rx = g.size(), ry = g.size();
       return { code: `ellipse(${rx}, ${ry})`, area: PI * rx * ry, inradius: Math.min(rx, ry), curved: true, symmetric: true };
     }
+    case "plate": {
+      // A plate with a round hole at the origin, so no disk about the origin lies inside it:
+      // never use it to place an overlapping profile.
+      const w = g.size(), h = g.size();
+      const r = r3(Math.min(w, h) * g.num(0.05, 0.4));
+      return { code: `rect(${w}, ${h}).subtract(circle2d(${r}))`, area: w * h - PI * r * r, inradius: 0, curved: true, symmetric: true };
+    }
   }
 }
 
@@ -103,7 +113,7 @@ interface Case {
 }
 
 /** Runs all cases in one script, one JSON log line each; a case that throws logs { error }. */
-async function measure<T>(cases: readonly Case[]): Promise<Array<T & { error?: string }>> {
+async function measure<T>(g: Gen, property: string, cases: readonly Case[]): Promise<Array<T & { error?: string }>> {
   const h = await harness();
   const code = [
     "const out = (f) => { try { console.log(JSON.stringify(f())); } catch (e) { console.log(JSON.stringify({ error: String(e && e.message ? e.message : e) })); } };",
@@ -111,8 +121,8 @@ async function measure<T>(cases: readonly Case[]): Promise<Array<T & { error?: s
     "return box(1, 1, 1);",
   ].join("\n");
   const r = await h.run(code);
-  assert.equal(r.ok, true, `${r.error?.code}: ${r.error?.message}`);
-  assert.equal(r.logs.length, cases.length, `${r.logs.length} log lines for ${cases.length} cases`);
+  assert.equal(r.ok, true, `seed ${g.seed}, ${property}: the script failed: ${r.error?.code}: ${r.error?.message}`);
+  assert.equal(r.logs.length, cases.length, `seed ${g.seed}, ${property}: ${r.logs.length} log lines for ${cases.length} cases`);
   return r.logs as Array<T & { error?: string }>;
 }
 
@@ -128,6 +138,9 @@ function checker(g: Gen, property: string) {
     near(c: Case, what: string, got: number, want: number, rel: number): void {
       if (!near(got, want, rel)) failures.push(`${where(c)}: ${what} ${got}, want ${want} (rel ${rel})`);
     },
+    that(c: Case, holds: boolean, what: string): void {
+      if (!holds) failures.push(`${where(c)}: ${what}`);
+    },
     done(): void {
       assert.equal(failures.length, 0, `${failures.length} failed checks:\n${failures.join("\n")}`);
     },
@@ -138,7 +151,7 @@ test("property: box(w, d, h) has volume w*d*h and bounds size [w, d, h]", async 
   const g = gen(SEED + 1);
   const dims = Array.from({ length: CASES }, () => [g.size(), g.size(), g.size()] as const);
   const cases = dims.map(([w, d, h]) => ({ label: `box(${w}, ${d}, ${h})`, body: `const s = box(${w}, ${d}, ${h}); return { v: s.volume(), size: s.bounds().size };` }));
-  const outs = await measure<{ v: number; size: number[] }>(cases);
+  const outs = await measure<{ v: number; size: number[] }>(g, "box measures", cases);
   const check = checker(g, "box measures");
   cases.forEach((c, i) => {
     const out = outs[i]!;
@@ -169,7 +182,7 @@ test("property: translate and rotate about any axis and pivot keep volume and ar
     const move = `.translate(${t.join(", ")}).rotate([${g.dir(3).join(", ")}], ${g.num(-360, 360)}, [${[g.num(-50, 50), g.num(-50, 50), g.num(-50, 50)].join(", ")}])`;
     return { label: `${s}${move}`, body: `const s = ${s}; const m = s${move}; return { v0: s.volume(), a0: s.area(), v1: m.volume(), a1: m.area() };` };
   });
-  const outs = await measure<{ v0: number; a0: number; v1: number; a1: number }>(cases);
+  const outs = await measure<{ v0: number; a0: number; v1: number; a1: number }>(g, "rigid transforms", cases);
   const check = checker(g, "rigid transforms");
   cases.forEach((c, i) => {
     const out = outs[i]!;
@@ -188,7 +201,7 @@ test("property: rect, circle2d and ngon profiles extrude to area() * h", async (
     const sketch = `${p.code}.rotate(${g.num(-180, 180)}).translate(${g.num(-100, 100)}, ${g.num(-100, 100)})`;
     return { label: `${sketch}.extrude(${h})`, area: p.area, h, tol: p.curved ? CURVED : EXACT, body: `const p = ${sketch}; return { area: p.area(), v: p.extrude(${h}).volume() };` };
   });
-  const outs = await measure<{ area: number; v: number }>(cases);
+  const outs = await measure<{ area: number; v: number }>(g, "extrude", cases);
   const check = checker(g, "extrude");
   cases.forEach((c, i) => {
     const out = outs[i]!;
@@ -211,16 +224,27 @@ test("property: area(a.add(b)) + area(a.intersect(b)) = area(a) + area(b) for ov
     const bb = `${b.code}.rotate(${g.num(-180, 180)}).translate(${r3(rho * Math.cos(angle))}, ${r3(rho * Math.sin(angle))})`;
     return {
       label: `a = ${a.code}, b = ${bb}`,
+      areaA: a.area,
+      tolA: a.curved ? CURVED : EXACT,
+      areaB: b.area,
+      tolB: b.curved ? CURVED : EXACT,
       tol: a.curved || b.curved ? CURVED : EXACT,
       body: `const a = ${a.code}; const b = ${bb}; return { a: a.area(), b: b.area(), union: a.add(b).area(), common: a.intersect(b).area() };`,
     };
   });
-  const outs = await measure<{ a: number; b: number; union: number; common: number }>(cases);
+  const outs = await measure<{ a: number; b: number; union: number; common: number }>(g, "inclusion-exclusion", cases);
   const check = checker(g, "inclusion-exclusion");
   cases.forEach((c, i) => {
     const out = outs[i]!;
     if (!check.ran(c, out)) return;
+    check.near(c, "a.area()", out.a, c.areaA, c.tolA);
+    check.near(c, "b.area()", out.b, c.areaB, c.tolB);
     check.near(c, "union + intersection area", out.union + out.common, out.a + out.b, c.tol);
+    // The sum alone cannot tell add from intersect: the union is at least as large as either
+    // profile, and the intersection is positive and no larger than either.
+    const slack = c.tol * Math.max(1, out.a, out.b);
+    check.that(c, out.union >= Math.max(out.a, out.b) - slack, `union area ${out.union} is smaller than a profile (${out.a}, ${out.b})`);
+    check.that(c, out.common > 0 && out.common <= Math.min(out.a, out.b) + slack, `intersection area ${out.common} is not in (0, ${Math.min(out.a, out.b)}]`);
   });
   check.done();
 });
@@ -236,7 +260,7 @@ test("property: a profile mirrored twice keeps its bounds, and mirrored once ref
   const g = gen(SEED + 5);
   const centres: number[][] = [];
   const cases = Array.from({ length: CASES }, () => {
-    const p = profile(g, g.pick(KINDS));
+    const p = profile(g, g.pick(MIRROR_KINDS));
     const t = [g.num(-100, 100), g.num(-100, 100)];
     const n = g.dir(2);
     centres.push(p.symmetric ? reflect(t, n) : []);
@@ -244,7 +268,7 @@ test("property: a profile mirrored twice keeps its bounds, and mirrored once ref
     return { label: `${sketch}.mirror([${n.join(", ")}])`, body: `const p = ${sketch}; const m = p.mirror([${n.join(", ")}]); return { before: p.bounds(), once: m.bounds(), twice: m.mirror([${n.join(", ")}]).bounds() };` };
   });
   type B = { min: number[]; max: number[]; center: number[] };
-  const outs = await measure<{ before: B; once: B; twice: B }>(cases);
+  const outs = await measure<{ before: B; once: B; twice: B }>(g, "sketch mirror", cases);
   const check = checker(g, "sketch mirror");
   cases.forEach((c, i) => {
     const out = outs[i]!;
@@ -273,7 +297,7 @@ test("property: a solid mirrored twice keeps its bounds, and mirrored once refle
     return { label: `${shape}.mirror([${n.join(", ")}])`, body: `const s = ${shape}; const m = s.mirror([${n.join(", ")}]); return { before: s.bounds(), once: m.bounds(), twice: m.mirror([${n.join(", ")}]).bounds() };` };
   });
   type B = { min: number[]; max: number[]; center: number[] };
-  const outs = await measure<{ before: B; once: B; twice: B }>(cases);
+  const outs = await measure<{ before: B; once: B; twice: B }>(g, "solid mirror", cases);
   const check = checker(g, "solid mirror");
   cases.forEach((c, i) => {
     const out = outs[i]!;
