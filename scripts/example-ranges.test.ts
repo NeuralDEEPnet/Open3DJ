@@ -68,6 +68,13 @@ const CASES: RangeCase[] = [
     points: corners({ Radius: ["min", "max"], Height: ["min", "max"] }),
     sameCounts: true,
   },
+  // Below Wall 1.31 to 1.42 mm the 3 mm outer base fillet came within the 0.84 mm fail line
+  // of the cavity's bottom corner (0.531 mm at Height 120, Wall 1.2).
+  {
+    example: "tapered-cup",
+    issue: 65,
+    points: corners({ Height: ["min", "max"], Wall: ["min", "max"] }),
+  },
 ];
 
 /** The min or max of a Param.number declaration in the script; throws when there is none. */
