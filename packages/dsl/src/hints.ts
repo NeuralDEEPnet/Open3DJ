@@ -32,6 +32,8 @@ const JS_METHODS = new Set(("map forEach filter reduce push pop shift unshift sl
 const GLOBALS = new Set<string>(["Param", "lib", "connector", ...[...PRELUDE.matchAll(/^ {2}(\w+): /gm)].map((m) => m[1]!)]);
 const METHODS = new Set<string>([...PRELUDE.matchAll(/^ {2}(\w+)\([^)]*\) \{/gm)].map((m) => m[1]!));
 const KNOWN = new Set<string>([...GLOBALS, ...METHODS]);
+/** Every global and method name the prelude defines, for checks on hints that name DSL calls. */
+export const DSL_NAMES: ReadonlySet<string> = KNOWN;
 
 /** The hint for a runtime error caused by an unknown name, or undefined when it is something else. */
 export function runtimeHint(error: ScriptError, source: string): string | undefined {

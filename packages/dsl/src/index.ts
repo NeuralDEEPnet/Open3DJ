@@ -15,7 +15,8 @@
 //   which checks validity after each. Twisted and tapered extrusions use brepjs and are
 //   checked the same way here. Failures reach the script as errors with code KERNEL_<code>,
 //   the faulty elements and a hint; uncaught, they become the run's ScriptError.
-// - Entries not in S1 throw DSL_NOT_IMPLEMENTED with the entry name (see DSL_ENTRIES).
+// - Entries not in S1 throw DSL_NOT_IMPLEMENTED with the entry name (see DSL_ENTRIES) and a hint
+//   that names a working alternative (not-implemented.ts).
 import type { PackageStatus } from "@open3dj/schemas";
 
 export type * from "./types.ts";
