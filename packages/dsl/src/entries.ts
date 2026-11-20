@@ -45,7 +45,7 @@ export const DSL_ENTRIES: ReadonlyArray<DslEntry> = Object.freeze([
   E("clone", ".clone() .duplicate()", "A rigid copy; moved clones share one definition in the assembly."),
   E("fillet", "fillet(shape, r, edgeQuery?)", "Round edges; edgeQuery { atZ, atX, atY, parallel, perpendicular, minLength, maxLength }."),
   E("chamfer", "chamfer(shape, size, edgeQuery?)", "Chamfer edges."),
-  E("chamferBottomEdges", "chamferBottomEdges(shape, size)", "Elephant-foot chamfer: a 45 degree chamfer of the given size on every edge at the lowest Z. When no edge lies there or the chamfer cannot be built, the run gets a warning and the shape is returned unchanged."),
+  E("chamferBottomEdges", "chamferBottomEdges(shape, size)", "Elephant-foot chamfer: an equal-distance chamfer of the given size on every edge at the lowest Z (45 degrees on a vertical wall, where the print checks report a marginal 45 degree overhang that an agent may waive with a reason). When no edge lies there or the chamfer cannot be built, the run gets a warning and the shape is returned unchanged."),
   E("shell", "shape.shell(t, { openTop = true, openBottom = false })", "Hollow with walls inside the skin. When the kernel cannot, a straight extrusion falls back to a profile offset, as long as it was only moved or turned about Z: shell before other rotations."),
   E("edges", "shape.edges(edgeQuery?)", "List the edges a query matches (index, curve, length, start, end). Open3DJ extension."),
   E("linearPattern", "linearPattern(shape, count, dx, dy, dz?)", "Copies along a vector, unioned."),

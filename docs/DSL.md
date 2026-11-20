@@ -620,7 +620,7 @@ return chamfer(box(40, 30, 10), 1, { parallel: [0, 0, 1] }); // break the vertic
 chamferBottomEdges(shape, size)
 ```
 
-Elephant-foot chamfer: a 45 degree chamfer of the given size on every edge at the lowest Z. When no edge lies there or the chamfer cannot be built, the run gets a warning and the shape is returned unchanged.
+Elephant-foot chamfer: an equal-distance chamfer of the given size on every edge at the lowest Z (45 degrees on a vertical wall, where the print checks report a marginal 45 degree overhang that an agent may waive with a reason). When no edge lies there or the chamfer cannot be built, the run gets a warning and the shape is returned unchanged.
 
 Example:
 
