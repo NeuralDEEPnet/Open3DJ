@@ -5,7 +5,8 @@ import { mkdtemp, readFile, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { validate } from "@open3dj/schemas";
-import { INLINE_COMPUTE, redactPaths, toScriptError } from "./job.ts";
+import { KernelError, initKernel } from "@open3dj/kernel";
+import { INLINE_COMPUTE, createJobRunner, redactPaths, toScriptError } from "./job.ts";
 import { runJobInline } from "./index.ts";
 import type { JobRequest } from "./types.ts";
 
@@ -205,4 +206,25 @@ test("run: a failed chamfer names the edges it tried", async () => {
   assert.match(r.error.code, /^KERNEL_(CHAMFER_FAILED|INVALID_RESULT)$/);
   assert.ok((r.error.elements ?? []).length > 0, JSON.stringify(r.error));
   assert.match(r.error.elements![0]!, /^edge:\d+$/);
+});
+
+// Regression (review of #16): chamferBottomEdges turns a failed chamfer into a warning, but a
+// fatal kernel error (the WebAssembly instance may be corrupt) must still fail the run and
+// retire the kernel, as it does for chamfer().
+test("run: a fatal kernel error inside chamferBottomEdges fails the run and retires the kernel", async () => {
+  const kernel = await initKernel();
+  (kernel as { chamfer: unknown }).chamfer = () => {
+    throw new KernelError("KERNEL_ABORT", "chamfer", "chamfer: the kernel aborted (simulated)");
+  };
+  const runner = createJobRunner(kernel);
+  try {
+    for (const script of ["return chamfer(box(20, 20, 10), 1, { atZ: 0 });", "return chamferBottomEdges(box(20, 20, 10), 1);"]) {
+      const out = await runner.run(job({ script }), { workerId: 0, jobs: 1 });
+      assert.equal(out.result.ok, false, script);
+      if (!out.result.ok) assert.equal(out.result.error.code, "KERNEL_KERNEL_ABORT", script);
+      assert.match(out.recycle ?? "", /KERNEL_ABORT/, script);
+    }
+  } finally {
+    kernel.dispose();
+  }
 });

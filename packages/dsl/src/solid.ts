@@ -248,6 +248,32 @@ export class Solids {
   }
 
   /**
+   * The FDM "elephant's foot" chamfer: chamfer every edge that lies at the shape's lowest Z.
+   * Like the 3dj entry, it warns instead of failing: when no edge lies there (a sphere) or the
+   * chamfer cannot be built (a size too large for the bottom edges), the run gets a warning and
+   * the shape comes back unchanged. Only those two failures are turned into a warning: any
+   * other kernel error, a fatal one above all, still fails the run so the worker is retired.
+   */
+  chamferBottomEdges(e: SolidEntry, d: number): SolidEntry {
+    const z = this.bounds(e).min[2];
+    const { matched, handles } = matchEdges(this.kernel, e.handle, { atZ: z }, this.tol);
+    // A pole (sphere, cone tip) is a degenerate edge of length 0: there is nothing to chamfer.
+    const edges = handles.filter((_, i) => matched[i]!.length > this.tol);
+    const unchanged = (why: string): SolidEntry => {
+      this.state.warn(`chamferBottomEdges: ${why}; the shape is returned unchanged`);
+      return e;
+    };
+    if (edges.length === 0) return unchanged(`no edge lies at the lowest Z (${Number(z.toFixed(6))} mm)`);
+    try {
+      return this.derive(e, this.kernel.chamfer(e.handle, edges, d));
+    } catch (err) {
+      if (!(err instanceof KernelError) || err.fatal || (err.code !== "CHAMFER_FAILED" && err.code !== "INVALID_RESULT")) throw err;
+      const n = edges.length;
+      return unchanged(`the kernel could not chamfer the ${n} bottom edge${n === 1 ? "" : "s"} by ${d} mm (${err.code}); a smaller size may work`);
+    }
+  }
+
+  /**
    * Hollow the shape with walls of thickness t inside its skin, removing the flat top
    * (openTop, default) and/or bottom faces. With neither open, the inside becomes a closed
    * void. When OCCT's thick-solid fails on a straight extrusion (for example a wall thicker

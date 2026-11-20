@@ -322,3 +322,51 @@ test("shell's profile-offset fallback survives rotations about Z and translation
   assert.equal(tipped.ok, false);
   assert.match(tipped.error?.hint ?? "", /shell before rotating/);
 });
+
+test("chamferBottomEdges chamfers the edges at the lowest Z, as chamfer with atZ does", async () => {
+  const h = await harness();
+  const cases = [
+    // [shape, its lowest Z, independent volume oracle for a 1 mm chamfer]
+    // Box: four 20 mm prisms of 0.5 mm2 section, minus the 4 mitred corners (1/3 mm3 each).
+    ["box(20, 20, 10)", 0, 20 * 20 * 10 - (4 * 0.5 * 20 - 4 / 3)],
+    ["box(20, 20, 10).translate(5, -3, 7)", 7, 20 * 20 * 10 - (4 * 0.5 * 20 - 4 / 3)],
+    // Cylinder: Pappus, a 0.5 mm2 triangle whose centroid runs at r - 1/3.
+    ["cylinder(10, 8)", 0, PI * 64 * 10 - 2 * PI * (8 - 1 / 3) * 0.5],
+  ] as const;
+  for (const [shape, z, oracle] of cases) {
+    const bottom = await h.run(`return chamferBottomEdges(${shape}, 1);`);
+    const atZ = await h.run(`return chamfer(${shape}, 1, { atZ: ${z} });`);
+    assert.equal(bottom.ok, true, bottom.error?.message);
+    assert.equal(atZ.ok, true, atZ.error?.message);
+    const m = bottom.parts[0]!.m;
+    assert.ok(m.valid, shape);
+    assert.ok(near(m.volume, atZ.parts[0]!.m.volume), `${shape}: ${m.volume} vs ${atZ.parts[0]!.m.volume}`);
+    assert.ok(near(m.volume, oracle), `${shape}: ${m.volume} vs oracle ${oracle}`);
+    assert.deepEqual(m.counts, atZ.parts[0]!.m.counts, shape);
+    assert.deepEqual(bottom.out!.warnings, [], shape);
+  }
+});
+
+test("chamferBottomEdges warns and returns the shape unchanged when it cannot chamfer", async () => {
+  const h = await harness();
+  // Larger than half the smallest bottom edge: the four chamfers cannot meet.
+  const big = await h.run("const b = box(20, 20, 10);\nreturn chamferBottomEdges(b, 15);");
+  assert.equal(big.ok, true, big.error?.message);
+  assert.ok(near(big.parts[0]!.m.volume, 4000), String(big.parts[0]!.m.volume));
+  assert.match(big.out!.warnings.join("\n"), /^chamferBottomEdges: the kernel could not chamfer the 4 bottom edges by 15 mm \(\w+\); a smaller size may work; the shape is returned unchanged$/m);
+  // A sphere touches its lowest Z in a point (a degenerate pole edge): no edge to chamfer.
+  const ball = await h.run("return chamferBottomEdges(sphere(5), 1);");
+  assert.equal(ball.ok, true, ball.error?.message);
+  assert.ok(near(ball.parts[0]!.m.volume, (4 / 3) * PI * 125), String(ball.parts[0]!.m.volume));
+  assert.match(ball.out!.warnings.join("\n"), /^chamferBottomEdges: no edge lies at the lowest Z \(-5 mm\); the shape is returned unchanged$/m);
+});
+
+test("chamferBottomEdges refuses a size of 0 or less, and anything but a shape", async () => {
+  const h = await harness();
+  for (const code of ["chamferBottomEdges(box(10, 10, 10), 0)", "chamferBottomEdges(box(10, 10, 10), -1)", "chamferBottomEdges(box(10, 10, 10), '1')", "chamferBottomEdges(rect(10, 10), 1)"]) {
+    const r = await h.run(`\nreturn ${code};`);
+    assert.equal(r.ok, false, code);
+    assert.equal(r.error!.code, "DSL_BAD_ARGUMENT", `${code}: ${r.error!.code} ${r.error!.message}`);
+    assert.equal(r.error!.line, 2, code);
+  }
+});

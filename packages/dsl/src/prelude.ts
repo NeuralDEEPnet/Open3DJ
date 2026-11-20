@@ -229,7 +229,7 @@ const api = {
   lib: lib,
   group: NI("group"),
   tolerance: NI("tolerance"),
-  chamferBottomEdges: NI("chamferBottomEdges"),
+  chamferBottomEdges: (s, size) => S(H.chamferBottomEdges(sid(s, "chamferBottomEdges() shape"), size)),
   minWall: NI("minWall"),
   point: NI("point"),
   Point2D: NI("Point2D"),
