@@ -13,15 +13,28 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { createPool } from "@open3dj/compute";
 import type { JobResult } from "@open3dj/compute";
-import type { ParamValue } from "@open3dj/schemas";
+import type { GateFailure, ParamValue } from "@open3dj/schemas";
 import { listExamples } from "./examples-lib.ts";
 
-type Edge = number | "min" | "max";
+/** A value: "min" and "max" are read from the script's Param.number declaration; anything else is used as given. */
+type Edge = ParamValue | "min" | "max";
 interface RangeCase {
   example: string;
   issue: number;
-  /** Points to check; "min" and "max" are read from the script's Param declaration. */
   points: Array<Record<string, Edge>>;
+  /**
+   * Also require the default face and edge counts. Only for an example whose topology does
+   * not depend on the values at these points: a hole that runs into another feature changes
+   * the counts without failing any check.
+   */
+  sameCounts?: boolean;
+}
+
+/** Every combination of the given values, one point each. */
+function corners(axes: Record<string, Edge[]>): Array<Record<string, Edge>> {
+  let points: Array<Record<string, Edge>> = [{}];
+  for (const [name, values] of Object.entries(axes)) points = points.flatMap((p) => values.map((v) => ({ ...p, [name]: v })));
+  return points;
 }
 
 const CASES: RangeCase[] = [
@@ -36,6 +49,15 @@ const CASES: RangeCase[] = [
       { Diameter: "min", Thickness: "max", "Bolt holes": "min" },
       { Diameter: "min", Thickness: "max", "Bolt holes": "max" },
     ],
+  },
+  // At Thickness 2 the fixed 1 mm fillet failed. With a thick flange the holes cut into the
+  // other flange at short Leg (64 edges became 84, with no check failing), and came 0.75 mm
+  // from the side at narrow Width. Every corner of the numeric ranges, with the largest screw.
+  {
+    example: "bracket",
+    issue: 62,
+    points: corners({ Width: ["min", "max"], Leg: ["min", "max"], Thickness: ["min", "max"], Screw: ["M5"] }),
+    sameCounts: true,
   },
 ];
 
@@ -58,6 +80,15 @@ test("declaredBound reads min and max from a Param.number declaration", () => {
   assert.throws(() => declaredBound(`Param.number("W", 1, { max: 2 })`, "W", "min"), /declares no min/);
 });
 
+test("corners crosses every value of every axis", () => {
+  assert.deepEqual(corners({ A: ["min", "max"], B: [1, 2], C: ["M5"] }), [
+    { A: "min", B: 1, C: "M5" },
+    { A: "min", B: 2, C: "M5" },
+    { A: "max", B: 1, C: "M5" },
+    { A: "max", B: 2, C: "M5" },
+  ]);
+});
+
 const examples = new Map(listExamples().map((e) => [e.name, e]));
 const pool = createPool({ size: 2, log: () => {} });
 after(() => pool.close());
@@ -77,18 +108,33 @@ for (const c of CASES) {
     const nominal = await run(script, {});
     if (!nominal.ok) assert.fail(`the default values fail: ${nominal.error.code} ${nominal.error.message}`);
     const required = passing(nominal);
+    // Every point is checked and every problem listed, so a failure shows the whole edge.
+    const problems: string[] = [];
     for (const point of c.points) {
       const params: Record<string, ParamValue> = {};
-      for (const [name, edge] of Object.entries(point)) params[name] = typeof edge === "number" ? edge : declaredBound(script, name, edge);
+      for (const [name, edge] of Object.entries(point)) params[name] = edge === "min" || edge === "max" ? declaredBound(script, name, edge) : edge;
       const at = JSON.stringify(params);
       const r = await run(script, params);
-      if (!r.ok) assert.fail(`${at}: ${r.error.code} ${r.error.message}`);
-      assert.equal(r.report.status, nominal.report.status, `${at}: status`);
-      for (const p of r.report.parts) assert.ok(p.valid, `${at}: ${p.def} is not a valid solid`);
+      if (!r.ok) {
+        problems.push(`${at}: ${r.error.code} ${r.error.message.split("\n")[0]}`);
+        continue;
+      }
+      if (r.report.status !== nominal.report.status) problems.push(`${at}: status ${r.report.status}, ${nominal.report.status} at the defaults`);
+      for (const p of r.report.parts) if (!p.valid) problems.push(`${at}: ${p.def} is not a valid solid`);
+      if (c.sameCounts) {
+        for (const p of r.report.parts) {
+          const d = nominal.report.parts.find((q) => q.def === p.def)?.counts;
+          if (p.counts?.faces !== d?.faces || p.counts?.edges !== d?.edges) problems.push(`${at}: ${p.def} has ${p.counts?.faces} faces and ${p.counts?.edges} edges, ${d?.faces} and ${d?.edges} at the defaults`);
+        }
+      }
       const now = passing(r);
-      const lost = [...required].filter((g) => !now.has(g));
-      const why = (r.gates?.parts ?? []).flatMap((p) => p.fail.filter((f) => lost.includes(`${p.def}: ${f.gate}`)).map((f) => `${p.def}: ${f.gate} ${f.value ?? "?"} against ${f.limit ?? "?"} at ${f.at ?? "?"}`));
-      assert.deepEqual(lost, [], `${at}: checks that pass at the default values fail here: ${why.join("; ")}`);
+      const failures = new Map<string, GateFailure>((r.gates?.parts ?? []).flatMap((p) => p.fail.map((f) => [`${p.def}: ${f.gate}`, f] as const)));
+      for (const check of required) {
+        if (now.has(check)) continue;
+        const f = failures.get(check);
+        problems.push(f ? `${at}: ${check} ${f.value ?? "?"} against ${f.limit ?? "?"} at ${f.at ?? "?"}` : `${at}: ${check} is not reported`);
+      }
     }
+    assert.deepEqual(problems, [], "checks that hold at the default values fail at the edges of the declared ranges");
   });
 }
