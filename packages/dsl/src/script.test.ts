@@ -353,7 +353,7 @@ test("chamferBottomEdges warns and returns the shape unchanged when it cannot ch
   const big = await h.run("const b = box(20, 20, 10);\nreturn chamferBottomEdges(b, 15);");
   assert.equal(big.ok, true, big.error?.message);
   assert.ok(near(big.parts[0]!.m.volume, 4000), String(big.parts[0]!.m.volume));
-  assert.match(big.out!.warnings.join("\n"), /^chamferBottomEdges: .*returned unchanged/m);
+  assert.match(big.out!.warnings.join("\n"), /^chamferBottomEdges: the kernel could not chamfer the 4 bottom edges by 15 mm \(\w+\); a smaller size may work; the shape is returned unchanged$/m);
   // A sphere touches its lowest Z in a point (a degenerate pole edge): no edge to chamfer.
   const ball = await h.run("return chamferBottomEdges(sphere(5), 1);");
   assert.equal(ball.ok, true, ball.error?.message);
