@@ -265,6 +265,7 @@ export function hostFunctions(kernel: KernelAdapter, state: RunState, parts: Hos
     // ---- features -----------------------------------------------------------------------------
     fillet: (id, r, q) => put(solids.fillet(shape(id), pos(r, "fillet radius"), parseEdgeQuery(q))),
     chamfer: (id, d, q) => put(solids.chamfer(shape(id), pos(d, "chamfer size"), parseEdgeQuery(q))),
+    chamferBottomEdges: (id, d) => put(solids.chamferBottomEdges(shape(id), pos(d, "chamferBottomEdges size"))),
     draft: (id, angle, opts) => {
       const o = obj(opts, "draft options");
       onlyKeys("draft", o, ["pull", "neutral"], "draft takes { pull, neutral }: the mould's pull direction and a point on the neutral plane.");

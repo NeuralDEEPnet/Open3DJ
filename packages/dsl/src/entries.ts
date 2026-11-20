@@ -55,6 +55,7 @@ export const DSL_ENTRIES: ReadonlyArray<DslEntry> = Object.freeze([
   E("clone", ".clone() .duplicate()", "A rigid copy; moved clones share one definition in the assembly."),
   E("fillet", "fillet(shape, r, edgeQuery?)", "Round edges; edgeQuery { atZ, atX, atY, parallel, perpendicular, minLength, maxLength }."),
   E("chamfer", "chamfer(shape, size, edgeQuery?)", "Chamfer edges."),
+  E("chamferBottomEdges", "chamferBottomEdges(shape, size)", "Elephant-foot chamfer: a 45 degree chamfer of the given size on every edge at the lowest Z. When no edge lies there or the chamfer cannot be built, the run gets a warning and the shape is returned unchanged."),
   E("draft", "shape.draft(angle, { pull = [0, 0, 1], neutral = [0, 0, 0] }) / draft(shape, angle, options)", "Taper every wall that runs along the pull by angle degrees about the neutral plane through neutral, so a moulded part releases: outer walls lean in towards the pull, holes open out. Planar, cylindrical and conical walls; draft before filleting the edges they meet. Open3DJ extension."),
   E("shell", "shape.shell(t, { openTop = true, openBottom = false })", "Hollow with walls inside the skin. When the kernel cannot, a straight extrusion falls back to a profile offset, as long as it was only moved or turned about Z: shell before other rotations."),
   E("edges", "shape.edges(edgeQuery?)", "List the edges a query matches (index, curve, length, start, end). Open3DJ extension."),
@@ -83,7 +84,6 @@ export const DSL_ENTRIES: ReadonlyArray<DslEntry> = Object.freeze([
   E("cutout", "shape.cutout(sketch.onFace(...), { depth })", "Pocket from a sketch on a face.", "later"),
   E("group", "group(a, b, ...)", "Keep parts separate as a group.", "later"),
   E("tolerance", "tolerance(shape, mm)", "Exact offset cutter.", "later"),
-  E("chamferBottomEdges", "chamferBottomEdges(shape, size)", "Elephant-foot chamfer.", "later"),
   E("minWall", "minWall(shape, mm)", "Wall thickness screen.", "later"),
   E("lib.more", "lib.snapFit, lib.screwBoss, lib.mountingTab, lib.cableAnchor, lib.remoteCradle, lib.profile2020BSlot6, lib.tSlotProfile", "More library content.", "later"),
 ]);
