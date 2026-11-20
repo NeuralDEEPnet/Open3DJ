@@ -10,5 +10,6 @@ const radiusAt = (z) => r0 + ((r1 - r0) * z) / H;
 const outer = circle2d(r0).loftTo(circle2d(r1), H);
 // The cavity starts one wall above the base and runs 1 mm past the rim to cut it open.
 const cavity = circle2d(radiusAt(wall) - wall).loftTo(circle2d(radiusAt(H + 1) - wall), H + 1 - wall).translateZ(wall);
-const cup = fillet(outer, 3, { atZ: 0 }).subtract(cavity);
+// The base fillet shrinks with a thin wall, so it stays clear of the cavity's bottom corner.
+const cup = fillet(outer, Math.min(3, 1.2 * wall), { atZ: 0 }).subtract(cavity);
 return cup.name("Cup").color("#e07a5f");
