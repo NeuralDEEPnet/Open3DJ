@@ -43,6 +43,7 @@ dsl.dispose();                                 // only before disposing a short-
 ## Tests
 
 - `conformance.test.ts`: the spike's 47 checks against analytic values, each run through the sandbox.
+- `properties.test.ts`: seeded property tests, 32 generated cases each, for box measures, rigid transforms, extrusion, 2D inclusion-exclusion and mirrors. A failure names the seed and the case as DSL code to paste into a script.
 - `script.test.ts`: mirror normals, error lines and hints, shell checks and fallback, params, return forms, path(), clones, limits, poisoning and memory.
 - `lib.test.ts`: fastener data and analytic volumes of every lib shape.
 - `assembly-script.test.ts`: multi-part scripts with connectors and `matchTo`.
