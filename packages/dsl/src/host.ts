@@ -147,6 +147,7 @@ export function hostFunctions(kernel: KernelAdapter, state: RunState, parts: Hos
     // ---- features -----------------------------------------------------------------------------
     fillet: (id, r, q) => put(solids.fillet(shape(id), pos(r, "fillet radius"), parseEdgeQuery(q))),
     chamfer: (id, d, q) => put(solids.chamfer(shape(id), pos(d, "chamfer size"), parseEdgeQuery(q))),
+    chamferBottomEdges: (id, d) => put(solids.chamferBottomEdges(shape(id), pos(d, "chamferBottomEdges size"))),
     shell: (id, t, opts) => {
       const o = obj(opts, "shell options");
       const thickness = num(t, "shell thickness");

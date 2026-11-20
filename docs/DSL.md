@@ -36,7 +36,7 @@ Scripts run in a QuickJS sandbox with no file system, network, timers or Date. M
 
 An overview of every entry in this version. `docs {query: "<name>"}` gives the signature and an example.
 
-Shapes, profiles and operations: `Param.number`, `Param.bool`, `Param.choice`, `Param.string`, `box`, `cylinder`, `sphere`, `torus`, `rect`, `roundedRect`, `circle2d`, `ellipse`, `ngon`, `star`, `slot`, `polygon`, `path`, `sketch.extrude`, `sketch.revolve`, `sketch.loftTo`, `loft`, `sketch.offset`, `sketch.filletCorners`, `sketch.chamferCorners`, `sketch.transform`, `sketch.boolean`, `sketch.measure`, `add`, `subtract`, `intersect`, `cutPlane`, `translate`, `rotate`, `scale`, `mirror`, `pointAlong`, `moveTo`, `clone`, `fillet`, `chamfer`, `shell`, `edges`, `linearPattern`, `circularPattern`, `mirrorCopy`, `measure`, `color`, `name`, `withReferences`, `attachTo`, `connector`, `withConnectors`, `matchTo`.
+Shapes, profiles and operations: `Param.number`, `Param.bool`, `Param.choice`, `Param.string`, `box`, `cylinder`, `sphere`, `torus`, `rect`, `roundedRect`, `circle2d`, `ellipse`, `ngon`, `star`, `slot`, `polygon`, `path`, `sketch.extrude`, `sketch.revolve`, `sketch.loftTo`, `loft`, `sketch.offset`, `sketch.filletCorners`, `sketch.chamferCorners`, `sketch.transform`, `sketch.boolean`, `sketch.measure`, `add`, `subtract`, `intersect`, `cutPlane`, `translate`, `rotate`, `scale`, `mirror`, `pointAlong`, `moveTo`, `clone`, `fillet`, `chamfer`, `chamferBottomEdges`, `shell`, `edges`, `linearPattern`, `circularPattern`, `mirrorCopy`, `measure`, `color`, `name`, `withReferences`, `attachTo`, `connector`, `withConnectors`, `matchTo`.
 
 Standard parts: `lib.fastener`, `lib.clearanceHole`, `lib.screwCutter`, `lib.heatSetPocket`, `lib.hexNutPocket`, `lib.bolt`, `lib.nut`, `lib.washer`.
 
@@ -614,6 +614,20 @@ Example:
 return chamfer(box(40, 30, 10), 1, { parallel: [0, 0, 1] }); // break the vertical edges
 ```
 
+### chamferBottomEdges
+
+```js
+chamferBottomEdges(shape, size)
+```
+
+Elephant-foot chamfer: a 45 degree chamfer of the given size on every edge at the lowest Z. When no edge lies there or the chamfer cannot be built, the run gets a warning and the shape is returned unchanged.
+
+Example:
+
+```js
+return chamferBottomEdges(box(40, 30, 10), 0.4); // keep the first layer from spreading (elephant's foot)
+```
+
 ### shell
 
 ```js
@@ -942,7 +956,6 @@ These 3dj entries throw DSL_NOT_IMPLEMENTED in S1. Build the same shape from the
 - `shape.cutout(sketch.onFace(...), { depth })`: Pocket from a sketch on a face.
 - `group(a, b, ...)`: Keep parts separate as a group.
 - `tolerance(shape, mm)`: Exact offset cutter.
-- `chamferBottomEdges(shape, size)`: Elephant-foot chamfer.
 - `minWall(shape, mm)`: Wall thickness screen.
 - `lib.snapFit, lib.screwBoss, lib.mountingTab, lib.cableAnchor, lib.remoteCradle, lib.profile2020BSlot6, lib.tSlotProfile`: More library content.
 

@@ -67,6 +67,7 @@ return [
 ];`,
   fillet: "return fillet(box(40, 30, 10), 2, { atZ: 10 }); // round the four top edges",
   chamfer: "return chamfer(box(40, 30, 10), 1, { parallel: [0, 0, 1] }); // break the vertical edges",
+  chamferBottomEdges: "return chamferBottomEdges(box(40, 30, 10), 0.4); // keep the first layer from spreading (elephant's foot)",
   shell: "return roundedRect(60, 40, 5).extrude(25).shell(2); // open-top tray, 2 mm walls inside the skin",
   edges: `console.log(JSON.stringify(box(20, 20, 10).edges({ atZ: 10 }).map((e) => e.length)));
 return box(20, 20, 10);`,
