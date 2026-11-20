@@ -255,8 +255,9 @@ export class Solids {
   /**
    * The FDM "elephant's foot" chamfer: chamfer every edge that lies at the shape's lowest Z.
    * Like the 3dj entry, it warns instead of failing: when no edge lies there (a sphere) or the
-   * kernel cannot build the chamfer (a size too large for the bottom edges), the run gets a
-   * warning and the shape comes back unchanged.
+   * chamfer cannot be built (a size too large for the bottom edges), the run gets a warning and
+   * the shape comes back unchanged. Only those two failures are turned into a warning: any
+   * other kernel error, a fatal one above all, still fails the run so the worker is retired.
    */
   chamferBottomEdges(e: SolidEntry, d: number): SolidEntry {
     const z = this.bounds(e).min[2];
@@ -271,8 +272,9 @@ export class Solids {
     try {
       return this.derive(e, this.kernel.chamfer(e.handle, edges, d));
     } catch (err) {
-      if (!(err instanceof KernelError)) throw err;
-      return unchanged(`a ${d} mm chamfer on the ${edges.length} bottom edge${edges.length === 1 ? "" : "s"} failed (${err.message})`);
+      if (!(err instanceof KernelError) || err.fatal || (err.code !== "CHAMFER_FAILED" && err.code !== "INVALID_RESULT")) throw err;
+      const n = edges.length;
+      return unchanged(`the kernel could not chamfer the ${n} bottom edge${n === 1 ? "" : "s"} by ${d} mm (${err.code}); a smaller size may work`);
     }
   }
 
