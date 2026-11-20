@@ -81,7 +81,7 @@ test("a script that calls a lib name lib does not have gets the lib hint", async
     const r = await h.run(script);
     assert.equal(r.ok, false, code);
     assert.equal(r.error!.code, "SCRIPT_RUNTIME", code);
-    assert.equal(runtimeHint(r.error!, script), `"lib.gear" is not in lib. ${NOT_IMPLEMENTED_HINTS["lib.*"]}`, code);
+    assert.equal(runtimeHint(r.error!, script), `"lib.gear" does not exist: ${NOT_IMPLEMENTED_HINTS["lib.*"]}`, code);
   }
   // A lib member that exists is not the unknown name on the line.
   const script = "const a = 1;\nreturn lib.clearanceHole('M3', { length: 10 }).frobnicate();";

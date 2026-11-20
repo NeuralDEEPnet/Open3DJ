@@ -14,7 +14,7 @@ const DRAW_PROFILE = "polygon([[x, y], ...]) or path().moveTo(x, y).lineTo(x, y)
 export const NOT_IMPLEMENTED_HINTS: Readonly<Record<string, string>> = Object.freeze({
   hole: "Subtract a cutter instead: lib.clearanceHole('M3', { length: 10 }).translate(x, y, faceZ), lib.screwCutter('M3', { length: 10, head: 'socket' }) for a counterbore or with head: 'countersunk' for a countersink, moved the same way, or cylinder(depth, r).translate(x, y, faceZ - depth).",
   onFace: "Move the part onto the face with .attachTo(parent, 'top', 'bottom') or .translate(x, y, z), then .add() it to the parent or return both as parts.",
-  cutout: "Extrude the profile to the pocket depth, sink it into the face with .attachTo(parent, 'top', 'top') or .translate(x, y, faceZ - depth), turning it first with .rotate(axis, deg) for a side face, then .subtract() it.",
+  cutout: "Extrude the profile to the pocket depth, sink it into the top face with .attachTo(parent, 'top', 'top') or .translate(x, y, faceZ - depth), or into a side face with .rotate(axis, deg) and .attachTo(parent, 'right', 'right'), then .subtract() it.",
   "sketch.onFace": "Extrude the sketch, then .add() it on the face with .attachTo(parent, 'top', 'bottom'), or sink it in with .attachTo(parent, 'top', 'top') and .subtract() it; .translate(x, y, z) and .rotate(axis, deg) reach the other faces.",
   "shape.face": "Faces are not objects yet: name one with .withReferences({ deck: { face: { normal: [0, 0, 1] } } }) so the report tracks it, and place parts with a point reference or the top, bottom, left, right, front and back anchors of .attachTo(parent, parentAnchor, myAnchor).",
   group: "Return several parts instead: an array, return [a, b], or parts with names, return [{ name: 'Base', shape: a }, { name: 'Lid', shape: b }].",
@@ -32,7 +32,7 @@ export const NOT_IMPLEMENTED_HINTS: Readonly<Record<string, string>> = Object.fr
   "lib.snapFit": "Build the hook from a box(w, d, h) arm and a polygon([[x, y], ...]) wedge: .extrude(w) the wedge, turn it with .rotate(axis, deg), move it to the arm's end and .add() it.",
   "lib.screwBoss": "Use a cylinder(h, r) boss and .subtract() lib.heatSetPocket(size, { depth }) or lib.clearanceHole(size, { length }) moved to its top.",
   "lib.mountingTab": "Extrude a roundedRect(w, d, r) to the tab thickness t and .subtract() lib.clearanceHole(size, { length: t + 1 }) moved to its top.",
-  "lib.cableAnchor": "Use a box(w, d, h) block and .subtract() a tunnel for the tie parallel to its base, a rect(tieThickness + 1, tieWidth + 1) profile run through it with .extrude(length) and .rotate([0, 1, 0], 90).",
+  "lib.cableAnchor": "Use a box(w, d, h) block and .subtract() a tunnel for the tie parallel to its base: a rect(tieThickness + 1, tieWidth + 1) profile .extrude(w + 2), centred with .translate(0, 0, -(w + 2) / 2), turned with .rotate([0, 1, 0], 90) and lifted with .translate(0, 0, h / 2).",
   "lib.remoteCradle": "Extrude a roundedRect(w, d, r) as wide and deep as the remote plus 2 * (clearance + t) and hollow it with .shell(t), which puts the walls inside and leaves the top open.",
   "lib.profile2020BSlot6": `Draw the 20x20 B-type slot 6 cross-section from its maker's drawing with ${DRAW_PROFILE}, then .extrude(length) it.`,
   "lib.profile2020BSlot6Profile": `Draw the 20x20 B-type slot 6 cross-section from its maker's drawing with ${DRAW_PROFILE}.`,

@@ -33,7 +33,7 @@ const KNOWN = new Set<string>([...GLOBALS, ...METHODS]);
 /** The shape, sketch and path method names the prelude defines, for checks on hints that name them. */
 export const DSL_METHODS: ReadonlySet<string> = METHODS;
 /** The members of the guest's lib object, implemented or not. */
-const LIB = new Set<string>([.../const lib = freeze\(\{\n([\s\S]*?)\n\}\);/.exec(PRELUDE)![1]!.matchAll(/^ {2}(\w+):/gm)].map((m) => m[1]!));
+const LIB = new Set<string>([...(/const lib = freeze\(\{\n([\s\S]*?)\n\}\);/.exec(PRELUDE)?.[1] ?? "").matchAll(/^ {2}(\w+):/gm)].map((m) => m[1]!));
 
 /** The hint for a runtime error caused by an unknown name, or undefined when it is something else. */
 export function runtimeHint(error: ScriptError, source: string): string | undefined {
@@ -44,12 +44,14 @@ export function runtimeHint(error: ScriptError, source: string): string | undefi
   if (!name && /TypeError: .*not a function/.test(error.message) && error.line !== undefined) {
     const line = source.split(/\r?\n/)[error.line - 1] ?? "";
     // The first called name on that line that the DSL does not define.
+    // Where the line has lib.<name>(: the index of each "." after lib, found in one pass.
+    const libDots = new Set([...line.matchAll(/(?:^|[^\w$.])lib\s*(?=\.)/g)].map((d) => d.index + d[0].length));
     for (const m of line.matchAll(/(\.?)([A-Za-z_$][\w$]*)\s*\(/g)) {
       const id = m[2]!;
       // lib.<name>(: a lib member is known; any other name gets the lib hint.
-      if (m[1] === "." && /(?:^|[^\w$.])lib\s*$/.test(line.slice(0, m.index))) {
+      if (m[1] === "." && libDots.has(m.index)) {
         if (LIB.has(id)) continue;
-        return `"lib.${id}" is not in lib. ${notImplementedHint(`lib.${id}`)}`;
+        return `"lib.${id}" does not exist: ${notImplementedHint(`lib.${id}`)}`;
       }
       const unknown = m[1] === "."
         ? !METHODS.has(id) && !JS_METHODS.has(id)
