@@ -1526,7 +1526,7 @@ Bolt flange: a disc with a raised hub, a centre bore, a circular pattern of M6 c
 ```js
 // Bolt flange: a disc with a raised hub, a centre bore, a circular pattern of M6 clearance
 // holes and chamfered hub edges. One part. Units are mm, Z is up.
-const D = Param.number("Diameter", 80, { min: 50, max: 160, unit: "mm" });
+const D = Param.number("Diameter", 80, { min: 60, max: 160, unit: "mm" });
 const T = Param.number("Thickness", 8, { min: 4, max: 20, unit: "mm" });
 const count = Param.number("Bolt holes", 6, { min: 3, max: 12, integer: true });
 const hubH = 12, hubR = 16, boreR = 10;
