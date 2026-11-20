@@ -2,6 +2,7 @@
 // a host function throws an Error with a string code, optional elements and hint, and the
 // sandbox turns it into a ScriptError at the user's line.
 import { KernelError } from "@open3dj/kernel";
+import { notImplementedHint } from "./not-implemented.ts";
 
 /** Thrown for DSL misuse that is not a kernel failure, for example a bad argument or return value. */
 export class DslError extends Error {
@@ -20,8 +21,9 @@ export class DslError extends Error {
 }
 
 export const badArgument = (message: string, hint?: string) => new DslError("DSL_BAD_ARGUMENT", message, hint);
+/** DSL_NOT_IMPLEMENTED for an entry, with the hint that names a working alternative for it. */
 export const notImplemented = (entry: string) =>
-  new DslError("DSL_NOT_IMPLEMENTED", `${entry} is not implemented in Open3DJ DSL v1 yet`, "Build the same shape from the implemented entries, or ask for this entry in an issue.");
+  new DslError("DSL_NOT_IMPLEMENTED", `${entry} is not implemented in Open3DJ DSL v1 yet`, notImplementedHint(entry));
 
 /** Hints for kernel failures as the DSL user sees them (the kernel's hints name kernel terms). */
 const HINTS: Partial<Record<string, string>> = {

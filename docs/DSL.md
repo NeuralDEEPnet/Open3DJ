@@ -1044,7 +1044,7 @@ Fix: List the edges with shape.edges() and console.log, then narrow or widen the
 
 The entry exists in the 3dj DSL but arrives in a later Open3DJ step.
 
-Fix: Build the same shape from implemented entries. docs lists what is available.
+Fix: Follow the error's hint: it names a working alternative for that entry. docs lists what is available.
 
 ### DSL_UNKNOWN_ANCHOR
 

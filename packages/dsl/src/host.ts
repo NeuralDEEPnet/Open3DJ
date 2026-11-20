@@ -5,7 +5,7 @@ import type { ParamValue, Vec3 } from "@open3dj/schemas";
 import type { KernelAdapter } from "@open3dj/kernel";
 import type { GuestValue, HostFunction } from "@open3dj/sandbox";
 import * as B from "brepjs";
-import { DslError, badArgument, guard } from "./errors.ts";
+import { DslError, badArgument, guard, notImplemented } from "./errors.ts";
 import { Library, fastener } from "./lib.ts";
 import type { LibShape } from "./lib.ts";
 import { normalize, parseColor } from "./math.ts";
@@ -239,7 +239,7 @@ export function hostFunctions(kernel: KernelAdapter, state: RunState, parts: Hos
         case "bolt": return fromLib(library.bolt(a[0], a[1]));
         case "nut": return fromLib(library.nut(a[0]));
         case "washer": return fromLib(library.washer(a[0]));
-        default: throw new DslError("DSL_NOT_IMPLEMENTED", `lib.${String(name)} is not implemented in Open3DJ DSL v1 yet`);
+        default: throw notImplemented(`lib.${String(name)}`);
       }
     },
   };

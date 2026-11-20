@@ -2,6 +2,9 @@
 // It defines the 3dj-style surface (box(), Param, sketches, shape methods, lib, connectors)
 // on top of the host functions in __host. Shapes and sketches are small wrapper objects that
 // hold a host id; the host table is the security boundary, the classes here are only an API.
+// Not-implemented entries throw with the hint of their own from not-implemented.ts (NI below).
+import { GENERIC_NOT_IMPLEMENTED_HINT, NOT_IMPLEMENTED_HINTS } from "./not-implemented.ts";
+
 export const PRELUDE = String.raw`"use strict";(function (g) {
 const H = g.__host;
 const TOKEN = {};
@@ -17,7 +20,11 @@ function fail(code, message, hint) {
   if (hint) defineProperty(e, "hint", { value: hint, enumerable: true });
   return e;
 }
-const NI = (name) => function () { throw fail("DSL_NOT_IMPLEMENTED", name + " is not implemented in Open3DJ DSL v1 yet", "Build the same shape from the implemented entries, or ask for this entry in an issue."); };
+const NI_HINTS = ${JSON.stringify(NOT_IMPLEMENTED_HINTS)};
+const NI = (name) => {
+  const hint = Object.prototype.hasOwnProperty.call(NI_HINTS, name) ? NI_HINTS[name] : ${JSON.stringify(GENERIC_NOT_IMPLEMENTED_HINT)};
+  return function () { throw fail("DSL_NOT_IMPLEMENTED", name + " is not implemented in Open3DJ DSL v1 yet", hint); };
+};
 
 function idOf(x, kind, what) {
   const id = ids.get(x);
