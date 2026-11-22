@@ -438,6 +438,34 @@ describe("surfaces", () => {
   });
 });
 
+describe("bounding boxes", () => {
+  type V = [number, number, number];
+  // The kernel's precise box bounds the uncut surface. Here the higher of two bumps is cut away,
+  // so the top of what is left is the lower bump's crest, inside a trimmed face, where no edge
+  // runs: only the sampling and the climb inside the face can find it.
+  test("an extreme inside a trimmed face is found, not the uncut surface's", () => {
+    const rows = [0, 25, 50].map((y) => [0, 25, 50, 75, 100].map((x, i): V => [x, y, y === 25 ? [0, 20, 4, 10, 0][i]! : 0]));
+    const top = k.surfaceGrid(rows);
+    const solid = k.sew([top, k.surfaceGrid(rows.map((r) => r.map(([x, y]): V => [x, y, 0])))]);
+    const right = k.cut(solid, k.translate(k.box(65, 60, 60), [-10, -5, -30]));
+    // Oracle: the uncut top surface sampled densely where x >= 55.
+    const face = k.subShapes(top, "face")[0]!;
+    const b = k.raw.uvBounds(face);
+    let crest = -Infinity;
+    for (let a = 0; a <= 300; a++) {
+      for (let c = 0; c <= 300; c++) {
+        const q = k.raw.pointOnSurface(face, b.uMin + (a / 300) * (b.uMax - b.uMin), b.vMin + (c / 300) * (b.vMax - b.vMin)) as unknown as { x: number; z: number };
+        if (q.x >= 55) crest = Math.max(crest, q.z);
+      }
+    }
+    const box = k.bbox(right);
+    // The fit overshoots its 10 mm point (12.9 mm here), but stays far below the cut-away 20 mm bump.
+    assert.ok(crest > 9 && crest < 16, `oracle crest ${crest}`);
+    assert.ok(Math.abs(box.max[2] - crest) < 1e-3, `bbox top ${box.max[2]}, crest ${crest}`);
+    assert.ok(Math.abs(box.min[0] - 55) < 1e-6 && Math.abs(box.max[0] - 100) < 1e-6, JSON.stringify(box));
+  });
+});
+
 describe("continuity", () => {
   type V = [number, number, number];
   const byClass = (t: ReturnType<typeof k.continuity>, c: string) => t.edges.filter((e) => e.class === c);

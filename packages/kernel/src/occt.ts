@@ -1070,7 +1070,7 @@ class OcctAdapter implements Kernel {
         index,
         surface: k.surfaceType(face),
         area: k.getSurfaceArea(face),
-        bbox: box3(k.getBoundingBox(face)),
+        bbox: this.#tightBox(face),
         center: t3(k.getSurfaceCenterOfMass(face)),
         normal: t3(k.surfaceNormal(face, u, w)),
       };
@@ -1100,7 +1100,96 @@ class OcctAdapter implements Kernel {
     return this.#call("area", () => this.raw.getSurfaceArea(shape));
   }
   bbox(shape: ShapeHandle): BBox {
-    return this.#call("bbox", () => box3(this.raw.getBoundingBox(shape, { precise: true })));
+    return this.#call("bbox", () => this.#tightBox(shape));
+  }
+
+  // The kernel's precise box bounds each face's whole underlying surface, so a face that a cut
+  // trims keeps the box of the uncut surface (a sphere cut at y = 5 still reached y = 10). Edges
+  // are bounded curves, so their boxes are exact: a side of the precise box that an edge reaches
+  // is right. Any other side is the extreme of a face's inside, or of a part of its surface the
+  // face trims away. So sample each face that could reach past the edges there (by its loose
+  // box, which holds the precise one) on a grid inside the face, climb from the best sample, and
+  // keep the precise side when the climb reaches it. A mesh would do too, at ten times the cost.
+  #tightBox(shape: ShapeHandle): BBox {
+    const mark = this.raw.checkpoint();
+    try {
+      const precise = box3(this.raw.getBoundingBox(shape, { precise: true }));
+      const size = Math.hypot(...[0, 1, 2].map((i) => precise.max[i]! - precise.min[i]!));
+      const pad = 1e-6 * Math.max(1, size);
+      const reach = { min: [Infinity, Infinity, Infinity], max: [-Infinity, -Infinity, -Infinity] };
+      for (const e of this.raw.getSubShapes(shape, "edge") as ShapeHandle[]) {
+        const b = box3(this.raw.getBoundingBox(e, { precise: true }));
+        for (let i = 0; i < 3; i++) {
+          reach.min[i] = Math.min(reach.min[i]!, b.min[i]!);
+          reach.max[i] = Math.max(reach.max[i]!, b.max[i]!);
+        }
+      }
+      const sides: Array<{ i: number; sign: 1 | -1 }> = [];
+      for (let i = 0; i < 3; i++) {
+        if (precise.max[i]! - reach.max[i]! > pad) sides.push({ i, sign: 1 });
+        if (reach.min[i]! - precise.min[i]! > pad) sides.push({ i, sign: -1 });
+      }
+      if (sides.length === 0) return precise;
+      const out: BBox = { min: [...precise.min] as Vec3, max: [...precise.max] as Vec3 };
+      const best = sides.map(({ i, sign }) => (sign > 0 ? reach.max[i]! : -reach.min[i]!));
+      const faces = this.raw.getSubShapes(shape, "face") as ShapeHandle[];
+      for (const f of faces) {
+        const loose = box3(this.raw.getBoundingBox(f, { precise: false }));
+        const want = sides.map(({ i, sign }, k) => (sign > 0 ? loose.max[i]! : -loose.min[i]!) > best[k]! + pad);
+        if (!want.some(Boolean)) continue;
+        const b = this.raw.uvBounds(f);
+        const inside = (u: number, w: number) => this.raw.classifyPointOnFace(f, u, w) !== "out";
+        const at = (u: number, w: number) => t3(this.raw.pointOnSurface(f, u, w));
+        const n = 12;
+        const samples: Array<{ u: number; w: number; p: Vec3 }> = [];
+        for (let a = 0; a <= n; a++) {
+          for (let c = 0; c <= n; c++) {
+            const u = b.uMin + (a / n) * (b.uMax - b.uMin);
+            const w = b.vMin + (c / n) * (b.vMax - b.vMin);
+            if (inside(u, w)) samples.push({ u, w, p: at(u, w) });
+          }
+        }
+        sides.forEach(({ i, sign }, k) => {
+          if (!want[k]) return;
+          let top = samples.reduce<(typeof samples)[number] | undefined>((x, y) => (!x || sign * y.p[i]! > sign * x.p[i]! ? y : x), undefined);
+          if (!top || sign * top.p[i]! <= best[k]!) return;
+          // Climb: step to a neighbour that is higher and still inside the face, else halve the step.
+          let { u, w } = top;
+          let value = sign * top.p[i]!;
+          let du = (b.uMax - b.uMin) / n;
+          let dv = (b.vMax - b.vMin) / n;
+          const clampU = (x: number) => Math.min(b.uMax, Math.max(b.uMin, x));
+          const clampV = (x: number) => Math.min(b.vMax, Math.max(b.vMin, x));
+          for (let it = 0; it < 400 && (du > 1e-13 * (b.uMax - b.uMin) || dv > 1e-13 * (b.vMax - b.vMin)); it++) {
+            let moved = false;
+            for (const [x, y] of [[du, 0], [-du, 0], [0, dv], [0, -dv], [du, dv], [du, -dv], [-du, dv], [-du, -dv]] as const) {
+              const uu = clampU(u + x);
+              const ww = clampV(w + y);
+              const val = sign * at(uu, ww)[i]!;
+              if (val > value && inside(uu, ww)) {
+                [u, w, value] = [uu, ww, val];
+                moved = true;
+                break;
+              }
+            }
+            if (!moved) {
+              du /= 2;
+              dv /= 2;
+            }
+          }
+          best[k] = Math.max(best[k]!, value);
+          top = undefined;
+        });
+      }
+      sides.forEach(({ i, sign }, k) => {
+        const side = sign > 0 ? "max" : "min";
+        // Reached within the pad: the precise side is the extreme (and the kernel's own number).
+        if (Math.abs(sign * precise[side][i]! - best[k]!) > pad) out[side][i] = sign * best[k]!;
+      });
+      return out;
+    } finally {
+      this.raw.releaseSince(mark);
+    }
   }
   centerOfMass(shape: ShapeHandle): Vec3 {
     return this.#call("centerOfMass", () => t3(this.raw.getCenterOfMass(shape)));
