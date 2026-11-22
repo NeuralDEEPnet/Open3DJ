@@ -7,5 +7,6 @@ Start from [0000-template.md](0000-template.md). Open an issue labeled `rfc` fir
 | RFC | Title | Status |
 |---|---|---|
 | 0001 | Prompt Open3DJ from the viewer page (the agent panel) | under discussion in #31 |
+| 0003 | Transport design track: vehicle package, wheel envelopes, gap and flush | under discussion in #84 |
 
 Experiments do not need an RFC. Their write-ups go in `rfcs/experiments/`, tracked with the `experiment` label.
