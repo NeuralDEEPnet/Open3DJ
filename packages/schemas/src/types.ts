@@ -183,6 +183,29 @@ export interface EdgeContinuityEntry {
   class: "G2" | "G1" | "G0" | "gap";
 }
 
+/**
+ * One curved face of a part and how it bends (inspect fields=[continuity]). Curvatures are in
+ * 1/mm, positive where the face bulges outward (convex), negative where it is hollow.
+ */
+export interface FaceCurvatureEntry {
+  /** The face's element address, face:<n>. */
+  face: string;
+  /** The kernel's surface kind: cylinder, cone, sphere, torus, bspline and so on. */
+  surface: string;
+  /** convex or concave: every curved sample bends outward, or inward; saddle: both ways at once; mixed: more than one of these. */
+  kind: "convex" | "concave" | "saddle" | "mixed";
+  /** The radius of the tightest bend sampled, mm. */
+  min_radius_mm: number;
+  /** [lowest, highest] of the smaller principal curvature over the samples. */
+  k_min_per_mm: [number, number];
+  /** [lowest, highest] of the larger principal curvature over the samples. */
+  k_max_per_mm: [number, number];
+  /** The mean curvature takes both signs: the face inflects, as an S-section does. */
+  inflection: boolean;
+  /** Sample points that landed inside the face. */
+  samples: number;
+}
+
 /** One definition's continuity table, in the definition's own frame. */
 export interface PartContinuity {
   def: string;
@@ -191,13 +214,24 @@ export interface PartContinuity {
   counts: { G2: number; G1: number; G0: number; gap: number };
   /** Edges left out of the list past the limit (counts still include them). */
   omitted?: number;
+  /** Curved faces in report order: those that inflect, then by tightest radius. Flat faces are only counted. */
+  faces: FaceCurvatureEntry[];
+  /** Faces by kind (every face), and how many of them inflect. */
+  face_counts: { flat: number; convex: number; concave: number; saddle: number; mixed: number; inflected: number };
+  /** Curved faces left out of the list past the limit. */
+  faces_omitted?: number;
+  /** The tightest bend on any curved face of the part, listed or not; absent when every face is flat. */
+  tightest?: { face: string; min_radius_mm: number };
 }
 
-/** inspect fields=[continuity]: G0, G1 and G2 per shared edge, on the CPU kernel. */
+/** inspect fields=[continuity]: G0, G1 and G2 per shared edge and curvature per face, on the CPU kernel. */
 export interface ContinuityRun {
   /** Sample points per edge, spaced evenly inside it. */
   samples: number;
-  tolerances: { gap_mm: number; angle_deg: number; curvature_per_mm: number; relative: number };
+  /** Face curvature samples: a grid x grid lattice over each face's parameter box, inside the face. */
+  grid: number;
+  /** flat_per_mm: a curvature at or under this in size counts as flat. */
+  tolerances: { gap_mm: number; angle_deg: number; curvature_per_mm: number; relative: number; flat_per_mm: number };
   parts: PartContinuity[];
   /** What the table measures and how. */
   notes: string[];

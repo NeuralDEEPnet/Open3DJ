@@ -86,8 +86,8 @@ export function fakeResult(job: JobRequest): JobResult {
   if (job.continuity) {
     const parts = names.filter((n) => !job.continuity!.defs || job.continuity!.defs.includes(n));
     result.continuity = {
-      samples: 16, tolerances: { gap_mm: 1e-3, angle_deg: 0.1, curvature_per_mm: 1e-5, relative: 0.01 }, notes: ["fake continuity"],
-      parts: parts.map((def) => ({ def, edges: [], counts: { G2: 0, G1: 0, G0: 0, gap: 0 } })),
+      samples: 16, grid: 8, tolerances: { gap_mm: 1e-3, angle_deg: 0.1, curvature_per_mm: 1e-5, relative: 0.01, flat_per_mm: 1e-5 }, notes: ["fake continuity"],
+      parts: parts.map((def) => ({ def, edges: [], counts: { G2: 0, G1: 0, G0: 0, gap: 0 }, faces: [], face_counts: { flat: 0, convex: 0, concave: 0, saddle: 0, mixed: 0, inflected: 0 } })),
     };
   }
   if (job.gates) {

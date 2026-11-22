@@ -144,12 +144,16 @@ export function formatInspect(out: InspectOutput): string {
     lines.push(`continuity (${c.samples} samples an edge; G0 gap ${c.tolerances.gap_mm} mm, G1 ${c.tolerances.angle_deg} deg, G2 ${c.tolerances.curvature_per_mm}/mm or ${c.tolerances.relative * 100}%):`);
     for (const p of c.parts) {
       lines.push(`  ${p.def}  G2 ${p.counts.G2}, G1 ${p.counts.G1}, G0 ${p.counts.G0}, gap ${p.counts.gap}`);
+      const fc = p.face_counts;
+      const kinds = (["flat", "convex", "concave", "saddle", "mixed"] as const).filter((x) => fc[x] > 0).map((x) => `${fc[x]} ${x}`);
+      lines.push(`    faces: ${kinds.join(", ") || "none"}${fc.inflected ? `, ${fc.inflected} inflecting` : ""}${p.tightest ? `; tightest radius ${p.tightest.min_radius_mm} mm at ${p.tightest.face}` : ""}`);
       // Problems first: gaps, curvature steps on tangent edges, then shallow creases (under 10 degrees).
       const shown = p.edges.filter((e) => e.class === "gap" || e.class === "G1" || (e.class === "G0" && e.angle_deg < 10)).slice(0, 12);
       for (const e of shown) {
         const what = e.class === "gap" ? `gap ${e.gap_mm} mm` : e.class === "G1" ? `tangent, curvature jumps ${e.curvature_jump_per_mm}/mm` : `crease ${e.angle_deg} deg`;
         lines.push(`    ${e.class} ${e.edge} (${e.faces.join(" | ")}): ${what}`);
       }
+      for (const f of p.faces.filter((x) => x.inflection).slice(0, 12)) lines.push(`    inflects ${f.face} (${f.surface}, ${f.kind}): radius down to ${f.min_radius_mm} mm`);
     }
     for (const x of c.notes) lines.push(`  note: ${x}`);
   }

@@ -27,12 +27,15 @@ test("inspect --fields selection prints what the person selected, or says nothin
   ].join("\n"));
 });
 
-test("inspect --fields continuity counts the classes and lists gaps, curvature steps and shallow creases", () => {
+test("inspect --fields continuity counts the classes, lists gaps, curvature steps and shallow creases, then the faces", () => {
   const text = formatInspect({
     status: "ok", compute,
     continuity: {
-      samples: 16, tolerances: { gap_mm: 0.001, angle_deg: 0.1, curvature_per_mm: 0.00001, relative: 0.01 }, notes: [],
-      parts: [{ def: "shell", counts: { G2: 4, G1: 1, G0: 3, gap: 0 }, edges: [
+      samples: 16, grid: 8, tolerances: { gap_mm: 0.001, angle_deg: 0.1, curvature_per_mm: 0.00001, relative: 0.01, flat_per_mm: 0.00001 }, notes: [],
+      parts: [{ def: "shell", counts: { G2: 4, G1: 1, G0: 3, gap: 0 }, face_counts: { flat: 3, convex: 1, concave: 0, saddle: 0, mixed: 1, inflected: 1 }, faces: [
+        { face: "face:5", surface: "bspline", kind: "mixed", min_radius_mm: 40.5, k_min_per_mm: [-0.02, 0], k_max_per_mm: [0, 0.0247], inflection: true, samples: 64 },
+        { face: "face:2", surface: "cylinder", kind: "convex", min_radius_mm: 2, k_min_per_mm: [0, 0], k_max_per_mm: [0.5, 0.5], inflection: false, samples: 64 },
+      ], tightest: { face: "face:2", min_radius_mm: 2 }, edges: [
         { edge: "edge:7", faces: ["face:2", "face:3"], gap_mm: 0, angle_deg: 0, curvature_jump_per_mm: 0.5, relative_jump: 1, class: "G1" },
         { edge: "edge:9", faces: ["face:3", "face:4"], gap_mm: 0, angle_deg: 2.5, class: "G0" },
         { edge: "edge:1", faces: ["face:1", "face:2"], gap_mm: 0, angle_deg: 90, class: "G0" },
@@ -43,6 +46,9 @@ test("inspect --fields continuity counts the classes and lists gaps, curvature s
   assert.match(text, /G1 edge:7 \(face:2 \| face:3\): tangent, curvature jumps 0\.5\/mm/);
   assert.match(text, /G0 edge:9 \(face:3 \| face:4\): crease 2\.5 deg/);
   assert.doesNotMatch(text, /edge:1 /, "a 90 degree corner is a corner, not listed as a problem");
+  assert.match(text, /faces: 3 flat, 1 convex, 1 mixed, 1 inflecting; tightest radius 2 mm at face:2/);
+  assert.match(text, /inflects face:5 \(bspline, mixed\): radius down to 40\.5 mm/);
+  assert.doesNotMatch(text, /inflects face:2/);
 });
 
 // Regression (review, findings 8 and 11): a failure without value and limit printed "? against ?".
