@@ -2,9 +2,9 @@
 import type { PackageStatus } from "@open3dj/schemas";
 
 export type {
-  Axis, EdgeInfo, FaceInfo, KernelAdapter, KernelStats, KernelVersions, Label, MeshData, MultiviewOptions, Plane,
-  ShapeCounts, ShapeHandle, ShapeKind, ShapeMeasure, SubShapeKind, TessellateOptions, ViewName, XcafDocument,
-  XcafLabelInfo, XcafLocation,
+  Axis, CurvePoint, EdgeInfo, FaceInfo, KernelAdapter, KernelStats, KernelVersions, Label, MeshData, MultiviewOptions,
+  NurbsCurve, Plane, ShapeCounts, ShapeHandle, ShapeKind, ShapeMeasure, SplineOptions, SubShapeKind, TessellateOptions,
+  ViewName, XcafDocument, XcafLabelInfo, XcafLocation,
 } from "./adapter.ts";
 export { initKernel } from "./occt.ts";
 export type { InitKernelOptions, Kernel, PrintSink, PrintStream } from "./occt.ts";
