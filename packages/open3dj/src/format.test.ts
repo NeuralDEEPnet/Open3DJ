@@ -27,6 +27,24 @@ test("inspect --fields selection prints what the person selected, or says nothin
   ].join("\n"));
 });
 
+test("inspect --fields continuity counts the classes and lists gaps, curvature steps and shallow creases", () => {
+  const text = formatInspect({
+    status: "ok", compute,
+    continuity: {
+      samples: 16, tolerances: { gap_mm: 0.001, angle_deg: 0.1, curvature_per_mm: 0.00001, relative: 0.01 }, notes: [],
+      parts: [{ def: "shell", counts: { G2: 4, G1: 1, G0: 3, gap: 0 }, edges: [
+        { edge: "edge:7", faces: ["face:2", "face:3"], gap_mm: 0, angle_deg: 0, curvature_jump_per_mm: 0.5, relative_jump: 1, class: "G1" },
+        { edge: "edge:9", faces: ["face:3", "face:4"], gap_mm: 0, angle_deg: 2.5, class: "G0" },
+        { edge: "edge:1", faces: ["face:1", "face:2"], gap_mm: 0, angle_deg: 90, class: "G0" },
+      ] }],
+    },
+  });
+  assert.match(text, /shell {2}G2 4, G1 1, G0 3, gap 0/);
+  assert.match(text, /G1 edge:7 \(face:2 \| face:3\): tangent, curvature jumps 0\.5\/mm/);
+  assert.match(text, /G0 edge:9 \(face:3 \| face:4\): crease 2\.5 deg/);
+  assert.doesNotMatch(text, /edge:1 /, "a 90 degree corner is a corner, not listed as a problem");
+});
+
 // Regression (review, findings 8 and 11): a failure without value and limit printed "? against ?".
 test("inspect --fields gates prints value against limit only where they apply", () => {
   const text = formatInspect({

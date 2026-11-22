@@ -2,7 +2,7 @@
 // The worker entry and runJobInline() share this, so the pool and the inline path give the
 // same results.
 import { getHeapStatistics } from "node:v8";
-import { AssemblyError, buildAssembly, computeFits, exportArtifacts, printGates, report, writeArtifacts } from "@open3dj/assembly";
+import { AssemblyError, buildAssembly, computeFits, continuityRun, exportArtifacts, printGates, report, writeArtifacts } from "@open3dj/assembly";
 import { DslError, createDsl, runtimeHint } from "@open3dj/dsl";
 import type { Dsl } from "@open3dj/dsl";
 import { KernelError, isFatalWasmError, toKernelError } from "@open3dj/kernel";
@@ -140,9 +140,12 @@ function bindRunner(kernel: Kernel): JobRunner & { rebind(): void; dispose(): vo
         const geometry = report(kernel, asm, { rev: job.rev, compute, fits, ...(job.detail ? { detail: job.detail } : {}) });
         const base = { ok: true as const, report: geometry, assembly: asm.file, params: out.params };
         if (job.kind === "run") {
-          if (!job.gates) return finish(base);
+          if (!job.gates && !job.continuity) return finish(base);
           checkCancel();
-          return finish({ ...base, gates: printGates(kernel, asm, job.gates) });
+          const gates = job.gates ? printGates(kernel, asm, job.gates) : undefined;
+          checkCancel();
+          const continuity = job.continuity ? continuityRun(kernel, asm, job.continuity) : undefined;
+          return finish({ ...base, ...(gates ? { gates } : {}), ...(continuity ? { continuity } : {}) });
         }
         checkCancel();
         if (job.kind === "render") {

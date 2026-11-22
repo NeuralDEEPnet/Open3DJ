@@ -242,7 +242,7 @@ export function createHandlers(deps: HandlerDeps): ToolHandlers {
           if (!job) throw new ToolError("JOB_NOT_FOUND", `no job ${input.job_id} in this daemon`, "Jobs live in the daemon's memory; a restarted daemon forgets them.");
           out.job = job;
         }
-        const projectFields = (["tree", "refs", "fits", "measure", "selection", "gates"] as const).filter((f) => fields.has(f));
+        const projectFields = (["tree", "refs", "fits", "measure", "selection", "gates", "continuity"] as const).filter((f) => fields.has(f));
         if (projectFields.length === 0) return out;
         if (!input.project) throw new ToolError("PROJECT_REQUIRED", `fields ${projectFields.join(", ")} need a project`, "Pass project, for example \"bracket.o3j\". Only devices and job work without one.");
         const store = new ProjectStore(resolveProject(root, input.project));
@@ -281,6 +281,13 @@ export function createHandlers(deps: HandlerDeps): ToolHandlers {
           out.compute = job.compute!;
           // Each failure shows as waived (with who and why) or open; the status counts open ones.
           out.gates = applyWaivers(await gateRun(job, input.compute), store.waivers(), rec.assembly);
+        }
+        if (fields.has("continuity")) {
+          const job = continuityJob(rec, input, targets?.defs);
+          if (!fields.has("gates")) out.compute = job.compute!;
+          const r = await runPool(job, input.compute, "batch");
+          if (!r.continuity) throw new ToolError("INTERNAL_ERROR", "the continuity job returned no table", "This is a bug in Open3DJ. Please report it with the project.");
+          out.continuity = r.continuity;
         }
         return out;
       } catch (e) {
@@ -447,6 +454,19 @@ export function createHandlers(deps: HandlerDeps): ToolHandlers {
     job.gates = { profile, build };
     if (input.bed) job.gates.bed = input.bed;
     if (defs) job.gates.defs = defs;
+    job.fits = false;
+    return job;
+  }
+
+  /**
+   * The job for inspect fields [continuity], on the batch lane: the worker rebuilds the revision
+   * and measures how the faces of each targeted part definition meet, without the fit check.
+   */
+  function continuityJob(rec: RevisionRecord, input: Pick<InspectInput, "detail" | "compute">, defs: string[] | undefined): JobRequest {
+    const placed = place(input.compute, "run");
+    const compute = { ...placed, placement_reason: `inspect (continuity of ${rec.rev}); ${placed.placement_reason.replace(/\brun runs\b/, "it runs")}` };
+    const job = jobFor("run", rec, compute);
+    job.continuity = { ...(defs ? { defs } : {}), ...(input.detail === "detailed" ? { limit: 2000 } : {}) };
     job.fits = false;
     return job;
   }

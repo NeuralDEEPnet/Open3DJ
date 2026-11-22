@@ -76,6 +76,9 @@
     "gates": {
       "$ref": "urn:open3dj:v0:geometry-report#/$defs/gateRun"
     },
+    "continuity": {
+      "$ref": "urn:open3dj:v0:geometry-report#/$defs/continuityRun"
+    },
     "error": {
       "$ref": "urn:open3dj:v0:script-error"
     },

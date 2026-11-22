@@ -83,6 +83,13 @@ export function fakeResult(job: JobRequest): JobResult {
   const assembly = fakeAssembly(names, job.previous, params);
   const report = fakeReport(job, names);
   const result: Extract<JobResult, { ok: true }> = { ok: true, kind: job.kind, report, assembly, params, logs: [], stats, compute };
+  if (job.continuity) {
+    const parts = names.filter((n) => !job.continuity!.defs || job.continuity!.defs.includes(n));
+    result.continuity = {
+      samples: 16, tolerances: { gap_mm: 1e-3, angle_deg: 0.1, curvature_per_mm: 1e-5, relative: 0.01 }, notes: ["fake continuity"],
+      parts: parts.map((def) => ({ def, edges: [], counts: { G2: 0, G1: 0, G0: 0, gap: 0 } })),
+    };
+  }
   if (job.gates) {
     const parts = names.filter((n) => !job.gates!.defs || job.gates!.defs.includes(n));
     result.gates = {

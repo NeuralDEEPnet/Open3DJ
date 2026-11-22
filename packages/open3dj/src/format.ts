@@ -139,6 +139,20 @@ export function formatInspect(out: InspectOutput): string {
     }
     for (const x of g.notes) lines.push(`  note: ${x}`);
   }
+  if (out.continuity) {
+    const c = out.continuity;
+    lines.push(`continuity (${c.samples} samples an edge; G0 gap ${c.tolerances.gap_mm} mm, G1 ${c.tolerances.angle_deg} deg, G2 ${c.tolerances.curvature_per_mm}/mm or ${c.tolerances.relative * 100}%):`);
+    for (const p of c.parts) {
+      lines.push(`  ${p.def}  G2 ${p.counts.G2}, G1 ${p.counts.G1}, G0 ${p.counts.G0}, gap ${p.counts.gap}`);
+      // Problems first: gaps, curvature steps on tangent edges, then shallow creases (under 10 degrees).
+      const shown = p.edges.filter((e) => e.class === "gap" || e.class === "G1" || (e.class === "G0" && e.angle_deg < 10)).slice(0, 12);
+      for (const e of shown) {
+        const what = e.class === "gap" ? `gap ${e.gap_mm} mm` : e.class === "G1" ? `tangent, curvature jumps ${e.curvature_jump_per_mm}/mm` : `crease ${e.angle_deg} deg`;
+        lines.push(`    ${e.class} ${e.edge} (${e.faces.join(" | ")}): ${what}`);
+      }
+    }
+    for (const x of c.notes) lines.push(`  note: ${x}`);
+  }
   if (out.devices) lines.push(formatDevices(out.devices));
   if (out.job) lines.push(`job ${out.job.job_id}: ${out.job.state}${out.job.rev ? ` (${out.job.rev})` : ""}${out.job.reason ? `: ${out.job.reason}` : ""}`);
   return `${lines.join("\n")}\n`;

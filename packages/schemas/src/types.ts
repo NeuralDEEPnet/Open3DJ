@@ -166,6 +166,43 @@ export interface PartGateRun {
   shape_hash: string;
 }
 
+/** One edge where two faces of a part meet, and how smoothly (inspect fields=[continuity]). */
+export interface EdgeContinuityEntry {
+  /** The edge's element address, edge:<n>. */
+  edge: string;
+  /** The two faces that meet there, face:<n>. */
+  faces: [string, string];
+  /** The largest gap between the two faces' surfaces at the samples, mm. */
+  gap_mm: number;
+  /** The largest angle between their outward normals, degrees. */
+  angle_deg: number;
+  /** Where the faces are tangent: the largest curvature jump (1/mm) and that jump over the larger curvature. */
+  curvature_jump_per_mm?: number;
+  relative_jump?: number;
+  /** The highest continuity held at every sample. */
+  class: "G2" | "G1" | "G0" | "gap";
+}
+
+/** One definition's continuity table, in the definition's own frame. */
+export interface PartContinuity {
+  def: string;
+  /** Edges in report order: gaps, then G1 edges by curvature jump, then G0 by angle (shallow first), then G2. */
+  edges: EdgeContinuityEntry[];
+  counts: { G2: number; G1: number; G0: number; gap: number };
+  /** Edges left out of the list past the limit (counts still include them). */
+  omitted?: number;
+}
+
+/** inspect fields=[continuity]: G0, G1 and G2 per shared edge, on the CPU kernel. */
+export interface ContinuityRun {
+  /** Sample points per edge, spaced evenly inside it. */
+  samples: number;
+  tolerances: { gap_mm: number; angle_deg: number; curvature_per_mm: number; relative: number };
+  parts: PartContinuity[];
+  /** What the table measures and how. */
+  notes: string[];
+}
+
 /** inspect fields=[gates]: rule checks per part definition, never a print simulation. */
 export interface GateRun {
   profile: GateProfile;
@@ -438,7 +475,7 @@ export interface RunOutput {
   compute: ComputeBlock;
 }
 
-export type InspectField = "tree" | "refs" | "fits" | "measure" | "devices" | "job" | "selection" | "gates";
+export type InspectField = "tree" | "refs" | "fits" | "measure" | "devices" | "job" | "selection" | "gates" | "continuity";
 
 export interface InspectInput {
   project?: string;
@@ -492,6 +529,8 @@ export interface InspectOutput {
   selection?: ViewerSelection;
   /** With fields [gates]: print checks per part definition. */
   gates?: GateRun;
+  /** With fields [continuity]: how smoothly the faces of each part definition meet. */
+  continuity?: ContinuityRun;
   error?: ScriptError;
   compute: ComputeBlock;
 }
