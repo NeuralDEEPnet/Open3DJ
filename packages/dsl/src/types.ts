@@ -101,6 +101,6 @@ export interface DslEntry {
   name: string;
   signature: string;
   summary: string;
-  /** Plan step that ships it, for example S1. */
+  /** Plan step that ships it, for example S1; "later" when it is not built yet. */
   step: string;
 }

@@ -1,4 +1,4 @@
-// docs/DSL.md must match its generator, cover every S1 entry, and every example in it must
+// docs/DSL.md must match its generator, cover every available entry, and every example in it must
 // run through the real job runner (sandbox, DSL, kernel, assembly, report) without errors.
 import { test } from "node:test";
 import assert from "node:assert/strict";
@@ -16,11 +16,11 @@ test("docs/DSL.md is up to date (node packages/mcp/src/dsl-docs.ts --write)", ()
   assert.equal(readFileSync(DEFAULT_DOCS_FILE, "utf8"), renderDslDoc());
 });
 
-test("every S1 entry has a section and an example; later entries are listed", () => {
+test("every available entry has a section and an example; later entries are listed", () => {
   const sections = parseDocs(renderDslDoc());
   const titles = new Set(sections.map((s) => s.title));
   for (const e of DSL_ENTRIES) {
-    if (e.step === "S1") {
+    if (e.step !== "later") {
       assert.ok(titles.has(e.name), `section for ${e.name}`);
       assert.ok(ENTRY_EXAMPLES[e.name], `example for ${e.name}`);
     } else {

@@ -89,6 +89,23 @@ export function hostFunctions(kernel: KernelAdapter, state: RunState, parts: Hos
       if (!Array.isArray(points)) throw badArgument("polygon needs a list of [x, y] points");
       return put(sketches.polygon(points.map((p, i) => vec2(p, `polygon point ${i}`))));
     },
+    spline2d: (points, opts) => {
+      if (!Array.isArray(points)) throw badArgument("spline2d needs a list of [x, y] points", "Pass the points as [[x, y], [x, y], ...].");
+      const o = obj(opts, "spline2d options");
+      for (const key of Object.keys(o)) {
+        if (key !== "closed" && key !== "tangents") throw badArgument(`spline2d: unknown option "${key}"`, "The options are closed (true or false) and tangents ([[x, y], [x, y]]).");
+      }
+      let tangents: [[number, number], [number, number]] | undefined;
+      const t = o["tangents"];
+      if (t !== undefined && t !== null) {
+        if (!Array.isArray(t) || t.length !== 2) throw badArgument("spline2d tangents must be [[x, y], [x, y]]: the directions at the first and the last point", "For example tangents: [[0, 1], [0, -1]] leaves straight up and arrives straight down.");
+        tangents = [vec2(t[0], "spline2d start tangent"), vec2(t[1], "spline2d end tangent")];
+        for (const [end, d] of [["start", tangents[0]], ["end", tangents[1]]] as const) {
+          if (Math.hypot(d[0], d[1]) === 0) throw badArgument(`spline2d ${end} tangent must not be zero`, "A tangent is a direction such as [1, 0]; only its direction counts.");
+        }
+      }
+      return put(sketches.spline(points.map((p, i) => vec2(p, `spline2d point ${i}`)), { closed: !!o["closed"], tangents }));
+    },
     path: (cmds) => {
       if (!Array.isArray(cmds)) throw badArgument("path(): malformed command list");
       return put(sketches.drawing(drawPath(cmds)));

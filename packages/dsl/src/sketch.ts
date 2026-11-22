@@ -104,6 +104,40 @@ export class Sketches {
     return { kind: "sketch", drawing, face, exactFace: true };
   }
 
+  /**
+   * A profile through points: a cubic B-spline through every point (#78). Closed, it is
+   * periodic and smooth all round. Open, a straight line runs from the last point back to the
+   * first, unless the last point repeats the first, which closes the curve with a corner there.
+   * The face is exact and has no drawing, so offset, booleans and corner edits work on it as on
+   * any kernel profile.
+   */
+  spline(points: [number, number][], options: { closed: boolean; tangents?: [[number, number], [number, number]] }): SketchEntry {
+    const { closed, tangents } = options;
+    if (closed && tangents) throw badArgument("spline2d tangents need an open spline: a closed spline has no ends", "Remove tangents, or drop closed: true.");
+    // The kernel refuses points closer than this; repeated points in a row are dropped, as polygon does.
+    const SAME = 1e-6;
+    const clean: [number, number][] = [];
+    for (const p of points) {
+      const q = clean.at(-1);
+      if (!q || Math.hypot(p[0] - q[0], p[1] - q[1]) >= SAME) clean.push(p);
+    }
+    const first = clean[0];
+    const last = clean.at(-1);
+    const loops = clean.length > 1 && first !== undefined && last !== undefined && Math.hypot(first[0] - last[0], first[1] - last[1]) < SAME;
+    if (closed && loops) clean.pop();
+    const distinct = loops && !closed ? clean.length - 1 : clean.length;
+    const needed = tangents ? 2 : 3;
+    if (distinct < needed) throw badArgument(`spline2d needs at least ${needed} distinct points${tangents ? " with tangents" : ""}, got ${distinct}`, "Give 3 or more points, or 2 points with tangents.");
+    const p3 = clean.map(([x, y]): Vec3 => [x, y, 0]);
+    const curve = this.kernel.splineEdge(p3, tangents ? { startTangent: [tangents[0][0], tangents[0][1], 0], endTangent: [tangents[1][0], tangents[1][1], 0] } : { periodic: closed });
+    const edges = closed || loops ? [curve] : [curve, this.kernel.lineEdge(p3.at(-1)!, p3[0]!)];
+    const face = this.kernel.face(this.kernel.wire(edges));
+    if (!this.kernel.isValid(face)) {
+      throw badArgument("spline2d: the outline crosses itself", "Move or reorder the points so that the curve, and the closing line of an open spline, do not cross.");
+    }
+    return { kind: "sketch", face };
+  }
+
   // ---- transforms ---------------------------------------------------------------------
   /**
    * Apply a 2D transform: as a Drawing op when possible, else to the kernel face. An exact
