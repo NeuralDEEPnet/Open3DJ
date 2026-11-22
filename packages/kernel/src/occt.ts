@@ -12,7 +12,7 @@ import { OcctKernel } from "occt-wasm";
 import type { BoundingBox, OcctModuleFactory, Vec3 as OcctVec3, XCAFDocument } from "occt-wasm";
 import type { BBox, Transform, Vec3 } from "@open3dj/schemas";
 import type {
-  Axis, CurvePoint, EdgeInfo, FaceInfo, KernelAdapter, KernelStats, KernelVersions, Label, MeshData, MultiviewOptions,
+  Axis, ContinuityTable, ContinuityTolerances, CurvePoint, EdgeContinuity, EdgeInfo, FaceInfo, KernelAdapter, KernelStats, KernelVersions, Label, MeshData, MultiviewOptions,
   NurbsCurve, Plane, ShapeCounts, ShapeHandle, ShapeKind, ShapeMeasure, SplineOptions, SubShapeKind, SweepOptions,
   TessellateOptions, XcafDocument, XcafLabelInfo, XcafLocation,
 } from "./adapter.ts";
@@ -121,6 +121,14 @@ const MAX_DEGREE = 25;
 /** occt-wasm's SweepMode and TransitionMode values (Auxiliary is 3). */
 const SWEEP_MODES: Readonly<Record<string, number>> = { fixed: 0, frenet: 1, up: 2, guide: 3 };
 const SWEEP_CORNERS: Readonly<Record<string, number>> = { right: 1, round: 2 };
+/** Default continuity tolerances: 1 um gap, 0.1 degree, and a curvature jump of 1e-5 /mm or 1%. */
+const CONTINUITY_TOLERANCES: ContinuityTolerances = { gap: 1e-3, angle: 0.1, curvature: 1e-5, relative: 0.01 };
+const normalized = (a: Vec3): Vec3 => {
+  const n = Math.hypot(...a);
+  return n > 0 ? [a[0] / n, a[1] / n, a[2] / n] : a;
+};
+/** The angle between two directions in degrees, accurate for tiny angles. */
+const angleBetween = (a: Vec3, b: Vec3): number => (Math.atan2(Math.hypot(...cross(a, b)), a[0] * b[0] + a[1] * b[1] + a[2] * b[2]) * 180) / Math.PI;
 /** Samples for the sweep overlap check: along the whole path, and per profile edge. */
 const PATH_SAMPLES = 512;
 const PROFILE_SAMPLES = 64;
@@ -619,6 +627,102 @@ class OcctAdapter implements Kernel {
     if (thickness === 0) throw new KernelError("BAD_ARGUMENT", op, `${op}: the thickness must not be 0`);
     this.#mustBe(op, surface, "face", "shell");
     return this.#checked(op, () => this.raw.thicken(surface, thickness, 1e-6) as ShapeHandle);
+  }
+
+  // ---- surface quality ---------------------------------------------------------------------
+  continuity(shape: ShapeHandle, options: { samples?: number; tolerances?: Partial<ContinuityTolerances> } = {}): ContinuityTable {
+    const op = "continuity";
+    const samples = options.samples ?? 16;
+    if (!Number.isInteger(samples) || samples < 1 || samples > 256) throw new KernelError("BAD_ARGUMENT", op, `${op}: samples must be a whole number from 1 to 256, got ${samples}`);
+    const tolerances: ContinuityTolerances = { ...CONTINUITY_TOLERANCES, ...options.tolerances };
+    const mark = this.raw.checkpoint();
+    try {
+      const edges = this.raw.getSubShapes(shape, "edge") as ShapeHandle[];
+      const faces = this.raw.getSubShapes(shape, "face") as ShapeHandle[];
+      // Which faces use each edge, through hash buckets (isSame decides within a bucket).
+      const index = new Map<number, number[]>();
+      edges.forEach((e, i) => {
+        const key = this.raw.hashCode(e, 1 << 30);
+        index.set(key, [...(index.get(key) ?? []), i]);
+      });
+      const users = edges.map(() => [] as number[]);
+      faces.forEach((f, fi) => {
+        for (const e of this.raw.getSubShapes(f, "edge") as ShapeHandle[]) {
+          const i = (index.get(this.raw.hashCode(e, 1 << 30)) ?? []).find((j) => this.raw.isSame(edges[j]!, e));
+          if (i !== undefined && !users[i]!.includes(fi)) users[i]!.push(fi);
+        }
+      });
+      const box = this.raw.getBoundingBox(shape);
+      const size = Math.hypot(box.xmax - box.xmin, box.ymax - box.ymin, box.zmax - box.zmin);
+      const step = Math.min(0.01, Math.max(1e-4, 1e-3 * size));
+      const out: EdgeContinuity[] = [];
+      edges.forEach((edge, i) => {
+        const pair = users[i]!;
+        if (pair.length !== 2 || this.raw.curveLength(edge) < 1e-9) return;
+        const [a, b] = [faces[pair[0]!]!, faces[pair[1]!]!];
+        let gapMax = 0;
+        let angleMax = 0;
+        let jumpMax: number | null = 0;
+        let relMax = 0;
+        let g2 = true;
+        for (let s = 0; s < samples; s++) {
+          const { point: p, tangent: t } = this.curveAt(edge, (s + 0.5) / samples);
+          const sa = this.#surfaceAt(a, p);
+          const sb = this.#surfaceAt(b, p);
+          gapMax = Math.max(gapMax, gap(sa.point, p), gap(sb.point, p), gap(sa.point, sb.point));
+          const angle = angleBetween(sa.normal, sb.normal);
+          angleMax = Math.max(angleMax, angle);
+          if (angle > tolerances.angle || jumpMax === null) {
+            jumpMax = null;
+            continue;
+          }
+          // The second fundamental form of each face in the frame (t, d), d pointing into the face.
+          const fa = this.#curvatureForm(a, p, sa.normal, t, step);
+          const fb = this.#curvatureForm(b, p, sb.normal, t, step);
+          // d on b runs opposite to d on a, which flips the sign of the twist term.
+          const jump = Math.max(Math.abs(fa.tt - fb.tt), Math.abs(fa.dd - fb.dd), Math.abs(fa.td + fb.td));
+          const scale = Math.max(Math.abs(fa.tt), Math.abs(fa.dd), Math.abs(fb.tt), Math.abs(fb.dd));
+          const rel = scale > 0 ? jump / scale : 0;
+          jumpMax = Math.max(jumpMax, jump);
+          relMax = Math.max(relMax, rel);
+          if (jump > tolerances.curvature && rel > tolerances.relative) g2 = false;
+        }
+        const tangent = angleMax <= tolerances.angle && jumpMax !== null;
+        const cls = gapMax > tolerances.gap ? "gap" : !tangent ? "G0" : g2 ? "G2" : "G1";
+        out.push({ edge: i + 1, faces: [pair[0]! + 1, pair[1]! + 1], gap: gapMax, angle: angleMax, curvatureJump: tangent ? jumpMax : null, relativeJump: tangent ? relMax : null, class: cls });
+      });
+      return { edges: out, samples, tolerances };
+    } catch (e) {
+      throw toKernelError(op, e);
+    } finally {
+      this.raw.releaseSince(mark);
+    }
+  }
+
+  // The surface point nearest p and the outward normal there.
+  #surfaceAt(face: ShapeHandle, p: Vec3): { point: Vec3; normal: Vec3; u: number; v: number } {
+    const { u, v: w } = this.raw.uvFromPoint(face, v(p));
+    return { point: t3(this.raw.pointOnSurface(face, u, w)), normal: t3(this.raw.surfaceNormal(face, u, w)), u, v: w };
+  }
+
+  // Normal curvatures along t, across into the face (d) and the twist term, each from the normal
+  // offset of a short step projected onto the surface (kappa = 2 n . (q - p) / s^2), with one
+  // Richardson step. d is the unit direction in the face's tangent plane, across t, that enters it.
+  #curvatureForm(face: ShapeHandle, p: Vec3, n: Vec3, t: Vec3, s: number): { tt: number; dd: number; td: number } {
+    let d = normalized(cross(n, t));
+    const probe = this.raw.uvFromPoint(face, v([p[0] + 10 * s * d[0], p[1] + 10 * s * d[1], p[2] + 10 * s * d[2]]));
+    if (this.raw.classifyPointOnFace(face, probe.u, probe.v) === "out") d = [-d[0], -d[1], -d[2]];
+    const kappa = (e: Vec3): number => {
+      const at = (h: number): number => {
+        const q = this.#surfaceAt(face, [p[0] + h * e[0], p[1] + h * e[1], p[2] + h * e[2]]).point;
+        return (2 * ((q[0] - p[0]) * n[0] + (q[1] - p[1]) * n[1] + (q[2] - p[2]) * n[2])) / (h * h);
+      };
+      return (4 * at(s / 2) - at(s)) / 3;
+    };
+    const tt = kappa(t);
+    const dd = kappa(d);
+    const diag = kappa(normalized([t[0] + d[0], t[1] + d[1], t[2] + d[2]]));
+    return { tt, dd, td: diag - (tt + dd) / 2 };
   }
 
   // Edges used by only one face of a shell, other than seams (where a periodic face, such as a
