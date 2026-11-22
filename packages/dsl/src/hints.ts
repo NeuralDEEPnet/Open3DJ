@@ -54,7 +54,7 @@ export function runtimeHint(error: ScriptError, source: string): string | undefi
       // lib.<name>(: a lib member is known; any other name gets the lib hint.
       if (m[1] === "." && libDots.has(m.index)) {
         if (LIB.has(id)) continue;
-        return `"lib.${id}" does not exist: ${notImplementedHint(`lib.${id}`)}`;
+        return `"lib.${id}" does not exist. ${notImplementedHint(`lib.${id}`)}`;
       }
       const unknown = m[1] === "."
         ? !METHODS.has(id) && !JS_METHODS.has(id)

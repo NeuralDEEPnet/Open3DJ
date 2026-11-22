@@ -40,6 +40,7 @@ export const NOT_IMPLEMENTED_HINTS: Readonly<Record<string, string>> = Object.fr
   "offset of a profile with holes": "Offset the outer outline and each hole outline separately, the holes by the opposite amount, then .subtract() the holes: rect(20, 20).offset(1).subtract(circle2d(3).offset(-1)).",
   "extrude with twist or scaleTop of a profile with holes": "Extrude the outer outline and each hole outline with the same twist and scaleTop, then .subtract() the hole solids from the outer solid.",
   "loft of a profile with holes": "Loft the outer outlines and the hole outlines separately with the same heights, then .subtract() the hole loft from the outer loft.",
+  "place of a profile with holes": "Place the outer outline and each hole outline separately with the same .place() options, loft the outer sections and the hole sections the same way, then .subtract() the hole loft from the outer loft.",
 });
 
 /** The hint for a not-implemented entry: its own, the lib hint for other lib names, else the generic one. */

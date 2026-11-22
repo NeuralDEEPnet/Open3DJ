@@ -1,6 +1,7 @@
 // Issue #18: an entry that throws DSL_NOT_IMPLEMENTED used to give the same generic hint every
 // time, so agents guessed and wasted calls. Every such entry now names a working alternative,
 // and every DSL call a hint suggests must exist and be implemented.
+import { readFileSync } from "node:fs";
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { DSL_ENTRIES } from "./entries.ts";
@@ -18,6 +19,7 @@ const HOLES: ReadonlyArray<readonly [string, string]> = [
   ["extrude with twist or scaleTop of a profile with holes", "rect(20, 20).subtract(circle2d(3)).extrude(10, { twist: 30 })"],
   ["extrude with twist or scaleTop of a profile with holes", "rect(20, 20).subtract(circle2d(3)).extrude(10, { scaleTop: 0.5 })"],
   ["loft of a profile with holes", "loft([rect(20, 20).subtract(circle2d(3)), rect(10, 10)], [0, 10])"],
+  ["place of a profile with holes", "loft([rect(20, 20).subtract(circle2d(3)).place(), rect(10, 10).place({ origin: [0, 0, 10] })])"],
 ];
 const NOT_IMPLEMENTED = new Set([...GUEST, ...HOLES.map(([entry]) => entry)]);
 
@@ -62,6 +64,17 @@ test("sketch operations on a profile with holes give their own hint", async () =
   }
 });
 
+test("every operation that refuses a profile with holes has a case above", () => {
+  // sketch.ts throws "<op> of a profile with holes" from outerWire(sketch, "<op>"). A new caller
+  // (sketch.place came after this table) needs its own case in HOLES, and so its own hint.
+  const ops = new Set<string>();
+  for (const file of ["./sketch.ts", "./host.ts"]) {
+    const source = readFileSync(new URL(file, import.meta.url), "utf8");
+    for (const m of source.matchAll(/\bouterWire\((?:[^()]|\([^()]*\))*?,\s*"([^"]+)"\s*\)/g)) ops.add(`${m[1]!} of a profile with holes`);
+  }
+  assert.deepEqual([...ops].sort(), [...new Set(HOLES.map(([entry]) => entry))].sort());
+});
+
 test("lib names without a hint of their own get the lib hint; other names the generic one", () => {
   // host.ts throws notImplemented("lib.<name>") for a lib name it does not know.
   for (const entry of ["lib.gear", "lib.constructor", "lib.__proto__"]) {
@@ -81,7 +94,7 @@ test("a script that calls a lib name lib does not have gets the lib hint", async
     const r = await h.run(script);
     assert.equal(r.ok, false, code);
     assert.equal(r.error!.code, "SCRIPT_RUNTIME", code);
-    assert.equal(runtimeHint(r.error!, script), `"lib.gear" does not exist: ${NOT_IMPLEMENTED_HINTS["lib.*"]}`, code);
+    assert.equal(runtimeHint(r.error!, script), `"lib.gear" does not exist. ${NOT_IMPLEMENTED_HINTS["lib.*"]}`, code);
   }
   // A lib member that exists is not the unknown name on the line.
   const script = "const a = 1;\nreturn lib.clearanceHole('M3', { length: 10 }).frobnicate();";
