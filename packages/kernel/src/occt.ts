@@ -312,11 +312,37 @@ class OcctAdapter implements Kernel {
     finite("revolve", angleDeg);
     return this.#checked("revolve", () => this.raw.revolve(profile, { point: v(axis.origin), direction: v(axis.dir) }, angleDeg * DEG) as ShapeHandle);
   }
-  loft(wires: ShapeHandle[], options: { solid?: boolean; ruled?: boolean } = {}): ShapeHandle {
-    if (wires.length < 2) throw new KernelError("BAD_ARGUMENT", "loft", "loft: needs at least 2 wires");
+  loft(wires: ShapeHandle[], options: { solid?: boolean; ruled?: boolean; start?: Vec3; end?: Vec3 } = {}): ShapeHandle {
+    const { start, end } = options;
+    const tips = start !== undefined || end !== undefined;
+    if (wires.length < (tips ? 1 : 2)) throw new KernelError("BAD_ARGUMENT", "loft", "loft: needs at least 2 wires, or a wire and a start or end point");
+    if (start !== undefined) point("loft", start, 0);
+    if (end !== undefined) point("loft", end, 1);
     const solid = options.solid ?? true;
-    const make = () => this.raw.loft(wires, solid, options.ruled ?? false) as ShapeHandle;
+    const ruled = options.ruled ?? false;
+    if (solid) {
+      wires.forEach((w, i) => {
+        if (!this.#isClosedWire(w)) throw new KernelError("BAD_ARGUMENT", "loft", `loft: section ${i + 1} is not closed; a solid loft needs closed outlines`, { hint: "Close each section, for example spline3d(points, { closed: true }) or a placed sketch." });
+      });
+    }
+    const make = tips
+      ? () => this.raw.loftWithVertices(wires, solid, ruled, (start ? this.vertex(start) : 0) as ShapeHandle, (end ? this.vertex(end) : 0) as ShapeHandle) as ShapeHandle
+      : () => this.raw.loft(wires, solid, ruled) as ShapeHandle;
     return solid ? this.#checked("loft", make) : this.#call("loft", make);
+  }
+
+  // A wire is closed when every end of every edge meets an end of another edge (or the one
+  // edge closes on itself).
+  #isClosedWire(wire: ShapeHandle): boolean {
+    const mark = this.raw.checkpoint();
+    try {
+      const edges = this.raw.getSubShapes(wire, "edge") as ShapeHandle[];
+      if (edges.length === 1) return this.raw.curveIsClosed(edges[0]!);
+      const ends = edges.flatMap((e, i) => [0, 1].map((t) => ({ i, p: this.curveAt(e, t).point })));
+      return ends.every((a) => ends.some((b) => b.i !== a.i && gap(a.p, b.p) < 1e-6));
+    } finally {
+      this.raw.releaseSince(mark);
+    }
   }
 
   // ---- free-form curves ------------------------------------------------------------------

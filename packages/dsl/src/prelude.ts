@@ -138,6 +138,7 @@ class Sketch2 {
   extrude(h, opts) { return S(H.skExtrude(kid(this), h, opts || {})); }
   revolve(deg) { return S(H.skRevolve(kid(this), deg === undefined ? 360 : deg)); }
   loftTo(other, h) { return S(H.loft([kid(this), kid(other, "loftTo profile")], [0, h])); }
+  place(opts) { return C(H.skPlace(kid(this), opts === undefined ? null : opts)); }
   onFace() { return NI("sketch.onFace")(); }
 }
 freeze(Sketch2);
@@ -242,7 +243,15 @@ const api = {
   helix: (radius, pitch, height, opts) => C(H.helix(radius, pitch, height, opts === undefined ? null : opts)),
   polyline3d: (points) => C(H.polyline3d(points)),
   sweep: (profile, path, opts) => S(H.sweep(kid(profile, "sweep profile"), cid(path, "sweep path"), sweepOpts(opts))),
-  loft: (profiles, heights) => S(H.loft(flat([profiles]).map((p) => kid(p, "loft profile")), heights)),
+  loft: (profiles, second) => {
+    const list = flat([profiles]);
+    if (isArray(second)) {
+      for (const p of list) if (kinds.get(p) === "curve") throw fail("DSL_BAD_ARGUMENT", "loft: placed sections carry their own position, so give no heights", "loft([a, b]) with placed sections, or loft([sketchA, sketchB], [0, 20]) with sketches.");
+      return S(H.loft(list.map((p) => kid(p, "loft profile")), second));
+    }
+    for (const p of list) if (kinds.get(p) === "sketch") throw fail("DSL_BAD_ARGUMENT", "loft of sketches needs their heights, or placed sections", "Give heights, loft([a, b], [0, 20]), or place each profile: a.place({ origin: [0, 0, 20] }).");
+    return S(H.loftSections(list.map((p) => cid(p, "loft section")), second === undefined ? null : second));
+  },
   union: union,
   difference: difference,
   intersection: intersection,

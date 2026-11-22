@@ -238,8 +238,11 @@ export interface KernelAdapter {
   extrude(profile: ShapeHandle, vector: Vec3): ShapeHandle;
   /** Revolve a face or wire about an axis by angleDeg (360 for a full turn). Checked. */
   revolve(profile: ShapeHandle, axis: Axis, angleDeg: number): ShapeHandle;
-  /** Loft through closed wires in order. Checked when solid. */
-  loft(wires: ShapeHandle[], options?: { solid?: boolean; ruled?: boolean }): ShapeHandle;
+  /**
+   * Loft through closed wires in order, optionally from a start point and to an end point (a
+   * nose or a tail). Checked when solid; a solid loft refuses a section that is not closed.
+   */
+  loft(wires: ShapeHandle[], options?: { solid?: boolean; ruled?: boolean; start?: Vec3; end?: Vec3 }): ShapeHandle;
 
   // ---- free-form curves: B-splines and their kin ------------------------------------------
   /** A cubic B-spline edge through the points, in order (see SplineOptions). */

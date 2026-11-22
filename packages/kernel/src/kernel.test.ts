@@ -166,6 +166,15 @@ describe("queries, transforms and sketches", () => {
     const a1 = 100, a2 = 25;
     close(v, (10 / 3) * (a1 + a2 + Math.sqrt(a1 * a2)), 1e-6);
   });
+
+  test("loft to a point makes a cone; a solid loft refuses an open section", () => {
+    const circle = k.wire([k.circleEdge([0, 0, 0], [0, 0, 1], 5)]);
+    close(k.volume(k.loft([circle], { end: [0, 0, 30] })), (Math.PI * 25 * 30) / 3, 1e-9);
+    close(k.volume(k.loft([circle], { start: [0, 0, -30], end: [0, 0, 30], ruled: true })), (2 * Math.PI * 25 * 30) / 3, 1e-9);
+    assert.throws(() => k.loft([circle]), (e: unknown) => e instanceof KernelError && e.code === "BAD_ARGUMENT" && /a wire and a start or end point/.test(e.message));
+    const open = k.wire([k.lineEdge([0, 0, 10], [9, 0, 10])]);
+    assert.throws(() => k.loft([circle, open]), (e: unknown) => e instanceof KernelError && e.code === "BAD_ARGUMENT" && /section 2 is not closed/.test(e.message));
+  });
 });
 
 describe("curves", () => {

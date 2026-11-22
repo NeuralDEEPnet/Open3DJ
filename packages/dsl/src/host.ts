@@ -11,7 +11,7 @@ import type { LibShape } from "./lib.ts";
 import { normalize, parseColor, rotatePoint, sub } from "./math.ts";
 import { matchEdges, parseEdgeQuery } from "./queries.ts";
 import { nameElement } from "./refs.ts";
-import { Sketches, drawPath } from "./sketch.ts";
+import { Sketches, drawPath, profileFrame } from "./sketch.ts";
 import { Solids } from "./solid.ts";
 import { describe, dir3, ids, int, nonNeg, num, obj, optNum, pos, str, vec2, vec3 } from "./state.ts";
 import type { ConnectorFrame, CurveEntry, ParamSpec, RunState, SketchEntry, SolidEntry } from "./state.ts";
@@ -197,6 +197,23 @@ export function hostFunctions(kernel: KernelAdapter, state: RunState, parts: Hos
       const angle = num(deg, "revolve angle");
       if (angle === 0 || Math.abs(angle) > 360) throw badArgument(`revolve angle must be in (0, 360], got ${angle}`);
       return solidOf(sketches.revolve(sketch(id), angle));
+    },
+    skPlace: (id, opts) => {
+      const o = obj(opts, "place options");
+      onlyKeys("place", o, ["origin", "normal", "up"], "The options are origin ([x, y, z]), normal (the plane's normal) and up (where the sketch's +Y points).");
+      const origin = o["origin"] === undefined || o["origin"] === null ? ([0, 0, 0] as Vec3) : vec3(o["origin"], "place origin");
+      const normal = o["normal"] === undefined || o["normal"] === null ? ([0, 0, 1] as Vec3) : dir3(o["normal"], "place normal");
+      const up = o["up"] === undefined || o["up"] === null ? ([0, 0, 1] as Vec3) : dir3(o["up"], "place up");
+      return put(curveOf(kernel.place(sketches.outerWire(sketch(id), "place"), profileFrame(origin, normal, up))));
+    },
+    loftSections: (sections, opts) => {
+      const o = obj(opts, "loft options");
+      onlyKeys("loft", o, ["ruled", "start", "end"], "The options are ruled (true or false), start and end (points the loft begins or ends in).");
+      const wires = ids(sections, "loft sections").map((s) => state.curve(s, "loft section").wire);
+      const start = o["start"] === undefined || o["start"] === null ? undefined : vec3(o["start"], "loft start");
+      const end = o["end"] === undefined || o["end"] === null ? undefined : vec3(o["end"], "loft end");
+      if (wires.length + (start ? 1 : 0) + (end ? 1 : 0) < 2 || wires.length === 0) throw badArgument("loft needs at least 2 sections, or a section and a start or end point", "For example loft([a, b]), or loft([a], { end: [0, 0, 30] }) for a nose.");
+      return solidOf(kernel.loft(wires, { solid: true, ruled: !!o["ruled"], ...(start ? { start } : {}), ...(end ? { end } : {}) }));
     },
     loft: (profiles, heights) => {
       const ps = ids(profiles, "loft profiles").map((p) => sketch(p, "loft profile"));
