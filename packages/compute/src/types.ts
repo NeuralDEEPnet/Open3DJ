@@ -1,11 +1,11 @@
 import type {
-  AssemblyFile, ComputeBlock, ComputeMode, DeviceInventory, FileRef, GateRun, GeometryReport, ParamValue, Rev, ScriptError,
+  AssemblyFile, ComputeBlock, ComputeMode, ContinuityRun, DeviceInventory, FileRef, GateRun, GeometryReport, ParamValue, Rev, ScriptError,
 } from "@open3dj/schemas";
 import type { SandboxLimits, ScriptLog } from "@open3dj/sandbox";
-import type { ArtifactFormat, ExportArtifact, GateOptions } from "@open3dj/assembly";
+import type { ArtifactFormat, ContinuityOptions, ExportArtifact, GateOptions } from "@open3dj/assembly";
 import type { RenderImage, RenderOptions } from "@open3dj/render";
 
-export type { ArtifactFormat, ExportArtifact, GateOptions, RenderImage, RenderOptions };
+export type { ArtifactFormat, ContinuityOptions, ExportArtifact, GateOptions, RenderImage, RenderOptions };
 
 /** Job kinds the CPU pool runs in S1. Each declares runsOn ["cpu.wasm"]. */
 export type JobKind = "run" | "render" | "export";
@@ -33,9 +33,11 @@ export interface JobRequest {
   detail?: "concise" | "detailed";
   /** A run job with gates also runs the print checks (printGates) and returns them in JobResult.gates. */
   gates?: GateOptions;
+  /** A run job with continuity also returns the continuity table per definition (continuityRun) in JobResult.continuity. */
+  continuity?: ContinuityOptions;
   /**
    * false skips the exact fit check: the report then lists no fits and is not the revision's
-   * report. Only inspect fields=[gates] sets it, because it reads nothing but the gates.
+   * report. Only inspect fields=[gates] and [continuity] set it, because they read nothing else.
    */
   fits?: false;
   /** Root definition id of the assembly. Default "root". */
@@ -93,6 +95,8 @@ export type JobResult =
     artifacts?: ExportArtifact[];
     /** Print checks, when the job asked for gates. */
     gates?: GateRun;
+    /** The continuity table per definition, when the job asked for it. */
+    continuity?: ContinuityRun;
     /** Files written when the export job named a dir. */
     files?: FileRef[];
     logs: ScriptLog[];

@@ -242,6 +242,27 @@ test("inspect gates runs fdm.v1 on the targeted definitions and rejects a zero b
   }
 });
 
+test("inspect continuity measures how faces meet on the batch lane, per targeted definition", async () => {
+  const c = setup();
+  try {
+    await c.h.run({ project: "p.o3j", script: TWO_PARTS });
+    const out = await c.h.inspect({ project: "p.o3j", fields: ["continuity"], targets: ["pin"] });
+    valid("inspect", out);
+    assert.equal(out.status, "ok", JSON.stringify(out.error));
+    assert.deepEqual(c.pool.calls.at(-1)?.continuity, { defs: ["pin"] });
+    assert.equal(c.pool.lanes.at(-1), "batch");
+    assert.equal(c.pool.calls.at(-1)?.fits, false, "the continuity job skips the fit check");
+    assert.deepEqual(out.continuity?.parts.map((p) => p.def), ["pin"]);
+    assert.match(out.compute.placement_reason, /^inspect \(continuity of r_0001\)/);
+    const both = await c.h.inspect({ project: "p.o3j", fields: ["gates", "continuity"], detail: "detailed" });
+    valid("inspect", both);
+    assert.ok(both.gates && both.continuity, "gates and continuity together");
+    assert.equal(c.pool.calls.at(-1)?.continuity?.limit, 2000, "detailed lists up to 2000 edges a part");
+  } finally {
+    c.done();
+  }
+});
+
 // Regression (review, finding 6): a failed gate job came back as if it never ran (backend none).
 test("a failed gate job keeps its placement and the revision in the error result", async () => {
   const c = setup();

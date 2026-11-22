@@ -131,6 +131,67 @@
       "required": ["profile", "status"],
       "additionalProperties": false
     },
+    "continuityRun": {
+      "$comment": "inspect fields=[continuity]: G0 gap, G1 angle and G2 curvature jump for every edge shared by two faces of a part, on the CPU kernel. A comment, not a description, so tools/list stays within its budget.",
+      "type": "object",
+      "properties": {
+        "samples": { "type": "integer", "minimum": 1 },
+        "tolerances": {
+          "type": "object",
+          "properties": {
+            "gap_mm": { "type": "number", "minimum": 0 },
+            "angle_deg": { "type": "number", "minimum": 0 },
+            "curvature_per_mm": { "type": "number", "minimum": 0 },
+            "relative": { "type": "number", "minimum": 0 }
+          },
+          "required": ["gap_mm", "angle_deg", "curvature_per_mm", "relative"],
+          "additionalProperties": false
+        },
+        "parts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "def": { "type": "string", "minLength": 1 },
+              "edges": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "edge": { "type": "string", "pattern": "^edge:[1-9][0-9]*$" },
+                    "faces": { "type": "array", "items": { "type": "string", "pattern": "^face:[1-9][0-9]*$" }, "minItems": 2, "maxItems": 2 },
+                    "gap_mm": { "type": "number", "minimum": 0 },
+                    "angle_deg": { "type": "number", "minimum": 0 },
+                    "curvature_jump_per_mm": { "type": "number", "minimum": 0 },
+                    "relative_jump": { "type": "number", "minimum": 0 },
+                    "class": { "enum": ["G2", "G1", "G0", "gap"] }
+                  },
+                  "required": ["edge", "faces", "gap_mm", "angle_deg", "class"],
+                  "additionalProperties": false
+                }
+              },
+              "counts": {
+                "type": "object",
+                "properties": {
+                  "G2": { "type": "integer", "minimum": 0 },
+                  "G1": { "type": "integer", "minimum": 0 },
+                  "G0": { "type": "integer", "minimum": 0 },
+                  "gap": { "type": "integer", "minimum": 0 }
+                },
+                "required": ["G2", "G1", "G0", "gap"],
+                "additionalProperties": false
+              },
+              "omitted": { "type": "integer", "minimum": 1 }
+            },
+            "required": ["def", "edges", "counts"],
+            "additionalProperties": false
+          }
+        },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["samples", "tolerances", "parts", "notes"],
+      "additionalProperties": false
+    },
     "gateRun": {
       "type": "object",
       "properties": {

@@ -8,6 +8,7 @@
 //   and distance. Clash, contact or clearance per pair, labelled "measured".
 // - report: the concise GeometryReport (detailed on request).
 // - printGates: the fdm.v1 print checks per part definition (watertight, wall, overhang, bed).
+// - continuityRun: G0, G1 and G2 per edge where two faces of a part meet (inspect continuity).
 // - exportArtifacts / exportFiles: STEP through XCAF with names at both levels, STL, GLB and
 //   3MF from own writers, and an evidence sidecar; writeArtifacts applies the path policy.
 import type { PackageStatus } from "@open3dj/schemas";
@@ -23,6 +24,8 @@ export { DEFAULT_FIT_OPTIONS, computeFits } from "./fits.ts";
 export { DEFAULT_DENSITY_G_PER_CM3, report } from "./report.ts";
 export { ANGLE_BAND_DEG, CHORD_MM, FDM_V1, INSIDE_EDGE_DOT, MAX_RAYS, WALL_BAND_MM, WALL_SPACING_MM, partGates, printGates, wallSampling } from "./gates.ts";
 export type { GateOptions } from "./gates.ts";
+export { continuityRun } from "./continuity.ts";
+export type { ContinuityOptions } from "./continuity.ts";
 export { exportArtifacts, exportFiles } from "./export/index.ts";
 export { prepareDir, writeArtifacts } from "./export/files.ts";
 export { exportTree, resolveTarget, resolveTargets } from "./resolve.ts";

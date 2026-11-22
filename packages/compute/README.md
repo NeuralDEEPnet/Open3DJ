@@ -13,6 +13,7 @@ await pool.close();
 ```
 
 - `kind: "run"` returns the GeometryReport and the assembly graph. With `gates` (profile, build direction, bed size, definitions) it also runs the 3D printing checks (`printGates` in `@open3dj/assembly`) and returns them as `gates`; `inspect fields=[gates]` sends such a job on the batch lane. That job also sets `fits: false`, which skips the exact fit check, so its report lists no fits and is not the revision's report (on a 4-vCPU container, a gate job on plate-145 took about 5.6 s of worker time with it and 28.7 s without).
+- With `continuity` (definitions, a list limit) a `run` job also returns the continuity table per definition (`continuityRun` in `@open3dj/assembly`) as `continuity`; `inspect fields=[continuity]` sends such a job on the batch lane, also with `fits: false`.
 - `kind: "render"` adds `images` (multiview PNG and SVG bytes).
 - `kind: "export"` adds `artifacts` (files plus the evidence sidecar). With `export.dir` and `export.root` the worker also writes them under the path policy of `writeArtifacts()` and returns `files`. `export.timestamp` (ISO 8601 with a time zone) is written as the STEP time stamp instead of the wall clock; the MCP `export` tool passes the revision's time.
 

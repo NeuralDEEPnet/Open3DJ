@@ -29,7 +29,9 @@ test("tools/list stays small, and the slim output schemas accept every valid res
   // 12,000 through S2, when the list was exactly that size. S3's inspect fields=[gates] with its
   // gates, build and bed inputs costs about 200 characters after trimming, hence 12,250. The
   // S3 waive op and the export's gate status (about 700) fit after trimming repeated wording.
-  assert.ok(size <= 12_250, `tools/list is ${size} characters`);
+  // The S9 surfacing core's inspect fields=[continuity] (#78) costs about 100 characters after
+  // its schema text moved to a $comment, which slim schemas leave out, hence 12,350.
+  assert.ok(size <= 12_350, `tools/list is ${size} characters`);
   // The schema fixtures are test data of @open3dj/schemas, not part of its public exports.
   const { VALID } = await import("../../schemas/src/fixtures.ts");
   const { SchemaRegistry } = await import("@open3dj/schemas");
