@@ -709,9 +709,16 @@ class OcctAdapter implements Kernel {
   // offset of a short step projected onto the surface (kappa = 2 n . (q - p) / s^2), with one
   // Richardson step. d is the unit direction in the face's tangent plane, across t, that enters it.
   #curvatureForm(face: ShapeHandle, p: Vec3, n: Vec3, t: Vec3, s: number): { tt: number; dd: number; td: number } {
-    let d = normalized(cross(n, t));
-    const probe = this.raw.uvFromPoint(face, v([p[0] + 10 * s * d[0], p[1] + 10 * s * d[1], p[2] + 10 * s * d[2]]));
-    if (this.raw.classifyPointOnFace(face, probe.u, probe.v) === "out") d = [-d[0], -d[1], -d[2]];
+    // Try both ways across. A step off a B-spline face's natural boundary projects back onto the
+    // boundary ("on", not "out"), so take the way that lands inside, or else the way whose foot
+    // point moves: stepping off a natural boundary leaves the foot on the edge.
+    const across = normalized(cross(n, t));
+    const land = (sign: number) => {
+      const uv = this.raw.uvFromPoint(face, v([p[0] + sign * 10 * s * across[0], p[1] + sign * 10 * s * across[1], p[2] + sign * 10 * s * across[2]]));
+      return { inside: this.raw.classifyPointOnFace(face, uv.u, uv.v) === "in", moved: gap(t3(this.raw.pointOnSurface(face, uv.u, uv.v)), p) };
+    };
+    const [fwd, back] = [land(1), land(-1)];
+    const d: Vec3 = !fwd.inside && (back.inside || back.moved > fwd.moved) ? [-across[0], -across[1], -across[2]] : across;
     const kappa = (e: Vec3): number => {
       const at = (h: number): number => {
         const q = this.#surfaceAt(face, [p[0] + h * e[0], p[1] + h * e[1], p[2] + h * e[2]]).point;

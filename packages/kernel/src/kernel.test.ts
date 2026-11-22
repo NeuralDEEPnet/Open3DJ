@@ -490,6 +490,27 @@ describe("continuity", () => {
     for (const e of equator) assert.ok(e.curvatureJump! < 1e-6, JSON.stringify(e));
   });
 
+  // Regression: on a B-spline face, a step off its natural boundary projects back onto the
+  // boundary and classifies as "on", not "out", so the cross direction was not turned round and
+  // that side read zero curvature: a tube swept from two half circles read G1 (jump 1/r).
+  test("a tube swept from two half circles is G2 where its two side faces meet", () => {
+    const path = k.wire([k.splineEdge([[0, 0, 0], [30, 0, 10], [60, 20, 10]])]);
+    const start = k.curveAt(k.subShapes(path, "edge")[0]!, 0);
+    const z = start.tangent;
+    const x0: V = [-z[1], z[0], 0];
+    const x: V = x0.map((c) => c / Math.hypot(...x0)) as V;
+    const y: V = [z[1] * x[2] - z[2] * x[1], z[2] * x[0] - z[0] * x[2], z[0] * x[1] - z[1] * x[0]];
+    const at = (a: number): V => [0, 1, 2].map((i) => 2 * (Math.cos(a) * x[i]! + Math.sin(a) * y[i]!)) as V;
+    const halves = k.wire([k.arcEdge(at(0), at(Math.PI / 2), at(Math.PI)), k.arcEdge(at(Math.PI), at(1.5 * Math.PI), at(0))]);
+    const t = k.continuity(k.sweep(halves, path));
+    const sides = t.edges.filter((e) => e.angle < 1);
+    assert.equal(sides.length, 2, JSON.stringify(t.edges));
+    for (const e of sides) {
+      assert.equal(e.class, "G2", JSON.stringify(e));
+      assert.ok(e.curvatureJump! < 1e-5, JSON.stringify(e));
+    }
+  });
+
   test("a stadium slot is G1 where its flat sides meet its round ends; a 1 degree crease is G0", () => {
     const slot = k.continuity(k.extrude(k.face(k.wire([
       k.lineEdge([-10, -3, 0], [10, -3, 0]), k.arcEdge([10, -3, 0], [13, 0, 0], [10, 3, 0]),
