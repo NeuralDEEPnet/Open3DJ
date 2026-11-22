@@ -285,6 +285,7 @@ h2 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: 
 .seg button + button { margin-left: -1px; }
 .legend { list-style: none; margin: 4px 0 0; padding: 0; }
 .legend li { display: grid; grid-template-columns: 14px 1fr auto; gap: 6px; align-items: center; padding: 2px 0; }
+.legend li.text { display: block; }
 .legend .swatch { width: 12px; height: 12px; border-radius: 3px; border: 1px solid var(--border); }
 .legend .value { font-size: 11px; }
 .note { font-size: 11px; margin: 6px 0 0; }

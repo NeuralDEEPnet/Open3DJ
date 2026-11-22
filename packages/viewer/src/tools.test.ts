@@ -33,6 +33,8 @@ const analysis = (await import(new URL("../web/analysis.js", import.meta.url).hr
   draftClass(n: V3, pull: V3, minDeg?: number): string;
   classifyMesh(p: ArrayLike<number>, n: ArrayLike<number>, idx: ArrayLike<number>, rot: ArrayLike<number>, o: object): { vertexClass: Uint8Array; area: number[] };
   rotationKey(m: ArrayLike<number>): string;
+  zebraImage(size?: number, bands?: number): Uint8Array;
+  ZEBRA_NOTE: string;
   LEGENDS: Record<string, string[][]>;
 };
 const fits = (await import(new URL("../web/fits.js", import.meta.url).href)) as { fitPairs(f: { a: string; b: string }): string[][] };
@@ -293,4 +295,17 @@ test("measure rows: the same face twice is two points on it, and a pair without 
   assert.match(last[1], /no fit line/);
   assert.equal(last[2], null, "a note that there is no number is not labelled measured");
   assert.ok(pair.some((r) => r[0] === "Angle between faces"));
+});
+
+test("the zebra image is bands of black and white across x, the same down every column", () => {
+  const size = 64;
+  const img = analysis.zebraImage(size, 8);
+  assert.equal(img.length, size * size * 4);
+  const at = (x: number, y: number) => img[(y * size + x) * 4]!;
+  // 8 bands of 8 pixels: dark, light, dark, ...
+  for (let x = 0; x < size; x++) assert.equal(at(x, 0), Math.floor(x / 8) % 2 === 0 ? 20 : 235, `column ${x}`);
+  for (let y = 0; y < size; y++) assert.equal(at(13, y), at(13, 0), "every row the same");
+  assert.equal(img[3], 255, "opaque");
+  assert.match(analysis.ZEBRA_NOTE, /G0.*G1.*G2/);
+  assert.equal(analysis.LEGENDS["zebra"], undefined, "zebra has no area classes");
 });

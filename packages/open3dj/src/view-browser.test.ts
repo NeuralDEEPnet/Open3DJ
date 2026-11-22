@@ -209,6 +209,9 @@ test("the viewer shows examples/enclosure: 6 occurrences, a click selects a scre
     assert.equal(applied.section?.axis, "y");
     assert.equal(applied.explode, 0.6);
     assert.ok((applied.overlay?.bed ?? 0) > 0, "the base and the screws' undersides rest on the bed");
+    // The zebra view (#78) draws every part with the stripe matcap and counts no classes.
+    const zebra = await page.evaluate(() => (globalThis as unknown as ViewerWindow).open3dj.tools({ overlay: { kind: "zebra" } }));
+    assert.deepEqual(zebra.overlay, {});
     assert.deepEqual(errors, []);
 
     // A click on a section cap selects the part that was cut, not a face hidden behind the cap.
