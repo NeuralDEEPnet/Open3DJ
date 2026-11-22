@@ -65,7 +65,20 @@ export interface SketchEntry {
   line?: number;
 }
 
-export type Entry = SolidEntry | SketchEntry;
+/** A 3D curve: a path for sweep, or a guide (#78). */
+export interface CurveEntry {
+  kind: "curve";
+  /** The curve as a kernel wire. */
+  wire: ShapeHandle;
+  /** Where the path starts, and its unit direction there: where sweep puts the profile. */
+  start: Vec3;
+  dir: Vec3;
+  line?: number;
+}
+
+export type Entry = SolidEntry | SketchEntry | CurveEntry;
+
+const KIND_NAMES: Record<Entry["kind"], string> = { shape: "a 3D shape", sketch: "a 2D sketch", curve: "a curve" };
 
 export interface PendingMate {
   movingBody: number;
@@ -110,7 +123,7 @@ export class RunState {
 
   add(entry: Entry): number {
     if (this.entries.size >= this.maxHandles) {
-      const e = new DslError("SCRIPT_LIMIT", `The script made more than ${this.maxHandles} shapes and sketches`, "Build fewer intermediate shapes, or batch booleans.");
+      const e = new DslError("SCRIPT_LIMIT", `The script made more than ${this.maxHandles} shapes, sketches and curves`, "Build fewer intermediate shapes, or batch booleans.");
       throw e;
     }
     if (entry.line === undefined && this.line !== undefined) entry.line = this.line;
@@ -125,7 +138,7 @@ export class RunState {
   }
 
   get(id: GuestValue): Entry {
-    if (typeof id !== "number" || !Number.isInteger(id)) throw new DslError("DSL_BAD_HANDLE", `expected a shape or sketch, got ${describe(id)}`);
+    if (typeof id !== "number" || !Number.isInteger(id)) throw new DslError("DSL_BAD_HANDLE", `expected a shape, sketch or curve, got ${describe(id)}`);
     const e = this.entries.get(id);
     if (!e) throw new DslError("DSL_BAD_HANDLE", `unknown shape handle ${id}`);
     return e;
@@ -133,13 +146,19 @@ export class RunState {
 
   shape(id: GuestValue, what = "shape"): SolidEntry {
     const e = this.get(id);
-    if (e.kind !== "shape") throw badArgument(`${what} must be a 3D shape, got a 2D sketch`, "Extrude or revolve the sketch first.");
+    if (e.kind !== "shape") throw badArgument(`${what} must be a 3D shape, got ${KIND_NAMES[e.kind]}`, e.kind === "curve" ? "A curve is a path: sweep a profile along it, sweep(profile, curve)." : "Extrude or revolve the sketch first.");
     return e;
   }
 
   sketch(id: GuestValue, what = "profile"): SketchEntry {
     const e = this.get(id);
-    if (e.kind !== "sketch") throw badArgument(`${what} must be a 2D sketch, got a 3D shape`);
+    if (e.kind !== "sketch") throw badArgument(`${what} must be a 2D sketch, got ${KIND_NAMES[e.kind]}`);
+    return e;
+  }
+
+  curve(id: GuestValue, what = "path"): CurveEntry {
+    const e = this.get(id);
+    if (e.kind !== "curve") throw badArgument(`${what} must be a curve, got ${KIND_NAMES[e.kind]}`, "Make a path with spline3d(), helix() or polyline3d().");
     return e;
   }
 

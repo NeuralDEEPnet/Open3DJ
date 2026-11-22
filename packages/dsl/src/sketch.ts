@@ -8,7 +8,22 @@ import type { Kernel, KernelAdapter, ShapeHandle } from "@open3dj/kernel";
 import * as B from "brepjs";
 import type { Drawing } from "brepjs";
 import { DslError, badArgument, notImplemented } from "./errors.ts";
-import type { SketchEntry } from "./state.ts";
+import { cross, dot, length, mul, normalize, quaternionFromBasis, sub } from "./math.ts";
+import type { CurveEntry, SketchEntry } from "./state.ts";
+import type { Transform } from "@open3dj/schemas";
+
+/** Where a profile drawn in XY goes at a path's start: +Z along the path, +Y towards up. */
+export function profileFrame(start: Vec3, dir: Vec3, up: Vec3): Transform {
+  const z = normalize(dir);
+  let y = sub(up, mul(z, dot(up, z)));
+  if (length(y) < 1e-9) {
+    // The path starts along up: fall back to +Y (or +X when the path runs along Y).
+    const alt: Vec3 = Math.abs(z[1]) < 0.9 ? [0, 1, 0] : [1, 0, 0];
+    y = sub(alt, mul(z, dot(alt, z)));
+  }
+  y = normalize(y);
+  return { t: start, q: quaternionFromBasis(cross(y, z), y, z) };
+}
 
 /** brepjs results are { ok, value } or { ok: false, error }. */
 function unwrap<T>(op: string, r: unknown): T {
@@ -136,6 +151,28 @@ export class Sketches {
       throw badArgument("spline2d: the outline crosses itself", "Move or reorder the points so that the curve, and the closing line of an open spline, do not cross.");
     }
     return { kind: "sketch", face };
+  }
+
+  /**
+   * Sweep the profile along a curve (#78). The profile is put across the path's start: the
+   * sketch origin on the start point, sketch +Z along the path, sketch +Y towards up (or +Y
+   * when the path starts along up), so a path that starts up +Z keeps the profile as drawn.
+   * Each hole is swept too and cut away, so a ring sweeps into a tube.
+   */
+  sweep(s: SketchEntry, path: CurveEntry, o: { orient: "fixed" | "frenet" | "up" | "guide"; up: Vec3; corners: "right" | "round"; guide?: ShapeHandle }): ShapeHandle {
+    this.#needRaw("sweep");
+    const frame = profileFrame(path.start, path.dir, o.up);
+    const options = { orient: o.orient, up: o.up, corners: o.corners, ...(o.guide !== undefined ? { guide: o.guide } : {}) };
+    const along = (wire: ShapeHandle) => this.kernel.sweep(this.kernel.place(wire, frame), path.wire, options);
+    const face = this.face(s);
+    const faces = this.kernel.shapeType(face) === "face" ? [face] : this.kernel.subShapes(face, "face");
+    const solids = faces.map((f) => {
+      const outer = this.raw!.outerWire(f) as ShapeHandle;
+      const holes = this.kernel.subShapes(f, "wire").filter((w) => !this.kernel.isSame(w, outer));
+      const body = along(outer);
+      return holes.length ? this.kernel.cutAll(body, holes.map(along)) : body;
+    });
+    return this.kernel.fuseAll(solids);
   }
 
   // ---- transforms ---------------------------------------------------------------------

@@ -36,7 +36,7 @@ Scripts run in a QuickJS sandbox with no file system, network, timers or Date. M
 
 An overview of every entry in this version. `docs {query: "<name>"}` gives the signature and an example.
 
-Shapes, profiles and operations: `Param.number`, `Param.bool`, `Param.choice`, `Param.string`, `box`, `cylinder`, `sphere`, `torus`, `rect`, `roundedRect`, `circle2d`, `ellipse`, `ngon`, `star`, `slot`, `polygon`, `spline2d`, `path`, `sketch.extrude`, `sketch.revolve`, `sketch.loftTo`, `loft`, `sketch.offset`, `sketch.filletCorners`, `sketch.chamferCorners`, `sketch.transform`, `sketch.boolean`, `sketch.measure`, `add`, `subtract`, `intersect`, `cutPlane`, `translate`, `rotate`, `scale`, `mirror`, `pointAlong`, `moveTo`, `clone`, `fillet`, `chamfer`, `shell`, `edges`, `linearPattern`, `circularPattern`, `mirrorCopy`, `measure`, `color`, `name`, `withReferences`, `attachTo`, `connector`, `withConnectors`, `matchTo`.
+Shapes, profiles and operations: `Param.number`, `Param.bool`, `Param.choice`, `Param.string`, `box`, `cylinder`, `sphere`, `torus`, `rect`, `roundedRect`, `circle2d`, `ellipse`, `ngon`, `star`, `slot`, `polygon`, `spline2d`, `spline3d`, `helix`, `polyline3d`, `sweep`, `path`, `sketch.extrude`, `sketch.revolve`, `sketch.loftTo`, `loft`, `sketch.offset`, `sketch.filletCorners`, `sketch.chamferCorners`, `sketch.transform`, `sketch.boolean`, `sketch.measure`, `add`, `subtract`, `intersect`, `cutPlane`, `translate`, `rotate`, `scale`, `mirror`, `pointAlong`, `moveTo`, `clone`, `fillet`, `chamfer`, `shell`, `edges`, `linearPattern`, `circularPattern`, `mirrorCopy`, `measure`, `color`, `name`, `withReferences`, `attachTo`, `connector`, `withConnectors`, `matchTo`.
 
 Standard parts: `lib.fastener`, `lib.clearanceHole`, `lib.screwCutter`, `lib.heatSetPocket`, `lib.hexNutPocket`, `lib.bolt`, `lib.nut`, `lib.washer`.
 
@@ -282,6 +282,67 @@ Example:
 ```js
 // A pebble-shaped plate through six points, smooth all the way round.
 return spline2d([[0, 0], [30, -6], [55, 4], [50, 22], [25, 28], [4, 18]], { closed: true }).extrude(4);
+```
+
+### spline3d
+
+```js
+spline3d([[x, y, z], ...], { closed, tangents: [[sx, sy, sz], [ex, ey, ez]] })
+```
+
+A 3D curve through the points (a cubic B-spline), for sweep paths and guides. closed: true makes it periodic and smooth all round; tangents fix the directions at the first and last point of an open curve. Curves move with .translate() and .rotate() and measure with .length(). Return the solid you sweep, not the curve.
+
+Example:
+
+```js
+// A bent tube through four points, 8 mm across with a 1 mm wall.
+const bend = spline3d([[0, 0, 0], [40, 0, 10], [80, 20, 10], [100, 40, 0]]);
+return sweep(circle2d(4).subtract(circle2d(3)), bend);
+```
+
+### helix
+
+```js
+helix(radius, pitch, height, { leftHanded })
+```
+
+A helix up +Z from the origin, starting at (radius, 0, 0); pitch is the rise per turn. Right-handed unless leftHanded. A curve for sweep: sweep(circle2d(1), helix(10, 5, 20)) is a coil spring.
+
+Example:
+
+```js
+// A coil spring: 1.5 mm wire on a 10 mm coil radius, 6 turns of 5 mm.
+return sweep(circle2d(0.75), helix(10, 5, 30));
+```
+
+### polyline3d
+
+```js
+polyline3d([[x, y, z], ...])
+```
+
+A 3D path of straight segments through the points, for sweep. Sweep mitres its sharp corners, or rounds them with corners: 'round'.
+
+Example:
+
+```js
+// A frame tube, 20 mm across with a 2 mm wall, with one mitred bend.
+return sweep(circle2d(10).subtract(circle2d(8)), polyline3d([[0, 0, 0], [0, 0, 300], [250, 0, 300]]));
+```
+
+### sweep
+
+```js
+sweep(profile, path, { orient, up, guide, corners })
+```
+
+Sweep a 2D profile along a curve into a solid. The profile is put across the path's start: sketch +Z along the path, sketch +Y towards up (default [0, 0, 1]), so a path that starts up +Z keeps the profile as drawn. Holes in the profile sweep into a tube. orient: 'fixed' (the default, no twist), 'frenet' (follows the bend), 'up' (keeps up as the binormal) or 'guide' (turns towards guide, a curve). corners: 'right' (the default, mitred) or 'round'. A profile that reaches farther than the path's tightest bend radius, or a path that comes back within twice that reach (a coil wire thicker than its pitch), fails with KERNEL_INVALID_RESULT instead of a solid that overlaps itself.
+
+Example:
+
+```js
+// A square bar twisted a quarter turn by a helical guide.
+return sweep(rect(4, 4), polyline3d([[0, 0, 0], [0, 0, 20]]), { orient: "guide", guide: helix(5, 80, 20) });
 ```
 
 ### path
@@ -1122,9 +1183,9 @@ Fix: Use a thinner wall, or shell before adding fillets (keep corner radii large
 
 ### KERNEL_INVALID_RESULT
 
-An operation returned a shape that is not a valid solid, or a shell that is wrong although valid. elements names faulty faces.
+An operation returned a shape that is not a valid solid, or a shell that is wrong although valid, or a sweep would overlap itself. elements names faulty faces.
 
-Fix: Follow the hint. For shell: thinner walls, or shell first and fillet after.
+Fix: Follow the hint. For shell: thinner walls, or shell first and fillet after. For sweep: a smaller profile, a wider bend, or more room between the turns of a helix.
 
 ### KERNEL_NOT_A_SOLID
 

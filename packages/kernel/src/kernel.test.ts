@@ -285,6 +285,89 @@ describe("curves", () => {
     close(k.length(w), k.length(s) + 10, 1e-12);
   });
 
+  test("sweep gives the analytic volume in every orientation: line, Pappus arc, Weyl tube on a helix", () => {
+    const circle = (c: V, n: V, r: number) => k.wire([k.circleEdge(c, n, r)]);
+    const line = k.wire([k.lineEdge([0, 0, 0], [0, 0, 50])]);
+    const arc = k.wire([k.arcEdge([20, 0, 0], [20 * Math.SQRT1_2, 20 * Math.SQRT1_2, 0], [0, 20, 0])]);
+    const h = k.helix({ origin: [0, 0, 0], dir: [0, 0, 1] }, 10, 5, 10);
+    const [he] = k.subShapes(h, "edge");
+    const start = k.curveAt(he!, 0);
+    for (const orient of ["fixed", "frenet", "up"] as const) {
+      const solid = k.sweep(circle([0, 0, 0], [0, 0, 1], 2), line, { orient });
+      assert.equal(k.shapeType(solid), "solid");
+      close(k.volume(solid), Math.PI * 4 * 50, 1e-12, `${orient} along a line`);
+      // Pappus: a disc of radius 2 swept a quarter turn round a circle of radius 20.
+      close(k.volume(k.sweep(circle([20, 0, 0], [0, 1, 0], 2), arc, { orient })), Math.PI * 4 * 10 * Math.PI, 1e-9, `${orient} along an arc`);
+      // A tube whose section stays normal to its centreline holds pi r^2 L (Weyl's tube formula).
+      close(k.volume(k.sweep(circle(start.point, start.tangent, 1), h, { orient })), Math.PI * k.length(h), 1e-6, `${orient} along a helix`);
+    }
+  });
+
+  test("a guide sweep turns the profile with the guide and keeps the exact volume", () => {
+    // A 4 x 4 square twisted a quarter turn over 20 by a helical guide: the area stays 16.
+    const square = k.polygon([[-2, -2, 0], [2, -2, 0], [2, 2, 0], [-2, 2, 0]]);
+    const spine = k.wire([k.lineEdge([0, 0, 0], [0, 0, 20])]);
+    const guide = k.helix({ origin: [0, 0, 0], dir: [0, 0, 1] }, 5, 80, 20);
+    const twisted = k.sweep(square, spine, { orient: "guide", guide });
+    close(k.volume(twisted), 320, 1e-6);
+    const top = k.faces(twisted).find((f) => Math.abs(f.center[2] - 20) < 1e-6 && f.surface === "plane");
+    assert.ok(top, "the end cap is a plane at z = 20");
+    // The cap's corners turned 90 degrees: the corner at (2, 2) is now at (-2, 2).
+    assert.ok(k.distance(k.vertex([-2, 2, 20]), twisted) < 1e-6 && k.distance(k.vertex([2, 2, 20]), twisted) < 1e-6);
+  });
+
+  // OCCT #1681: GeomFill_GuideTrihedronAC has a wrong second derivative in OCCT 8.0.1, and
+  // occt-wasm uses it for guide sweeps with curvilinearEquivalence. sweep() never takes that
+  // path. This pins the defect on the raw kernel: when an occt-wasm upgrade fixes it, this test
+  // fails, and the curvilinear guide law can then be offered (and this test turned around).
+  test("OCCT #1681 is still present: the curvilinear guide law misses the exact volume", () => {
+    const square = k.polygon([[-2, -2, 0], [2, -2, 0], [2, 2, 0], [-2, 2, 0]]);
+    const spine = k.wire([k.lineEdge([0, 0, 0], [0, 0, 20])]);
+    const guide = k.helix({ origin: [0, 0, 0], dir: [0, 0, 1] }, 5, 80, 20);
+    const raw = k.raw.sweepAdvanced(square, spine, { mode: 3, auxSpine: guide, curvilinearEquivalence: true }) as ShapeHandle;
+    const error = Math.abs(k.volume(raw) - 320) / 320;
+    assert.ok(error > 1e-4, `the curvilinear guide law is now within ${error} of the exact volume: OCCT #1681 looks fixed`);
+  });
+
+  test("sweep turns a sharp corner with a mitre or a round, each with its exact volume", () => {
+    const square = k.polygon([[-2, -2, 0], [2, -2, 0], [2, 2, 0], [-2, 2, 0]]);
+    const ell = k.wire([k.lineEdge([0, 0, 0], [0, 0, 30]), k.lineEdge([0, 0, 30], [40, 0, 30])]);
+    // A mitre adds and removes the same wedge on each side of a symmetric profile: A x L.
+    close(k.volume(k.sweep(square, ell)), 16 * 70, 1e-9, "right corners are the default");
+    // A round corner turns the profile about the corner: the outer 2 x 2 corner of the mitre
+    // becomes a quarter disc of radius 2, through the 4 mm depth.
+    close(k.volume(k.sweep(square, ell, { corners: "round" })), 16 * 70 - 4 * (4 - Math.PI), 1e-9);
+    assert.throws(() => k.sweep(square, ell, { corners: "transformed" as never }), badArgument(/corners must be right or round/));
+  });
+
+  // OCCT's validity check passes a sweep that overlaps itself, and its volume then counts the
+  // overlap twice: a coil whose wire is thicker than its pitch reported pi r^2 L as if the turns
+  // were apart. sweep() measures the profile's reach against the path's bends and returns.
+  test("sweep refuses a profile that would make the solid overlap itself", () => {
+    const helix = k.helix({ origin: [0, 0, 0], dir: [0, 0, 1] }, 10, 5, 20);
+    const [edge] = k.subShapes(helix, "edge");
+    const start = k.curveAt(edge!, 0);
+    const coil = (r: number) => k.sweep(k.wire([k.circleEdge(start.point, start.tangent, r)]), helix);
+    const overlaps = (pattern: RegExp) => (e: unknown) => e instanceof KernelError && e.code === "INVALID_RESULT" && pattern.test(e.message);
+    // Wire 6 mm thick on a 5 mm pitch: the turns overlap. Adjacent turns come closest (4.98 mm)
+    // a little before a full turn, where the coil descends towards the turn below.
+    assert.throws(() => coil(3), overlaps(/comes back within 4\.9\d mm of itself.*reaches 3\.00 mm/));
+    // Wider than the helix's bend radius (10.06 mm): the inside of the tube folds over.
+    assert.throws(() => coil(10.5), overlaps(/bends to a radius of 10\.06 mm.*reaches 10\.5/));
+    // 4.8 mm wire on a 5 mm pitch clears, as it should.
+    close(k.volume(coil(2.4)), Math.PI * 2.4 * 2.4 * k.length(helix), 1e-6);
+  });
+
+  test("sweep refuses what it cannot make, before OCCT does", () => {
+    const circle = k.wire([k.circleEdge([0, 0, 0], [0, 0, 1], 2)]);
+    const line = k.wire([k.lineEdge([0, 0, 0], [0, 0, 50])]);
+    assert.throws(() => k.sweep(circle, line, { orient: "guide" }), badArgument(/needs a guide/));
+    assert.throws(() => k.sweep(circle, line, { orient: "sideways" as never }), badArgument(/orient must be/));
+    assert.throws(() => k.sweep(circle, line, { orient: "up", up: [0, 0, 0] }), badArgument(/up must not be zero/));
+    assert.throws(() => k.sweep(k.box(1, 1, 1), line), badArgument(/profile.*wire/));
+    assert.throws(() => k.sweep(k.wire([k.lineEdge([0, 0, 0], [5, 0, 0])]), line), (e: unknown) => e instanceof KernelError && e.code === "NOT_A_SOLID" && /closed/.test(e.message));
+  });
+
   test("curveAt refuses a t outside 0 to 1 and a shape that is not an edge", () => {
     const e = k.splineEdge(POINTS);
     assert.throws(() => k.curveAt(e, 1.5), badArgument(/between 0 and 1/));

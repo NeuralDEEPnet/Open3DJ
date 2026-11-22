@@ -55,6 +55,29 @@ function unit(q: Quaternion): Quaternion {
   return [q[0] / n, q[1] / n, q[2] / n, q[3] / n];
 }
 
+/** The rotation that turns +X, +Y and +Z into the orthonormal right-handed axes x, y and z. */
+export function quaternionFromBasis(x: Vec3, y: Vec3, z: Vec3): Quaternion {
+  // The rotation matrix has x, y and z as its columns (Shepperd's method, stable for any angle).
+  const [m00, m10, m20] = x;
+  const [m01, m11, m21] = y;
+  const [m02, m12, m22] = z;
+  const trace = m00 + m11 + m22;
+  if (trace > 0) {
+    const s = Math.sqrt(trace + 1) * 2;
+    return unit([(m21 - m12) / s, (m02 - m20) / s, (m10 - m01) / s, s / 4]);
+  }
+  if (m00 > m11 && m00 > m22) {
+    const s = Math.sqrt(1 + m00 - m11 - m22) * 2;
+    return unit([s / 4, (m01 + m10) / s, (m02 + m20) / s, (m21 - m12) / s]);
+  }
+  if (m11 > m22) {
+    const s = Math.sqrt(1 + m11 - m00 - m22) * 2;
+    return unit([(m01 + m10) / s, s / 4, (m12 + m21) / s, (m02 - m20) / s]);
+  }
+  const s = Math.sqrt(1 + m22 - m00 - m11) * 2;
+  return unit([(m02 + m20) / s, (m12 + m21) / s, s / 4, (m10 - m01) / s]);
+}
+
 /** The transform "first t, then translate by d". */
 export function thenTranslate(t: Transform, d: Vec3): Transform {
   return { t: add(t.t, d), q: t.q };
