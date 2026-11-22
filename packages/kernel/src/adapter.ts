@@ -86,6 +86,45 @@ export interface SweepOptions {
   corners?: "right" | "round";
 }
 
+/** When two faces count as meeting (G0), tangent (G1) and curvature-continuous (G2). */
+export interface ContinuityTolerances {
+  /** mm: the largest gap between the faces' surfaces for G0. */
+  gap: number;
+  /** degrees: the largest angle between their normals for G1. */
+  angle: number;
+  /** 1/mm: a curvature jump at or under this is G2 whatever the curvature. */
+  curvature: number;
+  /** A curvature jump at or under this fraction of the larger curvature is G2. */
+  relative: number;
+}
+
+export interface EdgeContinuity {
+  /** 1-based index in subShapes(shape, "edge"): the edge:<index> element address. */
+  edge: number;
+  /** The two faces that meet there, 1-based (face:<index>). */
+  faces: [number, number];
+  /** The largest distance between the two faces' surfaces at the samples, mm. */
+  gap: number;
+  /** The largest angle between their outward normals, degrees. */
+  angle: number;
+  /**
+   * The largest difference between the faces' normal curvatures across the edge, along it and
+   * twisted (1/mm). null where the faces are not tangent, since curvature is not compared there.
+   */
+  curvatureJump: number | null;
+  /** curvatureJump over the larger curvature magnitude at that sample; null with it. */
+  relativeJump: number | null;
+  /** The highest continuity held at every sample: "gap" when even G0 fails. */
+  class: "G2" | "G1" | "G0" | "gap";
+}
+
+export interface ContinuityTable {
+  edges: EdgeContinuity[];
+  /** Sample points per edge, spaced evenly inside it (vertices excluded). */
+  samples: number;
+  tolerances: ContinuityTolerances;
+}
+
 /** A point on a curve and the unit tangent there. */
 export interface CurvePoint {
   point: Vec3;
@@ -291,6 +330,14 @@ export interface KernelAdapter {
   sew(faces: ShapeHandle[], tolerance?: number): ShapeHandle;
   /** Thicken a face or a shell into a solid, along its normal (a negative thickness: against it). Checked. */
   thicken(surface: ShapeHandle, thickness: number): ShapeHandle;
+
+  // ---- surface quality ---------------------------------------------------------------------
+  /**
+   * How smoothly the faces of a shape meet: for every edge shared by two faces, the largest gap,
+   * normal angle and curvature jump at sample points inside the edge, and the class held at
+   * every sample. Curvature is compared only where the faces are tangent (G1).
+   */
+  continuity(shape: ShapeHandle, options?: { samples?: number; tolerances?: Partial<ContinuityTolerances> }): ContinuityTable;
 
   // ---- transforms (return new handles; inputs are unchanged) ----------------------------
   translate(shape: ShapeHandle, offset: Vec3): ShapeHandle;

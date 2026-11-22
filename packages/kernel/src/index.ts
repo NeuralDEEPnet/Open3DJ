@@ -2,7 +2,7 @@
 import type { PackageStatus } from "@open3dj/schemas";
 
 export type {
-  Axis, CurvePoint, EdgeInfo, FaceInfo, KernelAdapter, KernelStats, KernelVersions, Label, MeshData, MultiviewOptions,
+  Axis, ContinuityTable, ContinuityTolerances, CurvePoint, EdgeContinuity, EdgeInfo, FaceInfo, KernelAdapter, KernelStats, KernelVersions, Label, MeshData, MultiviewOptions,
   NurbsCurve, Plane, ShapeCounts, ShapeHandle, ShapeKind, ShapeMeasure, SplineOptions, SubShapeKind, SweepOptions,
   TessellateOptions, ViewName, XcafDocument, XcafLabelInfo, XcafLocation,
 } from "./adapter.ts";

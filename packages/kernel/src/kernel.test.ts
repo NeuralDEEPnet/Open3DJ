@@ -438,6 +438,96 @@ describe("surfaces", () => {
   });
 });
 
+describe("continuity", () => {
+  type V = [number, number, number];
+  const byClass = (t: ReturnType<typeof k.continuity>, c: string) => t.edges.filter((e) => e.class === c);
+  /** A large planar face through a point, for splitting a solid into faces. */
+  const plane = (o: V, n: V) => {
+    const d = 1000;
+    const u: V = Math.abs(n[2]) < 0.9 ? [-n[1], n[0], 0] : [1, 0, 0];
+    const w: V = [n[1] * u[2] - n[2] * u[1], n[2] * u[0] - n[0] * u[2], n[0] * u[1] - n[1] * u[0]];
+    const c = (a: number, b: number): V => [o[0] + a * u[0] + b * w[0], o[1] + a * u[1] + b * w[1], o[2] + a * u[2] + b * w[2]];
+    return k.face(k.polygon([c(-d, -d), c(d, -d), c(d, d), c(-d, d)]));
+  };
+
+  test("a box: twelve G0 edges at 90 degrees, no curvature compared", () => {
+    const t = k.continuity(k.box(10, 20, 30));
+    assert.equal(t.edges.length, 12);
+    for (const e of t.edges) {
+      assert.equal(e.class, "G0");
+      close(e.angle, 90, 1e-9);
+      assert.ok(e.gap < 1e-6, `edge:${e.edge} gap ${e.gap}`);
+      assert.equal(e.curvatureJump, null);
+    }
+    assert.deepEqual(t.tolerances, { gap: 1e-3, angle: 0.1, curvature: 1e-5, relative: 0.01 });
+  });
+
+  test("a filleted edge is G1, not G2: plane to cylinder jumps by 1/r", () => {
+    const box = k.box(10, 10, 10);
+    const edge = k.edges(box).find((e) => e.start[2] === 10 && e.end[2] === 10 && e.start[1] === e.end[1] && e.start[1] === 0)!;
+    const t = k.continuity(k.fillet(box, [k.subShapes(box, "edge")[edge.index - 1]!], 2));
+    const g1 = byClass(t, "G1");
+    assert.equal(g1.length, 2, JSON.stringify(t.edges.map((e) => [e.edge, e.class, e.angle])));
+    for (const e of g1) {
+      assert.ok(e.angle < 1e-6, `fillet edge:${e.edge} angle ${e.angle}`);
+      close(e.curvatureJump!, 0.5, 1e-6);
+      close(e.relativeJump!, 1, 1e-6);
+    }
+    assert.equal(byClass(t, "G2").length, 0, "no false G2");
+  });
+
+  test("a face split in two is G2 across the split: cylinder, sphere and coplanar caps", () => {
+    // Split the shell, not the solid: splitting a solid cuts it into two solids with new faces.
+    const shellOf = (s: ShapeHandle) => k.subShapes(s, "shell")[0]!;
+    const cyl = k.continuity(k.raw.split(shellOf(k.cylinder(5, 10)), [plane([0, 0, 0], [0, 1, 0])]) as ShapeHandle);
+    // The side splits into two half cylinders (2 G2 edges), each cap into two half discs (2 G2 edges).
+    const g2 = byClass(cyl, "G2");
+    assert.equal(g2.length, 4, JSON.stringify(cyl.edges.map((e) => [e.edge, e.class, e.angle, e.curvatureJump])));
+    for (const e of g2) assert.ok(e.angle < 1e-6 && e.curvatureJump! < 1e-6, JSON.stringify(e));
+    const sphere = k.continuity(k.raw.split(shellOf(k.sphere(5)), [plane([0, 0, 0], [0, 0, 1])]) as ShapeHandle);
+    const equator = byClass(sphere, "G2");
+    assert.ok(equator.length >= 1 && sphere.edges.every((e) => e.class === "G2"), JSON.stringify(sphere.edges));
+    for (const e of equator) assert.ok(e.curvatureJump! < 1e-6, JSON.stringify(e));
+  });
+
+  // Regression: on a B-spline face, a step off its natural boundary projects back onto the
+  // boundary and classifies as "on", not "out", so the cross direction was not turned round and
+  // that side read zero curvature: a tube swept from two half circles read G1 (jump 1/r).
+  test("a tube swept from two half circles is G2 where its two side faces meet", () => {
+    const path = k.wire([k.splineEdge([[0, 0, 0], [30, 0, 10], [60, 20, 10]])]);
+    const start = k.curveAt(k.subShapes(path, "edge")[0]!, 0);
+    const z = start.tangent;
+    const x0: V = [-z[1], z[0], 0];
+    const x: V = x0.map((c) => c / Math.hypot(...x0)) as V;
+    const y: V = [z[1] * x[2] - z[2] * x[1], z[2] * x[0] - z[0] * x[2], z[0] * x[1] - z[1] * x[0]];
+    const at = (a: number): V => [0, 1, 2].map((i) => 2 * (Math.cos(a) * x[i]! + Math.sin(a) * y[i]!)) as V;
+    const halves = k.wire([k.arcEdge(at(0), at(Math.PI / 2), at(Math.PI)), k.arcEdge(at(Math.PI), at(1.5 * Math.PI), at(0))]);
+    const t = k.continuity(k.sweep(halves, path));
+    const sides = t.edges.filter((e) => e.angle < 1);
+    assert.equal(sides.length, 2, JSON.stringify(t.edges));
+    for (const e of sides) {
+      assert.equal(e.class, "G2", JSON.stringify(e));
+      assert.ok(e.curvatureJump! < 1e-5, JSON.stringify(e));
+    }
+  });
+
+  test("a stadium slot is G1 where its flat sides meet its round ends; a 1 degree crease is G0", () => {
+    const slot = k.continuity(k.extrude(k.face(k.wire([
+      k.lineEdge([-10, -3, 0], [10, -3, 0]), k.arcEdge([10, -3, 0], [13, 0, 0], [10, 3, 0]),
+      k.lineEdge([10, 3, 0], [-10, 3, 0]), k.arcEdge([-10, 3, 0], [-13, 0, 0], [-10, -3, 0]),
+    ])), [0, 0, 5]));
+    const g1 = byClass(slot, "G1");
+    assert.equal(g1.length, 4);
+    for (const e of g1) close(e.curvatureJump!, 1 / 3, 1e-6);
+    // A plate whose top bends by 1 degree along a line.
+    const a = Math.tan(Math.PI / 180) * 10;
+    const crease = k.continuity(k.extrude(k.face(k.polygon([[0, 0, 0], [20, 0, 0], [20, 0, 2 + a], [10, 0, 2], [0, 0, 2]])), [0, 10, 0]));
+    const bend = crease.edges.filter((e) => Math.abs(e.angle - 1) < 1e-6);
+    assert.equal(bend.length, 1, JSON.stringify(crease.edges.map((e) => [e.edge, e.class, e.angle])));
+    assert.equal(bend[0]!.class, "G0");
+  });
+});
+
 describe("transform math", () => {
   test("quaternion to matrix and point transforms", () => {
     const q = quaternionFromAxisAngle([0, 0, 1], 90);
