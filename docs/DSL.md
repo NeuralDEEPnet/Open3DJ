@@ -36,7 +36,7 @@ Scripts run in a QuickJS sandbox with no file system, network, timers or Date. M
 
 An overview of every entry in this version. `docs {query: "<name>"}` gives the signature and an example.
 
-Shapes, profiles and operations: `Param.number`, `Param.bool`, `Param.choice`, `Param.string`, `box`, `cylinder`, `sphere`, `torus`, `rect`, `roundedRect`, `circle2d`, `ellipse`, `ngon`, `star`, `slot`, `polygon`, `spline2d`, `spline3d`, `helix`, `polyline3d`, `sweep`, `path`, `sketch.extrude`, `sketch.revolve`, `sketch.loftTo`, `loft`, `sketch.offset`, `sketch.filletCorners`, `sketch.chamferCorners`, `sketch.transform`, `sketch.boolean`, `sketch.measure`, `add`, `subtract`, `intersect`, `cutPlane`, `translate`, `rotate`, `scale`, `mirror`, `pointAlong`, `moveTo`, `clone`, `fillet`, `chamfer`, `shell`, `edges`, `linearPattern`, `circularPattern`, `mirrorCopy`, `measure`, `color`, `name`, `withReferences`, `attachTo`, `connector`, `withConnectors`, `matchTo`.
+Shapes, profiles and operations: `Param.number`, `Param.bool`, `Param.choice`, `Param.string`, `box`, `cylinder`, `sphere`, `torus`, `rect`, `roundedRect`, `circle2d`, `ellipse`, `ngon`, `star`, `slot`, `polygon`, `spline2d`, `spline3d`, `helix`, `polyline3d`, `sweep`, `path`, `sketch.extrude`, `sketch.revolve`, `sketch.loftTo`, `loft`, `sketch.place`, `sketch.offset`, `sketch.filletCorners`, `sketch.chamferCorners`, `sketch.transform`, `sketch.boolean`, `sketch.measure`, `add`, `subtract`, `intersect`, `cutPlane`, `translate`, `rotate`, `scale`, `mirror`, `pointAlong`, `moveTo`, `clone`, `fillet`, `chamfer`, `shell`, `edges`, `linearPattern`, `circularPattern`, `mirrorCopy`, `measure`, `color`, `name`, `withReferences`, `attachTo`, `connector`, `withConnectors`, `matchTo`.
 
 Standard parts: `lib.fastener`, `lib.clearanceHole`, `lib.screwCutter`, `lib.heatSetPocket`, `lib.hexNutPocket`, `lib.bolt`, `lib.nut`, `lib.washer`.
 
@@ -405,15 +405,32 @@ return rect(30, 30).loftTo(circle2d(8), 25);
 ### loft
 
 ```js
-loft([profiles], [heights])
+loft([profiles], [heights]) | loft([sections], { ruled, start, end })
 ```
 
-Loft through profiles placed at the given heights.
+Loft through profiles placed at the given heights, or through sections placed in 3D with sketch.place() (or closed 3D curves). ruled: true goes straight between sections; start and end are points the loft begins or ends in, for a nose or a tail. Smooth lofts pass through every section and may bulge a little between them.
 
 Example:
 
 ```js
 return loft([rect(30, 30), circle2d(12), rect(10, 10)], [0, 15, 30]);
+```
+
+### sketch.place
+
+```js
+sketch.place({ origin, normal, up })
+```
+
+Put a profile on a plane in 3D, as a section for loft: sketch +Z along normal (default [0, 0, 1]) and sketch +Y towards up (default [0, 0, 1]; +Y when the normal is along up). On a station plane with normal [1, 0, 0], the sketch's x runs along +Y and its y up +Z. The profile must be one closed outline without holes. Returns a curve.
+
+Example:
+
+```js
+// A nose lofted through station sections along X, ending in a point.
+const tail = circle2d(20).place({ normal: [1, 0, 0] });
+const mid = ellipse(24, 16).place({ origin: [60, 0, 0], normal: [1, 0, 0] });
+return loft([tail, mid], { end: [110, 0, 4] });
 ```
 
 ### sketch.offset

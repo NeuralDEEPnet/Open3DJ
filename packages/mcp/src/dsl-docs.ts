@@ -31,6 +31,10 @@ return box(10, 10, label.length + 2);`,
   roundedRect: "return roundedRect(60, 40, 6).extrude(3);",
   circle2d: "return circle2d(10).extrude(2);",
   ellipse: "return ellipse(12, 6).extrude(3);",
+  "sketch.place": `// A nose lofted through station sections along X, ending in a point.
+const tail = circle2d(20).place({ normal: [1, 0, 0] });
+const mid = ellipse(24, 16).place({ origin: [60, 0, 0], normal: [1, 0, 0] });
+return loft([tail, mid], { end: [110, 0, 4] });`,
   spline3d: `// A bent tube through four points, 8 mm across with a 1 mm wall.
 const bend = spline3d([[0, 0, 0], [40, 0, 10], [80, 20, 10], [100, 40, 0]]);
 return sweep(circle2d(4).subtract(circle2d(3)), bend);`,
