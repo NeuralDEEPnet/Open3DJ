@@ -132,19 +132,21 @@
       "additionalProperties": false
     },
     "continuityRun": {
-      "$comment": "inspect fields=[continuity]: G0 gap, G1 angle and G2 curvature jump for every edge shared by two faces of a part, on the CPU kernel. A comment, not a description, so tools/list stays within its budget.",
+      "$comment": "inspect fields=[continuity]: G0 gap, G1 angle and G2 curvature jump for every edge shared by two faces of a part, and how each curved face bends (principal curvature ranges in 1/mm, positive where it bulges outward), on the CPU kernel. A comment, not a description, so tools/list stays within its budget.",
       "type": "object",
       "properties": {
         "samples": { "type": "integer", "minimum": 1 },
+        "grid": { "type": "integer", "minimum": 1 },
         "tolerances": {
           "type": "object",
           "properties": {
             "gap_mm": { "type": "number", "minimum": 0 },
             "angle_deg": { "type": "number", "minimum": 0 },
             "curvature_per_mm": { "type": "number", "minimum": 0 },
-            "relative": { "type": "number", "minimum": 0 }
+            "relative": { "type": "number", "minimum": 0 },
+            "flat_per_mm": { "type": "number", "exclusiveMinimum": 0 }
           },
-          "required": ["gap_mm", "angle_deg", "curvature_per_mm", "relative"],
+          "required": ["gap_mm", "angle_deg", "curvature_per_mm", "relative", "flat_per_mm"],
           "additionalProperties": false
         },
         "parts": {
@@ -181,15 +183,56 @@
                 "required": ["G2", "G1", "G0", "gap"],
                 "additionalProperties": false
               },
-              "omitted": { "type": "integer", "minimum": 1 }
+              "omitted": { "type": "integer", "minimum": 1 },
+              "faces": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "face": { "type": "string", "pattern": "^face:[1-9][0-9]*$" },
+                    "surface": { "type": "string", "minLength": 1 },
+                    "kind": { "enum": ["convex", "concave", "saddle", "mixed"] },
+                    "min_radius_mm": { "type": "number", "exclusiveMinimum": 0 },
+                    "k_min_per_mm": { "type": "array", "items": { "type": "number" }, "minItems": 2, "maxItems": 2 },
+                    "k_max_per_mm": { "type": "array", "items": { "type": "number" }, "minItems": 2, "maxItems": 2 },
+                    "inflection": { "type": "boolean" },
+                    "samples": { "type": "integer", "minimum": 1 }
+                  },
+                  "required": ["face", "surface", "kind", "min_radius_mm", "k_min_per_mm", "k_max_per_mm", "inflection", "samples"],
+                  "additionalProperties": false
+                }
+              },
+              "face_counts": {
+                "type": "object",
+                "properties": {
+                  "flat": { "type": "integer", "minimum": 0 },
+                  "convex": { "type": "integer", "minimum": 0 },
+                  "concave": { "type": "integer", "minimum": 0 },
+                  "saddle": { "type": "integer", "minimum": 0 },
+                  "mixed": { "type": "integer", "minimum": 0 },
+                  "inflected": { "type": "integer", "minimum": 0 }
+                },
+                "required": ["flat", "convex", "concave", "saddle", "mixed", "inflected"],
+                "additionalProperties": false
+              },
+              "faces_omitted": { "type": "integer", "minimum": 1 },
+              "tightest": {
+                "type": "object",
+                "properties": {
+                  "face": { "type": "string", "pattern": "^face:[1-9][0-9]*$" },
+                  "min_radius_mm": { "type": "number", "exclusiveMinimum": 0 }
+                },
+                "required": ["face", "min_radius_mm"],
+                "additionalProperties": false
+              }
             },
-            "required": ["def", "edges", "counts"],
+            "required": ["def", "edges", "counts", "faces", "face_counts"],
             "additionalProperties": false
           }
         },
         "notes": { "type": "array", "items": { "type": "string" } }
       },
-      "required": ["samples", "tolerances", "parts", "notes"],
+      "required": ["samples", "grid", "tolerances", "parts", "notes"],
       "additionalProperties": false
     },
     "gateRun": {

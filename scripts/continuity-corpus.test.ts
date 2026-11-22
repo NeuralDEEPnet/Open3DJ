@@ -1,6 +1,7 @@
 // The seeded continuity corpus (corpora/continuity/cases.json, #78): every case runs through the
 // real job runner with inspect continuity's job options, and its class counts must match the
-// answers taken from the geometry. An edge in a higher class than expected is a false pass.
+// answers taken from the geometry. An edge in a higher class than expected is a false pass, and so
+// is a curved face read as flat.
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
@@ -11,6 +12,10 @@ interface Case {
   id: string;
   script: string;
   expect: { G2: number; G1: number; G0: number; gap: number };
+  /** Exact counts for the face kinds the geometry fixes; kinds left out are not checked. */
+  faces?: Partial<Record<"flat" | "convex" | "concave" | "saddle" | "mixed" | "inflected", number>>;
+  /** The tightest radius over the part's curved faces, where the geometry makes it exact. */
+  min_radius_mm?: number;
   min_angle_deg?: number;
   why: string;
 }
@@ -18,7 +23,7 @@ interface Case {
 const corpus = JSON.parse(readFileSync(new URL("../corpora/continuity/cases.json", import.meta.url), "utf8")) as { cases: Case[] };
 const ORDER = ["gap", "G0", "G1", "G2"] as const;
 
-test("the seeded continuity corpus reads exactly its geometric answers, with no false pass", async () => {
+test("the seeded continuity corpus reads exactly its geometric answers, edges and faces, with no false pass", async () => {
   const kernel = await initKernel({ sink: () => {} });
   const runner = createJobRunner(kernel);
   const problems: string[] = [];
@@ -43,6 +48,15 @@ test("the seeded continuity corpus reads exactly its geometric answers, with no 
       if (above > expectedAbove) problems.push(`${c.id}: FALSE PASS, ${above} edges at ${ORDER[i]} or better, the geometry allows ${expectedAbove}`);
     }
     if (JSON.stringify(part.counts) !== JSON.stringify(c.expect)) problems.push(`${c.id}: counts ${JSON.stringify(part.counts)}, expected ${JSON.stringify(c.expect)} (${c.why})`);
+    for (const [kind, n] of Object.entries(c.faces ?? {})) {
+      const got = part.face_counts[kind as keyof typeof part.face_counts];
+      // A curved face read as flat hides its curvature from the agent: the face-level false pass.
+      if (got !== n) problems.push(`${c.id}: ${kind === "flat" && got > n ? "FALSE PASS, " : ""}${got} ${kind} faces, expected ${n} (${c.why})`);
+    }
+    if (c.min_radius_mm !== undefined) {
+      const least = part.tightest?.min_radius_mm ?? Infinity;
+      if (Math.abs(least - c.min_radius_mm) > 1e-5 * c.min_radius_mm) problems.push(`${c.id}: the tightest radius is ${least} mm, expected ${c.min_radius_mm}`);
+    }
     if (c.min_angle_deg !== undefined) {
       const least = Math.min(...part.edges.map((e) => e.angle_deg));
       if (Math.abs(least - c.min_angle_deg) > 1e-6) problems.push(`${c.id}: the shallowest crease is ${least} degrees, expected ${c.min_angle_deg}`);

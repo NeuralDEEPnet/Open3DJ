@@ -2,7 +2,7 @@
 
 The cases behind `inspect fields=[continuity]` (#78). Each case in [cases.json](cases.json) is a short DSL script and the class counts its edges must read: how many are G2, G1, G0 or a gap. The answers come from the geometry, not from a run, and `why` says where each comes from. For example, a box meets at 90 degrees, a fillet is tangent to a flat with a curvature step of 1/r, and faces cut from one smooth surface are curvature-continuous across the cut.
 
-`scripts/continuity-corpus.test.ts` runs every case through the real job runner in `npm test`, so `npm run check` fails on any miss. An edge counted in a higher class than the geometry allows is a false pass, reported as such, and it stops the line.
+`scripts/continuity-corpus.test.ts` runs every case through the real job runner in `npm test`, so `npm run check` fails on any miss. An edge counted in a higher class than the geometry allows is a false pass, reported as such, and it stops the line. A case can also give `faces`, exact counts for the face kinds its geometry fixes (`flat`, `convex`, `concave`, `saddle`, `mixed`, and `inflected` for faces whose mean curvature takes both signs), and `min_radius_mm`, the tightest radius where it is exact. A curved face read as flat is a false pass too.
 
 To add a case:
 
