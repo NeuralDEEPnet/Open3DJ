@@ -12,7 +12,7 @@ import { OcctKernel } from "occt-wasm";
 import type { BoundingBox, OcctModuleFactory, Vec3 as OcctVec3, XCAFDocument } from "occt-wasm";
 import type { BBox, Transform, Vec3 } from "@open3dj/schemas";
 import type {
-  Axis, ContinuityTable, ContinuityTolerances, CurvePoint, EdgeContinuity, EdgeInfo, FaceInfo, KernelAdapter, KernelStats, KernelVersions, Label, MeshData, MultiviewOptions,
+  Axis, ContinuityTable, ContinuityTolerances, CurvatureTable, CurvePoint, EdgeContinuity, EdgeInfo, FaceCurvature, FaceInfo, KernelAdapter, KernelStats, KernelVersions, Label, MeshData, MultiviewOptions,
   NurbsCurve, Plane, ShapeCounts, ShapeHandle, ShapeKind, ShapeMeasure, SplineOptions, SubShapeKind, SweepOptions,
   TessellateOptions, XcafDocument, XcafLabelInfo, XcafLocation,
 } from "./adapter.ts";
@@ -121,6 +121,8 @@ const MAX_DEGREE = 25;
 /** occt-wasm's SweepMode and TransitionMode values (Auxiliary is 3). */
 const SWEEP_MODES: Readonly<Record<string, number>> = { fixed: 0, frenet: 1, up: 2, guide: 3 };
 const SWEEP_CORNERS: Readonly<Record<string, number>> = { right: 1, round: 2 };
+/** A name in occt-wasm's CurvatureData, whatever it holds (see #curvatureSlots). */
+type CurvatureSlot = "min" | "max" | "gaussian" | "mean";
 /** Default continuity tolerances: 1 um gap, 0.1 degree, and a curvature jump of 1e-5 /mm or 1%. */
 const CONTINUITY_TOLERANCES: ContinuityTolerances = { gap: 1e-3, angle: 0.1, curvature: 1e-5, relative: 0.01 };
 const normalized = (a: Vec3): Vec3 => {
@@ -697,6 +699,105 @@ class OcctAdapter implements Kernel {
     } finally {
       this.raw.releaseSince(mark);
     }
+  }
+
+  curvature(shape: ShapeHandle, options: { grid?: number; tolerance?: number } = {}): CurvatureTable {
+    const op = "curvature";
+    const grid = options.grid ?? 8;
+    if (!Number.isInteger(grid) || grid < 1 || grid > 64) throw new KernelError("BAD_ARGUMENT", op, `${op}: grid must be a whole number from 1 to 64, got ${grid}`);
+    const tolerance = options.tolerance ?? 1e-5;
+    if (!Number.isFinite(tolerance) || tolerance <= 0) throw new KernelError("BAD_ARGUMENT", op, `${op}: tolerance must be a positive number (1/mm), got ${tolerance}`);
+    const mark = this.raw.checkpoint();
+    try {
+      const slots = this.#curvatureSlots();
+      const faces = (this.raw.getSubShapes(shape, "face") as ShapeHandle[]).map((face, i) => this.#faceCurvature(face, i + 1, grid, tolerance, slots));
+      return { faces, grid, tolerance };
+    } catch (e) {
+      throw toKernelError(op, e);
+    } finally {
+      this.raw.releaseSince(mark);
+    }
+  }
+
+  // occt-wasm 5.8.1 returns surfaceCurvature's four numbers under the wrong names (min holds the
+  // mean, max the Gaussian, gaussian and mean the two principal curvatures), measured against the
+  // surface's own normal (Su x Sv) whichever way the face points. Learn which names hold the
+  // principal curvatures from a torus point whose curvatures are known, so a corrected binding
+  // keeps working, and refuse to guess when no reading fits.
+  #slots: [CurvatureSlot, CurvatureSlot] | undefined;
+  #curvatureSlots(): [CurvatureSlot, CurvatureSlot] {
+    if (this.#slots) return this.#slots;
+    const mark = this.raw.checkpoint();
+    try {
+      const face = (this.raw.getSubShapes(this.torus(20, 5), "face") as ShapeHandle[])[0]!;
+      const b = this.raw.uvBounds(face);
+      const [u, w] = [b.uMin + 0.7 * (b.uMax - b.uMin), b.vMin + 0.8 * (b.vMax - b.vMin)];
+      const p = t3(this.raw.pointOnSurface(face, u, w));
+      const rho = Math.hypot(p[0], p[1]);
+      // Outward: 1/5 around the tube, (rho - 20) / (5 rho) around the axis. Against Su x Sv,
+      // which points outward on a forward face, the principal and mean curvatures change sign.
+      const sigma = this.raw.shapeOrientation(face) === "reversed" ? -1 : 1;
+      const [k1, k2] = [-sigma / 5, (-sigma * (rho - 20)) / (5 * rho)];
+      const want: Record<"k1" | "k2" | "gaussian" | "mean", number> = { k1, k2, gaussian: k1 * k2, mean: (k1 + k2) / 2 };
+      const read = this.raw.surfaceCurvature(face, u, w);
+      const flipped = this.raw.surfaceCurvature(this.raw.reverseShape(face) as ShapeHandle, u, w);
+      const names = ["min", "max", "gaussian", "mean"] as const;
+      const holding = (x: number) => names.filter((n) => Math.abs(read[n] - x) <= 1e-9 && Math.abs(flipped[n] - x) <= 1e-9);
+      const [a, c] = [holding(want.k1), holding(want.k2)];
+      if (a.length !== 1 || c.length !== 1 || holding(want.gaussian).length !== 1 || holding(want.mean).length !== 1) {
+        throw new KernelError("UNKNOWN", "curvature", "curvature: this occt-wasm build's surfaceCurvature does not match a torus's known curvatures, so face curvature is not measured", { hint: "Report the occt-wasm version; the kernel adapter learns the binding's layout from a torus." });
+      }
+      this.#slots = [a[0]!, c[0]!];
+      return this.#slots;
+    } finally {
+      this.raw.releaseSince(mark);
+    }
+  }
+
+  // Principal curvatures at the centres of a grid x grid lattice over the face's parameter box,
+  // where they land inside the face, turned to point outward (positive = convex).
+  #faceCurvature(face: ShapeHandle, index: number, grid: number, tol: number, slots: [CurvatureSlot, CurvatureSlot]): FaceCurvature {
+    const sigma = this.raw.shapeOrientation(face) === "reversed" ? -1 : 1;
+    const b = this.raw.uvBounds(face);
+    const span = (x: [number, number], y: number): [number, number] => [Math.min(x[0], y), Math.max(x[1], y)];
+    let kMin: [number, number] = [Infinity, -Infinity];
+    let kMax = kMin, gaussian = kMin, mean = kMin;
+    let samples = 0, largest = 0, convex = 0, concave = 0, saddle = 0, up = false, down = false;
+    const take = (u: number, w: number) => {
+      const c = this.raw.surfaceCurvature(face, u, w);
+      const [x, y] = [-sigma * c[slots[0]], -sigma * c[slots[1]]];
+      if (!Number.isFinite(x) || !Number.isFinite(y)) return;
+      // + 0 turns -0 into 0.
+      const [lo, hi] = [Math.min(x, y) + 0, Math.max(x, y) + 0];
+      const h = (lo + hi) / 2;
+      samples++;
+      kMin = span(kMin, lo);
+      kMax = span(kMax, hi);
+      gaussian = span(gaussian, lo * hi + 0);
+      mean = span(mean, h);
+      largest = Math.max(largest, -lo, hi);
+      if (hi > tol && lo < -tol) saddle++;
+      else if (hi > tol) convex++;
+      else if (lo < -tol) concave++;
+      if (h > tol) up = true;
+      if (h < -tol) down = true;
+    };
+    for (let i = 0; i < grid; i++) {
+      for (let j = 0; j < grid; j++) {
+        const u = b.uMin + ((i + 0.5) / grid) * (b.uMax - b.uMin);
+        const w = b.vMin + ((j + 0.5) / grid) * (b.vMax - b.vMin);
+        if (this.raw.classifyPointOnFace(face, u, w) === "in") take(u, w);
+      }
+    }
+    // A sliver can miss every lattice point: measure once at the foot of its centre of mass.
+    if (samples === 0) {
+      const { u, v: w } = this.raw.uvFromPoint(face, this.raw.getSurfaceCenterOfMass(face));
+      take(u, w);
+    }
+    if (samples === 0) throw new KernelError("INVALID_RESULT", "curvature", `curvature: no point on face:${index} has a finite curvature`, { elements: [`face:${index}`] });
+    const ways = [convex, concave, saddle].filter((n) => n > 0).length;
+    const kind = ways === 0 ? "flat" : ways > 1 ? "mixed" : convex ? "convex" : concave ? "concave" : "saddle";
+    return { face: index, surface: String(this.raw.surfaceType(face)), samples, kMin, kMax, gaussian, mean, minRadius: largest > tol ? 1 / largest : null, kind, inflection: up && down };
   }
 
   // The surface point nearest p and the outward normal there.

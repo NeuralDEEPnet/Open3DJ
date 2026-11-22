@@ -528,6 +528,123 @@ describe("continuity", () => {
   });
 });
 
+describe("curvature", () => {
+  type V = [number, number, number];
+  type Table = ReturnType<typeof k.curvature>;
+  const near = (actual: number, expected: number, tol: number, msg = "") => assert.ok(Math.abs(actual - expected) <= tol, `${msg} ${actual}, expected ${expected}`);
+  const curved = (t: Table) => t.faces.filter((f) => f.kind !== "flat");
+  const each = (range: [number, number], expected: number, tol: number, msg = "") => range.forEach((x) => near(x, expected, tol, msg));
+  /** A sheet over 100 mm in x and 50 mm in y whose section across x passes through these heights. */
+  const sheet = (zs: number[]) => k.surfaceGrid([0, 50].map((y) => zs.map((z, i): V => [(100 * i) / (zs.length - 1), y, z])));
+
+  test("a ball curves 1/R everywhere; the same sphere cut into a block curves -1/R", () => {
+    const ball = k.curvature(k.sphere(10));
+    assert.equal(ball.faces.length, 1);
+    const f = ball.faces[0]!;
+    assert.deepEqual([f.surface, f.kind, f.inflection, f.samples], ["sphere", "convex", false, 64]);
+    for (const r of [f.kMin, f.kMax, f.mean]) each(r, 0.1, 1e-9, "ball");
+    each(f.gaussian, 0.01, 1e-10, "ball gaussian");
+    near(f.minRadius!, 10, 1e-7);
+    assert.deepEqual([ball.grid, ball.tolerance], [8, 1e-5]);
+    const block = k.curvature(k.cut(k.translate(k.box(40, 40, 40), [-20, -20, -20]), k.sphere(10)));
+    assert.equal(block.faces.length, 7);
+    const [hollow, ...more] = curved(block);
+    assert.equal(more.length, 0);
+    assert.equal(hollow!.kind, "concave");
+    for (const r of [hollow!.kMin, hollow!.kMax, hollow!.mean]) each(r, -0.1, 1e-9, "hollow");
+    near(hollow!.minRadius!, 10, 1e-7);
+    for (const p of block.faces.filter((x) => x !== hollow)) {
+      assert.deepEqual([p.surface, p.kind, p.minRadius, p.kMin, p.kMax], ["plane", "flat", null, [0, 0], [0, 0]]);
+    }
+  });
+
+  test("a cylinder curves 1/r around and 0 along; a hole the other way; a fillet has its radius", () => {
+    const side = curved(k.curvature(k.cylinder(5, 20)));
+    assert.equal(side.length, 1);
+    assert.equal(side[0]!.kind, "convex");
+    each(side[0]!.kMin, 0, 1e-12, "along");
+    each(side[0]!.kMax, 0.2, 1e-9, "around");
+    each(side[0]!.mean, 0.1, 1e-9, "mean");
+    near(side[0]!.minRadius!, 5, 1e-7);
+    const hole = curved(k.curvature(k.cut(k.translate(k.box(40, 40, 10), [-20, -20, 0]), k.cylinder(5, 20))));
+    assert.equal(hole.length, 1);
+    assert.equal(hole[0]!.kind, "concave");
+    each(hole[0]!.kMin, -0.2, 1e-9, "hole around");
+    each(hole[0]!.kMax, 0, 1e-12, "hole along");
+    const box = k.box(10, 10, 10);
+    const edge = k.edges(box).find((e) => e.start[2] === 10 && e.end[2] === 10 && e.start[1] === e.end[1] && e.start[1] === 0)!;
+    const round = curved(k.curvature(k.fillet(box, [k.subShapes(box, "edge")[edge.index - 1]!], 2)));
+    assert.equal(round.length, 1);
+    assert.equal(round[0]!.kind, "convex");
+    near(round[0]!.minRadius!, 2, 1e-7);
+  });
+
+  test("a torus is convex outside and saddle-shaped inside, and never inflects", () => {
+    const [f] = k.curvature(k.torus(20, 5)).faces;
+    assert.deepEqual([f!.kind, f!.inflection], ["mixed", false]);
+    // Around the tube the curvature is 1/5; around the axis it is cos(phi) / (20 + 5 cos(phi)),
+    // and the 8 x 8 grid samples phi at odd multiples of pi / 8.
+    each(f!.kMax, 0.2, 1e-9, "tube");
+    const c = Math.cos(Math.PI / 8);
+    near(f!.kMin[0], -c / (20 - 5 * c), 1e-9, "inner");
+    near(f!.kMin[1], c / (20 + 5 * c), 1e-9, "outer");
+    assert.ok(f!.gaussian[0] < 0 && f!.gaussian[1] > 0, JSON.stringify(f!.gaussian));
+    near(f!.minRadius!, 5, 1e-7);
+  });
+
+  test("sheets: an arch bends one way as its own section does, an S-section inflects, a hyperbolic paraboloid is a saddle", () => {
+    const arched = sheet([0, 20, 0]);
+    const [arc] = k.curvature(arched).faces;
+    assert.ok(arc!.kind === "convex" || arc!.kind === "concave", arc!.kind);
+    assert.equal(arc!.inflection, false);
+    // OCCT's point-grid fit picks its own parameters, so the arch is not exactly a parabola. The
+    // oracle is the arch's own section: its curvature by finite differences of points on the
+    // surface, at the same 8 sample stations. Straight along y, so the other curvature is 0.
+    const face = k.subShapes(arched, "face")[0]!;
+    const at = (w: number): V => { const q = k.raw.pointOnSurface(face, 0.5, w) as unknown as { x: number; y: number; z: number } | V; return Array.isArray(q) ? q : [q.x, q.y, q.z]; };
+    const sectionK = (w: number) => {
+      const d = 1e-4;
+      const [a, p, c] = [at(w - d), at(w), at(w + d)];
+      const d1 = [0, 1, 2].map((i) => (c[i]! - a[i]!) / (2 * d)), d2 = [0, 1, 2].map((i) => (c[i]! - 2 * p[i]! + a[i]!) / (d * d));
+      return Math.hypot(d1[1]! * d2[2]! - d1[2]! * d2[1]!, d1[2]! * d2[0]! - d1[0]! * d2[2]!, d1[0]! * d2[1]! - d1[1]! * d2[0]!) / Math.hypot(...d1) ** 3;
+    };
+    const ks = Array.from({ length: 8 }, (_, j) => sectionK((j + 0.5) / 8));
+    const bent = arc!.kind === "convex" ? arc!.kMax : arc!.kMin.map((x) => -x).reverse();
+    near(bent[0]!, Math.min(...ks), 1e-6 * Math.max(...ks), "gentlest");
+    near(bent[1]!, Math.max(...ks), 1e-6 * Math.max(...ks), "tightest");
+    near(arc!.minRadius!, 1 / Math.max(...ks), 1e-4, "radius");
+    each(arc!.kind === "convex" ? arc!.kMin : arc!.kMax, 0, 1e-12, "along y");
+    const [s] = k.curvature(sheet([0, 10, -10, 0])).faces;
+    assert.deepEqual([s!.kind, s!.inflection], ["mixed", true]);
+    assert.ok(s!.mean[0] < -1e-5 && s!.mean[1] > 1e-5, JSON.stringify(s!.mean));
+    const saddle = k.surfaceGrid([-50, 0, 50].map((x) => [-50, 0, 50].map((y): V => [x, y, (x * y) / 50])));
+    const [h] = k.curvature(saddle).faces;
+    assert.equal(h!.kind, "saddle");
+    assert.ok(h!.gaussian[1] < 0, JSON.stringify(h!.gaussian));
+    // z = xy / 50 has mean curvature of the sign of xy, so it takes both signs.
+    assert.equal(h!.inflection, true);
+  });
+
+  test("curvature refuses a bad grid or tolerance", () => {
+    const ball = k.sphere(1);
+    const bad = (pattern: RegExp) => (e: unknown) => e instanceof KernelError && e.code === "BAD_ARGUMENT" && pattern.test(e.message);
+    assert.throws(() => k.curvature(ball, { grid: 0 }), bad(/grid must be a whole number from 1 to 64/));
+    assert.throws(() => k.curvature(ball, { grid: 2.5 }), bad(/grid/));
+    assert.throws(() => k.curvature(ball, { tolerance: -1 }), bad(/tolerance/));
+  });
+
+  // occt-wasm 5.8.1 returns surfaceCurvature's numbers under the wrong names, against the
+  // surface's own normal. curvature() learns the slots from a torus, so a fixed binding keeps
+  // working; this pin says when the binding changes.
+  test("pin: occt-wasm's surfaceCurvature puts the mean in min and the Gaussian in max", () => {
+    const face = k.subShapes(k.sphere(10), "face")[0]!;
+    const b = k.raw.uvBounds(face);
+    const c = k.raw.surfaceCurvature(face, (b.uMin + b.uMax) / 3, (b.vMin + b.vMax) / 3);
+    near(c.min, -0.1, 1e-9, "min holds the mean");
+    near(c.max, 0.01, 1e-10, "max holds the Gaussian");
+  });
+});
+
 describe("transform math", () => {
   test("quaternion to matrix and point transforms", () => {
     const q = quaternionFromAxisAngle([0, 0, 1], 90);

@@ -125,6 +125,46 @@ export interface ContinuityTable {
   tolerances: ContinuityTolerances;
 }
 
+/**
+ * How one face curves, from its principal curvatures at a grid of sample points inside it.
+ * Curvatures are in 1/mm and positive where the face bulges outward (convex, like a ball seen
+ * from outside), negative where it is hollow.
+ */
+export interface FaceCurvature {
+  /** 1-based index in subShapes(shape, "face"): the face:<index> element address. */
+  face: number;
+  /** The kernel's surface kind: plane, cylinder, cone, sphere, torus, bspline and so on. */
+  surface: string;
+  /** Sample points that landed inside the face. */
+  samples: number;
+  /** The range of the smaller principal curvature over the samples, [lowest, highest]. */
+  kMin: [number, number];
+  /** The range of the larger principal curvature over the samples, [lowest, highest]. */
+  kMax: [number, number];
+  /** The range of the Gaussian curvature (kMin x kMax, 1/mm^2): negative at a saddle. */
+  gaussian: [number, number];
+  /** The range of the mean curvature ((kMin + kMax) / 2). */
+  mean: [number, number];
+  /** The radius of the tightest bend sampled, 1 / the largest |curvature|; null on a flat face. */
+  minRadius: number | null;
+  /**
+   * flat: no sample curves past the tolerance. convex or concave: every curved sample bends
+   * outward, or every one inward. saddle: every curved sample bends both ways at once. mixed:
+   * the face does more than one of these in different places.
+   */
+  kind: "flat" | "convex" | "concave" | "saddle" | "mixed";
+  /** The mean curvature takes both signs past the tolerance: the face inflects, as an S-section does. */
+  inflection: boolean;
+}
+
+export interface CurvatureTable {
+  faces: FaceCurvature[];
+  /** Sample points per face direction: a grid x grid lattice over the face's parameter box. */
+  grid: number;
+  /** 1/mm: a curvature at or under this in size counts as flat. */
+  tolerance: number;
+}
+
 /** A point on a curve and the unit tangent there. */
 export interface CurvePoint {
   point: Vec3;
@@ -338,6 +378,11 @@ export interface KernelAdapter {
    * every sample. Curvature is compared only where the faces are tangent (G1).
    */
   continuity(shape: ShapeHandle, options?: { samples?: number; tolerances?: Partial<ContinuityTolerances> }): ContinuityTable;
+  /**
+   * How every face of a shape curves: principal curvature ranges, the tightest radius, and
+   * whether the face is flat, convex, concave, saddle-shaped or mixed, from a grid of samples.
+   */
+  curvature(shape: ShapeHandle, options?: { grid?: number; tolerance?: number }): CurvatureTable;
 
   // ---- transforms (return new handles; inputs are unchanged) ----------------------------
   translate(shape: ShapeHandle, offset: Vec3): ShapeHandle;
