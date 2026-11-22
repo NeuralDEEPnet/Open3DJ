@@ -212,6 +212,15 @@ test("the viewer shows examples/enclosure: 6 occurrences, a click selects a scre
     // The zebra view (#78) draws every part with the stripe matcap and counts no classes.
     const zebra = await page.evaluate(() => (globalThis as unknown as ViewerWindow).open3dj.tools({ overlay: { kind: "zebra" } }));
     assert.deepEqual(zebra.overlay, {});
+    // The continuity overlay (#78) fetches inspect continuity for the revision, then colours by it
+    // and counts edges by class and faces by kind. The enclosure is boxes and holes: flat faces,
+    // 90 degree corners (G0) and hollow holes.
+    await page.evaluate(() => (globalThis as unknown as ViewerWindow).open3dj.tools({ overlay: { kind: "continuity" } }));
+    await page.waitForFunction(() => "G0" in ((globalThis as unknown as ViewerWindow).open3dj.tools({}).overlay ?? {}), undefined, { timeout: 120_000 });
+    const ct = (await page.evaluate(() => (globalThis as unknown as ViewerWindow).open3dj.tools({}))).overlay!;
+    assert.ok(ct.G0! > 0 && ct.flat! > 0 && ct.concave! > 0, JSON.stringify(ct));
+    assert.match((await page.evaluate(() => (globalThis as unknown as ViewerWindow).document.getElementById("overlay-legend")?.textContent)) ?? "", /Edges, per part definition.*Faces, per part definition.*measured Measured on the CPU kernel/);
+    assert.equal((await page.evaluate(() => (globalThis as unknown as ViewerWindow).document.getElementById("overlay-note")?.hidden)), true, "the mesh preview note is not shown for measured numbers");
     assert.deepEqual(errors, []);
 
     // A click on a section cap selects the part that was cut, not a face hidden behind the cap.

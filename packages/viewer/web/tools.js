@@ -5,7 +5,7 @@
 // reads off the display mesh is labelled "observed"; the analysis overlays are a "preview"
 // (docs/COMPUTE.md: GPU screens, CPU decides).
 import { BufferGeometry, Color, Float32BufferAttribute, Line, LineBasicMaterial, Mesh, MeshBasicMaterial, SphereGeometry, Vector3 } from "three";
-import { LEGENDS, ZEBRA_NOTE } from "./analysis.js";
+import { CONTINUITY_LEGEND, CONTINUITY_NOTE, LEGENDS, ZEBRA_NOTE, continuityCounts, continuityIndex } from "./analysis.js";
 import { elementName } from "./faces.js";
 import { fitPairs, round } from "./fits.js";
 import { applyDirection, applyPoint, facePatch, measureRows } from "./measure.js";
@@ -23,6 +23,8 @@ export class Tools {
     this.explode = 0;
     this.xray = false;
     this.overlay = { kind: null, limitDeg: 45, pull: "+z", minDeg: 1 };
+    /** The continuity overlay's numbers: fetched once per revision from the server (inspect continuity). */
+    this.continuity = { rev: null, state: "idle", data: null, error: null };
     this.measuring = false;
     this.picks = [];
     this.perfOn = new URLSearchParams(location.search).has("perf");
@@ -90,7 +92,7 @@ export class Tools {
       case "measure":
         return this.setMeasuring(!this.measuring);
       case "overlay": {
-        const order = [null, "overhang", "draft", "zebra"];
+        const order = [null, "overhang", "draft", "zebra", "continuity"];
         return this.setOverlay(order[(order.indexOf(this.overlay.kind) + 1) % order.length]);
       }
       case "screenshot":
@@ -204,6 +206,8 @@ export class Tools {
 
   setOverlay(kind) {
     this.overlay.kind = kind;
+    // Choosing continuity again after a failure tries again.
+    if (kind === "continuity" && this.continuity.state === "error") this.continuity = { rev: null, state: "idle", data: null, error: null };
     this.applyOverlay();
   }
 
@@ -212,7 +216,12 @@ export class Tools {
     if (!m) return;
     if (!this.overlay.kind) m.setOverlay(null);
     else if (this.overlay.kind === "zebra") m.setOverlay({ kind: "zebra" });
-    else {
+    else if (this.overlay.kind === "continuity") {
+      // Plain parts until the numbers arrive; then faces by kind and edges by class.
+      const ready = this.loadContinuity();
+      const colors = ready ? this.continuityColors() : null;
+      m.setOverlay(ready ? { kind: "continuity", index: ready.index, counts: ready.counts, colors, version: `${ready.rev}|${Object.values(colors).map((c) => c.getHexString()).join(",")}` } : null);
+    } else {
       const css = getComputedStyle(document.documentElement);
       const colors = {};
       for (const [cls, , token] of LEGENDS[this.overlay.kind]) colors[cls] = new Color(css.getPropertyValue(token).trim() || "#888888");
@@ -223,12 +232,89 @@ export class Tools {
     this.ctx.requestRender();
   }
 
+  /**
+   * The continuity run of the revision on screen, or null while it is measured or after it failed.
+   * It is fetched once per revision; when it arrives the overlay is applied again.
+   */
+  loadContinuity() {
+    const rev = this.ctx.state.rev;
+    if (!rev) return null;
+    if (this.continuity.rev === rev && this.continuity.state !== "idle") return this.continuity.data;
+    this.continuity = { rev, state: "loading", data: null, error: null };
+    fetch(`api/rev/${rev}/continuity.json`, { cache: "no-store" })
+      .then(async (r) => {
+        if (!r.ok) throw new Error(`${r.status} ${(await r.text()).slice(0, 300)}`);
+        return r.json();
+      })
+      .then(
+        (run) => {
+          if (this.continuity.rev === rev) this.continuity = { rev, state: "ready", data: { rev, index: continuityIndex(run), counts: continuityCounts(run) }, error: null };
+        },
+        (e) => {
+          if (this.continuity.rev === rev) this.continuity = { rev, state: "error", data: null, error: String(e?.message ?? e) };
+        },
+      )
+      .finally(() => {
+        if (this.overlay.kind === "continuity" && this.ctx.state.rev === rev) this.applyOverlay();
+      });
+    return null;
+  }
+
+  /** Colours for the continuity overlay from the theme: edge classes, face kinds and "unknown". */
+  continuityColors() {
+    const css = getComputedStyle(document.documentElement);
+    const token = (name) => new Color(css.getPropertyValue(name).trim() || "#888888");
+    const colors = { unknown: token("--ct-unknown") };
+    for (const [cls, , name] of [...CONTINUITY_LEGEND.edges, ...CONTINUITY_LEGEND.faces]) colors[cls] = token(name);
+    return colors;
+  }
+
+  renderContinuityLegend(ul) {
+    const text = (t) => {
+      const li = document.createElement("li");
+      li.className = "text";
+      li.textContent = t;
+      ul.append(li);
+    };
+    const row = (name, label, value) => {
+      const li = document.createElement("li");
+      const sw = document.createElement("span");
+      sw.className = "swatch";
+      sw.style.background = `var(${name})`;
+      const t = document.createElement("span");
+      t.textContent = label;
+      const v = document.createElement("span");
+      v.className = "value";
+      v.textContent = String(value);
+      li.append(sw, t, v);
+      ul.append(li);
+    };
+    const c = this.continuity;
+    if (c.state === "error") return text(`Continuity could not be measured: ${c.error}`);
+    if (!c.data) return text(`Measuring the continuity of ${this.ctx.state.rev ?? "the revision"} on the CPU kernel...`);
+    const { counts } = c.data;
+    text("Edges, per part definition");
+    for (const [cls, label, name] of CONTINUITY_LEGEND.edges) row(name, label, counts.edges[cls]);
+    text("Faces, per part definition");
+    for (const [cls, label, name] of CONTINUITY_LEGEND.faces) row(name, label, counts.faces[cls]);
+    if (counts.unlisted) row("--ct-unknown", "not listed (the list was capped)", counts.unlisted);
+    const note = document.createElement("li");
+    note.className = "text";
+    const tier = document.createElement("span");
+    tier.className = "tier measured";
+    tier.textContent = "measured";
+    note.append(tier, ` ${CONTINUITY_NOTE}`);
+    ul.append(note);
+  }
+
   renderLegend() {
     const ul = $("overlay-legend");
     ul.replaceChildren();
     const kind = this.overlay.kind;
-    $("overlay-note").hidden = !kind;
+    // The preview note (computed on the mesh) is not true of continuity, which is measured.
+    $("overlay-note").hidden = !kind || kind === "continuity";
     if (!kind) return;
+    if (kind === "continuity") return this.renderContinuityLegend(ul);
     if (kind === "zebra") {
       const li = document.createElement("li");
       li.className = "text";

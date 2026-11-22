@@ -25,7 +25,8 @@
 //   the page's own Origin (a missing Origin is refused too), Content-Type application/json, a
 //   capped Content-Length, and a token-bucket rate limit. They can write nothing else.
 // - The routes are a fixed table: the page, the viewer's own assets (@open3dj/viewer), and
-//   JSON, GLB and PNG made by the tool handlers from the project. A request path is never
+//   JSON, GLB and PNG made by the tool handlers from the project (api/model, and per revision
+//   model.glb, drawing.png and continuity.json). A request path is never
 //   joined onto a folder, so it cannot name another file.
 //
 // It watches the script and runs it again on save (debounced), and polls the project head,
@@ -240,6 +241,7 @@ export async function startViewServer(o: ViewServerOptions): Promise<ViewServer>
   const models = new Map<string, Promise<ViewModel>>();
   const glbs = new Map<string, Promise<Uint8Array>>();
   const drawings = new Map<string, Promise<Uint8Array>>();
+  const continuities = new Map<string, Promise<Uint8Array>>();
   let run: RunState = { state: "idle" };
   let announced = safeHead();
   let port = 0;
@@ -324,6 +326,16 @@ export async function startViewServer(o: ViewServerOptions): Promise<ViewServer>
       const png = r.images.find((i) => i.format === "png");
       if (r.output.status !== "ok" || !png) throw new HttpError(500, r.output.error ? `${r.output.error.code}: ${r.output.error.message}` : "the render made no PNG");
       return png.bytes;
+    });
+  }
+
+  // inspect fields=[continuity], as an agent calls it: the numbers the continuity overlay colours by.
+  function continuityFor(rev: string): Promise<Uint8Array> {
+    return remember(continuities, rev, async () => {
+      store.resolve(rev);
+      const out = await o.handlers.inspect({ project: dir, rev, fields: ["continuity"] });
+      if (out.status !== "ok" || !out.continuity) throw new HttpError(500, out.error ? `${out.error.code}: ${out.error.message}` : "the continuity job returned no table");
+      return new TextEncoder().encode(JSON.stringify(out.continuity));
     });
   }
 
@@ -888,11 +900,12 @@ export async function startViewServer(o: ViewServerOptions): Promise<ViewServer>
     }
     if (route === "api/events") return events(req, res);
     if (route === "api/selection") return json(res, req, 200, readSelection(store) ?? { items: [] });
-    const m = /^api\/rev\/([^/]+)\/(model\.glb|drawing\.png)$/.exec(route);
+    const m = /^api\/rev\/([^/]+)\/(model\.glb|drawing\.png|continuity\.json)$/.exec(route);
     if (m) {
       const rev = m[1]!;
       if (!REV.test(rev)) return text(res, req, 404, "no such revision");
       if (m[2] === "model.glb") return send(res, req, 200, "model/gltf-binary", await glbFor(rev));
+      if (m[2] === "continuity.json") return send(res, req, 200, "application/json; charset=utf-8", await continuityFor(rev));
       return send(res, req, 200, "image/png", await drawingFor(rev));
     }
     return text(res, req, 404, "not found");
