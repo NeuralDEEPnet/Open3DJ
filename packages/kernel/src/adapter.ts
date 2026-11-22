@@ -411,6 +411,13 @@ export interface KernelAdapter {
    * Hollow a solid, removing the given faces. Positive thickness keeps the outer skin and
    * puts the wall inside it; negative thickness grows the wall outward (measured).
    */
+  /**
+   * Taper the walls of a solid so it releases from a mould pulled along `pull`: every face that
+   * runs along the pull (its normal across it everywhere) turns by angleDeg about the neutral
+   * plane through `neutral` (default the origin) square to the pull. With a positive angle outer
+   * walls lean in towards the pull and holes open out. Planar, cylindrical and conical walls. Checked.
+   */
+  draft(shape: ShapeHandle, angleDeg: number, options: { pull: Vec3; neutral?: Vec3 }): ShapeHandle;
   shell(solid: ShapeHandle, facesToRemove: ShapeHandle[], thickness: number, tolerance?: number): ShapeHandle;
 
   // ---- topology and queries --------------------------------------------------------------

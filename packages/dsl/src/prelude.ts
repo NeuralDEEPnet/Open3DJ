@@ -97,6 +97,7 @@ class Shape3 {
   // features
   fillet(r, query) { return S(H.fillet(sid(this), r, query || {})); }
   chamfer(d, query) { return S(H.chamfer(sid(this), d, query || {})); }
+  draft(angle, opts) { return S(H.draft(sid(this), angle, opts || {})); }
   shell(t, opts) { return S(H.shell(sid(this), t, opts || {})); }
   edges(query) { return H.edges(sid(this), query || {}); }
   // metadata
@@ -294,6 +295,7 @@ const api = {
   intersection2d: (a, ...rest) => sk(a, "intersection2d() argument").intersect(...rest),
   fillet: (s, r, q) => sh(s, "fillet() shape").fillet(r, q),
   chamfer: (s, d, q) => sh(s, "chamfer() shape").chamfer(d, q),
+  draft: (s, a, o) => sh(s, "draft() shape").draft(a, o),
   translate: (s, x, y, z) => sh(s).translate(x, y, z),
   rotate: (s, axis, deg, pivot) => sh(s).rotate(axis, deg, pivot),
   volume: (s) => sh(s).volume(),

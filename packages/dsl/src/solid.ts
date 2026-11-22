@@ -247,6 +247,11 @@ export class Solids {
     return this.derive(e, this.kernel.chamfer(e.handle, this.edges(e, q, "chamfer"), d));
   }
 
+  /** Taper every wall along the pull by angle degrees about the neutral plane through neutral (kernel draft). */
+  draft(e: SolidEntry, angle: number, pull: Vec3, neutral: Vec3): SolidEntry {
+    return this.derive(e, this.kernel.draft(e.handle, angle, { pull, neutral }));
+  }
+
   /**
    * Hollow the shape with walls of thickness t inside its skin, removing the flat top
    * (openTop, default) and/or bottom faces. With neither open, the inside becomes a closed

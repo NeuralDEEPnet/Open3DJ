@@ -113,6 +113,7 @@ Status: pipeline of record from 28 Oct 2026, paired with [PLAN.md](PLAN.md), [AR
 ### 3.10 DFM and DFA, by process
 
 - **Agent:** runs the gate profile for the target process, fixes defects, uses the `draft` DSL entry on planar, cylindrical and conical faces, sends freeform draft failures back to stage 5, and waives only agent-waivable gates with a reason.
+- **Shipped early (#78):** the `draft` DSL entry: `shape.draft(angle, { pull, neutral })` tapers every wall that runs along the pull about a neutral plane, with exact frustum and cone answers in its tests; a freeform wall is refused with a fix rather than drafted wrongly.
 - **Human approves:** human-only waivers.
 - **Evidence:** each verdict names its profile version, the cited public rule and a confidence label, under "rule check, not simulation".
 - **Compute:** verdicts on the CPU; dense ray casts screened by WGSL kernels in `@open3dj/accel-webgpu` with CPU confirmation inside the guard band. A verdict that rests on GPU-cleared samples is a `preview` until a `record` request (design freeze, export gates, RFQ) recomputes those samples on the CPU ([COMPUTE.md](COMPUTE.md) section 6).

@@ -265,6 +265,15 @@ export function hostFunctions(kernel: KernelAdapter, state: RunState, parts: Hos
     // ---- features -----------------------------------------------------------------------------
     fillet: (id, r, q) => put(solids.fillet(shape(id), pos(r, "fillet radius"), parseEdgeQuery(q))),
     chamfer: (id, d, q) => put(solids.chamfer(shape(id), pos(d, "chamfer size"), parseEdgeQuery(q))),
+    draft: (id, angle, opts) => {
+      const o = obj(opts, "draft options");
+      onlyKeys("draft", o, ["pull", "neutral"], "draft takes { pull, neutral }: the mould's pull direction and a point on the neutral plane.");
+      const a = num(angle, "draft angle");
+      if (a === 0 || Math.abs(a) > 45) throw badArgument(`draft angle must be between -45 and 45 degrees and not 0, got ${a}`, "Moulded walls take 0.5 to 3 degrees; textured walls more.");
+      const pull = o["pull"] === undefined ? ([0, 0, 1] as Vec3) : dir3(o["pull"], "draft pull");
+      const neutral = o["neutral"] === undefined ? ([0, 0, 0] as Vec3) : vec3(o["neutral"], "draft neutral");
+      return put(solids.draft(shape(id), a, pull, neutral));
+    },
     shell: (id, t, opts) => {
       const o = obj(opts, "shell options");
       const thickness = num(t, "shell thickness");

@@ -954,6 +954,57 @@ class OcctAdapter implements Kernel {
       throw new KernelError(e.code, e.op, `${e.message} (the kernel named no edge; elements lists the ${edges.length} edges asked for)`, detail);
     }
   }
+  draft(shape: ShapeHandle, angleDeg: number, options: { pull: Vec3; neutral?: Vec3 }): ShapeHandle {
+    const op = "draft";
+    finite(op, angleDeg);
+    if (angleDeg === 0 || Math.abs(angleDeg) > 45) throw new KernelError("BAD_ARGUMENT", op, `${op}: the angle must be between -45 and 45 degrees and not 0, got ${angleDeg}`);
+    const vec = (what: string, x: Vec3 | undefined) => {
+      if (!Array.isArray(x) || x.length !== 3) throw new KernelError("BAD_ARGUMENT", op, `${op}: the ${what} must be [x, y, z]`);
+      finite(op, ...x);
+    };
+    vec("pull", options.pull);
+    const len = Math.hypot(...options.pull);
+    if (len === 0) throw new KernelError("BAD_ARGUMENT", op, `${op}: the pull must not be the zero vector`);
+    const pull: Vec3 = [options.pull[0] / len, options.pull[1] / len, options.pull[2] / len];
+    const neutral = options.neutral ?? [0, 0, 0];
+    vec("neutral point", neutral);
+    const solid = this.asSolid(shape);
+    // occt-wasm drafts about the XY plane through the origin and only with a pull along Z (any
+    // other pull fails), so move the neutral point to the origin and turn the pull onto +Z, draft
+    // there, then turn and move back. The turn is about pull x Z by the angle between them.
+    const angleToZ = Math.acos(Math.max(-1, Math.min(1, pull[2])));
+    const axisToZ: Vec3 = Math.abs(pull[2]) > 1 - 1e-12 ? [1, 0, 0] : normalized([pull[1], -pull[0], 0]);
+    const there = (h: ShapeHandle) => this.raw.rotate(this.raw.translate(h, -neutral[0], -neutral[1], -neutral[2]) as ShapeHandle, { point: v([0, 0, 0]), direction: v(axisToZ) }, angleToZ) as ShapeHandle;
+    const back = (h: ShapeHandle) => this.raw.translate(this.raw.rotate(h, { point: v([0, 0, 0]), direction: v(axisToZ) }, -angleToZ) as ShapeHandle, neutral[0], neutral[1], neutral[2]) as ShapeHandle;
+    // A wall runs along the pull: its normal is square to it (to +Z, once turned) at points spread over it.
+    const isWall = (f: ShapeHandle): boolean => {
+      const b = this.raw.uvBounds(f);
+      return [[0.3, 0.3], [0.7, 0.6], [0.5, 0.9]].every(([a, c]) => Math.abs(t3(this.raw.surfaceNormal(f, b.uMin + a! * (b.uMax - b.uMin), b.vMin + c! * (b.vMax - b.vMin)))[2]) < 1e-9);
+    };
+    let s = this.#call(op, () => there(solid));
+    const walls = this.#call(op, () => (this.raw.getSubShapes(s, "face") as ShapeHandle[]).filter(isWall).length);
+    if (walls === 0) {
+      throw new KernelError("BAD_ARGUMENT", op, `${op}: no wall runs along the pull [${pull.map((x) => +x.toFixed(6)).join(", ")}], so there is nothing to draft`, { hint: "Draft tapers the walls an extrusion leaves along its direction; pull along that direction." });
+    }
+    return this.#checked(op, () => {
+      // A drafted wall no longer runs along the pull, so each pass finds the next one.
+      for (let i = 0; i < walls; i++) {
+        const wall = (this.raw.getSubShapes(s, "face") as ShapeHandle[]).find(isWall);
+        if (!wall) break;
+        const kind = String(this.raw.surfaceType(wall));
+        try {
+          s = this.raw.draft(s, wall, (angleDeg * Math.PI) / 180, v([0, 0, 1])) as ShapeHandle;
+        } catch (e) {
+          throw new KernelError("CONSTRUCTION_FAILED", op, `${op}: the kernel could not draft ${withArticle(kind)} wall (${toKernelError(op, e).message})`, {
+            hint: "Draft works on planar, cylindrical and conical walls, before fillets that meet them. Build the taper into a freeform wall instead, for example a loft to a smaller top section.",
+            cause: e,
+          });
+        }
+      }
+      return back(s);
+    });
+  }
+
   shell(solid: ShapeHandle, facesToRemove: ShapeHandle[], thickness: number, tolerance = 1e-6): ShapeHandle {
     finite("shell", thickness, tolerance);
     if (thickness === 0) throw new KernelError("BAD_ARGUMENT", "shell", "shell: thickness must not be 0");
