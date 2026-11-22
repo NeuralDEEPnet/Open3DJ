@@ -273,6 +273,25 @@ export interface KernelAdapter {
    */
   sweep(profile: ShapeHandle, path: ShapeHandle, options?: SweepOptions): ShapeHandle;
 
+  // ---- free-form surfaces ------------------------------------------------------------------
+  /**
+   * A B-spline surface through a grid of points, rows[i][j], every row the same length and at
+   * least 2 x 2. It passes through every point; its normal is (along a row) x (down the rows).
+   */
+  surfaceGrid(rows: Vec3[][]): ShapeHandle;
+  /**
+   * A face filling a closed wire: a planar face when the wire is flat, otherwise OCCT's plate
+   * filling, which meets the wire only (G0): no tangency to neighbouring faces.
+   */
+  fill(wire: ShapeHandle): ShapeHandle;
+  /**
+   * Sew faces into one closed solid. Refuses faces that leave open edges (they do not close a
+   * volume), and turns an inside-out result the right way. Checked.
+   */
+  sew(faces: ShapeHandle[], tolerance?: number): ShapeHandle;
+  /** Thicken a face or a shell into a solid, along its normal (a negative thickness: against it). Checked. */
+  thicken(surface: ShapeHandle, thickness: number): ShapeHandle;
+
   // ---- transforms (return new handles; inputs are unchanged) ----------------------------
   translate(shape: ShapeHandle, offset: Vec3): ShapeHandle;
   rotate(shape: ShapeHandle, angleDeg: number, axis?: Axis): ShapeHandle;

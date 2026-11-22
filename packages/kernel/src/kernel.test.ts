@@ -385,6 +385,59 @@ describe("curves", () => {
   });
 });
 
+describe("surfaces", () => {
+  type V = [number, number, number];
+  const badArgument = (pattern: RegExp) => (e: unknown) => e instanceof KernelError && e.code === "BAD_ARGUMENT" && pattern.test(e.message);
+  /** A 3 x 3 grid over 100 x 100 with the centre point at height h. */
+  const raised = (h: number): V[][] => [0, 1, 2].map((i) => [0, 1, 2].map((j): V => [i * 50, j * 50, i === 1 && j === 1 ? h : 0]));
+
+  test("surfaceGrid passes through its points: a raised 3 x 3 grid is the biquadratic graph", () => {
+    const top = k.surfaceGrid(raised(20));
+    assert.equal(k.shapeType(top), "face");
+    assert.ok(k.distance(k.vertex([50, 50, 20]), top) < 1e-9, "through the raised centre");
+    close(k.area(k.surfaceGrid(raised(0))), 10000, 1e-12);
+    // With 3 points a side the interpolant is z = 20 x 4u(1-u) x 4v(1-v): its volume over the square is 20 x 10000 x 4/9.
+    close(k.volume(k.sew([top, k.surfaceGrid(raised(0))])), 20 * 10000 * (4 / 9), 1e-9);
+  });
+
+  test("sew closes faces into a solid the right way out, and refuses faces that leave a gap", () => {
+    const square = (pts: V[]) => k.fill(k.polygon(pts));
+    const cube = [
+      square([[0, 0, 0], [10, 0, 0], [10, 10, 0], [0, 10, 0]]), square([[0, 0, 10], [10, 0, 10], [10, 10, 10], [0, 10, 10]]),
+      square([[0, 0, 0], [10, 0, 0], [10, 0, 10], [0, 0, 10]]), square([[0, 10, 0], [10, 10, 0], [10, 10, 10], [0, 10, 10]]),
+      square([[0, 0, 0], [0, 10, 0], [0, 10, 10], [0, 0, 10]]), square([[10, 0, 0], [10, 10, 0], [10, 10, 10], [10, 0, 10]]),
+    ];
+    // OCCT made this cube inside out (volume -1000) and called it valid.
+    const solid = k.sew(cube);
+    assert.equal(k.shapeType(solid), "solid");
+    close(k.volume(solid), 1000, 1e-12);
+    // Five faces leave the top open; OCCT made a "solid" of -800 from them.
+    assert.throws(() => k.sew(cube.slice(0, 5)), badArgument(/4 open edges.*do not close a volume/));
+    // A cylinder's side face has a seam edge that it uses twice: that edge is not open.
+    close(k.volume(k.sew(k.subShapes(k.cylinder(5, 10), "face"))), Math.PI * 25 * 10, 1e-9);
+  });
+
+  test("fill spans a closed wire; thicken grows a face along its normal (or against it)", () => {
+    // A flat boundary gets an exact planar face; a saddle gets the plate fill.
+    const disc = k.fill(k.wire([k.circleEdge([0, 0, 0], [0, 0, 1], 10)]));
+    assert.equal(k.faceInfo(disc).surface, "plane");
+    close(k.area(disc), Math.PI * 100, 1e-12);
+    close(k.volume(k.thicken(disc, 3)), Math.PI * 300, 1e-12);
+    const saddle = k.fill(k.polygon([[0, 0, 0], [100, 0, 20], [100, 100, 0], [0, 100, 20]]));
+    assert.equal(k.faceInfo(saddle).surface, "bspline");
+    assert.ok(k.isValid(saddle) && k.area(saddle) > 10000, "the saddle spans more than its flat projection");
+    for (const corner of [[0, 0, 0], [100, 0, 20], [100, 100, 0], [0, 100, 20]] as V[]) assert.ok(k.distance(k.vertex(corner), saddle) < 1e-6, `the fill meets its boundary at ${corner}`);
+    const flat = k.surfaceGrid(raised(0));
+    const up = k.thicken(flat, 2);
+    close(k.volume(up), 20000, 1e-12);
+    assert.ok(Math.abs(k.bbox(up).max[2] - 2) < 1e-6);
+    assert.ok(Math.abs(k.bbox(k.thicken(flat, -2)).min[2] + 2) < 1e-6);
+    assert.throws(() => k.thicken(flat, 0), badArgument(/must not be 0/));
+    assert.throws(() => k.fill(k.wire([k.lineEdge([0, 0, 0], [5, 0, 0])])), badArgument(/not closed/));
+    assert.throws(() => k.surfaceGrid([[[0, 0, 0], [1, 0, 0]], [[0, 1, 0]]]), badArgument(/every row the same length/));
+  });
+});
+
 describe("transform math", () => {
   test("quaternion to matrix and point transforms", () => {
     const q = quaternionFromAxisAngle([0, 0, 1], 90);

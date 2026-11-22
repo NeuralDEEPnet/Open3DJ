@@ -19,21 +19,30 @@ function fail(code, message, hint) {
 }
 const NI = (name) => function () { throw fail("DSL_NOT_IMPLEMENTED", name + " is not implemented in Open3DJ DSL v1 yet", "Build the same shape from the implemented entries, or ask for this entry in an issue."); };
 
-const KIND_NAMES = { shape: "a 3D shape", sketch: "a 2D sketch", curve: "a curve" };
+const KIND_NAMES = { shape: "a 3D shape", sketch: "a 2D sketch", curve: "a curve", surface: "a surface" };
+const KIND_HINTS = {
+  curve: "Make a path with spline3d(), helix() or polyline3d().",
+  surface: "Make one with surface(rows of points) or fill(closed curve).",
+};
+const HAVE_HINTS = {
+  curve: "A curve is a path: sweep a profile along it, sweep(profile, curve).",
+  surface: "Thicken the surface, s.thicken(2), or sew surfaces into a closed solid, sew(a, b, ...).",
+};
 function idOf(x, kind, what) {
   const id = ids.get(x);
   if (id === undefined || (kind && kinds.get(x) !== kind)) {
     const have = kinds.get(x);
     if (kind === "shape" && have === "sketch") throw fail("DSL_BAD_ARGUMENT", (what || "argument") + " must be a 3D shape, got a 2D sketch", "Extrude or revolve the sketch first.");
     if (kind === "sketch" && have === "shape") throw fail("DSL_BAD_ARGUMENT", (what || "argument") + " must be a 2D sketch, got a 3D shape", "Use a 2D profile, such as rect(), circle2d() or polygon().");
-    if (have) throw fail("DSL_BAD_ARGUMENT", (what || "argument") + " must be " + KIND_NAMES[kind] + ", got " + KIND_NAMES[have], kind === "curve" ? "Make a path with spline3d(), helix() or polyline3d()." : have === "curve" ? "A curve is a path: sweep a profile along it, sweep(profile, curve)." : undefined);
-    throw fail("DSL_BAD_ARGUMENT", (what || "argument") + " must be a " + (kind === "sketch" ? "sketch" : kind === "curve" ? "curve" : "shape") + ", got " + (x === null ? "null" : isArray(x) ? "an array" : typeof x));
+    if (have) throw fail("DSL_BAD_ARGUMENT", (what || "argument") + " must be " + KIND_NAMES[kind] + ", got " + KIND_NAMES[have], KIND_HINTS[kind] || HAVE_HINTS[have]);
+    throw fail("DSL_BAD_ARGUMENT", (what || "argument") + " must be a " + (kind === "sketch" ? "sketch" : kind === "curve" || kind === "surface" ? kind : "shape") + ", got " + (x === null ? "null" : isArray(x) ? "an array" : typeof x), KIND_HINTS[kind]);
   }
   return id;
 }
 const sid = (x, what) => idOf(x, "shape", what);
 const kid = (x, what) => idOf(x, "sketch", what);
 const cid = (x, what) => idOf(x, "curve", what);
+const fid = (x, what) => idOf(x, "surface", what);
 
 // Flatten nested arrays, skip null/undefined/false, accept { shape } descriptors.
 function flat(xs) {
@@ -162,6 +171,27 @@ class Curve3 {
 freeze(Curve3);
 freeze(Curve3.prototype);
 const C = (id) => new Curve3(TOKEN, id);
+
+class Surface3 {
+  constructor(token, id) {
+    if (token !== TOKEN) throw new TypeError("surfaces cannot be constructed directly; use surface() or fill()");
+    ids.set(this, id);
+    kinds.set(this, "surface");
+    freeze(this);
+  }
+  translate(x, y, z) { return F(H.srTranslate(fid(this), vec(x, y, z))); }
+  rotate(axis, deg, pivot) {
+    if (typeof axis === "number") { const a = axis; axis = typeof deg === "string" || isArray(deg) ? deg : [0, 0, 1]; deg = a; }
+    return F(H.srRotate(fid(this), axisOf(axis), deg, pivotOf(pivot)));
+  }
+  mirror(normal) { return F(H.srMirror(fid(this), normal === undefined ? [1, 0, 0] : axisOf(normal), [0, 0, 0])); }
+  mirrorThrough(point, normal) { return F(H.srMirror(fid(this), axisOf(normal), point)); }
+  area() { return H.srArea(fid(this)); }
+  thicken(t) { return S(H.thicken(fid(this), t)); }
+}
+freeze(Surface3);
+freeze(Surface3.prototype);
+const F = (id) => new Surface3(TOKEN, id);
 function sweepOpts(o) {
   if (o === undefined || o === null) return null;
   if (typeof o !== "object" || isArray(o)) return o;
@@ -243,6 +273,10 @@ const api = {
   helix: (radius, pitch, height, opts) => C(H.helix(radius, pitch, height, opts === undefined ? null : opts)),
   polyline3d: (points) => C(H.polyline3d(points)),
   sweep: (profile, path, opts) => S(H.sweep(kid(profile, "sweep profile"), cid(path, "sweep path"), sweepOpts(opts))),
+  surface: (rows) => F(H.surface(rows)),
+  fill: (boundary) => F(H.fill(cid(boundary, "fill boundary"))),
+  sew: (...surfaces) => S(H.sew(flat(surfaces).map((s) => fid(s, "sew surface")))),
+  thicken: (s, t) => S(H.thicken(fid(s, "thicken surface"), t)),
   loft: (profiles, second) => {
     const list = flat([profiles]);
     if (isArray(second)) {
@@ -283,6 +317,7 @@ for (const k of Object.keys(api)) defineProperty(g, k, { value: api[k], writable
 // The script's return value as plain data: { parts: [{ id, name, color, key }], extra }.
 function notReturnable(where, x) {
   if (kinds.get(x) === "curve") return fail("DSL_BAD_RETURN", where + " is a curve", "A curve is a path: sweep a profile along it, sweep(profile, curve), and return the solid.");
+  if (kinds.get(x) === "surface") return fail("DSL_BAD_RETURN", where + " is a surface", "Return solids: thicken the surface, s.thicken(2), or sew surfaces into a closed solid, sew(a, b, ...).");
   return fail("DSL_BAD_RETURN", where + " is a 2D sketch", "Return 3D shapes: extrude or revolve sketches first.");
 }
 function part(x, key, where) {

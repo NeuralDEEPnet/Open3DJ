@@ -16,6 +16,7 @@ const ALIASES: Readonly<Record<string, string>> = {
   move: "translate", translateTo: "moveTo", moveBy: "translate", rotateAbout: "rotate",
   revolveAround: "revolve", linearExtrude: "extrude", rotateExtrude: "revolve",
   pipe: "sweep", sweepAlong: "sweep", coil: "helix", spiral: "helix", line3d: "polyline3d", path3d: "polyline3d",
+  patch: "fill", stitch: "sew", knit: "sew", bsplineSurface: "surface", nurbsSurface: "surface",
   hollow: "shell", fillets: "fillet", round: "fillet", bevel: "chamfer", mirrorAcross: "mirror",
   setColor: "color", colour: "color", setName: "name", clone: "clone", copy: "clone",
 };

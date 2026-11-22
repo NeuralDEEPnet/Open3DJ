@@ -36,7 +36,7 @@ Scripts run in a QuickJS sandbox with no file system, network, timers or Date. M
 
 An overview of every entry in this version. `docs {query: "<name>"}` gives the signature and an example.
 
-Shapes, profiles and operations: `Param.number`, `Param.bool`, `Param.choice`, `Param.string`, `box`, `cylinder`, `sphere`, `torus`, `rect`, `roundedRect`, `circle2d`, `ellipse`, `ngon`, `star`, `slot`, `polygon`, `spline2d`, `spline3d`, `helix`, `polyline3d`, `sweep`, `path`, `sketch.extrude`, `sketch.revolve`, `sketch.loftTo`, `loft`, `sketch.place`, `sketch.offset`, `sketch.filletCorners`, `sketch.chamferCorners`, `sketch.transform`, `sketch.boolean`, `sketch.measure`, `add`, `subtract`, `intersect`, `cutPlane`, `translate`, `rotate`, `scale`, `mirror`, `pointAlong`, `moveTo`, `clone`, `fillet`, `chamfer`, `shell`, `edges`, `linearPattern`, `circularPattern`, `mirrorCopy`, `measure`, `color`, `name`, `withReferences`, `attachTo`, `connector`, `withConnectors`, `matchTo`.
+Shapes, profiles and operations: `Param.number`, `Param.bool`, `Param.choice`, `Param.string`, `box`, `cylinder`, `sphere`, `torus`, `rect`, `roundedRect`, `circle2d`, `ellipse`, `ngon`, `star`, `slot`, `polygon`, `spline2d`, `spline3d`, `helix`, `polyline3d`, `sweep`, `surface`, `fill`, `sew`, `thicken`, `path`, `sketch.extrude`, `sketch.revolve`, `sketch.loftTo`, `loft`, `sketch.place`, `sketch.offset`, `sketch.filletCorners`, `sketch.chamferCorners`, `sketch.transform`, `sketch.boolean`, `sketch.measure`, `add`, `subtract`, `intersect`, `cutPlane`, `translate`, `rotate`, `scale`, `mirror`, `pointAlong`, `moveTo`, `clone`, `fillet`, `chamfer`, `shell`, `edges`, `linearPattern`, `circularPattern`, `mirrorCopy`, `measure`, `color`, `name`, `withReferences`, `attachTo`, `connector`, `withConnectors`, `matchTo`.
 
 Standard parts: `lib.fastener`, `lib.clearanceHole`, `lib.screwCutter`, `lib.heatSetPocket`, `lib.hexNutPocket`, `lib.bolt`, `lib.nut`, `lib.washer`.
 
@@ -343,6 +343,69 @@ Example:
 ```js
 // A square bar twisted a quarter turn by a helical guide.
 return sweep(rect(4, 4), polyline3d([[0, 0, 0], [0, 0, 20]]), { orient: "guide", guide: helix(5, 80, 20) });
+```
+
+### surface
+
+```js
+surface([[p00, p01, ...], [p10, p11, ...], ...])
+```
+
+A free-form surface through a grid of [x, y, z] points: rows[i][j], every row the same length, at least 2 x 2. It is a B-spline that passes through every point; its normal is (along a row) x (down the rows). Surfaces move with .translate(), .rotate() and .mirror(normal) and measure with .area(). A surface is not a solid: thicken it, s.thicken(t), or sew surfaces into a closed solid, sew(a, b, ...).
+
+Example:
+
+```js
+// A gently domed 100 x 60 panel, 2 mm thick.
+const dome = surface([0, 1, 2].map((i) => [0, 1, 2].map((j) => [i * 50, j * 30, i === 1 && j === 1 ? 8 : 0])));
+return dome.thicken(2);
+```
+
+### fill
+
+```js
+fill(curve)
+```
+
+A surface inside a closed curve (a placed sketch, a closed spline3d or a closed polyline3d): a flat face when the curve is flat, otherwise a smooth fill that meets the curve only. That fill is G0: it has no tangency to its neighbours (G1 and G2 fills are not available yet).
+
+Example:
+
+```js
+// A disc filled inside a circle, thickened into a 3 mm plate.
+return fill(circle2d(20).place()).thicken(3);
+```
+
+### sew
+
+```js
+sew(a, b, ...)
+```
+
+Sew surfaces that meet edge to edge into one closed solid. Refuses surfaces that leave open edges, saying how many and where, and turns an inside-out result the right way.
+
+Example:
+
+```js
+// A pillow: a domed top sewn to a flat base along their shared edges.
+const grid = (h) => [0, 1, 2].map((i) => [0, 1, 2].map((j) => [i * 40, j * 40, i === 1 && j === 1 ? h : 0]));
+return sew(surface(grid(15)), surface(grid(0)));
+```
+
+### thicken
+
+```js
+thicken(surface, t) / surface.thicken(t)
+```
+
+Thicken a surface into a panel t thick along its normal (a negative t: against it), for body panels and shells.
+
+Example:
+
+```js
+// A 2 mm body panel from a curved surface, grown against its normal (down).
+const panel = surface([[[0, 0, 0], [50, 0, 6], [100, 0, 0]], [[0, 60, 0], [50, 60, 6], [100, 60, 0]]]);
+return thicken(panel, -2);
 ```
 
 ### path
