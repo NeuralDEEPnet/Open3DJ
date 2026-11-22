@@ -13,8 +13,8 @@ import type { BoundingBox, OcctModuleFactory, Vec3 as OcctVec3, XCAFDocument } f
 import type { BBox, Transform, Vec3 } from "@open3dj/schemas";
 import type {
   Axis, CurvePoint, EdgeInfo, FaceInfo, KernelAdapter, KernelStats, KernelVersions, Label, MeshData, MultiviewOptions,
-  NurbsCurve, Plane, ShapeCounts, ShapeHandle, ShapeKind, ShapeMeasure, SplineOptions, SubShapeKind, TessellateOptions,
-  XcafDocument, XcafLabelInfo, XcafLocation,
+  NurbsCurve, Plane, ShapeCounts, ShapeHandle, ShapeKind, ShapeMeasure, SplineOptions, SubShapeKind, SweepOptions,
+  TessellateOptions, XcafDocument, XcafLabelInfo, XcafLocation,
 } from "./adapter.ts";
 import { KernelError, toKernelError } from "./errors.ts";
 import { isUnitQuaternion, matrixFromTransform } from "./transform.ts";
@@ -118,6 +118,19 @@ function finite(op: string, ...xs: number[]): void {
 const MIN_POINT_GAP = 1e-6;
 /** The highest Bezier and B-spline degree OCCT accepts. */
 const MAX_DEGREE = 25;
+/** occt-wasm's SweepMode and TransitionMode values (Auxiliary is 3). */
+const SWEEP_MODES: Readonly<Record<string, number>> = { fixed: 0, frenet: 1, up: 2, guide: 3 };
+const SWEEP_CORNERS: Readonly<Record<string, number>> = { right: 1, round: 2 };
+/** Samples for the sweep overlap check: along the whole path, and per profile edge. */
+const PATH_SAMPLES = 512;
+const PROFILE_SAMPLES = 64;
+
+/** The radius of the circle through three points; Infinity when they lie on a line. */
+function circumradius(a: Vec3, b: Vec3, c: Vec3): number {
+  const ab = gap(a, b), bc = gap(b, c), ca = gap(c, a);
+  const area2 = Math.hypot(...cross([b[0] - a[0], b[1] - a[1], b[2] - a[2]], [c[0] - a[0], c[1] - a[1], c[2] - a[2]]));
+  return area2 < 1e-12 * ab * ca ? Infinity : (ab * bc * ca) / (2 * area2);
+}
 
 const withArticle = (word: string): string => `${/^[aeiou]/.test(word) ? "an" : "a"} ${word}`;
 const gap = (a: Vec3, b: Vec3): number => Math.hypot(a[0] - b[0], a[1] - b[1], a[2] - b[2]);
@@ -415,6 +428,112 @@ class OcctAdapter implements Kernel {
       if (d.rational) curve.weights = [...d.weights];
       return curve;
     });
+  }
+
+  sweep(profile: ShapeHandle, path: ShapeHandle, options: SweepOptions = {}): ShapeHandle {
+    const op = "sweep";
+    const orient = options.orient ?? "fixed";
+    const mode = SWEEP_MODES[orient];
+    if (mode === undefined) throw new KernelError("BAD_ARGUMENT", op, `${op}: orient must be fixed, frenet, up or guide, got ${String(orient)}`);
+    const transitionMode = SWEEP_CORNERS[options.corners ?? "right"];
+    if (transitionMode === undefined) throw new KernelError("BAD_ARGUMENT", op, `${op}: corners must be right or round, got ${String(options.corners)}`);
+    const up = options.up ?? [0, 0, 1];
+    if (orient === "up") direction(op, "up", up);
+    if (orient === "guide" && options.guide === undefined) throw new KernelError("BAD_ARGUMENT", op, `${op}: orient "guide" needs a guide wire`);
+    const section = this.#asWire(op, "the profile", profile);
+    const spine = this.#asWire(op, "the path", path);
+    const guide = orient === "guide" ? this.#asWire(op, "the guide", options.guide!) : undefined;
+    this.#sweepClearance(section, spine);
+    const result = this.#checked(op, () => this.raw.sweepAdvanced(section, spine, {
+      mode,
+      up: v(up),
+      ...(guide !== undefined ? { auxSpine: guide, curvilinearEquivalence: false } : {}),
+      transitionMode,
+    }) as ShapeHandle);
+    if (this.raw.getShapeType(result) !== "solid") {
+      throw new KernelError("NOT_A_SOLID", op, `${op}: the result is a ${this.raw.getShapeType(result)}, not a solid; the profile must be a closed outline`, { hint: "Close the profile, or sweep a face's outline." });
+    }
+    return result;
+  }
+
+  // OCCT's validity check passes a sweep that overlaps itself, and its volume then counts the
+  // overlap twice. A tube is free of overlap when its profile's reach from the path stays under
+  // the path's tightest bend radius, and where the path comes back near itself it keeps more
+  // than twice the reach away. Both are measured on samples, and either failure is refused.
+  #sweepClearance(section: ShapeHandle, spine: ShapeHandle): void {
+    const op = "sweep";
+    const mark = this.raw.checkpoint();
+    try {
+      const runs = this.#pathRuns(spine);
+      const start = runs[0]![0]!;
+      let reach = 0;
+      for (const e of this.raw.getSubShapes(section, "edge") as ShapeHandle[]) {
+        for (let i = 0; i <= PROFILE_SAMPLES; i++) reach = Math.max(reach, gap(this.curveAt(e, i / PROFILE_SAMPLES).point, start));
+      }
+      // Local: the circle through three samples in a row on one edge (a sharp corner between
+      // edges is mitred or rounded, not bent).
+      let bend = { radius: Infinity, at: start };
+      for (const run of runs) {
+        for (let i = 1; i + 1 < run.length; i++) {
+          const radius = circumradius(run[i - 1]!, run[i]!, run[i + 1]!);
+          if (radius < bend.radius) bend = { radius, at: run[i]! };
+        }
+      }
+      const where = (p: Vec3) => `(${p.map((x) => x.toFixed(1)).join(", ")})`;
+      if (reach >= bend.radius) {
+        throw new KernelError("INVALID_RESULT", op, `${op}: the path bends to a radius of ${bend.radius.toFixed(2)} mm at ${where(bend.at)}, but the profile reaches ${reach.toFixed(2)} mm from it: the solid would fold over on itself`);
+      }
+      // Global: samples farther apart along the path than a half turn at the reach must stay
+      // more than twice the reach apart.
+      const points = runs.flatMap((run, r) => (r === 0 ? run : run.slice(1)));
+      const along = [0];
+      for (let i = 1; i < points.length; i++) along.push(along[i - 1]! + gap(points[i - 1]!, points[i]!));
+      const total = along.at(-1)!;
+      const closed = gap(points[0]!, points.at(-1)!) < 1e-6 * Math.max(1, total);
+      let near = { distance: Infinity, at: start };
+      for (let i = 0; i < points.length; i++) {
+        for (let j = i + 1; j < points.length; j++) {
+          const apart = along[j]! - along[i]!;
+          if ((closed ? Math.min(apart, total - apart) : apart) <= Math.PI * reach) continue;
+          const d = gap(points[i]!, points[j]!);
+          if (d < near.distance) near = { distance: d, at: points[i]! };
+        }
+      }
+      if (near.distance <= 2 * reach * (1 + 1e-9)) {
+        throw new KernelError("INVALID_RESULT", op, `${op}: the path comes back within ${near.distance.toFixed(2)} mm of itself near ${where(near.at)}, but the profile reaches ${reach.toFixed(2)} mm on each side: the solid would overlap itself`);
+      }
+    } finally {
+      this.raw.releaseSince(mark);
+    }
+  }
+
+  // Samples along a path wire, one run per edge, each run turned to continue the one before.
+  #pathRuns(spine: ShapeHandle): Vec3[][] {
+    const edges = this.raw.getSubShapes(spine, "edge") as ShapeHandle[];
+    const lengths = edges.map((e) => this.raw.curveLength(e));
+    const total = lengths.reduce((a, b) => a + b, 0);
+    const runs = edges.map((e, k) => {
+      const n = Math.max(16, Math.ceil((PATH_SAMPLES * lengths[k]!) / total));
+      return Array.from({ length: n + 1 }, (_, i) => this.curveAt(e, i / n).point);
+    });
+    for (let k = 0; k < runs.length; k++) {
+      const run = runs[k]!;
+      if (k === 0) {
+        const next = runs[1];
+        if (next && Math.min(gap(run[0]!, next[0]!), gap(run[0]!, next.at(-1)!)) < Math.min(gap(run.at(-1)!, next[0]!), gap(run.at(-1)!, next.at(-1)!))) run.reverse();
+      } else if (gap(run.at(-1)!, runs[k - 1]!.at(-1)!) < gap(run[0]!, runs[k - 1]!.at(-1)!)) {
+        run.reverse();
+      }
+    }
+    return runs;
+  }
+
+  // An edge becomes a one-edge wire; a wire stays; anything else is refused.
+  #asWire(op: string, what: string, shape: ShapeHandle): ShapeHandle {
+    const type = this.#call(op, () => this.raw.getShapeType(shape)) as ShapeKind;
+    if (type === "wire") return shape;
+    if (type === "edge") return this.wire([shape]);
+    throw new KernelError("BAD_ARGUMENT", op, `${op}: ${what} must be a wire or an edge, got ${withArticle(type)}`);
   }
 
   // Refuse a shape of the wrong type before the kernel sees it.

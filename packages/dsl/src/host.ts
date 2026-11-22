@@ -2,19 +2,19 @@
 // objects), checks it, runs the kernel through Solids/Sketches/Library, and returns a new id
 // or plain data. Kernel failures leave as errors with code KERNEL_<code>, elements and hint.
 import type { ParamValue, Vec3 } from "@open3dj/schemas";
-import type { KernelAdapter } from "@open3dj/kernel";
+import type { KernelAdapter, ShapeHandle } from "@open3dj/kernel";
 import type { GuestValue, HostFunction } from "@open3dj/sandbox";
 import * as B from "brepjs";
 import { DslError, badArgument, guard } from "./errors.ts";
 import { Library, fastener } from "./lib.ts";
 import type { LibShape } from "./lib.ts";
-import { normalize, parseColor } from "./math.ts";
+import { normalize, parseColor, rotatePoint, sub } from "./math.ts";
 import { matchEdges, parseEdgeQuery } from "./queries.ts";
 import { nameElement } from "./refs.ts";
 import { Sketches, drawPath } from "./sketch.ts";
 import { Solids } from "./solid.ts";
-import { dir3, ids, int, nonNeg, num, obj, optNum, pos, str, vec2, vec3 } from "./state.ts";
-import type { ConnectorFrame, ParamSpec, RunState, SketchEntry, SolidEntry } from "./state.ts";
+import { describe, dir3, ids, int, nonNeg, num, obj, optNum, pos, str, vec2, vec3 } from "./state.ts";
+import type { ConnectorFrame, CurveEntry, ParamSpec, RunState, SketchEntry, SolidEntry } from "./state.ts";
 
 export interface HostParts {
   solids: Solids;
@@ -26,9 +26,15 @@ export function hostFunctions(kernel: KernelAdapter, state: RunState, parts: Hos
   const { solids, sketches, library } = parts;
   const shape = (id: GuestValue | undefined, what?: string) => state.shape(id ?? null, what);
   const sketch = (id: GuestValue | undefined, what?: string) => state.sketch(id ?? null, what);
-  const put = (e: SolidEntry | SketchEntry) => state.add(e);
+  const put = (e: SolidEntry | SketchEntry | CurveEntry) => state.add(e);
   const solidOf = (handle: SolidEntry["handle"], extra: Partial<SolidEntry> = {}) => state.solid(handle, extra);
   const fromLib = (s: LibShape) => solidOf(s.handle, s.connectors ? { connectors: s.connectors } : {});
+  /** A curve entry for a wire, with where its path starts and its direction there. */
+  const curveOf = (wire: ShapeHandle): CurveEntry => {
+    const first = kernel.subShapes(wire, "edge")[0]!;
+    const at = kernel.curveAt(first, 0);
+    return { kind: "curve", wire, start: at.point, dir: at.tangent };
+  };
 
   const fns: Record<string, (...a: GuestValue[]) => GuestValue> = {
     // ---- parameters -------------------------------------------------------------------
@@ -105,6 +111,61 @@ export function hostFunctions(kernel: KernelAdapter, state: RunState, parts: Hos
         }
       }
       return put(sketches.spline(points.map((p, i) => vec2(p, `spline2d point ${i}`)), { closed: !!o["closed"], tangents }));
+    },
+    // ---- 3D curves: paths and guides for sweep (#78) ----------------------------------
+    spline3d: (points, opts) => {
+      if (!Array.isArray(points)) throw badArgument("spline3d needs a list of [x, y, z] points", "Pass the points as [[x, y, z], [x, y, z], ...].");
+      const o = obj(opts, "spline3d options");
+      onlyKeys("spline3d", o, ["closed", "tangents"], "The options are closed (true or false) and tangents ([[x, y, z], [x, y, z]]).");
+      const closed = !!o["closed"];
+      const t = o["tangents"];
+      if (closed && t !== undefined && t !== null) throw badArgument("spline3d tangents need an open curve: a closed curve has no ends", "Remove tangents, or drop closed: true.");
+      const pts = distinctInARow(points.map((p, i) => vec3(p, `spline3d point ${i}`)));
+      if (closed && pts.length > 1 && Math.hypot(...sub(pts[0]!, pts.at(-1)!)) < 1e-6) pts.pop();
+      if (pts.length < (closed ? 3 : 2)) throw badArgument(`spline3d needs at least ${closed ? 3 : 2} distinct points, got ${pts.length}`, "Give more points.");
+      let tangents: { startTangent: Vec3; endTangent: Vec3 } | { periodic: boolean } = { periodic: closed };
+      if (t !== undefined && t !== null) {
+        if (!Array.isArray(t) || t.length !== 2) throw badArgument("spline3d tangents must be [[x, y, z], [x, y, z]]: the directions at the first and the last point");
+        tangents = { startTangent: dir3(t[0], "spline3d start tangent"), endTangent: dir3(t[1], "spline3d end tangent") };
+      }
+      return put(curveOf(kernel.wire([kernel.splineEdge(pts, tangents)])));
+    },
+    helix: (r, p, h, opts) => {
+      const o = obj(opts, "helix options");
+      onlyKeys("helix", o, ["leftHanded"], "The only option is leftHanded (true or false).");
+      const wire = kernel.helix({ origin: [0, 0, 0], dir: [0, 0, 1] }, pos(r, "helix radius"), pos(p, "helix pitch"), pos(h, "helix height"), { leftHanded: !!o["leftHanded"] });
+      return put(curveOf(wire));
+    },
+    polyline3d: (points) => {
+      if (!Array.isArray(points)) throw badArgument("polyline3d needs a list of [x, y, z] points", "Pass the points as [[x, y, z], [x, y, z], ...].");
+      const pts = distinctInARow(points.map((p, i) => vec3(p, `polyline3d point ${i}`)));
+      if (pts.length < 2) throw badArgument(`polyline3d needs at least 2 distinct points, got ${pts.length}`, "Give the corners of the path in order.");
+      return put(curveOf(kernel.wire(pts.slice(1).map((q, i) => kernel.lineEdge(pts[i]!, q)))));
+    },
+    cvTranslate: (id, v) => {
+      const c = state.curve(id);
+      const d = vec3(v, "translation");
+      return put({ kind: "curve", wire: kernel.translate(c.wire, d), start: [c.start[0] + d[0], c.start[1] + d[1], c.start[2] + d[2]], dir: c.dir });
+    },
+    cvRotate: (id, axis, deg, pivot) => {
+      const c = state.curve(id);
+      const [a, angle, at] = [dir3(axis, "rotation axis"), num(deg, "rotation angle"), vec3(pivot ?? [0, 0, 0], "pivot")];
+      return put({ kind: "curve", wire: kernel.rotate(c.wire, angle, { origin: at, dir: a }), start: rotatePoint(c.start, a, angle, at), dir: rotatePoint(c.dir, a, angle) });
+    },
+    cvLength: (id) => kernel.length(state.curve(id).wire),
+    sweep: (profile, path, opts) => {
+      const o = obj(opts, "sweep options");
+      onlyKeys("sweep", o, ["orient", "up", "guide", "corners"], "The options are orient, up, guide and corners.");
+      const hasGuide = o["guide"] !== undefined && o["guide"] !== null;
+      const orient = o["orient"] === undefined || o["orient"] === null ? (hasGuide ? "guide" : "fixed") : o["orient"];
+      if (orient !== "fixed" && orient !== "frenet" && orient !== "up" && orient !== "guide") throw badArgument(`sweep orient must be fixed, frenet, up or guide, got ${describe(orient)}`, "fixed (the default) keeps the profile from twisting; frenet follows the path's bend; up keeps a direction up; guide turns towards a guide curve.");
+      if (orient === "guide" && !hasGuide) throw badArgument("sweep orient 'guide' needs a guide curve", "For example { orient: 'guide', guide: helix(5, 80, 20) }.");
+      if (orient !== "guide" && hasGuide) throw badArgument(`sweep guide only works with orient 'guide', not '${orient}'`, "Drop orient, or set it to 'guide'.");
+      const corners = o["corners"] === undefined || o["corners"] === null ? "right" : o["corners"];
+      if (corners !== "right" && corners !== "round") throw badArgument(`sweep corners must be right or round, got ${describe(corners)}`, "right (the default) mitres a sharp corner of the path; round turns the profile about it.");
+      const up = o["up"] === undefined || o["up"] === null ? ([0, 0, 1] as Vec3) : dir3(o["up"], "sweep up");
+      const guide = hasGuide ? state.curve(o["guide"]!, "sweep guide").wire : undefined;
+      return solidOf(sketches.sweep(sketch(profile, "sweep profile"), state.curve(path, "sweep path"), { orient, up, corners, ...(guide !== undefined ? { guide } : {}) }));
     },
     path: (cmds) => {
       if (!Array.isArray(cmds)) throw badArgument("path(): malformed command list");
@@ -263,6 +324,21 @@ export function hostFunctions(kernel: KernelAdapter, state: RunState, parts: Hos
 
   // Every function converts kernel failures; the op name is the DSL entry the user called.
   return Object.fromEntries(Object.entries(fns).map(([name, fn]) => [name, (...args: GuestValue[]) => guard(opName(name), () => fn(...args))]));
+}
+
+/** Refuse an option key the entry does not know, so a typo is never silently ignored. */
+function onlyKeys(entry: string, o: Record<string, GuestValue>, known: string[], hint: string): void {
+  for (const key of Object.keys(o)) if (!known.includes(key)) throw badArgument(`${entry}: unknown option "${key}"`, hint);
+}
+
+/** The points without repeats in a row (closer than 1e-6 mm, where the kernel refuses them). */
+function distinctInARow(points: Vec3[]): Vec3[] {
+  const out: Vec3[] = [];
+  for (const p of points) {
+    const q = out.at(-1);
+    if (!q || Math.hypot(p[0] - q[0], p[1] - q[1], p[2] - q[2]) >= 1e-6) out.push(p);
+  }
+  return out;
 }
 
 function opName(fn: string): string {

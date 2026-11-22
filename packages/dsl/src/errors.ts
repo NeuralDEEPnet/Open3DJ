@@ -30,11 +30,12 @@ const HINTS: Partial<Record<string, string>> = {
   CHAMFER_FAILED: "chamfer failed: try a smaller size, or chamfer fewer edges at once (narrow the edge query).",
   BOOLEAN_FAILED: "the boolean failed: make tools overlap the body clearly and avoid coincident faces (offset by 0.01 mm).",
   NOT_A_SOLID: "this feature needs one solid: union the bodies first, or apply it to each body.",
+  SWEEP_FAILED: "sweep made an invalid solid: the profile is probably wider than the path's tightest bend, or the path crosses itself. Make the profile smaller, or the bend wider.",
 };
 
 /** The error a host function throws for a kernel failure: code KERNEL_<code>. */
 export function fromKernelError(e: KernelError, op?: string): DslError {
-  const hint = e.code === "INVALID_RESULT" && e.op === "shell" ? HINTS["SHELL_FAILED"] : HINTS[e.code] ?? e.hint;
+  const hint = e.code === "INVALID_RESULT" && e.op === "shell" ? HINTS["SHELL_FAILED"] : e.code === "INVALID_RESULT" && e.op === "sweep" ? HINTS["SWEEP_FAILED"] : HINTS[e.code] ?? e.hint;
   return new DslError(`KERNEL_${e.code}`, e.message, hint, { op: op ?? e.op, elements: e.elements });
 }
 

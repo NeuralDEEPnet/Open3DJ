@@ -19,17 +19,21 @@ function fail(code, message, hint) {
 }
 const NI = (name) => function () { throw fail("DSL_NOT_IMPLEMENTED", name + " is not implemented in Open3DJ DSL v1 yet", "Build the same shape from the implemented entries, or ask for this entry in an issue."); };
 
+const KIND_NAMES = { shape: "a 3D shape", sketch: "a 2D sketch", curve: "a curve" };
 function idOf(x, kind, what) {
   const id = ids.get(x);
   if (id === undefined || (kind && kinds.get(x) !== kind)) {
-    if (kind === "shape" && kinds.get(x) === "sketch") throw fail("DSL_BAD_ARGUMENT", (what || "argument") + " must be a 3D shape, got a 2D sketch", "Extrude or revolve the sketch first.");
-    if (kind === "sketch" && kinds.get(x) === "shape") throw fail("DSL_BAD_ARGUMENT", (what || "argument") + " must be a 2D sketch, got a 3D shape");
-    throw fail("DSL_BAD_ARGUMENT", (what || "argument") + " must be a " + (kind === "sketch" ? "sketch" : "shape") + ", got " + (x === null ? "null" : isArray(x) ? "an array" : typeof x));
+    const have = kinds.get(x);
+    if (kind === "shape" && have === "sketch") throw fail("DSL_BAD_ARGUMENT", (what || "argument") + " must be a 3D shape, got a 2D sketch", "Extrude or revolve the sketch first.");
+    if (kind === "sketch" && have === "shape") throw fail("DSL_BAD_ARGUMENT", (what || "argument") + " must be a 2D sketch, got a 3D shape", "Use a 2D profile, such as rect(), circle2d() or polygon().");
+    if (have) throw fail("DSL_BAD_ARGUMENT", (what || "argument") + " must be " + KIND_NAMES[kind] + ", got " + KIND_NAMES[have], kind === "curve" ? "Make a path with spline3d(), helix() or polyline3d()." : have === "curve" ? "A curve is a path: sweep a profile along it, sweep(profile, curve)." : undefined);
+    throw fail("DSL_BAD_ARGUMENT", (what || "argument") + " must be a " + (kind === "sketch" ? "sketch" : kind === "curve" ? "curve" : "shape") + ", got " + (x === null ? "null" : isArray(x) ? "an array" : typeof x));
   }
   return id;
 }
 const sid = (x, what) => idOf(x, "shape", what);
 const kid = (x, what) => idOf(x, "sketch", what);
+const cid = (x, what) => idOf(x, "curve", what);
 
 // Flatten nested arrays, skip null/undefined/false, accept { shape } descriptors.
 function flat(xs) {
@@ -140,6 +144,31 @@ freeze(Sketch2);
 freeze(Sketch2.prototype);
 const K = (id) => new Sketch2(TOKEN, id);
 
+class Curve3 {
+  constructor(token, id) {
+    if (token !== TOKEN) throw new TypeError("curves cannot be constructed directly; use spline3d(), helix() or polyline3d()");
+    ids.set(this, id);
+    kinds.set(this, "curve");
+    freeze(this);
+  }
+  translate(x, y, z) { return C(H.cvTranslate(cid(this), vec(x, y, z))); }
+  rotate(axis, deg, pivot) {
+    if (typeof axis === "number") { const a = axis; axis = typeof deg === "string" || isArray(deg) ? deg : [0, 0, 1]; deg = a; }
+    return C(H.cvRotate(cid(this), axisOf(axis), deg, pivotOf(pivot)));
+  }
+  length() { return H.cvLength(cid(this)); }
+}
+freeze(Curve3);
+freeze(Curve3.prototype);
+const C = (id) => new Curve3(TOKEN, id);
+function sweepOpts(o) {
+  if (o === undefined || o === null) return null;
+  if (typeof o !== "object" || isArray(o)) return o;
+  const out = {};
+  for (const key of Object.keys(o)) out[key] = key === "guide" && o.guide !== undefined && o.guide !== null ? cid(o.guide, "sweep guide") : o[key];
+  return out;
+}
+
 class PathBuilder {
   #cmds = [];
   moveTo(x, y) { this.#cmds.push(["moveTo", x, y]); return this; }
@@ -209,6 +238,10 @@ const api = {
   path: () => new PathBuilder(),
   text2d: NI("text2d"),
   spline2d: (points, opts) => K(H.spline2d(points, opts === undefined ? null : opts)),
+  spline3d: (points, opts) => C(H.spline3d(points, opts === undefined ? null : opts)),
+  helix: (radius, pitch, height, opts) => C(H.helix(radius, pitch, height, opts === undefined ? null : opts)),
+  polyline3d: (points) => C(H.polyline3d(points)),
+  sweep: (profile, path, opts) => S(H.sweep(kid(profile, "sweep profile"), cid(path, "sweep path"), sweepOpts(opts))),
   loft: (profiles, heights) => S(H.loft(flat([profiles]).map((p) => kid(p, "loft profile")), heights)),
   union: union,
   difference: difference,
@@ -239,13 +272,17 @@ const api = {
 for (const k of Object.keys(api)) defineProperty(g, k, { value: api[k], writable: false, enumerable: false, configurable: false });
 
 // The script's return value as plain data: { parts: [{ id, name, color, key }], extra }.
+function notReturnable(where, x) {
+  if (kinds.get(x) === "curve") return fail("DSL_BAD_RETURN", where + " is a curve", "A curve is a path: sweep a profile along it, sweep(profile, curve), and return the solid.");
+  return fail("DSL_BAD_RETURN", where + " is a 2D sketch", "Return 3D shapes: extrude or revolve sketches first.");
+}
 function part(x, key, where) {
   if (ids.has(x)) {
-    if (kinds.get(x) !== "shape") throw fail("DSL_BAD_RETURN", where + " is a 2D sketch", "Return 3D shapes: extrude or revolve sketches first.");
+    if (kinds.get(x) !== "shape") throw notReturnable(where, x);
     return { id: ids.get(x), name: null, color: null, key: key };
   }
   if (x && typeof x === "object" && ids.has(x.shape)) {
-    if (kinds.get(x.shape) !== "shape") throw fail("DSL_BAD_RETURN", where + ".shape is a 2D sketch", "Return 3D shapes: extrude or revolve sketches first.");
+    if (kinds.get(x.shape) !== "shape") throw notReturnable(where + ".shape", x.shape);
     const name = x.name === undefined || x.name === null ? null : String(x.name);
     const color = typeof x.color === "string" || isArray(x.color) ? x.color : null;
     return { id: ids.get(x.shape), name: name, color: color, key: key };

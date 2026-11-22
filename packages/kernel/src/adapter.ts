@@ -65,6 +65,27 @@ export interface NurbsCurve {
   periodic?: boolean;
 }
 
+export interface SweepOptions {
+  /**
+   * How the profile turns along the path. "fixed" (the default): it does not twist (OCCT's
+   * corrected Frenet). "frenet": it follows the path's principal normal. "up": it keeps up as
+   * its binormal. "guide": it turns towards a guide wire, through the plane of the path point
+   * and the guide. The curvilinear guide law is never used: OCCT 8.0.1 gives it wrong volumes
+   * (OCCT #1681).
+   */
+  orient?: "fixed" | "frenet" | "up" | "guide";
+  /** The binormal for orient "up". Default +Z. */
+  up?: Vec3;
+  /** The guide wire or edge for orient "guide". */
+  guide?: ShapeHandle;
+  /**
+   * How the profile turns a sharp corner of the path: "right" (the default, mitred) or "round".
+   * On a smooth path both give the same solid. OCCT's own default, which transforms the profile
+   * round the corner, is not offered: it gives an invalid solid at a sharp corner.
+   */
+  corners?: "right" | "round";
+}
+
 /** A point on a curve and the unit tangent there. */
 export interface CurvePoint {
   point: Vec3;
@@ -243,6 +264,11 @@ export interface KernelAdapter {
   length(shape: ShapeHandle): number;
   /** The B-spline definition of a bspline or bezier edge. */
   nurbs(edge: ShapeHandle): NurbsCurve;
+  /**
+   * Sweep a closed profile wire along a path (an edge or a wire) into a solid. The profile is
+   * swept where it lies, so place it at the path's start, across the path. Checked.
+   */
+  sweep(profile: ShapeHandle, path: ShapeHandle, options?: SweepOptions): ShapeHandle;
 
   // ---- transforms (return new handles; inputs are unchanged) ----------------------------
   translate(shape: ShapeHandle, offset: Vec3): ShapeHandle;

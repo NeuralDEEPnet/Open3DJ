@@ -31,6 +31,15 @@ return box(10, 10, label.length + 2);`,
   roundedRect: "return roundedRect(60, 40, 6).extrude(3);",
   circle2d: "return circle2d(10).extrude(2);",
   ellipse: "return ellipse(12, 6).extrude(3);",
+  spline3d: `// A bent tube through four points, 8 mm across with a 1 mm wall.
+const bend = spline3d([[0, 0, 0], [40, 0, 10], [80, 20, 10], [100, 40, 0]]);
+return sweep(circle2d(4).subtract(circle2d(3)), bend);`,
+  helix: `// A coil spring: 1.5 mm wire on a 10 mm coil radius, 6 turns of 5 mm.
+return sweep(circle2d(0.75), helix(10, 5, 30));`,
+  polyline3d: `// A frame tube, 20 mm across with a 2 mm wall, with one mitred bend.
+return sweep(circle2d(10).subtract(circle2d(8)), polyline3d([[0, 0, 0], [0, 0, 300], [250, 0, 300]]));`,
+  sweep: `// A square bar twisted a quarter turn by a helical guide.
+return sweep(rect(4, 4), polyline3d([[0, 0, 0], [0, 0, 20]]), { orient: "guide", guide: helix(5, 80, 20) });`,
   spline2d: `// A pebble-shaped plate through six points, smooth all the way round.
 return spline2d([[0, 0], [30, -6], [55, 4], [50, 22], [25, 28], [4, 18]], { closed: true }).extrude(4);`,
   ngon: "return ngon(6, 10).extrude(5).subtract(cylinder(7, 3).translate(0, 0, -1)); // a hex nut blank",
@@ -195,7 +204,7 @@ export const PLAYBOOK: readonly PlaybookEntry[] = [
   { code: "KERNEL_FILLET_FAILED", meaning: "OCCT could not round the chosen edges. elements names them (edge:N).", fix: "Use a smaller radius, or fillet fewer edges at once; fillet before boolean cuts that meet the edge." },
   { code: "KERNEL_CHAMFER_FAILED", meaning: "OCCT could not chamfer the chosen edges.", fix: "Use a smaller size or fewer edges." },
   { code: "KERNEL_SHELL_FAILED", meaning: "OCCT could not hollow the solid.", fix: "Use a thinner wall, or shell before adding fillets (keep corner radii larger than the wall)." },
-  { code: "KERNEL_INVALID_RESULT", meaning: "An operation returned a shape that is not a valid solid, or a shell that is wrong although valid. elements names faulty faces.", fix: "Follow the hint. For shell: thinner walls, or shell first and fillet after." },
+  { code: "KERNEL_INVALID_RESULT", meaning: "An operation returned a shape that is not a valid solid, or a shell that is wrong although valid, or a sweep would overlap itself. elements names faulty faces.", fix: "Follow the hint. For shell: thinner walls, or shell first and fillet after. For sweep: a smaller profile, a wider bend, or more room between the turns of a helix." },
   { code: "KERNEL_NOT_A_SOLID", meaning: "A feature needs one solid but got several bodies or a surface.", fix: "Union the bodies first, or apply the feature to each body." },
   { code: "KERNEL_CONSTRUCTION_FAILED", meaning: "A primitive or profile could not be built, for example a zero-size box or a self-crossing polygon.", fix: "Check sizes and point order." },
   { code: "KERNEL_BAD_ARGUMENT", meaning: "The kernel refused an argument, for example a size that is not a finite number.", fix: "Check the numbers passed at the reported line; docs {query: \"<entry>\"} gives the ranges." },
