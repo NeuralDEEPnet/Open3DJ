@@ -5,7 +5,7 @@
 // reads off the display mesh is labelled "observed"; the analysis overlays are a "preview"
 // (docs/COMPUTE.md: GPU screens, CPU decides).
 import { BufferGeometry, Color, Float32BufferAttribute, Line, LineBasicMaterial, Mesh, MeshBasicMaterial, SphereGeometry, Vector3 } from "three";
-import { LEGENDS } from "./analysis.js";
+import { LEGENDS, ZEBRA_NOTE } from "./analysis.js";
 import { elementName } from "./faces.js";
 import { fitPairs, round } from "./fits.js";
 import { applyDirection, applyPoint, facePatch, measureRows } from "./measure.js";
@@ -90,7 +90,7 @@ export class Tools {
       case "measure":
         return this.setMeasuring(!this.measuring);
       case "overlay": {
-        const order = [null, "overhang", "draft"];
+        const order = [null, "overhang", "draft", "zebra"];
         return this.setOverlay(order[(order.indexOf(this.overlay.kind) + 1) % order.length]);
       }
       case "screenshot":
@@ -211,6 +211,7 @@ export class Tools {
     const m = this.model;
     if (!m) return;
     if (!this.overlay.kind) m.setOverlay(null);
+    else if (this.overlay.kind === "zebra") m.setOverlay({ kind: "zebra" });
     else {
       const css = getComputedStyle(document.documentElement);
       const colors = {};
@@ -228,6 +229,13 @@ export class Tools {
     const kind = this.overlay.kind;
     $("overlay-note").hidden = !kind;
     if (!kind) return;
+    if (kind === "zebra") {
+      const li = document.createElement("li");
+      li.className = "text";
+      li.textContent = ZEBRA_NOTE;
+      ul.append(li);
+      return;
+    }
     const stats = this.model?.overlayStats ?? {};
     const total = Object.values(stats).reduce((a, b) => a + b, 0) || 1;
     for (const [cls, label, token] of LEGENDS[kind]) {

@@ -58,6 +58,30 @@ export function draftClass(n, pull, minDeg = 1) {
   return "insufficient";
 }
 
+/**
+ * The zebra view's stripe image, used as a matcap: RGBA bytes of a size x size image whose
+ * colour depends only on x, in `bands` black and white bands. Looked up by the view-space
+ * normal, the stripes stand for parallel light bars reflected in the surface: they break at a
+ * gap or a crease (G0), kink where a tangent edge has a curvature step (G1) and flow on across a
+ * curvature-continuous join (G2). A preview on the display mesh; inspect continuity gives the
+ * numbers of record.
+ */
+export function zebraImage(size = 256, bands = 12) {
+  const data = new Uint8Array(size * size * 4);
+  for (let y = 0; y < size; y++) {
+    for (let x = 0; x < size; x++) {
+      const v = Math.floor(((x + 0.5) / size) * bands) % 2 === 0 ? 20 : 235;
+      const i = (y * size + x) * 4;
+      data[i] = data[i + 1] = data[i + 2] = v;
+      data[i + 3] = 255;
+    }
+  }
+  return data;
+}
+
+/** What the zebra view shows, for its legend. */
+export const ZEBRA_NOTE = "Stripes break at a gap or crease (G0), kink where curvature steps (G1) and flow on across a smooth join (G2). A preview: inspect continuity gives the numbers.";
+
 /** Legend entries per overlay: class, label and CSS colour token. */
 export const LEGENDS = {
   overhang: [

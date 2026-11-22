@@ -12,12 +12,12 @@
 // State changes (selection, hide, isolate, explode, section, agent highlights) only rewrite
 // instance matrices, colours and the merged edge buffer; geometry is never rebuilt.
 import {
-  BackSide, BatchedMesh, Box3, BufferAttribute, BufferGeometry, Color, DoubleSide, Float32BufferAttribute, Group, InstancedMesh,
-  LineBasicMaterial, LineSegments, Matrix4, Mesh, MeshBasicMaterial, MeshStandardMaterial, Plane, Quaternion, SphereGeometry, Vector3,
+  BackSide, BatchedMesh, Box3, BufferAttribute, BufferGeometry, Color, DataTexture, DoubleSide, Float32BufferAttribute, Group, InstancedMesh,
+  LineBasicMaterial, LineSegments, Matrix4, Mesh, MeshBasicMaterial, MeshMatcapMaterial, MeshStandardMaterial, Plane, Quaternion, SphereGeometry, Vector3,
 } from "three";
 import { fitAnchor, fitPairs, markerVisible } from "./fits.js";
 import { edgeSnapPx, faceAddressing, faceEdges, faceOfTriangle, faceRanges } from "./faces.js";
-import { LEGENDS, classifyMesh, explodeOffsets, rotationKey } from "./analysis.js";
+import { LEGENDS, classifyMesh, explodeOffsets, rotationKey, zebraImage } from "./analysis.js";
 
 const HIDDEN = new Matrix4().makeScale(0, 0, 0);
 /** More (definition, colour) groups than this go into one BatchedMesh (when batching is "auto"). */
@@ -60,6 +60,10 @@ export class ModelScene {
     this.capMaterial = new MeshBasicMaterial({ color: new Color().setScalar(0.45), side: BackSide });
     this.edgeMaterial = new LineBasicMaterial({ color: 0xffffff, vertexColors: true });
     this.overlayMaterial = new MeshStandardMaterial({ color: 0xffffff, vertexColors: true, roughness: 0.7, metalness: 0, polygonOffset: true, polygonOffsetFactor: 1, polygonOffsetUnits: 1 });
+    // The zebra view: stripes looked up by the view-space normal (analysis.js zebraImage).
+    const stripes = new DataTexture(zebraImage(), 256, 256);
+    stripes.needsUpdate = true;
+    this.zebraMaterial = new MeshMatcapMaterial({ matcap: stripes, polygonOffset: true, polygonOffsetFactor: 1, polygonOffsetUnits: 1 });
     // Hover: a faint fill and the face outline (outline only while an analysis overlay shows its
     // own colours). Picked: a strong fill in a second tone, outlined in the accent at a heavier
     // weight, so the face stands out from its lightly tinted part.
@@ -107,7 +111,7 @@ export class ModelScene {
   }
 
   clippedMaterials() {
-    return [this.faceMaterial, this.capMaterial, this.edgeMaterial, this.overlayMaterial, this.hoverMaterial, this.pickedMaterial, this.hoverEdgeMaterial, this.outlineMaterial, this.agentMaterial, this.agentThroughMaterial];
+    return [this.faceMaterial, this.capMaterial, this.edgeMaterial, this.overlayMaterial, this.zebraMaterial, this.hoverMaterial, this.pickedMaterial, this.hoverEdgeMaterial, this.outlineMaterial, this.agentMaterial, this.agentThroughMaterial];
   }
 
   elementMesh(material) {
@@ -508,7 +512,7 @@ export class ModelScene {
 
   setXray(on) {
     this.xray = on;
-    for (const m of [this.faceMaterial, this.overlayMaterial]) {
+    for (const m of [this.faceMaterial, this.overlayMaterial, this.zebraMaterial]) {
       m.transparent = on;
       m.opacity = on ? 0.22 : 1;
       m.depthWrite = !on;
@@ -541,6 +545,7 @@ export class ModelScene {
     for (const d of this.drawables) d.mesh.visible = !options;
     this.overlayStats = null;
     if (!options) return;
+    if (options.kind === "zebra") return this.buildZebra();
     const kinds = LEGENDS[options.kind].map((e) => e[0]);
     const totals = kinds.map(() => 0);
     const groups = new Map();
@@ -588,6 +593,25 @@ export class ModelScene {
       this.overlay.add(mesh);
     }
     this.overlayStats = Object.fromEntries(kinds.map((k, i) => [k, totals[i]]));
+  }
+
+  /** The zebra view: every visible part drawn with the stripe matcap, sharing its definition's geometry. */
+  buildZebra() {
+    const groups = new Map();
+    for (const p of this.parts.values()) {
+      if (!p.visible) continue;
+      let list = groups.get(p.geometry);
+      if (!list) groups.set(p.geometry, (list = []));
+      list.push(p);
+    }
+    for (const [geometry, parts] of groups) {
+      const mesh = new InstancedMesh(geometry, this.zebraMaterial, parts.length);
+      parts.forEach((p, i) => mesh.setMatrixAt(i, p.world));
+      mesh.computeBoundingSphere();
+      this.overlay.add(mesh);
+    }
+    // No classes to count: the stripes are read by eye.
+    this.overlayStats = {};
   }
 
   /** Forget the coloured overlay geometries; their own colour buffer is freed, the shared ones stay. */
