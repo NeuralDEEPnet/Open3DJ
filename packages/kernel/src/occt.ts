@@ -554,6 +554,101 @@ class OcctAdapter implements Kernel {
     return runs;
   }
 
+  // ---- free-form surfaces ------------------------------------------------------------------
+  surfaceGrid(rows: Vec3[][]): ShapeHandle {
+    const op = "surfaceGrid";
+    if (!Array.isArray(rows) || rows.length < 2) throw new KernelError("BAD_ARGUMENT", op, `${op}: needs at least 2 rows of points`);
+    const cols = Array.isArray(rows[0]) ? rows[0].length : 0;
+    if (cols < 2 || !rows.every((r) => Array.isArray(r) && r.length === cols)) {
+      throw new KernelError("BAD_ARGUMENT", op, `${op}: needs every row the same length, with at least 2 points`);
+    }
+    rows.forEach((r, i) => r.forEach((p, j) => point(op, p, i * cols + j)));
+    return this.#call(op, () => this.raw.bsplineSurface(rows.flat().map(v), rows.length, cols) as ShapeHandle);
+  }
+  fill(wire: ShapeHandle): ShapeHandle {
+    const op = "fill";
+    const w = this.#asWire(op, "the boundary", wire);
+    if (!this.#isClosedWire(w)) throw new KernelError("BAD_ARGUMENT", op, `${op}: the boundary is not closed`, { hint: "Fill a closed curve, for example spline3d(points, { closed: true })." });
+    // A flat boundary gets an exact planar face; OCCT's plate filling takes about 0.4 s even for a square.
+    if (this.#isPlanarWire(w)) return this.#call(op, () => this.raw.makeFace(w) as ShapeHandle);
+    return this.#call(op, () => this.raw.makeNonPlanarFace(w) as ShapeHandle);
+  }
+
+  // Samples of the wire lie on one plane (Newell's normal), within 1e-7 of the wire's size.
+  #isPlanarWire(wire: ShapeHandle): boolean {
+    const mark = this.raw.checkpoint();
+    try {
+      const pts = (this.raw.getSubShapes(wire, "edge") as ShapeHandle[]).flatMap((e) => Array.from({ length: 16 }, (_, i) => this.curveAt(e, i / 16).point));
+      const n: Vec3 = [0, 0, 0];
+      pts.forEach((p, i) => {
+        const q = pts[(i + 1) % pts.length]!;
+        n[0] += (p[1] - q[1]) * (p[2] + q[2]);
+        n[1] += (p[2] - q[2]) * (p[0] + q[0]);
+        n[2] += (p[0] - q[0]) * (p[1] + q[1]);
+      });
+      const len = Math.hypot(...n);
+      if (len === 0) return false;
+      const c = pts.reduce<Vec3>((a, p) => [a[0] + p[0] / pts.length, a[1] + p[1] / pts.length, a[2] + p[2] / pts.length], [0, 0, 0]);
+      const size = Math.max(...pts.map((p) => gap(p, c)));
+      return pts.every((p) => Math.abs(((p[0] - c[0]) * n[0] + (p[1] - c[1]) * n[1] + (p[2] - c[2]) * n[2]) / len) <= 1e-7 * Math.max(1, size));
+    } finally {
+      this.raw.releaseSince(mark);
+    }
+  }
+  sew(faces: ShapeHandle[], tolerance = 1e-6): ShapeHandle {
+    const op = "sew";
+    if (!Array.isArray(faces) || faces.length === 0) throw new KernelError("BAD_ARGUMENT", op, `${op}: needs at least one face`);
+    positive(op, tolerance);
+    const shell = this.#call(op, () => this.raw.sew(faces, tolerance) as ShapeHandle);
+    const type = this.raw.getShapeType(shell);
+    if (type !== "shell") throw new KernelError("BAD_ARGUMENT", op, `${op}: the faces do not join into one piece (sewing gave ${withArticle(type)})`, { hint: "Make neighbouring faces share their edges exactly." });
+    const open = this.#openEdges(shell);
+    if (open.length) {
+      const at = this.curveAt(open[0]!, 0.5).point.map((x) => x.toFixed(1)).join(", ");
+      throw new KernelError("BAD_ARGUMENT", op, `${op}: the faces leave ${open.length} open edges (one near (${at})), so they do not close a volume`, { hint: "Add the missing faces, or make neighbouring faces meet edge to edge." });
+    }
+    return this.#checked(op, () => {
+      const solid = this.raw.makeSolid(shell) as ShapeHandle;
+      // OCCT can build the solid inside out (negative volume) and still call it valid.
+      return this.raw.getVolume(solid) < 0 ? (this.raw.reverseShape(solid) as ShapeHandle) : solid;
+    });
+  }
+  thicken(surface: ShapeHandle, thickness: number): ShapeHandle {
+    const op = "thicken";
+    finite(op, thickness);
+    if (thickness === 0) throw new KernelError("BAD_ARGUMENT", op, `${op}: the thickness must not be 0`);
+    this.#mustBe(op, surface, "face", "shell");
+    return this.#checked(op, () => this.raw.thicken(surface, thickness, 1e-6) as ShapeHandle);
+  }
+
+  // Edges used by only one face of a shell, other than seams (where a periodic face, such as a
+  // cylinder's side, meets itself: the kernel lists such an edge once for its face).
+  #openEdges(shell: ShapeHandle): ShapeHandle[] {
+    const buckets = new Map<number, Array<{ edge: ShapeHandle; face: ShapeHandle; uses: number }>>();
+    for (const face of this.raw.getSubShapes(shell, "face") as ShapeHandle[]) {
+      for (const edge of this.raw.getSubShapes(face, "edge") as ShapeHandle[]) {
+        const key = this.raw.hashCode(edge, 1 << 30);
+        const list = buckets.get(key) ?? [];
+        const seen = list.find((x) => this.raw.isSame(x.edge, edge));
+        if (seen) seen.uses++;
+        else list.push({ edge, face, uses: 1 });
+        buckets.set(key, list);
+      }
+    }
+    return [...buckets.values()].flat().filter((x) => x.uses < 2 && !this.#isSeam(x.face, x.edge)).map((x) => x.edge);
+  }
+
+  // A seam lies on the face's parameter boundary in a direction where the surface closes on itself.
+  #isSeam(face: ShapeHandle, edge: ShapeHandle): boolean {
+    const mid = this.curveAt(edge, 0.5).point;
+    const { u, v: w } = this.raw.uvFromPoint(face, v(mid));
+    const b = this.raw.uvBounds(face);
+    const eps = 1e-7 * Math.max(1, Math.abs(b.uMax - b.uMin), Math.abs(b.vMax - b.vMin));
+    const at = (s: number, t: number) => t3(this.raw.pointOnSurface(face, s, t));
+    if ((Math.abs(u - b.uMin) < eps || Math.abs(u - b.uMax) < eps) && gap(at(b.uMin, w), at(b.uMax, w)) < 1e-7) return true;
+    return (Math.abs(w - b.vMin) < eps || Math.abs(w - b.vMax) < eps) && gap(at(u, b.vMin), at(u, b.vMax)) < 1e-7;
+  }
+
   // An edge becomes a one-edge wire; a wire stays; anything else is refused.
   #asWire(op: string, what: string, shape: ShapeHandle): ShapeHandle {
     const type = this.#call(op, () => this.raw.getShapeType(shape)) as ShapeKind;

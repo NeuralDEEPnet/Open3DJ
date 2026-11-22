@@ -35,6 +35,17 @@ return box(10, 10, label.length + 2);`,
 const tail = circle2d(20).place({ normal: [1, 0, 0] });
 const mid = ellipse(24, 16).place({ origin: [60, 0, 0], normal: [1, 0, 0] });
 return loft([tail, mid], { end: [110, 0, 4] });`,
+  surface: `// A gently domed 100 x 60 panel, 2 mm thick.
+const dome = surface([0, 1, 2].map((i) => [0, 1, 2].map((j) => [i * 50, j * 30, i === 1 && j === 1 ? 8 : 0])));
+return dome.thicken(2);`,
+  fill: `// A disc filled inside a circle, thickened into a 3 mm plate.
+return fill(circle2d(20).place()).thicken(3);`,
+  sew: `// A pillow: a domed top sewn to a flat base along their shared edges.
+const grid = (h) => [0, 1, 2].map((i) => [0, 1, 2].map((j) => [i * 40, j * 40, i === 1 && j === 1 ? h : 0]));
+return sew(surface(grid(15)), surface(grid(0)));`,
+  thicken: `// A 2 mm body panel from a curved surface, grown against its normal (down).
+const panel = surface([[[0, 0, 0], [50, 0, 6], [100, 0, 0]], [[0, 60, 0], [50, 60, 6], [100, 60, 0]]]);
+return thicken(panel, -2);`,
   spline3d: `// A bent tube through four points, 8 mm across with a 1 mm wall.
 const bend = spline3d([[0, 0, 0], [40, 0, 10], [80, 20, 10], [100, 40, 0]]);
 return sweep(circle2d(4).subtract(circle2d(3)), bend);`,

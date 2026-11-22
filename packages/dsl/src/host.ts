@@ -14,7 +14,7 @@ import { nameElement } from "./refs.ts";
 import { Sketches, drawPath, profileFrame } from "./sketch.ts";
 import { Solids } from "./solid.ts";
 import { describe, dir3, ids, int, nonNeg, num, obj, optNum, pos, str, vec2, vec3 } from "./state.ts";
-import type { ConnectorFrame, CurveEntry, ParamSpec, RunState, SketchEntry, SolidEntry } from "./state.ts";
+import type { ConnectorFrame, CurveEntry, ParamSpec, RunState, SketchEntry, SolidEntry, SurfaceEntry } from "./state.ts";
 
 export interface HostParts {
   solids: Solids;
@@ -26,7 +26,7 @@ export function hostFunctions(kernel: KernelAdapter, state: RunState, parts: Hos
   const { solids, sketches, library } = parts;
   const shape = (id: GuestValue | undefined, what?: string) => state.shape(id ?? null, what);
   const sketch = (id: GuestValue | undefined, what?: string) => state.sketch(id ?? null, what);
-  const put = (e: SolidEntry | SketchEntry | CurveEntry) => state.add(e);
+  const put = (e: SolidEntry | SketchEntry | CurveEntry | SurfaceEntry) => state.add(e);
   const solidOf = (handle: SolidEntry["handle"], extra: Partial<SolidEntry> = {}) => state.solid(handle, extra);
   const fromLib = (s: LibShape) => solidOf(s.handle, s.connectors ? { connectors: s.connectors } : {});
   /** A curve entry for a wire, with where its path starts and its direction there. */
@@ -167,6 +167,29 @@ export function hostFunctions(kernel: KernelAdapter, state: RunState, parts: Hos
       const guide = hasGuide ? state.curve(o["guide"]!, "sweep guide").wire : undefined;
       return solidOf(sketches.sweep(sketch(profile, "sweep profile"), state.curve(path, "sweep path"), { orient, up, corners, ...(guide !== undefined ? { guide } : {}) }));
     },
+    // ---- surfaces (#78) -------------------------------------------------------------------
+    surface: (rows) => {
+      if (!Array.isArray(rows) || rows.length < 2 || !rows.every((r) => Array.isArray(r))) throw badArgument("surface needs rows of [x, y, z] points: [[p, p, ...], [p, p, ...], ...]", "Give at least 2 rows of at least 2 points, every row the same length.");
+      const cols = (rows[0] as GuestValue[]).length;
+      if (cols < 2 || rows.some((r) => (r as GuestValue[]).length !== cols)) throw badArgument("surface needs every row the same length, with at least 2 points", "A grid of points: rows[i][j], for example 3 rows of 3 points.");
+      const grid = rows.map((r, i) => (r as GuestValue[]).map((p, j) => vec3(p, `surface point [${i}][${j}]`)));
+      return put({ kind: "surface", handle: kernel.surfaceGrid(grid) });
+    },
+    fill: (curve) => put({ kind: "surface", handle: kernel.fill(state.curve(curve, "fill boundary").wire) }),
+    sew: (surfaces) => {
+      const faces = ids(surfaces, "sew surfaces").map((s) => state.surface(s, "sew surface").handle);
+      if (faces.length === 0) throw badArgument("sew needs at least one surface", "For example sew(top, bottom).");
+      return solidOf(kernel.sew(faces.flatMap((f) => (kernel.shapeType(f) === "face" ? [f] : kernel.subShapes(f, "face")))));
+    },
+    thicken: (surface, t) => {
+      const thickness = num(t, "thickness");
+      if (thickness === 0) throw badArgument("thicken: the thickness must not be 0", "A positive thickness grows along the surface normal, a negative one against it.");
+      return solidOf(kernel.thicken(state.surface(surface, "thicken surface").handle, thickness));
+    },
+    srTranslate: (id, v) => put({ kind: "surface", handle: kernel.translate(state.surface(id).handle, vec3(v, "translation")) }),
+    srRotate: (id, axis, deg, pivot) => put({ kind: "surface", handle: kernel.rotate(state.surface(id).handle, num(deg, "rotation angle"), { origin: vec3(pivot ?? [0, 0, 0], "pivot"), dir: dir3(axis, "rotation axis") }) }),
+    srMirror: (id, n, at) => put({ kind: "surface", handle: kernel.mirror(state.surface(id).handle, { origin: vec3(at ?? [0, 0, 0], "mirror point"), normal: dir3(n, "mirror normal") }) }),
+    srArea: (id) => kernel.area(state.surface(id).handle),
     path: (cmds) => {
       if (!Array.isArray(cmds)) throw badArgument("path(): malformed command list");
       return put(sketches.drawing(drawPath(cmds)));
