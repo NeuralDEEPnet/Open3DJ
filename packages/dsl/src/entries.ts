@@ -55,6 +55,7 @@ export const DSL_ENTRIES: ReadonlyArray<DslEntry> = Object.freeze([
   E("clone", ".clone() .duplicate()", "A rigid copy; moved clones share one definition in the assembly."),
   E("fillet", "fillet(shape, r, edgeQuery?)", "Round edges; edgeQuery { atZ, atX, atY, parallel, perpendicular, minLength, maxLength }."),
   E("chamfer", "chamfer(shape, size, edgeQuery?)", "Chamfer edges."),
+  E("draft", "shape.draft(angle, { pull = [0, 0, 1], neutral = [0, 0, 0] }) / draft(shape, angle, options)", "Taper every wall that runs along the pull by angle degrees about the neutral plane through neutral, so a moulded part releases: outer walls lean in towards the pull, holes open out. Planar, cylindrical and conical walls; draft before filleting the edges they meet. Open3DJ extension."),
   E("shell", "shape.shell(t, { openTop = true, openBottom = false })", "Hollow with walls inside the skin. When the kernel cannot, a straight extrusion falls back to a profile offset, as long as it was only moved or turned about Z: shell before other rotations."),
   E("edges", "shape.edges(edgeQuery?)", "List the edges a query matches (index, curve, length, start, end). Open3DJ extension."),
   E("linearPattern", "linearPattern(shape, count, dx, dy, dz?)", "Copies along a vector, unioned."),

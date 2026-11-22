@@ -265,7 +265,7 @@ S0 to S6 deliver the agent core with mechanisms in 19 to 30 FW: about 38 to 77 c
 ### S10. Moulding DFM: ID-3 (3-5 FW)
 
 - **Goal:** catch injection-moulding problems before a moulder does, from cited public rules.
-- **Ships:** `im.<resin>.v1` gate profiles (ABS, PC, PP, PA) with citations and versions: draft per face against depth and texture, wall map against resin range, ribs at 40 to 60% of wall, boss rules, undercuts by ray casting, parting-line candidates from HLR silhouettes, sharp corners, sink risk; a `draft` op for planar, cylindrical and conical faces, with freeform faces flagged; GPU screening of ray casts with CPU confirmation; a golden corpus of about 30 seeded-defect parts. Labelled "rule check, not simulation".
+- **Ships:** `im.<resin>.v1` gate profiles (ABS, PC, PP, PA) with citations and versions: draft per face against depth and texture, wall map against resin range, ribs at 40 to 60% of wall, boss rules, undercuts by ray casting, parting-line candidates from HLR silhouettes, sharp corners, sink risk; a `draft` op for planar, cylindrical and conical faces, with freeform faces flagged (shipped early with the surfacing core, #78); GPU screening of ray casts with CPU confirmation; a golden corpus of about 30 seeded-defect parts. Labelled "rule check, not simulation".
 - **Kaizen metric:** share of seeded DFM defects the agent fixes without help. DFM escapes reported by suppliers are tracked from S12, when RFQs start ([INDUSTRIAL-DESIGN.md](INDUSTRIAL-DESIGN.md) section 6).
 - **Exit:** at least 70% fixed by the agent; zero false passes on the corpus.
 

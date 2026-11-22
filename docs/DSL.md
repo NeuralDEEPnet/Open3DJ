@@ -36,7 +36,7 @@ Scripts run in a QuickJS sandbox with no file system, network, timers or Date. M
 
 An overview of every entry in this version. `docs {query: "<name>"}` gives the signature and an example.
 
-Shapes, profiles and operations: `Param.number`, `Param.bool`, `Param.choice`, `Param.string`, `box`, `cylinder`, `sphere`, `torus`, `rect`, `roundedRect`, `circle2d`, `ellipse`, `ngon`, `star`, `slot`, `polygon`, `spline2d`, `spline3d`, `helix`, `polyline3d`, `sweep`, `surface`, `fill`, `sew`, `thicken`, `path`, `sketch.extrude`, `sketch.revolve`, `sketch.loftTo`, `loft`, `sketch.place`, `sketch.offset`, `sketch.filletCorners`, `sketch.chamferCorners`, `sketch.transform`, `sketch.boolean`, `sketch.measure`, `add`, `subtract`, `intersect`, `cutPlane`, `translate`, `rotate`, `scale`, `mirror`, `pointAlong`, `moveTo`, `clone`, `fillet`, `chamfer`, `shell`, `edges`, `linearPattern`, `circularPattern`, `mirrorCopy`, `measure`, `color`, `name`, `withReferences`, `attachTo`, `connector`, `withConnectors`, `matchTo`.
+Shapes, profiles and operations: `Param.number`, `Param.bool`, `Param.choice`, `Param.string`, `box`, `cylinder`, `sphere`, `torus`, `rect`, `roundedRect`, `circle2d`, `ellipse`, `ngon`, `star`, `slot`, `polygon`, `spline2d`, `spline3d`, `helix`, `polyline3d`, `sweep`, `surface`, `fill`, `sew`, `thicken`, `path`, `sketch.extrude`, `sketch.revolve`, `sketch.loftTo`, `loft`, `sketch.place`, `sketch.offset`, `sketch.filletCorners`, `sketch.chamferCorners`, `sketch.transform`, `sketch.boolean`, `sketch.measure`, `add`, `subtract`, `intersect`, `cutPlane`, `translate`, `rotate`, `scale`, `mirror`, `pointAlong`, `moveTo`, `clone`, `fillet`, `chamfer`, `draft`, `shell`, `edges`, `linearPattern`, `circularPattern`, `mirrorCopy`, `measure`, `color`, `name`, `withReferences`, `attachTo`, `connector`, `withConnectors`, `matchTo`.
 
 Standard parts: `lib.fastener`, `lib.clearanceHole`, `lib.screwCutter`, `lib.heatSetPocket`, `lib.hexNutPocket`, `lib.bolt`, `lib.nut`, `lib.washer`.
 
@@ -768,6 +768,20 @@ Example:
 
 ```js
 return chamfer(box(40, 30, 10), 1, { parallel: [0, 0, 1] }); // break the vertical edges
+```
+
+### draft
+
+```js
+shape.draft(angle, { pull = [0, 0, 1], neutral = [0, 0, 0] }) / draft(shape, angle, options)
+```
+
+Taper every wall that runs along the pull by angle degrees about the neutral plane through neutral, so a moulded part releases: outer walls lean in towards the pull, holes open out. Planar, cylindrical and conical walls; draft before filleting the edges they meet. Open3DJ extension.
+
+Example:
+
+```js
+return box(60, 40, 20).subtract(cylinder(25, 4)).draft(2); // walls lean in 2 degrees towards +Z, the hole opens out
 ```
 
 ### shell

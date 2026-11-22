@@ -633,6 +633,19 @@ describe("curvature", () => {
     assert.throws(() => k.curvature(ball, { tolerance: -1 }), bad(/tolerance/));
   });
 
+  // occt-wasm 5.8.1 drafts about the XY plane through the origin and only with a pull along Z:
+  // draft() turns the shape so the pull is +Z. This pin says when the binding changes.
+  test("pin: occt-wasm's draft fails with a pull along X, and draft() turns the pull onto Z", () => {
+    const box = k.box(20, 20, 10);
+    const wall = k.subShapes(box, "face").find((f) => Math.abs(k.raw.getSurfaceCenterOfMass(f).y) < 1e-9)!;
+    assert.throws(() => k.raw.draft(box, wall, (3 * Math.PI) / 180, { x: 1, y: 0, z: 0 }));
+    const t = Math.tan((3 * Math.PI) / 180);
+    // Pulled along +X about X = 0: the 20 x 10 section keeps its size there and, x mm along the
+    // pull, each wall stands x tan(3) in: the integral of (20 - 2tx)(10 - 2tx) for x from 0 to 20.
+    const v = k.volume(k.draft(box, 3, { pull: [1, 0, 0] }));
+    near(v, 4000 - 12000 * t + (32000 * t * t) / 3, 1e-9 * 4000, "sideways draft");
+  });
+
   // occt-wasm 5.8.1 returns surfaceCurvature's numbers under the wrong names, against the
   // surface's own normal. curvature() learns the slots from a torus, so a fixed binding keeps
   // working; this pin says when the binding changes.
