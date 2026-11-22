@@ -22,7 +22,6 @@ export const NOT_IMPLEMENTED_HINTS: Readonly<Record<string, string>> = Object.fr
   chamferBottomEdges: "Use chamfer(shape, size, { atZ: z }) with z, the lowest Z, from .bounds().min[2]: it chamfers every edge at that height.",
   minWall: "Run the script, then check walls with inspect {fields: [\"gates\"]} (CLI: --fields gates): its min_wall check measures every part against 0.8 mm, and wall.min_mm gives the thinnest wall to compare with your own limit.",
   text2d: `Text is not available yet: draw each glyph as an outline with ${DRAW_PROFILE}, then .extrude(h) it.`,
-  spline2d: "Approximate the curve with polygon([[x, y], ...]) through points sampled along it, or with path() segments and .arcTo(x, y, r) arcs, then .extrude(h) it.",
   point: "Use a plain [x, y] or [x, y, z] array for a point.",
   Point2D: "Use a plain [x, y] array for a 2D point.",
   "Rectangle2D.fromDimensions": "Use rect(w, h).translate(cx, cy), a w by h rectangle centred at (cx, cy).",

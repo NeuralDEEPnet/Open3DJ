@@ -31,7 +31,7 @@ function call(entry: string): string {
 
 test("the prelude's NI stubs are all found", () => {
   // Guards the regex above: a sample from every kind of stub (method, global, namespace, lib).
-  for (const entry of ["hole", "cutout", "onFace", "shape.face", "sketch.onFace", "group", "tolerance", "minWall", "text2d", "spline2d", "point", "Point2D", "Rectangle2D.from2Corners", "Shape.fromSlices", "lib.snapFit", "lib.tSlotProfile"]) {
+  for (const entry of ["hole", "cutout", "onFace", "shape.face", "sketch.onFace", "group", "tolerance", "minWall", "text2d", "point", "Point2D", "Rectangle2D.from2Corners", "Shape.fromSlices", "lib.snapFit", "lib.tSlotProfile"]) {
     assert.ok(GUEST.includes(entry), entry);
   }
 });
