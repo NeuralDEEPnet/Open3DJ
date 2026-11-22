@@ -32,7 +32,7 @@
     <button type="button" data-action="section" aria-pressed="false" title="Section plane (S)">Section</button>
     <button type="button" data-action="xray" aria-pressed="false" title="X-ray: see through the parts (X)">X-ray</button>
     <button type="button" data-action="measure" aria-pressed="false" title="Measure faces, edges and distances (R)">Measure</button>
-    <button type="button" data-action="overlay" aria-pressed="false" title="Analysis overlay: off, overhang, draft (O)">Analysis</button>
+    <button type="button" data-action="overlay" aria-pressed="false" title="Analysis overlay: off, overhang, draft, zebra, continuity (O)">Analysis</button>
     <button type="button" data-action="screenshot" title="Save the view as a PNG (Shift+S)">PNG</button>
   </div>
   <div class="group end">
@@ -103,6 +103,7 @@
           <option value="overhang">Overhang (3D print, build +Z)</option>
           <option value="draft">Draft angle</option>
           <option value="zebra">Zebra (surface continuity)</option>
+          <option value="continuity">Continuity and curvature (measured)</option>
         </select>
         <div id="overhang-controls" hidden>
           <label class="sub" for="overhang-limit">Limit past vertical</label>
@@ -188,7 +189,7 @@
         <tr><td><kbd>S</kbd></td><td>Section plane on or off (axis, position and side in the View panel)</td></tr>
         <tr><td><kbd>X</kbd></td><td>X-ray: see through the parts</td></tr>
         <tr><td><kbd>R</kbd></td><td>Measure: click a face, an edge or a point, then a second one</td></tr>
-        <tr><td><kbd>O</kbd></td><td>Analysis overlay: off, overhang, draft</td></tr>
+        <tr><td><kbd>O</kbd></td><td>Analysis overlay: off, overhang, draft, zebra, continuity</td></tr>
         <tr><td><kbd>Shift</kbd>+<kbd>S</kbd></td><td>Save the view as a PNG</td></tr>
         <tr><td><kbd>A</kbd></td><td>Frame what is pointed at; <kbd>Shift</kbd>+<kbd>A</kbd> dismisses it</td></tr>
         <tr><td><kbd>?</kbd></td><td>This help</td></tr>

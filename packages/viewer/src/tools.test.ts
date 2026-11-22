@@ -36,6 +36,11 @@ const analysis = (await import(new URL("../web/analysis.js", import.meta.url).hr
   zebraImage(size?: number, bands?: number): Uint8Array;
   ZEBRA_NOTE: string;
   LEGENDS: Record<string, string[][]>;
+  CONTINUITY_LEGEND: { edges: string[][]; faces: string[][] };
+  continuityIndex(run: unknown): Map<string, unknown>;
+  edgeClass(entry: unknown, fa: number, fb: number): string | undefined;
+  faceKind(entry: unknown, f: number): string | undefined;
+  continuityCounts(run: unknown): { edges: Record<string, number>; faces: Record<string, number>; unlisted: number };
 };
 const fits = (await import(new URL("../web/fits.js", import.meta.url).href)) as { fitPairs(f: { a: string; b: string }): string[][] };
 
@@ -308,4 +313,36 @@ test("the zebra image is bands of black and white across x, the same down every 
   assert.equal(img[3], 255, "opaque");
   assert.match(analysis.ZEBRA_NOTE, /G0.*G1.*G2/);
   assert.equal(analysis.LEGENDS["zebra"], undefined, "zebra has no area classes");
+});
+
+test("the continuity overlay reads inspect continuity: edges by face pair, faces by kind, inflections apart", () => {
+  const part = (def: string, more: object) => ({ def, counts: { G2: 1, G1: 1, G0: 2, gap: 0 }, face_counts: { flat: 2, convex: 1, concave: 0, saddle: 0, mixed: 1, inflected: 1 }, ...more });
+  const edge = (a: number, b: number, cls: string) => ({ edge: "edge:1", faces: [`face:${a}`, `face:${b}`], gap_mm: 0, angle_deg: 0, class: cls });
+  const face = (n: number, kind: string, inflection = false) => ({ face: `face:${n}`, surface: "bspline", kind, min_radius_mm: 5, k_min_per_mm: [0, 0], k_max_per_mm: [0, 0.2], inflection, samples: 64 });
+  const run = {
+    parts: [
+      // Faces 1 and 2 meet along two kernel edges, one G2 and one G1: the pair shows the worse.
+      part("skin", { edges: [edge(2, 1, "G2"), edge(1, 2, "G1"), edge(3, 4, "G0"), edge(1, 3, "G0")], faces: [face(3, "convex"), face(4, "mixed", true)] }),
+      // A list cut short: faces not listed are unknown, not flat.
+      part("big", { edges: [], faces: [face(1, "saddle")], faces_omitted: 3 }),
+    ],
+  };
+  const index = analysis.continuityIndex(run);
+  const skin = index.get("skin");
+  // The viewer's faces are 0-based, the kernel's face:<n> 1-based.
+  assert.equal(analysis.edgeClass(skin, 0, 1), "G1");
+  assert.equal(analysis.edgeClass(skin, 1, 0), "G1", "either order");
+  assert.equal(analysis.edgeClass(skin, 2, 3), "G0");
+  assert.equal(analysis.edgeClass(skin, 0, -1), undefined, "an open boundary has no second face");
+  assert.equal(analysis.edgeClass(skin, 1, 3), undefined, "not in the table: not measured, not guessed");
+  assert.deepEqual([0, 1, 2, 3].map((f) => analysis.faceKind(skin, f)), ["flat", "flat", "convex", "inflects"]);
+  assert.deepEqual([0, 1].map((f) => analysis.faceKind(index.get("big"), f)), ["saddle", undefined]);
+  assert.equal(analysis.faceKind(undefined, 0), undefined);
+  // Legend counts: edges from the kernel's counts, faces as drawn (an inflecting face in its own colour).
+  const counts = analysis.continuityCounts(run);
+  assert.deepEqual(counts.edges, { gap: 0, G0: 4, G1: 2, G2: 2 });
+  assert.deepEqual(counts.faces, { flat: 4, convex: 1, concave: 0, saddle: 1, mixed: 0, inflects: 1 });
+  assert.equal(counts.unlisted, 3);
+  assert.deepEqual(analysis.CONTINUITY_LEGEND.edges.map((e) => e[0]), ["gap", "G0", "G1", "G2"]);
+  assert.deepEqual(analysis.CONTINUITY_LEGEND.faces.map((e) => e[0]), ["flat", "convex", "concave", "saddle", "mixed", "inflects"]);
 });

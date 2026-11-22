@@ -280,6 +280,17 @@ test("the model JSON lists the tree and the report, and the GLB route returns bi
   assert.equal(head.body.length, 0);
 });
 
+test("the continuity route gives inspect continuity of a revision, for the viewer's continuity overlay", async () => {
+  const r = await get("/api/rev/r_0001/continuity.json");
+  assert.equal(r.status, 200);
+  assert.match(String(r.headers["content-type"]), /^application\/json/);
+  const run = JSON.parse(r.body.toString()) as { parts: Array<{ def: string; counts: Record<string, number>; face_counts: Record<string, number> }> };
+  // Two boxes: every edge is a 90 degree corner (G0), every face flat.
+  assert.deepEqual(run.parts.map((p) => [p.def, p.counts.G0, p.face_counts.flat]).sort(), [["block", 12, 6], ["tab", 12, 6]]);
+  assert.equal((await get("/api/rev/r_0099/continuity.json")).status, 404);
+  assert.equal((await get("/api/rev/latest/continuity.json")).status, 404);
+});
+
 test("the event stream announces a new revision after the script is saved", async () => {
   const events: string[] = [];
   let resolveRev: (rev: string) => void;

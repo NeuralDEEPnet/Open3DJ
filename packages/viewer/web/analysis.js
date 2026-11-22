@@ -82,6 +82,80 @@ export function zebraImage(size = 256, bands = 12) {
 /** What the zebra view shows, for its legend. */
 export const ZEBRA_NOTE = "Stripes break at a gap or crease (G0), kink where curvature steps (G1) and flow on across a smooth join (G2). A preview: inspect continuity gives the numbers.";
 
+/**
+ * The continuity overlay's legend: edge classes, then face kinds, each with its CSS colour token.
+ * Its colours come from inspect fields=[continuity] (measured on the CPU kernel), not from the mesh.
+ */
+export const CONTINUITY_LEGEND = {
+  edges: [
+    ["gap", "gap: the faces do not meet", "--ct-gap"],
+    ["G0", "G0: they meet at an angle", "--ov-bad"],
+    ["G1", "G1: tangent, curvature steps", "--ov-neg"],
+    ["G2", "G2: curvature continuous", "--ov-pos"],
+  ],
+  faces: [
+    ["flat", "flat", "--ov-ok"],
+    ["convex", "convex", "--ct-convex"],
+    ["concave", "concave", "--ct-concave"],
+    ["saddle", "saddle", "--ct-saddle"],
+    ["mixed", "mixed", "--ct-mixed"],
+    ["inflects", "inflects (an S-section)", "--ct-inflects"],
+  ],
+};
+export const CONTINUITY_NOTE = "Measured on the CPU kernel (inspect continuity), not read off the mesh. An edge shows the worst class between its two faces; edges in the plain edge colour and sand-coloured faces were not measured or not listed.";
+
+const EDGE_RANK = { gap: 0, G0: 1, G1: 2, G2: 3 };
+/** face:<n> (1-based, the kernel's) to the viewer's 0-based face run. */
+const faceRun = (address) => Number(address.slice(address.indexOf(":") + 1)) - 1;
+
+/**
+ * Index a continuity run (inspect fields=[continuity]) by definition, for colouring. pairs maps
+ * "a,b" (0-based faces, a < b, as the viewer's edges carry them) to the worst class of the kernel
+ * edges between those two faces; faces maps a 0-based face to its kind, or "inflects".
+ */
+export function continuityIndex(run) {
+  const defs = new Map();
+  for (const p of run?.parts ?? []) {
+    const pairs = new Map();
+    for (const e of p.edges) {
+      const [a, b] = e.faces.map(faceRun).sort((x, y) => x - y);
+      const key = `${a},${b}`;
+      const was = pairs.get(key);
+      if (was === undefined || EDGE_RANK[e.class] < EDGE_RANK[was]) pairs.set(key, e.class);
+    }
+    const faces = new Map();
+    for (const f of p.faces) faces.set(faceRun(f.face), f.inflection ? "inflects" : f.kind);
+    defs.set(p.def, { pairs, faces, facesComplete: p.faces_omitted === undefined });
+  }
+  return defs;
+}
+
+/** The class of a viewer edge between faces fa and fb (0-based; fb -1 on an open boundary), or undefined when the table has none. */
+export function edgeClass(entry, fa, fb) {
+  if (!entry || fa < 0 || fb < 0) return undefined;
+  return entry.pairs.get(fa < fb ? `${fa},${fb}` : `${fb},${fa}`);
+}
+
+/** The kind of a face (0-based): as listed, else flat when the part's list is complete, else undefined. */
+export function faceKind(entry, f) {
+  if (!entry) return undefined;
+  return entry.faces.get(f) ?? (entry.facesComplete ? "flat" : undefined);
+}
+
+/** Legend counts over a run: edges by the kernel's class counts, faces as drawn, and faces left off a capped list. */
+export function continuityCounts(run) {
+  const edges = { gap: 0, G0: 0, G1: 0, G2: 0 };
+  const faces = { flat: 0, convex: 0, concave: 0, saddle: 0, mixed: 0, inflects: 0 };
+  let unlisted = 0;
+  for (const p of run?.parts ?? []) {
+    for (const k of Object.keys(edges)) edges[k] += p.counts[k] ?? 0;
+    faces.flat += p.face_counts.flat;
+    for (const f of p.faces) faces[f.inflection ? "inflects" : f.kind]++;
+    unlisted += p.faces_omitted ?? 0;
+  }
+  return { edges, faces, unlisted };
+}
+
 /** Legend entries per overlay: class, label and CSS colour token. */
 export const LEGENDS = {
   overhang: [

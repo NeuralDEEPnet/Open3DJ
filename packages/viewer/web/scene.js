@@ -17,7 +17,7 @@ import {
 } from "three";
 import { fitAnchor, fitPairs, markerVisible } from "./fits.js";
 import { edgeSnapPx, faceAddressing, faceEdges, faceOfTriangle, faceRanges } from "./faces.js";
-import { LEGENDS, classifyMesh, explodeOffsets, rotationKey, zebraImage } from "./analysis.js";
+import { LEGENDS, classifyMesh, edgeClass, explodeOffsets, faceKind, rotationKey, zebraImage } from "./analysis.js";
 
 const HIDDEN = new Matrix4().makeScale(0, 0, 0);
 /** More (definition, colour) groups than this go into one BatchedMesh (when batching is "auto"). */
@@ -413,13 +413,34 @@ export class ModelScene {
     const colors = this.edgeColors;
     if (!colors) return;
     const { selected } = this.state;
+    const ct = this.overlayOptions?.kind === "continuity" ? this.overlayOptions : null;
     for (const [path, [start, length]] of this.edgeRanges) {
+      // The continuity overlay colours each edge by its measured class; a selected part keeps the accent.
+      if (ct && !selected.has(path)) {
+        this.fillContinuityEdges(colors, start, this.parts.get(path).info, ct);
+        continue;
+      }
       const c = selected.has(path) ? this.accent : this.edgeColor;
       for (let i = start; i < start + length; i += 3) {
         colors[i] = c.r;
         colors[i + 1] = c.g;
         colors[i + 2] = c.b;
       }
+    }
+  }
+
+  /** One occurrence's edges in the merged buffer, from start, coloured by the class of the edge between their two faces. */
+  fillContinuityEdges(colors, start, info, ct) {
+    const entry = ct.index.get(info.def);
+    let at = start;
+    for (const e of info.edges) {
+      const c = (info.addressing.addressed && ct.colors[edgeClass(entry, e.faces[0], e.faces[1])]) || this.edgeColor;
+      for (let i = 0; i < e.segments.length; i += 3) {
+        colors[at + i] = c.r;
+        colors[at + i + 1] = c.g;
+        colors[at + i + 2] = c.b;
+      }
+      at += e.segments.length;
     }
   }
 
@@ -532,6 +553,8 @@ export class ModelScene {
   setOverlay(options) {
     this.overlayOptions = options;
     this.buildOverlay(options);
+    // Edges take the continuity colours, or go back to plain.
+    this.colorEdges();
     return this.overlayStats;
   }
 
@@ -546,6 +569,7 @@ export class ModelScene {
     this.overlayStats = null;
     if (!options) return;
     if (options.kind === "zebra") return this.buildZebra();
+    if (options.kind === "continuity") return this.buildContinuity(options);
     const kinds = LEGENDS[options.kind].map((e) => e[0]);
     const totals = kinds.map(() => 0);
     const groups = new Map();
@@ -612,6 +636,69 @@ export class ModelScene {
     }
     // No classes to count: the stripes are read by eye.
     this.overlayStats = {};
+  }
+
+  /**
+   * The continuity overlay: each face tinted by its measured kind (options.index from
+   * continuityIndex, options.colors by kind plus "unknown"); edges are coloured in fillEdgeColors.
+   * Without face addresses for a definition, its faces stay "unknown".
+   */
+  buildContinuity(options) {
+    const signature = `continuity|${options.version}`;
+    if (this.overlayCacheKey !== signature) {
+      this.dropOverlayCache();
+      this.overlayCacheKey = signature;
+    }
+    const groups = new Map();
+    for (const p of this.parts.values()) {
+      if (!p.visible) continue;
+      let list = groups.get(p.geometry);
+      if (!list) groups.set(p.geometry, (list = []));
+      list.push(p);
+    }
+    const unknown = options.colors.unknown;
+    for (const [geo, parts] of groups) {
+      let cached = this.overlayCache.get(geo.uuid);
+      if (!cached) {
+        const info = parts[0].info;
+        const entry = options.index.get(info.def);
+        const colors = new Float32Array(geo.attributes.position.count * 3);
+        for (let i = 0; i < colors.length; i += 3) {
+          colors[i] = unknown.r;
+          colors[i + 1] = unknown.g;
+          colors[i + 2] = unknown.b;
+        }
+        if (info.addressing.addressed) {
+          // OCCT meshes each face on its own, so a face's vertices are its own to colour.
+          const { starts } = info.ranges;
+          for (let f = 0; f + 1 < starts.length; f++) {
+            const c = options.colors[faceKind(entry, f)] ?? unknown;
+            for (let t = starts[f]; t < starts[f + 1]; t++) {
+              for (let k = 0; k < 3; k++) {
+                const v = info.index[t * 3 + k];
+                colors[v * 3] = c.r;
+                colors[v * 3 + 1] = c.g;
+                colors[v * 3 + 2] = c.b;
+              }
+            }
+          }
+        }
+        const og = new BufferGeometry();
+        og.setAttribute("position", geo.attributes.position);
+        og.setAttribute("normal", geo.attributes.normal);
+        og.setAttribute("color", new Float32BufferAttribute(colors, 3));
+        og.setIndex(geo.index);
+        og.boundingBox = geo.boundingBox;
+        og.boundingSphere = geo.boundingSphere;
+        cached = { geometry: og, area: [] };
+        this.overlayCache.set(geo.uuid, cached);
+      }
+      const mesh = new InstancedMesh(cached.geometry, this.overlayMaterial, parts.length);
+      parts.forEach((p, i) => mesh.setMatrixAt(i, p.world));
+      mesh.computeBoundingSphere();
+      this.overlay.add(mesh);
+    }
+    this.overlayStats = { ...options.counts.edges, ...options.counts.faces };
   }
 
   /** Forget the coloured overlay geometries; their own colour buffer is freed, the shared ones stay. */
