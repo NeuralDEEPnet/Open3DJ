@@ -168,6 +168,131 @@ describe("queries, transforms and sketches", () => {
   });
 });
 
+describe("curves", () => {
+  type V = [number, number, number];
+  const unit = (a: V): V => {
+    const n = Math.hypot(...a);
+    return [a[0] / n, a[1] / n, a[2] / n];
+  };
+  // The angle between two directions, accurate for tiny angles (atan2 of |a x b| and a . b).
+  const angle = (a: V, b: V): number => {
+    const [p, q] = [unit(a), unit(b)];
+    const c = [p[1] * q[2] - p[2] * q[1], p[2] * q[0] - p[0] * q[2], p[0] * q[1] - p[1] * q[0]];
+    return Math.atan2(Math.hypot(c[0]!, c[1]!, c[2]!), p[0] * q[0] + p[1] * q[1] + p[2] * q[2]);
+  };
+  const near = (a: V, b: V, tol: number, msg: string) => assert.ok(Math.hypot(a[0] - b[0], a[1] - b[1], a[2] - b[2]) <= tol, `${msg}: [${a.join(", ")}] is not within ${tol} of [${b.join(", ")}]`);
+  const badArgument = (pattern: RegExp) => (e: unknown) => e instanceof KernelError && e.code === "BAD_ARGUMENT" && pattern.test(e.message);
+  const POINTS: V[] = [[0, 0, 0], [10, 5, 0], [20, 0, 3], [30, -5, 0], [40, 0, -2]];
+
+  test("splineEdge passes through every point and starts and ends on the first and last", () => {
+    const e = k.splineEdge(POINTS);
+    assert.equal(k.edgeInfo(e).curve, "bspline");
+    for (const [i, p] of POINTS.entries()) assert.ok(k.distance(k.vertex(p), e) <= 1e-7, `point ${i + 1} is ${k.distance(k.vertex(p), e)} mm from the curve`);
+    near(k.curveAt(e, 0).point, POINTS[0]!, 1e-9, "start");
+    near(k.curveAt(e, 1).point, POINTS.at(-1)!, 1e-9, "end");
+    close(Math.hypot(...k.curveAt(e, 0.5).tangent), 1, 1e-12, "tangents are unit vectors");
+  });
+
+  test("splineEdge with end tangents leaves and arrives along them, whatever their length", () => {
+    const start: V = [0, 1, 1];
+    const end: V = [1, -1, 0];
+    const e = k.splineEdge(POINTS, { startTangent: start, endTangent: end });
+    assert.ok(angle(k.curveAt(e, 0).tangent, start) <= 1e-6, `start tangent off by ${angle(k.curveAt(e, 0).tangent, start)} rad`);
+    assert.ok(angle(k.curveAt(e, 1).tangent, end) <= 1e-6, `end tangent off by ${angle(k.curveAt(e, 1).tangent, end)} rad`);
+    for (const p of POINTS) assert.ok(k.distance(k.vertex(p), e) <= 1e-7);
+    const longer = k.splineEdge(POINTS, { startTangent: [0, 100, 100], endTangent: end });
+    close(k.length(longer), k.length(e), 1e-12, "only the direction of a tangent counts");
+  });
+
+  test("a periodic splineEdge is closed and smooth at the join", () => {
+    const e = k.splineEdge(POINTS, { periodic: true });
+    assert.equal(k.edgeInfo(e).closed, true);
+    near(k.curveAt(e, 0).point, k.curveAt(e, 1).point, 1e-9, "the ends meet");
+    assert.ok(angle(k.curveAt(e, 0).tangent, k.curveAt(e, 1).tangent) <= 1e-6, "the tangent is continuous at the join");
+    for (const p of POINTS) assert.ok(k.distance(k.vertex(p), e) <= 1e-7);
+  });
+
+  test("splineEdge refuses input that OCCT would fail on with an empty message", () => {
+    assert.throws(() => k.splineEdge([[0, 0, 0]]), badArgument(/at least 2 points/));
+    assert.throws(() => k.splineEdge([[0, 0, 0], [1, 0, 0]], { periodic: true }), badArgument(/periodic.*at least 3 points/));
+    assert.throws(() => k.splineEdge([[0, 0, 0], [5, 0, 0], [5, 1e-7, 0], [9, 9, 0]]), badArgument(/points 2 and 3 coincide/));
+    assert.throws(() => k.splineEdge([...POINTS, POINTS[0]!], { periodic: true }), badArgument(/do not repeat the first point/));
+    assert.throws(() => k.splineEdge(POINTS, { startTangent: [0, 0, 0], endTangent: [1, 0, 0] }), badArgument(/startTangent.*not be zero/));
+    assert.throws(() => k.splineEdge(POINTS, { startTangent: [1, 0, 0] }), badArgument(/both startTangent and endTangent, or neither/));
+    assert.throws(() => k.splineEdge(POINTS, { periodic: true, startTangent: [1, 0, 0], endTangent: [1, 0, 0] }), badArgument(/periodic spline has no ends/));
+    assert.throws(() => k.splineEdge([[0, 0, 0], [Number.NaN, 1, 0]]), badArgument(/finite/));
+  });
+
+  test("approximateEdge stays within its tolerance of every point, with fewer poles than points", () => {
+    const wave: V[] = Array.from({ length: 50 }, (_, i) => [i * 2, 10 * Math.sin(i / 5), 0]);
+    const e = k.approximateEdge(wave, 0.01);
+    let worst = 0;
+    for (const p of wave) worst = Math.max(worst, k.distance(k.vertex(p), e));
+    assert.ok(worst <= 0.01, `the farthest point is ${worst} mm away, over the 0.01 mm tolerance`);
+    assert.ok(k.nurbs(e).poles.length < wave.length, `${k.nurbs(e).poles.length} poles for ${wave.length} points`);
+    assert.throws(() => k.approximateEdge(wave, 0), badArgument(/tolerance/));
+  });
+
+  test("bezierEdge and nurbsEdge: a rational quadratic is an exact quarter circle", () => {
+    const b = k.bezierEdge([[0, 0, 0], [5, 10, 0], [10, 0, 0]]);
+    near(k.curveAt(b, 0.5).point, [5, 5, 0], 1e-12, "a quadratic Bezier's midpoint is P0/4 + P1/2 + P2/4");
+    const many: V[] = Array.from({ length: 27 }, (_, i) => [i, Math.sin(i), 0]);
+    assert.throws(() => k.bezierEdge(many), badArgument(/at most 26 poles/));
+    const quarter = k.nurbsEdge({ degree: 2, poles: [[10, 0, 0], [10, 10, 0], [0, 10, 0]], weights: [1, Math.SQRT1_2, 1], knots: [0, 1], multiplicities: [3, 3] });
+    for (let i = 0; i <= 8; i++) close(Math.hypot(...k.curveAt(quarter, i / 8).point), 10, 1e-12, `sample ${i} lies on the circle`);
+    close(k.length(quarter), 5 * Math.PI, 1e-6);
+    assert.equal(k.nurbs(quarter).weights?.length, 3);
+    assert.throws(() => k.nurbsEdge({ degree: 3, poles: [[0, 0, 0], [1, 0, 0]], knots: [0, 1], multiplicities: [1, 1] }), badArgument(/poles \+ degree \+ 1/));
+    assert.throws(() => k.nurbsEdge({ degree: 1, poles: [[0, 0, 0], [1, 0, 0]], weights: [1, 0], knots: [0, 1], multiplicities: [2, 2] }), badArgument(/weights/));
+  });
+
+  test("nurbs() gives a definition that nurbsEdge rebuilds into the same curve", () => {
+    const e = k.splineEdge(POINTS);
+    const def = k.nurbs(e);
+    assert.equal(def.degree, 3);
+    assert.equal(def.weights, undefined, "a non-rational curve has no weights");
+    const again = k.nurbsEdge(def);
+    for (const t of [0, 0.2, 0.5, 0.9, 1]) near(k.curveAt(again, t).point, k.curveAt(e, t).point, 1e-9, `t = ${t}`);
+    assert.throws(() => k.nurbs(k.lineEdge([0, 0, 0], [1, 0, 0])), badArgument(/line.*bspline or bezier/));
+  });
+
+  test("tangentArc leaves along its tangent and ends on its end point", () => {
+    const a = k.tangentArc([0, 0, 0], [1, 0, 0], [10, 10, 0]);
+    assert.equal(k.edgeInfo(a).curve, "circle");
+    close(k.length(a), 5 * Math.PI, 1e-12);
+    assert.ok(angle(k.curveAt(a, 0).tangent, [1, 0, 0]) <= 1e-9);
+    near(k.curveAt(a, 1).point, [10, 10, 0], 1e-9, "end");
+    assert.throws(() => k.tangentArc([0, 0, 0], [1, 0, 0], [5, 0, 0]), badArgument(/on the tangent line/));
+  });
+
+  test("helix length is turns x sqrt((2 pi r)^2 + pitch^2), and the hand sets the winding", () => {
+    const axis = { origin: [0, 0, 0] as V, dir: [0, 0, 1] as V };
+    const h = k.helix(axis, 10, 5, 20);
+    assert.equal(k.shapeType(h), "wire");
+    close(k.length(h), 4 * Math.hypot(2 * Math.PI * 10, 5), 1e-6);
+    const [edge] = k.subShapes(h, "edge");
+    near(k.curveAt(edge!, 1).point, [10, 0, 20], 1e-6, "four whole turns end above the start");
+    assert.ok(k.curveAt(edge!, 0.01).point[1] > 0, "right-handed winds counter-clockwise about the axis");
+    const [left] = k.subShapes(k.helix(axis, 10, 5, 20, { leftHanded: true }), "edge");
+    assert.ok(k.curveAt(left!, 0.01).point[1] < 0, "left-handed winds clockwise");
+    assert.throws(() => k.helix(axis, 10, 0, 20), badArgument(/greater than 0/));
+  });
+
+  test("a wire of 3D edges is valid and as long as its edges together", () => {
+    const s = k.splineEdge([[0, 0, 0], [10, 0, 5], [20, 0, 0]]);
+    const w = k.wire([s, k.lineEdge([20, 0, 0], [20, 10, 0])]);
+    assert.equal(k.isValid(w), true);
+    close(k.length(w), k.length(s) + 10, 1e-12);
+  });
+
+  test("curveAt refuses a t outside 0 to 1 and a shape that is not an edge", () => {
+    const e = k.splineEdge(POINTS);
+    assert.throws(() => k.curveAt(e, 1.5), badArgument(/between 0 and 1/));
+    assert.throws(() => k.curveAt(k.box(1, 1, 1), 0.5), badArgument(/needs an edge, got a solid/));
+    assert.throws(() => k.length(k.box(1, 1, 1)), badArgument(/needs an edge or a wire, got a solid/));
+  });
+});
+
 describe("transform math", () => {
   test("quaternion to matrix and point transforms", () => {
     const q = quaternionFromAxisAngle([0, 0, 1], 90);

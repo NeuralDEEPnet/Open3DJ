@@ -43,6 +43,34 @@ export interface ShapeCounts {
   vertices: number;
 }
 
+export interface SplineOptions {
+  /** Closed and smooth at the join. Needs at least 3 points; do not repeat the first point at the end. */
+  periodic?: boolean;
+  /** The direction at the first point. Give both tangents or neither; only the direction counts. Not with periodic. */
+  startTangent?: Vec3;
+  /** The direction at the last point. */
+  endTangent?: Vec3;
+}
+
+/** A B-spline or NURBS curve, as nurbs() returns it and nurbsEdge() takes it. */
+export interface NurbsCurve {
+  degree: number;
+  poles: Vec3[];
+  /** One positive weight per pole; absent for a non-rational curve. */
+  weights?: number[];
+  /** Strictly increasing knot values. */
+  knots: number[];
+  /** One multiplicity per knot. Not periodic: they add up to poles + degree + 1. */
+  multiplicities: number[];
+  periodic?: boolean;
+}
+
+/** A point on a curve and the unit tangent there. */
+export interface CurvePoint {
+  point: Vec3;
+  tangent: Vec3;
+}
+
 /** Plain-data description of an edge, for edge queries. */
 export interface EdgeInfo {
   /** 1-based index in subShapes(shape, "edge") order: the edge:<index> element address. */
@@ -191,6 +219,30 @@ export interface KernelAdapter {
   revolve(profile: ShapeHandle, axis: Axis, angleDeg: number): ShapeHandle;
   /** Loft through closed wires in order. Checked when solid. */
   loft(wires: ShapeHandle[], options?: { solid?: boolean; ruled?: boolean }): ShapeHandle;
+
+  // ---- free-form curves: B-splines and their kin ------------------------------------------
+  /** A cubic B-spline edge through the points, in order (see SplineOptions). */
+  splineEdge(points: Vec3[], options?: SplineOptions): ShapeHandle;
+  /** A B-spline edge within tolerance (mm, default 0.001) of every point, usually with far fewer poles than points. */
+  approximateEdge(points: Vec3[], tolerance?: number): ShapeHandle;
+  /** A Bezier edge on its control points: it starts on the first and ends on the last. */
+  bezierEdge(poles: Vec3[]): ShapeHandle;
+  /** A B-spline or NURBS edge from its full definition, the form nurbs() returns. */
+  nurbsEdge(curve: NurbsCurve): ShapeHandle;
+  /** A circular arc that leaves start along tangent and ends on end. */
+  tangentArc(start: Vec3, tangent: Vec3, end: Vec3): ShapeHandle;
+  /**
+   * A helix wire about an axis: pitch is the rise per turn. It starts at radius in a direction
+   * OCCT picks from the axis (+X when the axis is +Z). Right-handed (counter-clockwise seen from
+   * the tip of the axis) unless leftHanded. OCCT approximates it with one B-spline edge.
+   */
+  helix(axis: Axis, radius: number, pitch: number, height: number, options?: { leftHanded?: boolean }): ShapeHandle;
+  /** The point and unit tangent at t, a fraction (0 start, 1 end) of an edge's parameter range, not of its length. */
+  curveAt(edge: ShapeHandle, t: number): CurvePoint;
+  /** Length of an edge or a wire. */
+  length(shape: ShapeHandle): number;
+  /** The B-spline definition of a bspline or bezier edge. */
+  nurbs(edge: ShapeHandle): NurbsCurve;
 
   // ---- transforms (return new handles; inputs are unchanged) ----------------------------
   translate(shape: ShapeHandle, offset: Vec3): ShapeHandle;

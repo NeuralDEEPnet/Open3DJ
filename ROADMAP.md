@@ -2,7 +2,7 @@
 
 This is the public roadmap: where Open3DJ is going, what each step ships, and how you can help with each one, as a person or with your AI agent. The full plan, with metrics, exit criteria and the reasons behind each decision, is [docs/PLAN.md](docs/PLAN.md). If this page and PLAN.md disagree, PLAN.md wins; please open an issue so we can fix this page.
 
-Last updated: 2026-10-31.
+Last updated: 2026-11-22.
 
 ## Where we are going
 
@@ -34,7 +34,7 @@ Every design is an assembly, from a single bracket to a product with enclosure h
 | [S7b](#s7b-providers) | Providers | Later | Cloud and local providers with license checks, budgets and approvals |
 | [S8a](#s8a-concept-boards-id-1) | Concept boards (ID-1) | Later | Concept images from license-clean models, on GPU or CPU |
 | [S8b](#s8b-massing-id-1) | Massing (ID-1) | Later | A chosen concept turned into an editable massing assembly |
-| [S9](#s9-form-and-cmf-id-2) | Form and CMF (ID-2) | Later | Surface quality, color, material and finish |
+| [S9](#s9-form-and-cmf-id-2) | Form and CMF (ID-2) | In progress | Surface quality, color, material and finish; the surfacing core runs early |
 | [S10](#s10-molding-dfm-id-3) | Molding DFM (ID-3) | Later | Injection-molding rule checks before a molder sees the part |
 | [S11](#s11-engineering-and-validation-id-4) | Engineering and validation (ID-4) | Later | A mate solver, tolerance stacks and simulation |
 | [S12](#s12-handoff-and-rfq-id-5) | Handoff and RFQ (ID-5) | Later | Drawings, AP242 and a pack suppliers can quote from |
@@ -166,7 +166,7 @@ Not yet: As of 2026-10-31, CI runs `npm run check` on Linux x64 and ARM64, macOS
 ### S9. Form and CMF (ID-2)
 
 - **Goal:** make surface quality legible to agents, with draft and wall thickness designed into the form.
-- **Status:** later.
+- **Status:** in progress. The surfacing core (curves, sweeps, lofts, surfaces, the continuity table, zebra and curvature views) runs early, beside S2 and S3, for industrial and transport design ([#78](https://github.com/NeuralDEEPnet/Open3DJ/issues/78); PLAN.md section 11, decision 12). Color, material and finish and Cycles renders stay later.
 - **Ships:** lofts and sweeps with continuity options; a continuity table; zebra and curvature views; advisory draft and wall maps; a color, material and finish file exported as glTF variants; Cycles renders through a separate Blender process.
 - **Kaizen metric:** review rounds until form and CMF sign-off.
 

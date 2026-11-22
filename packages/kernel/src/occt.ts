@@ -12,9 +12,9 @@ import { OcctKernel } from "occt-wasm";
 import type { BoundingBox, OcctModuleFactory, Vec3 as OcctVec3, XCAFDocument } from "occt-wasm";
 import type { BBox, Transform, Vec3 } from "@open3dj/schemas";
 import type {
-  Axis, EdgeInfo, FaceInfo, KernelAdapter, KernelStats, KernelVersions, Label, MeshData, MultiviewOptions,
-  Plane, ShapeCounts, ShapeHandle, ShapeKind, ShapeMeasure, SubShapeKind, TessellateOptions, XcafDocument,
-  XcafLabelInfo, XcafLocation,
+  Axis, CurvePoint, EdgeInfo, FaceInfo, KernelAdapter, KernelStats, KernelVersions, Label, MeshData, MultiviewOptions,
+  NurbsCurve, Plane, ShapeCounts, ShapeHandle, ShapeKind, ShapeMeasure, SplineOptions, SubShapeKind, TessellateOptions,
+  XcafDocument, XcafLabelInfo, XcafLocation,
 } from "./adapter.ts";
 import { KernelError, toKernelError } from "./errors.ts";
 import { isUnitQuaternion, matrixFromTransform } from "./transform.ts";
@@ -113,6 +113,32 @@ function finite(op: string, ...xs: number[]): void {
   for (const x of xs) {
     if (typeof x !== "number" || !Number.isFinite(x)) throw new KernelError("BAD_ARGUMENT", op, `${op}: arguments must be finite numbers`);
   }
+}
+/** Consecutive spline points must be at least this far apart (mm): OCCT fails, with an empty message, at 1e-7. */
+const MIN_POINT_GAP = 1e-6;
+/** The highest Bezier and B-spline degree OCCT accepts. */
+const MAX_DEGREE = 25;
+
+const withArticle = (word: string): string => `${/^[aeiou]/.test(word) ? "an" : "a"} ${word}`;
+const gap = (a: Vec3, b: Vec3): number => Math.hypot(a[0] - b[0], a[1] - b[1], a[2] - b[2]);
+const cross = (a: Vec3, b: Vec3): Vec3 => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
+
+function point(op: string, p: Vec3, i: number): void {
+  if (!Array.isArray(p) || p.length !== 3) throw new KernelError("BAD_ARGUMENT", op, `${op}: point ${i + 1} must be [x, y, z]`);
+  finite(op, ...p);
+}
+/** At least min points, each [x, y, z] and finite, with no two in a row closer than MIN_POINT_GAP. */
+function pointList(op: string, points: Vec3[], min: number): void {
+  if (!Array.isArray(points) || points.length < min) throw new KernelError("BAD_ARGUMENT", op, `${op}: needs at least ${min} points, got ${Array.isArray(points) ? points.length : 0}`);
+  points.forEach((p, i) => point(op, p, i));
+  for (let i = 1; i < points.length; i++) {
+    if (gap(points[i - 1]!, points[i]!) < MIN_POINT_GAP) throw new KernelError("BAD_ARGUMENT", op, `${op}: points ${i} and ${i + 1} coincide (closer than ${MIN_POINT_GAP} mm)`);
+  }
+}
+function direction(op: string, name: string, d: Vec3): void {
+  if (!Array.isArray(d) || d.length !== 3) throw new KernelError("BAD_ARGUMENT", op, `${op}: ${name} must be [x, y, z]`);
+  finite(op, ...d);
+  if (Math.hypot(...d) === 0) throw new KernelError("BAD_ARGUMENT", op, `${op}: ${name} must not be zero`);
 }
 function positive(op: string, ...xs: number[]): void {
   finite(op, ...xs);
@@ -278,6 +304,123 @@ class OcctAdapter implements Kernel {
     const solid = options.solid ?? true;
     const make = () => this.raw.loft(wires, solid, options.ruled ?? false) as ShapeHandle;
     return solid ? this.#checked("loft", make) : this.#call("loft", make);
+  }
+
+  // ---- free-form curves ------------------------------------------------------------------
+  // OCCT fails on several of these inputs with an empty message, so they are refused here
+  // with one that says what to change.
+  splineEdge(points: Vec3[], options: SplineOptions = {}): ShapeHandle {
+    const op = "splineEdge";
+    const periodic = options.periodic ?? false;
+    pointList(op, points, 2);
+    if (periodic && points.length < 3) throw new KernelError("BAD_ARGUMENT", op, `${op}: a periodic spline needs at least 3 points, got ${points.length}`);
+    if (periodic && gap(points[0]!, points.at(-1)!) < MIN_POINT_GAP) {
+      throw new KernelError("BAD_ARGUMENT", op, `${op}: a periodic spline closes itself; do not repeat the first point at the end`);
+    }
+    const { startTangent: start, endTangent: end } = options;
+    if ((start === undefined) !== (end === undefined)) throw new KernelError("BAD_ARGUMENT", op, `${op}: give both startTangent and endTangent, or neither`);
+    if (start && end) {
+      if (periodic) throw new KernelError("BAD_ARGUMENT", op, `${op}: startTangent and endTangent cannot be used here, because a periodic spline has no ends`);
+      direction(op, "startTangent", start);
+      direction(op, "endTangent", end);
+      return this.#call(op, () => this.raw.interpolatePointsWithTangents(points.map(v), v(start), v(end)) as ShapeHandle);
+    }
+    return this.#call(op, () => this.raw.interpolatePoints(points.map(v), periodic) as ShapeHandle);
+  }
+  approximateEdge(points: Vec3[], tolerance = 1e-3): ShapeHandle {
+    const op = "approximateEdge";
+    pointList(op, points, 2);
+    if (typeof tolerance !== "number" || !Number.isFinite(tolerance) || tolerance <= 0) {
+      throw new KernelError("BAD_ARGUMENT", op, `${op}: tolerance must be a finite number greater than 0, got ${tolerance}`);
+    }
+    return this.#call(op, () => this.raw.approximatePoints(points.map(v), tolerance) as ShapeHandle);
+  }
+  bezierEdge(poles: Vec3[]): ShapeHandle {
+    const op = "bezierEdge";
+    pointList(op, poles, 2);
+    if (poles.length > MAX_DEGREE + 1) throw new KernelError("BAD_ARGUMENT", op, `${op}: at most ${MAX_DEGREE + 1} poles (degree ${MAX_DEGREE}), got ${poles.length}`);
+    return this.#call(op, () => this.raw.makeBezierEdge(poles.map(v)) as ShapeHandle);
+  }
+  nurbsEdge(curve: NurbsCurve): ShapeHandle {
+    const op = "nurbsEdge";
+    const { degree, poles, weights, knots, multiplicities } = curve;
+    const periodic = curve.periodic ?? false;
+    if (!Number.isInteger(degree) || degree < 1 || degree > MAX_DEGREE) throw new KernelError("BAD_ARGUMENT", op, `${op}: degree must be a whole number from 1 to ${MAX_DEGREE}, got ${degree}`);
+    if (!Array.isArray(poles) || poles.length < 2) throw new KernelError("BAD_ARGUMENT", op, `${op}: needs at least 2 poles`);
+    poles.forEach((p, i) => point(op, p, i));
+    if (!Array.isArray(knots) || knots.length < 2) throw new KernelError("BAD_ARGUMENT", op, `${op}: needs at least 2 knots`);
+    finite(op, ...knots);
+    for (let i = 1; i < knots.length; i++) {
+      if (!(knots[i]! > knots[i - 1]!)) throw new KernelError("BAD_ARGUMENT", op, `${op}: knots must increase strictly; knot ${i + 1} (${knots[i]}) follows ${knots[i - 1]}`);
+    }
+    if (!Array.isArray(multiplicities) || multiplicities.length !== knots.length || !multiplicities.every((m) => Number.isInteger(m) && m >= 1)) {
+      throw new KernelError("BAD_ARGUMENT", op, `${op}: give one whole multiplicity of at least 1 per knot`);
+    }
+    if (weights !== undefined && (!Array.isArray(weights) || weights.length !== poles.length || !weights.every((w) => typeof w === "number" && Number.isFinite(w) && w > 0))) {
+      throw new KernelError("BAD_ARGUMENT", op, `${op}: weights must be one positive number per pole (${poles.length}), or left out`);
+    }
+    const sum = multiplicities.reduce((a, b) => a + b, 0);
+    if (!periodic && sum !== poles.length + degree + 1) {
+      throw new KernelError("BAD_ARGUMENT", op, `${op}: the multiplicities add up to ${sum}, but degree ${degree} on ${poles.length} poles needs poles + degree + 1 = ${poles.length + degree + 1}`);
+    }
+    return this.#call(op, () => this.raw.makeBSplineEdge(poles.flat(), weights ?? [], knots, multiplicities, degree, periodic) as ShapeHandle);
+  }
+  tangentArc(start: Vec3, tangent: Vec3, end: Vec3): ShapeHandle {
+    const op = "tangentArc";
+    point(op, start, 0);
+    point(op, end, 1);
+    direction(op, "tangent", tangent);
+    const d: Vec3 = [end[0] - start[0], end[1] - start[1], end[2] - start[2]];
+    if (Math.hypot(...d) < MIN_POINT_GAP) throw new KernelError("BAD_ARGUMENT", op, `${op}: end must differ from start`);
+    const c = cross(tangent, d);
+    if (Math.hypot(...c) <= 1e-12 * Math.hypot(...tangent) * Math.hypot(...d)) {
+      throw new KernelError("BAD_ARGUMENT", op, `${op}: end lies on the tangent line through start, so no arc fits; use a line edge`);
+    }
+    return this.#call(op, () => this.raw.makeTangentArc(v(start), v(tangent), v(end)) as ShapeHandle);
+  }
+  helix(axis: Axis, radius: number, pitch: number, height: number, options: { leftHanded?: boolean } = {}): ShapeHandle {
+    const op = "helix";
+    positive(op, radius, pitch, height);
+    finite(op, ...axis.origin);
+    direction(op, "the axis direction", axis.dir);
+    return this.#call(op, () => this.raw.makeHelixWireHanded(v(axis.origin), v(axis.dir), pitch, height, radius, options.leftHanded ?? false) as ShapeHandle);
+  }
+  curveAt(edge: ShapeHandle, t: number): CurvePoint {
+    const op = "curveAt";
+    finite(op, t);
+    if (t < 0 || t > 1) throw new KernelError("BAD_ARGUMENT", op, `${op}: t must be between 0 and 1, got ${t}`);
+    this.#mustBe(op, edge, "edge");
+    return this.#call(op, () => {
+      const { first, last } = this.raw.curveParameters(edge);
+      const param = first + t * (last - first);
+      const tangent = t3(this.raw.curveTangent(edge, param));
+      const n = Math.hypot(...tangent);
+      return { point: t3(this.raw.curvePointAtParam(edge, param)), tangent: n > 0 ? [tangent[0] / n, tangent[1] / n, tangent[2] / n] : tangent };
+    });
+  }
+  length(shape: ShapeHandle): number {
+    this.#mustBe("length", shape, "edge", "wire");
+    return this.#call("length", () => this.raw.getLength(shape));
+  }
+  nurbs(edge: ShapeHandle): NurbsCurve {
+    const op = "nurbs";
+    this.#mustBe(op, edge, "edge");
+    const kind = this.#call(op, () => this.raw.curveType(edge));
+    if (kind !== "bspline" && kind !== "bezier") throw new KernelError("BAD_ARGUMENT", op, `${op}: the edge is a ${kind}; nurbs() needs a bspline or bezier edge`);
+    return this.#call(op, () => {
+      const d = this.raw.getNurbsCurveData(edge);
+      const poles: Vec3[] = [];
+      for (let i = 0; i < d.poles.length; i += 3) poles.push([d.poles[i]!, d.poles[i + 1]!, d.poles[i + 2]!]);
+      const curve: NurbsCurve = { degree: d.degree, poles, knots: [...d.knots], multiplicities: [...d.multiplicities], periodic: d.periodic };
+      if (d.rational) curve.weights = [...d.weights];
+      return curve;
+    });
+  }
+
+  // Refuse a shape of the wrong type before the kernel sees it.
+  #mustBe(op: string, shape: ShapeHandle, ...kinds: ShapeKind[]): void {
+    const type = this.#call(op, () => this.raw.getShapeType(shape)) as ShapeKind;
+    if (!kinds.includes(type)) throw new KernelError("BAD_ARGUMENT", op, `${op}: needs ${kinds.map(withArticle).join(" or ")}, got ${withArticle(type)}`);
   }
 
   // ---- transforms ------------------------------------------------------------------------
