@@ -12,6 +12,7 @@ const ALIASES: Readonly<Record<string, string>> = {
   intersection: "intersect", common: "intersect",
   cube: "box", cuboid: "box", rectangle: "rect", square: "rect", circle: "circle2d",
   polyline: "polygon", ellipse2d: "ellipse", hexagon: "ngon", regularPolygon: "ngon",
+  spline: "spline2d", bspline: "spline2d", splineTo: "spline2d", interpolate: "spline2d",
   move: "translate", translateTo: "moveTo", moveBy: "translate", rotateAbout: "rotate",
   revolveAround: "revolve", sweep: "extrude", linearExtrude: "extrude", rotateExtrude: "revolve",
   hollow: "shell", fillets: "fillet", round: "fillet", bevel: "chamfer", mirrorAcross: "mirror",

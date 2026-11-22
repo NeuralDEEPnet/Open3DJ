@@ -36,7 +36,7 @@ Scripts run in a QuickJS sandbox with no file system, network, timers or Date. M
 
 An overview of every entry in this version. `docs {query: "<name>"}` gives the signature and an example.
 
-Shapes, profiles and operations: `Param.number`, `Param.bool`, `Param.choice`, `Param.string`, `box`, `cylinder`, `sphere`, `torus`, `rect`, `roundedRect`, `circle2d`, `ellipse`, `ngon`, `star`, `slot`, `polygon`, `path`, `sketch.extrude`, `sketch.revolve`, `sketch.loftTo`, `loft`, `sketch.offset`, `sketch.filletCorners`, `sketch.chamferCorners`, `sketch.transform`, `sketch.boolean`, `sketch.measure`, `add`, `subtract`, `intersect`, `cutPlane`, `translate`, `rotate`, `scale`, `mirror`, `pointAlong`, `moveTo`, `clone`, `fillet`, `chamfer`, `shell`, `edges`, `linearPattern`, `circularPattern`, `mirrorCopy`, `measure`, `color`, `name`, `withReferences`, `attachTo`, `connector`, `withConnectors`, `matchTo`.
+Shapes, profiles and operations: `Param.number`, `Param.bool`, `Param.choice`, `Param.string`, `box`, `cylinder`, `sphere`, `torus`, `rect`, `roundedRect`, `circle2d`, `ellipse`, `ngon`, `star`, `slot`, `polygon`, `spline2d`, `path`, `sketch.extrude`, `sketch.revolve`, `sketch.loftTo`, `loft`, `sketch.offset`, `sketch.filletCorners`, `sketch.chamferCorners`, `sketch.transform`, `sketch.boolean`, `sketch.measure`, `add`, `subtract`, `intersect`, `cutPlane`, `translate`, `rotate`, `scale`, `mirror`, `pointAlong`, `moveTo`, `clone`, `fillet`, `chamfer`, `shell`, `edges`, `linearPattern`, `circularPattern`, `mirrorCopy`, `measure`, `color`, `name`, `withReferences`, `attachTo`, `connector`, `withConnectors`, `matchTo`.
 
 Standard parts: `lib.fastener`, `lib.clearanceHole`, `lib.screwCutter`, `lib.heatSetPocket`, `lib.hexNutPocket`, `lib.bolt`, `lib.nut`, `lib.washer`.
 
@@ -267,6 +267,21 @@ Example:
 
 ```js
 return polygon([[0, 0], [40, 0], [40, 5], [5, 30], [0, 30]]).extrude(8);
+```
+
+### spline2d
+
+```js
+spline2d([[x, y], ...], { closed, tangents: [[sx, sy], [ex, ey]] })
+```
+
+A profile through the points: a cubic B-spline that passes through every point. closed: true makes it periodic, smooth all the way round. Open, a straight line runs from the last point back to the first, unless the last point repeats the first (then the curve closes with a corner there). tangents fix the directions at the first and last point of an open spline (only the direction counts; an Open3DJ extension). Repeated points in a row are removed. The 3dj workbench draws a different curve through the same points, so a script with spline2d gives other geometry there.
+
+Example:
+
+```js
+// A pebble-shaped plate through six points, smooth all the way round.
+return spline2d([[0, 0], [30, -6], [55, 4], [50, 22], [25, 28], [4, 18]], { closed: true }).extrude(4);
 ```
 
 ### path
@@ -936,7 +951,6 @@ return lib.washer("M5");
 These 3dj entries throw DSL_NOT_IMPLEMENTED in S1. Build the same shape from the entries above.
 
 - `text2d(str, { size })`: Text profile.
-- `spline2d(points, { closed })`: Spline profile.
 - `child.onFace(parent, face, { u, v, protrude })`: Place on a face.
 - `shape.hole(face, { diameter, ... })`: Holes with counterbores and countersinks.
 - `shape.cutout(sketch.onFace(...), { depth })`: Pocket from a sketch on a face.

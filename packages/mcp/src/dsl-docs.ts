@@ -31,6 +31,8 @@ return box(10, 10, label.length + 2);`,
   roundedRect: "return roundedRect(60, 40, 6).extrude(3);",
   circle2d: "return circle2d(10).extrude(2);",
   ellipse: "return ellipse(12, 6).extrude(3);",
+  spline2d: `// A pebble-shaped plate through six points, smooth all the way round.
+return spline2d([[0, 0], [30, -6], [55, 4], [50, 22], [25, 28], [4, 18]], { closed: true }).extrude(4);`,
   ngon: "return ngon(6, 10).extrude(5).subtract(cylinder(7, 3).translate(0, 0, -1)); // a hex nut blank",
   star: "return star(5, 20, 8).extrude(3);",
   slot: "return box(50, 20, 4).subtract(slot(30, 6).extrude(6).translateZ(-1));",
@@ -266,10 +268,10 @@ The CLI does the same: \`open3dj run part.o3j.js\`, \`open3dj render part.o3j\`,
 Scripts run in a QuickJS sandbox with no file system, network, timers or Date. Math.random is seeded. Limits: 2 s of script CPU time (kernel time excluded), 128 MiB of memory, 5000 kernel calls and 20000 live shapes per run, and at most 1000 items in one list argument (split longer lists into several calls). console.log output is kept with the run, never printed to the MCP stream.
 `;
 
-/** One compact section that names every S1 entry, so an agent can see what exists. */
+/** One compact section that names every available entry, so an agent can see what exists. */
 function allEntries(entries: readonly DslEntry[]): string {
   const names = (list: readonly DslEntry[]) => list.map((e) => `\`${e.name}\``).join(", ");
-  const now = entries.filter((e) => e.step === "S1");
+  const now = entries.filter((e) => e.step !== "later");
   return [
     "### All entries",
     "",
@@ -315,8 +317,8 @@ function entrySection(e: DslEntry): string {
 }
 
 export function renderDslDoc(entries: readonly DslEntry[] = DSL_ENTRIES, gallery: readonly GalleryExample[] = galleryExamples()): string {
-  const now = entries.filter((e) => e.step === "S1");
-  const later = entries.filter((e) => e.step !== "S1");
+  const now = entries.filter((e) => e.step !== "later");
+  const later = entries.filter((e) => e.step === "later");
   const core = now.filter((e) => !e.name.startsWith("lib."));
   const lib = now.filter((e) => e.name.startsWith("lib."));
   const parts = [

@@ -208,7 +208,7 @@ const api = {
   polygon: (points) => K(H.polygon(points)),
   path: () => new PathBuilder(),
   text2d: NI("text2d"),
-  spline2d: NI("spline2d"),
+  spline2d: (points, opts) => K(H.spline2d(points, opts === undefined ? null : opts)),
   loft: (profiles, heights) => S(H.loft(flat([profiles]).map((p) => kid(p, "loft profile")), heights)),
   union: union,
   difference: difference,
